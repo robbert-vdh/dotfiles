@@ -1,0 +1,11 @@
+- defaults:
+    link:
+        relink: true
+
+- clean: ['~']
+
+- link: {}
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - [sudo ln -sf `pwd`/configs/xorg/60-mouse-acceleration.conf /usr/share/X11/xorg.conf.d/60-mouse-acceleration.conf, Disable mouse acceleration]
