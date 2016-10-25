@@ -3,10 +3,13 @@
 	email = robbert@zzindi.nl
 [diff]
 	compactionHeuristic = true
+	tool = kdiff3
 [commit]
 	verbose = true
 [core]
 	editor = vim
         excludesfile = ~/.gitignore_global
 	autocrlf = input
+[merge]
+	tool = kdiff3
 
