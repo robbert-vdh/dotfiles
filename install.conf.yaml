@@ -11,4 +11,5 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+  - [touch configs/atom/styles_local.less, Create the local Atom stylesheet]
   - [sudo ln -sf `pwd`/configs/xorg/60-mouse-acceleration.conf /usr/share/X11/xorg.conf.d/60-mouse-acceleration.conf, Disable mouse acceleration]

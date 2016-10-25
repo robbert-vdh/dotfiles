@@ -8,4 +8,5 @@ storage
 .npm
 
 nohup.out
+/styles_local.less
 
