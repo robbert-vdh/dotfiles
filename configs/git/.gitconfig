@@ -1,0 +1,12 @@
+[user]
+	name = Robbert van der Helm
+	email = robbert@zzindi.nl
+[diff]
+	compactionHeuristic = true
+[commit]
+	verbose = true
+[core]
+	editor = vim
+        excludesfile = ~/.gitignore_global
+	autocrlf = input
+

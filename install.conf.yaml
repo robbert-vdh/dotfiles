@@ -4,7 +4,9 @@
 
 - clean: ['~']
 
-- link: {}
+- link:
+    ~/.gitconfig: configs/git/.gitconfig
+    ~/.gitignore_global: configs/git/.gitignore_global
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
