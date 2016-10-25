@@ -9,6 +9,7 @@
     ~/.gitignore_global: configs/git/.gitignore_global
     ~/.atom: configs/atom
     ~/.fonts: configs/fonts
+    ~/.zprezto/runcoms: configs/zsh/prezto
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
