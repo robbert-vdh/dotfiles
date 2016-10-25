@@ -1,0 +1,32 @@
+"*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "8e282ddb-3861-4484-a909-17ae731cb314"
+  "autocomplete-haskell":
+    useBackend: "haskell-ghc-mod"
+  core:
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "base16-tomorrow-dark-theme"
+    ]
+  editor:
+    fontFamily: "Input Mono"
+    fontSize: 16
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+    tabLength: 4
+  "exception-reporting":
+    userId: "a01f5388-4814-2b4f-43f3-e8fa948c51d9"
+  "haskell-ghc-mod":
+    highlightMessages: false
+  "ide-haskell":
+    cabalPath: "/usr/bin/cabal"
+    stylishHaskellPath: "/home/robbert/.cabal/bin/stylish-haskell"
+  racer:
+    cargoHome: "/home/robbert/.cargo"
+    racerBinPath: "/home/robbert/.cargo/bin/racer"
+  welcome:
+    showOnStartup: false
