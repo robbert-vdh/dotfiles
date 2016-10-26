@@ -30,3 +30,6 @@
     racerBinPath: "/home/robbert/.cargo/bin/racer"
   welcome:
     showOnStartup: false
+".gitignore.source":
+  editor:
+    tabLength: 4
