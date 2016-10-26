@@ -9,6 +9,7 @@
     ~/.gitignore_global: configs/git/.gitignore_global
     ~/.atom: configs/atom
     ~/.fonts: configs/fonts
+    ~/.IntelliJIdea2016.2: configs/idea
     ~/.zprezto/runcoms: configs/zsh/prezto
 
 - shell:

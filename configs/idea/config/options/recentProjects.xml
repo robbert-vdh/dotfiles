@@ -1,0 +1,390 @@
+<application>
+  <component name="RecentProjectsManager">
+    <option name="recentPaths">
+      <list>
+        <option value="$USER_HOME$/Documenten/websites/meer-waarde" />
+        <option value="$USER_HOME$/Documenten/websites/zzindi" />
+        <option value="$USER_HOME$/Documenten/websites/boilerplate" />
+        <option value="$USER_HOME$/Documenten/websites/selles-van-dijk" />
+        <option value="$USER_HOME$/Documenten/websites/Hesselink-Verrips" />
+        <option value="$USER_HOME$/Documenten/websites/eduzon" />
+        <option value="$USER_HOME$/Documenten/websites/webtech-3" />
+        <option value="$USER_HOME$/Documenten/websites/test" />
+        <option value="$USER_HOME$/Documenten/websites/uml" />
+        <option value="$USER_HOME$/Documenten/projecten/fp/clojure" />
+        <option value="$USER_HOME$/Documenten/projecten/fp/rust/assignment-1" />
+        <option value="$USER_HOME$/Documenten/websites/rijkmans" />
+        <option value="$USER_HOME$/Documenten/websites/template" />
+        <option value="$USER_HOME$/Documenten/websites/plug-boon" />
+        <option value="$USER_HOME$/Documenten/websites/fysio-wolvega" />
+        <option value="$USER_HOME$/Documenten/projecten/sharpspring" />
+        <option value="/var/www/capidomus.dev" />
+        <option value="$USER_HOME$/Documenten/websites/bolt" />
+        <option value="$USER_HOME$/Documenten/websites/telegram-bonen" />
+        <option value="/var/www/zzindi.dev" />
+        <option value="/var/www/rijkmans.dev" />
+        <option value="$USER_HOME$/projecten/php-sort" />
+        <option value="/var/www/webtechnologie/practicum1" />
+        <option value="/var/www/rouwkistopmaat.dev" />
+        <option value="/var/www/rouwkistopmaat.nl" />
+        <option value="/var/www/cms.dev" />
+        <option value="/var/www/cobra1998.dev" />
+        <option value="/var/www/lumen.dev" />
+        <option value="/var/www/huisbaas.dev" />
+        <option value="/var/www/qualitas.dev" />
+      </list>
+    </option>
+    <option name="openPaths">
+      <list>
+        <option value="$USER_HOME$/Documenten/websites/meer-waarde" />
+      </list>
+    </option>
+    <option name="lastPath" value="$USER_HOME$/Documenten/websites/meer-waarde" />
+    <option name="additionalInfo">
+      <map>
+        <entry key="$USER_HOME$/Documenten/projecten/fp/clojure">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-162.1628.40" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1472472998466" />
+              <option name="buildTimestamp" value="1471298400000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documenten/projecten/fp/rust/assignment-1">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-162.1628.40" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1472472880433" />
+              <option name="buildTimestamp" value="1471298400000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documenten/projecten/sharpspring">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-145.1617" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1465853207492" />
+              <option name="buildTimestamp" value="1464904800000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documenten/websites/Hesselink-Verrips">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-162.2032.8" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1476876947109" />
+              <option name="buildTimestamp" value="1473372000000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documenten/websites/boilerplate">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-162.2032.8" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1477222603237" />
+              <option name="buildTimestamp" value="1473372000000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documenten/websites/bolt">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-145.972" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1463518106173" />
+              <option name="buildTimestamp" value="1463176800000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documenten/websites/eduzon">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-162.2032.8" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1476281404320" />
+              <option name="buildTimestamp" value="1473372000000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documenten/websites/fysio-wolvega">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-145.1617" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1466455840303" />
+              <option name="buildTimestamp" value="1464904800000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documenten/websites/meer-waarde">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-162.2032.8" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1477239845309" />
+              <option name="buildTimestamp" value="1473372000000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documenten/websites/plug-boon">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-145.1617" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1467724873899" />
+              <option name="buildTimestamp" value="1464904800000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documenten/websites/rijkmans">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-145.1617" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1467810379201" />
+              <option name="buildTimestamp" value="1464904800000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documenten/websites/selles-van-dijk">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-162.2032.8" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1477219805043" />
+              <option name="buildTimestamp" value="1473372000000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documenten/websites/telegram-bonen">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-145.597" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1460746009803" />
+              <option name="buildTimestamp" value="1459202400000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documenten/websites/template">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-145.1617" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1467724959693" />
+              <option name="buildTimestamp" value="1464904800000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documenten/websites/test">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-162.1812.17" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1475661908974" />
+              <option name="buildTimestamp" value="1472508000000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documenten/websites/uml">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-162.1812.17" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1475319051648" />
+              <option name="buildTimestamp" value="1472508000000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documenten/websites/webtech-3">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-162.2032.8" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1476014659074" />
+              <option name="buildTimestamp" value="1473372000000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documenten/websites/zzindi">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-162.2032.8" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1477236650632" />
+              <option name="buildTimestamp" value="1473372000000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/projecten/php-sort">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-145.258" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1458902318472" />
+              <option name="buildTimestamp" value="1458169200000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="/var/www/bolt.dev">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-145.597" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1462902969390" />
+              <option name="buildTimestamp" value="1459202400000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="/var/www/capidomus.dev">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-145.972" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1463693166032" />
+              <option name="buildTimestamp" value="1463176800000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="/var/www/cms.dev">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-143.1821" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1455530999708" />
+              <option name="buildTimestamp" value="1453158000000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="/var/www/cobra1998.dev">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-143.1821" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1454325954931" />
+              <option name="buildTimestamp" value="1453158000000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="/var/www/huisbaas.dev">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-143.382" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1448493740075" />
+              <option name="buildTimestamp" value="1447110000000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="/var/www/lumen.dev">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-143.1821" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1454239370565" />
+              <option name="buildTimestamp" value="1453158000000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="/var/www/qualitas.dev">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-143.382" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1447600192731" />
+              <option name="buildTimestamp" value="1447110000000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="/var/www/rijkmans.dev">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-145.258" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1459172647969" />
+              <option name="buildTimestamp" value="1458169200000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="/var/www/rouwkistopmaat.dev">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-143.2287" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1457954949631" />
+              <option name="buildTimestamp" value="1456182000000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="/var/www/rouwkistopmaat.nl">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-143.2287" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1457954576808" />
+              <option name="buildTimestamp" value="1456182000000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="/var/www/webtechnologie/practicum1">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-145.258" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1458554950634" />
+              <option name="buildTimestamp" value="1458169200000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="/var/www/zzindi.dev">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-145.258" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1459512266422" />
+              <option name="buildTimestamp" value="1458169200000" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="lastProjectLocation" value="$USER_HOME$/Documenten/projecten/fp/rust" />
+  </component>
+</application>

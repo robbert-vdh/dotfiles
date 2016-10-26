@@ -1,0 +1,42 @@
+<application>
+  <component name="VimSettings">
+    <state version="4" enabled="true" />
+    <globalmarks />
+    <filemarks>
+      <file name="/var/www/zzindi.dev/extensions/local/zzindi/workshops/src/Controllers/WorkshopController.php" timestamp="1453806834408">
+        <mark key="'" line="41" column="11" />
+        <mark key="[" line="39" column="35" />
+        <mark key="]" line="39" column="35" />
+        <mark key="^" line="39" column="35" />
+        <mark key="." line="39" column="35" />
+      </file>
+    </filemarks>
+    <jumps>
+      <jump line="26" column="46" filename="/var/www/zzindi.dev/extensions/local/zzindi/workshops/src/Controllers/WorkshopController.php" />
+      <jump line="41" column="11" filename="/var/www/zzindi.dev/extensions/local/zzindi/workshops/src/Controllers/WorkshopController.php" />
+    </jumps>
+    <registers>
+      <register name="/" type="4">
+        <text>function c</text>
+      </register>
+    </registers>
+    <search>
+      <last-search>function c</last-search>
+      <last-offset />
+      <last-pattern>function c</last-pattern>
+      <last-dir>1</last-dir>
+      <show-last>false</show-last>
+    </search>
+    <history>
+      <history-search>
+        <entry>function Co</entry>
+        <entry>function c</entry>
+      </history-search>
+    </history>
+    <shortcut-conflicts>
+      <shortcut-conflict owner="vim">
+        <text>ctrl pressed V</text>
+      </shortcut-conflict>
+    </shortcut-conflicts>
+  </component>
+</application>

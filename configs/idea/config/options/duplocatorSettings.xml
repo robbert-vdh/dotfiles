@@ -1,0 +1,17 @@
+<application>
+  <component name="DuplocatorSettings">
+    <option name="SELECTED_PROFILES">
+      <set>
+        <option value="HTML" />
+        <option value="PHP" />
+      </set>
+    </option>
+    <option name="LAST_SELECTED_LANGUAGE" value="HTML" />
+  </component>
+  <component name="MultiLanguageDuplocatorSettings">
+    <object language="HTML">
+      <option name="LOWER_BOUND" value="3" />
+      <option name="DISTINGUISH_ATTRIBUTE_VALUES" value="false" />
+    </object>
+  </component>
+</application>

@@ -1,0 +1,96 @@
+<application>
+  <component name="PropertiesComponent">
+    <property name="log.debug.categories" value="" />
+    <property name="evlsprt3.9" value="13" />
+    <property name="DefaultHtmlDoctype.MigrateToHtml5" value="true" />
+    <property name="DefaultHtmlDoctype.Refreshed" value="2" />
+    <property name="PhpStorm.InitialConfiguration" value="true" />
+    <property name="installation.uid" value="07902667-37ba-4b6d-a4a5-45e20babbb5f" />
+    <property name="PhpStorm.initialConfigurationShown" value="true" />
+    <property name="file.chooser.recent.files" value="$USER_HOME$/Documenten/websites/meer-waarde/vendor/symfony/form&#10;/home/robbert/.config/composer/vendor/bin/phpcs&#10;/home/robbert/Documenten/websites/meer-waarde&#10;/home/robbert/Documenten/websites/Hesselink-Verrips&#10;/home/robbert/Documenten/websites/selles-van-dijk/node_modules/typescript/lib&#10;/home/robbert/Documenten/websites/selles-van-dijk/node_modules/typescript&#10;/home/robbert/Documenten/websites/test&#10;/home/robbert/Documenten/websites/boilerplate&#10;/home/robbert/Documenten/websites/uml&#10;/home/robbert/Documenten/websites/selles-van-dijk/node_modules/tslint-microsoft-contrib&#10;/home/robbert/Documenten/websites/selles-van-dijk/node_modules&#10;/home/robbert/.nvm/versions/node/v6.5.0/bin/gulp&#10;/home/robbert/Documenten/websites/selles-van-dijk&#10;/home/robbert/.cargo/src&#10;/home/robbert/Documenten/projecten/fp/rust/assignment-1&#10;/home/robbert/Documenten/websites/zzindi&#10;/home/robbert/Documenten/websites/zzindi/node_modules/tslint-microsoft-contrib&#10;/home/robbert/Documenten/websites/template&#10;/home/robbert/Documenten/websites/plug-boon/node_modules/tslint-microsoft-contrib&#10;/home/robbert/Documenten/websites/fysio-wolvega&#10;/home/robbert/Documenten/projecten/sharpspring&#10;/home/robbert/Documenten&#10;/home/robbert/Documenten/websites/eduzon/node_modules/tslint-microsoft-contrib&#10;/home/robbert/Documenten/websites/eduzon&#10;/var/www/capidomus.dev&#10;/home/robbert/Documenten/websites/template/node_modules/tslint-microsoft-contrib&#10;/home/robbert/Documenten/websites/bolt&#10;/home/robbert/.ssh/id_rsa&#10;/home/robbert/Documenten/websites/plug-boon&#10;/home/robbert/Documenten/websites/webtech-3/databases/codeigniter.sqlite3" />
+    <property name="export.settings.path" value="$USER_HOME$/settings.jar" />
+    <property name="DeploymentNotificationsComponent.WarnDisplayed.Java7&amp;Windows7FTPIssue" value="false" />
+    <property name="lastTip" value="113" />
+    <property name="Copy.OpenInEditor" value="true" />
+    <property name="CommitChangeListDialog.DETAILS_SHOW_OPTION_" value="true" />
+    <property name="CommitChangeListDialog.DETAILS_SPLITTER_PROPORTION_2" value="0.27513227" />
+    <property name="ExpandBeforeRunStepsPanel" value="true" />
+    <property name="LayoutCode.optimizeImports" value="true" />
+    <property name="LayoutCode.processChangedText" value="false" />
+    <property name="LayoutCode.rearrangeEntriesPHP" value="false" />
+    <property name="KEYMAP" value="navigate&#10;exit v&#10;dupl" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="evlsprt3.15" value="14" />
+    <property name="installed.kotlin.plugin.version" value="1.0.0-beta-1103-IJ143-27" />
+    <property name="android-component-compatibility-check" value="1446718830250" />
+    <property name="PLUGIN_FILTER" value="vue&#10;sass&#10;rust&#10;clojure&#10;cursiv" />
+    <property name="ShowDocumentationInToolWindow" value="false" />
+    <property name="CommitChangeListDialog.SPLITTER_PROPORTION_2" value="0.63909775" />
+    <property name="settings.code.style.selected.tab.HTML" value="Tabs and Indents" />
+    <property name="INSPECTION_FILTER_HISTORY" value="css&#10;esl&#10;scss&#10;&quot;New in 14&quot;" />
+    <property name="CommittedChanges.SplitterProportions.0" value="700" />
+    <property name="CommittedChanges.SplitterProportions.1" value="500" />
+    <property name="last.imported.location" value="$USER_HOME$/Documenten/projecten/fp/rust/assignment-1" />
+    <property name="settings.code.style.selected.tab.JavaScript" value="Spaces" />
+    <property name="fileTypeChangedCounter" value="19" />
+    <property name="selected.color.option.type" value="INJECTED_LANGUAGE_FRAGMENT" />
+    <property name="BEFORE.DISTRACTION.MODE.SHOW_STATUS_BAR" value="true" />
+    <property name="BEFORE.DISTRACTION.MODE.SHOW_MAIN_TOOLBAR" value="false" />
+    <property name="BEFORE.DISTRACTION.MODE.SHOW_NAVIGATION_BAR" value="true" />
+    <property name="BEFORE.DISTRACTION.MODE.IS_FOLDING_OUTLINE_SHOWN" value="true" />
+    <property name="BEFORE.DISTRACTION.MODE.IS_WHITESPACES_SHOWN" value="true" />
+    <property name="BEFORE.DISTRACTION.MODE.ARE_LINE_NUMBERS_SHOWN" value="true" />
+    <property name="BEFORE.DISTRACTION.MODE.IS_RIGHT_MARGIN_SHOWN" value="true" />
+    <property name="BEFORE.DISTRACTION.MODE.IS_INDENT_GUIDES_SHOWN" value="true" />
+    <property name="BEFORE.DISTRACTION.MODE.SHOW_BREADCRUMBS" value="true" />
+    <property name="BEFORE.DISTRACTION.MODE.SHOW_METHOD_SEPARATORS" value="false" />
+    <property name="BEFORE.DISTRACTION.MODE.HIDE_TOOL_STRIPES" value="false" />
+    <property name="BEFORE.DISTRACTION.MODE.EDITOR_TAB_PLACEMENT" value="1" />
+    <property name="AFTER.DISTRACTION.MODE.SHOW_STATUS_BAR" value="false" />
+    <property name="AFTER.DISTRACTION.MODE.SHOW_MAIN_TOOLBAR" value="false" />
+    <property name="AFTER.DISTRACTION.MODE.SHOW_NAVIGATION_BAR" value="false" />
+    <property name="AFTER.DISTRACTION.MODE.IS_FOLDING_OUTLINE_SHOWN" value="false" />
+    <property name="AFTER.DISTRACTION.MODE.IS_WHITESPACES_SHOWN" value="false" />
+    <property name="AFTER.DISTRACTION.MODE.ARE_LINE_NUMBERS_SHOWN" value="false" />
+    <property name="AFTER.DISTRACTION.MODE.IS_RIGHT_MARGIN_SHOWN" value="false" />
+    <property name="AFTER.DISTRACTION.MODE.IS_INDENT_GUIDES_SHOWN" value="false" />
+    <property name="AFTER.DISTRACTION.MODE.SHOW_BREADCRUMBS" value="false" />
+    <property name="AFTER.DISTRACTION.MODE.SHOW_METHOD_SEPARATORS" value="false" />
+    <property name="AFTER.DISTRACTION.MODE.HIDE_TOOL_STRIPES" value="true" />
+    <property name="AFTER.DISTRACTION.MODE.EDITOR_TAB_PLACEMENT" value="0" />
+    <property name="ColorChooser.RecentColors" value="169-0-0-255,,,169-42-0-255,,,158-0-0-255,,,165-49-2-255,,,165-70-0-255,,,163-31-3-255,,,173-57-39-255,,,147-158-174-255,,,63-68-75-255,,,0-0-171-255,,,33-64-171-255,,,23-33-188-255,,,20-29-164-255,,,245-245-245-255,,,95-95-95-255" />
+    <property name="settings.code.style.selected.tab.PHP" value="Spaces" />
+    <property name="com.intellij.diagnostic.IdeErrorsDialogactiveTab" value="0" />
+    <property name="js.rename.search.in.comments" value="false" />
+    <property name="js.rename.search.for.text.occurrences" value="false" />
+    <property name="Vcs.Log.Text.Filter.History" value="extens&#10;php&#10;docker&#10;compo&#10;modulairder" />
+    <property name="LayoutCode.rearrangeEntriesSCSS" value="false" />
+    <property name="FileTemplates.SelectedTemplate" value="PHP Interface Doc Comment" />
+    <property name="SplitFileEditor.Proportion" value="0.5982009" />
+    <property name="RESTClient.httpMethod" value="GET&#10;POST&#10;PUT&#10;PATCH&#10;DELETE&#10;HEAD&#10;OPTIONS" />
+    <property name="evlsprt3.16" value="15" />
+    <property name="LayoutCode.rearrangeEntriesTypeScript" value="false" />
+    <property name="settings.code.style.selected.tab.CSS" value="Tabs and Indents" />
+    <property name="com.intellij.history.integration.ui.views.FileHistoryDialog.0" value="300" />
+    <property name="project.wizard.group" value="cursive.leiningen.project.LeiningenModuleBuilder" />
+    <property name="project.wizard.template" value="Leiningen" />
+    <property name="COMPOSER_PACKAGE_FILTER" value="pimple" />
+    <property name="LayoutCode.rearrangeEntriesPlain text" value="false" />
+    <property name="delete.locally.added.files" value="true" />
+    <property name="map.external.resource.selected.tab" value="0" />
+    <property name="settings.code.style.selected.tab.TypeScript" value="Spaces" />
+    <property name="javascript.return.tag" value="return" />
+    <property name="evlsprt3.162" value="10" />
+    <property name="toolwindow.stripes.buttons.info.shown" value="true" />
+    <property name="com.chrisrm.idea.MaterialThemeUI.theme" value="Default" />
+    <property name="cursive.eap.updates.asked" value="true" />
+    <property name="LayoutCode.rearrangeEntriesClojure" value="false" />
+    <property name="create.project.preferred.importer" value="Existing Sources" />
+    <property name="org.rust.LAST_UPDATE" value="1472472374137" />
+    <property name="org.rust.previousLibraryLocation" value="file://$USER_HOME$/.cargo/src/rust-1.11.0-src.zip" />
+    <property name="emmet.last.wrap.abbreviations" value=".footer__column" />
+    <property name="emmet.recent.wrap.abbreviations" value=".footer__column" />
+    <property name="FileTemplates.CurrentTab" value="Includes" />
+  </component>
+</application>
