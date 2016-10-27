@@ -11,6 +11,7 @@
     ~/.fonts: configs/fonts
     ~/.IntelliJIdea2016.2: configs/idea
     ~/.zprezto/runcoms: configs/zsh/prezto
+    ~/Afbeeldingen/wallpapers: configs/wallpapers
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
