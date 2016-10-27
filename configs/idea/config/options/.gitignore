@@ -1,0 +1,10 @@
+ClojureUsageStatistics*
+dimensions.xml
+options.xml
+proxy.settings.pwd
+*.recents.xml
+recent*.xml
+*.statistics.xml
+statistics.*.xml
+*.usage.xml
+window.*.xml
