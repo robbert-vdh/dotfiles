@@ -22,6 +22,10 @@
       <option name="FOREGROUND" value="ffffff" />
       <option name="FONT_TYPE" value="3" />
     </pattern>
+    <pattern icon="default" useCustomColors="false" case-sensitive="false" pattern="\bnote\b.*">
+      <option name="FOREGROUND" value="ffffff" />
+      <option name="FONT_TYPE" value="3" />
+    </pattern>
   </component>
   <component name="XmlEditorOptions">
     <option name="showCssInlineColorPreview" value="true" />
