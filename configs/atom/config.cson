@@ -11,7 +11,7 @@
       "base16-tomorrow-dark-theme"
     ]
   editor:
-    fontFamily: "Input Mono"
+    fontFamily: "Input Mono Narrow"
     fontSize: 16
     invisibles: {}
     showIndentGuide: true
@@ -22,9 +22,6 @@
     userId: "a01f5388-4814-2b4f-43f3-e8fa948c51d9"
   "haskell-ghc-mod":
     highlightMessages: false
-  "haskell-pointfree":
-    pointfreePath: "/home/robbert/.local/bin/pointfree"
-    pointfulPath: "/home/robbert/.local/bin/pointful"
   "ide-haskell":
     cabalPath: "/usr/bin/cabal"
     stylishHaskellPath: "/home/robbert/.cabal/bin/stylish-haskell"
