@@ -2,33 +2,8 @@
   <component name="FileBasedIndex">
     <option name="registeredIndices">
       <list>
-        <option value="org.rust.lang.core.stubs.index.RustAliasIndex" />
-        <option value="org.rust.lang.core.stubs.index.RustImplIndex.ByName" />
-        <option value="org.rust.lang.core.stubs.index.RustImplIndex.ByType" />
-        <option value="org.rust.lang.core.stubs.index.RustGotoClassIndex" />
-        <option value="org.rust.lang.core.stubs.index.RustNamedElementIndex" />
-        <option value="org.rust.lang.core.stubs.index.RustModulesIndex" />
-        <option value="JRuby.import.shortName" />
-        <option value="bash.includers" />
-        <option value="Ruby.cucumber.step" />
-        <option value="bash.var" />
-        <option value="Ruby.top.level.include.extend.shortName" />
-        <option value="Ruby.require.load.shortName" />
-        <option value="Ruby.method.name" />
-        <option value="Ruby.implicit.class.module.shortName" />
-        <option value="Ruby.inheritance.shortName" />
-        <option value="Ruby.symbol.name" />
-        <option value="Ruby.class_eval.receiver" />
-        <option value="bash.scriptCommandReference" />
-        <option value="Rails.render.file" />
-        <option value="bash.function.name" />
-        <option value="Ruby.toplevel.shortName" />
-        <option value="bash.included" />
-        <option value="Ruby.class.module.shortName" />
-        <option value="bash.script.name" />
-        <option value="Ruby.include.extend.qualified.shortName" />
-        <option value="bash.vardef" />
-        <option value="Ruby.method.dynamic.name" />
+        <option value="php.constant.case.sensitive.shortName" />
+        <option value="php.function.shortName" />
         <option value="java.unit.tree" />
         <option value="java.class.fqn" />
         <option value="java.class.shortname" />
@@ -40,7 +15,7 @@
         <option value="java.field.name" />
         <option value="java.class.extlist" />
         <option value="java.annotations" />
-        <option value="Stylus.mixins" />
+        <option value="php.namespace.shortName" />
         <option value="Stylus.variables" />
         <option value="Scss.mixin" />
         <option value="Scss.function" />
@@ -48,20 +23,6 @@
         <option value="Scss.variable" />
         <option value="Less.variables" />
         <option value="Less.mixins" />
-        <option value="php.namespace.shortName" />
-        <option value="php.variable.shortName" />
-        <option value="php.inheritors" />
-        <option value="php.use.shortName" />
-        <option value="php.constant.case.sensitive.shortName" />
-        <option value="php.constant.shortName" />
-        <option value="php.function.shortName" />
-        <option value="php.classConstant.shortName" />
-        <option value="php.field.shortName" />
-        <option value="php.method.shortName" />
-        <option value="php.trait.shortName" />
-        <option value="php.interface.shortName" />
-        <option value="php.class.shortName" />
-        <option value="ini.property.key" />
         <option value="sql.names" />
         <option value="sql.column.name" />
         <option value="sql.table.shortName" />
@@ -89,6 +50,17 @@
         <option value="Css.class" />
         <option value="dom.elementClass" />
         <option value="dom.namespaceKey" />
+        <option value="php.constant.shortName" />
+        <option value="php.method.shortName" />
+        <option value="php.field.shortName" />
+        <option value="php.inheritors" />
+        <option value="php.interface.shortName" />
+        <option value="php.use.shortName" />
+        <option value="Stylus.mixins" />
+        <option value="php.trait.shortName" />
+        <option value="php.variable.shortName" />
+        <option value="php.classConstant.shortName" />
+        <option value="php.class.shortName" />
       </list>
     </option>
   </component>

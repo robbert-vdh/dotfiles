@@ -54,7 +54,6 @@ com.intellij.jsf
 com.intellij.jsp
 com.intellij.persistence
 com.intellij.play
-com.intellij.plugins.html.instantEditing
 com.intellij.seam
 com.intellij.seam.pageflow
 com.intellij.seam.pages

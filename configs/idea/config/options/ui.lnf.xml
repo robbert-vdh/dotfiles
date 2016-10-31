@@ -1,7 +1,6 @@
 <application>
   <component name="UISettings">
-    <option name="FONT_FACE" value="Noto Sans UI" />
-    <option name="FONT_SIZE" value="14" />
+    <option name="FONT_FACE" value="Roboto" />
     <option name="HIDE_TOOL_STRIPES" value="false" />
     <option name="WIDESCREEN_SUPPORT" value="true" />
     <option name="MAX_LOOKUP_WIDTH2" value="609" />

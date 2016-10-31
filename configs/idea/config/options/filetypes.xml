@@ -1,21 +1,20 @@
 <application>
   <component name="FileTypeManager" version="17">
     <extensionMap>
-      <mapping pattern="deploy" type="Bash" />
-      <mapping pattern="compile" type="Bash" />
-      <mapping pattern="Dockerfile*" type="Dockerfile" />
       <removed_mapping ext="html" type="HTML" />
-      <mapping pattern="update" type="PHP" />
       <mapping pattern="PortfolioEmployerPage.php" type="PHP" />
+      <mapping pattern="update" type="PHP" />
       <mapping pattern="hoi" type="PLAIN_TEXT" />
-      <mapping pattern="test" type="PLAIN_TEXT" />
-      <mapping pattern="default" type="PLAIN_TEXT" />
       <mapping pattern=".gitkeep" type="PLAIN_TEXT" />
       <mapping pattern=".editorconfig" type="PLAIN_TEXT" />
-      <mapping ext="html" type="Twig" />
-      <mapping ext="swig" type="Twig" />
+      <mapping pattern="default" type="PLAIN_TEXT" />
+      <mapping pattern="test" type="PLAIN_TEXT" />
       <mapping pattern="*.ts.d" type="TypeScript" />
       <mapping pattern="*.yml.dist" type="YAML" />
+      <mapping ext="swig" type="Twig" />
+      <mapping pattern="Dockerfile*" type="Dockerfile" />
+      <mapping pattern="compile" type="Bash" />
+      <mapping pattern="deploy" type="Bash" />
     </extensionMap>
   </component>
 </application>
