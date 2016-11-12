@@ -12,7 +12,7 @@
     ]
   editor:
     fontFamily: "Input Mono Narrow"
-    fontSize: 17
+    fontSize: 16
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
@@ -25,9 +25,12 @@
   "ide-haskell":
     cabalPath: "/usr/bin/cabal"
     stylishHaskellPath: "/home/robbert/.cabal/bin/stylish-haskell"
+  "linter-rust":
+    allowedToCacheVersions: false
+    cargoCommand: "clippy"
   racer:
-    cargoHome: "/home/robbert/.cargo"
     racerBinPath: "/home/robbert/.cargo/bin/racer"
+    rustSrcPath: "/home/robbert/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
   welcome:
     showOnStartup: false
 ".gitignore.source":
