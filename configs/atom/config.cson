@@ -2,6 +2,10 @@
   "atom-beautify":
     general:
       _analyticsUserId: "8e282ddb-3861-4484-a909-17ae731cb314"
+    rust:
+      beautify_on_save: true
+  "atom-terminal":
+    app: "gnome-terminal"
   "autocomplete-haskell":
     useBackend: "haskell-ghc-mod"
   core:
@@ -12,7 +16,7 @@
     ]
   editor:
     fontFamily: "Input Mono Narrow"
-    fontSize: 16
+    fontSize: 17
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
