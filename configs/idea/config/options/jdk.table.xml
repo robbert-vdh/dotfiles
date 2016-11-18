@@ -39,7 +39,7 @@
           </root>
         </sourcePath>
       </roots>
-      <additional NORMALIZED_VERSION_STRING="ver.2.2.1p85 ( revision 49769) p85" IS_RVM_SDK="true" RVM_IGNORE_GLOBAL="false" GEMS_BIN_DIR_PATH="$USER_HOME$/.rvm/rubies/ruby-2.2.1/bin" />
+      <additional />
     </jdk>
     <jdk version="2">
       <name value="RVM: ruby-2.2.1 [global]" />
@@ -80,7 +80,7 @@
           </root>
         </sourcePath>
       </roots>
-      <additional NORMALIZED_VERSION_STRING="ver.2.2.1p85 ( revision 49769) p85" IS_RVM_SDK="true" RVM_GEMSET_NAME="global" RVM_IGNORE_GLOBAL="false" GEMS_BIN_DIR_PATH="$USER_HOME$/.rvm/rubies/ruby-2.2.1/bin" />
+      <additional />
     </jdk>
     <jdk version="2">
       <name value="IDE SDK" />

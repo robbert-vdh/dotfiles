@@ -78,7 +78,7 @@
     </local-interpreter>
   </component>
   <component name="NodeLocalInterpreterManager">
-    <node-interpreter path="/usr/local/bin/node" version="(Does not exist)" last-modified="1477485128761" />
+    <node-interpreter path="/usr/local/bin/node" version="(Does not exist)" last-modified="1479048590048" />
   </component>
   <component name="PhpRefactoringSettings">
     <option name="EXTRACT_METHOD_DEFAULT_VISIBILITY" value="private" />

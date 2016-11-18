@@ -52,7 +52,7 @@
       </component>
       <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" assert-keyword="false" jdk-15="false" />
       <component name="PropertiesComponent">
-        <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+        <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
         <property name="settings.editor.splitter.proportion" value="0.2" />
         <property name="last_opened_file_path" value="D:/dev/git/bin/git.exe" />
       </component>
