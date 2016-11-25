@@ -2,6 +2,9 @@
   "atom-beautify":
     general:
       _analyticsUserId: "8e282ddb-3861-4484-a909-17ae731cb314"
+    python:
+      beautify_on_save: true
+      default_beautifier: "yapf"
     rust:
       beautify_on_save: true
   "atom-terminal":
