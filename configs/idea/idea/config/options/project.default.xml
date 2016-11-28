@@ -1,27 +1,12 @@
 <application>
   <component name="ProjectManager">
     <defaultProject>
-      <component name="CompilerConfiguration">
-        <resourceExtensions />
-        <wildcardResourcePatterns>
-          <entry name="!?*.java" />
-          <entry name="!?*.form" />
-          <entry name="!?*.class" />
-          <entry name="!?*.groovy" />
-          <entry name="!?*.scala" />
-          <entry name="!?*.flex" />
-          <entry name="!?*.kt" />
-          <entry name="!?*.clj" />
-          <entry name="!?*.aj" />
-        </wildcardResourcePatterns>
-        <annotationProcessing>
-          <profile default="true" name="Default" enabled="false">
-            <processorPath useClasspath="true" />
-          </profile>
-        </annotationProcessing>
-      </component>
       <component name="Encoding">
         <file url="PROJECT" charset="UTF-8" />
+      </component>
+      <component name="InspectionProjectProfileManager">
+        <option name="PROJECT_PROFILE" />
+        <version value="1.0" />
       </component>
       <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
       <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -40,17 +25,7 @@
           </profile-state>
         </entry>
       </component>
-      <component name="ProjectLevelVcsManager" settingsEditedManually="false">
-        <OptionsSetting value="true" id="Add" />
-        <OptionsSetting value="true" id="Remove" />
-        <OptionsSetting value="true" id="Checkout" />
-        <OptionsSetting value="true" id="Update" />
-        <OptionsSetting value="true" id="Status" />
-        <OptionsSetting value="true" id="Edit" />
-        <ConfirmationsSetting value="0" id="Add" />
-        <ConfirmationsSetting value="0" id="Remove" />
-      </component>
-      <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" assert-keyword="false" jdk-15="false" />
+      <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" />
       <component name="PropertiesComponent">
         <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
         <property name="settings.editor.splitter.proportion" value="0.2" />

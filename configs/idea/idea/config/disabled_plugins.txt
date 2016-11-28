@@ -10,8 +10,8 @@ Emma
 Geronimo
 GlassFish
 Heroku
+IdeaVIM
 J2ME
-JBPM
 JBoss
 JSR45Plugin
 JUnit
@@ -50,6 +50,7 @@ com.intellij.javaee.view
 com.intellij.javaee.webSocket
 com.intellij.jboss.arquillian
 com.intellij.jboss.core
+com.intellij.jbpm
 com.intellij.jsf
 com.intellij.jsp
 com.intellij.persistence

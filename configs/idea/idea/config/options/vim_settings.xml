@@ -3,6 +3,14 @@
     <state version="4" enabled="true" />
     <globalmarks />
     <filemarks>
+      <file name="/a.dummy" timestamp="1480271721375">
+        <mark key="[" line="0" column="0" />
+      </file>
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/partials/newsletter-button.twig" timestamp="1480272418456">
+        <mark key="[" line="0" column="0" />
+        <mark key="]" line="0" column="0" />
+        <mark key="." line="0" column="0" />
+      </file>
       <file name="/var/www/zzindi.dev/extensions/local/zzindi/workshops/src/Controllers/WorkshopController.php" timestamp="1453806834408">
         <mark key="'" line="41" column="11" />
         <mark key="[" line="39" column="35" />
@@ -10,20 +18,83 @@
         <mark key="^" line="39" column="35" />
         <mark key="." line="39" column="35" />
       </file>
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/pages/index.twig" timestamp="1480272033158">
+        <mark key="[" line="30" column="31" />
+        <mark key="]" line="31" column="48" />
+        <mark key="." line="31" column="48" />
+        <mark key="^" line="31" column="48" />
+      </file>
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_button-bar.scss" timestamp="1480181026569">
+        <mark key="'" line="82" column="18" />
+        <mark key="[" line="46" column="20" />
+        <mark key="]" line="46" column="9" />
+        <mark key="^" line="46" column="9" />
+        <mark key="." line="46" column="9" />
+      </file>
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/dist/img/buttons/home-2.svg" timestamp="1480175645450">
+        <mark key="'" line="0" column="0" />
+        <mark key="[" line="0" column="0" />
+        <mark key="]" line="0" column="0" />
+        <mark key="^" line="0" column="0" />
+        <mark key="." line="0" column="0" />
+      </file>
     </filemarks>
     <jumps>
       <jump line="26" column="46" filename="/var/www/zzindi.dev/extensions/local/zzindi/workshops/src/Controllers/WorkshopController.php" />
       <jump line="41" column="11" filename="/var/www/zzindi.dev/extensions/local/zzindi/workshops/src/Controllers/WorkshopController.php" />
+      <jump line="32" column="45" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_button-bar.scss" />
+      <jump line="35" column="18" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_button-bar.scss" />
+      <jump line="0" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/dist/img/buttons/home-2.svg" />
+      <jump line="27" column="9" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/pages/index.twig" />
     </jumps>
     <registers>
+      <register name="&quot;" type="2">
+        <text encoding="base64">Cg==</text>
+      </register>
+      <register name="-" type="4">
+        <text>// Het is mooier als de knoppen hier goed in elkaar passen</text>
+      </register>
       <register name="/" type="4">
-        <text>function c</text>
+        <text>ink</text>
+      </register>
+      <register name="0" type="2">
+        <text encoding="base64">ICAgICAgCiAgICAgICYtLTAgewogICAgICAgIG9yZGVyOiAwOwogICAgICB9Cg==</text>
+      </register>
+      <register name="1" type="2">
+        <text encoding="base64">Cg==</text>
+      </register>
+      <register name="2" type="2">
+        <text encoding="base64">ZGYK</text>
+      </register>
+      <register name="3" type="2">
+        <text encoding="base64">c2RmCg==</text>
+      </register>
+      <register name="4" type="2">
+        <text encoding="base64">ICAgICAgeyUgc2V0IGJ1dHRvbiA9IGNvbmZpZy5nZXQoJ2dlbmVyYWwvJykgJX0K</text>
+      </register>
+      <register name="5" type="2">
+        <text encoding="base64">ICAgIDxkaXYgY2xhc3M9ImhvbWVfX21haW4gcGFnZV9fYm9keSI+CiAgICAgIHt7IHJlY29yZC5ib2R5IH19CiAgICA8L2Rpdj4K</text>
+      </register>
+      <register name="6" type="2">
+        <text encoding="base64">ICAgICAgICBvcmRlcjogMDsK</text>
+      </register>
+      <register name="7" type="2">
+        <text encoding="base64">ICAgICAgJi0tMCB7Cg==</text>
+      </register>
+      <register name="8" type="2">
+        <text encoding="base64">Cg==</text>
+      </register>
+      <register name="9" type="2">
+        <text encoding="base64">ICAgICAgfQo=</text>
+      </register>
+      <register name=":" type="4">
+        <text>w</text>
       </register>
     </registers>
     <search>
-      <last-search>function c</last-search>
+      <last-search>ink</last-search>
       <last-offset />
-      <last-pattern>function c</last-pattern>
+      <last-pattern>ink</last-pattern>
       <last-dir>1</last-dir>
       <show-last>false</show-last>
     </search>
@@ -31,11 +102,28 @@
       <history-search>
         <entry>function Co</entry>
         <entry>function c</entry>
+        <entry>button-bar</entry>
+        <entry>inkscape</entry>
+        <entry>ink</entry>
       </history-search>
+      <history-cmd>
+        <entry>w</entry>
+      </history-cmd>
+      <history-expr />
+      <history-input />
     </history>
     <shortcut-conflicts>
       <shortcut-conflict owner="vim">
         <text>ctrl pressed V</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim">
+        <text>ctrl pressed F</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim">
+        <text>ctrl pressed S</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim">
+        <text>ctrl pressed A</text>
       </shortcut-conflict>
     </shortcut-conflicts>
   </component>

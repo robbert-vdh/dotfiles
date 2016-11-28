@@ -1,5 +1,7 @@
 <scheme name="Tomorrow Night copy" version="142" parent_scheme="Default">
-  <option name="LINE_SPACING" value="1.0" />
+  <metaInfo>
+    <property name="modified">2016-11-23T14:12:40</property>
+  </metaInfo>
   <option name="EDITOR_FONT_SIZE" value="16" />
   <option name="CONSOLE_FONT_NAME" value="InputMono" />
   <option name="CONSOLE_LIGATURES" value="true" />
@@ -87,6 +89,34 @@
         <option name="BACKGROUND" value="cc6666" />
         <option name="ERROR_STRIPE_COLOR" value="ff0000" />
         <option name="EFFECT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="BREADCRUMBS_CURRENT">
+      <value>
+        <option name="FOREGROUND" value="c9baa5" />
+        <option name="BACKGROUND" value="292c2e" />
+        <option name="EFFECT_COLOR" value="424242" />
+      </value>
+    </option>
+    <option name="BREADCRUMBS_DEFAULT">
+      <value>
+        <option name="FOREGROUND" value="abafaf" />
+        <option name="BACKGROUND" value="292c2e" />
+        <option name="EFFECT_COLOR" value="424242" />
+      </value>
+    </option>
+    <option name="BREADCRUMBS_HOVERED">
+      <value>
+        <option name="FOREGROUND" value="dcdcdc" />
+        <option name="BACKGROUND" value="313537" />
+        <option name="EFFECT_COLOR" value="aaaaaa" />
+      </value>
+    </option>
+    <option name="BREADCRUMBS_INACTIVE">
+      <value>
+        <option name="FOREGROUND" value="292c2e" />
+        <option name="BACKGROUND" value="90999a" />
+        <option name="EFFECT_COLOR" value="c8c8c8" />
       </value>
     </option>
     <option name="BREAKPOINT_ATTRIBUTES">
@@ -1624,6 +1654,31 @@
       <value>
         <option name="FOREGROUND" value="b5bd68" />
         <option name="FONT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="RAINBOW_COLOR0">
+      <value>
+        <option name="FOREGROUND" value="cc6666" />
+      </value>
+    </option>
+    <option name="RAINBOW_COLOR1">
+      <value>
+        <option name="FOREGROUND" value="de935f" />
+      </value>
+    </option>
+    <option name="RAINBOW_COLOR2">
+      <value>
+        <option name="FOREGROUND" value="b5bd68" />
+      </value>
+    </option>
+    <option name="RAINBOW_COLOR3">
+      <value>
+        <option name="FOREGROUND" value="8abeb7" />
+      </value>
+    </option>
+    <option name="RAINBOW_COLOR4">
+      <value>
+        <option name="FOREGROUND" value="81a2be" />
       </value>
     </option>
     <option name="REASSIGNED_LOCAL_VARIABLE_ATTRIBUTES">
