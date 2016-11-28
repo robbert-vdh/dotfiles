@@ -10,6 +10,7 @@
     ~/.gitignore_global: configs/git/.gitignore_global
     ~/.atom: configs/atom
     ~/.fonts: configs/fonts
+    ~/.ideavimrc: configs/idea/.ideavimrc
     ~/.IntelliJIdea2016.2: configs/idea
     ~/.spacemacs: configs/emacs/.spacemacs
     ~/.zprezto/runcoms: configs/zsh/prezto
