@@ -43,7 +43,9 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ivy
-     auto-completion
+     (auto-completion :variables
+                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-tab-key-behavior 'complete)
      ;; better-defaults
      emacs-lisp
      git
