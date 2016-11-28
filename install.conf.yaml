@@ -5,6 +5,7 @@
 - clean: ['~']
 
 - link:
+    ~/.config/nvim: configs/neovim/nvim
     ~/.config/redshift.conf: configs/redshift/redshift.conf
     ~/.gitconfig: configs/git/.gitconfig
     ~/.gitignore_global: configs/git/.gitignore_global
