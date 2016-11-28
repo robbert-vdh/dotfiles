@@ -30,3 +30,19 @@
 # If you are unfamiliar with CSON, you can read more about it in the
 # Atom Flight Manual:
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+'atom-text-editor.vim-mode-plus.normal-mode':
+    ':': 'vim-mode-plus-ex-mode:open'
+    '!': 'vim-mode-plus-ex-mode:toggle-setting'
+
+    'y s': 'vim-mode-plus:surround'
+    'y s w': 'vim-mode-plus:surround-word'
+
+    'd s': 'vim-mode-plus:delete-surround'
+    # 'd s': 'vim-mode-plus:delete-surround-any-pair'
+    # 'd s': 'vim-mode-plus:delete-surround-any-pair-allow-forwarding'
+
+    'c s': 'vim-mode-plus:change-surround'
+    # 'y s c': 'vim-mode-plus:change-surround-any-pair'
+    # 'y s c': 'vim-mode-plus:change-surround-any-pair-allow-forwarding'
+
+    'y m s':  'vim-mode-plus:map-surround'
