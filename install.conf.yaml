@@ -11,7 +11,7 @@
     ~/.atom: configs/atom
     ~/.fonts: configs/fonts
     ~/.ideavimrc: configs/idea/.ideavimrc
-    ~/.IntelliJIdea2016.2: configs/idea
+    ~/.IntelliJIdea2016.3: configs/idea/idea
     ~/.spacemacs: configs/emacs/.spacemacs
     ~/.zprezto/runcoms: configs/zsh/prezto
     ~/Afbeeldingen/wallpapers: configs/wallpapers
