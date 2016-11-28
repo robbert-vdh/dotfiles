@@ -120,7 +120,7 @@ let g:haskell_xml           = 0
 let g:haskell_hsp           = 0
 
 "English spelling checker.
-setlocal spelllang=en_us
+setlocal spelllang=en_uk,nl
 
 "Keep 80 columns.
 set colorcolumn=80
