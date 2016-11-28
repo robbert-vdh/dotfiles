@@ -1,9 +1,0 @@
-<application>
-  <component name="UpdatesConfigurable">
-    <pluginHosts>
-      <item value="https://plugins.jetbrains.com/plugins/eap/8090" />
-    </pluginHosts>
-    <option name="LAST_TIME_CHECKED" value="1477910536893" />
-    <option name="LAST_BUILD_CHECKED" value="IU-162.2228.15" />
-  </component>
-</application>

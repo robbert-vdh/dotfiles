@@ -31,7 +31,7 @@ Plug 'Shougo/vimfiler.vim'
 Plug 'simnalamburt/vim-mundo'
 "Plug 'rhysd/committia.vim'
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-"Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'zchee/deoplete-jedi'
 Plug 'junegunn/vim-slash'
