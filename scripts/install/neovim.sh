@@ -29,3 +29,4 @@ echo "========================================"
 
 nvim +PlugInstall +PlugUpdate +PlugClean! +qall
 
+echo "Neovim plugins zijn geïnstalleerd"
