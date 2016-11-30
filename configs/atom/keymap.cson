@@ -31,6 +31,11 @@
 # Atom Flight Manual:
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
 'atom-text-editor.vim-mode-plus.normal-mode':
+    # ex mdoe
+    ':': 'vim-mode-plus-ex-mode:open'
+    '!': 'vim-mode-plus-ex-mode:toggle-setting'
+
+    # vim-surround
     'y s': 'vim-mode-plus:surround'
     'y s w': 'vim-mode-plus:surround-word'
 
@@ -44,7 +49,16 @@
 
     'y m s': 'vim-mode-plus:map-surround'
 
+    # cursor history
+    'ctrl-i': 'cursor-history:next'
+    'ctrl-o': 'cursor-history:prev'
+    'ctrl-alt-i': 'cursor-history:next-within-editor'
+    'ctrl-alt-o': 'cursor-history:prev-within-editor'
+
+    # unimpaired bindings
+    '[ q': 'linter:previous-error'
+    '] q': 'linter:next-error'
+
     # Keybindings met leader key
     'space =': 'atom-beautify:beautify-editor'
     'g d': 'autocomplete-python:go-to-definition'
-    ':': 'ex-mode:open'
