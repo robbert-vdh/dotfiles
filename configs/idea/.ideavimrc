@@ -4,6 +4,7 @@ set hlsearch
 set scrolloff=3
 set showmode
 set history=1000
+set incsearch
 
 " easy system clipboard copy/paste
 noremap <space>y "*y
@@ -29,6 +30,7 @@ nnoremap cow :action EditorToggleUseSoftWraps<cr>
 nnoremap col :action EditorToggleShowWhitespaces<cr>
 
 " actions
+nnoremap <space>= :action ReformatCode<cr>
 nnoremap <space>q :action CloseContent<cr>
 nnoremap <space>Q :action ReopenClosedTab<cr>
 nnoremap <space>\ :action VimFilePrevious<cr>
@@ -63,7 +65,6 @@ nnoremap [m :action MethodUp<cr>
 nnoremap ]m :action MethodDown<cr>
 nnoremap [c :action VcsShowPrevChangeMarker<cr>
 nnoremap ]c :action VcsShowNextChangeMarker<cr>
-
 
 " built-in navigation to navigated items works better
 nnoremap <c-o> :action Back<cr>
