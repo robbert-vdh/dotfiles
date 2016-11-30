@@ -5,6 +5,11 @@ if ! type -P nvim &>/dev/null; then
   exit 1;
 fi
 
+if ! type -P git &>/dev/null; then
+  echo "git mist";
+  exit 1;
+fi
+
 pacman -Qi python-neovim &>/dev/null
 if [ $? -ne 0 ]; then
   echo "De python-neovim package mist";
