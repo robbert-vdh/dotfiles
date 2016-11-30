@@ -1,2 +1,0 @@
-'context-menu':
-  '.platform-win32 .tree-view': [{label: 'Open Terminal at Root', command: 'atom-terminal:open-project-root'}]

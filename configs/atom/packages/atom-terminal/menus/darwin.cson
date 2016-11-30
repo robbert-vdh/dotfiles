@@ -1,2 +1,0 @@
-'context-menu':
-  '.platform-darwin .tree-view': [{label: 'Open Terminal at Root', command: 'atom-terminal:open-project-root'}]
