@@ -11,7 +11,7 @@ if ! type -P git &>/dev/null; then
 fi
 
 # Installeer base16 ondersteuning voor zsh
-if [ ! -d $HOME/.config/base16-shell ]; then
+if [ ! -d $HOME/.config/base16-shell/ ]; then
   echo "========================================"
   echo "Base16 Shell installeren..."
   echo "========================================"
@@ -20,7 +20,7 @@ if [ ! -d $HOME/.config/base16-shell ]; then
 fi
 
 # Installeer base16 themes voor gnome-terminal
-if [ ! -d $HOME/.config/base16-gnome-terminal ]; then
+if [ ! -d $HOME/.config/base16-gnome-terminal/ ]; then
   echo "========================================"
   echo "Base16 gnome-terminal thema installeren..."
   echo "========================================"
