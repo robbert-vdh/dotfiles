@@ -16,6 +16,12 @@ if [ $? -ne 0 ]; then
   exit 1;
 fi
 
+pacman -Qi neovim-plug &>/dev/null
+if [ $? -ne 0 ]; then
+  echo "De neovim-plug package mist";
+  exit 1;
+fi
+
 pacman -Qi neovim-drop-in &>/dev/null
 if [ $? -ne 0 ]; then
   echo "De neovim-drop-in package mist";
