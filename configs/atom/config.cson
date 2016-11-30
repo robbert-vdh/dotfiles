@@ -23,7 +23,7 @@
     ]
   editor:
     fontFamily: "Input Mono Narrow"
-    fontSize: 17
+    fontSize: 16
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
