@@ -13,12 +13,7 @@
     useBackend: "haskell-ghc-mod"
   core:
     disabledPackages: [
-      "haskell-ghc-mod"
-      "haskell-pointfree"
-      "autocomplete-haskell"
-      "ide-haskell"
       "ide-haskell-cabal"
-      "language-haskell"
       "intellij-idea-keymap"
     ]
     telemetryConsent: "no"

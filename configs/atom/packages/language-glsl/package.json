@@ -1,0 +1,76 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/tmp/robbert/d-116109-16747-1xskgg1.niqihyf1or/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/tmp/robbert/d-116109-16747-1xskgg1.niqihyf1or/package.tgz",
+        "spec": "/tmp/robbert/d-116109-16747-1xskgg1.niqihyf1or/package.tgz",
+        "type": "local"
+      },
+      "/tmp/robbert/apm-install-dir-116109-16747-ukydoo.4zfwp14i"
+    ]
+  ],
+  "_from": "../d-116109-16747-1xskgg1.niqihyf1or/package.tgz",
+  "_id": "language-glsl@2.0.1",
+  "_inCache": true,
+  "_location": "/language-glsl",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/tmp/robbert/d-116109-16747-1xskgg1.niqihyf1or/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/tmp/robbert/d-116109-16747-1xskgg1.niqihyf1or/package.tgz",
+    "spec": "/tmp/robbert/d-116109-16747-1xskgg1.niqihyf1or/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116109-16747-1xskgg1.niqihyf1or/package.tgz",
+  "_shasum": "79bda66cfa0aa96659a445ae676a6e40757b31b1",
+  "_shrinkwrap": null,
+  "_spec": "/tmp/robbert/d-116109-16747-1xskgg1.niqihyf1or/package.tgz",
+  "_where": "/tmp/robbert/apm-install-dir-116109-16747-ukydoo.4zfwp14i",
+  "bugs": {
+    "url": "https://github.com/hughsk/language-glsl/issues"
+  },
+  "dependencies": {},
+  "description": "Atom language support for GLSL",
+  "devDependencies": {},
+  "engines": {
+    "atom": "*",
+    "node": "*"
+  },
+  "homepage": "https://github.com/hughsk/language-glsl",
+  "keywords": [
+    "language",
+    "glsl",
+    "atom",
+    "editor",
+    "syntax"
+  ],
+  "license": "MIT",
+  "name": "language-glsl",
+  "optionalDependencies": {},
+  "readme": "# language-glsl package\n\nAdds syntax highlighting and snippets to GLSL files in Atom.\n\nOriginally\n[converted](http://atom.io/docs/latest/converting-a-text-mate-bundle)\nfrom [polym0rph](https://github.com/polym0rph)'s\n[GLSL TextMate bundle](https://github.com/polym0rph/GLSL.tmbundle).\n\nExtended to support [glslify](http://github.com/stackgl/glslify) require/export\nstatements.\n\n![language-glsl](http://imgur.com/dJGHJ1m.png)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hughsk/language-glsl.git"
+  },
+  "version": "2.0.1",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

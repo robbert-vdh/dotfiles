@@ -1,0 +1,10 @@
+require('./every');
+require('./filter');
+require('./forEach');
+require('./indexOf');
+require('./isArray');
+require('./lastIndexOf');
+require('./map');
+require('./reduce');
+require('./reduceRight');
+require('./some');

@@ -1,0 +1,15 @@
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Show Usages'
+      'command': 'python-tools:show-usages'
+    },
+    {
+      'label': 'Goto Definition'
+      'command': 'python-tools:goto-definition'
+    },
+    {
+      'label': 'Select all String'
+      'command': 'python-tools:select-all-string'
+    }
+  ]

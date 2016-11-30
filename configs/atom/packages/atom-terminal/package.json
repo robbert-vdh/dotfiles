@@ -1,0 +1,77 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/tmp/robbert/d-116108-4296-4pddz2.gunnkfyldi/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/tmp/robbert/d-116108-4296-4pddz2.gunnkfyldi/package.tgz",
+        "spec": "/tmp/robbert/d-116108-4296-4pddz2.gunnkfyldi/package.tgz",
+        "type": "local"
+      },
+      "/tmp/robbert/apm-install-dir-116108-4296-x1u2j7.vh52qsq0k9"
+    ]
+  ],
+  "_from": "../d-116108-4296-4pddz2.gunnkfyldi/package.tgz",
+  "_id": "atom-terminal@0.8.0",
+  "_inCache": true,
+  "_location": "/atom-terminal",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/tmp/robbert/d-116108-4296-4pddz2.gunnkfyldi/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/tmp/robbert/d-116108-4296-4pddz2.gunnkfyldi/package.tgz",
+    "spec": "/tmp/robbert/d-116108-4296-4pddz2.gunnkfyldi/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116108-4296-4pddz2.gunnkfyldi/package.tgz",
+  "_shasum": "de5efec5168dcf9ab234036f3f21276bbfe4b737",
+  "_shrinkwrap": null,
+  "_spec": "/tmp/robbert/d-116108-4296-4pddz2.gunnkfyldi/package.tgz",
+  "_where": "/tmp/robbert/apm-install-dir-116108-4296-x1u2j7.vh52qsq0k9",
+  "activationCommands": {
+    "atom-workspace": [
+      "atom-terminal:open-project-root"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/karan/atom-terminal/issues"
+  },
+  "dependencies": {},
+  "description": "Open terminal in the current file's directory.",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "homepage": "https://github.com/karan/atom-terminal#readme",
+  "license": "MIT",
+  "main": "./lib/atom-terminal",
+  "name": "atom-terminal",
+  "optionalDependencies": {},
+  "readme": "# atom-terminal\n\nOpen terminal on current file's directory with `ctrl-shift-t`.\n\nOpen a terminal in the project's root directory with `alt-shift-t`.\n\nKeybindings: `ctrl-shift-t`, `alt-shift-t`\n\nInstall: `apm install atom-terminal`\n\nConfig:\n```coffeescript\n\"atom-terminal\":\n    # only necessary if standard config doesn't find terminal app\n    app: \"/path/to/your/favorite/terminal\"\n    args: \"--useThisOptionWhenLaunchingTerminal\"\n```\n\n![atom-terminal](https://raw.github.com/karan/atom-terminal/master/terminal.gif)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karan/atom-terminal.git"
+  },
+  "version": "0.8.0",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".coffee": [
+        "lib/atom-terminal.coffee"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

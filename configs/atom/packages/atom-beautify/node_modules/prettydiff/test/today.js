@@ -1,0 +1,1 @@
+var today=20160317;exports.date=today;

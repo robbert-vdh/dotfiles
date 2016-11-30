@@ -1,0 +1,30 @@
+// The ui-variables file is provided by base themes provided by Atom.
+//
+// See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
+// for a full listing of what's available.
+@import "ui-variables";
+
+.ex-mode {
+}
+
+div[is=ex-command-mode-input] atom-text-editor[mini]::before {
+  content: ":";
+  opacity: 0.5;
+}
+
+div[is=vim-normal-mode-input] atom-text-editor[mini]::before {
+  content: "/";
+  opacity: 0.5;
+}
+
+.command-mode-input atom-text-editor[mini] {
+  background-color: inherit;
+  border: none;
+  width: 100%;
+  font-weight: normal;
+  color: @text-color;
+  line-height: 1.28;
+  cursor: default;
+  white-space: nowrap;
+  padding-left: 10px;
+}

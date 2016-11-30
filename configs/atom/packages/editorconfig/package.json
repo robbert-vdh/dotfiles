@@ -1,0 +1,270 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/tmp/robbert/d-1161023-8068-cxeoei.ne83wka9k9/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/tmp/robbert/d-1161023-8068-cxeoei.ne83wka9k9/package.tgz",
+        "spec": "/tmp/robbert/d-1161023-8068-cxeoei.ne83wka9k9/package.tgz",
+        "type": "local"
+      },
+      "/tmp/robbert/apm-install-dir-1161023-8068-14hyodj.ybhxyo80k9"
+    ]
+  ],
+  "_from": "../d-1161023-8068-cxeoei.ne83wka9k9/package.tgz",
+  "_id": "editorconfig@2.0.5",
+  "_inCache": true,
+  "_location": "/editorconfig",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/tmp/robbert/d-1161023-8068-cxeoei.ne83wka9k9/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/tmp/robbert/d-1161023-8068-cxeoei.ne83wka9k9/package.tgz",
+    "spec": "/tmp/robbert/d-1161023-8068-cxeoei.ne83wka9k9/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-1161023-8068-cxeoei.ne83wka9k9/package.tgz",
+  "_shasum": "a505e85fc3a4bd25f051c790f4cfe592d27f48ca",
+  "_shrinkwrap": null,
+  "_spec": "/tmp/robbert/d-1161023-8068-cxeoei.ne83wka9k9/package.tgz",
+  "_where": "/tmp/robbert/apm-install-dir-1161023-8068-14hyodj.ybhxyo80k9",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "bugs": {
+    "url": "https://github.com/sindresorhus/atom-editorconfig/issues"
+  },
+  "consumedServices": {
+    "status-bar": {
+      "versions": {
+        "^1.0.0": "consumeStatusBar"
+      }
+    }
+  },
+  "dependencies": {
+    "editorconfig": "^0.13.2",
+    "lazy-req": "^1.1.0",
+    "pify": "^2.3.0"
+  },
+  "description": "Helps developers maintain consistent coding styles between different editors",
+  "devDependencies": {
+    "xo": "*"
+  },
+  "engines": {
+    "atom": ">=1.0.11"
+  },
+  "homepage": "https://github.com/sindresorhus/atom-editorconfig#readme",
+  "keywords": [
+    "editorconfig",
+    "format",
+    "code",
+    "style",
+    "code-style"
+  ],
+  "license": "MIT",
+  "name": "editorconfig",
+  "optionalDependencies": {},
+  "private": true,
+  "readme": "# EditorConfig [![Build Status](https://travis-ci.org/sindresorhus/atom-editorconfig.svg?branch=master)](https://travis-ci.org/sindresorhus/atom-editorconfig)\n\n> [EditorConfig](http://editorconfig.org) helps developers maintaining consistent coding styles between different editors.\n\n> \"I will take a peanut butter sandwich on white bread\" -- [Ralph S. Mouse](https://www.youtube.com/watch?v=3funeDWFr9g)\n\n![](https://raw.githubusercontent.com/sindresorhus/atom-editorconfig/master/fievel-mousekewitz48.gif)\n\n\n## Install\n\n```\n$ apm install editorconfig\n```\n\nOr, Settings → Install → Search for `editorconfig`\n\n\n## Getting started\n\nSee the EditorConfig [documentation](http://editorconfig.org) for detailed description of the `.editorconfig`-file format.\n\n1. Open a project which contains an `.editorconfig`-file.\n2. Whenever you open a file in the project (or change any `.editorconfig`-file from within Atom), EditorConfig evaluates the editorconfig-settings for the current file.\n3. EditorConfig then applies these settings to your current editor-pane. Any change you're doing from **now on** will be according to the editorconfig provided.\n4. You can always prove the currently applied settings by invoking the `EditorConfig: Show State`-command. You might try to fix malformed files with `EditorConfig: Fix File`.\n\n> :bulb: If EditorConfig can detects any troubles which may prevent it from working properly a  :mouse: will be shown in the status bar, click on it to open the state-notification.\n\n> :warning: EditorConfig will not fix malformed files (f.e. change all soft-tabs to hard-tabs) this must be done by explicitly invoking f.e. `EditorConfig: Fix File`. Keep in mind that malformed files (especially mixed tab-characters) may lead to unexpected behaviour.\n\n\n## Supported properties\n\n- `root`\n- `indent_style`\n- `indent_size` / `tab_width` *(`indent_size` takes precedence over `tab_width`)*\n- `charset` *(supported values: `latin1`, `utf-8`, `utf-16be`, `utf-16le`)*\n- `end_of_line` *(supported values: `lf`, `crlf`)*\n- `trim_trailing_whitespace` *(supported values: `true`, `false`)*\n- `insert_final_newline` *(supported values: `true`, `false`; Setting this to `false` strips final newlines)*\n- `max_line_length`\n\n> :bulb: Any malformed or missing property is set to `auto` which leaves the control to Atom.\n\n## Provided commands\n\n- `EditorConfig: Fix File`: Fixes `indent_style` and `end_of_line`-issues for the current editor.\n- `EditorConfig: Show State`: Shows the current state of EditorConfig for your current editor.\n- `EditorConfig: Generate Config`: Generates an initial `.editorconfig` for your project.\n\n\n## Features\n\n- Applies the settings from your `.editorconfig` file\n- Ability to fix `indent_style` and `end_of_line`-issues\n- Syntax highlights `.editorconfig` files (now with specification-like case insensitivity)\n- Ability to generate an `.editorconfig` file based on the current settings\n- Displays a nifty :mouse: in the statusBar whose colorful shows you if editorconfig faces any problems\n- Clicking on the :mouse: invokes the `Show State`-command for you\n- Recognizes if you save any `.editorconfig`-file and reapplies all settings to **all** opened editor-panes\n\n\n## Example file\n\n```ini\nroot = true\n\n[*]\nindent_style = tab\nindent_size = 3\nend_of_line = lf\ncharset = utf-8\ntrim_trailing_whitespace = true\ninsert_final_newline = true\n\n[*.{json,yml}]\nindent_size = 2\n\n[*.md]\ntrim_trailing_whitespace = false\n```\n\n\n## Changelog\n\n- 2.0: We finally support all editorconfig-properties (with the lately added `max_line_length`); introducing `EditorConfig: Fix File`; fixing editorconig's onSave handling\n- 1.7: Showing the StatusBar-icon only on troubles; introducing `EditorConfig: Show State`; optimizing grammar\n\n\n## Troubleshooting\n\nWe're sorry to hear you have troubles using atom-editorconfig! However, we are aware of some caveats:\n\n- **Why isn't editorconfig applying the indentation character to my files?** Editorconfig is not intended to do so, it will apply the indentation-char only to *new* indentations. However, you may try to fix indentation-issues with the `EditorConfig: Fix File`-command.\n- **Why is the `indent_style` completely not working?** Your Atom's config setting \"Tab Type\" might be set either to `soft` or `hard`, this unfortunately prevents editorconfig from influencing the indentation style. Set Atom's \"Tab Type\" to `auto` to fix that.\n- **Why is the feature _X_ not working?** Sometimes other packages (f.e. like the \"whitespace\"-package) override the editorconfig-settings. You might try to fix this by deactivating the package in your settings. We try to \"warn\" you about confirmed interferences caused by other packages. If you face any unknown troubles, please give us a hint.\n\n> :bulb: You can check how editorconfig affects your current file by invoking the `EditorConfig: Show State`-command. If EditorConfig can detects any troubles which may prevent it from working properly a  :mouse: will be shown in the status bar, clicking on it also lets you open the state-notification.\n\n\n## Help us getting better\n\nWe would be happy to hear from you -- [please report us any feedback, issues or ideas](https://github.com/sindresorhus/atom-editorconfig/issues/new). Thank you! :gift_heart:\n\n\n## License\n\nMIT © [Sindre Sorhus](https://sindresorhus.com)\n",
+  "readmeFilename": "readme.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sindresorhus/atom-editorconfig.git"
+  },
+  "scripts": {
+    "test": "xo && apm test"
+  },
+  "version": "2.0.5",
+  "xo": {
+    "esnext": true,
+    "globals": [
+      "atom",
+      "document"
+    ],
+    "ignores": [
+      "atom/**"
+    ],
+    "rules": {
+      "import/prefer-default-export": "off"
+    }
+  },
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "bluebird",
+        "version": "3.4.6",
+        "path": "node_modules/bluebird/js/release/bluebird.js"
+      },
+      {
+        "name": "commander",
+        "version": "2.9.0",
+        "path": "node_modules/commander/index.js"
+      },
+      {
+        "name": "editorconfig",
+        "version": "0.13.2",
+        "path": "node_modules/editorconfig/editorconfig.js"
+      },
+      {
+        "name": "graceful-readlink",
+        "version": "1.0.1",
+        "path": "node_modules/graceful-readlink/index.js"
+      },
+      {
+        "name": "lazy-req",
+        "version": "1.1.0",
+        "path": "node_modules/lazy-req/index.js"
+      },
+      {
+        "name": "lru-cache",
+        "version": "3.2.0",
+        "path": "node_modules/lru-cache/lib/lru-cache.js"
+      },
+      {
+        "name": "pify",
+        "version": "2.3.0",
+        "path": "node_modules/pify/index.js"
+      },
+      {
+        "name": "pseudomap",
+        "version": "1.0.2",
+        "path": "node_modules/pseudomap/map.js"
+      },
+      {
+        "name": "sigmund",
+        "version": "1.0.1",
+        "path": "node_modules/sigmund/sigmund.js"
+      }
+    ],
+    "extensions": {
+      ".js": [
+        "index.js",
+        "lib/statustile-view.js",
+        "lib/wrapguide-view.js",
+        "node_modules/bluebird/js/browser/bluebird.core.js",
+        "node_modules/bluebird/js/browser/bluebird.core.min.js",
+        "node_modules/bluebird/js/browser/bluebird.js",
+        "node_modules/bluebird/js/browser/bluebird.min.js",
+        "node_modules/bluebird/js/release/any.js",
+        "node_modules/bluebird/js/release/assert.js",
+        "node_modules/bluebird/js/release/async.js",
+        "node_modules/bluebird/js/release/bind.js",
+        "node_modules/bluebird/js/release/bluebird.js",
+        "node_modules/bluebird/js/release/call_get.js",
+        "node_modules/bluebird/js/release/cancel.js",
+        "node_modules/bluebird/js/release/catch_filter.js",
+        "node_modules/bluebird/js/release/context.js",
+        "node_modules/bluebird/js/release/debuggability.js",
+        "node_modules/bluebird/js/release/direct_resolve.js",
+        "node_modules/bluebird/js/release/each.js",
+        "node_modules/bluebird/js/release/errors.js",
+        "node_modules/bluebird/js/release/es5.js",
+        "node_modules/bluebird/js/release/filter.js",
+        "node_modules/bluebird/js/release/finally.js",
+        "node_modules/bluebird/js/release/generators.js",
+        "node_modules/bluebird/js/release/join.js",
+        "node_modules/bluebird/js/release/map.js",
+        "node_modules/bluebird/js/release/method.js",
+        "node_modules/bluebird/js/release/nodeback.js",
+        "node_modules/bluebird/js/release/nodeify.js",
+        "node_modules/bluebird/js/release/promise.js",
+        "node_modules/bluebird/js/release/promise_array.js",
+        "node_modules/bluebird/js/release/promisify.js",
+        "node_modules/bluebird/js/release/props.js",
+        "node_modules/bluebird/js/release/queue.js",
+        "node_modules/bluebird/js/release/race.js",
+        "node_modules/bluebird/js/release/reduce.js",
+        "node_modules/bluebird/js/release/schedule.js",
+        "node_modules/bluebird/js/release/settle.js",
+        "node_modules/bluebird/js/release/some.js",
+        "node_modules/bluebird/js/release/synchronous_inspection.js",
+        "node_modules/bluebird/js/release/thenables.js",
+        "node_modules/bluebird/js/release/timers.js",
+        "node_modules/bluebird/js/release/using.js",
+        "node_modules/bluebird/js/release/util.js",
+        "node_modules/commander/index.js",
+        "node_modules/editorconfig/editorconfig.js",
+        "node_modules/editorconfig/lib/fnmatch.js",
+        "node_modules/editorconfig/lib/ini.js",
+        "node_modules/editorconfig/lib/version.js",
+        "node_modules/graceful-readlink/index.js",
+        "node_modules/lazy-req/index.js",
+        "node_modules/lru-cache/lib/lru-cache.js",
+        "node_modules/pify/index.js",
+        "node_modules/pseudomap/map.js",
+        "node_modules/pseudomap/pseudomap.js",
+        "node_modules/sigmund/bench.js",
+        "node_modules/sigmund/sigmund.js"
+      ],
+      ".json": [
+        "node_modules/bluebird/package.json",
+        "node_modules/commander/package.json",
+        "node_modules/editorconfig/package.json",
+        "node_modules/graceful-readlink/package.json",
+        "node_modules/lazy-req/package.json",
+        "node_modules/lru-cache/package.json",
+        "node_modules/pify/package.json",
+        "node_modules/pseudomap/package.json",
+        "node_modules/sigmund/package.json",
+        "package.json"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "commands",
+          "grammars",
+          "",
+          "lib",
+          "spec"
+        ],
+        "dependencies": {
+          "editorconfig": "^0.13.2",
+          "lazy-req": "^1.1.0",
+          "pify": "^2.3.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/commander"
+        ],
+        "dependencies": {
+          "graceful-readlink": ">= 1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/editorconfig",
+          "node_modules/editorconfig/lib",
+          "node_modules/editorconfig/test"
+        ],
+        "dependencies": {
+          "bluebird": "^3.0.5",
+          "commander": "^2.9.0",
+          "lru-cache": "^3.2.0",
+          "sigmund": "^1.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/lru-cache/lib",
+          "node_modules/lru-cache",
+          "node_modules/lru-cache/test"
+        ],
+        "dependencies": {
+          "pseudomap": "^1.0.1"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/tmp/robbert/d-116107-4682-17a1b09.cslggsc3di/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/tmp/robbert/d-116107-4682-17a1b09.cslggsc3di/package.tgz",
+        "spec": "/tmp/robbert/d-116107-4682-17a1b09.cslggsc3di/package.tgz",
+        "type": "local"
+      },
+      "/tmp/robbert/apm-install-dir-116107-4682-zf2dqv.a99ck2csor"
+    ]
+  ],
+  "_from": "../d-116107-4682-17a1b09.cslggsc3di/package.tgz",
+  "_id": "racer@0.20.0",
+  "_inCache": true,
+  "_location": "/racer",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/tmp/robbert/d-116107-4682-17a1b09.cslggsc3di/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/tmp/robbert/d-116107-4682-17a1b09.cslggsc3di/package.tgz",
+    "spec": "/tmp/robbert/d-116107-4682-17a1b09.cslggsc3di/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116107-4682-17a1b09.cslggsc3di/package.tgz",
+  "_shasum": "4e75ccca65826e772bcc39de685de1f0cea803b9",
+  "_shrinkwrap": null,
+  "_spec": "/tmp/robbert/d-116107-4682-17a1b09.cslggsc3di/package.tgz",
+  "_where": "/tmp/robbert/apm-install-dir-116107-4682-zf2dqv.a99ck2csor",
+  "author": {
+    "name": "Eric West",
+    "email": "esw9999@gmail.com",
+    "url": "https://github.com/edubkendo"
+  },
+  "bugs": {
+    "url": "https://github.com/edubkendo/atom-racer/issues"
+  },
+  "contributors": [
+    {
+      "name": "mathieu _alkama_ m.",
+      "email": "code@alkama.com",
+      "url": "https://github.com/alkama"
+    },
+    {
+      "name": "Nathan _phaux_",
+      "email": "phaux@horsefucker.org",
+      "url": "https://github.com/phaux"
+    },
+    {
+      "name": "Michael _mcanders_ Anderson",
+      "email": "mcanders1@gmail.com",
+      "url": "https://github.com/mcanders"
+    },
+    {
+      "name": "Konstantin _UvaK_ Uvarov",
+      "email": "konstantin.uvarov@gmail.com",
+      "url": "https://github.com/UvaK"
+    }
+  ],
+  "dependencies": {
+    "temp": "~0.8.1",
+    "underscore-plus": "~1.6.6"
+  },
+  "description": "Intelligent Rust code completion.",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "homepage": "https://atom.io/packages/racer",
+  "keywords": [
+    "rust",
+    "racer",
+    "autocomplete",
+    "autocomplete-plus"
+  ],
+  "license": "MIT",
+  "main": "./lib/racer",
+  "name": "racer",
+  "optionalDependencies": {},
+  "providedServices": {
+    "autocomplete.provider": {
+      "description": "Intelligent Rust code completion",
+      "versions": {
+        "2.0.0": "provideAutocompletion"
+      }
+    }
+  },
+  "readme": "# [Racer](https://atom.io/packages/racer)\n\n> Providing intelligent code completion and \"find definition\" for Rust via [Racer](https://github.com/phildawes/racer).\n\n![A screenshot of racer at work](https://cloud.githubusercontent.com/assets/1395968/2886329/0396e8a4-d4e2-11e3-9813-f6697a01d959.gif)\n\n## Installation\n\n1. Ensure you have the Atom package [language-rust](https://atom.io/packages/language-rust) installed and active.\n2. Ensure you have [Racer](https://github.com/phildawes/racer) properly installed.\n3. Ensure you have a copy of the [rustc source code](http://www.rust-lang.org/install.html) extracted on your disk.\n4. Install this package via Atom's package manager:\n * go to `Preferences > Packages`, search for `racer`, and install it\n * **OR** use the command line `apm install racer`).\n\n## Configuration\n\ngo to `Preferences > Packages`, search for `racer`, and click `Settings`\n\n| Display Name                             | Description                                                                                                                                                      | Required | Name                          |\n|:-----------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------|:------------------------------|\n| Path to the Racer executable             | Full path (including executable) of Racer's binary (e.g. `/Users/me/racer/bin/racer` or `c:\\racer\\bin\\racer.exe`)                                                | `YES`    | `racer.racerBinPath`          |\n| Path to the Rust source code directory   | Should point to the rustc source directory (e.g. `/Users/me/code/rust/src/`)                                                                                     | `YES`    | `racer.rustSrcPath`           |\n| Autocomplete Scope Blacklist             | Scopes for which no suggestions will be made (e.g. `.source.go .comment`)                                                                                        | `NO`     | `racer.autocompleteBlacklist` |\n| Show position for editor with definition | Can be `Right` or `New`. If `Right` is selected and your view is vertically split, the item will be open in the rightmost pane of the current active pane's row. | `NO`     | `racer.show`                  |\n\n## Usage\n\nJust type some code in a `.rs` file, and racer will automatically show you some suggestions (using the autocomplete+ package provided by Atom).\n\nYou can also `find definition` of your current element by pushing the `F3` key.\n\n## FAQ:\n### Racer doesn't work, or I see plugin errors when I type:\nYour configuration is probably wrong:\n* The path to Racer has to point to the *Racer binary executable* (this is **NOT a directory** we request here).\n* The Rustc source has to point to the *base directory of the source code*.\n* The Atom package *language-rust* is installed and active.\n\n### My project tree (tree-view) flickers:\nWe use temporary files to communicate with racer and need to place them along with your source files.\n\nWe shaped them as `._racertmpXXXXX` because the `._*` files are ignored by default by Atom.\n\nChange your configuration so that the `tree-view` package follows Atom ignore rules!\n* Open `Settings > Packages`\n* Search the core package called `tree-view`, click `Settings`\n* Check the box called `Hide Ignored Names`\n\nNote: by the way, you can control what is ignored in the main Atom settings top panel.\n* Open `Settings > Settings` (the first tab)\n* Search the \"core settings\" section for the `Ignored Names` field\n* check that it's either empty (default), or contains `._*`, or add yourself a `._racertmp*` entry if you already changed the settings.\n\n### Why do you constantly put (and remove) temporary files in my project:\nWe use temporary files to communicate with racer and need to place them along with your source files so that racer:\n* locates your project,\n* provides completion for your whole projects code,\n* locates your cargo file if it exists and use it to provide completion for your dependencies.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edubkendo/atom-racer.git"
+  },
+  "version": "0.20.0",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "os-tmpdir",
+        "version": "1.0.2",
+        "path": "node_modules/os-tmpdir/index.js"
+      },
+      {
+        "name": "rimraf",
+        "version": "2.2.8",
+        "path": "node_modules/rimraf/rimraf.js"
+      },
+      {
+        "name": "temp",
+        "version": "0.8.3",
+        "path": "node_modules/temp/lib/temp.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.6.0",
+        "path": "node_modules/underscore/underscore.js"
+      },
+      {
+        "name": "underscore-plus",
+        "version": "1.6.6",
+        "path": "node_modules/underscore-plus/lib/underscore-plus.js"
+      }
+    ],
+    "extensions": {
+      ".coffee": [
+        "lib/racer-client.coffee",
+        "lib/racer-provider.coffee",
+        "lib/racer.coffee"
+      ],
+      ".js": [
+        "node_modules/os-tmpdir/index.js",
+        "node_modules/rimraf/bin.js",
+        "node_modules/rimraf/rimraf.js",
+        "node_modules/temp/examples/grepcount.js",
+        "node_modules/temp/examples/pdfcreator.js",
+        "node_modules/temp/lib/temp.js",
+        "node_modules/temp/no_cleanup.js",
+        "node_modules/temp/no_cleanup_on_exit.js",
+        "node_modules/temp/no_cleanup_on_exit.spec.js",
+        "node_modules/underscore/underscore-min.js",
+        "node_modules/underscore/underscore.js",
+        "node_modules/underscore-plus/lib/underscore-plus.js"
+      ],
+      ".json": [
+        "node_modules/os-tmpdir/package.json",
+        "node_modules/rimraf/package.json",
+        "node_modules/temp/package.json",
+        "node_modules/underscore/package.json",
+        "node_modules/underscore-plus/package.json",
+        "package.json"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "lib",
+          "",
+          "spec"
+        ],
+        "dependencies": {
+          "temp": "~0.8.1",
+          "underscore-plus": "~1.6.6"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/temp/examples",
+          "node_modules/temp/lib",
+          "node_modules/temp",
+          "node_modules/temp/test"
+        ],
+        "dependencies": {
+          "os-tmpdir": "^1.0.0",
+          "rimraf": "~2.2.6"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/underscore-plus/lib",
+          "node_modules/underscore-plus"
+        ],
+        "dependencies": {
+          "underscore": "~1.6.0"
+        }
+      }
+    ]
+  }
+}

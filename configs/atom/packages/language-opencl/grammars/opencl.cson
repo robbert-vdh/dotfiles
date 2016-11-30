@@ -1,0 +1,104 @@
+'fileTypes': [
+  'cl'
+]
+'foldingStartMarker': '/\\*\\*|\\{\\s*$'
+'foldingStopMarker': '\\*\\*/|^\\s*\\}'
+'name': 'opencl'
+'patterns': [
+  {
+    'match': '\\b(break|case|continue|default|do|else|for|goto|if|_Pragma|return|switch|while)\\b'
+    'name': 'keyword.control.opencl'
+  }
+  {
+    'match': '\\b((bool|u?(char|short|int|long)|float|half|quad|double)([2348]|16)?|size_t|ptrdiff_t|intptr_t|uintptr_t|(double|float)([2348]|16)x([2348]|16)|void|union|struct|enum)\\b'
+    'name': 'storage.type.opencl'
+  }
+  {
+    'match': '\\b((image1d(_buffer|_array)?|image2d(_array)?)|image3d|sampler|event)_t\\b'
+    'name': 'storage.type.image.opencl'
+  }
+  {
+    'match': '\\b(aligned|packed|endian)\\b'
+    'name': 'storage.type.alignment.opencl'
+  }
+  {
+    'match': '\\b(host|device)\\b'
+    'name': 'storage.type.alignment.endian.opencl'
+  }
+  {
+    'match': '\\b(const|restrict|volatile|inline|typedef|unsigned|complex|imaginary|long)\\b'
+    'name': 'storage.modifier.opencl'
+  }
+  {
+    'match': '\\b((kernel|global|local|private|constant)|(__)?(kernel|global|local|private|constant)|__attribute__)\\b'
+    'name': 'keyword.address-space.opencl'
+  }
+  {
+    'match': '\\b((__)?(read_only|write_only|read_write))\\b'
+    'name': 'storage.access-qualifiers.opencl'
+  }
+  {
+    'match': '\\b(convert_((u?(char|short|int|long))|float|double|half)([2348]|16)?(_sat)?(_rte|_rtz|_rtp|_rtn)?|as_((u?(char|short|int|long))|float|double|half)([2348]|16)?)\\b'
+    'name': 'support.function.builtin.conversion.opencl'
+  }
+  {
+    'match': '\\b(NULL|true|false|TRUE|FALSE)\\b'
+    'name': 'constant.language.opencl'
+  }
+  {
+    'match': '\\b(MAXFLOAT|HUGE_VALF|HUGE_VAL|INFINITY|NAN)\\b'
+    'name': 'constant.language.math.opencl'
+  }
+  {
+    'match': '\\b(get_work_dim|get_global_size|get_global_id|get_local_size|get_local_id|get_num_groups|get_group_id|get_global_offset)\\b'
+    'name': 'support.function.builtin.workitem.opencl'
+  }
+  {
+    'match': '\\b(acos|acosh|acospi|asin|asinh|asinpi|atan|atan2|atanh|atanpi|atan2pi|cbrt|ceil|copysign|cos|cosh|cospi|erfc|erf|exp|exp2|exp10|expm1|fabs|fdim|floor|fma|fmax|fmin|fmod|fract|frexp|hypot|ilogb|ldexp|lgamma|lgamma_r|log|log2|log10|log1p|logb|mad|maxmag|minmag|modf|nan|nextafter|pow|pown|powr|remainder|remquo|rint|rootn|round|rsqrt|sin|sincos|sinh|sinpi|sqrt|tan|tanh|tanpi|tgamma|trunc|(half_|native_)(cos|divide|exp|exp2|exp10|log|log2|log10|hpowr|recip|sqrt|sin|sqrt|tan))\\b'
+    'name': 'support.function.builtin.math.opencl'
+  }
+  {
+    'match': '\\b(abs|abs_diff|add_sat|hadd|rhadd|clamp|clz|mad_hi|mad_sat|max|min|mul_hi|rotate|sub_sat|upsample|mad24|mul24)\\b'
+    'name': 'support.function.builtin.math.integer.opencl'
+  }
+  {
+    'match': '\\b(degrees|mix|radians|step|smoothstep|sign)\\b'
+    'name': 'support.function.builtin.math.common.opencl'
+  }
+  {
+    'match': '\\b(isequal|isnotequal|isgreater|isgreaterequal|isless|islessequal|islessgreater|isfinite|isinf|isnan|isnormal|isordered|isunordered|signbit|any|all|bitselect|select)\\b'
+    'name': 'support.function.builtin.math.relational.opencl'
+  }
+  {
+    'match': '\\b((vload|vstore|vload[a]?_half)([2348]|16)|vload_half|vstore[a]?_half([2348]|16)?(_rte|_rtz|_rtp|_rtn)?)\\b'
+    'name': 'support.function.builtin.math.vector-load.opencl'
+  }
+  {
+    'match': '\\b(cross|dot|distance|length|normalize|fast_distance|fast_length|fast_normalize)\\b'
+    'name': 'support.function.builtin.math.geometric.opencl'
+  }
+  {
+    'match': '\\b(barrier|mem_fence|read_mem_fence|write_mem_fence)\\b'
+    'name': 'support.function.builtin.math.synchronization.opencl'
+  }
+  {
+    'match': '\\b(async_work_group_(copy|strided_copy)|wait_group_events|prefetch)\\b'
+    'name': 'support.function.builtin.copying.opencl'
+  }
+  {
+    'match': '\\b(atom_(add|sub|xchg|inc|dec)|atomic_(add|sub|xchg|inc|dec|cmpxchg|min|max|and|or|xor))\\b'
+    'name': 'support.function.builtin.math.atomic.opencl'
+  }
+  {
+    'match': '\\b(vec_step|shuffle|shuffle2)\\b'
+    'name': 'support.function.builtin.math.vector.opencl'
+  }
+  {
+    'match': '\\b(read_image(f|i|ui)|write_image(f|i|ui)|get_image_(width|height|depth|channel_data_type|channel_order|dim))\\b'
+    'name': 'support.function.builtin.sampling.opencl'
+  }
+  {
+    'include': 'source.c'
+  }
+]
+'scopeName': 'source.opencl'

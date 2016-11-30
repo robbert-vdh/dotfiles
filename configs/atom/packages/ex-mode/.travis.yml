@@ -1,0 +1,13 @@
+language: objective-c
+env:
+    - APM_TEST_PACKAGES="vim-mode"
+
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+
+script: 'curl -s https://raw.githubusercontent.com/atom/ci/master/build-package.sh | sh'
+
+git:
+  depth: 10

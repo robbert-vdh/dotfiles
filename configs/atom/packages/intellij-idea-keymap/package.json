@@ -1,0 +1,70 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/tmp/robbert/d-116930-22638-1g12wra.se4h9nqaor/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/tmp/robbert/d-116930-22638-1g12wra.se4h9nqaor/package.tgz",
+        "spec": "/tmp/robbert/d-116930-22638-1g12wra.se4h9nqaor/package.tgz",
+        "type": "local"
+      },
+      "/tmp/robbert/apm-install-dir-116930-22638-lvv2ly.351sg4lsor"
+    ]
+  ],
+  "_from": "../d-116930-22638-1g12wra.se4h9nqaor/package.tgz",
+  "_id": "intellij-idea-keymap@0.2.3",
+  "_inCache": true,
+  "_location": "/intellij-idea-keymap",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/tmp/robbert/d-116930-22638-1g12wra.se4h9nqaor/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/tmp/robbert/d-116930-22638-1g12wra.se4h9nqaor/package.tgz",
+    "spec": "/tmp/robbert/d-116930-22638-1g12wra.se4h9nqaor/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-116930-22638-1g12wra.se4h9nqaor/package.tgz",
+  "_shasum": "2c9f83bd60d32f8840efbb7f957e3050b449dab3",
+  "_shrinkwrap": null,
+  "_spec": "/tmp/robbert/d-116930-22638-1g12wra.se4h9nqaor/package.tgz",
+  "_where": "/tmp/robbert/apm-install-dir-116930-22638-lvv2ly.351sg4lsor",
+  "dependencies": {},
+  "description": "Jetbrains IntelliJ IDEA based key bindings",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "keywords": [
+    "Jetbrains",
+    "IntelliJ",
+    "IDEA",
+    "keymap"
+  ],
+  "license": "MIT",
+  "name": "intellij-idea-keymap",
+  "optionalDependencies": {},
+  "readme": "# intellij-idea-keymap\n\n> [Jetbrains IntelliJ IDEA](https://www.jetbrains.com/idea/) based key bindings for the [Atom](https://atom.io) editor.\n\n# Table of contents\n\n- [Introduction](#introduction)\n- [Features](#features)\n- [Installation](#installation)\n- [Changelog](#changelog)\n- [Known issues](#known-issues)\n- [Contribution](#contribution)\n- [License](#license)\n\n# Introduction\n\nAs a power IntelliJ IDEA user I am used to the key bindings for years and therefore I created this package to be able to use the same bindings in the Atom editor too. I hope you can also make use of it and contributions/feedbacks are welcome.\n\n# Features\n\nThe `intellij-idea-keymap` package has the following features:\n\n* Basic key bindings of IntelliJ IDEA are mapped to core commands in Atom for Mac OSX, Windows and Linux\n* If you want to format the code automatically you can install the [atom-beautify](https://atom.io/packages/atom-beautify) package and then use the `cmd-alt-l` shortcut to format code in the active editor.\n\n# Installation\n\nTo install the package please execute the following command in a terminal:\n\n```shell\napm install intellij-idea-keymap\n```\n\nIf the `apm` command is not recognized then please open Atom, open the `Atom` menu, and select `Install Shell Commands`. Then try it again.\n\n# Changelog\n\nPlease have a look at the changelog [here](https://github.com/guylabs/intellij-idea-keymap/blob/master/CHANGELOG.md).\n\n# Contribution\n\nIf you want to add more shortcuts or any other feature please create a pull request and I will try my best to review and merge it. Contributing is highly appreciated! Thanks in advance.\n\n## Contributions\n\n* [#1](https://github.com/guylabs/intellij-idea-keymap/pull/1) Windows and Linux keymap. Thanks to [@gquintana](https://github.com/gquintana).\n* [#4](https://github.com/guylabs/intellij-idea-keymap/pull/4) New shortcuts. Thanks to  [@christophehurpeau](https://github.com/christophehurpeau).\n* [#7](https://github.com/guylabs/intellij-idea-keymap/pull/7) New shortcuts, tree view enhancements and support for [atom-beautify](https://atom.io/packages/atom-beautify) package. Thanks to [@5pid](https://github.com/5pid).\n* [#11](https://github.com/guylabs/intellij-idea-keymap/pull/11) `shift-enter` shortcut. Thanks to [@jcoulter](https://github.com/jcoulter).\n\n# License\n\nThis `intellij-idea-keymap` package is available under the MIT license.\n\n(c) Guy Brand\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https:/github.com/guylabs/intellij-idea-keymap"
+  },
+  "version": "0.2.3",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

@@ -1,0 +1,5 @@
+{
+    "dependencies": [
+        { "require-run": "./raptor-logging-impl", "if-extension": "raptor-logging/browser" }
+    ]
+}
