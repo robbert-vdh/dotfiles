@@ -1,5 +1,6 @@
 packages: [
   "atom-beautify"
+  "atom-keyboard-macros-vim"
   "atom-terminal"
   "autocomplete-python"
   "cursor-history"

@@ -31,6 +31,8 @@
 # Atom Flight Manual:
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
 'atom-text-editor.vim-mode-plus.normal-mode':
+    'ctrl-alt-f': 'find-and-replace:show'
+
     # ex mdoe
     ':': 'vim-mode-plus-ex-mode:open'
     '!': 'vim-mode-plus-ex-mode:toggle-setting'
@@ -62,3 +64,5 @@
     # Keybindings met leader key
     'space =': 'atom-beautify:beautify-editor'
     'g d': 'autocomplete-python:go-to-definition'
+
+    'Q': 'atom-keyboard-macros:call_last_kbd_macro'
