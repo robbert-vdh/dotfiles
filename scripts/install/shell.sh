@@ -10,6 +10,18 @@ if ! type -P git &>/dev/null; then
   exit 1;
 fi
 
+# Installeer prezto
+if [ ! -d $HOME/.zprezto/ ]; then
+  echo "========================================"
+  echo "Prezto installeren..."
+  echo "========================================"
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+  chsh -s /bin/zsh
+
+  echo "Draai $(dirname $(dirname $(pwd)))/install om de symlinks te maken"
+  echo "Start daarna de terminal opnieuw op om naar zsh over te schakelen"
+fi
+
 # Installeer base16 ondersteuning voor zsh
 if [ ! -d $HOME/.config/base16-shell/ ]; then
   echo "========================================"
@@ -17,6 +29,7 @@ if [ ! -d $HOME/.config/base16-shell/ ]; then
   echo "========================================"
 
   git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+  zsh -c "base16_tomorrow-night"
 fi
 
 # Installeer base16 themes voor gnome-terminal
@@ -29,17 +42,5 @@ if [ ! -d $HOME/.config/base16-gnome-terminal/ ]; then
   bash $HOME/.config/base16-gnome-terminal/base16-tomorrow.dark.sh
 
   echo "Herstart de terminal en kies het 'Base16 Tomorrow Night' profiel"
-fi
-
-# Installeer prezto
-if [ ! -d $HOME/.zprezto/ ]; then
-  echo "========================================"
-  echo "Prezto installeren..."
-  echo "========================================"
-  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-  chsh -s /bin/zsh
-
-  echo "Draai $(dirname $(dirname $(pwd)))/install om de symlinks te maken"
-  echo "Start daarna de terminal opnieuw op om naar zsh over te schakelen"
 fi
 
