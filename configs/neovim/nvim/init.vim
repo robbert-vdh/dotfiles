@@ -24,22 +24,23 @@ Plug 'spoqa/nirum.vim'
 Plug 'pbrisbin/vim-syntax-shakespeare'
 
 Plug 'vim-airline/vim-airline'
-"Plug 'dahlia/ale', { 'branch': 'haskell-stack' }
-"Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
 Plug 'simnalamburt/vim-mundo'
 "Plug 'rhysd/committia.vim'
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tpope/vim-fugitive'
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'zchee/deoplete-jedi'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
 Plug 'junegunn/vim-slash'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/vimshell.vim'
 
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
+
+Plug 'ervandew/supertab'
 
 "End plugin list --------------------------------------------------------------
 call plug#end()

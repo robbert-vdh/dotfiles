@@ -6,6 +6,13 @@
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/node_modules/foundation-sites/scss/components/_callout.scss" timestamp="1480441329700">
         <mark key="'" line="46" column="11" />
       </file>
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Controllers/WorkshopController.php" timestamp="1480616361415">
+        <mark key="'" line="117" column="0" />
+        <mark key="[" line="126" column="16" />
+        <mark key="]" line="126" column="76" />
+        <mark key="^" line="128" column="40" />
+        <mark key="." line="126" column="16" />
+      </file>
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/vendor/bolt/bolt/src/Controller/Backend/Records.php" timestamp="1480442082378">
         <mark key="'" line="49" column="17" />
       </file>
@@ -23,6 +30,13 @@
       </file>
       <file name="/a.dummy" timestamp="1480442949491">
         <mark key="[" line="0" column="0" />
+      </file>
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/tests/functional/Factories/QuizFactoryTest.php" timestamp="1480616714960">
+        <mark key="'" line="134" column="0" />
+        <mark key="[" line="102" column="15" />
+        <mark key="]" line="102" column="16" />
+        <mark key="^" line="101" column="11" />
+        <mark key="." line="102" column="16" />
       </file>
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/node_modules/foundation-sites/scss/components/_button.scss" timestamp="1480427129314">
         <mark key="[" line="185" column="14" />
@@ -50,6 +64,11 @@
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/vendor/bolt/bolt/src/Legacy/Storage.php" timestamp="1480443236851">
         <mark key="'" line="411" column="38" />
       </file>
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/partials/quiz-answers.twig" timestamp="1480616835018">
+        <mark key="[" line="0" column="0" />
+        <mark key="]" line="15" column="8" />
+        <mark key="." line="0" column="0" />
+      </file>
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_archive.scss" timestamp="1480431342547">
         <mark key="'" line="15" column="13" />
         <mark key="[" line="35" column="34" />
@@ -64,6 +83,15 @@
       </file>
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/vendor/bolt/bolt/src/Controller/Async/General.php" timestamp="1480442964839">
         <mark key="'" line="37" column="29" />
+      </file>
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Factories/QuizFactory.php" timestamp="1480616628199">
+        <mark key="[" line="58" column="13" />
+        <mark key="]" line="59" column="37" />
+        <mark key="^" line="59" column="37" />
+        <mark key="." line="59" column="37" />
+      </file>
+      <file name="$USER_HOME$/Documenten/websites/zzindi/extensions/local/zzindi/website/templates/emails/partials/attendee-data.twig" timestamp="1480617455315">
+        <mark key="]" line="0" column="8" />
       </file>
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_button-bar.scss" timestamp="1480378943362">
         <mark key="'" line="66" column="22" />
@@ -85,19 +113,25 @@
         <mark key="." line="44" column="24" />
         <mark key="^" line="44" column="24" />
       </file>
-      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/community/show.twig" timestamp="1480444762978">
-        <mark key="'" line="24" column="43" />
-        <mark key="[" line="28" column="0" />
-        <mark key="]" line="28" column="0" />
-        <mark key="." line="28" column="0" />
-        <mark key="^" line="24" column="52" />
-      </file>
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/node_modules/@types/medium-editor/index.d.ts" timestamp="1480428682083">
         <mark key="'" line="63" column="12" />
         <mark key="[" line="63" column="12" />
         <mark key="]" line="63" column="9" />
         <mark key="." line="63" column="9" />
         <mark key="^" line="63" column="9" />
+      </file>
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/quiz/confirmation.twig" timestamp="1480616887461">
+        <mark key="'" line="17" column="1" />
+        <mark key="[" line="6" column="4" />
+        <mark key="]" line="6" column="28" />
+        <mark key="." line="6" column="28" />
+        <mark key="^" line="6" column="28" />
+      </file>
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/quiz/results.twig" timestamp="1480616848674">
+        <mark key="[" line="30" column="0" />
+        <mark key="]" line="30" column="51" />
+        <mark key="." line="30" column="46" />
+        <mark key="^" line="30" column="46" />
       </file>
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/vendor/bolt/bolt/src/Storage/EntityManager.php" timestamp="1480443029464">
         <mark key="'" line="48" column="18" />
@@ -108,6 +142,13 @@
         <mark key="]" line="41" column="20" />
         <mark key="." line="41" column="20" />
         <mark key="^" line="41" column="20" />
+      </file>
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Controllers/QuizController.php" timestamp="1480616584416">
+        <mark key="'" line="88" column="26" />
+        <mark key="[" line="88" column="78" />
+        <mark key="]" line="88" column="97" />
+        <mark key="." line="88" column="97" />
+        <mark key="^" line="88" column="97" />
       </file>
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_forms.scss" timestamp="1480430317555">
         <mark key="[" line="13" column="0" />
@@ -225,57 +266,6 @@
       </file>
     </filemarks>
     <jumps>
-      <jump line="41" column="14" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_header-buttons.scss" />
-      <jump line="2" column="2" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_header-buttons.scss" />
-      <jump line="3" column="2" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_header-buttons.scss" />
-      <jump line="51" column="4" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_header-buttons.scss" />
-      <jump line="18" column="32" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/navigation/_mobile.scss" />
-      <jump line="43" column="6" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/navigation/_mobile.scss" />
-      <jump line="50" column="17" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_header-buttons.scss" />
-      <jump line="12" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/layouts/_page.scss" />
-      <jump line="22" column="31" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/pages/show.twig" />
-      <jump line="79" column="11" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/base/_settings.scss" />
-      <jump line="112" column="11" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/base/_settings.scss" />
-      <jump line="21" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/pages/show.twig" />
-      <jump line="46" column="28" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/pages/show.twig" />
-      <jump line="30" column="33" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/pages/show.twig" />
-      <jump line="18" column="2" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/layouts/_page.scss" />
-      <jump line="51" column="4" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/pages/show.twig" />
-      <jump line="28" column="8" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/pages/index.twig" />
-      <jump line="0" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/pages/404.twig" />
-      <jump line="5" column="17" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/pages/404.twig" />
-      <jump line="14" column="14" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/workshops/index.twig" />
-      <jump line="5" column="2" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/workshops/index.twig" />
-      <jump line="16" column="20" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/layouts/_page.scss" />
-      <jump line="15" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/scans/show.twig" />
-      <jump line="59" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/pages/show.twig" />
-      <jump line="54" column="16" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/base/_settings.scss" />
-      <jump line="0" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_header.scss" />
-      <jump line="64" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/base/_settings.scss" />
-      <jump line="113" column="5" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/base/_settings.scss" />
-      <jump line="44" column="4" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/layouts/_page.scss" />
-      <jump line="39" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/layouts/_page.scss" />
-      <jump line="33" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_buttons.scss" />
-      <jump line="1" column="13" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_buttons.scss" />
-      <jump line="96" column="21" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/base/_settings.scss" />
-      <jump line="180" column="1" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/base/_settings.scss" />
-      <jump line="181" column="32" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/base/_settings.scss" />
-      <jump line="246" column="1" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/base/_settings.scss" />
-      <jump line="32" column="6" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/layouts/_page.scss" />
-      <jump line="5" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_forms.scss" />
-      <jump line="6" column="14" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_forms.scss" />
-      <jump line="63" column="12" filename="$USER_HOME$/Documenten/websites/meer-waarde/node_modules/@types/medium-editor/index.d.ts" />
-      <jump line="48" column="46" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/js/entry.ts" />
-      <jump line="15" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/js/entry.ts" />
-      <jump line="11" column="28" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_forms.scss" />
-      <jump line="12" column="34" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_forms.scss" />
-      <jump line="17" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/main.scss" />
-      <jump line="0" column="0" filename="$USER_HOME$/Documenten/websites/selles-van-dijk/public/theme/theme/assets/scss/layouts/_archive.scss" />
-      <jump line="32" column="18" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_archive.scss" />
-      <jump line="40" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_archive.scss" />
-      <jump line="31" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_archive.scss" />
-      <jump line="46" column="23" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_archive.scss" />
-      <jump line="44" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_archive.scss" />
       <jump line="35" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_archive.scss" />
       <jump line="30" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_archive.scss" />
       <jump line="47" column="34" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_archive.scss" />
@@ -325,112 +315,116 @@
       <jump line="69" column="31" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Controllers/CommunityController.php" />
       <jump line="31" column="4" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/community/show.twig" />
       <jump line="24" column="43" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/community/show.twig" />
+      <jump line="6" column="337" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/quiz/confirmation.twig" />
+      <jump line="7" column="371" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/quiz/confirmation.twig" />
+      <jump line="9" column="23" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/quiz/confirmation.twig" />
+      <jump line="8" column="5" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/quiz/confirmation.twig" />
+      <jump line="41" column="5" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Controllers/QuizController.php" />
+      <jump line="80" column="16" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Factories/QuizFactory.php" />
+      <jump line="12" column="6" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Factories/QuizFactory.php" />
+      <jump line="4" column="40" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Factories/QuizFactory.php" />
+      <jump line="84" column="26" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Controllers/QuizController.php" />
+      <jump line="36" column="12" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Factories/QuizFactory.php" />
+      <jump line="73" column="57" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Factories/QuizFactory.php" />
+      <jump line="94" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Factories/QuizFactory.php" />
+      <jump line="17" column="26" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/quiz/results.twig" />
+      <jump line="15" column="20" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/quiz/results.twig" />
+      <jump line="16" column="19" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/quiz/results.twig" />
+      <jump line="20" column="17" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/quiz/results.twig" />
+      <jump line="6" column="3" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/quiz/results.twig" />
+      <jump line="24" column="1" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/quiz/results.twig" />
+      <jump line="33" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/quiz/results.twig" />
+      <jump line="42" column="5" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/quiz/results.twig" />
+      <jump line="40" column="4" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/quiz/results.twig" />
+      <jump line="26" column="1" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/quiz/results.twig" />
+      <jump line="23" column="4" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/quiz/results.twig" />
+      <jump line="81" column="37" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Controllers/QuizController.php" />
+      <jump line="59" column="12" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Factories/QuizFactory.php" />
+      <jump line="36" column="12" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/quiz/results.twig" />
+      <jump line="9" column="6" filename="$USER_HOME$/Documenten/websites/meer-waarde/tests/functional/Factories/QuizFactoryTest.php" />
+      <jump line="118" column="67" filename="$USER_HOME$/Documenten/websites/meer-waarde/tests/functional/Factories/QuizFactoryTest.php" />
+      <jump line="128" column="8" filename="$USER_HOME$/Documenten/websites/meer-waarde/tests/functional/Factories/QuizFactoryTest.php" />
+      <jump line="129" column="8" filename="$USER_HOME$/Documenten/websites/meer-waarde/tests/functional/Factories/QuizFactoryTest.php" />
+      <jump line="16" column="6" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Controllers/WorkshopController.php" />
+      <jump line="107" column="22" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Controllers/WorkshopController.php" />
+      <jump line="131" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Controllers/WorkshopController.php" />
+      <jump line="119" column="20" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Controllers/WorkshopController.php" />
+      <jump line="129" column="39" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Controllers/WorkshopController.php" />
+      <jump line="101" column="36" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Controllers/WorkshopController.php" />
+      <jump line="122" column="46" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Controllers/WorkshopController.php" />
+      <jump line="117" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Controllers/WorkshopController.php" />
+      <jump line="83" column="20" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Controllers/QuizController.php" />
+      <jump line="82" column="32" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Controllers/QuizController.php" />
+      <jump line="88" column="26" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Controllers/QuizController.php" />
+      <jump line="52" column="4" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Factories/QuizFactory.php" />
+      <jump line="74" column="37" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Factories/QuizFactory.php" />
+      <jump line="51" column="85" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Factories/QuizFactory.php" />
+      <jump line="70" column="21" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Factories/QuizFactory.php" />
+      <jump line="48" column="5" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Factories/QuizFactory.php" />
+      <jump line="101" column="81" filename="$USER_HOME$/Documenten/websites/meer-waarde/tests/functional/Factories/QuizFactoryTest.php" />
+      <jump line="125" column="14" filename="$USER_HOME$/Documenten/websites/meer-waarde/tests/functional/Factories/QuizFactoryTest.php" />
+      <jump line="104" column="14" filename="$USER_HOME$/Documenten/websites/meer-waarde/tests/functional/Factories/QuizFactoryTest.php" />
+      <jump line="132" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/tests/functional/Factories/QuizFactoryTest.php" />
+      <jump line="17" column="1" filename="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/quiz/confirmation.twig" />
     </jumps>
     <registers>
-      <register name="&quot;" type="2">
-        <text encoding="base64">ICA8L2FydGljbGU+Cg==</text>
+      <register name="a" type="2">
+        <text encoding="base64">PHRhYmxlPgogICAgPHRoZWFkPgogICAgPHRyPgogICAgICA8dGg+VnJhYWc8L3RoPgogICAgICA8dGg+QW50d29vcmQ8L3RoPgogICAgPC90cj4KICAgIDwvdGhlYWQ+CiAgICA8dGJvZHk+CiAgICB7JSBmb3IgcXVlc3Rpb24sIGFuc3dlciBpbiBhbnN3ZXJzICV9CiAgICAgIDx0cj4KICAgICAgICA8dGQ+e3sgcXVlc3Rpb24gfX08L3RkPgogICAgICAgIDx0ZD57eyBhbnN3ZXIgfX08L3RkPgogICAgICA8L3RyPgogICAgeyUgZW5kZm9yICV9CiAgICA8L3Rib2R5PgogIDwvdGFibGU+Cg==</text>
+      </register>
+      <register name="&quot;" type="4">
+        <text encoding="base64">PHRhYmxlIGNsYXNzPSJkYXRhIj4KICA8dHIgY2xhc3M9ImRhdGFfX3JvdyI+CiAgICA8dGQgY2xhc3M9ImRhdGFfX2xhYmVsIj5UcmFpbmluZzwvdGQ+CiAgICA8dGQ+e3sgd29ya3Nob3AudGl0bGUgfX08L3RkPgogIDwvdHI+CiAgPHRyIGNsYXNzPSJkYXRhX19yb3ciPgogICAgPHRkIGNsYXNzPSJkYXRhX19sYWJlbCI+TmFhbTwvdGQ+CiAgICA8dGQ+e3sgYXR0ZW5kZWUubmFtZSB9fTwvdGQ+CiAgPC90cj4KICA8dHIgY2xhc3M9ImRhdGFfX3JvdyI+CiAgICA8dGQgY2xhc3M9ImRhdGFfX2xhYmVsIj5FLW1haWxhZHJlczwvdGQ+CiAgICA8dGQ+e3sgYXR0ZW5kZWUuZW1haWwgfX08L3RkPgogIDwvdHI+CiAgPHRyIGNsYXNzPSJkYXRhX19yb3ciPgogICAgPHRkIGNsYXNzPSJkYXRhX19sYWJlbCI+QmVkcmlqZnNuYWFtPC90ZD4KICAgIDx0ZD57eyBhdHRlbmRlZS5jb21wYW55IH19PC90ZD4KICA8L3RyPgogIDx0ciBjbGFzcz0iZGF0YV9fcm93Ij4KICAgIDx0ZCBjbGFzcz0iZGF0YV9fbGFiZWwiPlRlbGVmb29ubnVtbWVyPC90ZD4KICAgIDx0ZD57eyBhdHRlbmRlZS5waG9uZSB9fTwvdGQ+CiAgPC90cj4KICA8dHIgY2xhc3M9ImRhdGFfX3JvdyI+CiAgICA8dGQgY2xhc3M9ImRhdGFfX2xhYmVsIj5PcG1lcmtpbmdlbjwvdGQ+CiAgICA8dGQ+e3sgYXR0ZW5kZWUuY29tbWVudHN8cmF3IH19PC90ZD4geyMgRGUgb3BtZXJraW5nZW4gd29yZGVuIGJpaiBoZXQgaW5sZXZlcmVuIGdlc2FuaXRpemVkICN9CiAgPC90cj4KPC90YWJsZT4=</text>
       </register>
       <register name="-" type="4">
-        <text>.</text>
+        <text>}</text>
       </register>
       <register name="/" type="4">
-        <text>paths</text>
+        <text encoding="base64">PHA=</text>
       </register>
       <register name="0" type="2">
-        <text encoding="base64">ICAgIHt7IHBhdGhzLmNhbm9uaWNhbHVybCB9fQo=</text>
+        <text encoding="base64">ICB7JSBpbmNsdWRlICdlbWFpbHMvcGFydGlhbHMvcXVpei1hbnN3ZXJzLnR3aWcnICV9Cg==</text>
       </register>
-      <register name="1" type="2">
-        <text encoding="base64">ICA8L2FydGljbGU+Cg==</text>
+      <register name="1" type="4">
+        <text encoding="base64">PHRhYmxlIGNsYXNzPSJkYXRhIj4KICA8dHIgY2xhc3M9ImRhdGFfX3JvdyI+CiAgICA8dGQgY2xhc3M9ImRhdGFfX2xhYmVsIj5UcmFpbmluZzwvdGQ+CiAgICA8dGQ+e3sgd29ya3Nob3AudGl0bGUgfX08L3RkPgogIDwvdHI+CiAgPHRyIGNsYXNzPSJkYXRhX19yb3ciPgogICAgPHRkIGNsYXNzPSJkYXRhX19sYWJlbCI+TmFhbTwvdGQ+CiAgICA8dGQ+e3sgYXR0ZW5kZWUubmFtZSB9fTwvdGQ+CiAgPC90cj4KICA8dHIgY2xhc3M9ImRhdGFfX3JvdyI+CiAgICA8dGQgY2xhc3M9ImRhdGFfX2xhYmVsIj5FLW1haWxhZHJlczwvdGQ+CiAgICA8dGQ+e3sgYXR0ZW5kZWUuZW1haWwgfX08L3RkPgogIDwvdHI+CiAgPHRyIGNsYXNzPSJkYXRhX19yb3ciPgogICAgPHRkIGNsYXNzPSJkYXRhX19sYWJlbCI+QmVkcmlqZnNuYWFtPC90ZD4KICAgIDx0ZD57eyBhdHRlbmRlZS5jb21wYW55IH19PC90ZD4KICA8L3RyPgogIDx0ciBjbGFzcz0iZGF0YV9fcm93Ij4KICAgIDx0ZCBjbGFzcz0iZGF0YV9fbGFiZWwiPlRlbGVmb29ubnVtbWVyPC90ZD4KICAgIDx0ZD57eyBhdHRlbmRlZS5waG9uZSB9fTwvdGQ+CiAgPC90cj4KICA8dHIgY2xhc3M9ImRhdGFfX3JvdyI+CiAgICA8dGQgY2xhc3M9ImRhdGFfX2xhYmVsIj5PcG1lcmtpbmdlbjwvdGQ+CiAgICA8dGQ+e3sgYXR0ZW5kZWUuY29tbWVudHN8cmF3IH19PC90ZD4geyMgRGUgb3BtZXJraW5nZW4gd29yZGVuIGJpaiBoZXQgaW5sZXZlcmVuIGdlc2FuaXRpemVkICN9CiAgPC90cj4KPC90YWJsZT4=</text>
       </register>
       <register name="2" type="2">
-        <text encoding="base64">ICA8YXJ0aWNsZSBjbGFzcz0icGFnZV9fY29sdW1uIj4K</text>
+        <text encoding="base64">Cg==</text>
       </register>
       <register name="3" type="2">
-        <text encoding="base64">ICAgIHt7IHVybCB9fQo=</text>
+        <text encoding="base64">PHRhYmxlPgogICAgPHRoZWFkPgogICAgPHRyPgogICAgICA8dGg+VnJhYWc8L3RoPgogICAgICA8dGg+QW50d29vcmQ8L3RoPgogICAgPC90cj4KICAgIDwvdGhlYWQ+CiAgICA8dGJvZHk+CiAgICB7JSBmb3IgcXVlc3Rpb24sIGFuc3dlciBpbiBhbnN3ZXJzICV9CiAgICAgIDx0cj4KICAgICAgICA8dGQ+e3sgcXVlc3Rpb24gfX08L3RkPgogICAgICAgIDx0ZD57eyBhbnN3ZXIgfX08L3RkPgogICAgICA8L3RyPgogICAgeyUgZW5kZm9yICV9CiAgICA8L3Rib2R5PgogIDwvdGFibGU+Cg==</text>
       </register>
       <register name="4" type="2">
-        <text encoding="base64">ICAgIHt7IHVybCB9fQo=</text>
+        <text encoding="base64">PHRhYmxlPgogICAgPHRoZWFkPgogICAgPHRyPgogICAgICA8dGg+VnJhYWc8L3RoPgogICAgICA8dGg+QW50d29vcmQ8L3RoPgogICAgPC90cj4KICAgIDwvdGhlYWQ+CiAgICA8dGJvZHk+CiAgICB7JSBmb3IgcXVlc3Rpb24sIGFuc3dlciBpbiBhbnN3ZXJzICV9CiAgICAgIDx0cj4KICAgICAgICA8dGQ+e3sgcXVlc3Rpb24gfX08L3RkPgogICAgICAgIDx0ZD57eyBhbnN3ZXIgfX08L3RkPgogICAgICA8L3RyPgogICAgeyUgZW5kZm9yICV9CiAgICA8L3Rib2R5PgogIDwvdGFibGU+Cg==</text>
       </register>
       <register name="5" type="2">
-        <text encoding="base64">ICAgIHslIGVuZGlmICV9Cg==</text>
+        <text encoding="base64">ICA8dGFibGU+Cg==</text>
       </register>
       <register name="6" type="2">
-        <text encoding="base64">ICAgICAgeyUgc2V0IHVybCA9IHBhdGhzLnByb3RvY29sIH4gJzonIH4gdXJsICV9Cg==</text>
+        <text encoding="base64">ICAgICAgICAgICAgLy8gVE9ETzogRGUgZS1tYWlscyBtb2V0ZW4gbm9nIHZlcnN0dXVyZCB3b3JkZW4K</text>
       </register>
-      <register name="7" type="2">
-        <text encoding="base64">ICAgIHslIGlmIHVybCBtYXRjaGVzICc6Ly9sb2NhbGhvc3QnICV9Cg==</text>
+      <register name="7" type="4">
+        <text encoding="base64">ICAgIDx0cj4KICAgICAgPHRkPk5hYW08L3RkPgogICAgICA8dGQ+e3sgbmFtZSB9fTwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICA8dGQ+RS1tYWlsYWRyZXM8L3RkPgogICAgICA8dGQ+e3sgZW1haWwgfX08L3RkPgogICAgPC90cj4=</text>
       </register>
-      <register name="8" type="2">
-        <text encoding="base64">ICAgICAgICB7IyBEaXNxdXMgaG91ZHQgbmlldCB2YW4gVVJMcyBkaWUgYmVnaW5uZW4gbWV0IC8vICN9CiAgICAgICAgeyUgc2V0IHVybCA9IHBhdGhzLmNhbm9uaWNhbHVybCAlfQogICAgICAgIHslIGlmIHVybFswOjJdID09ICcvLycgJX0KICAgICAgICB7JSBzZXQgdXJsID0gcGF0aHMucHJvdG9jb2wgfiB1cmwgJX0KICAgICAgICB7JSBlbmRpZiAlfQo=</text>
+      <register name="8" type="4">
+        <text encoding="base64">PHRyPgogICAgICA8dGQ+TmFhbTwvdGQ+CiAgICAgIDx0ZD57eyBuYW1lIH19PC90ZD4KICAgIDwvdHI+</text>
       </register>
       <register name="9" type="2">
-        <text encoding="base64">ICAgICAgICAK</text>
+        <text encoding="base64">Cg==</text>
       </register>
       <register name=":" type="4">
-        <text>w</text>
+        <text>action VimFilePrevious</text>
       </register>
     </registers>
     <search>
-      <last-search>paths</last-search>
+      <last-search encoding="base64">PHA=</last-search>
       <last-offset />
-      <last-pattern>paths</last-pattern>
+      <last-pattern encoding="base64">PHA=</last-pattern>
       <last-replace>~</last-replace>
-      <last-substitute>25</last-substitute>
-      <last-dir>1</last-dir>
+      <last-substitute>'in</last-substitute>
+      <last-dir>-1</last-dir>
       <show-last>true</show-last>
     </search>
     <history>
       <history-search>
-        <entry>function Co</entry>
-        <entry>function c</entry>
-        <entry>button-bar</entry>
-        <entry>inkscape</entry>
-        <entry>ink</entry>
-        <entry>social</entry>
-        <entry>color</entry>
-        <entry>__imag</entry>
-        <entry>__image</entry>
-        <entry>index</entry>
-        <entry>margin</entry>
-        <entry>width</entry>
-        <entry>second</entry>
-        <entry>--2</entry>
-        <entry>30</entry>
-        <entry>font-s</entry>
-        <entry>z-in</entry>
-        <entry>vw</entry>
-        <entry>2vw</entry>
-        <entry>hover</entry>
-        <entry>body</entry>
-        <entry>header</entry>
-        <entry>header-co</entry>
-        <entry>fab</entry>
-        <entry>row</entry>
-        <entry>__hea</entry>
-        <entry>25</entry>
-        <entry>page_</entry>
-        <entry>bod</entry>
-        <entry>colu</entry>
-        <entry>body-ba</entry>
-        <entry>pading-l</entry>
-        <entry>padding-l</entry>
-        <entry>h2</entry>
-        <entry>button</entry>
-        <entry>__ti</entry>
-        <entry>no</entry>
-        <entry>:af</entry>
-        <entry>serialize</entry>
-        <entry>tri</entry>
-        <entry>mix</entry>
-        <entry>bu</entry>
-        <entry>.5</entry>
-        <entry>title</entry>
-        <entry>exerp</entry>
-        <entry>excer</entry>
-        <entry>ur</entry>
-        <entry>door</entry>
-        <entry>.body</entry>
-        <entry>endf</entry>
         <entry>thumbn</entry>
         <entry>alias</entry>
         <entry>head</entry>
@@ -444,36 +438,75 @@
         <entry>geturi</entry>
         <entry>getUri</entry>
         <entry>paths</entry>
+        <entry>Wat</entry>
+        <entry>...</entry>
+        <entry>me</entry>
+        <entry>har</entry>
+        <entry>hart</entry>
+        <entry>Wie</entry>
+        <entry>Meer</entry>
+        <entry>createCon</entry>
+        <entry>QuizF</entry>
+        <entry>$dat</entry>
+        <entry>createR</entry>
+        <entry>$na</entry>
+        <entry>$name</entry>
+        <entry>Lore</entry>
+        <entry>th</entry>
+        <entry>tabl</entry>
+        <entry>Vel</entry>
+        <entry>\/tr</entry>
+        <entry>table</entry>
+        <entry>''</entry>
+        <entry>'</entry>
+        <entry>self</entry>
+        <entry>Dit</entry>
+        <entry>mail</entry>
+        <entry>Stu</entry>
+        <entry>input</entry>
+        <entry>, 'e</entry>
+        <entry>attend.t</entry>
+        <entry>attend-</entry>
+        <entry>'in</entry>
+        <entry encoding="base64">XDxjb25maWdcPg==</entry>
+        <entry>$data[</entry>
+        <entry>(str</entry>
+        <entry>$answe</entry>
+        <entry>'na</entry>
+        <entry>dit is</entry>
+        <entry>dit\c is</entry>
+        <entry>Beste</entry>
+        <entry encoding="base64">PHA=</entry>
       </history-search>
       <history-cmd>
-        <entry>action FileStructurePopup</entry>
-        <entry>set incsearch</entry>
-        <entry>x</entry>
-        <entry>W</entry>
         <entry>action ToggleLineBreakpoint</entry>
         <entry>action FindUsages</entry>
-        <entry>nohlsearch</entry>
-        <entry>action Forward</entry>
         <entry>we</entry>
         <entry>action GotoAction</entry>
         <entry>%y</entry>
         <entry>action GotoSymbol</entry>
         <entry>ljkjkj/messa</entry>
-        <entry>action VimFilePrevious</entry>
         <entry>action GotoImplementation</entry>
         <entry>action GotoSuperMethod</entry>
         <entry>action Find</entry>
         <entry>action Switcher</entry>
-        <entry>action Back</entry>
         <entry>action MethodDown</entry>
-        <entry>action SearchEverywhere</entry>
+        <entry>acton NewFile</entry>
+        <entry>x</entry>
+        <entry>nohlsearch</entry>
+        <entry>action ReformatCode</entry>
+        <entry>action ParameterInfo</entry>
         <entry>w</entry>
+        <entry>action Forward</entry>
+        <entry>action Back</entry>
+        <entry>action SearchEverywhere</entry>
+        <entry>action VimFilePrevious</entry>
       </history-cmd>
       <history-expr />
       <history-input />
     </history>
     <shortcut-conflicts>
-      <shortcut-conflict owner="ide">
+      <shortcut-conflict owner="vim">
         <text>ctrl pressed V</text>
       </shortcut-conflict>
       <shortcut-conflict owner="vim">
@@ -485,7 +518,7 @@
       <shortcut-conflict owner="vim">
         <text>ctrl pressed A</text>
       </shortcut-conflict>
-      <shortcut-conflict owner="ide">
+      <shortcut-conflict owner="vim">
         <text>ctrl pressed C</text>
       </shortcut-conflict>
       <shortcut-conflict owner="vim">
@@ -517,6 +550,9 @@
       </shortcut-conflict>
       <shortcut-conflict owner="vim">
         <text>ctrl pressed J</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim">
+        <text>ctrl pressed P</text>
       </shortcut-conflict>
     </shortcut-conflicts>
   </component>

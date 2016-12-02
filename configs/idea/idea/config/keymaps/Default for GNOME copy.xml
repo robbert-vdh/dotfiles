@@ -1,6 +1,0 @@
-<keymap version="1" name="Default for GNOME copy" parent="Default for GNOME">
-  <action id="ParameterInfo">
-    <keyboard-shortcut first-keystroke="ctrl p" />
-    <keyboard-shortcut first-keystroke="ctrl p" second-keystroke="shift ctrl p" />
-  </action>
-</keymap>
