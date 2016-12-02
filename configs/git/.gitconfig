@@ -7,8 +7,8 @@
 [commit]
 	verbose = true
 [core]
-	editor = vim
-        excludesfile = ~/.gitignore_global
+  editor = vim
+  excludesfile = ~/.gitignore_global
 	autocrlf = input
 [merge]
 	tool = kdiff3

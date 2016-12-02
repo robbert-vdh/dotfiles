@@ -25,7 +25,7 @@ Plug 'pbrisbin/vim-syntax-shakespeare'
 
 Plug 'vim-airline/vim-airline'
 Plug 'w0rp/ale'
-Plug 'Shougo/unite.vim'
+Plug 'Shougo/denite.nvim'
 Plug 'Shougo/vimfiler.vim'
 Plug 'simnalamburt/vim-mundo'
 "Plug 'rhysd/committia.vim'
