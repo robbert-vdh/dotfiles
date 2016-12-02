@@ -132,9 +132,6 @@ autocmd WinEnter * match OverLength /\%81v.\+/
 "I dislike folding.
 set nofoldenable
 
-"I dislike visual bell as well.
-set novisualbell
-
 "gVim-specific configurations (including MacVim).
 if has("gui_running")
   set bg=dark
