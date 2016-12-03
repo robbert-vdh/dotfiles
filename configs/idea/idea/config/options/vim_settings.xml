@@ -411,7 +411,7 @@
         <text encoding="base64">Cg==</text>
       </register>
       <register name=":" type="4">
-        <text>action VimFilePrevious</text>
+        <text>actionlist Error</text>
       </register>
     </registers>
     <search>
@@ -421,42 +421,10 @@
       <last-replace>~</last-replace>
       <last-substitute>'in</last-substitute>
       <last-dir>-1</last-dir>
-      <show-last>true</show-last>
+      <show-last>false</show-last>
     </search>
     <history>
       <history-search>
-        <entry>thumbn</entry>
-        <entry>alias</entry>
-        <entry>head</entry>
-        <entry>image</entry>
-        <entry>mess</entry>
-        <entry>messag</entry>
-        <entry>ma</entry>
-        <entry>slug</entry>
-        <entry>MakeUri</entry>
-        <entry>makeUri</entry>
-        <entry>geturi</entry>
-        <entry>getUri</entry>
-        <entry>paths</entry>
-        <entry>Wat</entry>
-        <entry>...</entry>
-        <entry>me</entry>
-        <entry>har</entry>
-        <entry>hart</entry>
-        <entry>Wie</entry>
-        <entry>Meer</entry>
-        <entry>createCon</entry>
-        <entry>QuizF</entry>
-        <entry>$dat</entry>
-        <entry>createR</entry>
-        <entry>$na</entry>
-        <entry>$name</entry>
-        <entry>Lore</entry>
-        <entry>th</entry>
-        <entry>tabl</entry>
-        <entry>Vel</entry>
-        <entry>\/tr</entry>
-        <entry>table</entry>
         <entry>''</entry>
         <entry>'</entry>
         <entry>self</entry>
@@ -479,8 +447,6 @@
         <entry encoding="base64">PHA=</entry>
       </history-search>
       <history-cmd>
-        <entry>action ToggleLineBreakpoint</entry>
-        <entry>action FindUsages</entry>
         <entry>we</entry>
         <entry>action GotoAction</entry>
         <entry>%y</entry>
@@ -501,6 +467,16 @@
         <entry>action Back</entry>
         <entry>action SearchEverywhere</entry>
         <entry>action VimFilePrevious</entry>
+        <entry>actionlist Recent</entry>
+        <entry>actionlist Everything</entry>
+        <entry>actions FindEv</entry>
+        <entry>actions SearchE</entry>
+        <entry>actions Search</entry>
+        <entry>actionlist Search</entry>
+        <entry>actionlist Next</entry>
+        <entry>actinlist Error</entry>
+        <entry>actionlist Warning</entry>
+        <entry>actionlist Error</entry>
       </history-cmd>
       <history-expr />
       <history-input />

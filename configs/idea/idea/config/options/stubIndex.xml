@@ -2,6 +2,12 @@
   <component name="FileBasedIndex">
     <option name="registeredIndices">
       <list>
+        <option value="amd.baseUrl.index" />
+        <option value="php.namespace.shortName" />
+        <option value="php.constant.case.sensitive.shortName" />
+        <option value="java.class.fqn" />
+        <option value="java.class.shortname" />
+        <option value="java.method.parameter.types" />
         <option value="java.anonymous.baseref" />
         <option value="jvm.static.member.type" />
         <option value="jvm.static.member.name" />
@@ -20,12 +26,11 @@
         <option value="sql.names" />
         <option value="sql.column.name" />
         <option value="sql.table.shortName" />
-        <option value="properties.index" />
-        <option value="amd.requirePaths.index" />
-        <option value="amd.baseUrl.index" />
+        <option value="java.module.name" />
+        <option value="js.namespace.including.local.members.index" />
+        <option value="Css.custom.mixin" />
         <option value="js.symbol.qualified.names.index" />
         <option value="JS.subclass.stub.index" />
-        <option value="js.namespace.including.local.members.index" />
         <option value="js.namespace.index" />
         <option value="js.class.index2" />
         <option value="JS.base.types.index" />
@@ -39,13 +44,14 @@
         <option value="JS.global.qualified.elements" />
         <option value="js.element.qualifiedName" />
         <option value="js.qualified.shortName" />
-        <option value="Css.custom.mixin" />
         <option value="Css.custom.property" />
         <option value="Css.attr" />
         <option value="Css.id" />
         <option value="Css.class" />
         <option value="dom.elementClass" />
         <option value="dom.namespaceKey" />
+        <option value="amd.requirePaths.index" />
+        <option value="properties.index" />
         <option value="php.method.shortName" />
         <option value="php.function.shortName" />
         <option value="php.constant.shortName" />
@@ -57,12 +63,6 @@
         <option value="php.variable.shortName" />
         <option value="php.classConstant.shortName" />
         <option value="php.class.shortName" />
-        <option value="php.constant.case.sensitive.shortName" />
-        <option value="php.namespace.shortName" />
-        <option value="java.module.name" />
-        <option value="java.class.fqn" />
-        <option value="java.class.shortname" />
-        <option value="java.method.parameter.types" />
       </list>
     </option>
   </component>
