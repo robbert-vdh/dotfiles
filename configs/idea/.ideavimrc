@@ -30,13 +30,15 @@ nnoremap <c-tab> gt
 " Stop hightlighting
 nnoremap <space>sc :nohl<cr>
 
+" Command palette
+nnoremap <space><space> :action GotoAction<cr>
+
 " Bestandnavigatie
+nnoremap <space><tab> :action VimFilePrevious<cr>
 nnoremap <space>bd :action CloseContent<cr>
 nnoremap <space>bD :action ReopenClosedTab<cr>
-nnoremap <space>bp :action VimFilePrevious<cr>
 nnoremap <space>fr :action RecentFiles<cr>
 nnoremap <space>js :action GotoSymbol<cr>
-nnoremap <space>ja :action GotoAction<cr>
 nnoremap <space>pf :action SearchEverywhere<cr>
 nnoremap <space>sh :action HighlightUsagesInFile<cr>
 nnoremap <space>ss :action FileStructurePopup<cr>
@@ -57,6 +59,9 @@ nnoremap <leader>dD :action DebugClass<cr>
 nnoremap <leader>rr :action RenameElement<cr>
 nnoremap <leader>rt :action RefactorThis<cr>
 nnoremap <leader>p :action ParameterInfo<cr>
+
+" Comments
+nnoremap <space>; :action CommentByLineComment<cr>
 
 " Unimpaired mappings
 nnoremap [<space> O<esc>j

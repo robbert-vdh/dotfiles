@@ -1,0 +1,78 @@
+<idea-plugin version="2">
+  <id>io.j99.idea.vue</id>
+  <name>vue-for-idea</name>
+  <version>1.0.74</version>
+  <vendor email="henjue@gmail.com" url="https://github.com/henjue/vue-for-idea"/>
+  <description>
+       Support for VueJS.
+    </description>
+  <change-notes>
+        &lt;html&gt;
+        &lt;dl&gt;
+            &lt;dt&gt;20160615&lt;/dt&gt;
+            &lt;dd&gt;support formatter and commenter&lt;/dd&gt;
+            &lt;dd&gt;default use css and javascript&lt;/dd&gt;
+            &lt;dt&gt;20160614&lt;/dt&gt;
+            &lt;dd&gt;Highlighter(Auto completion) support LESS,SASS,SCSS,Stylus,CSS,ES6,CoffeeScript,JavaScript&lt;/dd&gt;
+            &lt;dt&gt;20160522&lt;/dt&gt;
+            &lt;dd&gt;fix node path err in windows&lt;/dd&gt;
+            &lt;dt&gt;20160515&lt;/dt&gt;
+            &lt;dd&gt;List Vue Templates list by github api&lt;/dd&gt;
+            &lt;dd&gt;Fix background error&lt;/dd&gt;
+            &lt;dt&gt;20160424&lt;/dt&gt;
+            &lt;dd&gt;fix new project error&lt;/dd&gt;
+            &lt;dt&gt;20160123&lt;/dt&gt;
+            &lt;dd&gt;New Vue Project Wizard&lt;/dd&gt;
+            &lt;dt&gt;20151229&lt;/dt&gt;
+            &lt;dd&gt;Create Vue File Template Action&lt;/dd&gt;
+            &lt;dt&gt;20151228&lt;/dt&gt;
+            &lt;dd&gt;support Vue AutoComplete for "v-xxxx" attr and "@xxxx" event;example:v-bind,v-for,v-show,@click,@load......&lt;/dd&gt;
+            &lt;dt&gt;20151212&lt;/dt&gt;
+            &lt;dd&gt;Syntax checking and highlighting Using HTML&lt;/dd&gt;
+        &lt;/dl&gt;
+        &lt;/html&gt;
+    
+    </change-notes>
+  <idea-version since-build="143"/>
+  <depends>com.intellij.modules.platform</depends>
+  <depends>com.intellij.modules.xml</depends>
+  <depends>JavaScript</depends>
+  <depends>org.jetbrains.plugins.sass</depends>
+  <depends>org.coffeescript</depends>
+  <depends>com.intellij.css</depends>
+  <project-components>
+    <component>
+      <implementation-class>io.j99.idea.vue.component.VueComponent</implementation-class>
+    </component>
+    <component>
+      <implementation-class>io.j99.idea.vue.component.VueProjectSettingsComponent</implementation-class>
+    </component>
+  </project-components>
+  <actions>
+    <action class="io.j99.idea.vue.action.NewVueFileAction" id="Vue.NewVueFile" text="Vue File" description="Create new Vue File">
+      <add-to-group group-id="NewGroup" relative-to-action="NewFile" anchor="before"/>
+    </action>
+    <group id="vue.tools" text="Vue" description="Vue Menu">
+      <add-to-group group-id="ToolsMenu" anchor="last"/>
+      <action class="io.j99.idea.vue.action.InstallAction" id="Vue.Install" text="Vue Install" description="Install Dependencies"/>
+    </group>
+  </actions>
+  <extensions defaultExtensionNs="com.intellij">
+    <applicationService serviceImplementation="io.j99.idea.vue.settings.SettingStorage"/>
+    <projectConfigurable groupId="language" id="vue.settings" instance="io.j99.idea.vue.settings.VueSettingsPage"/>
+    <moduleBuilder builderClass="io.j99.idea.vue.module.VueModuleBuilder"/>
+    <fileTypeFactory implementation="io.j99.idea.vue.VueFileTypeFactory"/>
+    <treeStructureProvider implementation="io.j99.idea.vue.structure.VueTreeStructureProvider"/>
+    <xml.attributeDescriptorsProvider implementation="io.j99.idea.vue.component.VueAttributeDescriptorProvider"/>
+    <lang.syntaxHighlighterFactory key="Vue" implementationClass="io.j99.idea.vue.highlighter.VueSyntaxHighlighterFactory"/>
+    <lang.parserDefinition language="Vue" implementationClass="io.j99.idea.vue.psi.VueParserDefinition"/>
+    <lang.formatter language="Vue" implementationClass="io.j99.idea.vue.VueFormattingModelBuilder"/>
+    <lang.commenter language="Vue" implementationClass="com.intellij.lang.xml.XmlCommenter"/>
+    <lang.psiStructureViewFactory language="Vue" implementationClass="com.intellij.lang.xml.XmlStructureViewBuilderFactory"/>
+    <codeInsight.wordCompletionFilter language="Vue" implementationClass="com.intellij.lang.xml.XmlWordCompletionFilter"/>
+    <codeInsight.parameterInfo language="Vue" implementationClass="com.intellij.codeInsight.hint.api.impls.XmlParameterInfoHandler"/>
+    <lang.foldingBuilder language="Vue" implementationClass="com.intellij.lang.xml.XmlFoldingBuilder"/>
+    <lang.ast.factory language="Vue" implementationClass="com.intellij.lang.xml.XmlASTFactory"/>
+  </extensions>
+  <actions/>
+</idea-plugin>

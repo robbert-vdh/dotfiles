@@ -5561,19 +5561,6 @@
         </option>
       </plugins>
     </entry>
-    <entry key="*.vue">
-      <plugins>
-        <option name="myPlugins">
-          <set>
-            <plugin>
-              <option name="myPluginId" value="io.j99.idea.vue" />
-              <option name="myPluginName" />
-              <option name="myBundled" value="false" />
-            </plugin>
-          </set>
-        </option>
-      </plugins>
-    </entry>
     <entry key="*.wadl">
       <plugins>
         <option name="myPlugins">
