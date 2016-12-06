@@ -3211,6 +3211,19 @@
         </option>
       </plugins>
     </entry>
+    <entry key="*.mq4">
+      <plugins>
+        <option name="myPlugins">
+          <set>
+            <plugin>
+              <option name="myPluginId" value="ru.investflow.mql" />
+              <option name="myPluginName" />
+              <option name="myBundled" value="false" />
+            </plugin>
+          </set>
+        </option>
+      </plugins>
+    </entry>
     <entry key="*.mt">
       <plugins>
         <option name="myPlugins">

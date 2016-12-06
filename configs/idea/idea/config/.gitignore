@@ -1,3 +1,7 @@
+/consoles/
+/extensions/com.intellij.database/
+/jdbc-drivers/
+/options/databaseDrivers.xml
 /options/dimensions.xml
 /options/feature.usage.statistics.xml
 /options/find.recents.xml
@@ -12,6 +16,7 @@
 /options/runner.layout.xml
 /options/security.xml
 /options/statistics.application.usages.xml
+/options/stubIndex.xml
 /options/ui.lnf.xml
 /options/updates.xml
 /options/usage.statistics.xml
