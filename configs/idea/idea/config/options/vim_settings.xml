@@ -16,7 +16,7 @@
         <mark key="^" line="7" column="25" />
         <mark key="." line="7" column="25" />
       </file>
-      <file name="/a.dummy" timestamp="1480978689061">
+      <file name="/a.dummy" timestamp="1481057381912">
         <mark key="[" line="0" column="0" />
       </file>
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/app/config/taxonomy.yml" timestamp="1480975802447">
@@ -26,12 +26,11 @@
         <mark key="." line="14" column="33" />
         <mark key="^" line="14" column="294" />
       </file>
-      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_info-columns.scss" timestamp="1480955118149">
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_info-columns.scss" timestamp="1481057523567">
         <mark key="'" line="18" column="22" />
-        <mark key="[" line="36" column="22" />
-        <mark key="]" line="38" column="64" />
-        <mark key="^" line="38" column="64" />
-        <mark key="." line="38" column="64" />
+        <mark key="[" line="81" column="0" />
+        <mark key="]" line="81" column="48" />
+        <mark key="." line="81" column="0" />
       </file>
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_footer.scss" timestamp="1480376707943">
         <mark key="[" line="37" column="24" />
@@ -60,8 +59,11 @@
         <mark key="." line="18" column="0" />
         <mark key="^" line="18" column="0" />
       </file>
-      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/community/index.twig" timestamp="1480974296986">
-        <mark key="'" line="17" column="6" />
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/community/index.twig" timestamp="1481061035662">
+        <mark key="'" line="20" column="6" />
+        <mark key="[" line="2" column="52" />
+        <mark key="]" line="2" column="53" />
+        <mark key="." line="2" column="53" />
       </file>
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/src/Factories/QuizFactory.php" timestamp="1480958026655">
         <mark key="'" line="94" column="33" />
@@ -83,21 +85,30 @@
         <mark key="^" line="7" column="31" />
         <mark key="." line="7" column="374" />
       </file>
-      <file name="$USER_HOME$/Documenten/websites/meer-waarde/node_modules/foundation-sites/scss/settings/_settings.scss" timestamp="1480959454647">
-        <mark key="'" line="348" column="18" />
-      </file>
-      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_button-bar.scss" timestamp="1480378943362">
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_button-bar.scss" timestamp="1481057487508">
         <mark key="'" line="66" column="22" />
-        <mark key="[" line="0" column="0" />
-        <mark key="]" line="101" column="0" />
-        <mark key="." line="49" column="6" />
-        <mark key="^" line="49" column="6" />
+        <mark key="[" line="95" column="15" />
+        <mark key="]" line="95" column="18" />
+        <mark key="." line="95" column="18" />
+        <mark key="^" line="95" column="18" />
       </file>
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_pagination.scss" timestamp="1480974433168">
         <mark key="[" line="2" column="26" />
         <mark key="]" line="4" column="29" />
         <mark key="^" line="4" column="29" />
         <mark key="." line="4" column="29" />
+      </file>
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_list.scss" timestamp="1481055016311">
+        <mark key="[" line="0" column="7" />
+        <mark key="]" line="2" column="1" />
+        <mark key="^" line="2" column="1" />
+        <mark key="." line="2" column="1" />
+      </file>
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/community/show.twig" timestamp="1481061010410">
+        <mark key="[" line="0" column="52" />
+        <mark key="]" line="0" column="53" />
+        <mark key="." line="0" column="53" />
+        <mark key="^" line="2" column="0" />
       </file>
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/node_modules/@types/medium-editor/index.d.ts" timestamp="1480428682083">
         <mark key="'" line="63" column="12" />
@@ -188,19 +199,19 @@
         <mark key="." line="17" column="0" />
         <mark key="^" line="2" column="24" />
       </file>
-      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/workshops/show.twig" timestamp="1480871101050">
-        <mark key="'" line="29" column="12" />
-        <mark key="[" line="42" column="17" />
-        <mark key="]" line="42" column="30" />
-        <mark key="^" line="42" column="30" />
-        <mark key="." line="42" column="30" />
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/workshops/show.twig" timestamp="1481063947225">
+        <mark key="'" line="31" column="12" />
+        <mark key="[" line="0" column="53" />
+        <mark key="]" line="1" column="0" />
+        <mark key="^" line="1" column="0" />
+        <mark key="." line="1" column="0" />
       </file>
-      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/layouts/_page.scss" timestamp="1480872669447">
-        <mark key="'" line="56" column="24" />
-        <mark key="[" line="61" column="30" />
-        <mark key="]" line="61" column="31" />
-        <mark key="." line="61" column="31" />
-        <mark key="^" line="61" column="31" />
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/layouts/_page.scss" timestamp="1481057521664">
+        <mark key="'" line="0" column="0" />
+        <mark key="[" line="27" column="0" />
+        <mark key="]" line="27" column="50" />
+        <mark key="." line="27" column="49" />
+        <mark key="^" line="27" column="49" />
       </file>
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/gulpfile.js" timestamp="1480875442450">
         <mark key="'" line="170" column="0" />
@@ -214,11 +225,11 @@
         <mark key="." line="12" column="31" />
         <mark key="^" line="12" column="31" />
       </file>
-      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/scans/show.twig" timestamp="1480971244029">
-        <mark key="[" line="8" column="48" />
-        <mark key="]" line="8" column="95" />
-        <mark key="." line="8" column="95" />
-        <mark key="^" line="8" column="95" />
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/scans/show.twig" timestamp="1481063912598">
+        <mark key="[" line="0" column="18" />
+        <mark key="]" line="0" column="42" />
+        <mark key="^" line="0" column="42" />
+        <mark key="." line="0" column="42" />
       </file>
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/tests/functional/Factories/QuizFactoryTest.php" timestamp="1480958327516">
         <mark key="'" line="15" column="36" />
@@ -252,12 +263,18 @@
         <mark key="." line="2" column="18" />
         <mark key="^" line="19" column="37" />
       </file>
-      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_archive.scss" timestamp="1480431342547">
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/community/new.twig" timestamp="1481061282574">
+        <mark key="[" line="1" column="0" />
+        <mark key="]" line="3" column="48" />
+        <mark key="^" line="3" column="44" />
+        <mark key="." line="2" column="53" />
+      </file>
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_archive.scss" timestamp="1481057462401">
         <mark key="'" line="15" column="13" />
-        <mark key="[" line="35" column="34" />
-        <mark key="]" line="35" column="35" />
-        <mark key="^" line="49" column="46" />
-        <mark key="." line="35" column="35" />
+        <mark key="[" line="44" column="24" />
+        <mark key="]" line="44" column="35" />
+        <mark key="^" line="44" column="35" />
+        <mark key="." line="44" column="35" />
       </file>
       <file name="/a.sql" timestamp="1480981126053">
         <mark key="[" line="0" column="0" />
@@ -281,11 +298,13 @@
         <mark key="]" line="28" column="92" />
         <mark key="." line="28" column="3" />
       </file>
-      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/js/entry.ts" timestamp="1480874895096">
-        <mark key="[" line="4" column="5" />
-        <mark key="]" line="4" column="14" />
-        <mark key="^" line="4" column="14" />
-        <mark key="." line="4" column="14" />
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/js/entry.ts" timestamp="1481056109073">
+        <mark key="e" line="43" column="41" />
+        <mark key="'" line="47" column="6" />
+        <mark key="[" line="44" column="8" />
+        <mark key="]" line="44" column="13" />
+        <mark key="^" line="44" column="13" />
+        <mark key="." line="44" column="13" />
       </file>
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/extensions/local/zzindi/website/templates/emails/quiz/results.twig" timestamp="1480616848674">
         <mark key="[" line="30" column="0" />
@@ -303,15 +322,21 @@
         <mark key="." line="9" column="44" />
         <mark key="^" line="9" column="1" />
       </file>
-      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_buttons.scss" timestamp="1480870910206">
-        <mark key="'" line="7" column="28" />
-        <mark key="[" line="15" column="32" />
-        <mark key="]" line="7" column="31" />
-        <mark key="." line="15" column="33" />
-        <mark key="^" line="7" column="31" />
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_buttons.scss" timestamp="1481055550752">
+        <mark key="'" line="0" column="0" />
+        <mark key="[" line="39" column="45" />
+        <mark key="]" line="40" column="64" />
+        <mark key="." line="40" column="64" />
+        <mark key="^" line="40" column="64" />
       </file>
-      <file name="/Dummy.txt" timestamp="1480981251876">
+      <file name="/Dummy.txt" timestamp="1481102571583">
         <mark key="[" line="0" column="0" />
+      </file>
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_header-buttons.scss" timestamp="1481056865735">
+        <mark key="[" line="49" column="38" />
+        <mark key="]" line="49" column="59" />
+        <mark key="." line="49" column="38" />
+        <mark key="^" line="45" column="42" />
       </file>
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_forms.scss" timestamp="1480972224611">
         <mark key="[" line="41" column="36" />
@@ -332,12 +357,12 @@
         <mark key="]" line="20" column="0" />
         <mark key="." line="20" column="0" />
       </file>
-      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/news/index.twig" timestamp="1480960305699">
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/news/index.twig" timestamp="1481061307755">
         <mark key="'" line="0" column="0" />
-        <mark key="[" line="11" column="10" />
-        <mark key="]" line="11" column="46" />
-        <mark key="." line="11" column="46" />
-        <mark key="^" line="11" column="46" />
+        <mark key="[" line="3" column="18" />
+        <mark key="]" line="3" column="43" />
+        <mark key="^" line="3" column="43" />
+        <mark key="." line="3" column="43" />
       </file>
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/vendor/bolt/bolt/src/Storage/ContentRequest/Save.php" timestamp="1480441830391">
         <mark key="'" line="249" column="118" />
@@ -379,10 +404,10 @@
         <mark key="." line="5" column="39" />
         <mark key="^" line="5" column="38" />
       </file>
-      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/pages/show.twig" timestamp="1480978685849">
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/pages/show.twig" timestamp="1481060911386">
         <mark key="'" line="23" column="52" />
-        <mark key="[" line="24" column="90" />
-        <mark key="]" line="25" column="66" />
+        <mark key="[" line="13" column="62" />
+        <mark key="]" line="13" column="73" />
         <mark key="^" line="25" column="66" />
         <mark key="." line="25" column="66" />
       </file>
@@ -399,12 +424,12 @@
         <mark key="]" line="5" column="0" />
         <mark key="." line="5" column="0" />
       </file>
-      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/workshops/index.twig" timestamp="1480975872349">
-        <mark key="'" line="58" column="0" />
-        <mark key="[" line="0" column="48" />
-        <mark key="]" line="1" column="47" />
-        <mark key="." line="1" column="47" />
-        <mark key="^" line="1" column="47" />
+      <file name="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/workshops/index.twig" timestamp="1481063941254">
+        <mark key="'" line="61" column="0" />
+        <mark key="[" line="1" column="0" />
+        <mark key="]" line="2" column="52" />
+        <mark key="." line="2" column="48" />
+        <mark key="^" line="2" column="48" />
       </file>
       <file name="$USER_HOME$/Documenten/websites/meer-waarde/tests/functional/QuizFormCest.php" timestamp="1480979019889">
         <mark key="'" line="92" column="0" />
@@ -422,11 +447,6 @@
       </file>
     </filemarks>
     <jumps>
-      <jump line="14" column="13" filename="$USER_HOME$/Documenten/websites/meer-waarde/tests/functional/Factories/QuizFactoryTest.php" />
-      <jump line="91" column="44" filename="$USER_HOME$/Documenten/websites/meer-waarde/tests/functional/Factories/QuizFactoryTest.php" />
-      <jump line="28" column="4" filename="$USER_HOME$/Documenten/websites/meer-waarde/tests/functional/QuizFormCest.php" />
-      <jump line="90" column="41" filename="$USER_HOME$/Documenten/websites/meer-waarde/tests/functional/QuizFormCest.php" />
-      <jump line="66" column="29" filename="$USER_HOME$/Documenten/websites/meer-waarde/tests/functional/QuizFormCest.php" />
       <jump line="49" column="29" filename="$USER_HOME$/Documenten/websites/meer-waarde/tests/functional/QuizFormCest.php" />
       <jump line="112" column="26" filename="$USER_HOME$/Documenten/websites/meer-waarde/tests/functional/QuizFormCest.php" />
       <jump line="89" column="29" filename="$USER_HOME$/Documenten/websites/meer-waarde/tests/functional/QuizFormCest.php" />
@@ -522,25 +542,30 @@
       <jump line="42" column="11" filename="$USER_HOME$/Documenten/websites/meer-waarde/app/config/extensions/website.zzindi.yml" />
       <jump line="92" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/tests/functional/QuizFormCest.php" />
       <jump line="15" column="13" filename="$USER_HOME$/Documenten/websites/meer-waarde/app/config/contenttypes.yml" />
+      <jump line="0" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/components/_buttons.scss" />
+      <jump line="23" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/js/entry.ts" />
+      <jump line="0" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/js/entry.ts" />
+      <jump line="45" column="6" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/js/entry.ts" />
+      <jump line="0" column="0" filename="$USER_HOME$/Documenten/websites/meer-waarde/public/theme/theme/assets/scss/layouts/_page.scss" />
     </jumps>
     <registers>
       <register name="a" type="2">
         <text encoding="base64">PHRhYmxlPgogICAgPHRoZWFkPgogICAgPHRyPgogICAgICA8dGg+VnJhYWc8L3RoPgogICAgICA8dGg+QW50d29vcmQ8L3RoPgogICAgPC90cj4KICAgIDwvdGhlYWQ+CiAgICA8dGJvZHk+CiAgICB7JSBmb3IgcXVlc3Rpb24sIGFuc3dlciBpbiBhbnN3ZXJzICV9CiAgICAgIDx0cj4KICAgICAgICA8dGQ+e3sgcXVlc3Rpb24gfX08L3RkPgogICAgICAgIDx0ZD57eyBhbnN3ZXIgfX08L3RkPgogICAgICA8L3RyPgogICAgeyUgZW5kZm9yICV9CiAgICA8L3Rib2R5PgogIDwvdGFibGU+Cg==</text>
       </register>
-      <register name="&quot;" type="4">
-        <text>s</text>
+      <register name="&quot;" type="2">
+        <text encoding="base64">Cg==</text>
       </register>
       <register name="-" type="4">
-        <text>s</text>
+        <text>Met elkaar groeien en leren</text>
       </register>
       <register name="/" type="4">
-        <text>trainin</text>
+        <text>sidebar</text>
       </register>
-      <register name="0" type="4">
-        <text>De scan is succesvol ingeleverd, je hoort snel van ons</text>
+      <register name="0" type="2">
+        <text encoding="base64">CnslIHNldCB0YWdsaW5lID0gJ0Jla2xpbSBkZSB0cmFwIHZhbiBvbnR3aWtrZWxpbmcnICV9Cg==</text>
       </register>
       <register name="1" type="2">
-        <text encoding="base64">ICAgICAgICAgICAge3sgZHVtcChwYXRocykgfX0K</text>
+        <text encoding="base64">Cg==</text>
       </register>
       <register name="q" type="4">
         <keys>
@@ -556,37 +581,37 @@
         </keys>
       </register>
       <register name="2" type="2">
-        <text encoding="base64">ICAgICAgICAgIC0gbGFiZWw6IEJvZWtlbiBlbiBmaWxtcGplcwogICAgICAgICAgICBwYXRoOiBib2VrZW4tZW4tZmlsbXBqZXMK</text>
+        <text encoding="base64">e3sgIH19Cg==</text>
       </register>
       <register name="3" type="2">
-        <text encoding="base64">ICAgICAgICAgIC0gbGFiZWw6IEluc3BpcmF0aWVicm9ubmVuCiAgICAgICAgICAgIHBhdGg6IGluc3BpcmF0aWVicm9ubmVuCg==</text>
-      </register>
-      <register name="4" type="2">
-        <text encoding="base64">ICAgICAgPHA+PC9wPgo=</text>
-      </register>
-      <register name="5" type="2">
         <text encoding="base64">Cg==</text>
       </register>
+      <register name="4" type="2">
+        <text encoding="base64">Cg==</text>
+      </register>
+      <register name="5" type="2">
+        <text encoding="base64">ICAgICAgCg==</text>
+      </register>
       <register name="6" type="2">
-        <text encoding="base64">ICAgIHt7IGR1bXAodGF4b25vbXkpIH19Cg==</text>
+        <text encoding="base64">ICAgICAgCg==</text>
       </register>
       <register name="7" type="2">
-        <text encoding="base64">ICAgICAgICAiT250d2lra2VsaW5nIHZhbiBvcmdhbmlzYXRpZXMK</text>
+        <text encoding="base64">ICAgIGZvbnQtc2l6ZTogMS4wNWVtOwo=</text>
       </register>
       <register name="8" type="2">
-        <text encoding="base64">ICAgICAgICAiT250d2lra2VsaW5nIHZhbiBvcmdhbmlzYXRpZXMK</text>
+        <text encoding="base64">ICAgICAgZm9udC1zaXplOiB1bnNldDsK</text>
       </register>
       <register name="9" type="2">
-        <text encoding="base64">ICAgIHN3ZWs6IHRydWUK</text>
+        <text encoding="base64">Cg==</text>
       </register>
       <register name=":" type="4">
         <text>w</text>
       </register>
     </registers>
     <search>
-      <last-search>trainin</last-search>
+      <last-search>sidebar</last-search>
       <last-offset />
-      <last-pattern>trainin</last-pattern>
+      <last-pattern>sidebar</last-pattern>
       <last-replace>article.</last-replace>
       <last-substitute>record\.</last-substitute>
       <last-dir>1</last-dir>
@@ -594,9 +619,6 @@
     </search>
     <history>
       <history-search>
-        <entry>()</entry>
-        <entry>ele</entry>
-        <entry>else</entry>
         <entry>Organisatie ontwikk</entry>
         <entry>float</entry>
         <entry>fon</entry>
@@ -614,6 +636,9 @@
         <entry>organisatie</entry>
         <entry>de</entry>
         <entry>trainin</entry>
+        <entry>menu</entry>
+        <entry>__back</entry>
+        <entry>sidebar</entry>
       </history-search>
       <history-cmd>
         <entry encoding="base64">JXMvPHNwYW4+LzxzcGFuIGNsYXNzPSJpbmZvLWNvbHVtbnNfX3ZhbHVlIj4vYw==</entry>
@@ -628,13 +653,13 @@
         <entry encoding="base64">JzwsJz5zL3JlY29yZC5hcnRpY2xlLg==</entry>
         <entry encoding="base64">JzwsJz5zL3JlY29yZFwuL2FydGljbGUuL2c=</entry>
         <entry>action CommentByLineComment</entry>
-        <entry>action ReformatCode</entry>
-        <entry>action Back</entry>
         <entry>action Forward</entry>
-        <entry>action RecentFiles</entry>
         <entry>action VimFilePrevious</entry>
         <entry>action GotoAction</entry>
         <entry>action SearchEverywhere</entry>
+        <entry>action Back</entry>
+        <entry>action ReformatCode</entry>
+        <entry>action RecentFiles</entry>
         <entry>w</entry>
       </history-cmd>
       <history-expr />
