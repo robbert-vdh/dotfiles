@@ -3,6 +3,7 @@
 	email = robbert@zzindi.nl
 [diff]
 	compactionHeuristic = true
+  indentHeuristic = true
 	tool = kdiff3
 [commit]
 	verbose = true
