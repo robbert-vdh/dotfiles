@@ -71,7 +71,7 @@ nnoremap ]m :action MethodDown<cr>
 nnoremap [c :action VcsShowPrevChangeMarker<cr>
 nnoremap ]c :action VcsShowNextChangeMarker<cr>
 nnoremap [q :action GotoPreviousError<cr>
-nnoremap ]q :action GotoNextErrorcr>
+nnoremap ]q :action GotoNextError<cr>
 
 " Built-in navigation to navigated items works better
 nnoremap <c-o> :action Back<cr>
