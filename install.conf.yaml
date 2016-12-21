@@ -5,6 +5,7 @@
 - clean: ['~']
 
 - link:
+    ~/.config/mpv: configs/mpv/mpv
     ~/.config/nvim: configs/neovim/nvim
     ~/.config/redshift.conf: configs/redshift/redshift.conf
     ~/.gitconfig: configs/git/.gitconfig
