@@ -61,7 +61,7 @@ nnoremap <leader>rt :action RefactorThis<cr>
 nnoremap <leader>p :action ParameterInfo<cr>
 
 " Comments
-nnoremap <space>; :action CommentByLineComment<cr>
+nnoremap gc :action CommentByLineComment<cr>
 
 " Unimpaired mappings
 nnoremap [<space> O<esc>j
