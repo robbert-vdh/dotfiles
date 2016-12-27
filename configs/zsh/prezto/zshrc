@@ -14,6 +14,7 @@ fi
 
 # Laat Emacs altijd op de achtergrond raaien
 alias emacs="emacsclient -nca ''"
+alias emacsdpi="XDG_CONFIG_HOME=.emacs.d/xdg_config_home/ GDK_SCALE=1 GDK_DPI_SCALE=1 emacs"
 
 # Helper voor base16 kleuren in VIM
 BASE16_SHELL=$HOME/.config/base16-shell/
