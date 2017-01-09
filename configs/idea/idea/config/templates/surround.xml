@@ -1,9 +1,9 @@
 <templateSet group="surround">
   <template name="A" value="[$SELECTION$]" description="Surround with []" toReformat="false" toShortenFQNames="true">
     <context>
-      <option name="HTML" value="false" />
-      <option name="XML" value="false" />
       <option name="OTHER" value="true" />
+      <option name="XML" value="false" />
+      <option name="HTML" value="false" />
     </context>
   </template>
 </templateSet>
