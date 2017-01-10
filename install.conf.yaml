@@ -5,6 +5,8 @@
 - clean: ['~']
 
 - link:
+    ~/.config/bspwm: configs/bspwm/bspwm
+    ~/.config/sxhkd: configs/bspwm/sxhkd
     ~/.config/mpv: configs/mpv/mpv
     ~/.config/nvim: configs/neovim/nvim
     ~/.config/redshift.conf: configs/redshift/redshift.conf

@@ -46,6 +46,7 @@ path=(
   /usr/local/{bin,sbin}
   $HOME/.cargo/bin
   $HOME/.cabal/bin
+  $HOME/.config/bspwm
   $HOME/.local/bin
   $path
 )
