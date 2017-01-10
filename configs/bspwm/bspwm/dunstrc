@@ -1,0 +1,50 @@
+[global]
+font = "Cantarell 12"
+allow_markup = yes
+format = "<b>%s</b>\n%b"
+sort = yes
+indicate_hidden = yes
+alignment = center
+bounce_freq = 0
+show_age_threshold = 60
+word_wrap = yes
+ignore_newline = no
+geometry = "300x5-18+62"
+transparency = 0
+idle_threshold = 120
+monitor = 0
+follow = mouse
+sticky_history = yes
+line_height = -2
+separator_height = 1
+padding = 8
+horizontal_padding = 8
+separator_color = "#afb9c5"
+startup_notification = no
+icon_position = left
+icon_folders = /usr/share/icons/Numix/24/status/
+
+[frame]
+width = 1
+color = "#afb9c5"
+
+[shortcuts]
+close = ctrl+space
+close_all = ctrl+shift+space
+history = ctrl+grave
+context = ctrl+shift+period
+
+[urgency_low]
+background = "#edf0f4"
+foreground = "#2f343f"
+timeout = 5
+
+[urgency_normal]
+background = "#edf0f4"
+foreground = "#2f343f"
+timeout = 20
+
+[urgency_critical]
+background = "#edf0f4"
+foreground = "#2f343f"
+timeout = 0

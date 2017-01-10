@@ -7,7 +7,7 @@
 -   sxhkd
 
 ## Voor panel
--   lemonbar
--   sutils
--   xdo
--   xtitle
+-   dunst (met SVG patch, zie AUR)
+-   pavucontrol
+-   tint2
+-   volumeicon

@@ -6,10 +6,13 @@
 
 - link:
     ~/.config/bspwm: configs/bspwm/bspwm
-    ~/.config/sxhkd: configs/bspwm/sxhkd
     ~/.config/mpv: configs/mpv/mpv
     ~/.config/nvim: configs/neovim/nvim
     ~/.config/redshift.conf: configs/redshift/redshift.conf
+    ~/.config/sxhkd: configs/bspwm/sxhkd
+    ~/.config/tint2: configs/bspwm/tint2
+    ~/.config/volumeicon: configs/bspwm/volumeicon
+    ~/.compton.conf: configs/bspwm/compton/compton.conf
     ~/.gitconfig: configs/git/.gitconfig
     ~/.gitignore_global: configs/git/.gitignore_global
     ~/.atom: configs/atom

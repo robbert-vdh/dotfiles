@@ -1,20 +1,14 @@
 #!/bin/sh
 sxhkd &
-/usr/lib/gnome-settings-daemon/gnome-settings-daemon-localeexec &
-compton -b \
-  --shadow \
-  --fading \
-  --inactive-dim 0.3 \
-  --focus-exclude '_NET_WM_NAME@:s = "rofi"' &
+compton &
 
 feh --bg-fill $HOME/.dotfiles/configs/wallpapers/haskell.jpg &
 
-export PANEL_FIFO=/tmp/panel-fifo
-export PANEL_HEIGHT=24
-export PANEL_FONT="-*-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
-export PANEL_WM_NAME=bspwm_panel
-
-panel &
+/usr/lib/gnome-settings-daemon/gnome-settings-daemon-localeexec &
+tint2 -c $HOME/.config/tint2/icon_only_1.tint2rc &
+volumeicon &
+dunst -config $HOME/.config/bspwm/dunstrc &
+bspc config top_padding 44
 
 # Keyboard repeat delay
 xset r rate 250 15
@@ -25,8 +19,8 @@ bspc config border_width 2
 bspc config window_gap 12
 
 bspc config split_ratio 0.5
-bspc config borderless_monocle true
-bspc config gapless_monocle true
+bspc config borderless_monocle false
+bspc config gapless_monocle false
 
 bspc config click_to_focus true
 
