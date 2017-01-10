@@ -4,7 +4,7 @@ channel=Master
 
 [Notification]
 show_notification=true
-notification_type=0
+notification_type=1
 
 [StatusIcon]
 stepsize=5

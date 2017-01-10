@@ -22,7 +22,7 @@ horizontal_padding = 8
 separator_color = "#afb9c5"
 startup_notification = no
 icon_position = left
-icon_folders = /usr/share/icons/Numix/24/status/
+icon_folders = /usr/share/icons/Numix-Light/24/status/
 
 [frame]
 width = 1
@@ -35,7 +35,7 @@ history = ctrl+grave
 context = ctrl+shift+period
 
 [urgency_low]
-background = "#edf0f4"
+background = "#dde0e4"
 foreground = "#2f343f"
 timeout = 5
 
@@ -45,6 +45,6 @@ foreground = "#2f343f"
 timeout = 20
 
 [urgency_critical]
-background = "#edf0f4"
-foreground = "#2f343f"
+background = "#464c5f"
+foreground = "#afb9c5"
 timeout = 0
