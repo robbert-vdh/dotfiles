@@ -20,6 +20,7 @@
     ~/.ideavimrc: configs/idea/.ideavimrc
     ~/.IntelliJIdea2016.3: configs/idea/idea
     ~/.spacemacs: configs/emacs/.spacemacs
+    ~/.Xresources: configs/.Xresources
     ~/.zprezto/runcoms: configs/zsh/prezto
     ~/Afbeeldingen/wallpapers: configs/wallpapers
 
