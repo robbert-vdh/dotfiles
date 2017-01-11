@@ -11,3 +11,10 @@
 -   pavucontrol
 -   tint2
 -   volumeicon
+
+## Andere utilities
+-   imgurbash2
+-   maim
+-   slop
+-   xclip
+-   xdotool

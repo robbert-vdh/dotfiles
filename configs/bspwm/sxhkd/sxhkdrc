@@ -122,3 +122,31 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+#
+# Applications
+#
+
+# Screenshot and copy image to clipboard
+Print
+  FILE_NAME=~/Afbeeldingen/$(date +%F-%T).png; \
+  maim $FILE_NAME && xclip -sel clip -t image/png -i $FILE_NAME \
+    && notify-send "Screenshot opgeslagen\n$FILE_NAME"
+
+# Screenshot region and copy image to clipboard
+shift + Print
+  FILE_NAME=~/Afbeeldingen/$(date +%F-%T).png; \
+  maim -s $FILE_NAME && xclip -sel clip -t image/png -i $FILE_NAME \
+    && notify-send "Screenshot opgeslagen\n$FILE_NAME"
+
+# Screenshot, upload to imgur and copy link to clipboard
+ctrl + Print
+  FILE_NAME=/tmp/screenshot.png; \
+  maim $FILE_NAME && imgurbash2 $FILE_NAME \
+    && notify-send "Screenshot geüpload naar\n$(xclip -o -sel clip)"
+
+# Screenshot region, upload to imgur and copy link to clipboard
+ctrl + shift + Print
+  FILE_NAME=/tmp/screenshot.png; \
+  maim -s $FILE_NAME && imgurbash2 $FILE_NAME \
+    && notify-send "Screenshot geüpload naar\n$(xclip -o -sel clip)"
