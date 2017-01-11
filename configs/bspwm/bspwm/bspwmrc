@@ -5,7 +5,7 @@ compton &
 feh --bg-fill $HOME/.dotfiles/configs/wallpapers/blur3.jpg &
 
 /usr/lib/gnome-settings-daemon/gnome-settings-daemon-localeexec &
-tint2 -c $HOME/.config/tint2/icon_only_1.tint2rc &
+tint2 -c $HOME/.config/tint2/arc.tint2rc &
 volumeicon &
 dunst -config $HOME/.config/bspwm/dunstrc &
 bspc config top_padding 47
