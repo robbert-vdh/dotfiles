@@ -24,7 +24,7 @@ bspc config gapless_monocle false
 
 bspc config click_to_focus true
 
-bspc config presel_feedback_color "#262a33"
+bspc config presel_feedback_color "#e7e8eb"
 
 #bspc rule -a Gimp desktop='^8' state=floating follow=on
 #bspc rule -a Chromium desktop='^2'
