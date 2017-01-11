@@ -148,7 +148,7 @@ values."
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font `("Input Mono Narrow"
                                :size ,(if (equal system-name "laptop")
-                                          32
+                                          18
                                           16)
                                :weight normal
                                :width normal
