@@ -37,8 +37,8 @@ super + m
 super + y
 	bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
 
-# Balance the current tree
-super + u
+# Equalizee the currently selected windows
+super + equal
   bspc node -B
 
 # swap the current node and the biggest node
