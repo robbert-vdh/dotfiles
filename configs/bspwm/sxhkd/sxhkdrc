@@ -131,6 +131,10 @@ super + {Left,Down,Up,Right}
 # Applications
 #
 
+# Lock the screen
+super + ctrl + alt + l
+  light-locker-command -l
+
 # Screenshot and copy image to clipboard
 Print
   FILE_NAME=~/Afbeeldingen/$(date +%F-%T).png; \
