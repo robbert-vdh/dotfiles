@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + space
-	rofi -modi drun,run -show drun
+	rofi -modi drun,run -show drun,run
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -36,6 +36,10 @@ super + m
 # if the current node is automatic, send it to the last manual, otherwise pull the last leaf
 super + y
 	bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
+
+# Balance the current tree
+super + u
+  bspc node -B
 
 # swap the current node and the biggest node
 super + g
@@ -126,10 +130,6 @@ super + {Left,Down,Up,Right}
 #
 # Applications
 #
-
-# Lock screen
-super + ctrl + alt + l
-  light-locker-command -l
 
 # Screenshot and copy image to clipboard
 Print
