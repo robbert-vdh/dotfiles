@@ -47,6 +47,7 @@ path=(
   $HOME/.cargo/bin
   $HOME/.cabal/bin
   $HOME/.config/bspwm
+  $HOME/.dotfiles/bin
   $HOME/.local/bin
   $path
 )
