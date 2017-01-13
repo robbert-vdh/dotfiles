@@ -4,6 +4,9 @@
 sxhkd &
 compton &
 
+[ -x $HOME/.dotfiles/bin/fix-java-nonparenting ] && \
+  $HOME/.dotfiles/bin/fix-java-nonparenting &
+
 feh --bg-fill $HOME/.dotfiles/configs/wallpapers/blur3.jpg &
 
 /usr/lib/gnome-settings-daemon/gnome-settings-daemon-localeexec &
