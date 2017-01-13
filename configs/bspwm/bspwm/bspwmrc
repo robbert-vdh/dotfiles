@@ -1,4 +1,6 @@
 #!/bin/sh
+[ -x ~/.xprofile ] && . ~/.xprofile
+
 sxhkd &
 compton &
 
