@@ -9,7 +9,7 @@
 ## Voor panel
 -   dunst (met SVG patch, zie AUR)
 -   pavucontrol
--   tint2
+-   polybar
 -   volumeicon
 
 ## Andere utilities

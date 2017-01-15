@@ -8,6 +8,7 @@
     ~/.config/bspwm: configs/bspwm/bspwm
     ~/.config/mpv: configs/mpv/mpv
     ~/.config/nvim: configs/neovim/nvim
+    ~/.config/polybar: configs/bspwm/polybar
     ~/.config/redshift.conf: configs/redshift/redshift.conf
     ~/.config/sxhkd: configs/bspwm/sxhkd
     ~/.config/tint2: configs/bspwm/tint2
@@ -29,6 +30,6 @@
   - [touch configs/atom/styles_local.less, Create the local Atom stylesheet]
   - [sudo ln -sf `pwd`/configs/xorg/60-mouse-acceleration.conf /usr/share/X11/xorg.conf.d/60-mouse-acceleration.conf, Disable mouse acceleration]
   - [sudo ln -sf `pwd`/configs/xorg/70-synaptics.conf /etc/X11/xorg.conf.d/70-synaptics.conf, Touchpad configuration]
-  - [sudo ln -sf `pwd`/configs/xorg/90-fix-mouse-drivers.conf /etc/X11/xorg.conf.d/90-fix-mouse-drivers.conf, Fix Xorg 1.19 mouse drivers]
+  - [sudo ln -sf `pwd`/configs/xorg/80-fix-mouse-drivers.conf /etc/X11/xorg.conf.d/80-fix-mouse-drivers.conf, Fix Xorg 1.19 mouse drivers]
   - [sudo ln -sf `pwd`/configs/pacman/pacman.conf /etc/pacman.conf, Pacman customization]
 
