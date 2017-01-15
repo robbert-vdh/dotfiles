@@ -1,4 +1,6 @@
-# Packages
+Iets over stow en python.
+
+# BSPWM packages
 -   bspvm
 -   compton
 -   feh
