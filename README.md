@@ -2,6 +2,15 @@
 These dotfiles are managed using 
 [GNU Stow](https://www.gnu.org/software/stow/stow.html).
 
+## Installation
+Clone and install:
+
+```shell
+$ git clone https://github.com/robbert-vdh/dotfiles.git ~/.dotfiles
+$ cd ~/.dotfiles
+$ ./install.sh
+```
+
 ## bspwm
 These packages are used in my bspwm configuration.
 
@@ -13,7 +22,7 @@ These packages are used in my bspwm configuration.
 -   sxhkd
 
 ### Panel 
--   dunst (met SVG patch, zie AUR)
+-   dunst (there's a patched version with SVG support in the AUR)
 -   pavucontrol
 -   polybar
 -   volumeicon
