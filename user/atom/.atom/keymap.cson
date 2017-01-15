@@ -33,7 +33,7 @@
 'atom-text-editor.vim-mode-plus.normal-mode':
     'ctrl-alt-f': 'find-and-replace:show'
 
-    # ex mdoe
+    # ex mode
     ':': 'vim-mode-plus-ex-mode:open'
     '!': 'vim-mode-plus-ex-mode:toggle-setting'
 
@@ -61,8 +61,7 @@
     '[ q': 'linter:previous-error'
     '] q': 'linter:next-error'
 
-    # Keybindings met leader key
-    'space =': 'atom-beautify:beautify-editor'
+    ', =': 'atom-beautify:beautify-editor'
     'g d': 'autocomplete-python:go-to-definition'
 
     'Q': 'atom-keyboard-macros:call_last_kbd_macro'

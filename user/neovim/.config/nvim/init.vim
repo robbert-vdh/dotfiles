@@ -1,16 +1,17 @@
-"No compatibility to traditional vi
+" Copied from 
+
+" No compatibility to traditional vi
 set nocompatible
 
-"True colors
+" True colors
 if $TERM_PROGRAM == "iTerm.app"
   set termguicolors
 endif
 
-"vim-plug
+" vim-plug
 call plug#begin('~/.config/nvim/plugged')
 
 "Plugin list ------------------------------------------------------------------
-
 Plug 'chriskempson/base16-vim'
 
 Plug 'godlygeek/tabular'
@@ -41,50 +42,49 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
 
 Plug 'ervandew/supertab'
-
 "End plugin list --------------------------------------------------------------
 call plug#end()
 
-"Syntax highlighting.
+" Syntax highlighting
 syntax on
 
-"Softtab -- use spaces instead tabs.
+" Softtab -- use spaces instead tabs
 set expandtab
 set tabstop=2 shiftwidth=2 sts=2
 set autoindent nosmartindent
 
-"set tab characters apart
+" Set tab characters apart
 set listchars=tab:↹\
 
-"I dislike CRLF.
+" I dislike CRLF
 if !exists("vimpager")
   set fileformat=unix
 endif
 
 set backspace=2
 
-"Detect modeline hints.
+" Detect modeline hints
 set modeline
 
-"Disable bell
+" Disable bell
 set visualbell t_vb=
 
-"Prefer UTF-8.
+" Prefer UTF-8
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp949,korea,iso-2022-kr
 
-"More tabs
+" More tabs
 set tabpagemax=25
 
 filetype plugin on
 
-"Some additional syntax highlighters.
+" Some additional syntax highlighters
 au! BufRead,BufNewFile *.wsgi setfiletype python
 au! BufRead,BufNewFile *.sass setfiletype sass
 au! BufRead,BufNewFile *.scss setfiletype scss
 au! BufRead,BufNewFile *.haml setfiletype haml
 au! BufRead,BufNewFile *.less setfiletype less
 
-"These languages have their own tab/indent settings.
+" These languages have their own tab/indent settings
 au FileType cpp    setl ts=2 sw=2 sts=2
 au FileType ruby   setl ts=2 sw=2 sts=2
 au FileType yaml   setl ts=2 sw=2 sts=2
@@ -97,19 +97,19 @@ au FileType scss   setl ts=2 sw=2 sts=2
 au FileType make   setl ts=4 sw=4 sts=4 noet
 au FileType gitcommit setl spell
 
-"ALE-related configurations.
+" ALE-related configurations
 let g:ale_linters = {
 \    'haskell': ['stack-ghc', 'ghc'],
 \}
 
-"Markdown-related configurations.
+" Markdown-related configurations
 augroup mkd
   autocmd BufRead *.markdown set formatoptions=tcroqn2 comments=n:> spell
   autocmd BufRead *.mkdn     set formatoptions=tcroqn2 comments=n:> spell
   autocmd BufRead *.mkd      set formatoptions=tcroqn2 comments=n:> spell
 augroup END
 
-"Haskell-related config
+" Haskell-related config
 let g:haskell_quasi         = 0
 let g:haskell_interpolation = 0
 let g:haskell_regex         = 0
@@ -120,65 +120,65 @@ let g:haskell_json          = 0
 let g:haskell_xml           = 0
 let g:haskell_hsp           = 0
 
-"English spelling checker.
+" English and Dutch spelling checker
 setlocal spelllang=en_uk,nl
 
-"Keep 80 columns.
+" Show a ruler at 80 columns
 set colorcolumn=80
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 autocmd WinEnter * match OverLength /\%81v.\+/
 
-"I dislike folding.
+" I dislike folding
 set nofoldenable
 
-"gVim-specific configurations (including MacVim).
+" gVim-specific configurations (including MacVim).
 if has("gui_running")
   set bg=dark
   set guioptions=egmrLt
   set linespace=1
 endif
 
-"MacVim-specific configurations.
+" MacVim-specific configurations.
 if has("gui_macvim") || has("gui_vimr")
   set imd
   set guifont=Source_Code_Pro_Light:h16.00
 endif
 
-"GVim under GNOME
+" GVim under GNOME
 if has("gui_gnome")
   set guifont="Ubuntu Mono 11"
 endif
 
-"GVim under Windows
+" GVim under Windows
 if has("gui_win32")
   set guifont=Consolas:h11:cANSI
 endif
 
-"vim-airline
+" vim-airline
 let g:airline_powerline_fonts = 1
 
-"Mundo -- Undo tree visualization
+" Mundo -- Undo tree visualization
 set undofile
 set undodir=~/.config/nvim/undo
 nnoremap <F5> :MundoToggle
 
-"Use Vimfiler as default explorer like netrw
+" Use Vimfiler as default explorer like netrw
 let g:vimfiler_as_default_explorer = 1
 
-"deoplete
+" deoplete
 let g:deoplete#enable_at_startup = 1
 
-"VimShell
+" VimShell
 let g:vimshell_prompt_expr = '$USER . " " . fnamemodify(getcwd(), ":~") . " $ "'
 let g:vimshell_prompt_pattern = '^[a-z_-][a-z0-9_-]\{,31\} [~/][^$ ]* $ '
 
-"Colorscheme
+" Colorscheme
 let base16colorspace=256
 colorscheme base16-tomorrow-night
 set background=dark
 
-"Alias :W to :w
+" Alias :W to :w
 cnoreabbrev W w
 
 " Customization:

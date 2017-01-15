@@ -1,43 +1,40 @@
 #!/usr/bin/env bash
 
 if ! type -P nvim &>/dev/null; then
-  echo "neovim mist";
+  echo "neovim is missing";
   exit 1;
 fi
 
 if ! type -P git &>/dev/null; then
-  echo "git mist";
+  echo "git is missing";
   exit 1;
 fi
 
 pacman -Qi python-neovim &>/dev/null
 if [ $? -ne 0 ]; then
-  echo "De python-neovim package mist";
+  echo "The python-neovim is missing";
   exit 1;
 fi
 
 pacman -Qi neovim-plug &>/dev/null
 if [ $? -ne 0 ]; then
-  echo "De neovim-plug package mist";
+  echo "The neovim-plug package is missing";
   exit 1;
 fi
 
 pacman -Qi neovim-drop-in &>/dev/null
 if [ $? -ne 0 ]; then
-  echo "De neovim-drop-in package mist";
+  echo "The neovim-drop-in package is missing";
   exit 1;
 fi
 
 if [ ! -d $HOME/.config/nvim/ ]; then
-  echo "De neovimconfiguratie is nog niet gesymlinked"
+  echo "The Neovim configuration has not been installed yet"
   exit 1
 fi
 
-# Installeer alle neovim plugins
 echo "========================================"
-echo "Neovim plugins installeren..."
+echo "Installing Neovim plugins..."
 echo "========================================"
 
 nvim +PlugInstall +PlugUpdate +PlugClean! +qall
-
-echo "Neovim plugins zijn geïnstalleerd"
