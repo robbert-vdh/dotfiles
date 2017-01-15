@@ -1,20 +1,24 @@
-Iets over stow en python.
+# Dotfiles
+These dotfiles are managed using 
+[GNU Stow](https://www.gnu.org/software/stow/stow.html).
 
-# BSPWM packages
+## BSPWM
+These packages are used in my BSPWM configuration.
+
 -   bspvm
 -   compton
 -   feh
--   gnome-settings-daemon (deel van de configuratie)
+-   gnome-settings-daemon (optional, will get run to apply GTK settings)
 -   rofi
 -   sxhkd
 
-## Voor panel
+### Panel 
 -   dunst (met SVG patch, zie AUR)
 -   pavucontrol
 -   polybar
 -   volumeicon
 
-## Andere utilities
+### Optional utilities used in the keymapping
 -   imgurbash2
 -   maim
 -   slop
