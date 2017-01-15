@@ -2,8 +2,8 @@
 These dotfiles are managed using 
 [GNU Stow](https://www.gnu.org/software/stow/stow.html).
 
-## BSPWM
-These packages are used in my BSPWM configuration.
+## bspwm
+These packages are used in my bspwm configuration.
 
 -   bspvm
 -   compton
