@@ -23,6 +23,7 @@ These packages are used in my bspwm configuration.
 
 ### Panel 
 -   dunst (there's a patched version with SVG support in the AUR)
+-   network-manager-applet
 -   pavucontrol
 -   polybar
 -   volumeicon

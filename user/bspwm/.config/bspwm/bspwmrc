@@ -16,6 +16,7 @@ feh --bg-fill \
 # Panel and applets
 $HOME/.config/polybar/launch.sh &
 volumeicon &
+nm-applet &
 dunst &
 #bspc config top_padding 47
 
