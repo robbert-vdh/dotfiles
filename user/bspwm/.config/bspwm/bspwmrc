@@ -15,7 +15,7 @@ feh --bg-fill $HOME/.dotfiles/configs/wallpapers/blur3.jpg &
 # Panel and applets
 $HOME/.config/polybar/launch.sh &
 volumeicon &
-dunst -config $HOME/.config/bspwm/dunstrc &
+dunst &
 #bspc config top_padding 47
 
 # Keyboard repeat delay
