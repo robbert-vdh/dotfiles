@@ -50,7 +50,12 @@
 *.color21:      base06
 
 ! FontConfig
+Xft.autohint: 0
 Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
 
 ! urxvt
 URxvt.font: xft:Input Mono Narrow Medium:size=11
