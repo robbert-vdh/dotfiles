@@ -52,7 +52,7 @@ font-1 = Cantarell:pixelsize=13
 
 modules-left = date bspwm
 modules-center = xwindow
-modules-right = xbacklight battery
+modules-right = xbattery
 
 locale = nl_NL.UTF-8
 
@@ -111,30 +111,6 @@ label-empty-padding = 2
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:80:...%
-
-[module/xbacklight]
-type = internal/xbacklight
-
-enable-scroll = false
-
-format = <ramp>
-label = BL
-
-bar-width = 10
-bar-indicator = │
-bar-indicator-foreground = #ff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
-
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
 
 [module/battery]
 type = internal/battery
