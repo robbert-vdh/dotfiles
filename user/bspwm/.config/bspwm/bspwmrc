@@ -37,7 +37,7 @@ bspc config click_to_focus true
 bspc config presel_feedback_color "#e7e8eb"
 
 # Some applications are better off floating by default
-bspc rule -a pavucontrol state=floating
+bspc rule -a Pavucontrol state=floating
 bspc rule -a vokoscreen state=floating
 
 #bspc rule -a Gimp desktop='^8' state=floating follow=on
