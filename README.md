@@ -11,6 +11,10 @@ $ cd ~/.dotfiles
 $ ./install.sh
 ```
 
+## Note on ~/.Xresources
+The settings contained in `./user/xorg/.Xresources` are used in the `bspwm` and
+`fonts` packages.
+
 ## bspwm
 These packages are used in my bspwm configuration.
 
