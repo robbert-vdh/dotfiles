@@ -58,13 +58,12 @@ Xft.antialias: 1
 Xft.rgba: rgb
 
 ! urxvt
-URxvt.font: xft:Input Mono Narrow Medium:size=11
-!URxvt.boldFont: xft:Input Mono Narrow Bold:bold:size=11
-!URxvt.letterSpace: -1
-
-URxvt.perl-ext-common: default,matcher
-URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.font: xft:Input Mono Narrow:size=11:style=medium, xft:Noto Emoji:size=11:antialias=true
+URxvt.boldFont: xft:Input Mono Narrow:size=11:style=bold
 URxvt.matcher.button: 1
+URxvt.perl-ext-common: default,matcher
+URxvt.scrollBar: false
+URxvt.url-launcher: /usr/bin/xdg-open
 
 ! Rofi
 rofi.bw: 0
