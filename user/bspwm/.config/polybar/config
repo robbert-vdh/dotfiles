@@ -52,7 +52,7 @@ font-1 = Cantarell:pixelsize=13
 
 modules-left = date bspwm
 modules-center = xwindow
-modules-right = xbattery
+modules-right = battery
 
 locale = nl_NL.UTF-8
 
