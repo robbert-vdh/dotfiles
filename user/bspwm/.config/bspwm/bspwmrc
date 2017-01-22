@@ -4,9 +4,6 @@
 sxhkd &
 compton --respect-prop-shadow &
 
-[ -x $HOME/.dotfiles/bin/fix-java-nonparenting ] && \
-  $HOME/.dotfiles/bin/fix-java-nonparenting &
-
 /usr/lib/gnome-settings-daemon/gnome-settings-daemon-localeexec &
 
 # Wallpaper
