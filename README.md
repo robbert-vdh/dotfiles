@@ -21,7 +21,6 @@ These packages are used in my bspwm configuration.
 -   bspvm
 -   compton
 -   feh
--   gnome-settings-daemon (optional, will get run to apply GTK settings)
 -   rofi
 -   sxhkd
 
@@ -31,6 +30,10 @@ These packages are used in my bspwm configuration.
 -   pavucontrol
 -   polybar
 -   volumeicon
+
+### Theming
+-   Numix Square icons
+-   Arc GTK theme
 
 ### Optional utilities used in the keymapping
 -   imgurbash2

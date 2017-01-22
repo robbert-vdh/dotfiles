@@ -4,8 +4,6 @@
 sxhkd &
 compton --respect-prop-shadow &
 
-/usr/lib/gnome-settings-daemon/gnome-settings-daemon-localeexec &
-
 # Wallpaper
 feh --bg-fill \
   $HOME/.dotfiles/user/wallpapers/Afbeeldingen/wallpapers/blur3.jpg &
