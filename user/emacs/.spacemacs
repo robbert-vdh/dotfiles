@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     javascript
      ; typescript
      ; javascript
      html
@@ -309,8 +310,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq completion-styles '(partial-completion initials))
   (setq-default git-magit-status-fullscreen t)
 
-  ;; Indent HTMl and CSS with two spaces
-  (setq web-mode-markup-indent-offset 2
+  ;; Indent HTMl, JavaScript CSS with two spaces
+  (setq js-indent-level 2
+        web-mode-markup-indent-offset 2
         web-mode-css-indent-offset 2)
   )
 
