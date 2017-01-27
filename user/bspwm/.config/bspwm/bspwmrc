@@ -6,7 +6,7 @@ compton --respect-prop-shadow &
 
 # Wallpaper
 feh --bg-fill \
-  $HOME/.dotfiles/user/wallpapers/Afbeeldingen/wallpapers/blur3.jpg &
+  $HOME/.dotfiles/user/wallpapers/Afbeeldingen/wallpapers/early_morning_by_kylekc.jpg &
 
 # Panel and applets
 $HOME/.config/polybar/launch.sh &
