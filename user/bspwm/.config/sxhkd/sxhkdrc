@@ -41,6 +41,10 @@ super + y
 super + equal
   bspc node -B
 
+# Rotate/flip the currently selected tree clockwise
+super + {_,shift +} r
+  bspc node -R {90,180}
+
 # swap the current node and the biggest node
 super + g
 	bspc node -s biggest
