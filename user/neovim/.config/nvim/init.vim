@@ -4,9 +4,7 @@
 set nocompatible
 
 " True colors
-if $TERM_PROGRAM == "iTerm.app"
-  set termguicolors
-endif
+set termguicolors
 
 " vim-plug
 call plug#begin('~/.config/nvim/plugged')
@@ -174,9 +172,14 @@ let g:vimshell_prompt_expr = '$USER . " " . fnamemodify(getcwd(), ":~") . " $ "'
 let g:vimshell_prompt_pattern = '^[a-z_-][a-z0-9_-]\{,31\} [~/][^$ ]* $ '
 
 " Colorscheme
-let base16colorspace=256
+" Not needed since we've already enabled `termguicolors`
+"let base16colorspace=256
 colorscheme base16-tomorrow-night
 set background=dark
+" Disable the theme's background and simply use the terminal background
+highlight Normal guibg=none ctermbg=none
+highlight DiffAdded guibg=none ctermbg=none
+highlight DiffRemoved guibg=none ctermbg=none
 
 " Alias :W to :w
 cnoreabbrev W w
