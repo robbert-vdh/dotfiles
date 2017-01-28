@@ -3,6 +3,7 @@
 /jdbc-drivers/
 /options/databaseDrivers.xml
 /options/dimensions.xml
+/options/extensionsRootType.xml
 /options/feature.usage.statistics.xml
 /options/find.recents.xml
 /options/find.xml
@@ -29,3 +30,6 @@
 /idea.key
 /port*
 
+# Plugins
+/disabled_plugins.txt
+/plugins/

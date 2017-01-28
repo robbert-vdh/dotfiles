@@ -27,7 +27,7 @@
       </component>
       <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" />
       <component name="PropertiesComponent">
-        <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
+        <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
         <property name="last_opened_file_path" value="D:/dev/git/bin/git.exe" />
       </component>
       <component name="RunManager">
