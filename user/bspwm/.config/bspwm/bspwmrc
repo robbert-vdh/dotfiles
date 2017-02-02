@@ -4,6 +4,9 @@
 sxhkd &
 compton --respect-prop-shadow &
 
+# Graphical sudo prompts
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 # Wallpaper
 feh --bg-fill \
   $HOME/.dotfiles/user/wallpapers/Afbeeldingen/wallpapers/early_morning_by_kylekc.jpg &
