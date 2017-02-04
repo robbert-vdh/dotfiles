@@ -149,8 +149,24 @@ mode "resize" {
   bindsym $mod+Shift+j resize shrink up 10 px or 5 ppt
   bindsym $mod+Shift+k resize shrink down 10 px or 5 ppt
   bindsym $mod+Shift+l resize shrink left 10 px or 5 ppt
+  bindsym h resize grow left 10 px or 5 ppt
+  bindsym j resize grow down 10 px or 5 ppt
+  bindsym k resize grow up 10 px or 5 ppt
+  bindsym l resize grow right 10 px or 5 ppt
+  bindsym Shift+h resize shrink right 10 px or 5 ppt
+  bindsym Shift+j resize shrink up 10 px or 5 ppt
+  bindsym Shift+k resize shrink down 10 px or 5 ppt
+  bindsym Shift+l resize shrink left 10 px or 5 ppt
 
   # Same bindings, but for the arrow keys
+  bindsym $mod+Left resize grow left 10 px or 5 ppt
+  bindsym $mod+Down resize grow down 10 px or 5 ppt
+  bindsym $mod+Up resize grow up 10 px or 5 ppt
+  bindsym $mod+Right resize grow right 10 px or 5 ppt
+  bindsym $mod+Shift+Left resize shrink right 10 px or 5 ppt
+  bindsym $mod+Shift+Down resize shrink up 10 px or 5 ppt
+  bindsym $mod+Shift+Up resize shrink down 10 px or 5 ppt
+  bindsym $mod+Shift+Right resize shrink left 10 px or 5 ppt
   bindsym Left resize grow left 10 px or 5 ppt
   bindsym Down resize grow down 10 px or 5 ppt
   bindsym Up resize grow up 10 px or 5 ppt
@@ -161,6 +177,8 @@ mode "resize" {
   bindsym Shift+Right resize shrink left 10 px or 5 ppt
 
   # Back to normal: Enter or Escape
+  bindsym $mod+Return mode "default"
+  bindsym $mod+Escape mode "default"
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
