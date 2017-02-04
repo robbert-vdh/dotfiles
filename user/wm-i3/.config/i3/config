@@ -1,0 +1,208 @@
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+# super
+set $mod Mod4
+set $alt Mod1
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+# Window titles use a smaller font size to create padding
+font pango:Cantarell 11
+
+# Enable window gaps
+gaps inner 15
+gaps outer 0
+
+# Focussing windows should require an actual click
+focus_follows_mouse no
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Customize colors
+set $color-bg         #e7e8eb
+set $color-alt        #dbdbdf
+set $color-border     #dbdbdf
+set $color-border-mix #dbdbdf
+set $color-border-alt #8f929a
+set $color-text       #2f343f
+set $color-alert      #bd2c40
+
+# class                 border            backgr.    text        indicator child_border
+client.focused          $color-border     $color-bg  $color-text #2e9ef4   $color-border
+client.focused_inactive $color-border-mix $color-alt $color-text #484e50   $color-border-alt
+client.unfocused        $color-border-alt $color-alt $color-text #292d2e   $color-border-alt
+client.urgent           $color-alert      $color-bg  $color-text #900000   $color-bg
+client.placeholder      #000000           $color-bg  $color-text #000000   $color-bg
+client.background       $color-text
+
+# Start a terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec gnome-terminal
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+bindsym $alt+F4 kill
+
+# Start rofi (a program launcher)
+bindsym $mod+space exec "rofi -modi drun,run -show drun"
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# Change focus (these are changed to mimmick VIM)
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Split in vertical orientation
+bindsym $mod+v split v
+
+# Split in horizontal orientation (this is mapped to $mod+h by default)
+bindsym $mod+c split h
+
+# Enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Toggle tiling / floating
+bindsym $mod+Control+space floating toggle
+
+# Change focus between tiling / floating windows
+bindsym $mod+Shift+space focus mode_toggle
+
+# Focus the parent container
+bindsym $mod+a focus parent
+
+# Focus the child container
+bindsym $mod+d focus child
+
+# Switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# Lock the screen
+bindsym $mod+Control+l exec light-locker-command -l
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# Exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Resize window (you can also use the mouse for that)
+mode "resize" {
+  # These bindings trigger as soon as you enter the resize mode
+
+  # These bindings mimmick bspwm's defaults somewhat
+  bindsym $mod+h resize grow left 10 px or 5 ppt
+  bindsym $mod+j resize grow down 10 px or 5 ppt
+  bindsym $mod+k resize grow up 10 px or 5 ppt
+  bindsym $mod+l resize grow right 10 px or 5 ppt
+  bindsym $mod+Shift+h resize shrink right 10 px or 5 ppt
+  bindsym $mod+Shift+j resize shrink up 10 px or 5 ppt
+  bindsym $mod+Shift+k resize shrink down 10 px or 5 ppt
+  bindsym $mod+Shift+l resize shrink left 10 px or 5 ppt
+
+  # Same bindings, but for the arrow keys
+  bindsym Left resize grow left 10 px or 5 ppt
+  bindsym Down resize grow down 10 px or 5 ppt
+  bindsym Up resize grow up 10 px or 5 ppt
+  bindsym Right resize grow right 10 px or 5 ppt
+  bindsym Shift+Left resize shrink right 10 px or 5 ppt
+  bindsym Shift+Down resize shrink up 10 px or 5 ppt
+  bindsym Shift+Up resize shrink down 10 px or 5 ppt
+  bindsym Shift+Right resize shrink left 10 px or 5 ppt
+
+  # Back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# We'll use polybar instead of i3bar
+#bar {
+#  status_command i3status
+#}
+
+#
+# Window rules
+#
+
+for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] title_format "  <span size='smaller'>%title</span>"
+
+# TODO: Keyboard bindings en window rules
+
+#
+# Startup applications
+#
+
+# Speed up keyboard repeating
+exec --no-startup-id xset r rate 250 15
+# Execute profile configuration (e.g. resolution)
+exec --no-startup-id ~/.xprofile
+# Transparency and eye candy
+exec --no-startup-id compton --respect-prop-shadow
+# Set a wallpaper
+exec_always --no-startup-id feh --bg-fill ~/.dotfiles/user/wallpapers/Afbeeldingen/wallpapers/early_morning_by_kylekc.jpg
+# Enable graphical sudo promps
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Start our panel
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+# A volume applet
+exec --no-startup-id volumeicon
+# Our networking settings
+exec --no-startup-id nm-applet
+# Redshift
+exec --no-startup-id redshift-gtk
+# And notification popups
+exec --no-startup-id dunst
