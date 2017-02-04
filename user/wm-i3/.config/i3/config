@@ -176,10 +176,43 @@ bindsym $mod+r mode "resize"
 # Window rules
 #
 
+# Disable window decoration but keep a 2 pixel wide border
 for_window [class="^.*"] border pixel 2
+# Hack some padding into the title bars
 for_window [class="^.*"] title_format "  <span size='smaller'>%title</span>"
 
-# TODO: Keyboard bindings en window rules
+# Some dialogs should be floating by default
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Steam" title="Friends"] floating enable
+for_window [class="vokoscreen"] floating enable
+
+#
+# Applications
+#
+
+# Screenshot and copy image to clipboard
+bindsym Print exec " \
+  FILE_NAME=~/Afbeeldingen/$(date +%F-%T).png; \
+  maim $FILE_NAME && xclip -sel clip -t image/png -i $FILE_NAME \
+    && notify-send \\"Screenshot opgeslagen\n$FILE_NAME\\""
+
+# Screenshot region and copy image to clipboard
+bindsym Shift+Print exec " \
+  FILE_NAME=~/Afbeeldingen/$(date +%F-%T).png; \
+  maim -s $FILE_NAME && xclip -sel clip -t image/png -i $FILE_NAME \
+    && notify-send \\"Screenshot opgeslagen\n$FILE_NAME\\""
+
+# Screenshot, upload to imgur and copy link to clipboard
+bindsym Control+Print exec " \
+  FILE_NAME=/tmp/screenshot.png; \
+  maim $FILE_NAME && imgurbash2 $FILE_NAME \
+    && notify-send \\"Screenshot geüpload naar\n$(xclip -o -sel clip)\\""
+
+# Screenshot region, upload to imgur and copy link to clipboard
+bindsym Control+Shift+Print exec " \
+  FILE_NAME=/tmp/screenshot.png; \
+  maim -s $FILE_NAME && imgurbash2 $FILE_NAME \
+    && notify-send \\"Screenshot geüpload naar\n$(xclip -o -sel clip)\\""
 
 #
 # Startup applications
