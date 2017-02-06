@@ -257,3 +257,5 @@ exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk
 # And notification popups
 exec --no-startup-id dunst
+
+# vim:filetype=i3

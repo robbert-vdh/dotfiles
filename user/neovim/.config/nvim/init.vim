@@ -30,6 +30,7 @@ Plug 'ervandew/supertab'
 " Syntax
 Plug 'editorconfig/editorconfig-vim'
 Plug 'othree/html5.vim'
+Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'lepture/vim-jinja'
 Plug 'plasticboy/vim-markdown'
 Plug 'cakebaker/scss-syntax.vim'
