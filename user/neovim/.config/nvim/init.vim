@@ -180,5 +180,7 @@ set incsearch
 " Always end files with a newline
 set endofline
 
-" Let ctrl + backspace delete the previous word in insert mode
-imap <C-BS> <C-W>
+" Always show line numbers
+set number
+" Except for git commits
+au FileType gitcommit set nonumber
