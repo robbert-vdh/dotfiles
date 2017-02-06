@@ -174,6 +174,9 @@ highlight Normal guibg=none ctermbg=none
 highlight DiffAdded guibg=none ctermbg=none
 highlight DiffRemoved guibg=none ctermbg=none
 
+" Don't automatically fold sections in markdown files
+let g:vim_markdown_folding_disabled = 1
+
 " Enable better searching options
 set smartcase
 set incsearch
