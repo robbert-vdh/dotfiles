@@ -1,46 +1,41 @@
-" Copied from 
-
 " No compatibility to traditional vi
 set nocompatible
 
-" True colors
+" True colors for most modern terminal emulators
 set termguicolors
 
-" vim-plug
+" Add plugins
 call plug#begin('~/.config/nvim/plugged')
 
-"Plugin list ------------------------------------------------------------------
+" Theme
 Plug 'chriskempson/base16-vim'
 
+" Interface
+Plug 'vim-airline/vim-airline'
+Plug 'w0rp/ale'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+Plug 'simnalamburt/vim-mundo'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimfiler.vim'
+
+" Workflow enhancements
+Plug 'jiangmiao/auto-pairs'
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+Plug 'ervandew/supertab'
+
+" Syntax
+Plug 'editorconfig/editorconfig-vim'
 Plug 'othree/html5.vim'
 Plug 'lepture/vim-jinja'
+Plug 'plasticboy/vim-markdown'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
-Plug 'spoqa/nirum.vim'
-Plug 'pbrisbin/vim-syntax-shakespeare'
 
-Plug 'vim-airline/vim-airline'
-Plug 'w0rp/ale'
-Plug 'Shougo/denite.nvim'
-Plug 'Shougo/vimfiler.vim'
-Plug 'simnalamburt/vim-mundo'
-"Plug 'rhysd/committia.vim'
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'tpope/vim-fugitive'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
-Plug 'junegunn/vim-slash'
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'Shougo/vimshell.vim'
-
-Plug 'editorconfig/editorconfig-vim'
-Plug 'jiangmiao/auto-pairs'
-
-Plug 'ervandew/supertab'
-"End plugin list --------------------------------------------------------------
 call plug#end()
 
 " Syntax highlighting
@@ -127,9 +122,6 @@ highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 autocmd WinEnter * match OverLength /\%81v.\+/
 
-" I dislike folding
-set nofoldenable
-
 " gVim-specific configurations (including MacVim).
 if has("gui_running")
   set bg=dark
@@ -153,7 +145,7 @@ if has("gui_win32")
   set guifont=Consolas:h11:cANSI
 endif
 
-" vim-airline
+" Vim-airline
 let g:airline_powerline_fonts = 1
 
 " Mundo -- Undo tree visualization
@@ -181,10 +173,12 @@ highlight Normal guibg=none ctermbg=none
 highlight DiffAdded guibg=none ctermbg=none
 highlight DiffRemoved guibg=none ctermbg=none
 
-" Alias :W to :w
-cnoreabbrev W w
-
-" Customization:
+" Enable better searching options
 set smartcase
+set incsearch
+
+" Always end files with a newline
 set endofline
 
+" Let ctrl + backspace delete the previous word in insert mode
+imap <C-BS> <C-W>
