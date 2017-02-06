@@ -248,7 +248,7 @@ exec_always --no-startup-id feh --bg-fill ~/.dotfiles/user/wallpapers/Afbeelding
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Start our panel
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec --no-startup-id ~/.config/polybar/launch.sh
 # A volume applet
 exec --no-startup-id volumeicon
 # Our networking settings
