@@ -23,19 +23,18 @@ floating_modifier $mod
 
 # Customize colors
 set $color-bg         #e7e8eb
-set $color-alt        #dbdbdf
 set $color-border     #dbdbdf
 set $color-border-mix #dbdbdf
 set $color-border-alt #8f929a
 set $color-text       #2f343f
 set $color-alert      #bd2c40
 
-# class                 border            backgr.    text        indicator child_border
-client.focused          $color-border     $color-bg  $color-text #2e9ef4   $color-border
-client.focused_inactive $color-border-mix $color-alt $color-text #484e50   $color-border-alt
-client.unfocused        $color-border-alt $color-alt $color-text #292d2e   $color-border-alt
-client.urgent           $color-alert      $color-bg  $color-text #900000   $color-bg
-client.placeholder      #000000           $color-bg  $color-text #000000   $color-bg
+# class                 border            backgr.           text        indicator child_border
+client.focused          $color-border     $color-bg         $color-text #2e9ef4   $color-border
+client.focused_inactive $color-border-mix $color-border-mix $color-text #484e50   $color-border-alt
+client.unfocused        $color-border-alt $color-border-alt $color-text #292d2e   $color-border-alt
+client.urgent           $color-alert      $color-bg         $color-text #900000   $color-bg
+client.placeholder      #000000           $color-bg         $color-text #000000   $color-bg
 client.background       $color-text
 
 # Start a terminal
