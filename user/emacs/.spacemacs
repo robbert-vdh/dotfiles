@@ -327,18 +327,23 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (editorconfig-mode 1)
-  (add-hook 'scss-mode-hook (lambda ()
-                              (setq comment-start "// "
-                                    comment-end "")))
   (custom-set-faces
    '(company-tooltip-common
      ((t (:inherit company-tooltip :weight bold :underline nil))))
    '(company-tooltip-common-selection
      ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
-  (require 'opencl-mode)
+
+  ;; Enable editorconfig support
+  (editorconfig-mode 1)
+  (spacemacs|diminish editorconfig-mode " Ⓔ" " E")
+
+  ;; SCSS should be indented using two slashes instead of block comments
+  (add-hook 'scss-mode-hook (lambda ()
+                              (setq comment-start "// "
+                                    comment-end "")))
+
+  ;; Add support for OpenCL
   (add-to-list 'auto-mode-alist '("\\.cl\\'" . opencl-mode))
-  (add-to-list 'auto-mode-alist '("\\.tera\\'" . web-mode))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
