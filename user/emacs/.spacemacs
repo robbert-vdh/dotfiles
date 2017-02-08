@@ -333,6 +333,9 @@ you should place your code here."
    '(company-tooltip-common-selection
      ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
 
+  ;; Spell checking should be enabled in git commits
+  (add-hook 'text-mode-hook (lambda () (spacemacs/toggle-spelling-checking-on)))
+
   ;; Enable editorconfig support
   (editorconfig-mode 1)
   (spacemacs|diminish editorconfig-mode " Ⓔ" " E")
