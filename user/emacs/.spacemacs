@@ -347,6 +347,9 @@ you should place your code here."
 
   ;; Add support for OpenCL
   (add-to-list 'auto-mode-alist '("\\.cl\\'" . opencl-mode))
+
+  ;; Add diminished modes for miscellaneous modes missing them
+  (spacemacs|diminish magit-gitflow-mode " Ⓕ" " F")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
