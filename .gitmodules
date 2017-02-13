@@ -1,0 +1,3 @@
+[submodule "platformio"]
+	path = user/emacs/.emacs.d/private/layers/platformio
+	url = https://github.com/LeartS/platformio-layer.git
