@@ -12,33 +12,44 @@ $ ./install.sh
 ```
 
 ## Note on ~/.Xresources
-The settings contained in `./user/xorg/.Xresources` are used in the `bspwm` and
-`fonts` packages.
+The settings contained in `./user/xorg/.Xresources` are used in the `wm-general`
+and `fonts` packages.
 
-## bspwm
-These packages are used in my bspwm configuration.
+## WM configuration
+I've recently switched from bspwm to i3-gaps. These packages are used in both
+environments.
 
--   bspvm
+### General packaages
 -   compton
 -   feh
+-   polkit-gnome
 -   rofi
--   sxhkd
 
-### Panel 
--   dunst (there's a patched version with SVG support in the AUR)
+#### Panel 
+-   dunst
 -   network-manager-applet
+-   redshift
 -   pavucontrol
 -   polkit-gnome
 -   polybar
 -   volumeicon
 
-### Theming
--   Numix Square icons
+#### Theming
 -   Arc GTK theme
+-   ttf-google-fonts (Cantarell, Open Sans and Roboto)
+-   Numix Square icons
 
-### Optional utilities used in the keymapping
+#### Optional utilities used in the keymapping
+-   emacs
 -   imgurbash2
 -   maim
 -   slop
 -   xclip
 -   xdotool
+
+### bspwm
+-   bspvm
+-   sxhkd
+
+### i3
+-   i3-gaps
