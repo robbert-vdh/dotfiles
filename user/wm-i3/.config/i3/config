@@ -185,8 +185,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Brightness controlls (volume is handed by volumeicon)
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec xbacklight -inc 15
+bindsym XF86MonBrightnessDown exec xbacklight -dec 15
 
 # We'll use polybar instead of i3bar
 #bar {
