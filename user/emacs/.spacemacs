@@ -372,6 +372,9 @@ you should place your code here."
   (defun clang-format-bindings ()
     (define-key c++-mode-map [tab] 'clang-format-buffer))
 
+  ;; Rust should default to a line length of 100 characters
+  (add-hook 'rust-mode-hook (lambda () (setq fill-column 100)))
+
   ;; LaTeX previews should reload automatically
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
