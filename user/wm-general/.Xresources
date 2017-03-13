@@ -76,5 +76,5 @@ rofi.font: Open Sans 15
 rofi.fullscreen: true
 rofi.hide-scrollbar: true
 rofi.line-margin: 15
-rofi.padding: 300
+rofi.padding: 500
 rofi.separator-style: none
