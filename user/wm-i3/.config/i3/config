@@ -237,6 +237,8 @@ bindsym Control+Shift+Print exec " \
 
 # Toggle the compositor, useful for enabling G-Sync
 bindsym $mod+F12 exec pkill compton || compton --respect-prop-shadow
+# Restart polybar
+bindsym $mod+F11 exec ~/.config/polybar/launch.sh
 
 #
 # Startup applications
