@@ -206,6 +206,7 @@ for_window [class="^.*"] title_format "  <span size='smaller'>%title</span>"
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Steam" title="Friends"] floating enable
 for_window [class="vokoscreen"] floating enable
+for_window [class="Firefox" window_role="page-info"] floating enable
 
 #
 # Applications
