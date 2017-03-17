@@ -252,7 +252,7 @@ exec --no-startup-id ~/.xprofile
 # Transparency and eye candy
 exec --no-startup-id compton --respect-prop-shadow
 # Set a wallpaper
-exec_always --no-startup-id feh --bg-fill ~/.dotfiles/user/wallpapers/Afbeeldingen/wallpapers/early_morning_by_kylekc.jpg
+exec_always --no-startup-id feh --bg-fill ~/.dotfiles/user/wallpapers/Afbeeldingen/wallpapers/mt-cook.png
 # Enable graphical sudo promps
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
