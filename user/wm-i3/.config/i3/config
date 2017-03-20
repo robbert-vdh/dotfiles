@@ -237,7 +237,7 @@ bindsym Control+Shift+Print exec " \
     && notify-send \\"Screenshot geüpload naar\n$(xclip -o -sel clip)\\""
 
 # Toggle the compositor
-bindsym $mod+F12 exec pkill compton || compton
+bindsym $mod+F12 exec pkill compton || compton --respect-prop-shadow
 # Restart polybar
 bindsym $mod+F11 exec ~/.config/polybar/launch.sh
 
@@ -250,7 +250,7 @@ exec --no-startup-id xset r rate 250 15
 # Execute profile configuration (e.g. resolution)
 exec --no-startup-id ~/.xprofile
 # Transparency and eye candy
-exec --no-startup-id compton
+exec --no-startup-id compton --respect-prop-shadow
 # Set a wallpaper
 exec_always --no-startup-id feh --bg-fill ~/.dotfiles/user/wallpapers/Afbeeldingen/wallpapers/mt-cook.png
 # Enable graphical sudo promps
