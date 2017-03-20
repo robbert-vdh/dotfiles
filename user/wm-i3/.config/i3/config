@@ -236,10 +236,12 @@ bindsym Control+Shift+Print exec " \
   maim -s $FILE_NAME && imgurbash2 $FILE_NAME \
     && notify-send \\"Screenshot geüpload naar\n$(xclip -o -sel clip)\\""
 
-# Toggle the compositor
-bindsym $mod+F12 exec pkill compton || compton --respect-prop-shadow
+# Restart volumeicon, as it doesn't react to default device changes
+bindsym $mod+F10 exec pkill volumeicon && volumeicon
 # Restart polybar
 bindsym $mod+F11 exec ~/.config/polybar/launch.sh
+# Toggle the compositor
+bindsym $mod+F12 exec pkill compton || compton --respect-prop-shadow
 
 #
 # Startup applications
