@@ -41,6 +41,7 @@ values."
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-enable-clang-support t)
      platformio
+     c-c++-irony
 
      emacs-lisp
      graphviz
@@ -79,7 +80,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(editorconfig flycheck-irony opencl-mode)
+   dotspacemacs-additional-packages '(editorconfig opencl-mode)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -320,11 +321,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq completion-styles '(partial-completion initials))
   (setq-default git-magit-status-fullscreen t)
 
-  ;; Use C++14 by default when using Irony for error checking
-  (setq irony-additional-clang-options '("-std=c++14")
-        flycheck-clang-language-standard "c++14"
-        flycheck-gcc-language-standard "c++14")
-
   (setq js-indent-level 2
         web-mode-markup-indent-offset 2
         web-mode-css-indent-offset 2)
@@ -359,9 +355,6 @@ you should place your code here."
                               (setq comment-start "// "
                                     comment-end "")))
 
-  ;; Add Irony support (for PlatformIO) to flycheck
-  (add-hook 'flycheck-mode-hook 'flycheck-irony-setup)
-
   ;; Add support for OpenCL
   (add-to-list 'auto-mode-alist '("\\.cl\\'" . opencl-mode))
 
@@ -377,7 +370,6 @@ you should place your code here."
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
   ;; Add diminished modes for miscellaneous modes missing them
-  (spacemacs|diminish irony-mode " Ⓘ" " I")
   (spacemacs|diminish platformio-mode " ⓘ" " i")
   (spacemacs|diminish magit-gitflow-mode " Ⓕ" " F")
   (spacemacs|diminish reftex-mode " ⓡ" " r")
