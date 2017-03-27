@@ -31,6 +31,8 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     ivy
+
      ;; ------
      ;; Syntax
      ;; ------
@@ -40,6 +42,7 @@ values."
             c-c++-enable-clang-support t)
      platformio
 
+     emacs-lisp
      graphviz
      html
      javascript
@@ -51,24 +54,20 @@ values."
      shaders
      yaml
 
-     pandoc
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ivy
      (auto-completion :variables
                       auto-completion-enable-help-tooltip t
                       auto-completion-enable-sort-by-usage t
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-tab-key-behavior 'complete)
-     ;; better-defaults
-     emacs-lisp
      git
      markdown
      nlinum
-     ;; org
+     pandoc
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -321,11 +320,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq completion-styles '(partial-completion initials))
   (setq-default git-magit-status-fullscreen t)
 
-  ;; Underscores should be part of a word
-  (modify-syntax-entry ?_ "w")
-
   ;; Use C++14 by default when using Irony for error checking
-  (setq irony-additional-clang-options '("-std=c++14"))
+  (setq irony-additional-clang-options '("-std=c++14")
+        flycheck-clang-language-standard "c++14"
+        flycheck-gcc-language-standard "c++14")
 
   (setq js-indent-level 2
         web-mode-markup-indent-offset 2
@@ -339,11 +337,15 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
   (custom-set-faces
    '(company-tooltip-common
      ((t (:inherit company-tooltip :weight bold :underline nil))))
    '(company-tooltip-common-selection
      ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+
+  ;; Underscores should be part of a word
+  (modify-syntax-entry ?_ "w")
 
   ;; Spell checking should be enabled in git commits
   (add-hook 'text-mode-hook (lambda () (spacemacs/toggle-spelling-checking-on)))
@@ -359,10 +361,6 @@ you should place your code here."
 
   ;; Add Irony support (for PlatformIO) to flycheck
   (add-hook 'flycheck-mode-hook 'flycheck-irony-setup)
-
-  ;; C++14 should be used by default
-  (add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++14"
-                                            flycheck-gcc-language-standard "c++14")))
 
   ;; Add support for OpenCL
   (add-to-list 'auto-mode-alist '("\\.cl\\'" . opencl-mode))
