@@ -21,7 +21,8 @@ path=(
 # Configure editors
 export EDITOR="nvim"
 export VISUAL="nvim"
-export PAGER='less'
+export PAGER="less"
+export BROWSER="firefox-beta"
 
 # Emacs should use a client process when possible
 alias emacs="emacsclient -nca ''"
