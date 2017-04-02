@@ -3,5 +3,6 @@ dump.php
 pimple.json
 
 # Emacs
+.dir-locals.el
 .projectile
 
