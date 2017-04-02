@@ -9,6 +9,8 @@
 ;;
 ;;; License: GPLv3
 
+(spacemacs|defvar-company-backends irony-mode)
+
 ;; Use C++14 by default when using Irony for error checking
 (setq irony-additional-clang-options '("-std=c++14")
       flycheck-clang-language-standard "c++14"

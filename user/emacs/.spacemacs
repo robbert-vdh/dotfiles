@@ -369,6 +369,11 @@ you should place your code here."
   ;; LaTeX previews should reload automatically
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
+  ;; Workaround for C-k not working as expected when using company quickhelp
+  ;; See: https://github.com/syl20bnr/spacemacs/issues/2974
+  (evil-define-key 'insert company-quickhelp-mode-map (kbd "C-k")
+                   'company-select-previous)
+
   ;; Add diminished modes for miscellaneous modes missing them
   (spacemacs|diminish platformio-mode " ⓘ" " i")
   (spacemacs|diminish magit-gitflow-mode " Ⓕ" " F")
