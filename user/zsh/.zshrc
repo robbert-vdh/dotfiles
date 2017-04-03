@@ -20,13 +20,9 @@ path=(
 
 # Configure editors
 export EDITOR="nvim"
-export VISUAL="nvim"
+export VISUAL="emacsclient -c -a ''"
 export PAGER="less"
 export BROWSER="firefox-beta"
-
-# Emacs should use a client process when possible
-alias emacs="emacsclient -nca ''"
-alias emacsdpi="XDG_CONFIG_HOME=.emacs.d/xdg_config_home/ GDK_SCALE=1 GDK_DPI_SCALE=1 emacs"
 
 # Use base16 colors in VIM
 BASE16_SHELL=$HOME/.config/base16-shell/
@@ -36,6 +32,13 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 source /etc/profile.d/vte.sh
 
 # Custom aliases
+
+# Launch Emacs in terminal mode
+alias et="emacsclient -t -a ''"
+# Launch Emacs in regular GUI mode, attaching to a currently open frame
+alias ea="emacsclient -n -a ''"
+# Launch Emacs in regular GUI mode, creating a new frame
+alias ec="emacsclient -nc -a ''"
 
 #
 # Moves files to a new location (e.g. another physical volume) whilst leaving a
