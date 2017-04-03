@@ -12,6 +12,7 @@
 (defconst c-c++-irony-packages
   '(company
     company-irony
+    company-irony-c-headers
     flycheck
     flycheck-irony
     irony
@@ -22,6 +23,12 @@
 
 (defun c-c++-irony/post-init-company ()
   (spacemacs|add-company-hook irony-mode))
+
+(defun c-c++-irony/init-company-irony-c-headers ()
+  (use-package company-irony-c-headers
+    :defer t
+    :init
+    (push 'company-irony-c-headers company-backends-irony-mode)))
 
 (defun c-c++-irony/init-company-irony ()
   (use-package company-irony
