@@ -1,3 +1,6 @@
 [submodule "user/emacs/.emacs.d/private/layers/c-c++-irony"]
 	path = user/emacs/.emacs.d/private/layers/c-c++-irony
 	url = https://github.com/robbert-vdh/spacemacs-c-cpp-irony-layer.git
+[submodule "user/emacs/.emacs.d/private/layers/platformio"]
+	path = user/emacs/.emacs.d/private/layers/platformio
+	url = https://github.com/robbert-vdh/spacemacs-platformio-layer.git
