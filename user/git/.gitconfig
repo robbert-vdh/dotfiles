@@ -1,6 +1,6 @@
 [user]
 	name = Robbert van der Helm
-	email = robbert@zzindi.nl
+	email = mail@robbertvanderhelm.nl
 [diff]
 	compactionHeuristic = true
   indentHeuristic = true
@@ -18,4 +18,3 @@
 [tig]
 	refresh-mode = periodic
 	refresh-interval = 5
-
