@@ -389,7 +389,6 @@ you should place your code here."
                    'company-select-previous)
 
   ;; Add diminished modes for miscellaneous modes missing them
-  (spacemacs|diminish platformio-mode " ⓘ" " i")
   (spacemacs|diminish magit-gitflow-mode " Ⓕ" " F")
   (spacemacs|diminish reftex-mode " ⓡ" " r")
   )
