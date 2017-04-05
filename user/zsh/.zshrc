@@ -44,6 +44,32 @@ alias ea="emacsclient -n -a ''"
 # Launch Emacs in regular GUI mode, creating a new frame
 alias ec="emacsclient -nc -a ''"
 
+# Use Git's diffing engine instead of GNU diffutils
+function diff() {
+  if [[ -z $2 ]]; then
+    echo "Missing argument(s)"
+    return 1
+  fi
+  if [[ ! -e $1 ]]; then
+    echo "File or directory '\e[3m$1\e[0m' does not exist"
+    return 1
+  fi
+  if [[ ! -e $2 ]]; then
+    echo "File or directory '\e[3m$2\e[0m' does not exist"
+    return 1
+  fi
+
+  # Right now git's diff does not work well with symlinks
+  file1="$(realpath $1)"
+  file2="$(realpath $2)"
+
+  if (( $+commands[git] )); then
+    git diff --color=auto --no-ext-diff --no-index $file1 $file2
+  else
+    diff --color=auto $file1 $file2
+  fi
+}
+
 #
 # Moves files to a new location (e.g. another physical volume) whilst leaving a
 # symbolic link at the old location.

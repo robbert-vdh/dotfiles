@@ -8,9 +8,10 @@
 [commit]
 	verbose = true
 [core]
+  autocrlf = input
   editor = vim
   excludesfile = ~/.gitignore_global
-	autocrlf = input
+  pager = diff-so-fancy | less --tabs=4 -RFX
 [merge]
 	tool = kdiff3
 [alias]
