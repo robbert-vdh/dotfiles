@@ -39,6 +39,10 @@ ask() {
     done
 }
 
+# Update Spacemacs layers
+git submodule init > /dev/null
+git submodule update > /dev/null
+
 if ask "Dry run?" Y; then
   DRY_RUN=true
 else
