@@ -40,7 +40,7 @@ values."
      (auto-completion :variables
                       auto-completion-enable-help-tooltip t
                       auto-completion-enable-sort-by-usage t
-                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-enable-snippets-in-popup nil
                       auto-completion-tab-key-behavior 'complete)
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode)
