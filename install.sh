@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -e
 
 # Source https://gist.github.com/davejamesmiller/1965569
 ask() {
@@ -47,20 +46,33 @@ if ask "Dry run?" Y; then
   DRY_RUN=true
 else
   DRY_RUN=false
+
+  set -e
+  set -o pipefail
 fi
 
 echo "Installing configuration..."
 
+function stow2() {
+  command="stow $1 -t $2 -v"
+  if [[ $1 == '/' ]]; then
+    command="sudo $command"
+  fi
+
+  if $DRY_RUN; then
+    command+=" --no"
+    eval $command
+  else
+    if ask "Install configuration for $package?" Y; then
+      eval $command
+    fi
+  fi
+}
+
 cd user
 for package in $(ls); do
   if [ -d $package ]; then
-    if $DRY_RUN; then
-      stow --no $package -t $HOME -v || true
-    else
-      if ask "Install configuration for $package?" Y; then
-        stow $package -t $HOME -v
-      fi
-    fi
+    stow2 $package $HOME
   fi
 done
 
@@ -71,12 +83,6 @@ echo "NOTE: Misconfiguration could mess up your system"
 cd ../system
 for package in $(ls); do
   if [ -d $package ]; then
-    if $DRY_RUN; then
-      stow --no $package -t / -v || true
-    else
-      if ask "Install global configuration for $package?" Y; then
-        sudo stow $package -t / -v
-      fi
-    fi
+    stow2 $package '/'
   fi
 done
