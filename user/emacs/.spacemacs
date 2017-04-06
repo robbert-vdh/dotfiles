@@ -368,10 +368,10 @@ you should place your code here."
                               (setq comment-start "// "
                                     comment-end "")))
 
-  ;; Bind clang-format-buffer to tab on the c++-mode only:
-  (add-hook 'c++-mode-hook 'clang-format-bindings)
-  (defun clang-format-bindings ()
-    (define-key c++-mode-map [tab] 'clang-format-buffer))
+  ;; Format C++ buffers automatically when saved
+  (add-hook 'c++-mode-hook
+            (lambda ()
+              (add-hook 'write-contents-functions 'clang-format-buffer nil t)))
 
   ;; Rust should default to a line length of 100 characters
   (add-hook 'rust-mode-hook (lambda () (setq fill-column 100)))
