@@ -43,7 +43,8 @@ values."
                       auto-completion-enable-snippets-in-popup nil
                       auto-completion-tab-key-behavior 'complete)
      (c-c++ :variables
-            c-c++-default-mode-for-headers 'c++-mode)
+            c-c++-default-mode-for-headers 'c++-mode
+            c-c++-enable-clang-support t)
      c-c++-irony
      emacs-lisp
      git
@@ -371,7 +372,7 @@ you should place your code here."
   ;; Format C++ buffers automatically when saved
   (add-hook 'c++-mode-hook
             (lambda ()
-              (add-hook 'write-contents-functions 'clang-format-buffer nil t)))
+              (add-hook 'before-save-hook 'clang-format-buffer nil t)))
 
   ;; Rust should default to a line length of 100 characters
   (add-hook 'rust-mode-hook (lambda () (setq fill-column 100)))
@@ -401,15 +402,20 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default)))
+ '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (editorconfig irony-eldoc flycheck-irony company-irony-c-headers company-irony irony yapfify yaml-mode xterm-color web-mode web-beautify toml-mode tagedit slim-mode shell-pop scss-mode sass-mode racer pyvenv pytest pyenv-mode py-isort pug-mode platformio-mode pip-requirements phpunit phpcbf php-extras php-auto-yasnippets nlinum-relative nlinum multi-term mmm-mode markdown-toc markdown-mode livid-mode skewer-mode simple-httpd live-py-mode less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc hy-mode haml-mode graphviz-dot-mode glsl-mode git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flyspell-correct-ivy flyspell-correct flycheck-rust flycheck-pos-tip flycheck eshell-z eshell-prompt-extras esh-help emmet-mode drupal-mode php-mode diff-hl cython-mode company-web web-completion-data company-tern dash-functional tern company-auctex company-anaconda coffee-mode cargo rust-mode browse-at-remote auto-dictionary packed auctex-latexmk auctex anaconda-mode pythonic fuzzy disaster company-statistics company-quickhelp pos-tip company-c-headers company cmake-mode clang-format auto-yasnippet yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor wgrep smex ivy-purpose ivy-hydra counsel-projectile counsel swiper ivy ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+    (insert-shebang fish-mode company-shell editorconfig irony-eldoc flycheck-irony company-irony-c-headers company-irony irony yapfify yaml-mode xterm-color web-mode web-beautify toml-mode tagedit slim-mode shell-pop scss-mode sass-mode racer pyvenv pytest pyenv-mode py-isort pug-mode platformio-mode pip-requirements phpunit phpcbf php-extras php-auto-yasnippets nlinum-relative nlinum multi-term mmm-mode markdown-toc markdown-mode livid-mode skewer-mode simple-httpd live-py-mode less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc hy-mode haml-mode graphviz-dot-mode glsl-mode git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flyspell-correct-ivy flyspell-correct flycheck-rust flycheck-pos-tip flycheck eshell-z eshell-prompt-extras esh-help emmet-mode drupal-mode php-mode diff-hl cython-mode company-web web-completion-data company-tern dash-functional tern company-auctex company-anaconda coffee-mode cargo rust-mode browse-at-remote auto-dictionary packed auctex-latexmk auctex anaconda-mode pythonic fuzzy disaster company-statistics company-quickhelp pos-tip company-c-headers company cmake-mode clang-format auto-yasnippet yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor wgrep smex ivy-purpose ivy-hydra counsel-projectile counsel swiper ivy ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
 )
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
