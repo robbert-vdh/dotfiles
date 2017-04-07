@@ -44,7 +44,8 @@ values."
                       auto-completion-tab-key-behavior 'complete)
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
-            c-c++-enable-clang-support t)
+            c-c++-enable-clang-support t
+            c-c++-enable-clang-format-on-save t)
      c-c++-irony
      emacs-lisp
      git
@@ -368,11 +369,6 @@ you should place your code here."
   (add-hook 'scss-mode-hook (lambda ()
                               (setq comment-start "// "
                                     comment-end "")))
-
-  ;; Format C++ buffers automatically when saved
-  (add-hook 'c++-mode-hook
-            (lambda ()
-              (add-hook 'before-save-hook 'clang-format-buffer nil t)))
 
   ;; Rust should default to a line length of 100 characters
   (add-hook 'rust-mode-hook (lambda () (setq fill-column 100)))
