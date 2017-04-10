@@ -59,8 +59,6 @@ else
   fi
 fi
 
-echo 'Installing configuration...'
-
 function stow2() {
   command="stow $1 -t $2 -v"
   if [[ $1 == '/' ]]; then
@@ -68,7 +66,7 @@ function stow2() {
   fi
 
   if $DRY_RUN; then
-    command+=' --no'
+    command+=' --no 2>/dev/null'
     eval $command
   else
     if $NO_ASK || ask "Install configuration for $package?" Y; then
@@ -77,6 +75,10 @@ function stow2() {
   fi
 }
 
+if ! $DRY_RUN; then
+  echo 'Installing configuration...'
+fi
+
 cd user
 for package in $(ls); do
   if [ -d $package ]; then
@@ -84,9 +86,11 @@ for package in $(ls); do
   fi
 done
 
-echo ''
-echo 'Installing systemm wide configuration...'
-echo 'NOTE: Misconfiguration could mess up your system'
+if ! $DRY_RUN; then
+  echo ''
+  echo 'Installing systemm wide configuration...'
+  echo 'NOTE: Misconfiguration could mess up your system'
+fi
 
 cd ../system
 for package in $(ls); do
