@@ -2,56 +2,64 @@
 
 # Source https://gist.github.com/davejamesmiller/1965569
 ask() {
-    # http://djm.me/ask
-    local prompt default REPLY
+  # http://djm.me/ask
+  local prompt default all REPLY
 
-    while true; do
+  while true; do
+    if [ "${2:-}" = 'Y' ]; then
+      prompt='Y/n'
+      default=Y
+    elif [ "${2:-}" = 'N' ]; then
+      prompt='y/N'
+      default=N
+    else
+      prompt='y/n'
+      default=
+    fi
 
-        if [ "${2:-}" = "Y" ]; then
-            prompt="Y/n"
-            default=Y
-        elif [ "${2:-}" = "N" ]; then
-            prompt="y/N"
-            default=N
-        else
-            prompt="y/n"
-            default=
-        fi
+    if [ "${3:-}" = 'all' ]; then
+      all=true
+      prompt+='/a(ll)'
+    fi
 
-        # Ask the question (not using "read -p" as it uses stderr not stdout)
-        echo -n "$1 [$prompt] "
+    # Ask the question (not using "read -p" as it uses stderr not stdout)
+    echo -n "$1 [$prompt] "
 
-        # Read the answer (use /dev/tty in case stdin is redirected from somewhere else)
-        read REPLY </dev/tty
+    # Read the answer (use /dev/tty in case stdin is redirected from somewhere
+    # else)
+    read REPLY </dev/tty
 
-        # Default?
-        if [ -z "$REPLY" ]; then
-            REPLY=$default
-        fi
+    # Default?
+    if [ -z $REPLY ]; then
+      REPLY=$default
+    fi
 
-        # Check if the reply is valid
-        case "$REPLY" in
-            Y*|y*) return 0 ;;
-            N*|n*) return 1 ;;
-        esac
-
-    done
+    # Check if the reply is valid
+    case $REPLY in
+      Y*|y*) return 0 ;;
+      N*|n*) return 1 ;;
+    esac
+  done
 }
 
 # Update Spacemacs layers
 git submodule init > /dev/null
 git submodule update > /dev/null
 
-if ask "Dry run?" Y; then
+if ask 'Dry run?' Y; then
   DRY_RUN=true
 else
   DRY_RUN=false
 
   set -e
   set -o pipefail
+
+  if ask 'Install everything?' N; then
+    NO_ASK=true
+  fi
 fi
 
-echo "Installing configuration..."
+echo 'Installing configuration...'
 
 function stow2() {
   command="stow $1 -t $2 -v"
@@ -60,10 +68,10 @@ function stow2() {
   fi
 
   if $DRY_RUN; then
-    command+=" --no"
+    command+=' --no'
     eval $command
   else
-    if ask "Install configuration for $package?" Y; then
+    if $NO_ASK || ask "Install configuration for $package?" Y; then
       eval $command
     fi
   fi
@@ -76,9 +84,9 @@ for package in $(ls); do
   fi
 done
 
-echo ""
-echo "Installing systemm wide configuration..."
-echo "NOTE: Misconfiguration could mess up your system"
+echo ''
+echo 'Installing systemm wide configuration...'
+echo 'NOTE: Misconfiguration could mess up your system'
 
 cd ../system
 for package in $(ls); do
