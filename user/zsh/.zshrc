@@ -19,13 +19,13 @@ path=(
 )
 
 # Configure editors
-export EDITOR="nvim"
-export VISUAL="emacsclient -c -a ''"
-export PAGER="less"
-export BROWSER="firefox-beta"
+export EDITOR='nvim'
+export VISUAL=$EDITOR
+export PAGER='less'
+export BROWSER='firefox-beta'
 
 # Emacs' terminal prints the raw color codes
-if [ $TERM != "eterm-color" ]; then
+if [ $TERM != 'eterm-color' ]; then
   # Use base16 colors in VIM
   BASE16_SHELL=$HOME/.config/base16-shell/
   [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] &&
@@ -47,7 +47,7 @@ alias ec="emacsclient -nc -a ''"
 # Use Git's diffing engine instead of GNU diffutils
 function diff() {
   if [[ -z $2 ]]; then
-    echo "Missing argument(s)"
+    echo 'Missing argument(s)'
     return 1
   fi
   if [[ ! -e $1 ]]; then
