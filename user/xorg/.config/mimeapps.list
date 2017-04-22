@@ -41,7 +41,7 @@ image/x-pcx=eog.desktop;
 image/svg+xml=inkscape.desktop;atom.desktop;eog.desktop;
 image/svg+xml-compressed=eog.desktop;
 image/vnd.wap.wbmp=eog.desktop;
-video/x-matroska=mpv.desktop;mpv.desktop;org.gnome.Totem.desktop;
+video/x-matroska=mpv.desktop;org.gnome.Totem.desktop;
 application/x-cd-image=gnome-disk-image-writer.desktop;
 video/mp4=mpv.desktop;mpv.desktop;org.gnome.Totem.desktop;
 application/zip=org.gnome.FileRoller.desktop;org.gnome.Nautilus.desktop;
@@ -83,6 +83,7 @@ audio/flac=mpv.desktop;
 audio/mp4=mpv.desktop;
 application/x-ms-dos-executable=wine.desktop;
 x-scheme-handler/trash=exo-file-manager.desktop
+application/pdf=evince.desktop;
 
 [Default Applications]
 x-scheme-handler/http=firefox-beta.desktop
