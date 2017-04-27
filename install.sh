@@ -54,6 +54,11 @@ else
   set -e
   set -o pipefail
 
+  # Fix mimeapps, applications overwrite the symlink when updating it
+  if [[ ! -s ~/.config/mimeapps.list ]]; then
+    mv ~/.config/mimeapps.list user/xorg/.config/mimeapps.list
+  fi
+
   if ask 'Install everything?' N; then
     NO_ASK=true
   fi
