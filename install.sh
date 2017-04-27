@@ -66,7 +66,7 @@ fi
 
 function stow2() {
   command="stow $1 -t $2 -v"
-  if [[ $1 == '/' ]]; then
+  if [[ $2 == '/' ]]; then
     command="sudo $command"
   fi
 
