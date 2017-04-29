@@ -239,9 +239,9 @@ bindsym Control+Shift+Print exec " \
 # Restart volumeicon, as it doesn't react to default device changes
 bindsym $mod+F10 exec pkill volumeicon && volumeicon
 # Restart polybar
-bindsym $mod+F11 exec ~/.config/polybar/launch.sh
+bindsym $mod+F11 exec --no-startup-id ~/.config/polybar/launch.sh
 # Toggle the compositor
-bindsym $mod+F12 exec pkill compton || compton --respect-prop-shadow
+bindsym $mod+F12 exec --no-startup-id pkill compton || compton --respect-prop-shadow
 
 #
 # Startup applications
