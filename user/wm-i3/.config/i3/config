@@ -208,6 +208,9 @@ for_window [class="Steam" title="Friends"] floating enable
 for_window [class="vokoscreen"] floating enable
 for_window [class="Firefox" window_role="page-info"] floating enable
 
+# Keep KeePass out of sight
+for_window [class="keepassxc"] move workspace number 10
+
 #
 # Applications
 #
@@ -258,8 +261,8 @@ exec_always --no-startup-id feh --bg-fill ~/.dotfiles/user/wallpapers/Afbeelding
 # Enable graphical sudo promps
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-# Start our panel
-exec --no-startup-id ~/.config/polybar/launch.sh
+# (Re)tart our panel
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 # A volume applet
 exec --no-startup-id volumeicon
 # Our networking settings
@@ -271,5 +274,7 @@ exec --no-startup-id dunst
 
 # Preload ana Emacs daemon
 exec --no-startup-id emacs --daemon
+# Start KeePassXC on the last workspace
+exec --no-startup-id keepassxc
 
 # vim:filetype=i3
