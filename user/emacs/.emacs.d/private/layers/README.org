@@ -1,0 +1,15 @@
+These layers are meant to be used with Spacemacs' development branch. They might
+require some minor modifications to work on the stable release.
+
+You can use these layers by either cloning the entire repository and symlinking
+the layers to =~/.emacs.d/private/layers=, or by simply copying the layers over:
+
+#+BEGIN_SRC shell
+  # Method one
+  git clone https://github.com/robbert-vdh/dotfiles.git ~/.spacemacs-layers
+  ln -s ~/.spacemacs-layers/user/emacs/.emacs.d/private/layers/<layer> ~/.emacs.d/private/layers/<layer>
+
+  # Method two
+  git clone --depth 1 https://github.com/robbert-vdh/dotfiles.git /tmp/spacemacs-layers
+  mv /tmp/spacemacs-layers/user/emacs/.emacss.d/private/layers/<layer> ~/.emacs.d/private/layers/<layer>
+#+END_SRC

@@ -11,6 +11,16 @@ $ cd ~/.dotfiles
 $ ./install.sh
 ```
 
+## Spacemacs layers
+I've got Spacemacs layers for the following packages:
+
+-   irony-mode (faster C/C++ auto completion)
+-   platformio (embedded system development)
+
+They can be found over
+at [user/emacs/.emacs.d/private/layers](user/emacs/.emacs.d/private/layers),
+along with installation instructions.
+
 ## Note on ~/.Xresources
 The settings contained in `./user/xorg/.Xresources` are used in the `wm-general`
 and `fonts` packages.
