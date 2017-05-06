@@ -26,11 +26,12 @@
 
 (defun spacemacs//languagetool-detect ()
   "Detects whether the LanguageTool binary exists"
-  (if (boundp 'langtool-language-tool-jar)
-      (if (file-readable-p langtool-language-tool-jar)
-          t
-        (spacemacs-buffer/warning "LanguageTool binary not found"))
-    (spacemacs-buffer/warning "LanguageTool binary not set")))
+  (cond ((boundp 'langtool-language-tool-jar)
+         (if (file-readable-p langtool-language-tool-jar)
+             t
+           (spacemacs-buffer/warning "LanguageTool binary not found")))
+        ((boundp 'langtool-java-classpath) t)
+        (t (spacemacs-buffer/warning "LanguageTool binary not set"))))
 
 (defun spacemacs//languagetool-get-language ()
   "Tries to parse the current spell checking language for a
