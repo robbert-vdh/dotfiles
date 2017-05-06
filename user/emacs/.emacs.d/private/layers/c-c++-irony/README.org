@@ -1,0 +1,18 @@
+#+TITLE: C/C++ Irony layer
+
+* Table of Contents                                                :TOC_4_gh:
+ - [[#description][Description]]
+ - [[#install][Install]]
+ - [[#key-bindings][Key bindings]]
+
+* Description
+This layer replaces =company-clang= with [[https://github.com/Sarcasm/irony-mode][Irony-Mode]], providing much faster auto
+completion using libclang and support for =.clang_complete= files.
+
+* Install
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =c-c++-irony= to the existing =dotspacemacs-configuration-layers= list in
+this file.
+
+* Key bindings
+None.
