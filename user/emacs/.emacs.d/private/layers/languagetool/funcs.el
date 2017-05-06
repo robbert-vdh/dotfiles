@@ -16,12 +16,12 @@
   (interactive)
   (if (package-installed-p 'langtool)
       ;; Clear LanguageTool's errors if there is an active error overlay
-      (if (and (not (boundp 'langtool--overlays-region))
-               (null (langtool--overlays-region (point-min) (point-max))))
-          (progn
-            (langtool-check-buffer (spacemacs//languagetool-get-language))
-            (flyspell-buffer))
-        (langtool-check-done))
+      (if (and (fboundp 'langtool--overlays-region)
+               (not (null (langtool--overlays-region (point-min) (point-max)))))
+          (langtool-check-done)
+        (progn
+          (langtool-check-buffer (spacemacs//languagetool-get-language))
+          (flyspell-buffer)))
     (error "LanguageTool has not been set up yet")))
 
 (defun spacemacs//languagetool-detect ()
