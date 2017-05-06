@@ -1,0 +1,47 @@
+#+TITLE: LanguageTool layer
+
+[[img/languagetool.png]]
+
+* Table of Contents                                        :TOC_4_gh:noexport:
+ - [[#description][Description]]
+ - [[#todos][Todos]]
+ - [[#install][Install]]
+   - [[#layer][Layer]]
+   - [[#languagetool][LanguageTool]]
+ - [[#key-bindings][Key bindings]]
+
+* Description
+This layer adds grammar checking using [[https://www.languagetool.org/][LanguageTool]]. Right now this doesn't work
+as well as it should, as the [[https://github.com/mhayashi1120/Emacs-langtool][langtool]] package doesn't integrate with flyspell
+and text is corrected as is, so you'll get a lot of false positives when
+correcting rich text.
+
+* Todos
+- [ ] Automatically set =langtool-default-language= to the current spell
+  checking language.
+- [ ] Add more languages to the rule ignore list.
+- [ ] Add a command for running =langtool-check-buffer= under ~SPC S l~. This
+  command should also run =flyspell-buffer=.
+- [ ] Add the ability to navigate to errors using ~[ s~ and ~] s~.
+
+* Install
+** Layer
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =languagetool= to the existing =dotspacemacs-configuration-layers= list in this
+file.
+
+** LanguageTool
+LanguageTool and JRE 8+ are required to use this layer. You can install
+LanguageTool using your system's package manager or by extracting the standalone
+archive on [[https://www.languagetool.org/][LanguageTool's website]]. You can tell the layer where languagetool is
+installed by setting the =langtool-language-tool-jar= variable to the location
+of =languagetool-commandline.jar=:
+
+#+BEGIN_SRC elisp
+  (setq-default dotspacemacs-configuration-layers
+                '((languagetool :variables
+                                langtool-language-tool-jar "/usr/share/java/languagetool/languagetool-commandline.jar")))
+#+END_SRC
+
+* Key bindings
+None yet.
