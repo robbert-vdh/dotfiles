@@ -11,10 +11,9 @@
  - [[#key-bindings][Key bindings]]
 
 * Description
-This layer adds grammar checking using [[https://www.languagetool.org/][LanguageTool]]. Right now this doesn't work
-as well as it should, as the [[https://github.com/mhayashi1120/Emacs-langtool][langtool]] package doesn't integrate with flyspell
-and text is corrected as is, so you'll get a lot of false positives when
-correcting rich text.
+This layer adds grammar checking using [[https://www.languagetool.org/][LanguageTool]]. ~SPC S l~ toggles
+LanguageTool on or off for the current buffer. The language set using ~SPC S d~
+gets passed to LanguageTool.
 
 * Todos
 - [X] Automatically set =langtool-default-language= to the current spell
@@ -44,4 +43,6 @@ of =languagetool-commandline.jar=:
 #+END_SRC
 
 * Key bindings
-None yet.
+| Key Binding | Description                                |
+|-------------+--------------------------------------------|
+| ~SPC S l~   | Toggle LanguageTool for the current buffer |
