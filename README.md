@@ -15,6 +15,7 @@ $ ./install.sh
 I've got Spacemacs layers for the following packages:
 
 -   irony-mode (faster C/C++ auto completion)
+-   languagetool (grammar correction)
 -   platformio (embedded system development)
 
 They can be found over
