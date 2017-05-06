@@ -17,10 +17,10 @@ and text is corrected as is, so you'll get a lot of false positives when
 correcting rich text.
 
 * Todos
-- [ ] Automatically set =langtool-default-language= to the current spell
+- [X] Automatically set =langtool-default-language= to the current spell
   checking language.
 - [ ] Add more languages to the rule ignore list.
-- [ ] Add a command for running =langtool-check-buffer= under ~SPC S l~. This
+- [X] Add a command for running =langtool-check-buffer= under ~SPC S l~. This
   command should also run =flyspell-buffer=.
 - [ ] Add the ability to navigate to errors using ~[ s~ and ~] s~.
 
