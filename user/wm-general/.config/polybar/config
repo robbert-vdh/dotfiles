@@ -14,7 +14,7 @@ foreground = #2f343f
 foreground-alt = #2f343f
 primary = #383c4a
 secondary = #e60053
-alert = #bd2c40
+alert = #fac8cb
 
 [global/wm]
 margin-top = 0
@@ -99,7 +99,7 @@ label-focused-padding = 2
 label-occupied = %index%
 label-occupied-padding = 2
 
-label-urgent = %index%!
+label-urgent = %index%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
@@ -128,7 +128,7 @@ label-focused-padding = 2
 label-unfocused = %index%
 label-unfocused-padding = 2
 
-label-urgent = %index%!
+label-urgent = %index%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
