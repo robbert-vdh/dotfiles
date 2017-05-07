@@ -32,11 +32,11 @@
 
 (defun spacemacs//languagetool-detect ()
   "Detects whether the LanguageTool binary exists"
-  (cond ((boundp 'langtool-language-tool-jar)
+  (cond ((boundp 'langtool-java-classpath) t)
+        ((boundp 'langtool-language-tool-jar)
          (if (file-readable-p langtool-language-tool-jar)
              t
            (spacemacs-buffer/warning "LanguageTool binary not found")))
-        ((boundp 'langtool-java-classpath) t)
         (t (spacemacs-buffer/warning "LanguageTool binary not set"))))
 
 (defun spacemacs//languagetool-get-language ()
@@ -44,8 +44,8 @@
   usable locale string"
   (let ((language (or ispell-local-dictionary ispell-dictionary)))
     (when language
-      (let* ((dict (assoc language ispell-dicts-name2locale-equivs-alist))
+      (let* ((locale (assoc language ispell-dicts-name2locale-equivs-alist))
              ;; ispell uses underscores in its locales, but LanguageTool expects a
              ;; dash (e.g. "en_US" => "en-US")
-             (language-code (replace-regexp-in-string "_" "-" (cadr dict))))
-        language-code))))
+             (langtool-code (replace-regexp-in-string "_" "-" (cadr locale))))
+        langtool-code))))
