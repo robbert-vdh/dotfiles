@@ -208,8 +208,9 @@ for_window [class="Steam" title="Friends"] floating enable
 for_window [class="vokoscreen"] floating enable
 for_window [class="Firefox" window_role="page-info"] floating enable
 
-# Keep KeePass out of sight
+# Keep KeePass out of sight, but show confirmation popups
 for_window [class="keepassxc"] move workspace number 10
+for_window [class="keepassxc" window_type="dialog"] move workspace current
 
 #
 # Applications
