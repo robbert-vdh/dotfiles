@@ -22,7 +22,8 @@
             (langtool-check-done)
             (flyspell-delete-all-overlays))
         ;; Don't do anything while LanguageTool is still running
-        (unless (equal ":run" (cadr langtool-mode-line-message))
+        (unless (and (boundp 'langtool-mode-line-message)
+                     (equal ":run" (cadr langtool-mode-line-message)))
           (langtool-check-buffer (spacemacs//languagetool-get-language))
           (flyspell-buffer)))
     (error "LanguageTool has not been set up yet")))
