@@ -19,7 +19,8 @@
       (if (and (fboundp 'langtool--overlays-region)
                (not (null (langtool--overlays-region (point-min) (point-max)))))
           (langtool-check-done)
-        (progn
+        ;; Don't do anything while LanguageTool is still running
+        (unless (equal ":run" (cadr langtool-mode-line-message))
           (langtool-check-buffer (spacemacs//languagetool-get-language))
           (flyspell-buffer)))
     (error "LanguageTool has not been set up yet")))
