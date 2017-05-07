@@ -18,7 +18,9 @@
       ;; Clear LanguageTool's errors if there is an active error overlay
       (if (and (fboundp 'langtool--overlays-region)
                (not (null (langtool--overlays-region (point-min) (point-max)))))
-          (langtool-check-done)
+          (progn
+            (langtool-check-done)
+            (flyspell-delete-all-overlays))
         ;; Don't do anything while LanguageTool is still running
         (unless (equal ":run" (cadr langtool-mode-line-message))
           (langtool-check-buffer (spacemacs//languagetool-get-language))
