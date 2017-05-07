@@ -22,6 +22,8 @@ gets passed to LanguageTool.
 - [X] Add a command for running =langtool-check-buffer= under ~SPC S l~. This
   command should also run =flyspell-buffer=.
 - [ ] Add the ability to navigate to errors using ~[ s~ and ~] s~.
+- [ ] Only run flycheck and disable the spelling related lints when the
+  =spell-checking= layer is enabled.
 
 * Install
 ** Layer
