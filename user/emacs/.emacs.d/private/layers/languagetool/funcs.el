@@ -15,17 +15,19 @@
   checking."
   (interactive)
   (if (package-installed-p 'langtool)
-      ;; Clear LanguageTool's errors if there is an active error overlay
-      (if (and (fboundp 'langtool--overlays-region)
-               (not (null (langtool--overlays-region (point-min) (point-max)))))
-          (progn
-            (langtool-check-done)
-            (flyspell-delete-all-overlays))
+      (let* ((has-ran (bound-and-true-p langtool-mode-line-message))
+             (still-running
+              (and has-ran (equal ":run" (cadr langtool-mode-line-message)))))
         ;; Don't do anything while LanguageTool is still running
-        (unless (and (boundp 'langtool-mode-line-message)
-                     (equal ":run" (cadr langtool-mode-line-message)))
-          (langtool-check-buffer (spacemacs//languagetool-get-language))
-          (flyspell-buffer)))
+        (unless still-running
+          ;; Clear LanguageTool's errors if there is an active error overlay
+          (if has-ran
+              (progn
+                (langtool-check-done)
+                (flyspell-delete-all-overlays))
+            (progn
+              (langtool-check-buffer (spacemacs//languagetool-get-language))
+              (flyspell-buffer)))))
     (error "LanguageTool has not been set up yet")))
 
 (defun spacemacs//languagetool-detect ()
