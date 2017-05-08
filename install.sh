@@ -54,13 +54,16 @@ else
   set -e
   set -o pipefail
 
-  # Fix mimeapps, applications overwrite the symlink when updating it
-  if [[ ! -s ~/.config/mimeapps.list ]]; then
-    mv ~/.config/mimeapps.list user/xorg/.config/mimeapps.list
-  fi
-
   if ask 'Install everything?' N; then
     NO_ASK=true
+
+    # Fix mimeapps, applications overwrite the symlink when updating it
+    if [[ -f ~/.config/mimeapps.list && ! -h ~/.config/mimeapps.list ]]; then
+      mv ~/.config/mimeapps.list user/xorg/.config/mimeapps.list
+    fi
+    if [[ -f ~/.config/Trolltech.conf && ! -h ~/.config/Trolltech.conf ]]; then
+      mv ~/.config/Trolltech.conf user/wm-general/.config/Trolltech.conf
+    fi
   fi
 fi
 
