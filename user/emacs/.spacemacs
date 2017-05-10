@@ -57,6 +57,7 @@ values."
      latex
      (languagetool :variables
                    langtool-default-language "nl"
+                   languagetool-show-error-on-jump t
                    langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*")
      markdown
      nginx
