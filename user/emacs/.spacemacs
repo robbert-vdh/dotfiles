@@ -195,7 +195,7 @@ values."
    dotspacemacs-retain-visual-state-on-shift t
    ;; If non-nil, J and K move lines up and down when in visual mode.
    ;; (default nil)
-   dotspacemacs-visual-line-move-text t
+   dotspacemacs-visual-line-move-text nil
    ;; If non-nil, inverse the meaning of `g' in `:substitute' Evil ex-command.
    ;; (default nil)
    dotspacemacs-ex-substitute-global nil
