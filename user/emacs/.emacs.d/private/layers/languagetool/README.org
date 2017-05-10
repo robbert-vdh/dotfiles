@@ -71,5 +71,6 @@ of =languagetool-commandline.jar= or by setting =langtool-java-classpath=:
 | Key Binding | Description                                |
 |-------------+--------------------------------------------|
 | ~SPC S l~   | Toggle LanguageTool for the current buffer |
+| ~SPC S L~   | Perform corrections in the current buffer  |
 | ~[ a~       | Jump to the previous LanguageTool error    |
 | ~] a~       | Jump to the next LanguageTool error        |

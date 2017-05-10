@@ -21,7 +21,8 @@
         ;; text.
         (setq-default langtool-disabled-rules '("WHITESPACE_RULE"))
         (spacemacs/set-leader-keys
-          "Sl" 'spacemacs/languagetool-toggle)
+          "Sl" 'spacemacs/languagetool-toggle
+          "SL" 'langtool-correct-buffer)
         (define-key evil-normal-state-map (kbd "[ a")
           'spacemacs/languagetool-previous-error)
         (define-key evil-normal-state-map (kbd "] a")
