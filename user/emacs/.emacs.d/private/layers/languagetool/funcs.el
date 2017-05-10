@@ -9,7 +9,15 @@
 ;;
 ;;; License: GPLv3
 
-(defun languagetool/toggle ()
+(defun spacemacs/languagetool-next-error (count)
+  (interactive "p")
+  (dotimes (_ count) (langtool-goto-next-error)))
+
+(defun spacemacs/languagetool-previous-error (count)
+  (interactive "p")
+  (dotimes (_ count) (langtool-goto-previous-error)))
+
+(defun spacemacs/languagetool-toggle ()
   "Performs grammar and spell checking on the current buffer
   using LanguageTool for grammar and flyspell for spell
   checking."
@@ -27,14 +35,6 @@
               (langtool-check-buffer (spacemacs//languagetool-get-language))
               (flyspell-delete-all-overlays)))))
     (error "LanguageTool has not been set up yet")))
-
-(defun spacemacs/languagetool-next-error (count)
-  (interactive "p")
-  (dotimes (_ count) (langtool-goto-next-error)))
-
-(defun spacemacs/languagetool-previous-error (count)
-  (interactive "p")
-  (dotimes (_ count) (langtool-goto-previous-error)))
 
 (defun spacemacs//languagetool-detect ()
   "Detects whether the LanguageTool binary exists"
