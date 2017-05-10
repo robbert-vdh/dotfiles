@@ -39,7 +39,7 @@
     (error "LanguageTool has not been set up yet")))
 
 (defun spacemacs//languagetool-detect ()
-  "Detects whether the LanguageTool binary exists"
+  "Detects whether the LanguageTool binary exists."
   (cond ((boundp 'langtool-java-classpath) t)
         ((boundp 'langtool-language-tool-jar)
          (if (file-readable-p langtool-language-tool-jar)
@@ -49,7 +49,7 @@
 
 (defun spacemacs//languagetool-get-language ()
   "Tries to parse the current spell checking language for a
-  usable locale string"
+  usable locale string."
   (let ((language (or ispell-local-dictionary ispell-dictionary)))
     (when language
       ;; We'll assume the language is either a locale or a named language (i.e.
