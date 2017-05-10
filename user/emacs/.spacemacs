@@ -343,7 +343,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
   ;; Make sure racer can find Rust's source files
   (setq racer-rust-src-path
-        "~/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src")
+        "~/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src")
 
   ;; Set default indentation levels
   (setq js-indent-level 2
