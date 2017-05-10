@@ -22,12 +22,10 @@
         (unless still-running
           ;; Clear LanguageTool's errors if there is an active error overlay
           (if has-ran
-              (progn
-                (langtool-check-done)
-                (flyspell-delete-all-overlays))
+              (langtool-check-done)
             (progn
               (langtool-check-buffer (spacemacs//languagetool-get-language))
-              (flyspell-buffer)))))
+              (flycheck-clear-errors)))))
     (error "LanguageTool has not been set up yet")))
 
 (defun spacemacs//languagetool-detect ()

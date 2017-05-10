@@ -19,10 +19,6 @@
       (progn
         ;; Spell checking is already handled by flyspell, and the whitespace
         ;; rules give a lot of false positives when linting rich text.
-        (setq-default langtool-disabled-rules
-                      '("MORFOLOGIK_RULE_EN_GB"
-                        "MORFOLOGIK_RULE_EN_US"
-                        "MORFOLOGIK_RULE_NL_NL"
-                        "WHITESPACE_RULE"))
+        (setq-default langtool-disabled-rules '("WHITESPACE_RULE"))
         (spacemacs/set-leader-keys
           "Sl" 'languagetool/toggle))))
