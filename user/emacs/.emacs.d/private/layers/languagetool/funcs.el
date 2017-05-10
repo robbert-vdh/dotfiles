@@ -25,7 +25,7 @@
               (langtool-check-done)
             (progn
               (langtool-check-buffer (spacemacs//languagetool-get-language))
-              (flycheck-clear-errors)))))
+              (flyspell-delete-all-overlays)))))
     (error "LanguageTool has not been set up yet")))
 
 (defun spacemacs//languagetool-detect ()
