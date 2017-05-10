@@ -42,8 +42,12 @@
   usable locale string"
   (let ((language (or ispell-local-dictionary ispell-dictionary)))
     (when language
-      (let* ((locale (assoc language ispell-dicts-name2locale-equivs-alist))
+      ;; We'll assume the language is either a locale or a named language (i.e.
+      ;; "en_GB" or "english")
+      (let* ((locale (or (cadr
+                          (assoc language ispell-dicts-name2locale-equivs-alist))
+                         language))
              ;; ispell uses underscores in its locales, but LanguageTool expects a
              ;; dash (e.g. "en_US" => "en-US")
-             (langtool-code (replace-regexp-in-string "_" "-" (cadr locale))))
+             (langtool-code (replace-regexp-in-string "_" "-" locale)))
         langtool-code))))

@@ -18,18 +18,24 @@ gets passed to LanguageTool.
 * Todos
 - [X] Automatically set =langtool-default-language= to the current spell
   checking language.
-- [ ] Add more languages to the rule ignore list.
 - [X] Add a command for running =langtool-check-buffer= under ~SPC S l~. This
   command should also run =flyspell-buffer=.
 - [ ] Add the ability to navigate to errors using ~[ s~ and ~] s~.
-- [ ] Only run flycheck and disable the spelling related lints when the
-  =spell-checking= layer is enabled.
+- [ ] Only query ispell when the =spell-checking= layer is enabled.
 
 * Install
 ** Layer
 To use this configuration layer, add it to your =~/.spacemacs=. You will need to
-add =languagetool= to the existing =dotspacemacs-configuration-layers= list in this
-file.
+add =languagetool= to the existing =dotspacemacs-configuration-layers= list in
+this file. You can set the default language by setting
+~langtool-default-language~. This value will be used when no custom language has
+been set using ~SPC S d~:
+
+#+BEGIN_SRC elisp
+  (setq-default dotspacemacs-configuration-layers
+                '((languagetool :variables
+                                langtool-default-language "en-GB")))
+#+END_SRC
 
 ** LanguageTool
 LanguageTool and JRE 8+ are required to use this layer. You can install
