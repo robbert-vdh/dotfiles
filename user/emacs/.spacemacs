@@ -401,6 +401,8 @@ you should place your code here."
                    ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
     (setq org-latex-default-class "koma-article"))
   (setq org-agenda-files '("~/Documenten/notes"))
+  (setq org-format-latex-options
+        (plist-put org-format-latex-options :scale 1.25))
 
   ;; Workaround for C-k not working as expected when using company quickhelp
   ;; See: https://github.com/syl20bnr/spacemacs/issues/2974
