@@ -20,7 +20,9 @@ gets passed to LanguageTool.
   checking language.
 - [X] Add a command for running =langtool-check-buffer= under ~SPC S l~. This
   command should also run =flyspell-buffer=.
-- [ ] Add the ability to navigate to errors using ~[ s~ and ~] s~.
+- [X] Add the ability to navigate to errors using ~[ s~ and ~] s~ (this is not
+  possible without a wrapper function, maybe in the future? I've used ~[ a~ and
+  ~] a~ for now).
 - [ ] Only query ispell when the =spell-checking= layer is enabled.
 
 * Install
@@ -60,3 +62,5 @@ of =languagetool-commandline.jar= or by setting =langtool-java-classpath=:
 | Key Binding | Description                                |
 |-------------+--------------------------------------------|
 | ~SPC S l~   | Toggle LanguageTool for the current buffer |
+| ~[ a~       | Jump to the previous LanguageTool error    |
+| ~] a~       | Jump to the next LanguageTool error        |

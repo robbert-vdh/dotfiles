@@ -28,6 +28,14 @@
               (flyspell-delete-all-overlays)))))
     (error "LanguageTool has not been set up yet")))
 
+(defun spacemacs/languagetool-next-error (count)
+  (interactive "p")
+  (dotimes (_ count) (langtool-goto-next-error)))
+
+(defun spacemacs/languagetool-previous-error (count)
+  (interactive "p")
+  (dotimes (_ count) (langtool-goto-previous-error)))
+
 (defun spacemacs//languagetool-detect ()
   "Detects whether the LanguageTool binary exists"
   (cond ((boundp 'langtool-java-classpath) t)

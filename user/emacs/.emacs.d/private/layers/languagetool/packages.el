@@ -17,8 +17,12 @@
       :defer t
       :init
       (progn
-        ;; Spell checking is already handled by flyspell, and the whitespace
-        ;; rules give a lot of false positives when linting rich text.
+        ;; The whitespace rules give a lot of false positives when linting rich
+        ;; text.
         (setq-default langtool-disabled-rules '("WHITESPACE_RULE"))
         (spacemacs/set-leader-keys
-          "Sl" 'languagetool/toggle))))
+          "Sl" 'languagetool/toggle)
+        (define-key evil-normal-state-map (kbd "[ a")
+          'spacemacs/languagetool-previous-error)
+        (define-key evil-normal-state-map (kbd "] a")
+          'spacemacs/languagetool-next-error))))
