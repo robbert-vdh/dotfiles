@@ -11,11 +11,13 @@
 
 (defun spacemacs/languagetool-next-error (count)
   (interactive "p")
-  (dotimes (_ count) (langtool-goto-next-error)))
+  (dotimes (_ count) (langtool-goto-next-error))
+  (when languagetool-show-error-on-jump (langtool-show-message-at-point)))
 
 (defun spacemacs/languagetool-previous-error (count)
   (interactive "p")
-  (dotimes (_ count) (langtool-goto-previous-error)))
+  (dotimes (_ count) (langtool-goto-previous-error))
+  (when languagetool-show-error-on-jump (langtool-show-message-at-point)))
 
 (defun spacemacs/languagetool-toggle ()
   "Performs grammar and spell checking on the current buffer
