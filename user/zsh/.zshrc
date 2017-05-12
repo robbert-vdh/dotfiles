@@ -22,7 +22,7 @@ path=(
 export EDITOR='nvim'
 export VISUAL=$EDITOR
 export PAGER='less'
-export BROWSER='firefox-beta'
+export BROWSER='firefox'
 
 # Emacs' terminal prints the raw color codes
 if [ $TERM != 'eterm-color' ]; then
