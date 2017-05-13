@@ -53,6 +53,7 @@ environments.
 #### Optional utilities used in the keymapping
 -   emacs
 -   imgurbash2
+-   light
 -   maim
 -   slop
 -   xclip
