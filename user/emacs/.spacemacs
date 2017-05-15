@@ -373,7 +373,7 @@ you should place your code here."
 
   ;; Enable editorconfig support
   (editorconfig-mode 1)
-  (spacemacs|diminish editorconfig-mode " Ⓔ" " E")
+  (spacemacs|hide-lighter editorconfig-mode)
 
   ;; Spell checking should be enabled in git commits
   (add-hook 'text-mode-hook (lambda () (spacemacs/toggle-spelling-checking-on)))
@@ -413,8 +413,7 @@ you should place your code here."
 
   ;; Hide unimported minor modes
   (spacemacs|hide-lighter magit-gitflow-mode)
-  (spacemacs|hide-lighter reftex-mode)
-  )
+  (spacemacs|hide-lighter reftex-mode))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
