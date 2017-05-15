@@ -306,7 +306,7 @@ local function append_perfdata(s)
 end
 
 
-function append_display_sync(s)
+local function append_display_sync(s)
     if not mp.get_property_bool("display-sync-active", false) then
         return
     end
@@ -320,28 +320,23 @@ function append_display_sync(s)
                         {prefix="DS:" .. o.prefix_sep .. " - / ", prefix_sep=""})
     end
 
-    -- Since no graph is needed we can print ratio/jitter on the same line and save some space
-    if not (o.plot_vsync_ratio or o.plot_vsync_jitter) then
-        local vratio = append_property(s, "vsync-ratio", {prefix="VSync Ratio:"})
-        append_property(s, "vsync-jitter", {prefix="VSync Jitter:", nl=vratio and "" or o.nl})
-        return
-    end
-
-    -- As we potentially need to plot some graphs we print jitter and ratio on
-    -- their own lines so we have the same layout when toggled (= drawing graphs)
-    local ratio_graph = ""
-    local jitter_graph = ""
-    if o.ass_formatting and timer:is_enabled() then
+    -- As we need to plot some graphs we print jitter and ratio on their own lines
+    if timer:is_enabled() and (o.plot_vsync_ratio or o.plot_vsync_jitter) and o.ass_formatting then
+        local ratio_graph = ""
+        local jitter_graph = ""
         if o.plot_vsync_ratio then
             ratio_graph = generate_graph(vsratio_buf, vsratio_buf.pos, vsratio_buf.len, vsratio_buf.max, 0.8)
         end
         if o.plot_vsync_jitter then
             jitter_graph = generate_graph(vsjitter_buf, vsjitter_buf.pos, vsjitter_buf.len, vsjitter_buf.max, 0.8)
         end
+        append_property(s, "vsync-ratio", {prefix="VSync Ratio:", suffix=o.prefix_sep .. ratio_graph})
+        append_property(s, "vsync-jitter", {prefix="VSync Jitter:", suffix=o.prefix_sep .. jitter_graph})
+    else
+        -- Since no graph is needed we can print ratio/jitter on the same line and save some space
+        local vratio = append_property(s, "vsync-ratio", {prefix="VSync Ratio:"})
+        append_property(s, "vsync-jitter", {prefix="VSync Jitter:", nl="" or o.nl})
     end
-
-    append_property(s, "vsync-ratio", {prefix="VSync Ratio:", suffix=o.prefix_sep .. ratio_graph})
-    append_property(s, "vsync-jitter", {prefix="VSync Jitter:", suffix=o.prefix_sep .. jitter_graph})
 end
 
 
@@ -379,7 +374,12 @@ local function add_video(s)
                         {no=true, [""]=true})
     end
     append_property(s, "avsync", {prefix="A-V:"})
-    if append_property(s, "drop-frame-count", {prefix="Dropped:"}) then
+    if append_property(s, "decoder-frame-drop-count", {prefix="Dropped:"}) then
+        append_property(s, "frame-drop-count", {prefix="VO:", nl=""})
+        append_property(s, "mistimed-frame-count", {prefix="Mistimed:", nl=""})
+        append_property(s, "vo-delayed-frame-count", {prefix="Delayed:", nl=""})
+    -- Deprecated FPS properties for backwards compatibility
+    elseif append_property(s, "drop-frame-count", {prefix="Dropped:"}) then
         append_property(s, "vo-drop-frame-count", {prefix="VO:", nl=""})
         append_property(s, "mistimed-frame-count", {prefix="Mistimed:", nl=""})
         append_property(s, "vo-delayed-frame-count", {prefix="Delayed:", nl=""})
