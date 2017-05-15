@@ -21,8 +21,9 @@
 
 (defun spacemacs/languagetool-toggle ()
   "Performs grammar and spell checking on the current buffer
-  using LanguageTool for grammar and flyspell for spell
-  checking."
+  using LanguageTool for grammar and flyspell for spell checking.
+  Flyspell errors will be cleared if the 'spell-checking' layer
+  is active as they add a lot of clutter."
   (interactive)
   (if (package-installed-p 'langtool)
       (let* ((has-ran (bound-and-true-p langtool-mode-line-message))
@@ -35,7 +36,8 @@
               (langtool-check-done)
             (progn
               (langtool-check-buffer (spacemacs//languagetool-get-language))
-              (flyspell-delete-all-overlays)))))
+              (when (package-installed-p 'flyspell)
+                (flyspell-delete-all-overlays))))))
     (error "LanguageTool has not been set up yet")))
 
 (defun spacemacs//languagetool-detect ()
@@ -49,8 +51,10 @@
 
 (defun spacemacs//languagetool-get-language ()
   "Tries to parse the current spell checking language for a
-  usable locale string."
-  (let ((language (or ispell-local-dictionary ispell-dictionary)))
+  usable locale string. This won't do anything if the
+  'spell-checking' layer is not active."
+  (let ((language (and (package-installed-p 'flyspell)
+                       (or ispell-local-dictionary ispell-dictionary))))
     (when language
       ;; We'll assume the language is either a locale or a named language (i.e.
       ;; "en_GB" or "english")

@@ -4,7 +4,6 @@
 
 * Table of Contents                                        :TOC_4_gh:noexport:
  - [[#description][Description]]
- - [[#todos][Todos]]
  - [[#install][Install]]
    - [[#layer][Layer]]
    - [[#languagetool][LanguageTool]]
@@ -12,17 +11,7 @@
 
 * Description
 This layer adds grammar checking using [[https://www.languagetool.org/][LanguageTool]]. LanguageTool will use the
-language set using ~SPC S d~.
-
-* Todos
-- [X] Automatically set =langtool-default-language= to the current spell
-  checking language.
-- [X] Add a command for running =langtool-check-buffer= under ~SPC S l~. This
-  command should also run =flyspell-buffer=.
-- [X] Add the ability to navigate to errors using ~[ s~ and ~] s~ (this is not
-  possible without a wrapper function, maybe in the future? I've used ~[ a~ and
-  ~] a~ for now).
-- [ ] Only query ispell when the =spell-checking= layer is enabled.
+language set using ~SPC S d~ if the =spell-checking= layer is enabled.
 
 * Install
 ** Layer
