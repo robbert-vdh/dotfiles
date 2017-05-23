@@ -27,16 +27,13 @@ The settings contained in `./user/xorg/.Xresources` are used in the `wm-general`
 and `fonts` packages.
 
 ## WM configuration
-I've recently switched from bspwm to i3-gaps. These packages are used in both
-environments.
-
-### General packaages
 -   compton
 -   feh
+-   i3-gaps
 -   polkit-gnome
 -   rofi
 
-#### Panel 
+### Panel 
 -   dunst
 -   network-manager-applet
 -   redshift
@@ -45,12 +42,12 @@ environments.
 -   polybar
 -   volumeicon
 
-#### Theming
+### Theming
 -   Arc GTK theme
 -   ttf-google-fonts (Cantarell, Open Sans and Roboto)
 -   Numix Square icons
 
-#### Optional utilities used in the keymapping
+### Optional utilities used in the keymapping
 -   emacs
 -   imgurbash2
 -   light
@@ -58,10 +55,3 @@ environments.
 -   slop
 -   xclip
 -   xdotool
-
-### bspwm
--   bspvm
--   sxhkd
-
-### i3
--   i3-gaps
