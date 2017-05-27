@@ -1,2 +1,1 @@
-# This makes Qt5 mimick GTK+ styles
-export XDG_CURRENT_DESKTOP=GNOME
+[ "$XDG_CURRENT_DESKTOP" = "KDE" ] || [ "$XDG_CURRENT_DESKTOP" = "GNOME" ] || export QT_QPA_PLATFORMTHEME="qt5ct"

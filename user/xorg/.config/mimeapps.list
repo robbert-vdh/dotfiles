@@ -88,6 +88,7 @@ application/x-compressed-tar=org.gnome.FileRoller.desktop;
 application/x-bzip-compressed-tar=org.gnome.FileRoller.desktop;
 text/css=emacs.desktop;
 text/plain=emacs.desktop;
+application/x-java-archive=org.gnome.FileRoller.desktop;
 
 [Default Applications]
 x-scheme-handler/http=firefox.desktop

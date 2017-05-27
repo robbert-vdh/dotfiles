@@ -61,9 +61,6 @@ else
     if [[ -f ~/.config/mimeapps.list && ! -h ~/.config/mimeapps.list ]]; then
       mv ~/.config/mimeapps.list user/xorg/.config/mimeapps.list
     fi
-    if [[ -f ~/.config/Trolltech.conf && ! -h ~/.config/Trolltech.conf ]]; then
-      mv ~/.config/Trolltech.conf user/wm-general/.config/Trolltech.conf
-    fi
   fi
 fi
 
