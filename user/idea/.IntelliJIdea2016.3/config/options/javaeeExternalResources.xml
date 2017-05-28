@@ -1,8 +1,0 @@
-<application>
-  <component name="ExternalResourceManagerImpl">
-    <resource url="http://schema.org/ImageObject" location="$USER_HOME$/.IntelliJIdea14/system/extResources/a3ada7f4_ImageObject.html" />
-    <resource url="http://schema.org/ItemList" location="$USER_HOME$/.IntelliJIdea15/system/extResources/ec318117_ItemList.html" />
-    <resource url="https://schema.org/AutoDealer" location="$USER_HOME$/.IntelliJIdea15/system/extResources/a151f951_AutoDealer.html" />
-    <resource url="https://schema.org/Person" location="$USER_HOME$/.IntelliJIdea2016.1/system/extResources/aac5287e_Person.html" />
-  </component>
-</application>
