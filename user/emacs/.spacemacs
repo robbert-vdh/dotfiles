@@ -353,7 +353,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
         "~/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src")
 
   ;; Set default indentation levels
-  (setq js-indent-level 2
+  (setq css-indent-offset 2
+        js-indent-level 2
         sh-basic-offset 2
         web-mode-markup-indent-offset 2
         web-mode-css-indent-offset 2)
