@@ -9,7 +9,7 @@ set $alt Mod1
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # Window titles use a smaller font size to create padding
-font pango:Cantarell 12
+font pango:Roboto 13
 
 # Enable window gaps
 gaps inner 15
@@ -205,7 +205,7 @@ bindsym XF86MonBrightnessDown exec light -U 10
 # Hide borders around the windows
 for_window [class="^.*"] border none
 # Hack some padding into the title bars
-for_window [class="^.*"] title_format "  <span size='smaller'>%title</span>"
+for_window [class="^.*"] title_format " <span size='small'> %title</span>"
 
 # Some dialogs should be floating by default
 for_window [class="Pavucontrol"] floating enable

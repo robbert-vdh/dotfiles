@@ -44,9 +44,10 @@ and `fonts` packages.
 
 ### Theming
 -   Arc GTK theme
+-   Noto
 -   Numix Square icons
+-   Roboto font
 -   qt5ct
--   ttf-google-fonts (Cantarell, Open Sans and Roboto)
 
 ### Optional utilities used in the keymapping
 -   emacs

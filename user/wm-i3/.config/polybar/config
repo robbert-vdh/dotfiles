@@ -47,7 +47,7 @@ padding-right = 2
 module-margin-left = 0
 module-margin-right = 2
 
-font-0 = Open Sans:pixelsize=12;3
+font-0 = Noto Sans:pixelsize=12;3
 
 modules-left = date i3
 modules-center = xwindow
