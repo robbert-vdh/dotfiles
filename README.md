@@ -30,7 +30,7 @@ and `fonts` packages.
 -   compton
 -   feh
 -   i3-gaps
--   polkit-gnome
+-   lxqt-policykit
 -   rofi
 
 ### Lockscreen
