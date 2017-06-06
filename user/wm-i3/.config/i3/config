@@ -132,7 +132,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+minus move scratchpad
 
 # Lock the screen
-bindsym $mod+Control+l exec i3lock-fancy -p -f Noto-Sans
+bindsym $mod+Control+l exec --no-startup-id i3lock-fancy -p -f Noto-Sans
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
