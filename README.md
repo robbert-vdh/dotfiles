@@ -33,6 +33,11 @@ and `fonts` packages.
 -   polkit-gnome
 -   rofi
 
+### Lockscreen
+-   i3lock
+-   i3lock-fancy-dualmonitors-git
+-   xautolock
+
 ### Panel 
 -   dunst
 -   network-manager-applet

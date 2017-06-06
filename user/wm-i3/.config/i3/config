@@ -132,7 +132,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+minus move scratchpad
 
 # Lock the screen
-bindsym $mod+Control+l exec light-locker-command -l
+bindsym $mod+Control+l exec i3lock-fancy -p -f Noto-Sans
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -266,6 +266,8 @@ exec --no-startup-id compton --respect-prop-shadow
 exec_always --no-startup-id feh --bg-fill ~/.dotfiles/user/wallpapers/Afbeeldingen/wallpapers/mt-cook.png
 # Enable graphical sudo promps
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# Set up screen locking after inactivity
+exec --no-startup-id xautolock -detectsleep -locker "/usr/bin/i3lock-fancy -p -f Noto-Sans"
 
 # (Re)tart our panel
 exec_always --no-startup-id ~/.config/polybar/launch.sh
