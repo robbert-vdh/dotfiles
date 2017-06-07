@@ -1,0 +1,11 @@
+[Core General]
+ExternalEditor=Emacsclient
+
+[Core Performance]
+TextHinting=Enabled
+
+[Main View]
+ShowLeftPanel=false
+
+[Zoom]
+ZoomMode=3
