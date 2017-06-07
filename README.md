@@ -43,7 +43,7 @@ and `fonts` packages.
 -   network-manager-applet
 -   redshift
 -   pavucontrol
--   polkit-gnome
+-   llxqt-policykit agent
 -   polybar
 -   volumeicon
 
