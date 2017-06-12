@@ -170,3 +170,4 @@ audio/mp4=mpv.desktop
 application/pdf=evince.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
 x-scheme-handler/tg=telegramdesktop.desktop
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop;
