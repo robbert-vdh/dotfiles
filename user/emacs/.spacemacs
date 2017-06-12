@@ -410,6 +410,9 @@ before packages are loaded."
   ;; Rust should default to a line length of 100 characters
   (add-hook 'rust-mode-hook (lambda () (setq fill-column 100)))
 
+  ;; Python docstrings should always be on multiple lines
+  (setq python-fill-docstring-style 'django)
+
   ;; LaTeX previews should reload automatically
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
