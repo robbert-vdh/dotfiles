@@ -362,27 +362,8 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-  (setq completion-styles '(partial-completion initials))
-
-  ;; The default 'fd' gives a lote of trouble when writing in Dutch
-  (setq evil-escape-key-sequence "jk")
-
-  ;; Use C++14 by default when using Irony for error checking
-  (setq irony-additional-clang-options '("-std=c++14")
-        flycheck-clang-language-standard "c++14"
-        flycheck-gcc-language-standard "c++14")
-
-  ;; Make sure racer can find Rust's source files
-  (setq racer-rust-src-path
-        "~/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src")
-
-  ;; Set default indentation levels
-  (setq css-indent-offset 2
-        js-indent-level 2
-        sh-basic-offset 2
-        web-mode-markup-indent-offset 2
-        web-mode-css-indent-offset 2)
-  )
+  ;; Underscores should be part of a word
+  (modify-syntax-entry ?_ "w"))
 
 (defun dotspacemacs/user-config ()
   "Configuration for user code:
@@ -395,9 +376,26 @@ before packages are loaded."
      ((t (:inherit company-tooltip :weight bold :underline nil))))
    '(company-tooltip-common-selection
      ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+  (setq completion-styles '(partial-completion initials))
 
-  ;; Underscores should be part of a word
-  (modify-syntax-entry ?_ "w")
+  ;; Set default indentation levels
+  (setq css-indent-offset 2
+        js-indent-level 2
+        sh-basic-offset 2
+        web-mode-markup-indent-offset 2
+        web-mode-css-indent-offset 2)
+
+  ;; Use C++14 by default when using Irony for error checking
+  (setq irony-additional-clang-options '("-std=c++14")
+        flycheck-clang-language-standard "c++14"
+        flycheck-gcc-language-standard "c++14")
+
+  ;; Make sure racer can find Rust's source files
+  (setq racer-rust-src-path
+        "~/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src")
+
+  ;; The default 'fd' gives a lote of trouble when writing in Dutch
+  (setq evil-escape-key-sequence "jk")
 
   ;; Spell checking should be enabled in git commits
   (add-hook 'text-mode-hook (lambda () (spacemacs/toggle-spelling-checking-on)))
