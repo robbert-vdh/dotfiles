@@ -32,9 +32,6 @@ if [ $TERM != 'eterm-color' ]; then
       eval "$($BASE16_SHELL/profile_helper.sh)"
 fi
 
-# Fix opening new windows in various terminal emulators
-source /etc/profile.d/vte.sh
-
 # Custom aliases
 
 # Launch Emacs in terminal mode
