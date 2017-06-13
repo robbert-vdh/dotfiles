@@ -2,7 +2,8 @@
 AntiAliasFonts=true
 BoldIntense=true
 ColorScheme=base16-tomorrow-night
-Font=Input Mono,11,-1,5,57,0,0,0,0,0,Medium
+Font=Roboto Mono,11,-1,5,75,0,0,0,0,0,Bold
+LineSpacing=0
 UseFontLineChararacters=true
 
 [General]
@@ -18,7 +19,10 @@ UnderlineFilesEnabled=true
 
 [Scrolling]
 HistoryMode=1
+HistorySize=2000
 ScrollBarPosition=2
 
 [Terminal Features]
+BidiRenderingEnabled=false
+BlinkingCursorEnabled=false
 UrlHintsModifiers=369098752
