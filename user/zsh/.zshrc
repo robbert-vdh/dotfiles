@@ -24,14 +24,6 @@ export VISUAL=$EDITOR
 export PAGER='less'
 export BROWSER='firefox'
 
-# Emacs' terminal prints the raw color codes
-if [ $TERM != 'eterm-color' ]; then
-  # Use base16 colors in VIM
-  BASE16_SHELL=$HOME/.config/base16-shell/
-  [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] &&
-      eval "$($BASE16_SHELL/profile_helper.sh)"
-fi
-
 # Custom aliases
 
 # Launch Emacs in terminal mode
