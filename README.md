@@ -49,7 +49,8 @@ and `fonts` packages.
 
 ### Theming
 -   Arc GTK theme
--   Noto
+-   Liberation Mono font
+-   Noto font
 -   Numix Square icons
 -   Roboto font
 -   qt5ct
