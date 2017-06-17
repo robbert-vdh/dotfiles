@@ -420,22 +420,33 @@ before packages are loaded."
   ;; LaTeX previews should reload automatically
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
-  ;; Org mode should use komascript for LaTeX exports
+  ;; Org mode should use komascript for LaTeX exports and code fragments should be colored
   (with-eval-after-load 'ox-latex
     (add-to-list 'org-latex-classes
                  '("koma-article"
-                   "\\documentclass[parskip=half]{scrartcl}"
+                   "\\documentclass[parskip=half]{scrartcl}
+[DEFAULT-PACKAGES] [PACKAGES]
+\\setminted{frame=leftline,framesep=1em,linenos,numbersep=1em,style=pastie}
+\\setminted[python]{python3}
+[EXTRA]"
                    ("\\section{%s}" . "\\section*{%s}")
                    ("\\subsection{%s}" . "\\subsection*{%s}")
                    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                    ("\\paragraph{%s}" . "\\paragraph*{%s}")
                    ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+    (add-to-list 'org-latex-packages-alist '("newfloat" "minted"))
     (setq org-latex-default-class "koma-article"
           org-format-latex-options
-          (plist-put org-format-latex-options :scale 1.25)))
+          (plist-put org-format-latex-options :scale 1.25)
+          org-latex-caption-above nil
+          org-latex-listings 'minted
+          ;; latexmk tends to play along nicer than pdflatex
+          org-latex-pdf-process '("latexmk -f -pdf %f")))
   (setq org-agenda-files '("~/Documenten/notes"))
   ;; Highlight math snippets
   (setq org-highlight-latex-and-related '(latex script entities))
+  ;; Allow M-* keybindings in insert mode
+  (setq evil-org-use-additional-insert t)
 
   ;; Workaround for C-k not working as expected when using company quickhelp
   ;; See: https://github.com/syl20bnr/spacemacs/issues/2974
