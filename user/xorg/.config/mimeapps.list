@@ -89,6 +89,8 @@ application/x-bzip-compressed-tar=org.gnome.FileRoller.desktop;
 text/css=emacs.desktop;
 text/plain=emacs.desktop;
 application/x-java-archive=org.gnome.FileRoller.desktop;
+x-scheme-handler/mailto=thunderbird.desktop;
+message/rfc822=thunderbird.desktop;
 
 [Default Applications]
 x-scheme-handler/http=firefox.desktop
@@ -171,3 +173,5 @@ application/pdf=evince.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
 x-scheme-handler/tg=telegramdesktop.desktop
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop;
+x-scheme-handler/mailto=thunderbird.desktop
+message/rfc822=thunderbird.desktop
