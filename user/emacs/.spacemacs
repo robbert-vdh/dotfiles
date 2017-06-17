@@ -385,6 +385,12 @@ before packages are loaded."
         web-mode-markup-indent-offset 2
         web-mode-css-indent-offset 2)
 
+  ;; Improve scrolling behaviour by recentering the screen when jumping to
+  ;; something off screen
+  (setq mouse-wheel-scroll-amount '(1 ((shift) . 3) ((control)))
+        scroll-conservatively 3
+        scroll-margin 3)
+
   ;; Use C++14 by default when using Irony for error checking
   (setq irony-additional-clang-options '("-std=c++14")
         flycheck-clang-language-standard "c++14"
