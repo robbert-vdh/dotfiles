@@ -217,6 +217,9 @@ for_window [class="Firefox" window_role="page-info"] floating enable
 for_window [class="keepassxc"] move workspace number 10
 for_window [class="keepassxc" window_type="dialog"] move workspace current
 
+# Thudnderbird likes to spawn another window when replying to messages
+for_window [class="Thunderbird" instance="Mail"] split horizontal, layout tabbed
+
 #
 # Applications
 #
