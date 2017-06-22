@@ -39,7 +39,7 @@ and `fonts` packages.
 -   xautolock
 
 ### Panel 
--   dunst
+-   dunst-git
 -   network-manager-applet
 -   redshift
 -   pavucontrol
