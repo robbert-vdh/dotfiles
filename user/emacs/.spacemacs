@@ -46,6 +46,7 @@ This function should only modify configuration layer settings."
      ;;        c-c++-enable-clang-support t
      ;;        c-c++-enable-clang-format-on-save t)
      ;; c-c++-irony
+     ;; java
      csv
      docker
      emacs-lisp
@@ -73,14 +74,13 @@ This function should only modify configuration layer settings."
             shell-default-position 'bottom
             shell-default-shell 'eshell)
      shell-scripts
-     php
+     ;; php
      (spell-checking :variables
                      flyspell-default-dictionary "nl"
                      spell-checking-enable-by-default nil)
      syntax-checking
      version-control
-     yaml
-     )
+     yaml)
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
@@ -425,10 +425,10 @@ before packages are loaded."
     (add-to-list 'org-latex-classes
                  '("koma-article"
                    "\\documentclass[parskip=half]{scrartcl}
-[DEFAULT-PACKAGES] [PACKAGES]
-\\setminted{frame=leftline,framesep=1em,linenos,numbersep=1em,style=pastie}
-\\setminted[python]{python3}
-[EXTRA]"
+                    [DEFAULT-PACKAGES] [PACKAGES]
+                    \\setminted{frame=leftline,framesep=1em,linenos,numbersep=1em,style=pastie}
+                    \\setminted[python]{python3}
+                    [EXTRA]"
                    ("\\section{%s}" . "\\section*{%s}")
                    ("\\subsection{%s}" . "\\subsection*{%s}")
                    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
@@ -455,7 +455,16 @@ before packages are loaded."
 
   ;; Hide unimported minor modes
   (spacemacs|hide-lighter magit-gitflow-mode)
-  (spacemacs|hide-lighter reftex-mode))
+  (spacemacs|hide-lighter reftex-mode)
+
+  (defun org-edit-src-fill-column (column)
+    "Sets the fill column in Org src blocks to prevent them being
+too wide in exported PDFs"
+    (interactive "P")
+    (setq fill-column (or column 70))
+    (spacemacs/toggle-fill-column-indicator-on))
+  (spacemacs/set-leader-keys-for-minor-mode 'org-src-mode
+    "of" 'org-edit-src-fill-column))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -475,7 +484,7 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (org-brain omnisharp shut-up csharp-mode evil-org add-node-modules-path flycheck-bashate company-php ac-php-core xcscope pdf-tools evil-lion zenburn-theme password-generator realgud test-simple loc-changes load-relative stickyfunc-enhance srefactor seq powerline spinner log4e gntp org-plus-contrib nlinum markdown-mode skewer-mode simple-httpd multiple-cursors window-purpose imenu-list hydra parent-mode haml-mode fringe-helper git-gutter+ git-gutter flyspell-correct flx git-commit with-editor smartparens iedit anzu evil goto-chg undo-tree highlight magit-popup json-snatcher json-reformat diminish projectile pkg-info epl swiper ivy web-completion-data dash-functional tern pos-tip company rust-mode bind-map bind-key yasnippet packed anaconda-mode pythonic f dash avy auto-complete popup auctex langtool async js2-mode counsel flycheck helm helm-core irony alert magit php-mode s nginx-mode dockerfile-mode docker tablist docker-tramp window-numbering jade-mode ido-vertical-mode quelpa package-build spacemacs-theme yapfify yaml-mode xterm-color ws-butler winum which-key wgrep web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toml-mode toc-org tagedit symon string-inflection spaceline smex smeargle slim-mode shell-pop scss-mode sass-mode restart-emacs request rainbow-delimiters racer pyvenv pytest pyenv-mode py-isort pug-mode popwin platformio-mode pip-requirements phpunit phpcbf php-extras php-auto-yasnippets persp-mode pcre2el paradox ox-twbs orgit org-projectile org-present org-pomodoro org-download org-bullets open-junk-file nlinum-relative neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode link-hint less-css-mode json-mode js2-refactor js-doc ivy-purpose ivy-hydra irony-eldoc insert-shebang info+ indent-guide hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make graphviz-dot-mode google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy flyspell-correct-ivy flycheck-rust flycheck-pos-tip flycheck-irony flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav editorconfig dumb-jump drupal-mode disaster diff-hl define-word cython-mode csv-mode counsel-projectile company-web company-tern company-statistics company-shell company-quickhelp company-irony-c-headers company-irony company-c-headers company-auctex company-anaconda column-enforce-mode coffee-mode cmake-mode clean-aindent-mode clang-format cargo browse-at-remote auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile auctex-latexmk aggressive-indent adaptive-wrap ace-window ace-link ac-ispell))))
+    (helm-pydoc helm-gitignore helm-css-scss helm-company helm-c-yasnippet meghanada groovy-mode groovy-imports pcache gradle-mode ensime sbt-mode scala-mode company-emacs-eclim eclim impatient-mode org-brain omnisharp shut-up csharp-mode evil-org add-node-modules-path flycheck-bashate company-php ac-php-core xcscope pdf-tools evil-lion zenburn-theme password-generator realgud test-simple loc-changes load-relative stickyfunc-enhance srefactor seq powerline spinner log4e gntp org-plus-contrib nlinum markdown-mode skewer-mode simple-httpd multiple-cursors window-purpose imenu-list hydra parent-mode haml-mode fringe-helper git-gutter+ git-gutter flyspell-correct flx git-commit with-editor smartparens iedit anzu evil goto-chg undo-tree highlight magit-popup json-snatcher json-reformat diminish projectile pkg-info epl swiper ivy web-completion-data dash-functional tern pos-tip company rust-mode bind-map bind-key yasnippet packed anaconda-mode pythonic f dash avy auto-complete popup auctex langtool async js2-mode counsel flycheck helm helm-core irony alert magit php-mode s nginx-mode dockerfile-mode docker tablist docker-tramp window-numbering jade-mode ido-vertical-mode quelpa package-build spacemacs-theme yapfify yaml-mode xterm-color ws-butler winum which-key wgrep web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toml-mode toc-org tagedit symon string-inflection spaceline smex smeargle slim-mode shell-pop scss-mode sass-mode restart-emacs request rainbow-delimiters racer pyvenv pytest pyenv-mode py-isort pug-mode popwin platformio-mode pip-requirements phpunit phpcbf php-extras php-auto-yasnippets persp-mode pcre2el paradox ox-twbs orgit org-projectile org-present org-pomodoro org-download org-bullets open-junk-file nlinum-relative neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode link-hint less-css-mode json-mode js2-refactor js-doc ivy-purpose ivy-hydra irony-eldoc insert-shebang info+ indent-guide hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make graphviz-dot-mode google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy flyspell-correct-ivy flycheck-rust flycheck-pos-tip flycheck-irony flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav editorconfig dumb-jump drupal-mode disaster diff-hl define-word cython-mode csv-mode counsel-projectile company-web company-tern company-statistics company-shell company-quickhelp company-irony-c-headers company-irony company-c-headers company-auctex company-anaconda column-enforce-mode coffee-mode cmake-mode clean-aindent-mode clang-format cargo browse-at-remote auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile auctex-latexmk aggressive-indent adaptive-wrap ace-window ace-link ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
