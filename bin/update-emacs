@@ -1,0 +1,31 @@
+#/usr/bin/env zsh
+
+# Updates and rebases Spacemacs automatically
+
+cd ~/.emacs.d/
+
+[[ -z $(git diff) ]] || should_stash=true
+if [[ $should_stash = true ]]; then
+    git stash > /dev/null
+fi
+
+git fetch upstream > /dev/null 2>&1
+rebase_result=$(git rebase upstream/develop 2>/dev/null)
+[[ $? -ne 0 ]] && rebase_failed=true
+
+if [[ $(head -n1 <<< $swek) =~ 'is up to date' ]]; then
+    echo "Repository is already up to date."
+elif [[ $rebase_failed = true ]]; then
+    echo "Rebasing changes failed, you should manually fix ~/.emacs.d/."
+    exit 1
+fi
+
+if [[ $should_stash = true ]]; then
+    git stash pop > /dev/null
+    if [[ $? -ne 0 ]]; then
+        echo "Unstashing failed, you should manually fix ~/.emacs.d/."
+        exit 1
+    fi
+fi
+
+git push
