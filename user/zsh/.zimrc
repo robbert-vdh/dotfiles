@@ -11,6 +11,7 @@
 # These dependencies are noted on the respective module's README.md.
 zmodules=(
   archive
+  autosuggestions
   completion
   custom
   directory

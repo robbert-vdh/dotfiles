@@ -8,7 +8,7 @@ MaxRandomValue=0
 Color=29,31,33
 
 [BackgroundIntense]
-Color=29,31,33
+Color=99,107,118
 
 [Color0]
 Color=29,31,33
@@ -17,7 +17,7 @@ Color=29,31,33
 Color=29,31,33
 
 [Color0Intense]
-Color=29,31,33
+Color=99,107,118
 
 [Color1]
 Color=204,102,102
