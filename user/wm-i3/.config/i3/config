@@ -202,10 +202,10 @@ bindsym XF86MonBrightnessDown exec light -U 10
 # Window rules
 #
 
-# Hide borders around the windows
-for_window [class="^.*"] border none
-# Hack some padding into the title bars
-for_window [class="^.*"] title_format " <span size='small'> %title</span>"
+# Hide borders around the windows and hack some padding into the title bars
+new_window none
+new_float none
+for_window [class=".*"] title_format " <span size='small'> %title</span>"
 
 # Some dialogs should be floating by default
 for_window [class="Pavucontrol"] floating enable
