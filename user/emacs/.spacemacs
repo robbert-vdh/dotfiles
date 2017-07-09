@@ -144,7 +144,7 @@ It should only modify the values of Spacemacs settings."
    ;; List of items to show in startup buffer or an association list of
    ;; the form `(list-type . list-size)`. If nil then it is disabled.
    ;; Possible values for list-type are:
-   ;; `recents' `bookmarks' `projects' `agenda' `todos'."
+   ;; `recents' `bookmarks' `projects' `agenda' `todos'.
    ;; List sizes may be nil, in which case
    ;; `spacemacs-buffer-startup-lists-length' takes effect.
    dotspacemacs-startup-lists '((recents . 5)
@@ -154,7 +154,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default major mode of the scratch buffer (default `text-mode')
    dotspacemacs-scratch-mode 'text-mode
    ;; List of themes, the first of the list is loaded when spacemacs starts.
-   ;; Press `SPC` T n to cycle to the next theme in the list (works great
+   ;; Press `SPC T n` to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(spacemacs-dark
                          spacemacs-light)
@@ -169,7 +169,7 @@ It should only modify the values of Spacemacs settings."
                                :powerline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
-   ;; The key used for Emacs commands `M-x` (after pressing on the leader key).
+   ;; The key used for Emacs commands `M-x' (after pressing on the leader key).
    ;; (default "SPC")
    dotspacemacs-emacs-command-key "SPC"
    ;; The key used for Vim Ex commands (default ":")
@@ -236,7 +236,7 @@ It should only modify the values of Spacemacs settings."
    ;; source settings. Else, disable fuzzy matching in all sources.
    ;; (default 'always)
    dotspacemacs-helm-use-fuzzy 'always
-   ;; If non-nil the paste micro-state is enabled. When enabled pressing `p`
+   ;; If non-nil the paste micro-state is enabled. When enabled pressing `p'
    ;; several times cycle between the kill ring content. (default nil)
    dotspacemacs-enable-paste-transient-state nil
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
@@ -298,10 +298,12 @@ It should only modify the values of Spacemacs settings."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers t
+   dotspacemacs-line-numbers '(:relative t :size-limit-kb 1000 :enabled-for-modes
+                                         text-mode
+                                         prog-mode)
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
-   dotspacemacs-folding-method 'evil
+   dotspacemacs-folding-method 'origami
    ;; If non-nil `smartparens-strict-mode' will be enabled in programming modes.
    ;; (default nil)
    dotspacemacs-smartparens-strict-mode nil
@@ -353,6 +355,10 @@ It should only modify the values of Spacemacs settings."
    ;; Either nil or a number of seconds. If non-nil zone out after the specified
    ;; number of seconds. (default nil)
    dotspacemacs-zone-out-when-idle nil
+   ;; Run `spacemacs/prettify-org-buffer' when
+   ;; visiting README.org files of Spacemacs.
+   ;; (default nil)
+   dotspacemacs-pretty-docs nil
    ))
 
 (defun dotspacemacs/user-init ()
@@ -376,6 +382,9 @@ before packages are loaded."
    '(company-tooltip-common-selection
      ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
   (setq completion-styles '(partial-completion initials))
+  (set-face-attribute 'nlinum-relative-current-face nil
+                      :background nil
+                      :foreground nil)
 
   ;; Set default indentation levels
   (setq css-indent-offset 2
@@ -483,7 +492,7 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (helm-gtags ggtags helm-pydoc helm-gitignore helm-css-scss helm-company helm-c-yasnippet meghanada groovy-mode groovy-imports pcache gradle-mode ensime sbt-mode scala-mode company-emacs-eclim eclim impatient-mode org-brain omnisharp shut-up csharp-mode evil-org add-node-modules-path flycheck-bashate company-php ac-php-core xcscope pdf-tools evil-lion zenburn-theme password-generator realgud test-simple loc-changes load-relative stickyfunc-enhance srefactor seq powerline spinner log4e gntp org-plus-contrib nlinum markdown-mode skewer-mode simple-httpd multiple-cursors window-purpose imenu-list hydra parent-mode haml-mode fringe-helper git-gutter+ git-gutter flyspell-correct flx git-commit with-editor smartparens iedit anzu evil goto-chg undo-tree highlight magit-popup json-snatcher json-reformat diminish projectile pkg-info epl swiper ivy web-completion-data dash-functional tern pos-tip company rust-mode bind-map bind-key yasnippet packed anaconda-mode pythonic f dash avy auto-complete popup auctex langtool async js2-mode counsel flycheck helm helm-core irony alert magit php-mode s nginx-mode dockerfile-mode docker tablist docker-tramp window-numbering jade-mode ido-vertical-mode quelpa package-build spacemacs-theme yapfify yaml-mode xterm-color ws-butler winum which-key wgrep web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toml-mode toc-org tagedit symon string-inflection spaceline smex smeargle slim-mode shell-pop scss-mode sass-mode restart-emacs request rainbow-delimiters racer pyvenv pytest pyenv-mode py-isort pug-mode popwin platformio-mode pip-requirements phpunit phpcbf php-extras php-auto-yasnippets persp-mode pcre2el paradox ox-twbs orgit org-projectile org-present org-pomodoro org-download org-bullets open-junk-file nlinum-relative neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode link-hint less-css-mode json-mode js2-refactor js-doc ivy-purpose ivy-hydra irony-eldoc insert-shebang info+ indent-guide hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make graphviz-dot-mode google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy flyspell-correct-ivy flycheck-rust flycheck-pos-tip flycheck-irony flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav editorconfig dumb-jump drupal-mode disaster diff-hl define-word cython-mode csv-mode counsel-projectile company-web company-tern company-statistics company-shell company-quickhelp company-irony-c-headers company-irony company-c-headers company-auctex company-anaconda column-enforce-mode coffee-mode cmake-mode clean-aindent-mode clang-format cargo browse-at-remote auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile auctex-latexmk aggressive-indent adaptive-wrap ace-window ace-link ac-ispell))))
+    (linum-relative origami helm-gtags ggtags helm-pydoc helm-gitignore helm-css-scss helm-company helm-c-yasnippet meghanada groovy-mode groovy-imports pcache gradle-mode ensime sbt-mode scala-mode company-emacs-eclim eclim impatient-mode org-brain omnisharp shut-up csharp-mode evil-org add-node-modules-path flycheck-bashate company-php ac-php-core xcscope pdf-tools evil-lion zenburn-theme password-generator realgud test-simple loc-changes load-relative stickyfunc-enhance srefactor seq powerline spinner log4e gntp org-plus-contrib nlinum markdown-mode skewer-mode simple-httpd multiple-cursors window-purpose imenu-list hydra parent-mode haml-mode fringe-helper git-gutter+ git-gutter flyspell-correct flx git-commit with-editor smartparens iedit anzu evil goto-chg undo-tree highlight magit-popup json-snatcher json-reformat diminish projectile pkg-info epl swiper ivy web-completion-data dash-functional tern pos-tip company rust-mode bind-map bind-key yasnippet packed anaconda-mode pythonic f dash avy auto-complete popup auctex langtool async js2-mode counsel flycheck helm helm-core irony alert magit php-mode s nginx-mode dockerfile-mode docker tablist docker-tramp window-numbering jade-mode ido-vertical-mode quelpa package-build spacemacs-theme yapfify yaml-mode xterm-color ws-butler winum which-key wgrep web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toml-mode toc-org tagedit symon string-inflection spaceline smex smeargle slim-mode shell-pop scss-mode sass-mode restart-emacs request rainbow-delimiters racer pyvenv pytest pyenv-mode py-isort pug-mode popwin platformio-mode pip-requirements phpunit phpcbf php-extras php-auto-yasnippets persp-mode pcre2el paradox ox-twbs orgit org-projectile org-present org-pomodoro org-download org-bullets open-junk-file nlinum-relative neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode link-hint less-css-mode json-mode js2-refactor js-doc ivy-purpose ivy-hydra irony-eldoc insert-shebang info+ indent-guide hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make graphviz-dot-mode google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy flyspell-correct-ivy flycheck-rust flycheck-pos-tip flycheck-irony flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav editorconfig dumb-jump drupal-mode disaster diff-hl define-word cython-mode csv-mode counsel-projectile company-web company-tern company-statistics company-shell company-quickhelp company-irony-c-headers company-irony company-c-headers company-auctex company-anaconda column-enforce-mode coffee-mode cmake-mode clean-aindent-mode clang-format cargo browse-at-remote auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile auctex-latexmk aggressive-indent adaptive-wrap ace-window ace-link ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
