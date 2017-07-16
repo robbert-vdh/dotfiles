@@ -41,6 +41,18 @@ alias rsync-sync="rsync-copy --update --delete"
 alias rsync-copy-compress="rsync-copy --compress"
 alias rsync-sync-compress="rsync-sync --compress"
 
+# Set the wineprefix to /mnt/data/wine/<prefix>
+function wineprefix() {
+  if [[ -z $1 ]]; then
+    unset WINEPREFIX
+    echo "Using default prefix."
+  else
+    prefix="/mnt/data/wine/$1"
+    export WINEPREFIX=$prefix
+    echo "Prefix set to '$prefix'."
+  fi
+}
+
 # Use Git's diffing engine instead of GNU diffutils
 function diff() {
   if [[ -z $2 ]]; then
