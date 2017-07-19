@@ -458,9 +458,13 @@ before packages are loaded."
   (setq evil-org-use-additional-insert t)
 
   ;; Workaround for C-k not working as expected when using company quickhelp
-  ;; See: https://github.com/syl20bnr/spacemacs/issues/2974
-  (evil-define-key 'insert company-quickhelp-mode-map (kbd "C-k")
-                   'company-select-previous)
+  ;; See: https://github.com/syl20bnr/spacemacs/issues/2974#issuecomment-316319212
+  (add-hook
+   'company-completion-started-hook
+   (lambda (&rest ignore)
+     (when evil-mode
+       (when (evil-insert-state-p)
+         (define-key evil-insert-state-map (kbd "C-k") nil)))))
 
   ;; Hide unimported minor modes
   (spacemacs|hide-lighter magit-gitflow-mode)
