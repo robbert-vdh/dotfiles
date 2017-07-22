@@ -1,0 +1,19 @@
+[1]
+Description=Start KeePassXC geminimaliseerd op het vierde werkblad
+desktop=3
+desktoprule=3
+minimize=true
+minimizerule=3
+placement=Centered
+placementrule=2
+skippager=true
+skippagerrule=3
+title=passwords.kdbx - KeePassXC
+titlematch=0
+types=1
+wmclass=keepassxc
+wmclasscomplete=false
+wmclassmatch=1
+
+[General]
+count=1

@@ -22,44 +22,14 @@ They can be found over
 at [user/emacs/.emacs.d/private/layers](user/emacs/.emacs.d/private/layers),
 along with installation instructions.
 
-## Note on ~/.Xresources
-The settings contained in `./user/xorg/.Xresources` are used in the `wm-general`
-and `fonts` packages.
-
-## WM configuration
--   compton
--   feh
--   i3-gaps
--   lxqt-policykit
--   rofi
-
-### Lockscreen
--   i3lock
--   i3lock-fancy-dualmonitors-git
--   xautolock
-
-### Panel 
--   dunst-git
--   network-manager-applet
--   redshift
--   pavucontrol
--   llxqt-policykit agent
--   polybar
--   volumeicon
-
-### Theming
+## KDE
+-   arc-kde
 -   Arc GTK theme
+-   kdeconnect
+-   kvantum
+-   Papirus icon theme
+-   spectacle
 -   Liberation Mono font
--   Noto font
 -   Numix Square icons
--   Roboto font
--   qt5ct
 
-### Optional utilities used in the keymapping
--   emacs
--   imgurbash2
--   light
--   maim
--   slop
--   xclip
--   xdotool
+My i3 config is hidden in the [backup](backup) directory.

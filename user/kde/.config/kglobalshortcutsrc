@@ -1,0 +1,269 @@
+[ActivityManager]
+_k_friendly_name=Systeeminstellingen
+switch-to-activity-b7cc6b79-a8ee-4a60-8221-79a4e0293b8d=none,none,
+
+[KDE Keyboard Layout Switcher]
+Switch to Next Keyboard Layout=Ctrl+Alt+K,none,Naar volgende toetsenbordindeling schakelen
+_k_friendly_name=KDE Daemon
+
+[kaccess]
+Toggle Screen Reader On and Off=Meta+Alt+S,Meta+Alt+S,Schermlezer aan en uit omschakelen
+_k_friendly_name=Toegankelijkheid
+
+[kcm_touchpad]
+Disable Touchpad=Touchpad Off,Touchpad Off,Touchpad uitschakelen
+Enable Touchpad=Touchpad On,Touchpad On,Touchpad inschakelen
+Toggle Touchpad=Touchpad Toggle,Touchpad Toggle,Touchpad omschakelen
+_k_friendly_name=KDE Daemon
+
+[kded5]
+Decrease Keyboard Brightness=Keyboard Brightness Down,Keyboard Brightness Down,Helderheid van toetsenbord verlagen
+Decrease Screen Brightness=Monitor Brightness Down,Monitor Brightness Down,Helderheid van scherm verlagen
+Hibernate=Hibernate,Hibernate,Slaapstand naar schijf
+Increase Keyboard Brightness=Keyboard Brightness Up,Keyboard Brightness Up,Helderheid van toetsenbord verhogen
+Increase Screen Brightness=Monitor Brightness Up,Monitor Brightness Up,Helderheid van scherm verhogen
+PowerOff=Power Off,Power Off,Spanning uitschakelen
+Show System Activity=Ctrl+Esc,Ctrl+Esc,Systeemactiviteit tonen
+Sleep=Sleep,Sleep,Onderbreken
+Toggle Keyboard Backlight=Keyboard Light On/Off,Keyboard Light On/Off,Toetsenbordverlichting aan/uit
+_k_friendly_name=Energiebeheer
+display=Display\tMeta+P,Display\tMeta+P,Scherm wisselen
+
+[khotkeys]
+_k_friendly_name=KDE Daemon
+{2017af6d-789d-45ae-9bc7-79b0cd6f2b24}=Meta+Print,none,Schermafdruk van actieve venster maken
+{357217e2-05a3-425d-af82-6169f9ac5c47}=,none,Het hulpmiddel voor schermafdrukken starten
+{61aca5eb-4790-4943-9fba-6d0c5e9e35bb}=,none,Schermafdruk van Volledig scherm maken
+{c7571667-66da-4a81-b052-e95a30e6f334}=Meta+Shift+Print,none,Schermafdruk van rechthoekig gebied maken
+{d03619b6-9b3c-48cc-9d9c-a2aadb485550}=Search,none,Zoeken
+
+[kmix]
+_k_friendly_name=Geluidsvolume
+decrease_microphone_volume=Microphone Volume Down,Microphone Volume Down,Microfoonvolume verlagen
+decrease_volume=Volume Down,Volume Down,Volume verlagen
+increase_microphone_volume=Microphone Volume Up,Microphone Volume Up,Microfoonvolume verhogen
+increase_volume=Volume Up,Volume Up,Volume verhogen
+mic_mute=Microphone Mute,Microphone Mute,Microfoon dempen
+mute=Volume Mute,Volume Mute,Dempen
+
+[krunner]
+_k_friendly_name=Commando uitvoeren
+run command=Meta+Space\tAlt+F2,Alt+Space,Commando uitvoeren
+run command on clipboard contents=Alt+Shift+F2\tMeta+Shift+Space,Alt+Shift+F2,Commando uitvoeren op klembordinhoud
+
+[ksmserver]
+Halt Without Confirmation=Ctrl+Alt+Shift+PgDown,none,Computer afsluiten zonder bevestiging
+Lock Session=Meta+L\tScreensaver,Ctrl+Alt+L\tScreensaver,Sessie vergrendelen
+Log Out=Ctrl+Alt+Del,none,Afmelden
+Log Out Without Confirmation=Ctrl+Alt+Shift+Del,none,Afmelden zonder bevestiging
+Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp,none,Computer herstarten zonder bevestiging
+_k_friendly_name=ksmserver
+
+[kwin]
+Activate Window Demanding Attention=Ctrl+Alt+A,Ctrl+Alt+A,"Venster vraagt om aandacht" activeren
+Cube=Ctrl+F11,Ctrl+F11,Bureaubladkubus
+Cylinder=none,none,Bureaubladcilinder
+Decrease Opacity=none,none,Transparantie van actieve venster met 5 % verlagen
+Expose=Meta+Ctrl+Tab,Ctrl+F9,Aanwezige vensters aan/uit (huidig bureaublad)
+ExposeAll=Meta+Tab\tLaunch (C),Ctrl+F10\tLaunch (C),Aanwezige vensters aan/uit (alle bureaubladen)
+ExposeClass=Meta+Alt+Tab,Ctrl+F7,Aanwezige vensters aan/uit (vensterklasse)
+FlipSwitchAll=none,none,Omslaan aan/uit (alle bureaubladen)
+FlipSwitchCurrent=none,none,Omslaan aan/uit (huidig bureaublad)
+Increase Opacity=none,none,Transparantie van actieve venster met 5 % verhogen
+Invert=Meta+Ctrl+I,Meta+Ctrl+I,Omkeereffect aan/uit
+Invert Screen Colors=none,none,Schermkleuren omkeren
+InvertWindow=Meta+Ctrl+U,Meta+Ctrl+U,Omkeereffect op venster aan/uit
+Kill Window=Ctrl+Alt+Esc,Ctrl+Alt+Esc,Venster geforceerd sluiten
+MoveMouseToCenter=Meta+F6,Meta+F6,Muis naar het midden verplaatsen
+MoveMouseToFocus=Meta+F5,Meta+F5,Muis naar focus verplaatsen
+MoveZoomDown=Meta+Down,Meta+Down,Ingezoomde gebied naar omlaag verplaatsen
+MoveZoomLeft=Meta+Left,Meta+Left,Ingezoomde gebied naar links verplaatsen
+MoveZoomRight=Meta+Right,Meta+Right,Ingezoomde gebied naar rechts verplaatsen
+MoveZoomUp=Meta+Up,Meta+Up,Ingezoomde gebied naar omhoog verplaatsen
+Remove Window From Group=none,none,Venster uit groep verwijderen
+Setup Window Shortcut=none,none,Venstersneltoets instellen
+Show Desktop=none,none,Bureaublad tonen
+ShowDesktopGrid=Ctrl+F8,Ctrl+F8,Bureaubladraster tonen
+Sphere=none,none,Bureaubladbol
+Suspend Compositing=Meta+F12,Alt+Shift+F12,Compositing uitstellen
+Switch One Desktop Down=none,none,Een bureaublad omlaag schakelen
+Switch One Desktop Up=none,none,Een bureaublad omhoog schakelen
+Switch One Desktop to the Left=none,none,Een bureaublad naar links schakelen
+Switch One Desktop to the Right=none,none,Een bureaublad naar rechts schakelen
+Switch Window Down=Meta+Alt+Down,Meta+Alt+Down,Naar het venster eronder schakelen
+Switch Window Left=Meta+Alt+Left,Meta+Alt+Left,Naar het venster links schakelen
+Switch Window Right=Meta+Alt+Right,Meta+Alt+Right,Naar het venster rechts schakelen
+Switch Window Up=Meta+Alt+Up,Meta+Alt+Up,Naar het venster erboven schakelen
+Switch to Desktop 1=Meta+1,Ctrl+F1,Schakel naar bureaublad 1
+Switch to Desktop 10=none,none,Schakel naar bureaublad 10
+Switch to Desktop 11=none,none,Schakel naar bureaublad 11
+Switch to Desktop 12=none,none,Schakel naar bureaublad 12
+Switch to Desktop 13=none,none,Schakel naar bureaublad 13
+Switch to Desktop 14=none,none,Schakel naar bureaublad 14
+Switch to Desktop 15=none,none,Schakel naar bureaublad 15
+Switch to Desktop 16=none,none,Schakel naar bureaublad 16
+Switch to Desktop 17=none,none,Schakel naar bureaublad 17
+Switch to Desktop 18=none,none,Schakel naar bureaublad 18
+Switch to Desktop 19=none,none,Schakel naar bureaublad 19
+Switch to Desktop 2=Meta+2,Ctrl+F2,Schakel naar bureaublad 2
+Switch to Desktop 20=none,none,Schakel naar bureaublad 20
+Switch to Desktop 3=Meta+3,Ctrl+F3,Schakel naar bureaublad 3
+Switch to Desktop 4=Meta+4,Ctrl+F4,Schakel naar bureaublad 4
+Switch to Desktop 5=none,none,Schakel naar bureaublad 5
+Switch to Desktop 6=none,none,Schakel naar bureaublad 6
+Switch to Desktop 7=none,none,Schakel naar bureaublad 7
+Switch to Desktop 8=none,none,Schakel naar bureaublad 8
+Switch to Desktop 9=none,none,Schakel naar bureaublad 9
+Switch to Next Desktop=none,none,Schakelen naar volgend bureaublad
+Switch to Next Screen=none,none,Schakelen naar volgend scherm
+Switch to Previous Desktop=none,none,Schakelen naar vorig bureaublad
+Switch to Previous Screen=none,none,Omschakelen naar vorig scherm
+Switch to Screen 0=none,none,Schakelen naar scherm 0
+Switch to Screen 1=none,none,Schakelen naar scherm 1
+Switch to Screen 2=none,none,Schakelen naar scherm 2
+Switch to Screen 3=none,none,Schakelen naar scherm 3
+Switch to Screen 4=none,none,Schakelen naar scherm 4
+Switch to Screen 5=none,none,Schakelen naar scherm 5
+Switch to Screen 6=none,none,Schakelen naar scherm 6
+Switch to Screen 7=none,none,Schakelen naar scherm 7
+Toggle Window Raise/Lower=none,none,Venster schakelen tussen omhoog/omlaag
+ToggleCurrentThumbnail=Meta+Ctrl+T,Meta+Ctrl+T,Miniatuur voor huidig venster aan/uit
+ToggleMouseClick=Meta+*,Meta+*,Effect van muisklik omschakelen
+TrackMouse=none,none,Muis volgen
+Walk Through Desktop List=none,none,Door bureaubladenlijst wandelen
+Walk Through Desktop List (Reverse)=none,none,Door bureaubladenlijst wandelen (omgekeerd)
+Walk Through Desktops=none,none,Door bureaubladen wandelen
+Walk Through Desktops (Reverse)=none,none,Door bureaubladen wandelen (omgekeerd)
+Walk Through Window Tabs=none,none,Door venstertabbladen wandelen
+Walk Through Window Tabs (Reverse)=none,none,Door venstertabbladen wandelen (omgekeerd)
+Walk Through Windows=Alt+Tab,none,Door vensters wandelen
+Walk Through Windows (Reverse)=Alt+Shift+Backtab,none,Door vensters wandelen (omgekeerd)
+Walk Through Windows Alternative=none,none,Alternatief door vensters wandelen
+Walk Through Windows Alternative (Reverse)=none,none,Alternatief door vensters wandelen (omgekeerd)
+Walk Through Windows of Current Application=Alt+`,none,Door vensters van de huidige toepassing lopen
+Walk Through Windows of Current Application (Reverse)=Alt+~,none,Door vensters van de huidige toepassing lopen (omgekeerd)
+Walk Through Windows of Current Application Alternative=none,none,Alternatief door vensters van de huidige toepassing lopen
+Walk Through Windows of Current Application Alternative (Reverse)=none,none,Alternatief door vensters van de huidige toepassing lopen (omgekeerd)
+Window Above Other Windows=none,none,Venster op voorgrond houden
+Window Below Other Windows=none,none,Venster op achtergrond houden
+Window Close=Alt+F4\tMeta+Shift+Q,Alt+F4,Venster sluiten
+Window Fullscreen=Meta+F,none,Venster schermvullend maken
+Window Grow Horizontal=none,none,Venster horizontaal aansluitend vergroten
+Window Grow Vertical=none,none,Venster verticaal aansluitend vergroten
+Window Lower=none,none,Venster naar achtergrond brengen
+Window Maximize=none,none,Venster maximaliseren
+Window Maximize Horizontal=none,none,Venster horizontaal maximaliseren
+Window Maximize Vertical=none,none,Venster verticaal maximaliseren
+Window Minimize=none,none,Venster minimaliseren
+Window Move=none,none,Venster verplaatsen
+Window No Border=none,none,Vensterrand verbergen
+Window On All Desktops=Meta+Y,none,Venster op alle bureaubladen
+Window One Desktop Down=none,none,Venster een bureaublad naar beneden
+Window One Desktop Up=none,none,Venster een bureaublad naar boven
+Window One Desktop to the Left=none,none,Venster een bureaublad naar links
+Window One Desktop to the Right=none,none,Venster een bureaublad naar rechts
+Window Operations Menu=Alt+F3,Alt+F3,Menu met vensterhandelingen
+Window Pack Down=none,none,Venster naar beneden aansluiten
+Window Pack Left=none,none,Venster naar links aansluiten
+Window Pack Right=none,none,Venster naar rechts aansluiten
+Window Pack Up=none,none,Venster naar boven aansluiten
+Window Quick Tile Bottom=none,none,Venster naar onderen snel in tegels ordenen
+Window Quick Tile Bottom Left=none,none,Venster naar onderen snel in tegels ordenen
+Window Quick Tile Bottom Right=none,none,Venster naar rechtsonder snel in tegels ordenen
+Window Quick Tile Left=none,none,Venster naar links snel in tegels ordenen
+Window Quick Tile Right=none,none,Venster naar rechts snel in tegels ordenen
+Window Quick Tile Top=none,none,Venster naar bovenaan snel in tegels ordenen
+Window Quick Tile Top Left=none,none,Venster naar linksboven snel in tegels ordenen
+Window Quick Tile Top Right=none,none,Venster naar rechtsboven snel in tegels ordenen
+Window Raise=none,none,Venster naar voorgrond brengen
+Window Resize=none,none,Venster van grootte veranderen
+Window Shade=none,none,Venster oprollen
+Window Shrink Horizontal=none,none,Venster horizontaal aansluitend verkleinen
+Window Shrink Vertical=none,none,Venster verticaal aansluitend verkleinen
+Window to Desktop 1=none,none,Venster naar bureaublad 1
+Window to Desktop 10=none,none,Venster naar bureaublad 10
+Window to Desktop 11=none,none,Venster naar bureaublad 11
+Window to Desktop 12=none,none,Venster naar bureaublad 12
+Window to Desktop 13=none,none,Venster naar bureaublad 13
+Window to Desktop 14=none,none,Venster naar bureaublad 14
+Window to Desktop 15=none,none,Venster naar bureaublad 15
+Window to Desktop 16=none,none,Venster naar bureaublad 16
+Window to Desktop 17=none,none,Venster naar bureaublad 17
+Window to Desktop 18=none,none,Venster naar bureaublad 18
+Window to Desktop 19=none,none,Venster naar bureaublad 19
+Window to Desktop 2=none,none,Venster naar bureaublad 2
+Window to Desktop 20=none,none,Venster naar bureaublad 20
+Window to Desktop 3=none,none,Venster naar bureaublad 3
+Window to Desktop 4=none,none,Venster naar bureaublad 4
+Window to Desktop 5=none,none,Venster naar bureaublad 5
+Window to Desktop 6=none,none,Venster naar bureaublad 6
+Window to Desktop 7=none,none,Venster naar bureaublad 7
+Window to Desktop 8=none,none,Venster naar bureaublad 8
+Window to Desktop 9=none,none,Venster naar bureaublad 9
+Window to Next Desktop=none,none,Venster naar volgend bureaublad
+Window to Next Screen=none,none,Venster naar volgend scherm
+Window to Previous Desktop=none,none,Venster naar vorig bureaublad
+Window to Previous Screen=none,none,Venster naar vorig scherm
+Window to Screen 0=none,none,Venster naar scherm 0
+Window to Screen 1=none,none,Venster naar scherm 1
+Window to Screen 2=none,none,Venster naar scherm 2
+Window to Screen 3=none,none,Venster naar scherm 3
+Window to Screen 4=none,none,Venster naar scherm 4
+Window to Screen 5=none,none,Venster naar scherm 5
+Window to Screen 6=none,none,Venster naar scherm 6
+Window to Screen 7=none,none,Venster naar scherm 7
+WindowGeometry=Ctrl+Shift+F11,Ctrl+Shift+F11,Weergave van de vensterafmetingen aan/uit (alleen effect)
+_k_friendly_name=KWin
+view_actual_size=,Meta+0,Werkelijke grootte
+view_zoom_in=Meta+=,Meta+=,Inzoomen
+view_zoom_out=Meta+-,Meta+-,Uitzoomen
+
+[mediacontrol]
+_k_friendly_name=Mediabediening
+nextmedia=Media Next,Media Next,Volgende in medium afspelen
+playpausemedia=Media Play,Media Play,Afspelen/pauzeren van medium
+previousmedia=Media Previous,Media Previous,Vorige in medium afspelen
+stopmedia=Media Stop,Media Stop,Medium afspelen stoppen
+
+[org.kde.konsole.desktop]
+NewTab=,none,Een nieuw tabblad openen
+NewWindow=none,none,Een nieuw venster openen
+_k_friendly_name=Opstarten van Konsole
+_launch=Meta+Return,none,Opstarten van Konsole
+
+[org.kde.spectacle.desktop]
+ActiveWindowScreenShot=Ctrl+Print,none,Actieve venster opnemen
+CurrentMonitorScreenShot=Print,none,Huidige monitor opnemen
+FullScreenScreenShot=,none,Gehele bureaublad opnemen
+RectangularRegionScreenShot=Shift+Print,none,Rechthoekig gebied opnemen
+_k_friendly_name=Opstarten van Spectacle
+_launch=,none,Opstarten van Spectacle
+
+[plasmashell]
+_k_friendly_name=Plasma
+activate task manager entry 1=Meta+F1,Meta+1,Item 1 in takenbeheer activeren
+activate task manager entry 10=,Meta+0,Item 10 in takenbeheer activeren
+activate task manager entry 2=Meta+F2,Meta+2,Item 2 in takenbeheer activeren
+activate task manager entry 3=Meta+F3,Meta+3,Item 3 in takenbeheer activeren
+activate task manager entry 4=Meta+F4,Meta+4,Item 4 in takenbeheer activeren
+activate task manager entry 5=Meta+5,Meta+5,Item 5 in takenbeheer activeren
+activate task manager entry 6=Meta+6,Meta+6,Item 6 in takenbeheer activeren
+activate task manager entry 7=Meta+7,Meta+7,Item 7 in takenbeheer activeren
+activate task manager entry 8=Meta+8,Meta+8,Item 8 in takenbeheer activeren
+activate task manager entry 9=Meta+9,Meta+9,Item 9 in takenbeheer activeren
+activate widget 17=none,none,Widget Takenbeheer met alleen pictogrammen activeren
+activate widget 18=Alt+F1,none,Widget Programmastarter activeren
+activate widget 35=none,none,Widget Pager activeren
+clear-history=none,none,Klembordgeschiedenis wissen
+clipboard_action=Ctrl+Alt+X,Ctrl+Alt+X,Klembordacties inschakelen
+cycleNextAction=none,none,Volgende item uit geschiedenis
+cyclePrevAction=none,none,Vorige item uit geschiedenis
+edit_clipboard=none,none,Inhoud bewerken...
+manage activities=Meta+Q,Meta+Q,Activiteiten...
+next activity=Meta+Esc,none,Door activiteiten wandelen
+previous activity=none,none,Door activiteiten wandelen (omgekeerd)
+repeat_action=Ctrl+Alt+R,Ctrl+Alt+R,Handmatig een actie op huidig klembord uitvoeren
+show dashboard=Ctrl+F12,Ctrl+F12,Bureaublad tonen
+show-barcode=none,none,Barcode tonen...
+show-on-mouse-pos=none,none,Klipper openen bij muispositie
+stop current activity=Meta+S,Meta+S,Huidige activiteit stoppen

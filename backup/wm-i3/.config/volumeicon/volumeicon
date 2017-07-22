@@ -1,5 +1,5 @@
 [Alsa]
-card=default
+card=Scarlett 18i8 USB
 channel=Master
 
 [Notification]
