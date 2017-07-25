@@ -443,6 +443,7 @@ before packages are loaded."
                    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                    ("\\paragraph{%s}" . "\\paragraph*{%s}")
                    ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+    (add-to-list 'org-latex-packages-alist '("dutch" "babel"))
     (add-to-list 'org-latex-packages-alist '("newfloat" "minted"))
     (setq org-latex-default-class "koma-article"
           org-format-latex-options
