@@ -82,7 +82,6 @@ LOCATIONS = {
 }
 
 
-# TODO: GTK theme moet nog aangepast worden
 @click.command()
 @click.argument(
     'enabled', type=click.Choice(['enable', 'disable']), required=True)
