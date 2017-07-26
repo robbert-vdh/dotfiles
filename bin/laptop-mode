@@ -5,37 +5,48 @@ import os
 import regex
 import subprocess
 
-NOTO_SANS = 'Noto Sans [GOOG],{},-1,5,50,0,0,0,0,0,Regular'
 LIBERATION_MONO = 'Liberation Mono,{},-1,5,75,0,0,0,0,0,Bold'
+MONOSPACE = 'Monospace,{},-1,5,50,0,0,0,0,0,Regular'
+NOTO_SANS = 'Noto Sans [GOOG],{},-1,5,50,0,0,0,0,0,Regular'
 
 SETTINGS = {
-    'kdeglobals': {
-        'General': {
-            'fixed': {
-                'enable': LIBERATION_MONO.format(12),
-                'disable': LIBERATION_MONO.format(11)
+    'kde': {
+        'kdeglobals': {
+            'General': {
+                'fixed': {
+                    'enable': LIBERATION_MONO.format(12),
+                    'disable': LIBERATION_MONO.format(11)
+                },
+                'font': {
+                    'enable': NOTO_SANS.format(11),
+                    'disable': NOTO_SANS.format(10)
+                },
+                'menuFont': {
+                    'enable': NOTO_SANS.format(11),
+                    'disable': NOTO_SANS.format(10)
+                },
+                'smallestReadableFont': {
+                    'enable': NOTO_SANS.format(9),
+                    'disable': NOTO_SANS.format(8)
+                },
+                'toolBarFont': {
+                    'enable': NOTO_SANS.format(10),
+                    'disable': NOTO_SANS.format(9)
+                }
             },
-            'font': {
-                'enable': NOTO_SANS.format(11),
-                'disable': NOTO_SANS.format(10)
-            },
-            'menuFont': {
-                'enable': NOTO_SANS.format(11),
-                'disable': NOTO_SANS.format(10)
-            },
-            'smallestReadableFont': {
-                'enable': NOTO_SANS.format(9),
-                'disable': NOTO_SANS.format(8)
-            },
-            'toolBarFont': {
-                'enable': NOTO_SANS.format(10),
-                'disable': NOTO_SANS.format(9)
+            'WM': {
+                'activeFont': {
+                    'enable': NOTO_SANS.format(11),
+                    'disable': NOTO_SANS.format(10)
+                }
             }
         },
-        'WM': {
-            'activeFont': {
-                'enable': NOTO_SANS.format(11),
-                'disable': NOTO_SANS.format(10)
+        'konsole': {
+            'Appearance': {
+                'Font': {
+                    'enable': MONOSPACE.format(12),
+                    'disable': MONOSPACE.format(11)
+                }
             }
         }
     },
@@ -63,9 +74,10 @@ SETTINGS = {
 }
 
 LOCATIONS = {
-    'kdeglobals': os.path.expanduser('~/.config/kdeglobals'),
     'GTK2': os.path.expanduser('~/.gtkrc-2.0'),
     'GTK3': os.path.expanduser('~/.config/gtk-3.0/settings.ini'),
+    'kdeglobals': os.path.expanduser('~/.config/kdeglobals'),
+    'konsole': os.path.expanduser('~/.local/share/konsole/Profiel 1.profile'),
     'Spacemacs': os.path.expanduser('~/.spacemacs')
 }
 
@@ -78,18 +90,20 @@ def main(enabled):
     """
     Increase or decrease font sizes in KDE Plasma 5 and spacemacs.
     """
-    if os.path.isfile(LOCATIONS['kdeglobals']):
-        for group, settings in SETTINGS['kdeglobals'].items():
-            for setting, values in settings.items():
-                value = values[enabled]
-                subprocess.run(
-                    [
-                        'kwriteconfig5', '--file', LOCATIONS['kdeglobals'],
-                        '--group', group, '--key', setting, value
-                    ],
-                    check=True)
-    else:
-        click.echo('KDE not installed, skipping!')
+    for filename, config in SETTINGS['kde'].items():
+        filename = LOCATIONS[filename]
+        if os.path.isfile(filename):
+            for group, settings in config.items():
+                for setting, values in settings.items():
+                    value = values[enabled]
+                    subprocess.run(
+                        [
+                            'kwriteconfig5', '--file', filename, '--group',
+                            group, '--key', setting, value
+                        ],
+                        check=True)
+        else:
+            click.echo(filename + ' not installed, skipping!')
 
     for filename, regexes in SETTINGS['regex'].items():
         filename = LOCATIONS[filename]
