@@ -77,7 +77,6 @@ image/x-portable-pixmap=org.kde.gwenview.desktop;
 image/x-xbitmap=org.kde.gwenview.desktop;
 image/x-xpixmap=org.kde.gwenview.desktop;
 inode/directory=exo-file-manager.desktop
-message/rfc822=thunderbird.desktop;
 text/css=nvim.desktop;
 text/html=firefox.desktop
 text/plain=nvim.desktop;
@@ -91,6 +90,7 @@ x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
 x-scheme-handler/mailto=thunderbird.desktop;
 x-scheme-handler/trash=exo-file-manager.desktop
+image/png=org.kde.gwenview.desktop;
 
 [Default Applications]
 application/pdf=evince.desktop;
@@ -151,5 +151,5 @@ x-scheme-handler/chrome=firefox.desktop
 x-scheme-handler/ftp=firefox.desktop
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
-x-scheme-handler/mailto=;
+x-scheme-handler/mailto=thunderbird.desktop
 x-scheme-handler/tg=telegramdesktop.desktop
