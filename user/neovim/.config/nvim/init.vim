@@ -116,7 +116,7 @@ let g:haskell_xml           = 0
 let g:haskell_hsp           = 0
 
 " English and Dutch spelling checker
-setlocal spelllang=en_uk,nl
+setlocal spelllang=en_gb,nl
 
 " Show a ruler at 80 columns
 set colorcolumn=80
