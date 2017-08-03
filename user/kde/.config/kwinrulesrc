@@ -16,7 +16,7 @@ wmclasscomplete=false
 wmclassmatch=1
 
 [2]
-Description=Schakel compositing voor THe Talos Principle uit
+Description=Schakel compositing uit voor The Talos Principle
 blockcompositing=true
 blockcompositingrule=2
 clientmachine[$d]
@@ -29,6 +29,19 @@ wmclasscomplete=false
 wmclassmatch=1
 
 [3]
+Description=Schakel compositing uit voor Overwatch
+blockcompositing=true
+blockcompositingrule=2
+clientmachine[$d]
+clientmachinematch[$d]
+title=Overwatch
+titlematch=1
+types[$d]
+wmclass=
+wmclasscomplete=false
+wmclassmatch=0
+
+[4]
 Description=Schakel compositing uit voor Cities Skylines
 blockcompositing=true
 blockcompositingrule=2
@@ -42,4 +55,4 @@ wmclasscomplete=false
 wmclassmatch=1
 
 [General]
-count=3
+count=4

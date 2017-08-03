@@ -252,8 +252,9 @@ activate task manager entry 7=Meta+7,Meta+7,Item 7 in takenbeheer activeren
 activate task manager entry 8=Meta+8,Meta+8,Item 8 in takenbeheer activeren
 activate task manager entry 9=Meta+9,Meta+9,Item 9 in takenbeheer activeren
 activate widget 17=none,none,Widget Takenbeheer met alleen pictogrammen activeren
+activate widget 3=Alt+F1,none,Widget Programmastarter activeren
 activate widget 35=none,none,Widget Pager activeren
-activate widget 59=Alt+F1,none,Widget Programmastarter activeren
+activate widget 59=,none,Widget Programmastarter activeren
 clear-history=none,none,Klembordgeschiedenis wissen
 clipboard_action=Ctrl+Alt+X,Ctrl+Alt+X,Klembordacties inschakelen
 cycleNextAction=none,none,Volgende item uit geschiedenis
@@ -267,3 +268,7 @@ show dashboard=Ctrl+F12,Ctrl+F12,Bureaublad tonen
 show-barcode=none,none,Barcode tonen...
 show-on-mouse-pos=none,none,Klipper openen bij muispositie
 stop current activity=Meta+S,Meta+S,Huidige activiteit stoppen
+
+[yakuake]
+_k_friendly_name=Yakuake
+toggle-window-state=Meta+`,F12,Yakuake openen/terugtrekken

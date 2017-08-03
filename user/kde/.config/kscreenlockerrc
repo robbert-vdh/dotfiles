@@ -7,4 +7,4 @@ WallpaperPlugin=org.kde.image
 
 [Greeter][Wallpaper][org.kde.image][General]
 FillMode=2
-Image=file:///home/robbert/.local/share/wallpapers/Arc-Dark/contents/images/2560x1440.png
+Image=file:///home/robbert/.dotfiles/user/wallpapers/Afbeeldingen/wallpapers/arc.png
