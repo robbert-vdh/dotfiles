@@ -1,3 +1,4 @@
+set relativenumber
 set surround
 
 set scrolloff=3
