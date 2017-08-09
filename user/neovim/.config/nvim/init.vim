@@ -179,7 +179,7 @@ highlight DiffRemoved guibg=none ctermbg=none
 let g:vim_markdown_folding_disabled = 1
 
 " Enable better searching options
-set smartcase
+set ignorecase smartcase
 set incsearch
 
 " Always end files with a newline
