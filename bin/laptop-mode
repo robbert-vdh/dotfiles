@@ -118,16 +118,14 @@ def main(enabled):
         else:
             click.echo(filename + ' not installed, skipping!')
 
-    # We'll have to restart kwin to apply the changes
-    subprocess.run(['killall', 'plasmashell'], stdout=subprocess.DEVNULL)
-    subprocess.Popen(
-        ['kstart5', 'plasmashell'],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL)
-    subprocess.Popen(
-        ['kwin_x11', '--replace'],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL)
+    # We'll have to restart kwin and plasma to apply the changes
+    for application in [['kbuildsycoca5'], ['kquitapp5', 'plasmashell']]:
+        subprocess.run(
+            application, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+    for application in [['kstart5', 'plasmashell'], ['kwin_x11', '--replace']]:
+        subprocess.Popen(
+            application, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
     click.echo('You might have to restart some applications to apply the '
                'changes')
