@@ -7,6 +7,7 @@ LineSpacing=0
 UseFontLineChararacters=false
 
 [General]
+Command=/usr/bin/zsh
 Name=Profiel 1
 Parent=FALLBACK/
 

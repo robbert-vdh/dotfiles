@@ -18,7 +18,7 @@ textless_progressbar=true
 menubar_mouse_tracking=true
 slim_toolbars=false
 toolbutton_style=2
-x11drag=true
+x11drag=all
 double_click=false
 translucent_windows=true
 blurring=true
@@ -44,6 +44,17 @@ layout_spacing=2
 submenu_overlap=-1
 tooltip_delay=-1
 transient_scrollbar=true
+alt_mnemonic=true
+animate_states=false
+combo_menu=false
+layout_margin=4
+no_window_pattern=false
+respect_DE=true
+scrollable_menu=false
+scrollbar_in_view=false
+spin_button_width=16
+submenu_delay=250
+tree_branch_line=false
 
 [GeneralColors]
 window.color=#383c4a
@@ -388,6 +399,8 @@ single_top_toolbar=false
 tint_on_mouseover=0
 transparent_pcmanfm_sidepane=false
 transparent_pcmanfm_view=false
+blur_translucent=true
+no_selection_tint=false
 
 [Window]
 interior=true

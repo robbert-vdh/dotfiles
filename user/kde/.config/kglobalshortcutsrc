@@ -6,6 +6,14 @@ switch-to-activity-b7cc6b79-a8ee-4a60-8221-79a4e0293b8d=none,none,
 Switch to Next Keyboard Layout=Ctrl+Alt+K,none,Naar volgende toetsenbordindeling schakelen
 _k_friendly_name=KDE Daemon
 
+[jovie]
+_k_friendly_name=Jovie
+pause=none,none,Pause
+repeat=none,none,Repeat
+resume=none,none,Resume
+speakclipboard=none,none,Speak Clipboard Contents
+stop=none,none,Stop/Delete
+
 [kaccess]
 Toggle Screen Reader On and Off=Meta+Alt+S,Meta+Alt+S,Schermlezer aan en uit omschakelen
 _k_friendly_name=Toegankelijkheid

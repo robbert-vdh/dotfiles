@@ -146,6 +146,10 @@ DisabledSemiTransparent=true
 DisabledValue=1
 Size=32
 
+[DirSelect Dialog]
+DirSelectDialog Size=640,480
+History Items[$e]=file:///mnt/data/downloads
+
 [Emoticons]
 emoticonsTheme=EmojiOne
 parseMode=2

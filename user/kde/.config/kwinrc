@@ -23,6 +23,9 @@ TabBoxAlternative=false
 TabBox=false
 TabBoxAlternative=false
 
+[Effect-Zoom]
+InitialZoom=1
+
 [MouseBindings]
 CommandActiveTitlebar1=Raise
 CommandActiveTitlebar2=Start window tab drag
