@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#
+# Disables redshift and enables digital vibrance while playing CS: GO.
+
+killall redshift-gtk && echo 'Stopped redshift, will restart' && restart_redshift=true
+nvidia-settings -a "DigitalVibrance=716" > /dev/null
+
+steam-native -applaunch 730 > /dev/null
+
+# Wait for the game to finish
+sleep 10
+while pgrep csgo_linux64 > /dev/null; do
+  sleep 2;
+done
+
+nvidia-settings -a "DigitalVibrance=0" > /dev/null
+$restart_redshift && echo 'Restarting redshift' && redshift-gtk &

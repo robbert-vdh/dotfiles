@@ -1,0 +1,14 @@
+[Desktop Entry]
+Comment=
+Exec=/home/robbert/.dotfiles/bin/launch-csgo
+GenericName=Launch CSGO with digital vibrance
+Icon=csgo
+Name=Counter Strike: Global Offensive
+NoDisplay=false
+Path[$e]=
+StartupNotify=true
+Terminal=0
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
