@@ -5,7 +5,7 @@
 killall redshift-gtk && echo 'Stopped redshift, will restart' && restart_redshift=true
 nvidia-settings -a "DigitalVibrance=716" > /dev/null
 
-steam-native -applaunch 730 > /dev/null
+steam-native -applaunch 730 -novid -high > /dev/null
 
 # Wait for the game to finish
 sleep 10
