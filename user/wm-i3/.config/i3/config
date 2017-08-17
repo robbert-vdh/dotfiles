@@ -237,6 +237,10 @@ for_window [class="Kmix"] floating enable; border none
 for_window [class="Klipper"] floating enable; border none
 for_window [class="Plasmoidviewer"] floating enable; border none
 
+# Stop Plasma from stealing focus (e.g. during notifications and volume
+# changes)
+no_focus [class="plasmashell"]
+
 #
 # Applications
 #
