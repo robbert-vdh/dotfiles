@@ -45,8 +45,10 @@ bindsym $mod+Return exec konsole
 bindsym $mod+Shift+q kill
 bindsym $alt+F4 kill
 
-# Start rofi (a program launcher)
-bindsym $mod+space exec "rofi -modi drun,run -show drun"
+# Either Krunner or the start menu widget should be a good replacement foor this
+# # Start rofi (a program launcher)
+# bindsym $mod+space exec "rofi -modi drun,run -show drun"
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -131,8 +133,6 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+minus move scratchpad
 
-# Lock the screen
-bindsym $mod+Control+l exec --no-startup-id i3lock-fancy -p -f Noto-Sans
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -189,10 +189,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Brightness controlls (volume is handed by volumeicon)
-bindsym XF86MonBrightnessUp exec light -A 10
-bindsym XF86MonBrightnessDown exec light -U 10
-
 # We'll use polybar instead of i3bar
 #bar {
 #  status_command i3status
@@ -220,38 +216,53 @@ for_window [class="keepassxc" window_type="dialog"] move workspace current
 # Thudnderbird likes to spawn another window when replying to messages
 for_window [class="Thunderbird" instance="Mail"] split horizontal, layout tabbed
 
+# Needed to make KDE Plasma act nicely
+# Stolen from https://github.com/avivace/dotfiles/blob/b2a8b09dd09205944f6e5d63f39cd89974bd7aca/.config/i3/config
+
+# Try to kill the wallpaper set by Plasma (it takes up the entire workspace and
+# hides everythiing).
+exec --no-startup-id wmctrl -c Plasma
+for_window [title="Desktop — Plasma"] kill; floating enable; border none
+
+# Avoid tiling popups, dropdown windows from plasma. For the first time,
+# manually resize them, i3 will remember the setting for floating windows.
+for_window [class="plasmashell"] floating enable;
+for_window [class="Plasma"] floating enable; border none
+for_window [title="plasma-desktop"] floating enable; border none
+for_window [title="win7"] floating enable; border none
+for_window [class="krunner"] floating enable; border none
+for_window [class="Kmix"] floating enable; border none
+for_window [class="Klipper"] floating enable; border none
+for_window [class="Plasmoidviewer"] floating enable; border none
+
 #
 # Applications
 #
 
-# Screenshot and copy image to clipboard
-bindsym Print exec " \
-  FILE_NAME=~/Afbeeldingen/$(date +%F-%T).png; \
-  maim -u $FILE_NAME && xclip -sel clip -t image/png -i $FILE_NAME \
-    && notify-send \\"Screenshot opgeslagen\n$FILE_NAME\\""
+# # Screenshot and copy image to clipboard
+# bindsym Print exec " \
+#   FILE_NAME=~/Afbeeldingen/$(date +%F-%T).png; \
+#   maim -u $FILE_NAME && xclip -sel clip -t image/png -i $FILE_NAME \
+#     && notify-send \\"Screenshot opgeslagen\n$FILE_NAME\\""
 
-# Screenshot region and copy image to clipboard
-bindsym Shift+Print exec " \
-  FILE_NAME=~/Afbeeldingen/$(date +%F-%T).png; \
-  maim -s -u $FILE_NAME && xclip -sel clip -t image/png -i $FILE_NAME \
-    && notify-send \\"Screenshot opgeslagen\n$FILE_NAME\\""
+# # Screenshot region and copy image to clipboard
+# bindsym Shift+Print exec " \
+#   FILE_NAME=~/Afbeeldingen/$(date +%F-%T).png; \
+#   maim -s -u $FILE_NAME && xclip -sel clip -t image/png -i $FILE_NAME \
+#     && notify-send \\"Screenshot opgeslagen\n$FILE_NAME\\""
 
-# Screenshot, upload to imgur and copy link to clipboard
-bindsym Control+Print exec " \
-  FILE_NAME=/tmp/screenshot.png; \
-  maim -u $FILE_NAME && imgurbash2 $FILE_NAME \
-    && notify-send \\"Screenshot geüpload naar\n$(xclip -o -sel clip)\\""
+# # Screenshot, upload to imgur and copy link to clipboard
+# bindsym Control+Print exec " \
+#   FILE_NAME=/tmp/screenshot.png; \
+#   maim -u $FILE_NAME && imgurbash2 $FILE_NAME \
+#     && notify-send \\"Screenshot geüpload naar\n$(xclip -o -sel clip)\\""
 
-# Screenshot region, upload to imgur and copy link to clipboard
-bindsym Control+Shift+Print exec " \
-  FILE_NAME=/tmp/screenshot.png; \
-  maim -s -u $FILE_NAME && imgurbash2 $FILE_NAME \
-    && notify-send \\"Screenshot geüpload naar\n$(xclip -o -sel clip)\\""
+# # Screenshot region, upload to imgur and copy link to clipboard
+# bindsym Control+Shift+Print exec " \
+#   FILE_NAME=/tmp/screenshot.png; \
+#   maim -s -u $FILE_NAME && imgurbash2 $FILE_NAME \
+#     && notify-send \\"Screenshot geüpload naar\n$(xclip -o -sel clip)\\""
 
-# Restart volumeicon, as it doesn't react to default device changes
-bindsym $mod+F10 exec --no-startup-id pkill volumeicon && volumeicon
-# Restart polybar
-bindsym $mod+F11 exec --no-startup-id ~/.config/polybar/launch.sh
 # Toggle the compositor
 bindsym $mod+F12 exec --no-startup-id pkill compton || compton --respect-prop-shadow
 
@@ -266,25 +277,10 @@ exec --no-startup-id ~/.xprofile
 # Transparency and eye candy
 exec --no-startup-id compton --respect-prop-shadow
 # Set a wallpaper
-exec_always --no-startup-id feh --bg-fill ~/.dotfiles/user/wallpapers/Afbeeldingen/wallpapers/mt-cook.png
-# Enable graphical sudo promps
-exec --no-startup-id lxqt-policykit-agent
-# Set up screen locking after inactivity
-exec --no-startup-id xautolock -detectsleep -locker "/usr/bin/i3lock-fancy -p -f Noto-Sans"
+exec_always --no-startup-id feh --bg-fill ~/.dotfiles/user/wallpapers/Afbeeldingen/wallpapers/arc.png
 
-# (Re)tart our panel
-exec_always --no-startup-id ~/.config/polybar/launch.sh
-# A volume applet
-exec --no-startup-id volumeicon
-# Our networking settings
-exec --no-startup-id nm-applet
 # Redshift
 exec --no-startup-id redshift-gtk
-# And notification popups
-exec --no-startup-id dunst
-
-# Preload ana Emacs daemon
-exec --no-startup-id emacs --daemon
 # Start KeePassXC on the last workspace
 exec --no-startup-id keepassxc
 

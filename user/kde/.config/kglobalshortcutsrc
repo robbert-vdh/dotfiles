@@ -61,7 +61,7 @@ run command on clipboard contents=Alt+Shift+F2\tMeta+Shift+Space,Alt+Shift+F2,Co
 
 [ksmserver]
 Halt Without Confirmation=Ctrl+Alt+Shift+PgDown,none,Computer afsluiten zonder bevestiging
-Lock Session=Meta+L\tScreensaver,Ctrl+Alt+L\tScreensaver,Sessie vergrendelen
+Lock Session=Meta+Ctrl+L\tScreensaver,Ctrl+Alt+L\tScreensaver,Sessie vergrendelen
 Log Out=Ctrl+Alt+Del,none,Afmelden
 Log Out Without Confirmation=Ctrl+Alt+Shift+Del,none,Afmelden zonder bevestiging
 Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp,none,Computer herstarten zonder bevestiging
@@ -237,7 +237,7 @@ stopmedia=Media Stop,Media Stop,Medium afspelen stoppen
 NewTab=,none,Een nieuw tabblad openen
 NewWindow=none,none,Een nieuw venster openen
 _k_friendly_name=Opstarten van Konsole
-_launch=Meta+Return,none,Opstarten van Konsole
+_launch=none,none,Opstarten van Konsole
 
 [org.kde.spectacle.desktop]
 ActiveWindowScreenShot=Ctrl+Print,none,Actieve venster opnemen
