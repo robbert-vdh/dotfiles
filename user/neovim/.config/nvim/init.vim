@@ -11,31 +11,32 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'chriskempson/base16-vim'
 
 " Interface
-Plug 'vim-airline/vim-airline'
-Plug 'w0rp/ale'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'simnalamburt/vim-mundo'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
+Plug 'simnalamburt/vim-mundo'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'w0rp/ale'
+Plug 'zchee/deoplete-jedi'
 
 " Workflow enhancements
-Plug 'jiangmiao/auto-pairs'
-Plug 'godlygeek/tabular'
 Plug 'ervandew/supertab'
+Plug 'godlygeek/tabular'
+Plug 'jiangmiao/auto-pairs'
 
 " Syntax
-Plug 'editorconfig/editorconfig-vim'
-Plug 'othree/html5.vim'
-Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'lepture/vim-jinja'
-Plug 'plasticboy/vim-markdown'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'cespare/vim-toml'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'lepture/vim-jinja'
+Plug 'othree/html5.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'stephpy/vim-yaml'
 
 call plug#end()
@@ -187,5 +188,6 @@ set endofline
 
 " Always show line numbers
 set number
+set relativenumber
 " Except for git commits
 au FileType gitcommit set nonumber
