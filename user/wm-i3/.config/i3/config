@@ -204,10 +204,11 @@ new_float none
 for_window [class=".*"] title_format " <span size='small'> %title</span>"
 
 # Some dialogs should be floating by default
+for_window [class="Firefox" window_role="page-info"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Steam" title="Friends"] floating enable
+for_window [class="systemsettings"] floating enable
 for_window [class="vokoscreen"] floating enable
-for_window [class="Firefox" window_role="page-info"] floating enable
 
 # Keep KeePass out of sight, but show confirmation popups
 for_window [class="keepassxc"] move workspace number 10
@@ -222,6 +223,7 @@ for_window [class="Thunderbird" instance="Mail"] split horizontal, layout tabbed
 # Try to kill the wallpaper set by Plasma (it takes up the entire workspace and
 # hides everythiing).
 exec --no-startup-id wmctrl -c Plasma
+for_window [title="Bureaublad — Plasma"] kill; floating enable; border none
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
 # Avoid tiling popups, dropdown windows from plasma. For the first time,

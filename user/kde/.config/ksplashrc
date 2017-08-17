@@ -1,3 +1,3 @@
 [KSplash]
-Engine=KSplashQML
-Theme=com.github.varlesh.arc-dark
+Engine=none
+Theme=None
