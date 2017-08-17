@@ -23,13 +23,26 @@ at [user/emacs/.emacs.d/private/layers](user/emacs/.emacs.d/private/layers),
 along with installation instructions.
 
 ## KDE
--   arc-kde
 -   Arc GTK theme
+-   arc-kde
 -   kdeconnect
+-   konsole
 -   kvantum
--   Papirus icon theme
--   spectacle
 -   Liberation Mono font
 -   Numix Square icons
+-   Papirus icon theme
+-   Roboto font
+-   spectacle
 
-My i3 config is hidden in the [backup](backup) directory.
+## i3
+KDE handles most non-WM shortcuts and things like text rendering and themes.
+
+-   compton
+-   feh
+-   i3-gaps-next-git
+
+### Autostarted
+-   keepassxc
+-   redshift
+
+Some old configuration is stored in the [backup](backup) directory.
