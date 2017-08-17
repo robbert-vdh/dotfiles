@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+#
+# Every folder in ./user/ will be stowed to $HOME and every folder in ./system/
+# will be stowed to /. If there's an executable file named 'install' present in
+# a directory, the script will be executed instead.
 
 # Source https://gist.github.com/davejamesmiller/1965569
 ask() {
@@ -65,7 +69,13 @@ else
 fi
 
 function stow2() {
-  command="stow $1 -t $2 -v"
+  # Execute a script instead of stowing if an installation script is present
+  if [[ -x $1/install ]]; then
+    command="$1/install"
+  else
+    command="stow $1 -t $2 -v"
+  fi
+
   if [[ $2 == '/' ]]; then
     command="sudo $command"
   fi
