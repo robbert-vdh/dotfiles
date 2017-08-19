@@ -4,12 +4,14 @@
 # https://github.com/PapirusDevelopmentTeam/arc-kde and replace the panel's SVG
 # file to make it translucent.
 
+cd "$(dirname "$0")"
+
 repo_url='https://github.com/PapirusDevelopmentTeam/arc-kde'
 theme_path=~/.local/share/plasma/desktoptheme/Arc-Dark-Transparent
 tmp_dir=$(mktemp -d)
 
 if [[ -d $theme_path ]]; then
-  return 0
+  exit 0
 fi
 
 echo 'Installing transparency patches for arc-kde'
