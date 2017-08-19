@@ -57,7 +57,7 @@ mute=Volume Mute,Volume Mute,Dempen
 [krunner]
 _k_friendly_name=Commando uitvoeren
 run command=Meta+Space\tAlt+F2,Alt+Space,Commando uitvoeren
-run command on clipboard contents=Alt+Shift+F2\tMeta+Shift+Space,Alt+Shift+F2,Commando uitvoeren op klembordinhoud
+run command on clipboard contents=Alt+Shift+F2\t,Alt+Shift+F2,Commando uitvoeren op klembordinhoud
 
 [ksmserver]
 Halt Without Confirmation=Ctrl+Alt+Shift+PgDown,none,Computer afsluiten zonder bevestiging

@@ -107,6 +107,9 @@ bindsym $mod+a focus parent
 # Focus the child container
 bindsym $mod+d focus child
 
+# Focus a window marked as urgent (e.g. a popup on a different workspace)
+bindsym $mod+u [urgent=latest] focus
+
 # Switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -228,7 +231,7 @@ for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
 # Avoid tiling popups, dropdown windows from plasma. For the first time,
 # manually resize them, i3 will remember the setting for floating windows.
-for_window [class="plasmashell"] floating enable;
+for_window [class="plasmashell"] floating enable
 for_window [class="Plasma"] floating enable; border none
 for_window [title="plasma-desktop"] floating enable; border none
 for_window [title="win7"] floating enable; border none
