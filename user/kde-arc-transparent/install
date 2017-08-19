@@ -16,8 +16,9 @@ fi
 
 echo 'Installing transparency patches for arc-kde'
 
+mkdir -p $(dirname $theme_path)
 git clone --depth=1 $repo_url $tmp_dir 2> /dev/null
-cp -r $tmp_dir/plasma/desktoptheme/Arc-Dark $theme_path
+cp -a $tmp_dir/plasma/desktoptheme/Arc-Dark $theme_path
 
 cp -r ./replacements/* $theme_path
 sed -i 's/^Name=Arc Dark/Name=Arc Dark - Transparent/' $theme_path/metadata.desktop
