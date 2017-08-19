@@ -61,6 +61,11 @@ SETTINGS = {
             'enable': 11,
             'disable': 10
         }],
+        'i3': [{
+            'regex': regex.compile(r'(?<=font pango:.+?)\d+'),
+            'enable': 15,
+            'disable': 13
+        }],
         'Spacemacs': [{
             'regex':
             regex.compile(r'(?<=:size ,\(if \(equal system-name '
@@ -76,6 +81,7 @@ SETTINGS = {
 LOCATIONS = {
     'GTK2': os.path.expanduser('~/.gtkrc-2.0'),
     'GTK3': os.path.expanduser('~/.config/gtk-3.0/settings.ini'),
+    'i3': os.path.expanduser('~/.config/i3/config'),
     'kdeglobals': os.path.expanduser('~/.config/kdeglobals'),
     'konsole': os.path.expanduser('~/.local/share/konsole/Profiel 1.profile'),
     'Spacemacs': os.path.expanduser('~/.spacemacs')
@@ -118,17 +124,28 @@ def main(enabled):
         else:
             click.echo(filename + ' not installed, skipping!')
 
-    # We'll have to restart kwin and plasma to apply the changes
     for application in [['kbuildsycoca5'], ['kquitapp5', 'plasmashell']]:
         subprocess.run(
             application, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-    for application in [['kstart5', 'plasmashell'], ['kwin_x11', '--replace']]:
+    # Restart Plasma and the currently running WM
+    restart = [['kstart5', 'plasmashell']]
+    if is_running('kwin_x11'):
+        restart.append(['kwin_x11', '--replace'])
+    if is_running('i3'):
+        restart.append(['i3-msg', 'reload'])
+
+    for application in restart:
         subprocess.Popen(
             application, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
     click.echo('You might have to restart some applications to apply the '
                'changes')
+
+
+def is_running(application):
+    pgrep = subprocess.run(['pgrep', application], stdout=subprocess.DEVNULL)
+    return pgrep.returncode == 0
 
 
 if __name__ == '__main__':
