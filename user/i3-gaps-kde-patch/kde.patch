@@ -1,0 +1,52 @@
+From 6026314bc413d17399381207d48516038f4aac5c Mon Sep 17 00:00:00 2001
+From: Robbert van der Helm <mail@robbertvanderhelm.nl>
+Date: Sat, 19 Aug 2017 13:50:58 +0200
+Subject: [PATCH] Add a patch that disabled on_focus checks for Plasma
+ compatibility
+
+---
+ PKGBUILD  |  6 ++++++
+ kde.patch | 14 ++++++++++++++
+ 2 files changed, 20 insertions(+)
+ create mode 100644 kde.patch
+
+diff --git a/PKGBUILD b/PKGBUILD
+index 5598b16..236a217 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -25,6 +25,12 @@ options=('docs' '!strip')
+ source=("https://github.com/Airblader/i3/archive/${pkgver}.tar.gz")
+ sha1sums=('49ea9c91137b658697d50da1548b5d4410c0b9da')
+ 
++prepare() {
++  cd "${srcdir}/${_pkgsourcename}-${pkgver}"
++
++  git apply ../../kde.patch
++}
++
+ build() {
+   cd "${srcdir}/${_pkgsourcename}-${pkgver}"
+ 
+diff --git a/kde.patch b/kde.patch
+new file mode 100644
+index 0000000..3cff18e
+--- /dev/null
++++ b/kde.patch
+@@ -0,0 +1,14 @@
++--- src/i3-4.13/src/manage.c	2017-08-19 11:33:29.319083220 +0200
+++++ src/i3-4.13/src/manage.c	2017-08-19 11:33:23.642493405 +0200
++@@ -579,7 +579,10 @@
++         /* The first window on a workspace should always be focused. We have to
++          * compare with == 1 because the container has already been inserted at
++          * this point. */
++-        if (con_num_windows(ws) == 1) {
+++        // i3 doesn't directly manage the Plasma OSD, so it doesn't take it into account
+++        // when counting the new number of windows. The check doesn't work, so I've
+++        // hacked this a bit since I don't use no_focus anyway.
+++        if (false) {
++             DLOG("This is the first window on this workspace, ignoring no_focus.\n");
++         } else {
++             DLOG("no_focus was set for con = %p, not setting focus.\n", nc);
+-- 
+2.14.1
+
