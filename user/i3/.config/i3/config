@@ -272,6 +272,9 @@ no_focus [class="plasmashell"]
 #   maim -s -u $FILE_NAME && imgurbash2 $FILE_NAME \
 #     && notify-send \\"Screenshot geüpload naar\n$(xclip -o -sel clip)\\""
 
+# Restart KDE Plasma
+bindsym $mod+F11 exec --no-startup-id "kquitapp5 plasmashell; kstart5 plasmashell"
+
 # Toggle the compositor
 bindsym $mod+F12 exec --no-startup-id pkill compton || compton --respect-prop-shadow
 
