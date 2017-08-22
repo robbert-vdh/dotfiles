@@ -63,8 +63,16 @@ SETTINGS = {
         }],
         'i3': [{
             'regex': regex.compile(r'(?<=font pango:.+?)\d+'),
-            'enable': 15,
+            'enable': 14,
             'disable': 13
+        }],
+        'phpstorm': [{
+            'regex':
+            regex.compile(r'(?<=name="FONT_SIZE" value=")\d+(?=")'),
+            'enable':
+            18,
+            'disable':
+            16
         }],
         'Spacemacs': [{
             'regex':
@@ -84,6 +92,8 @@ LOCATIONS = {
     'i3': os.path.expanduser('~/.config/i3/config'),
     'kdeglobals': os.path.expanduser('~/.config/kdeglobals'),
     'konsole': os.path.expanduser('~/.local/share/konsole/Profiel 1.profile'),
+    'phpstorm':
+    os.path.expanduser('~/.PhpStorm2017.2/config/options/editor.xml'),
     'Spacemacs': os.path.expanduser('~/.spacemacs')
 }
 
