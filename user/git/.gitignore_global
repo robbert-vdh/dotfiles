@@ -6,3 +6,10 @@ pimple.json
 .dir-locals.el
 .projectile
 
+# Tags
+.ac-php-conf.json
+GPATH
+GRTAGS
+GTAGS
+gtags.files
+

@@ -18,6 +18,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
 Plug 'simnalamburt/vim-mundo'
+Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -120,6 +121,12 @@ let g:haskell_hsp           = 0
 " English and Dutch spelling checker
 setlocal spelllang=en_gb,nl
 
+" Use the same exchange.vim keybindings as evil-exchange
+let g:exchange_no_mappings=1
+nmap gx <Plug>(Exchange)
+nmap gxx <Plug>(ExchangeLine)
+nmap gX <Plug>(ExchangeClear)
+
 " Show a ruler at 80 columns
 set colorcolumn=80
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
@@ -131,22 +138,6 @@ if has("gui_running")
   set bg=dark
   set guioptions=egmrLt
   set linespace=1
-endif
-
-" MacVim-specific configurations.
-if has("gui_macvim") || has("gui_vimr")
-  set imd
-  set guifont=Source_Code_Pro_Light:h16.00
-endif
-
-" GVim under GNOME
-if has("gui_gnome")
-  set guifont="Ubuntu Mono 11"
-endif
-
-" GVim under Windows
-if has("gui_win32")
-  set guifont=Consolas:h11:cANSI
 endif
 
 " Vim-airline
