@@ -123,7 +123,6 @@ common-ctags-maps:\
 	:langmap=REXX\:.cmd.rexx.rx:\
 	:langmap=Ruby\:.rb.ruby:\
 	:langmap=Scheme\:.SCM.SM.sch.scheme.scm.sm:\
-	:langmap=Scss\:.scss:\
 	:langmap=Sh\:.sh.SH.bsh.bash.ksh.zsh:\
 	:langmap=SLang\:.sl:\
 	:langmap=SML\:.sml.sig:\
@@ -164,7 +163,6 @@ common-ctags-maps:\
 	:gtags_parser=REXX\:$ctagslib:\
 	:gtags_parser=Ruby\:$ctagslib:\
 	:gtags_parser=Scheme\:$ctagslib:\
-	:gtags_parser=Scss\:$ctagslib:\
 	:gtags_parser=Sh\:$ctagslib:\
 	:gtags_parser=SLang\:$ctagslib:\
 	:gtags_parser=SML\:$ctagslib:\
@@ -377,6 +375,7 @@ pygments-parser|Pygments plug-in parser:\
 	:langmap=Scaml\:.scaml:\
 	:langmap=Scheme\:.scm.ss:\
 	:langmap=Scilab\:.sci.sce.tst:\
+	:langmap=Scss\:.scss:\
 	:langmap=Smalltalk\:.st:\
 	:langmap=Smarty\:.tpl:\
 	:langmap=Sml\:.sml.sig.fun:\
@@ -531,6 +530,7 @@ pygments-parser|Pygments plug-in parser:\
 	:gtags_parser=Scaml\:$pygmentslib:\
 	:gtags_parser=Scheme\:$pygmentslib:\
 	:gtags_parser=Scilab\:$pygmentslib:\
+	:gtags_parser=Scss\:$pygmentslib:\
 	:gtags_parser=Smalltalk\:$pygmentslib:\
 	:gtags_parser=Smarty\:$pygmentslib:\
 	:gtags_parser=Sml\:$pygmentslib:\

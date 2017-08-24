@@ -419,9 +419,8 @@ before packages are loaded."
   (add-hook 'text-mode-hook (lambda () (spacemacs/toggle-spelling-checking-on)))
 
   ;; Use proper comment syntax
-  (add-hook 'scss-mode-hook (lambda ()
-                              (setq comment-start "// "
-                                    comment-end "")))
+  (add-hook 'scss-mode-hook
+            (lambda () (setq comment-start "// " comment-end "")))
   (setq web-mode-comment-style 2)
 
   ;; Prefer the PSR-2 coding style in PHP
@@ -432,6 +431,15 @@ before packages are loaded."
   (loop for (mode . value) in '((php-mode-hook . 120)
                                 (rust-mode-hook . 100))
         do (add-hook mode `(lambda () (setq fill-column ,value))))
+
+  ;; Enable gtags for Sass. Pygments has got a parser that works great, but it
+  ;; doesn't use the dollar sign prefix. We'll have to manually add the jump
+  ;; handler to scss-mode as there are not any yet.
+  (add-hook 'scss-mode-hook (lambda () (modify-syntax-entry ?$ "'")))
+  (spacemacs|define-jump-handlers scss-mode)
+  (spacemacs|add-company-backends :backends company-capf :modes scss-mode)
+  (add-hook 'scss-mode-local-vars-hook #'spacemacs/ggtags-mode-enable)
+  (spacemacs/helm-gtags-define-keys-for-mode 'scss-mode)
 
   ;; Python docstrings should always be on multiple lines
   (setq python-fill-docstring-style 'django)
