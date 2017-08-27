@@ -67,24 +67,18 @@ SETTINGS = {
             'disable': 13
         }],
         'phpstorm': [{
-            'regex':
-            regex.compile(r'(?<=name="FONT_SIZE" value=")\d+(?=")'),
-            'enable':
-            18,
-            'disable':
-            16
+            'regex': regex.compile(r'(?<=name="FONT_SIZE" value=")\d+(?=")'),
+            'enable': 18,
+            'disable': 16
         }],
         'Spacemacs': [{
-            'regex':
-            regex.compile(r'(?<=:size ,\(if \(equal system-name '
-                          r'"laptop"\) )\d+'),
-            'enable':
-            18,
-            'disable':
-            16
+            'regex': regex.compile(r'(?<=:size ,\(if \(equal system-name '
+                                   r'"laptop"\) )\d+'),
+            'enable': 18,
+            'disable': 16
         }]
     }
-}
+}  # yapf: disable
 
 LOCATIONS = {
     'GTK2': os.path.expanduser('~/.gtkrc-2.0'),
