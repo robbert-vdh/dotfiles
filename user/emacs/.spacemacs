@@ -441,6 +441,13 @@ before packages are loaded."
   (add-hook 'scss-mode-local-vars-hook #'spacemacs/ggtags-mode-enable)
   (spacemacs/counsel-gtags-define-keys-for-mode 'scss-mode)
 
+  ;; Fix jumping to Scss files when the leading underscore is ommitted
+  (add-to-list 'ffap-alist
+               '(scss-mode . (lambda (filename) (replace-regexp-in-string
+                                                 "^\\(.*?\\)\\([^/]+\\)$"
+                                                 "\\1_\\2.scss"
+                                                 filename))))
+
   ;; Sort global results by nearness. This helps when editing Sass, as the
   ;; default variables will have a lower priority.
   (setq ggtags-sort-by-nearness t)
