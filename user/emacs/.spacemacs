@@ -506,12 +506,29 @@ before packages are loaded."
   (spacemacs|hide-lighter reftex-mode)
 
   ;; Custom functions
+
+  ;; Add keybindings for locating a file in a directory or in the current
+  ;; project, even when it's ignored.
+  (defun find-file-in-dir ()
+    (interactive)
+    (setq current-prefix-arg '(4))
+    (call-interactively 'counsel-file-jump))
+
+  (defun find-file-in-project ()
+    (interactive)
+    (counsel-file-jump nil (projectile-project-root)))
+
+  (spacemacs/set-leader-keys
+    "of" 'find-file-in-dir
+    "op" 'find-file-in-project)
+
   (defun org-edit-src-fill-column (column)
     "Sets the fill column in Org src blocks to prevent them being
 too wide in exported PDFs"
     (interactive "P")
     (setq fill-column (or column 70))
     (spacemacs/toggle-fill-column-indicator-on))
+
   (spacemacs/set-leader-keys-for-minor-mode 'org-src-mode
     "of" 'org-edit-src-fill-column))
 
