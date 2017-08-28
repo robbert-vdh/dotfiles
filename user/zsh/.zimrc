@@ -82,8 +82,10 @@ zdouble_dot_expand='true'
 #   https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
 # For (u)rxvt, termite and gnome-terminal users,
 # removing the 'cursor' highlighter will fix the disappearing cursor problem
-zhighlighters=(main cursor brackets)
-
+zhighlighters=(main brackets)
+if [[ $TERM != 'eterm-color' ]]; then
+  zhighlighters+=(cursor)
+fi
 
 #
 # SSH
