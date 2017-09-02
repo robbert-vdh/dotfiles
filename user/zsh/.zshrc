@@ -24,15 +24,6 @@ export VISUAL=$EDITOR
 export PAGER='less'
 export BROWSER='firefox'
 
-# Custom aliases
-
-# Launch Emacs in terminal mode
-alias et="emacsclient -t -a ''"
-# Launch Emacs in regular GUI mode, attaching to a currently open frame
-alias ea="emacsclient -n -a ''"
-# Launch Emacs in regular GUI mode, creating a new frame
-alias ec="emacsclient -nc -a ''"
-
 # Copy files
 alias rsync-copy="rsync --archive --hard-links --one-file-system  --acls --xattrs --info=progress2 --human-readable"
 alias rsync-move="rsync-copy --remove-source-files"
