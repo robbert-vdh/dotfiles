@@ -392,7 +392,7 @@ before packages are loaded."
   (defun fix-color-scheme (&rest frame)
     (set-face-attribute 'nlinum-relative-current-face nil
                         :background nil
-                        :foreground nil))
+                        :foreground "#5E6A76"))
   (add-to-list 'focus-in-hook 'fix-color-scheme)
 
   ;; Set default indentation levels
