@@ -399,6 +399,7 @@ before packages are loaded."
   (setq css-indent-offset 2
         js-indent-level 2
         sh-basic-offset 2
+        sh-indentation 2
         web-mode-markup-indent-offset 2
         web-mode-css-indent-offset 2)
 
