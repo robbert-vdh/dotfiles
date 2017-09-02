@@ -148,7 +148,7 @@ Size=32
 
 [DirSelect Dialog]
 DirSelectDialog Size=640,480
-History Items[$e]=file:///mnt/data/downloads
+History Items[$e]=file:$HOME,file:$HOME/.dotfiles/bin/em,file:///mnt/data/downloads
 
 [Emoticons]
 emoticonsTheme=EmojiOne
