@@ -225,7 +225,7 @@ for_window [class="Thunderbird" instance="Mail"] split horizontal, layout tabbed
 
 # Try to kill the wallpaper set by Plasma (it takes up the entire workspace and
 # hides everythiing).
-exec --no-startup-id wmctrl -c Plasma
+exec --no-startup-id bash -c "xdotool search --name Plasma | xargs -n 1 xdotool windowclose"
 for_window [title="Bureaublad — Plasma"] kill; floating enable; border none
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 

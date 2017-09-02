@@ -40,7 +40,7 @@ KDE handles most non-WM shortcuts and things like text rendering and themes.
 -   compton
 -   feh
 -   i3-gaps-next-git
--   wmctrl
+-   xdotool
 
 ### Autostarted
 -   keepassxc
