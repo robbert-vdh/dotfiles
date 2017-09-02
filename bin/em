@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#
+# This script is mostly useful on workspace based window managers like i3, as it
+# keeps a single frame per workspace.
+
+emacs_pid=$(emacsclient -n -e "(emacs-pid)" 2> /dev/null)
+
+# Check whether the there is a client frame on the current workspace
+window_id=$(xdotool search --desktop $(xdotool get_desktop) --pid $emacs_pid 2>&1)
+
+if [[ "$?" -eq 0 ]]; then
+  # Attach to the current frame
+  emacsclient -nq "$@" &> /dev/null
+  # xdotool windowfocus doesn't seem to affect compton's focus
+  # xdotool windowfocus $window_id
+  i3-msg "[id=$window_id] focus" > /dev/null
+else
+  emacsclient -a '' -nqc "$@" &> /dev/null
+fi
