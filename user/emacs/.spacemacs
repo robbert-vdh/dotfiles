@@ -387,9 +387,13 @@ before packages are loaded."
    '(company-tooltip-common-selection
      ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
   (setq completion-styles '(partial-completion initials))
-  (set-face-attribute 'nlinum-relative-current-face nil
-                      :background nil
-                      :foreground nil)
+
+  ;; Fix the highlighted line color
+  (defun fix-color-scheme (&rest frame)
+    (set-face-attribute 'nlinum-relative-current-face nil
+                        :background nil
+                        :foreground nil))
+  (add-to-list 'focus-in-hook 'fix-color-scheme)
 
   ;; Set default indentation levels
   (setq css-indent-offset 2
