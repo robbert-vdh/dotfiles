@@ -295,5 +295,7 @@ exec_always --no-startup-id feh --bg-fill ~/.dotfiles/user/wallpapers/Afbeelding
 exec --no-startup-id redshift-gtk
 # Start KeePassXC on the last workspace
 exec --no-startup-id keepassxc
+# Preload an Emacs daemon
+exec --no-startup-id emacs --daemon
 
 # vim:filetype=i3
