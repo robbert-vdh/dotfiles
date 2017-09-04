@@ -1,3 +1,4 @@
+#!/usr/bin/env xdg-open
 [Desktop Entry]
 Comment=Open in emacs client window on current desktop
 Exec=/home/robbert/.dotfiles/bin/em
