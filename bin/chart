@@ -1,0 +1,22 @@
+#!/usr/bin/zsh
+
+pairs=('xmreur' 'btceur' 'etheur')
+duration='15m'
+
+i3-msg 'mark terminal' > /dev/null
+
+for pair in $pairs
+do
+  chromium --app="https://trade.kraken.com/kraken/$pair/$duration" > /dev/null 2>&1 &
+  sleep 0.1
+done
+
+sleep 1
+
+# Create bottom row
+i3-msg '[instance=_etheur_] focus; move down; split h; [instance=_btceur_] focus; move down' > /dev/null
+
+# Return focus to the terminal after creating windows
+i3-msg '[con_mark=terminal] focus; unmark terminal' > /dev/null
+
+cat
