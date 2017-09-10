@@ -14,18 +14,17 @@ diff --git a/PKGBUILD b/PKGBUILD
 index 5598b16..236a217 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -25,6 +25,12 @@ options=('docs' '!strip')
- source=("https://github.com/Airblader/i3/archive/${pkgver}.tar.gz")
- sha1sums=('49ea9c91137b658697d50da1548b5d4410c0b9da')
- 
+@@ -28,5 +28,11 @@
 +prepare() {
-+  cd "${srcdir}/${_pkgsourcename}-${pkgver}"
++  cd "${srcdir}/${_pkgsourcename}-${pkgver}/src/${_pkgsourcename}-${pkgver}/src"
 +
-+  git apply ../../kde.patch
++  git apply ../../../kde.patch
 +}
 +
  build() {
    cd "${srcdir}/${_pkgsourcename}-${pkgver}"
+ 
+   autoreconf --force --install
  
 diff --git a/kde.patch b/kde.patch
 new file mode 100644
@@ -33,8 +32,8 @@ index 0000000..3cff18e
 --- /dev/null
 +++ b/kde.patch
 @@ -0,0 +1,14 @@
-+--- src/i3-4.13/src/manage.c	2017-08-19 11:33:29.319083220 +0200
-++++ src/i3-4.13/src/manage.c	2017-08-19 11:33:23.642493405 +0200
++--- src/manage.c	2017-08-19 11:33:29.319083220 +0200
+++++ src/manage.c	2017-08-19 11:33:23.642493405 +0200
 +@@ -579,7 +579,10 @@
 +         /* The first window on a workspace should always be focused. We have to
 +          * compare with == 1 because the container has already been inserted at
