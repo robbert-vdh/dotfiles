@@ -3,7 +3,8 @@
 pairs=('xmreur' 'btceur' 'etheur')
 duration='15m'
 
-i3-msg 'mark terminal' > /dev/null
+# Mark terminal for later use and make sure it's seperate container
+i3-msg 'split h; mark terminal' > /dev/null
 
 for pair in $pairs
 do
@@ -15,6 +16,10 @@ sleep 1
 
 # Create bottom row
 i3-msg '[instance=_etheur_] focus; move down; split h; [instance=_btceur_] focus; move down' > /dev/null
+
+# Resize
+i3-msg '[con_mark=terminal] resize shrink right 70' > /dev/null
+i3-msg '[instance=_etheur_] resize shrink right 70' > /dev/null
 
 # Return focus to the terminal after creating windows
 i3-msg '[con_mark=terminal] focus; unmark terminal' > /dev/null
