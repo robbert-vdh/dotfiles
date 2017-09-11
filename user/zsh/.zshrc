@@ -24,6 +24,9 @@ export VISUAL=$EDITOR
 export PAGER='less'
 export BROWSER='firefox'
 
+# Open emacsclient inside terminal (compliment to ~/.dotfiles/bin/em)
+alias en="emacsclient -nw -a ''"
+
 # Copy files
 alias rsync-copy="rsync --archive --hard-links --one-file-system  --acls --xattrs --info=progress2 --human-readable"
 alias rsync-move="rsync-copy --remove-source-files"
