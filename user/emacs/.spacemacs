@@ -422,7 +422,9 @@ before packages are loaded."
   (setq evil-escape-key-sequence "jk")
 
   ;; Spell checking should be enabled in git commits
-  (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on)
+  (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking)
+  ;; Disable for config files
+  (add-hook 'conf-mode-hook 'spacemacs/toggle-spelling-checking)
 
   ;; Always highlight color codes in CSS
   (add-hook 'css-mode-hook 'rainbow-mode)
