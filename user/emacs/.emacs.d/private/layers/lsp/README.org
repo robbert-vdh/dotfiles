@@ -1,0 +1,31 @@
+#+TITLE: Language Server Protocol layer
+
+# TOC links should be GitHub style anchors.
+* Table of Contents                                        :TOC_4_gh:noexport:
+- [[#description][Description]]
+  - [[#features][Features:]]
+- [[#todos][TODOs]]
+- [[#install][Install]]
+- [[#key-bindings][Key bindings]]
+
+* Description
+This layer adds support for the Language Server Protocol though [[https://github.com/emacs-lsp/lsp-mode][lsp-mode]].
+
+** Features:
+  - Autocomplete
+  - Lint
+  - Refactor
+  - ...
+
+* TODOs
+- [ ] The mode-specific packages should be moved to the modes' respective layers
+- [ ] Keybindings should be more logical
+- [ ] Fix the symbol highlighting face
+
+* Install
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =lsp= to the existing =dotspacemacs-configuration-layers= list in this
+file.
+
+* Key bindings
+None
