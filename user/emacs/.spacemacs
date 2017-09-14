@@ -522,6 +522,10 @@ before packages are loaded."
        (when (evil-insert-state-p)
          (define-key evil-insert-state-map (kbd "C-k") nil)))))
 
+  ;; Add a keybinding for opening the company completions (ignores the minimum
+  ;; prefix length)
+  (define-key evil-insert-state-map (kbd "C-SPC") 'company-complete)
+
   ;; Hide unimported minor modes
   (spacemacs|hide-lighter magit-gitflow-mode)
   (spacemacs|hide-lighter reftex-mode)
