@@ -527,6 +527,8 @@ before packages are loaded."
   (define-key evil-insert-state-map (kbd "C-SPC") 'company-complete)
 
   ;; Hide unimported minor modes
+  (spacemacs|hide-lighter ggtags-mode)
+  (spacemacs|hide-lighter lsp-mode)
   (spacemacs|hide-lighter magit-gitflow-mode)
   (spacemacs|hide-lighter reftex-mode)
 
