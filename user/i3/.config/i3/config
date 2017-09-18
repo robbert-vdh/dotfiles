@@ -253,18 +253,21 @@ no_focus [class="plasmashell"]
 #   FILE_NAME=~/Afbeeldingen/$(date +%F-%T).png; \
 #   maim -u $FILE_NAME && xclip -sel clip -t image/png -i $FILE_NAME \
 #     && notify-send \\"Screenshot opgeslagen\n$FILE_NAME\\""
+bindsym Print exec spectacle -m
 
 # # Screenshot region and copy image to clipboard
 # bindsym Shift+Print exec " \
 #   FILE_NAME=~/Afbeeldingen/$(date +%F-%T).png; \
 #   maim -s -u $FILE_NAME && xclip -sel clip -t image/png -i $FILE_NAME \
 #     && notify-send \\"Screenshot opgeslagen\n$FILE_NAME\\""
+bindsym Shift+Print exec spectacle -r
 
 # # Screenshot, upload to imgur and copy link to clipboard
 # bindsym Control+Print exec " \
 #   FILE_NAME=/tmp/screenshot.png; \
 #   maim -u $FILE_NAME && imgurbash2 $FILE_NAME \
 #     && notify-send \\"Screenshot geüpload naar\n$(xclip -o -sel clip)\\""
+bindsym Control+Print exec spectacle -a
 
 # # Screenshot region, upload to imgur and copy link to clipboard
 # bindsym Control+Shift+Print exec " \

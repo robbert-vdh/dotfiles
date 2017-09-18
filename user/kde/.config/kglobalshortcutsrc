@@ -239,14 +239,6 @@ NewWindow=none,none,Een nieuw venster openen
 _k_friendly_name=Opstarten van Konsole
 _launch=none,none,Opstarten van Konsole
 
-[org.kde.spectacle.desktop]
-ActiveWindowScreenShot=Ctrl+Print,none,Actieve venster opnemen
-CurrentMonitorScreenShot=Print,none,Huidige monitor opnemen
-FullScreenScreenShot=,none,Gehele bureaublad opnemen
-RectangularRegionScreenShot=Shift+Print,none,Rechthoekig gebied opnemen
-_k_friendly_name=Opstarten van Spectacle
-_launch=,none,Opstarten van Spectacle
-
 [plasmashell]
 _k_friendly_name=Plasma
 activate task manager entry 1=Meta+F1,Meta+1,Item 1 in takenbeheer activeren

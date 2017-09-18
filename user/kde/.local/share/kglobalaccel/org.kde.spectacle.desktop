@@ -27,6 +27,7 @@ GenericName=Screenshot Capture Utility
 Icon=spectacle
 Name[nl_NL]=Spectacle
 Name=Spectacle
+NoDisplay=true
 StartupNotify=false
 Terminal=false
 Type=Application
