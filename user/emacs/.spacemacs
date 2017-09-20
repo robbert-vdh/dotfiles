@@ -502,7 +502,8 @@ before packages are loaded."
     (add-to-list 'org-latex-packages-alist '("newfloat" "minted"))
     (setq org-latex-default-class "koma-article"
           org-format-latex-options
-          (plist-put org-format-latex-options :scale 1.25)
+          (plist-put org-format-latex-options
+                     :scale (if (equal system-name "laptop") 1.5 1.25))
           org-latex-caption-above nil
           org-latex-listings 'minted
           ;; latexmk tends to play along nicer than pdflatex

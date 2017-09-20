@@ -71,12 +71,20 @@ SETTINGS = {
             'enable': 18,
             'disable': 16
         }],
-        'Spacemacs': [{
-            'regex': regex.compile(r'(?<=:size ,\(if \(equal system-name '
-                                   r'"laptop"\) )\d+'),
-            'enable': 18,
-            'disable': 16
-        }]
+        'Spacemacs': [
+            {
+                'regex': regex.compile(r'(?<=:size ,\(if \(equal system-name '
+                                       r'"laptop"\) )\d+'),
+                'enable': 18,
+                'disable': 16
+            },
+            {
+                'regex': regex.compile(r'(?<=:scale ,\(if \(equal system-name '
+                                       r'"laptop"\) )\d+'),
+                'enable': 1.5,
+                'disable': 1.25
+            }
+        ]
     }
 }  # yapf: disable
 
