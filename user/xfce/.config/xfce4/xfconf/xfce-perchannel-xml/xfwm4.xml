@@ -76,6 +76,7 @@
       <value type="string" value="2"/>
       <value type="string" value="3"/>
       <value type="string" value="Werkblad 4"/>
+      <value type="string" value="10"/>
     </property>
     <property name="wrap_cycle" type="bool" value="true"/>
     <property name="wrap_layout" type="bool" value="true"/>

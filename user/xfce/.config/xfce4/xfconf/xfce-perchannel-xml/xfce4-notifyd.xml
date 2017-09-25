@@ -7,7 +7,9 @@
   <property name="theme" type="string" value="Default"/>
   <property name="applications" type="empty">
     <property name="known_applications" type="array">
+      <value type="string" value="Electron"/>
       <value type="string" value="KDE Connect"/>
+      <value type="string" value="mumble"/>
       <value type="string" value="notify-send"/>
       <value type="string" value="Xfce volume control"/>
       <value type="string" value="Xfce4-notifyd settings"/>
