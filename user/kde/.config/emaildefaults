@@ -1,7 +1,0 @@
-[Defaults]
-Profile=Standaard
-
-[PROFILE_Standaard]
-EmailClient[$e]=thunderbird
-ServerType=
-TerminalClient=false

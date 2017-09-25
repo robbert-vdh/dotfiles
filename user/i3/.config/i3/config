@@ -45,7 +45,7 @@ bindsym $mod+Return exec konsole
 bindsym $mod+Shift+q kill
 bindsym $alt+F4 kill
 
-# Either Krunner or the start menu widget should be a good replacement foor this
+# This shortcut gets handled by Albert
 # # Start rofi (a program launcher)
 # bindsym $mod+space exec "rofi -modi drun,run -show drun"
 
@@ -141,7 +141,10 @@ bindsym $mod+Shift+c reload
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # Exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec --no-startup-id xfce4-session-logout
+
+# Lock the screen
+bindsym $mod+Control+l xflock4
 
 # Resize window (you can also use the mouse for that)
 mode "resize" {
@@ -220,63 +223,33 @@ for_window [class="keepassxc" window_type="dialog"] move workspace current
 # Thudnderbird likes to spawn another window when replying to messages
 for_window [class="Thunderbird" instance="Mail"] split horizontal, layout tabbed
 
-# Needed to make KDE Plasma act nicely
-# Stolen from https://github.com/avivace/dotfiles/blob/b2a8b09dd09205944f6e5d63f39cd89974bd7aca/.config/i3/config
-
-# Try to kill the wallpaper set by Plasma (it takes up the entire workspace and
-# hides everythiing).
-exec --no-startup-id bash -c "xdotool search --name Plasma | xargs -n 1 xdotool windowclose"
-for_window [title="Bureaublad — Plasma"] kill; floating enable; border none
-for_window [title="Desktop — Plasma"] kill; floating enable; border none
-
-# Avoid tiling popups, dropdown windows from plasma. For the first time,
-# manually resize them, i3 will remember the setting for floating windows.
-for_window [class="plasmashell"] floating enable
-for_window [class="Plasma"] floating enable; border none
-for_window [title="plasma-desktop"] floating enable; border none
-for_window [title="win7"] floating enable; border none
-for_window [class="krunner"] floating enable; border none
-for_window [class="Kmix"] floating enable; border none
-for_window [class="Klipper"] floating enable; border none
-for_window [class="Plasmoidviewer"] floating enable; border none
-
-# Stop Plasma from stealing focus (e.g. during notifications and volume
-# changes)
-no_focus [class="plasmashell"]
-
 #
 # Applications
 #
 
-# # Screenshot and copy image to clipboard
-# bindsym Print exec " \
-#   FILE_NAME=~/Afbeeldingen/$(date +%F-%T).png; \
-#   maim -u $FILE_NAME && xclip -sel clip -t image/png -i $FILE_NAME \
-#     && notify-send \\"Screenshot opgeslagen\n$FILE_NAME\\""
-bindsym Print exec spectacle -m
+# Screenshot and copy image to clipboard
+bindsym Print exec " \
+  FILE_NAME=~/Afbeeldingen/$(date +%F-%T).png; \
+  maim -u $FILE_NAME && xclip -sel clip -t image/png -i $FILE_NAME \
+    && notify-send \\"Screenshot opgeslagen\n$FILE_NAME\\""
 
-# # Screenshot region and copy image to clipboard
-# bindsym Shift+Print exec " \
-#   FILE_NAME=~/Afbeeldingen/$(date +%F-%T).png; \
-#   maim -s -u $FILE_NAME && xclip -sel clip -t image/png -i $FILE_NAME \
-#     && notify-send \\"Screenshot opgeslagen\n$FILE_NAME\\""
-bindsym Shift+Print exec spectacle -r
+# Screenshot region and copy image to clipboard
+bindsym Shift+Print exec " \
+  FILE_NAME=~/Afbeeldingen/$(date +%F-%T).png; \
+  maim -s -u $FILE_NAME && xclip -sel clip -t image/png -i $FILE_NAME \
+    && notify-send \\"Screenshot opgeslagen\n$FILE_NAME\\""
 
-# # Screenshot, upload to imgur and copy link to clipboard
-# bindsym Control+Print exec " \
-#   FILE_NAME=/tmp/screenshot.png; \
-#   maim -u $FILE_NAME && imgurbash2 $FILE_NAME \
-#     && notify-send \\"Screenshot geüpload naar\n$(xclip -o -sel clip)\\""
-bindsym Control+Print exec spectacle -a
+# Screenshot, upload to imgur and copy link to clipboard
+bindsym Control+Print exec " \
+  FILE_NAME=/tmp/screenshot.png; \
+  maim -u $FILE_NAME && imgurbash2 $FILE_NAME \
+    && notify-send \\"Screenshot geüpload naar\n$(xclip -o -sel clip)\\""
 
-# # Screenshot region, upload to imgur and copy link to clipboard
-# bindsym Control+Shift+Print exec " \
-#   FILE_NAME=/tmp/screenshot.png; \
-#   maim -s -u $FILE_NAME && imgurbash2 $FILE_NAME \
-#     && notify-send \\"Screenshot geüpload naar\n$(xclip -o -sel clip)\\""
-
-# Restart KDE Plasma
-bindsym $mod+F11 exec --no-startup-id "kquitapp5 plasmashell; kstart5 plasmashell"
+# Screenshot region, upload to imgur and copy link to clipboard
+bindsym Control+Shift+Print exec " \
+  FILE_NAME=/tmp/screenshot.png; \
+  maim -s -u $FILE_NAME && imgurbash2 $FILE_NAME \
+    && notify-send \\"Screenshot geüpload naar\n$(xclip -o -sel clip)\\""
 
 # Toggle the compositor
 bindsym $mod+F12 exec --no-startup-id pkill compton || compton --respect-prop-shadow
@@ -293,12 +266,18 @@ exec --no-startup-id ~/.xprofile
 exec --no-startup-id compton --respect-prop-shadow
 # Set a wallpaper
 exec_always --no-startup-id feh --bg-fill ~/.dotfiles/user/wallpapers/Afbeeldingen/wallpapers/arc.png
+# Handle notifications
+exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 
+# Network Manager
+exec --no-startup-id nm-applet
 # Redshift
 exec --no-startup-id redshift-gtk
 # Start KeePassXC on the last workspace
 exec --no-startup-id keepassxc
 # Preload an Emacs daemon
 exec --no-startup-id emacs --daemon
+# Launch Albert
+exec --no-startup-id albert
 
 # vim:filetype=i3

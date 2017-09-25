@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=KDE/i3
-Comment=Use the i3 window manager inside of the K Desktop Environment
-Exec=/usr/bin/env KDEWM=i3 startkde
-TryExec=/usr/bin/startkde
-Icon=i3
-Type=Application

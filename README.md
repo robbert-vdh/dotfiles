@@ -22,28 +22,31 @@ They can be found over
 at [user/emacs/.emacs.d/private/layers](user/emacs/.emacs.d/private/layers),
 along with installation instructions.
 
-## KDE
--   Arc GTK theme
--   arc-kde
--   kdeconnect
--   konsole
--   kvantum
--   Liberation Mono font
--   Numix Square icons
--   Papirus icon theme
--   Roboto font
--   spectacle
-
-## i3
+## xfce + i3
 KDE handles most non-WM shortcuts and things like text rendering and themes.
 
+-   Arc GTK theme
+-   arc-kde
 -   compton
 -   feh
 -   i3-gaps-next-git
+-   konsole
+-   kvantum
+-   Liberation Mono font
+-   Papirus icon theme
+-   Roboto font
 -   xdotool
+-   xfce4
+-   xfce4-i3-workspaces-plugin-git
+
+### Screenshots
+-   imgurbash2
+-   maim
+-   slop
 
 ### Autostarted
+-   albert
+-   kdeconnect
 -   keepassxc
+-   network-manager-applet
 -   redshift
-
-Some old configuration is stored in the [backup](backup) directory.

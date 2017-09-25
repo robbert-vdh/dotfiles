@@ -2,7 +2,7 @@
 AntiAliasFonts=true
 BoldIntense=true
 ColorScheme=base16-tomorrow-night
-Font=Monospace,11,-1,5,50,0,0,0,0,0,Regular
+Font=Liberation Mono,12,-1,5,50,0,0,0,0,0
 LineSpacing=0
 UseFontLineChararacters=false
 

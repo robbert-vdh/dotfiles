@@ -153,3 +153,5 @@ x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
 x-scheme-handler/mailto=thunderbird.desktop
 x-scheme-handler/tg=telegramdesktop.desktop
+application/vnd.oasis.opendocument.text=libreoffice-writer.desktop;
+
