@@ -45,6 +45,7 @@
     <property name="plugin-5" type="string" value="clock">
       <property name="tooltip-format" type="string" value="%A %d %B %Y"/>
       <property name="mode" type="uint" value="2"/>
+      <property name="digital-format" type="string" value="&lt;span size=&quot;x-large&quot;&gt;%R&lt;/span&gt;"/>
     </property>
     <property name="plugin-6" type="string" value="systray">
       <property name="names-visible" type="array">
