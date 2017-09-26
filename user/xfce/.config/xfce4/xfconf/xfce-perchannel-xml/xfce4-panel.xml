@@ -52,6 +52,7 @@
         <value type="string" value="redshift-gtk"/>
         <value type="string" value="mumble"/>
         <value type="string" value="networkmanager applet"/>
+        <value type="string" value="qbittorrent"/>
         <value type="string" value="steam"/>
         <value type="string" value="telegram-desktop"/>
         <value type="string" value="kde connect indicator"/>
