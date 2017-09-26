@@ -20,3 +20,5 @@
 [tig]
 	refresh-mode = periodic
 	refresh-interval = 5
+[magit]
+	hideCampaign = true
