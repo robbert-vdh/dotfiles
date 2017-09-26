@@ -537,6 +537,12 @@ before packages are loaded."
 
   ;; Add keybindings for locating a file in a directory or in the current
   ;; project, even when it's ignored.
+  (defun magit-blame-follow-copy ()
+    "Blame with the `-wCCC' options, telling Git to track copied
+text"
+    (interactive)
+    (magit-blame magit-buffer-refname buffer-file-name '("-wCCC")))
+
   (defun find-file-in-dir ()
     (interactive)
     (setq current-prefix-arg '(4))
@@ -547,6 +553,7 @@ before packages are loaded."
     (counsel-file-jump nil (projectile-project-root)))
 
   (spacemacs/set-leader-keys
+    "ob" 'magit-blame-follow-copy
     "of" 'find-file-in-dir
     "op" 'find-file-in-project)
 
