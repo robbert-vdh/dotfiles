@@ -22,7 +22,9 @@ path=(
 export EDITOR='nvim'
 export VISUAL=$EDITOR
 export PAGER='less'
-export BROWSER='firefox'
+export BROWSER='firefox-developer'
+
+alias firefox="firefox-developer"
 
 # Open emacsclient inside terminal (compliment to ~/.dotfiles/bin/em)
 alias en="emacsclient -nw -a ''"

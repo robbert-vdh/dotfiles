@@ -60,6 +60,7 @@
         <value type="string" value="taakbeheerder"/>
         <value type="string" value="albert"/>
         <value type="string" value="slack"/>
+        <value type="string" value="cadence.py"/>
       </property>
     </property>
     <property name="plugin-7" type="string" value="whiskermenu"/>
