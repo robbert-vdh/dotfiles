@@ -37,6 +37,7 @@ KDE handles most non-WM shortcuts and things like text rendering and themes.
 -   Roboto font
 -   xdotool
 -   xfce4
+-   xfce4-notifyd (should be started as a systemd user service)
 -   xfce4-i3-workspaces-plugin-git
 
 ### Screenshots

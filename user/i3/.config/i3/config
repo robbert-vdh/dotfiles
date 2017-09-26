@@ -266,8 +266,6 @@ exec --no-startup-id ~/.xprofile
 exec --no-startup-id compton --respect-prop-shadow
 # Set a wallpaper
 exec_always --no-startup-id feh --bg-fill ~/.dotfiles/user/wallpapers/Afbeeldingen/wallpapers/arc.png
-# Handle notifications
-exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 
 # Network Manager
 exec --no-startup-id nm-applet
