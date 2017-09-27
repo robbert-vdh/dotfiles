@@ -15,6 +15,7 @@
       <value type="string" value="qBittorrent"/>
       <value type="string" value="Xfce volume control"/>
       <value type="string" value="Xfce4-notifyd settings"/>
+      <value type="string" value="xfce4-power-manager"/>
     </property>
     <property name="muted_applications" type="array">
     </property>

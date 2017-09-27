@@ -59,6 +59,7 @@
         <value type="string" value="gpmdp"/>
         <value type="string" value="taakbeheerder"/>
         <value type="string" value="albert"/>
+        <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="slack"/>
         <value type="string" value="cadence.py"/>
       </property>

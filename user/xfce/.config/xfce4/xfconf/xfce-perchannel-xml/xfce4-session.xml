@@ -31,4 +31,7 @@
   <property name="compat" type="empty">
     <property name="LaunchKDE" type="bool" value="false"/>
   </property>
+  <property name="shutdown" type="empty">
+    <property name="LockScreen" type="bool" value="true"/>
+  </property>
 </channel>

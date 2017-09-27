@@ -4,5 +4,18 @@
   <property name="xfce4-power-manager" type="empty">
     <property name="brightness-switch-restore-on-exit" type="int" value="1"/>
     <property name="brightness-switch" type="int" value="0"/>
+    <property name="power-button-action" type="uint" value="3"/>
+    <property name="lid-action-on-battery" type="uint" value="1"/>
+    <property name="logind-handle-lid-switch" type="bool" value="true"/>
+    <property name="show-tray-icon" type="bool" value="true"/>
+    <property name="general-notification" type="bool" value="true"/>
+    <property name="inactivity-on-battery" type="uint" value="63"/>
+    <property name="critical-power-action" type="uint" value="2"/>
+    <property name="critical-power-level" type="uint" value="5"/>
+    <property name="lock-screen-suspend-hibernate" type="bool" value="true"/>
+    <property name="sleep-button-action" type="uint" value="1"/>
+    <property name="hibernate-button-action" type="uint" value="2"/>
+    <property name="brightness-on-battery" type="uint" value="30"/>
+    <property name="inactivity-sleep-mode-on-battery" type="uint" value="1"/>
   </property>
 </channel>
