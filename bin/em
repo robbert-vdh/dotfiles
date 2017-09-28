@@ -12,7 +12,7 @@ if [[ "$?" -eq 0 ]]; then
   # Attach to the current frame
   emacsclient -nq "$@" &> /dev/null
   # compton's focus doesn't update otherwise
-  i3-msg "[id=$window_id] focus" > /dev/null 2&>1 || xdotool windowfocus $window_id > /dev/null
+  i3-msg "[id=$window_id] focus" > /dev/null 2>&1 || xdotool windowfocus $window_id > /dev/null
 else
   emacsclient -a '' -nqc "$@" &> /dev/null
 fi
