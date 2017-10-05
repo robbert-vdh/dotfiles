@@ -87,8 +87,8 @@ video/x-matroska=mpv.desktop;org.gnome.Totem.desktop;
 video/x-msvideo=mpv.desktop;
 x-scheme-handler/chrome=firefox-beta.desktop;firefox-beta-bin.desktop;userapp-Firefox Developer Edition-5SW66Y.desktop;
 x-scheme-handler/ftp=firefox-beta.desktop;firefox-beta-bin.desktop;userapp-Firefox Developer Edition-5SW66Y.desktop;
-x-scheme-handler/http=firefox-beta.desktop;firefox-beta-bin.desktop;userapp-Firefox Developer Edition-5SW66Y.desktop;
-x-scheme-handler/https=firefox-beta.desktop;firefox-beta-bin.desktop;userapp-Firefox Developer Edition-5SW66Y.desktop;
+x-scheme-handler/http=exo-web-browser.desktop
+x-scheme-handler/https=exo-web-browser.desktop
 x-scheme-handler/mailto=thunderbird.desktop;
 x-scheme-handler/trash=exo-file-manager.desktop
 
@@ -154,3 +154,4 @@ x-scheme-handler/https=userapp-Firefox Developer Edition-5SW66Y.desktop
 x-scheme-handler/mailto=thunderbird.desktop
 x-scheme-handler/tg=telegramdesktop.desktop
 application/vnd.oasis.opendocument.text=libreoffice-writer.desktop;
+
