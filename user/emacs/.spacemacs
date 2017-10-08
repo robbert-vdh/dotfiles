@@ -532,6 +532,7 @@ before packages are loaded."
   ;; Add a keybinding for opening the company completions (ignores the minimum
   ;; prefix length)
   (define-key evil-insert-state-map (kbd "C-SPC") 'company-complete)
+  (define-key evil-insert-state-map (kbd "C-S-SPC") 'company-yasnippet)
 
   ;; Hide unimported minor modes
   (spacemacs|hide-lighter ggtags-mode)
