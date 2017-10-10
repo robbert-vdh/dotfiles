@@ -430,6 +430,9 @@ before packages are loaded."
   ;; The default 'fd' gives a lote of trouble when writing in Dutch
   (setq evil-escape-key-sequence "jk")
 
+  ;; Use the older neotree keybinding for opening treemacs in the proejct's root
+  (spacemacs/set-leader-keys "pt" 'treemacs-projectile-toggle)
+
   ;; Spell checking should be enabled in git commits
   (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking)
   ;; Disable for config and .vue files
