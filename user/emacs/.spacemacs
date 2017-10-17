@@ -87,8 +87,7 @@ This function should only modify configuration layer settings."
      typescript
      syntax-checking
      version-control
-     yaml
-     vue)
+     yaml)
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
