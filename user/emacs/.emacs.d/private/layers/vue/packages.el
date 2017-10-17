@@ -30,9 +30,23 @@
 ;;; Code:
 
 (defconst vue-packages
-  '((vue-mode :location (recipe
+  '(edit-indirect
+    (vue-mode :location (recipe
                          :fetcher github
                          :repo "codefalling/vue-mode"))))
+
+(defun vue/init-edit-indirect ()
+  ;; vue-mode is the only mode using edit-indirect. This should probably be
+  ;; moved to the spacemacs-base layer if more layers start requiring
+  ;; edit-indirect
+  (use-package edit-indirect
+    :defer t
+    :init
+    (spacemacs/set-leader-keys-for-minor-mode 'edit-indirect--overlay
+      dotspacemacs-major-mode-leader-key 'edit-indirect-commit
+      "c" 'edit-indirect-commit
+      "a" 'edit-indirect-abort
+      "k" 'edit-indirect-abort)))
 
 (defun vue/init-vue-mode ()
   (use-package vue-mode
