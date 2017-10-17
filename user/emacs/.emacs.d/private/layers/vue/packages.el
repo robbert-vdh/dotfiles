@@ -52,14 +52,5 @@
   (use-package vue-mode
     :defer t
     :init
-    (progn
-      ;; Patch tide-mode to only activate when it actually can
-      ;; TODO: Remove this once tide fixes indirect buffers
-      (defun tide-setup-if-possible ()
-        (when (not (eq buffer-file-name nil)) (tide-setup)))
-
-      (remove-hook 'typescript-mode-hook 'tide-setup)
-      (add-hook 'typescript-mode-hook 'tide-setup-if-possible)
-
-      (spacemacs/set-leader-keys-for-major-mode 'vue-mode
-        "'" 'vue-mode-edit-indirect-at-point))))
+    (spacemacs/set-leader-keys-for-major-mode 'vue-mode
+      "'" 'vue-mode-edit-indirect-at-point)))
