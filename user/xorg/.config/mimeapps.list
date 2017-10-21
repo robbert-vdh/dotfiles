@@ -1,5 +1,4 @@
 [Added Associations]
-application/pdf=evince.desktop;
 application/rdf+xml=
 application/rss+xml=
 application/rtf=libreoffice-writer.desktop;
@@ -93,7 +92,6 @@ x-scheme-handler/mailto=thunderbird.desktop;
 x-scheme-handler/trash=exo-file-manager.desktop
 
 [Default Applications]
-application/pdf=evince.desktop;
 application/rdf+xml=
 application/rss+xml=
 application/vnd.mozilla.xul+xml=
@@ -154,3 +152,4 @@ x-scheme-handler/https=firefox-developer.desktop;userapp-Firefox Developer Editi
 x-scheme-handler/mailto=thunderbird.desktop
 x-scheme-handler/tg=telegramdesktop.desktop
 application/vnd.oasis.opendocument.text=libreoffice-writer.desktop;
+application/pdf=okularApplication_pdf.desktop;

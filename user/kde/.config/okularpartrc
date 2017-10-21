@@ -1,0 +1,13 @@
+[Core General]
+ExternalEditor=Emacsclient
+ObeyDRM=false
+
+[Core Performance]
+TextHinting=Enabled
+
+[Main View]
+ShowBottomBar=false
+ShowLeftPanel=false
+
+[PageView]
+ViewContinuous=false
