@@ -34,6 +34,7 @@ KDE handles most non-WM shortcuts and things like text rendering and themes.
 -   kvantum
 -   Liberation Mono font
 -   light-locker
+-   qt5ct
 -   Papirus icon theme
 -   Roboto font
 -   xdotool
