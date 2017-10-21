@@ -97,3 +97,7 @@ function mvln() {
   mv $1 $2
   ln -s $(realpath $2) $1
 }
+
+function cheat() {
+  curl cheat.sh/$1
+}
