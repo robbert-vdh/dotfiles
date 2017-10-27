@@ -49,14 +49,15 @@
     </property>
     <property name="plugin-6" type="string" value="systray">
       <property name="names-visible" type="array">
+        <value type="string" value="obs"/>
         <value type="string" value="redshift-gtk"/>
         <value type="string" value="screenkey"/>
         <value type="string" value="mumble"/>
         <value type="string" value="networkmanager applet"/>
         <value type="string" value="qbittorrent"/>
         <value type="string" value="volumeicon"/>
-        <value type="string" value="telegram-desktop"/>
         <value type="string" value="steam"/>
+        <value type="string" value="telegram-desktop"/>
         <value type="string" value="kde connect indicator"/>
         <value type="string" value="gpmdp"/>
         <value type="string" value="taakbeheerder"/>
