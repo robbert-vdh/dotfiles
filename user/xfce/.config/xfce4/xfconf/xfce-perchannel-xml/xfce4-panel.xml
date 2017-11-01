@@ -63,6 +63,7 @@
         <value type="string" value="taakbeheerder"/>
         <value type="string" value="mullvad"/>
         <value type="string" value="vokoscreen"/>
+        <value type="string" value="claudia.py"/>
         <value type="string" value="albert"/>
         <value type="string" value="slack"/>
         <value type="string" value="cadence.py"/>

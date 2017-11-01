@@ -28,8 +28,19 @@
 ;;   `lsp/post-init-PACKAGE' to customize the package as it is loaded.
 
 (defconst lsp-packages
-  '(lsp-mode
+  '(company-lsp
+    lsp-mode
     (lsp-rust :requires rust-mode)))
+
+(defun lsp/init-company-lsp ()
+  (use-package company-lsp
+    :defer t
+    :init
+    (progn
+      (setq company-lsp-async t)
+      (spacemacs|add-company-backends
+        :backends company-lsp
+        :modes lsp-mode))))
 
 (defun lsp/init-lsp-mode ()
   (use-package lsp-mode
@@ -45,7 +56,5 @@
 (defun lsp/init-lsp-rust ()
   (use-package lsp-rust
     :defer t
-    :init
-    (progn
-      (require 'lsp-rust)
-      (add-hook 'rust-mode-hook 'lsp-mode))))
+    :commands (lsp-rust-enable)
+    :init (add-hook 'rust-mode-hook #'lsp-rust-enable)))
