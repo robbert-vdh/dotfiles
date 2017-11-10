@@ -10,7 +10,16 @@ directory = sys.argv[1] if len(sys.argv) > 1 else '.'
 files = sorted(os.listdir(directory))
 for file in files:
     tracks = MediaInfo.parse(os.path.join(directory, file)).tracks
-    if not tracks or tracks[0].other_duration is None:
+    if not tracks or tracks[0].duration is None:
         continue
 
-    print('{} :: {}'.format(file, tracks[0].other_duration[0]))
+    duration = int(float(tracks[0].duration))
+    minutes, seconds = divmod(duration, 60)
+    hours, minutes = divmod(minutes, 60)
+    runtime = "{}s".format(seconds)
+    if minutes > 0:
+        runtime = "{}m ".format(minutes) + runtime
+    if hours > 0:
+        runtime = "{}h ".format(hours) + runtime
+
+    print('{} :: {}'.format(file, runtime))
