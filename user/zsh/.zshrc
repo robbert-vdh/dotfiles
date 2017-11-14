@@ -7,22 +7,8 @@ if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
   source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
 fi
 
-# Set the path
-typeset -gU cdpath fpath mailpath path
-
-path=(
-  /usr/local/{bin,sbin}
-  $HOME/.cargo/bin
-  $HOME/.dotfiles/bin
-  $HOME/.local/bin
-  $path
-)
-
-# Configure editors
-export EDITOR='nvim'
-export VISUAL=$EDITOR
-export PAGER='less'
-export BROWSER='firefox-developer'
+# Environment variables are handled seperately to make Emacs happy
+source ~/.zshenv
 
 alias firefox="firefox-developer"
 
