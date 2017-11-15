@@ -36,6 +36,7 @@ KDE handles most non-WM shortcuts and things like text rendering and themes.
 -   light-locker
 -   qt5ct
 -   Papirus icon theme
+-   playerctl for Spotify
 -   Roboto font
 -   xdotool
 -   xfce4
