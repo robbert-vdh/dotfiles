@@ -6,6 +6,10 @@ pimple.json
 .dir-locals.el
 .projectile
 
+# VsCode
+.vscode
+!user/vscode/.vscode
+
 # Tags
 .ac-php-conf.json
 GPATH
