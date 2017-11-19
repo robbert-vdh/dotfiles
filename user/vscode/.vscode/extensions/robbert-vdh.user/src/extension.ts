@@ -19,6 +19,9 @@ export function activate(context: vscode.ExtensionContext) {
             text = document.getText();
         } else {
             text = document.getText(selection);
+
+            const emptySelection = new vscode.Selection(selection.anchor, selection.anchor);
+            vscode.window.activeTextEditor.selections = [emptySelection];
         }
 
         copy.copy(text, () => {
