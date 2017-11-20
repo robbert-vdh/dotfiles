@@ -40,7 +40,7 @@ This function should only modify configuration layer settings."
                       auto-completion-enable-help-tooltip t
                       auto-completion-enable-sort-by-usage t
                       auto-completion-enable-snippets-in-popup nil
-                      auto-completion-tab-key-behavior 'complete)
+                      auto-completion-tab-key-behavior 'cycle)
      ;; (c-c++ :variables
      ;;        c-c++-default-mode-for-headers 'c++-mode
      ;;        c-c++-enable-clang-support t
@@ -382,7 +382,17 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq dotspacemacs-use-spacelpa nil)
 
   ;; Underscores should be part of a word
-  (modify-syntax-entry ?_ "w"))
+  (modify-syntax-entry ?_ "w")
+
+  ;; Use YCL style tab behavior for Company. This should be activated before
+  ;; company company-quickhelp finishes initializing, as it will make the
+  ;; variable buffer local. This also requires the `cycle' keybindings as
+  ;; opposed to `complete'.
+  (with-eval-after-load 'company
+    (setq company-frontends
+          '(company-tng-frontend
+            company-preview-if-just-one-frontend
+            company-pseudo-tooltip-unless-just-one-frontend))))
 
 (defun dotspacemacs/user-config ()
   "Configuration for user code:
@@ -396,9 +406,6 @@ before packages are loaded."
    '(company-tooltip-common-selection
      ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
   (setq completion-styles '(partial-completion initials))
-
-  ;; Hide annoying warning concerning environment variables
-  (setq exec-path-from-shell-arguments '("-l"))
 
   ;; Fix the highlighted line color
   (defun fix-color-scheme (&rest frame)
@@ -571,9 +578,6 @@ before packages are loaded."
   (define-key evil-insert-state-map (kbd "C-SPC") 'company-complete)
   (define-key evil-insert-state-map (kbd "C-S-SPC") 'company-yasnippet)
 
-  ;; Open Company completions after two characters
-  (setq company-minimum-prefix-length 2)
-
   ;; Hide unimported minor modes
   (spacemacs|hide-lighter ggtags-mode)
   (spacemacs|hide-lighter lsp-mode)
@@ -628,8 +632,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (intero hlint-refactor hindent haskell-snippets flycheck-haskell dante company-ghci company-ghc ghc haskell-mode company-cabal cmm-mode yapfify yaml-mode xterm-color ws-butler winum which-key wgrep web-mode web-beautify vue-mode volatile-highlights vi-tilde-fringe vala-snippets vala-mode uuidgen use-package treemacs-projectile treemacs-evil toml-mode toc-org tide thrift tagedit symon string-inflection stan-mode spaceline smex smeargle slim-mode shell-pop scad-mode sass-mode restart-emacs request rainbow-mode rainbow-identifiers rainbow-delimiters racer qml-mode pyvenv pytest pyenv-mode py-isort pug-mode popwin pkgbuild-mode pip-requirements phpunit phpcbf php-extras php-auto-yasnippets persp-mode pcre2el password-generator paradox ox-twbs orgit org-projectile org-present org-pomodoro org-download org-bullets org-brain open-junk-file omnisharp nlinum-relative nginx-mode multi-term move-text matlab-mode markdown-toc magit-gitflow macrostep lsp-rust lorem-ipsum logcat livid-mode live-py-mode link-hint langtool kivy-mode julia-mode js2-refactor js-doc ivy-purpose ivy-hydra insert-shebang info+ indent-guide impatient-mode hy-mode hungry-delete hoon-mode hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make graphviz-dot-mode google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md ggtags fuzzy flyspell-correct-ivy flycheck-rust flycheck-pos-tip flycheck-bashate flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav editorconfig ebuild-mode dumb-jump drupal-mode dockerfile-mode docker diff-hl define-word cython-mode csv-mode counsel-projectile counsel-gtags counsel-css company-web company-tern company-statistics company-shell company-quickhelp company-php company-lsp company-auctex company-anaconda column-enforce-mode color-identifiers-mode coffee-mode clean-aindent-mode cargo browse-at-remote auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile auctex-latexmk arduino-mode aggressive-indent adaptive-wrap ace-link ac-ispell)))
- '(tramp-syntax (quote default) nil (tramp)))
+    (web-mode omnisharp dante counsel lsp-mode ivy treemacs f projectile yapfify yaml-mode xterm-color ws-butler winum which-key wgrep web-beautify vue-mode volatile-highlights vi-tilde-fringe vala-snippets vala-mode uuidgen use-package treemacs-projectile treemacs-evil toml-mode toc-org tide thrift tagedit symon swiper string-inflection stan-mode spaceline smex smeargle slim-mode shut-up shell-pop scad-mode sass-mode restart-emacs request rainbow-mode rainbow-identifiers rainbow-delimiters racer qml-mode pyvenv pytest pyenv-mode py-isort pug-mode popwin pkgbuild-mode pip-requirements phpunit phpcbf php-extras php-auto-yasnippets pfuture persp-mode pcre2el password-generator paradox ox-twbs orgit org-projectile org-present org-pomodoro org-download org-bullets org-brain open-junk-file nlinum-relative nginx-mode multi-term move-text matlab-mode markdown-toc magit-gitflow macrostep lsp-rust lorem-ipsum logcat livid-mode live-py-mode link-hint langtool kivy-mode julia-mode js2-refactor js-doc ivy-purpose ivy-hydra intero insert-shebang info+ indent-guide impatient-mode hy-mode hungry-delete hoon-mode hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make haskell-snippets graphviz-dot-mode google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md ggtags fuzzy flyspell-correct-ivy flycheck-rust flycheck-pos-tip flycheck-haskell flycheck-bashate flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav editorconfig ebuild-mode dumb-jump drupal-mode dockerfile-mode docker diff-hl define-word cython-mode csv-mode csharp-mode counsel-projectile counsel-gtags counsel-css company-web company-tern company-statistics company-shell company-quickhelp company-php company-lsp company-ghci company-ghc company-cabal company-auctex company-anaconda column-enforce-mode color-identifiers-mode coffee-mode cmm-mode clean-aindent-mode cargo browse-at-remote auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile auctex-latexmk arduino-mode aggressive-indent adaptive-wrap ace-window ace-link ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
