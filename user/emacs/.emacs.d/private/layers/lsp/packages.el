@@ -57,4 +57,4 @@
   (use-package lsp-rust
     :defer t
     :commands (lsp-rust-enable)
-    :init (add-hook 'rust-mode-hook #'lsp-rust-enable)))
+    :init (add-hook 'rust-mode-local-vars-hook #'lsp-rust-enable)))
