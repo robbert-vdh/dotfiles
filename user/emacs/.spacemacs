@@ -589,10 +589,10 @@ before packages are loaded."
   (define-key evil-insert-state-map (kbd "C-S-SPC") 'company-yasnippet)
 
   ;; Hide unimported minor modes
-  (spacemacs|hide-lighter ggtags-mode)
-  (spacemacs|hide-lighter lsp-mode)
-  (spacemacs|hide-lighter magit-gitflow-mode)
-  (spacemacs|hide-lighter reftex-mode)
+  (with-eval-after-load 'ggtags (spacemacs|hide-lighter ggtags-mode))
+  (with-eval-after-load 'lsp-mode (spacemacs|hide-lighter lsp-mode))
+  (with-eval-after-load 'magit-gitflow (spacemacs|hide-lighter magit-gitflow-mode))
+  (with-eval-after-load 'reftex (spacemacs|hide-lighter reftex-mode))
 
   ;; Custom functions
 
