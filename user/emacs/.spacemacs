@@ -174,7 +174,7 @@ It should only modify the values of Spacemacs settings."
                                :size ,(if (equal system-name "laptop") 18 16)
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.2)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands `M-x' (after pressing on the leader key).
@@ -413,6 +413,9 @@ before packages are loaded."
                         :background nil
                         :foreground "#5E6A76"))
   (add-to-list 'focus-in-hook 'fix-color-scheme)
+
+  ;; Use sleeker seperators in spaceline
+  (setq powerline-default-separator 'slant)
 
   ;; Set default indentation levels
   (setq css-indent-offset 2
