@@ -45,7 +45,6 @@ This function should only modify configuration layer settings."
      ;;        c-c++-default-mode-for-headers 'c++-mode
      ;;        c-c++-enable-clang-support t
      ;;        c-c++-enable-clang-format-on-save t)
-     ;; c-c++-irony
      csharp
      ;; java
      colors
@@ -59,18 +58,12 @@ This function should only modify configuration layer settings."
      html
      javascript
      latex
-     (languagetool :variables
-                   langtool-default-language "nl"
-                   languagetool-show-error-on-jump t
-                   langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*")
-     lsp
      major-modes
      markdown
      nginx
      nlinum
      (org :variables
           org-enable-bootstrap-support t)
-     ;; platformio
      php
      (python :variables
              python-enable-yapf-format-on-save t)
@@ -88,7 +81,18 @@ This function should only modify configuration layer settings."
      typescript
      syntax-checking
      version-control
-     yaml)
+     yaml
+
+     ;; Custom layers
+
+     ;; c-c++-irony
+     (languagetool :variables
+                   langtool-default-language "nl"
+                   languagetool-show-error-on-jump t
+                   langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*")
+     lsp
+     ;; platformio
+     )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
