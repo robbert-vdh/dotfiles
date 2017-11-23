@@ -403,7 +403,18 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
     (setq company-frontends
           '(company-tng-frontend
             company-preview-if-just-one-frontend
-            company-pseudo-tooltip-unless-just-one-frontend))))
+            company-pseudo-tooltip-unless-just-one-frontend))
+
+    (defun company-select-next-or-complete (&optional arg)
+      "Select the next candidate if more than one, else complete.
+With ARG, move by that many elements. This removes the default
+'match prefix' funcitonality."
+      (interactive "p")
+      (if (> company-candidates-length 1)
+          (company-select-next arg)
+        (company-complete-selection)))
+    (define-key company-active-map (kbd "TAB") 'company-select-next-or-complete)
+    (define-key company-active-map (kbd "<tab>") 'company-select-next-or-complete)))
 
 (defun dotspacemacs/user-config ()
   "Configuration for user code:
@@ -477,8 +488,7 @@ before packages are loaded."
 
   ;; Make sure racer can find Rust's source files and disable gtags as Rust's
   ;; Language Server does a better job already
-  (setq racer-rust-src-path
-        "~/.multirust/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src")
+  (exec-path-from-shell-copy-envs '("LD_LIBRARY_PATH" "RUST_SRC_PATH"))
   (setq xref-prompt-for-identifier nil)
   (remove-hook 'rust-mode-local-vars-hook #'spacemacs/ggtags-mode-enable)
 
