@@ -7,7 +7,8 @@ if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
   source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
 fi
 
-# Environment variables are handled seperately to make Emacs happy
+# This should not be needed, but exec-path-from-shell won't read $PATH
+# otherwise
 source ~/.zshenv
 
 alias firefox="firefox-developer"
