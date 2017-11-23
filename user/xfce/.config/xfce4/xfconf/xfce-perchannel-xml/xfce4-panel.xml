@@ -55,6 +55,7 @@
         <value type="string" value="mumble"/>
         <value type="string" value="networkmanager applet"/>
         <value type="string" value="qbittorrent"/>
+        <value type="string" value="netwerkbeheer-applet"/>
         <value type="string" value="volumeicon"/>
         <value type="string" value="steam"/>
         <value type="string" value="telegram-desktop"/>
@@ -63,9 +64,11 @@
         <value type="string" value="taakbeheerder"/>
         <value type="string" value="mullvad"/>
         <value type="string" value="vokoscreen"/>
+        <value type="string" value="discord"/>
         <value type="string" value="claudia.py"/>
         <value type="string" value="albert"/>
         <value type="string" value="slack"/>
+        <value type="string" value="google-musicmanager"/>
         <value type="string" value="cadence.py"/>
         <value type="string" value="veracrypt"/>
       </property>
@@ -73,6 +76,7 @@
     <property name="plugin-7" type="string" value="whiskermenu"/>
     <property name="plugin-9" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="mpris-players" type="string" value=";google-play-music-desktop-player;spotify"/>
     </property>
     <property name="plugin-11" type="string" value="xfce4-mount-plugin"/>
     <property name="plugin-1" type="string" value="i3-workspaces"/>
