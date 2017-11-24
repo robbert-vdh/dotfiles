@@ -660,6 +660,8 @@ too wide in exported PDFs"
           ;; File trees are nice
           (treemacs-projectile)
           (spacemacs/alternate-window)
+          ;; Always use the bar cursor
+          (setq cursor-type 'bar)
           ;; What is this weird numbering?
           (nlinum-relative-off))
       (progn
