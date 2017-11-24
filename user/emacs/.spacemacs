@@ -392,14 +392,33 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-  ;; Underscores should be part of a word
-  (modify-syntax-entry ?_ "w")
+  )
+
+(defun dotspacemacs/user-config ()
+  "Configuration for user code:
+This function is called at the very end of Spacemacs startup, after layer
+configuration.
+Put your configuration code here, except for variables that should be set
+before packages are loaded."
+  (custom-set-faces
+   '(company-tooltip-common
+     ((t (:inherit company-tooltip :weight bold :underline nil))))
+   '(company-tooltip-common-selection
+     ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+  (setq completion-styles '(partial-completion initials))
+
+  (defun fix-evil-words-definition ()
+    "Underscores should be part of a word"
+    (modify-syntax-entry ?_ "w"))
+  (add-hook 'after-change-major-mode-hook #'fix-evil-words-definition)
 
   ;; Use YCL style tab behavior for Company. This should be activated before
   ;; company company-quickhelp finishes initializing, as it will make the
   ;; variable buffer local. This also requires the `cycle' keybindings as
   ;; opposed to `complete'.
-  (with-eval-after-load 'company
+  (spacemacs|use-package-add-hook company
+    :post-config
+
     (setq company-frontends
           '(company-tng-frontend
             company-preview-if-just-one-frontend
@@ -414,20 +433,7 @@ With ARG, move by that many elements. This removes the default
           (company-select-next arg)
         (company-complete-selection)))
     (define-key company-active-map (kbd "TAB") 'company-select-next-or-complete)
-    (define-key company-active-map (kbd "<tab>") 'company-select-next-or-complete)))
-
-(defun dotspacemacs/user-config ()
-  "Configuration for user code:
-This function is called at the very end of Spacemacs startup, after layer
-configuration.
-Put your configuration code here, except for variables that should be set
-before packages are loaded."
-  (custom-set-faces
-   '(company-tooltip-common
-     ((t (:inherit company-tooltip :weight bold :underline nil))))
-   '(company-tooltip-common-selection
-     ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
-  (setq completion-styles '(partial-completion initials))
+    (define-key company-active-map (kbd "<tab>") 'company-select-next-or-complete))
 
   ;; Fix the highlighted line color
   (defun fix-color-scheme (&rest frame)
