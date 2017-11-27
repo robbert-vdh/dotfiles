@@ -52,13 +52,13 @@ This function should only modify configuration layer settings."
      docker
      emacs-lisp
      git
+     gpu
      graphviz
      gtags
      (haskell :variables haskell-completion-backend 'intero)
      html
      javascript
      latex
-     major-modes
      markdown
      nginx
      nlinum
@@ -86,6 +86,7 @@ This function should only modify configuration layer settings."
      ;; Custom layers
 
      ;; c-c++-irony
+     debug
      (languagetool :variables
                    langtool-default-language "nl"
                    languagetool-show-error-on-jump t
@@ -392,26 +393,6 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-  )
-
-(defun dotspacemacs/user-config ()
-  "Configuration for user code:
-This function is called at the very end of Spacemacs startup, after layer
-configuration.
-Put your configuration code here, except for variables that should be set
-before packages are loaded."
-  (custom-set-faces
-   '(company-tooltip-common
-     ((t (:inherit company-tooltip :weight bold :underline nil))))
-   '(company-tooltip-common-selection
-     ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
-  (setq completion-styles '(partial-completion initials))
-
-  (defun fix-evil-words-definition ()
-    "Underscores should be part of a word"
-    (modify-syntax-entry ?_ "w"))
-  (add-hook 'after-change-major-mode-hook #'fix-evil-words-definition)
-
   ;; Use YCL style tab behavior for Company. This should be activated before
   ;; company company-quickhelp finishes initializing, as it will make the
   ;; variable buffer local. This also requires the `cycle' keybindings as
@@ -433,7 +414,25 @@ With ARG, move by that many elements. This removes the default
           (company-select-next arg)
         (company-complete-selection)))
     (define-key company-active-map (kbd "TAB") 'company-select-next-or-complete)
-    (define-key company-active-map (kbd "<tab>") 'company-select-next-or-complete))
+    (define-key company-active-map (kbd "<tab>") 'company-select-next-or-complete)))
+
+(defun dotspacemacs/user-config ()
+  "Configuration for user code:
+This function is called at the very end of Spacemacs startup, after layer
+configuration.
+Put your configuration code here, except for variables that should be set
+before packages are loaded."
+  (custom-set-faces
+   '(company-tooltip-common
+     ((t (:inherit company-tooltip :weight bold :underline nil))))
+   '(company-tooltip-common-selection
+     ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+  (setq completion-styles '(partial-completion initials))
+
+  (defun fix-evil-words-definition ()
+    "Underscores should be part of a word"
+    (modify-syntax-entry ?_ "w"))
+  (add-hook 'after-change-major-mode-hook #'fix-evil-words-definition)
 
   ;; Fix the highlighted line color
   (defun fix-color-scheme (&rest frame)
@@ -459,6 +458,9 @@ With ARG, move by that many elements. This removes the default
   (setq mouse-wheel-scroll-amount '(1 ((shift) . 3) ((control)))
         scroll-conservatively 3
         scroll-margin 3)
+
+  ;; Don't hide error tooltips after five seconds
+  (setq flycheck-pos-tip-timeout 15)
 
   ;; Use C++14 by default when using Irony for error checking
   (setq irony-additional-clang-options '("-std=c++14")
