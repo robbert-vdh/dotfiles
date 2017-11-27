@@ -30,7 +30,8 @@
 (defconst lsp-packages
   '(company-lsp
     lsp-mode
-    (lsp-rust :requires rust-mode)))
+    ;; (lsp-rust :requires rust-mode)
+    ))
 
 (defun lsp/init-company-lsp ()
   (use-package company-lsp
@@ -53,8 +54,8 @@
         "ra" 'lsp-apply-commands
         "rr" 'lsp-rename))))
 
-(defun lsp/init-lsp-rust ()
-  (use-package lsp-rust
-    :defer t
-    :commands (lsp-rust-enable)
-    :init (add-hook 'rust-mode-local-vars-hook #'lsp-rust-enable)))
+;; (defun lsp/init-lsp-rust ()
+;;   (use-package lsp-rust
+;;     :defer t
+;;     :commands (lsp-rust-enable)
+;;     :init (add-hook 'rust-mode-local-vars-hook #'lsp-rust-enable)))
