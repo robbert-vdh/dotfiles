@@ -1,3 +1,5 @@
+# -*- mode: gitignore; -*-
+
 .gdb_history
 dump.php
 pimple.json
@@ -10,10 +12,14 @@ pimple.json
 .vscode
 !user/vscode/.vscode
 
+# AUCTeX
+_region_.prv
+_region_.tex
+prv_*.fmt
+
 # Tags
 .ac-php-conf.json
 GPATH
 GRTAGS
 GTAGS
 gtags.files
-
