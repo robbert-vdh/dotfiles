@@ -58,17 +58,15 @@ This function should only modify configuration layer settings."
      (haskell :variables haskell-completion-backend 'intero)
      html
      javascript
-     latex
+     (latex :variables latex-enable-folding t)
      markdown
      nginx
      nlinum
-     (org :variables
-          org-enable-bootstrap-support t)
+     (org :variables org-enable-bootstrap-support t)
      php
-     (python :variables
-             python-enable-yapf-format-on-save t)
-     (rust :variables
-           rust-format-on-save t)
+     (python :variables python-enable-yapf-format-on-save t)
+     ranger
+     (rust :variables rust-format-on-save t)
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -84,7 +82,6 @@ This function should only modify configuration layer settings."
      yaml
 
      ;; Custom layers
-
      ;; c-c++-irony
      debug
      (languagetool :variables
@@ -595,6 +592,8 @@ before packages are loaded."
   (setq org-highlight-latex-and-related '(latex script entities))
   ;; Allow M-* keybindings in insert mode
   (setq evil-org-use-additional-insert t)
+  ;; Auto reload PDFs
+  (add-hook 'doc-view-mode-hook #'auto-revert-mode)
 
   ;; Workaround for C-k not working as expected when using company quickhelp
   ;; See: https://github.com/syl20bnr/spacemacs/issues/2974#issuecomment-316319212
@@ -685,7 +684,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (evil-matchit ac-php-core helm treemacs yapfify yaml-mode xterm-color xcscope ws-butler winum which-key wgrep web-mode web-beautify vue-mode volatile-highlights vi-tilde-fringe uuidgen use-package treemacs-projectile treemacs-evil toml-mode toc-org tide tagedit symon string-inflection spaceline smex smeargle slim-mode shell-pop sass-mode restart-emacs request realgud rainbow-mode rainbow-identifiers rainbow-delimiters racer pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements phpunit phpcbf php-extras php-auto-yasnippets pfuture persp-mode pcre2el password-generator paradox ox-twbs orgit org-projectile org-present org-pomodoro org-download org-bullets org-brain opencl-mode open-junk-file omnisharp nlinum-relative nginx-mode multi-term move-text markdown-toc magit-gitflow macrostep lsp-rust lorem-ipsum livid-mode live-py-mode link-hint langtool js2-refactor js-doc ivy-purpose ivy-hydra intero insert-shebang info+ indent-guide impatient-mode hy-mode hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make helm-core haskell-snippets graphviz-dot-mode google-translate golden-ratio gnuplot glsl-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md ggtags fuzzy flyspell-correct-ivy flycheck-rust flycheck-pos-tip flycheck-haskell flycheck-bashate flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-mc evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav editorconfig dumb-jump drupal-mode dockerfile-mode docker diff-hl define-word dante cython-mode cuda-mode csv-mode counsel-projectile counsel-gtags counsel-css company-web company-tern company-statistics company-shell company-quickhelp company-php company-lsp company-ghci company-ghc company-cabal company-auctex company-anaconda column-enforce-mode color-identifiers-mode coffee-mode cmm-mode clean-aindent-mode cargo browse-at-remote auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile auctex-latexmk aggressive-indent adaptive-wrap ace-window ace-link ac-ispell))))
+    (magic-latex-buffer yapfify yaml-mode xterm-color ws-butler winum which-key wgrep web-mode web-beautify vue-mode volatile-highlights vi-tilde-fringe uuidgen use-package treemacs-projectile treemacs-evil toml-mode toc-org tide tagedit symon string-inflection spaceline smex smeargle slim-mode shell-pop sass-mode restart-emacs request realgud ranger rainbow-mode rainbow-identifiers rainbow-delimiters racer pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements phpunit phpcbf php-extras php-auto-yasnippets persp-mode pcre2el password-generator paradox ox-twbs orgit org-projectile org-present org-pomodoro org-download org-bullets org-brain opencl-mode open-junk-file omnisharp nlinum-relative nginx-mode multi-term move-text markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode link-hint langtool js2-refactor js-doc ivy-purpose ivy-hydra intero insert-shebang info+ indent-guide impatient-mode hy-mode hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make haskell-snippets graphviz-dot-mode google-translate golden-ratio gnuplot glsl-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md ggtags fuzzy flyspell-correct-ivy flycheck-rust flycheck-pos-tip flycheck-haskell flycheck-bashate flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav editorconfig dumb-jump drupal-mode dockerfile-mode docker diminish diff-hl define-word dante cython-mode cuda-mode csv-mode counsel-projectile counsel-gtags counsel-css company-web company-tern company-statistics company-shell company-quickhelp company-php company-lsp company-ghci company-ghc company-cabal company-auctex company-anaconda column-enforce-mode color-identifiers-mode coffee-mode cmm-mode clean-aindent-mode cargo browse-at-remote auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile auctex-latexmk aggressive-indent adaptive-wrap ace-link ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
