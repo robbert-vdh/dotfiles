@@ -17,6 +17,9 @@ _region_.prv
 _region_.tex
 prv_*.fmt
 
+# IntelliJ
+.idea
+
 # Tags
 .ac-php-conf.json
 GPATH
