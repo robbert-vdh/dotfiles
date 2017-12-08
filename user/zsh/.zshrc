@@ -16,6 +16,12 @@ alias firefox="firefox-developer"
 # Open emacsclient inside terminal (compliment to ~/.dotfiles/bin/em)
 alias en="emacsclient -nw -a ''"
 
+# More modern ls replacement
+alias ls="exa --group-directories-first"
+alias ll="ls --long --binary --git"
+alias la="ll -a"
+unset LS_COLORS
+
 # Copy files
 alias rsync-copy="rsync --archive --hard-links --one-file-system  --acls --xattrs --info=progress2 --human-readable"
 alias rsync-move="rsync-copy --remove-source-files"
