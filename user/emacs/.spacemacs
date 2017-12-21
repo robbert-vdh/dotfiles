@@ -613,7 +613,6 @@ before packages are loaded."
   (define-key evil-insert-state-map (kbd "C-S-SPC") 'company-yasnippet)
 
   ;; Hide unimported minor modes
-  (with-eval-after-load 'ggtags (spacemacs|hide-lighter ggtags-mode))
   (with-eval-after-load 'hindent (spacemacs|hide-lighter hindent-mode))
   (with-eval-after-load 'lsp-mode (spacemacs|hide-lighter lsp-mode))
   (with-eval-after-load 'magit-gitflow (spacemacs|hide-lighter magit-gitflow-mode))
