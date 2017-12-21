@@ -11,7 +11,7 @@ fi
 # otherwise
 source ~/.zshenv
 
-alias firefox="firefox-developer"
+alias firefox="firefox-developer-edition"
 
 # Open emacsclient inside terminal (compliment to ~/.dotfiles/bin/em)
 alias en="emacsclient -nw -a ''"
