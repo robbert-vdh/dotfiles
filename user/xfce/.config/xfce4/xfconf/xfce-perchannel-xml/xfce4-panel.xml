@@ -76,7 +76,7 @@
     <property name="plugin-7" type="string" value="whiskermenu"/>
     <property name="plugin-9" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
-      <property name="mpris-players" type="string" value=";google-play-music-desktop-player;spotify"/>
+      <property name="mpris-players" type="string" value=";spotify"/>
     </property>
     <property name="plugin-11" type="string" value="xfce4-mount-plugin"/>
     <property name="plugin-1" type="string" value="i3-workspaces"/>
