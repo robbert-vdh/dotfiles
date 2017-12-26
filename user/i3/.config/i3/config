@@ -78,6 +78,18 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# Move entire workspace
+bindsym Ctrl+$alt+Shift+h move workspace to output left
+bindsym Ctrl+$alt+Shift+j move workspace to output down
+bindsym Ctrl+$alt+Shift+k move workspace to output up
+bindsym Ctrl+$alt+Shift+l move workspace to output right
+
+# Alternatively, you can use the cursor keys:
+bindsym Ctrl+$alt+Shift+Left move workspace to output left
+bindsym Ctrl+$alt+Shift+Down move workspace to output down
+bindsym Ctrl+$alt+Shift+Up move workspace to output up
+bindsym Ctrl+$alt+Shift+Right move workspace to output right
+
 # Split in vertical orientation
 bindsym $mod+v split v
 
@@ -254,6 +266,8 @@ bindsym Control+Shift+Print exec --no-startup-id " \
   maim -d 0.05 -su $FILE_NAME && imgurbash2 $FILE_NAME \
     && notify-send \\"Screenshot geüpload naar\n$(xclip -o -sel clip)\\""
 
+# Restart XFCE's panel
+bindsym $mod+F11 exec --no-startup-id "pkill panel; xfce4-panel"
 # Toggle the compositor
 bindsym $mod+F12 exec --no-startup-id pkill compton || compton --respect-prop-shadow
 
