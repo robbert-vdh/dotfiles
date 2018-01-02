@@ -284,7 +284,7 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 #
 
 # Speed up keyboard repeating
-exec --no-startup-id xset r rate 250 15
+exec_always --no-startup-id xset r rate 250 15
 # Execute profile configuration (e.g. resolution)
 exec --no-startup-id ~/.xprofile
 # Transparency and eye candy
