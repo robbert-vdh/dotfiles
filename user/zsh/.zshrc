@@ -2,14 +2,15 @@
 # User configuration sourced by interactive shells
 #
 
+# This should not be needed, but exec-path-from-shell won't read $PATH
+# otherwise
+source ~/.zshenv
+bindkey -e
+
 # Source zim
 if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
   source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
 fi
-
-# This should not be needed, but exec-path-from-shell won't read $PATH
-# otherwise
-source ~/.zshenv
 
 alias firefox="firefox-developer-edition"
 
