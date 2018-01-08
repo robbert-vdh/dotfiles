@@ -13,6 +13,8 @@ if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
 fi
 
 alias firefox="firefox-developer-edition"
+alias xsel="xsel -b"
+alias xpaste="xsel -o"
 
 # Open emacsclient inside terminal (compliment to ~/.dotfiles/bin/em)
 alias en="emacsclient -nw -a ''"
