@@ -50,7 +50,7 @@ This function should only modify configuration layer settings."
      colors
      csv
      docker
-     emacs-lisp
+     (emacs-lisp :variables emacs-lisp-hide-namespace-prefix nil)
      git
      gpu
      graphviz
@@ -427,6 +427,11 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (setq completion-styles '(partial-completion initials))
 
+  (custom-set-faces
+   '(company-tooltip-common ((t (:background "#34323e" :foreground "#4f97d7" :weight bold))))
+   '(company-tooltip-common-selection ((t (:foreground "#b2b2b2" :weight bold))))
+   '(nlinum-relative-current-face ((t (:background nil :foreground "#5E6A76" :weight bold)))))
+
   (defun fix-evil-words-definition ()
     "Underscores should be part of a word"
     (modify-syntax-entry ?_ "w"))
@@ -676,16 +681,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (which-key use-package treemacs-evil tide typescript-mode realgud pyvenv org-brain omnisharp live-py-mode intero hindent highlight-indentation eyebrowse expand-region evil-org evil-magit dumb-jump dante counsel-projectile company-anaconda cargo auto-compile anaconda-mode lsp-mode company counsel swiper evil flycheck helm helm-core ivy markdown-mode alert org-plus-contrib magit magit-popup git-commit ghub with-editor php-mode pythonic js2-mode treemacs yapfify yaml-mode xterm-color ws-butler winum wgrep web-mode web-beautify vue-mode volatile-highlights vi-tilde-fringe uuidgen undo-tree treemacs-projectile toml-mode toc-org test-simple tagedit symon string-inflection spaceline smex smeargle slim-mode shut-up shell-pop sass-mode restart-emacs request ranger rainbow-mode rainbow-identifiers rainbow-delimiters racer pytest pyenv-mode py-isort pug-mode popwin pip-requirements phpunit phpcbf php-extras php-auto-yasnippets pfuture persp-mode pcre2el password-generator paradox packed ox-twbs overseer orgit org-projectile org-present org-pomodoro org-download org-bullets opencl-mode open-junk-file nlinum-relative nginx-mode nameless multi-term move-text markdown-toc magit-gitflow macrostep lorem-ipsum log4e loc-changes load-relative livid-mode link-hint less-css-mode langtool js2-refactor js-doc ivy-purpose ivy-hydra insert-shebang info+ indent-guide impatient-mode hy-mode hungry-delete hlint-refactor hl-todo highlight-parentheses highlight-numbers hide-comnt help-fns+ helm-make haskell-snippets graphviz-dot-mode goto-chg google-translate golden-ratio gnuplot gntp glsl-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md ggtags fuzzy flyspell-correct-ivy flycheck-rust flycheck-pos-tip flycheck-haskell flycheck-bashate flx-ido fish-mode fill-column-indicator fancy-battery exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav editorconfig drupal-mode dockerfile-mode docker diminish diff-hl define-word cython-mode cuda-mode csv-mode csharp-mode counsel-gtags counsel-css company-web company-tern company-statistics company-shell company-quickhelp company-php company-lsp company-ghci company-ghc company-cabal company-auctex column-enforce-mode color-identifiers-mode coffee-mode cmm-mode clean-aindent-mode browse-at-remote bind-key auto-yasnippet auto-highlight-symbol auto-dictionary auctex-latexmk aggressive-indent adaptive-wrap ace-window ace-link ac-ispell))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(company-tooltip-common ((t (:background "#34323e" :foreground "#4f97d7" :weight bold))))
- '(company-tooltip-common-selection ((t (:foreground "#b2b2b2" :weight bold))))
- '(nlinum-relative-current-face ((t (:background nil :foreground "#5E6A76" :weight bold)))))
+    (yapfify vue-mode vue-html-mode pippel persp-mode org-brain live-py-mode ivy-rich importmagic epc ctable concurrent deferred evil-cleverparens paredit dumb-jump docker define-word dante counsel-projectile lsp-mode counsel helm helm-core dash-functional alert org-plus-contrib magit git-commit async yasnippet php-mode ivy evil goto-chg treemacs f projectile dash yaml-mode xterm-color ws-butler with-editor winum which-key wgrep web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-evil toml-mode toc-org tide tagedit symon swiper string-inflection ssass-mode spaceline smex smeargle slim-mode shell-pop sass-mode restart-emacs request realgud ranger rainbow-mode rainbow-identifiers rainbow-delimiters racer pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements phpunit phpcbf php-extras php-auto-yasnippets pfuture pdf-tools pcre2el password-generator paradox ox-twbs overseer orgit org-projectile org-present org-pomodoro org-download org-bullets opencl-mode open-junk-file omnisharp nlinum-relative nginx-mode nameless multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum log4e livid-mode link-hint less-css-mode langtool json-mode js2-refactor js-doc ivy-purpose ivy-hydra intero insert-shebang info+ indent-guide impatient-mode hy-mode hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make haskell-snippets graphviz-dot-mode google-translate golden-ratio gnuplot gntp glsl-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ ghub gh-md ggtags fuzzy flyspell-correct-ivy flycheck-rust flycheck-pos-tip flycheck-haskell flycheck-bashate flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav editorconfig edit-indirect drupal-mode dockerfile-mode docker-tramp diminish diff-hl cython-mode cuda-mode csv-mode counsel-gtags counsel-css company-web company-tern company-statistics company-shell company-quickhelp company-php company-lsp company-ghci company-ghc company-cabal company-auctex company-anaconda column-enforce-mode color-identifiers-mode coffee-mode cmm-mode clean-aindent-mode cargo browse-at-remote auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile auctex-latexmk aggressive-indent adaptive-wrap ace-window ace-link ac-ispell))))
 )
