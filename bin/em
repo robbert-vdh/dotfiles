@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
 #
 # This script is mostly useful on workspace based window managers like i3, as it
-# keeps a single frame per workspace.
+# keeps a single frame per workspace. It also allows for piping data into emacs.
 
-emacs_pid=$(emacsclient -n -e "(emacs-pid)" 2> /dev/null)
+# If there's no input file we'll read from stdin
+if [[ $1 == '-' ]]; then
+  file="$(mktemp /tmp/stdin-XXX)"
+  cat > $file
+  set -- $file "${@:2}"
+fi
 
 # Check whether the there is a client frame on the current workspace
+emacs_pid=$(emacsclient -n -e "(emacs-pid)" 2> /dev/null)
 window_id=$(xdotool search --desktop $(xdotool get_desktop) --pid $emacs_pid 2>&1)
 
 if [[ "$?" -eq 0 ]]; then
