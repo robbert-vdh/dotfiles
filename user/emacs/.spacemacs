@@ -397,6 +397,8 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+  (setq spacemacs-theme-comment-italic t)
+
   ;; Use YCL style tab behavior for Company. This should be activated before
   ;; company company-quickhelp finishes initializing, as it will make the
   ;; variable buffer local. This also requires the `cycle' keybindings as
