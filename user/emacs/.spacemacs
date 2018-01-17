@@ -95,7 +95,7 @@ This function should only modify configuration layer settings."
                    langtool-default-language "nl"
                    languagetool-show-error-on-jump t
                    langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*")
-     lsp
+     ;; lsp
      ;; platformio
      )
    ;; List of additional packages that will be installed without being
@@ -183,6 +183,14 @@ It should only modify the values of Spacemacs settings."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(spacemacs-dark
                          spacemacs-light)
+   ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
+   ;; `all-the-icons', `custom', `vim-powerline' and `vanilla'. The first three
+   ;; are spaceline themes. `vanilla' is default Emacs mode-line. `custom' is a
+   ;; user defined themes, refer to the DOCUMENTATION.org for more info on how
+   ;; to create your own spaceline theme. Value can be a symbol or list with\
+   ;; additional properties.
+   ;; (default '(spacemacs :separator wave :separator-scale 1.5))
+   dotspacemacs-mode-line-theme '(spacemacs :separator slant :separator-scale 1.2)
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
    dotspacemacs-colorize-cursor-according-to-state t
@@ -191,8 +199,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-default-font `("Input Mono"
                                :size ,(if (equal system-name "laptop") 18 16)
                                :weight normal
-                               :width narrow
-                               :powerline-scale 1.2)
+                               :width narrow)
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands `M-x' (after pressing on the leader key).
@@ -433,15 +440,12 @@ before packages are loaded."
   (custom-set-faces
    '(company-tooltip-common ((t (:background "#34323e" :foreground "#4f97d7" :weight bold))))
    '(company-tooltip-common-selection ((t (:foreground "#b2b2b2" :weight bold))))
-   '(nlinum-relative-current-face ((t (:background nil :foreground "#5E6A76" :weight bold)))))
+   '(nlinum-relative-current-face ((t (:background "#212026" :foreground "#5E6A76" :weight bold)))))
 
   (defun fix-evil-words-definition ()
     "Underscores should be part of a word"
     (modify-syntax-entry ?_ "w"))
   (add-hook 'after-change-major-mode-hook #'fix-evil-words-definition)
-
-  ;; Use sleeker seperators in spaceline
-  (setq powerline-default-separator 'slant)
 
   ;; Set default indentation levels
   (setq css-indent-offset 2
@@ -686,7 +690,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (spaceline-all-the-icons all-the-icons memoize font-lock+ org-brain live-py-mode hy-mode auto-compile helm helm-core magit with-editor yasnippet yapfify yaml-mode xterm-color ws-butler winum which-key wgrep web-mode web-beautify vue-mode volatile-highlights vi-tilde-fringe uuidgen use-package treemacs-projectile treemacs-evil toml-mode toc-org tide tagedit symon string-inflection spaceline smex smeargle slim-mode shell-pop sass-mode restart-emacs request realgud ranger rainbow-mode rainbow-identifiers rainbow-delimiters racer pyvenv pytest pyenv-mode py-isort pug-mode popwin pippel pip-requirements phpunit phpcbf php-extras php-auto-yasnippets persp-mode pdf-tools pcre2el password-generator paradox packed ox-twbs overseer orgit org-projectile org-present org-pomodoro org-download org-bullets opencl-mode open-junk-file omnisharp nlinum-relative nginx-mode nameless multi-term move-text markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode link-hint less-css-mode langtool js2-refactor js-doc ivy-rich ivy-purpose ivy-hydra intero insert-shebang info+ indent-guide importmagic impatient-mode hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make haskell-snippets graphviz-dot-mode google-translate golden-ratio gnuplot glsl-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ ghub gh-md ggtags fuzzy flyspell-correct-ivy flycheck-rust flycheck-pos-tip flycheck-haskell flycheck-bashate flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav editorconfig dumb-jump drupal-mode dockerfile-mode docker diminish diff-hl define-word dante cython-mode cuda-mode csv-mode counsel-projectile counsel-gtags counsel-css company-web company-tern company-statistics company-shell company-quickhelp company-php company-lsp company-ghci company-ghc company-cabal company-auctex company-anaconda column-enforce-mode color-identifiers-mode coffee-mode cmm-mode clean-aindent-mode cargo browse-at-remote auto-yasnippet auto-highlight-symbol auto-dictionary auctex-latexmk aggressive-indent adaptive-wrap ace-link ac-ispell))))
+    (web-mode org-brain live-py-mode evil-org dante helm helm-core alert magit yasnippet-snippets yapfify yaml-mode xterm-color ws-butler winum which-key wgrep web-beautify vue-mode volatile-highlights vi-tilde-fringe uuidgen use-package treemacs-projectile treemacs-evil toml-mode toc-org tide tagedit symon string-inflection spaceline-all-the-icons smex smeargle slim-mode shell-pop sass-mode restart-emacs request realgud ranger rainbow-mode rainbow-identifiers rainbow-delimiters racer pyvenv pytest pyenv-mode py-isort pug-mode popwin pippel pip-requirements phpunit phpcbf php-extras php-auto-yasnippets persp-mode pdf-tools pcre2el password-generator paradox ox-twbs overseer orgit org-projectile org-present org-pomodoro org-download org-bullets opencl-mode open-junk-file omnisharp nlinum-relative nginx-mode nameless multi-term move-text markdown-toc magit-gitflow macrostep lorem-ipsum log4e livid-mode link-hint less-css-mode langtool js2-refactor js-doc ivy-rich ivy-purpose ivy-hydra intero insert-shebang info+ indent-guide importmagic impatient-mode hy-mode hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make haskell-snippets graphviz-dot-mode google-translate golden-ratio gnuplot gntp glsl-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ ghub gh-md ggtags fuzzy flyspell-correct-ivy flycheck-rust flycheck-pos-tip flycheck-haskell flycheck-bashate flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav editorconfig dumb-jump drupal-mode dockerfile-mode docker diminish diff-hl define-word cython-mode cuda-mode csv-mode counsel-projectile counsel-gtags counsel-css company-web company-tern company-statistics company-shell company-quickhelp company-php company-ghci company-ghc company-cabal company-auctex company-anaconda column-enforce-mode color-identifiers-mode coffee-mode cmm-mode clean-aindent-mode cargo browse-at-remote auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile auctex-latexmk aggressive-indent adaptive-wrap ace-link ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
