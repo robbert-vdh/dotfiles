@@ -12,11 +12,11 @@ $ ./install.sh
 ```
 
 ## Spacemacs layers
-I've got Spacemacs layers for the following packages:
-
--   irony-mode (faster C/C++ auto completion)
--   languagetool (grammar correction)
--   platformio (embedded system development)
+I've moved my Spacemacs layers my
+[fork](https://github.com/robbert-vdh/spacemacs/tree/develop) for easier
+maintenance. Check the
+[diff](https://github.com/syl20bnr/spacemacs/compare/develop...robbert-vdh:develop)
+for a list of layers and changes.
 
 They can be found over
 at [user/emacs/.emacs.d/private/layers](user/emacs/.emacs.d/private/layers),
