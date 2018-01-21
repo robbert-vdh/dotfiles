@@ -97,3 +97,7 @@ function mvln() {
 function cheat() {
   curl cheat.sh/$1
 }
+
+function jitsi() {
+  chromium --app=https://meet.jit.si/$1 >/dev/null 2>&1 &
+}
