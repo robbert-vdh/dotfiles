@@ -673,8 +673,6 @@ before packages are loaded."
   (setq org-agenda-files '("~/Documenten/notes"))
   ;; Highlight math snippets
   (setq org-highlight-latex-and-related '(latex script entities))
-  ;; Allow M-* keybindings in insert mode
-  (setq evil-org-use-additional-insert t)
   ;; Add an easier 'insert item after this line' keybinding. evil-org only
   ;; inserts a new item when the bullet is on the current line.
   (defun evil-org-always-open-below ()
