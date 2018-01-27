@@ -23,6 +23,8 @@ alias en="emacsclient -nw -a ''"
 alias ls="exa --group-directories-first"
 alias ll="ls --long --binary --git"
 alias la="ll -a"
+alias lt="la -T"
+alias l="ls -a"
 unset LS_COLORS
 
 # Copy files
