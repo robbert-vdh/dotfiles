@@ -29,17 +29,33 @@
 
 (require 'core (concat user-emacs-directory "core/core"))
 
+;;; Overrides
+
 ;; `evil-collection' fully replaces the built in integration evil has for some
 ;; packages
+(def-package-hook! evil :pre-init (setq evil-want-C-u-scroll t) t)
 (def-package-hook! evil :post-init (setq evil-want-integration nil) t)
+;; evil-snipe overrides the `s' and `S' keys
+(def-package-hook! evil-snipe :disable)
+;; The tng-frontend should be added before `company-quickhelp' gets loaded, or
+;; else it will get overridden
+(def-package-hook! company :post-config
+  (setq company-frontends
+        '(company-tng-frontend
+          company-preview-if-just-one-frontend
+          company-pseudo-tooltip-unless-just-one-frontend)) t)
+
+;;; Initialization
 
 (doom! :feature
        debugger          ; FIXME stepping through code, to help you add bugs
        eval              ; run code, run (also, repls)
        evil              ; come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files
-       jump              ; helping you get around
-       lookup
+       (lookup           ; helps you navigate your code and documentation
+        +devdocs         ; ...on devdocs.io online
+        +docsets)        ; ...or in Dash docsets locally
+       popup             ; tame sudden yet inevitable temporary windows
        services          ; TODO managing external services & code builders
        snippets          ; my elves. They type so I don't have to
        spellcheck        ; tasing you for misspelling mispelling
@@ -76,7 +92,7 @@
       ;macos             ; MacOS-specific commands
        make              ; run make tasks from Emacs
        neotree           ; a project drawer, like NERDTree for vim
-       password-store    ; password manager for nerds
+      ;password-store    ; password manager for nerds
        rotate-text       ; cycle region at point between text candidates
        term              ; terminals in Emacs
        tmux              ; an API for interacting with tmux
