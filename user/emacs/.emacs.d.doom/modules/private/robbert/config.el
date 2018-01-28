@@ -38,7 +38,10 @@
 (def-package! evil-magit
   :after magit
   :config
-  (remove-hook 'git-commit-mode-hook #'evil-insert-state))
+  (remove-hook 'git-commit-mode-hook #'evil-insert-state)
+  ;; evil-vimish-fold overrides evil-magit's `z' keys and it's not useful anywya
+  ;; in here, so we'll disable it
+  (add-hook 'magit-mode-hook (lambda () (evil-vimish-fold-mode -1))))
 
 (def-package! evil-org
   :after org
