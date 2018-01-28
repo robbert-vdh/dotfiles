@@ -7,7 +7,6 @@
 ;; TODO: Make counsel-rg M-RET act the same way as in Spacemacs
 ;; TODO: SPC / *
 ;; TODO: Fix f/F/t/T and ;
-;; TODO: Missing XXX and Hack highlighting
 
 (def-package! evil-collection
   :after company-tng ;; Should be `evil', but this makes it a little easier
@@ -66,6 +65,14 @@
 
 (after! helpful
   (set! :evil-state 'helpful-mode 'motion))
+
+(after! hl-todo
+  (setq hl-todo-keyword-faces
+        `(("TODO"  . ,(face-foreground 'warning))
+          ("FIXME" . ,(face-foreground 'error))
+          ("XXX"   . ,(face-foreground 'error))
+          ("HACK"  . ,(face-foreground 'error))
+          ("NOTE"  . ,(face-foreground 'success)))))
 
 (after! python
   ;; Python docstrings should always be on multiple lines
