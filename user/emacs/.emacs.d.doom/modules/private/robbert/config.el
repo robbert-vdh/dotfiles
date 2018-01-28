@@ -68,6 +68,9 @@ With ARG, move by that many elements. This removes the default
 (after! helpful
   (add-to-list 'evil-motion-state-modes 'helpful-mode))
 
+(after! magit
+  (setq magit-commit-show-diff t))
+
 (after! python
   ;; Python docstrings should always be on multiple lines
   (setq python-fill-docstring-style 'django))
