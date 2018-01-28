@@ -9,7 +9,7 @@
 ;; TODO: Fix f/F/t/T and ;
 
 (def-package! evil-collection
-  :after company ;; Should be `evil', but this makes it a little easier
+  :after company-tng ;; Should be `evil', but this makes it a little easier
   :config
   (setq evil-collection-setup-minibuffer t)
 
@@ -19,7 +19,6 @@
         (seq-remove (lambda (elem) (and (listp elem) (eq (car elem) 'term)))
                     evil-collection-mode-list))
 
-  (require 'company-tng)
   (evil-collection-init))
 
 (def-package! evil-ediff
@@ -31,6 +30,7 @@
 
 (def-package! evil-magit
   :after magit
+  :config
   (remove-hook 'git-commit-mode-hook #'evil-insert-state))
 
 (def-package! evil-org
@@ -50,16 +50,6 @@
 
 ;; `counsel-projectile-rg' doesn't get autoloaded in the default config
 (autoload 'counsel-projectile-rg "counsel-projectile" nil t)
-
-(after! company
-  (defun +robbert/company-select-next-or-complete (&optional arg)
-    "Select the next candidate if more than one, else complete.
-With ARG, move by that many elements. This removes the default
-'match prefix' funcitonality."
-    (interactive "p")
-    (if (> company-candidates-length 1)
-        (company-select-next arg)
-      (company-complete-selection))))
 
 (after! exec-path-from-shell
   ;; Make sure racer can find Rust's source files and disable gtags as Rust's
@@ -157,20 +147,22 @@ With ARG, move by that many elements. This removes the default
 ;; Auto reload PDFs
 (add-hook 'doc-view-mode-hook #'auto-revert-mode)
 
-;; Enable automatic auto completion
+;; Enable automatic auto completion.
 (require 'company)
+(require 'company-tng)
 (setq company-idle-delay 0.2
       company-minimum-prefix-length 2)
 
 ;;; Functions
 
-;; Add keybindings for locating a file in a directory or in the current
-;; project, even when it's ignored.
-(defun +robbert/magit-blame-follow-copy ()
-  "Blame with the `-wCCC' options, telling Git to track copied
-text"
-  (interactive)
-  (magit-blame magit-buffer-refname buffer-file-name '("-wCCC")))
+(defun +robbert/company-select-next-or-complete (&optional arg)
+  "Select the next candidate if more than one, else complete.
+With ARG, move by that many elements. This removes the default
+'match prefix' funcitonality."
+  (interactive "p")
+  (if (> company-candidates-length 1)
+      (company-select-next arg)
+    (company-complete-selection)))
 
 (defun +robbert/delete-file-and-buffer ()
   "Kill the current buffer and deletes the file it is visiting.
@@ -209,6 +201,14 @@ http://emacsredux.com/blog/2013/04/03/delete-file-and-buffer/."
   (save-excursion
     (+evil/reselect-paste)
     (call-interactively 'indent-region)))
+
+;; Add keybindings for locating a file in a directory or in the current
+;; project, even when it's ignored.
+(defun +robbert/magit-blame-follow-copy ()
+  "Blame with the `-wCCC' options, telling Git to track copied
+text"
+  (interactive)
+  (magit-blame magit-buffer-refname buffer-file-name '("-wCCC")))
 
 (define-minor-mode pleb-mode
   "Emacs for normal people"
