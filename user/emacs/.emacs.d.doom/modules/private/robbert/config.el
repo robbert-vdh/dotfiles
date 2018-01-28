@@ -30,7 +30,8 @@
   :config (evil-lion-mode))
 
 (def-package! evil-magit
-  :after magit)
+  :after magit
+  (remove-hook 'git-commit-mode-hook #'evil-insert-state))
 
 (def-package! evil-org
   :after org
@@ -66,10 +67,7 @@ With ARG, move by that many elements. This removes the default
   (exec-path-from-shell-copy-envs '("LD_LIBRARY_PATH" "RUST_SRC_PATH")))
 
 (after! helpful
-  (add-to-list 'evil-motion-state-modes 'helpful-mode))
-
-(after! magit
-  (setq magit-commit-show-diff t))
+  (set! :evil-state 'helpful-mode 'motion))
 
 (after! python
   ;; Python docstrings should always be on multiple lines
