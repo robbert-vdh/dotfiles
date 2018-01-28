@@ -7,6 +7,7 @@
 ;; TODO: Make counsel-rg M-RET act the same way as in Spacemacs
 ;; TODO: SPC / *
 ;; TODO: Fix f/F/t/T and ;
+;; TODO: Missing XXX and Hack highlighting
 
 (def-package! evil-collection
   :after company-tng ;; Should be `evil', but this makes it a little easier
@@ -18,8 +19,15 @@
   (setq evil-collection-mode-list
         (seq-remove (lambda (elem) (and (listp elem) (eq (car elem) 'term)))
                     evil-collection-mode-list))
+  (evil-collection-init)
 
-  (evil-collection-init))
+  ;; HACK: evil-collection tries to make diff buffers read only, which is nice,
+  ;;       but it somehow breaks magit
+  (define-advice git-commit-propertize-diff
+      (:around (original-function &rest args))
+    (remove-hook 'diff-mode-hook 'evil-collection-diff-toggle-setup)
+    (apply original-function args)
+    (add-hook 'diff-mode-hook 'evil-collection-diff-toggle-setup)))
 
 (def-package! evil-ediff
   :after ediff)
