@@ -20,6 +20,10 @@
                     evil-collection-mode-list))
   (evil-collection-init)
 
+  ;; `SPC' should still be a leader key in dired
+  (evil-define-key 'normal dired-mode-map
+    " " nil)
+
   ;; HACK: evil-collection tries to make diff buffers read only, which is nice,
   ;;       but it somehow breaks magit
   (define-advice git-commit-propertize-diff
@@ -39,6 +43,8 @@
   :after magit
   :config
   (remove-hook 'git-commit-mode-hook #'evil-insert-state)
+  ;; Don't interfere with the leader key
+  (define-key magit-mode-map (kbd doom-leader-key) nil)
   ;; evil-vimish-fold overrides evil-magit's `z' keys and it's not useful anywya
   ;; in here, so we'll disable it
   (add-hook 'magit-mode-hook (lambda () (evil-vimish-fold-mode -1))))
