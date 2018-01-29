@@ -135,6 +135,7 @@
       evil-symbol-word-search t
       ivy-re-builders-alist '((swiper . ivy--regex-plus)
                               (t      . ivy--regex-ignore-order))
+      +org-dir (expand-file-name "~/Documenten/notes/")
       nav-flash-delay 0.25
       which-key-idle-delay 0.4
       ;; doom-line-numbers-style 'relative ;; FIXME: Broken right now

@@ -1,6 +1,8 @@
 ;;; private/robbert/+bindings.el -*- lexical-binding: t; -*-
 
 (map!
+ [remap dabbrev-expand] #'hippie-expand
+
  :ni "C-S-SPC" #'company-yasnippet
  :i "RET"      #'+robbert/newline-and-indent
  :i "M-RET"    #'doom/newline-and-indent
