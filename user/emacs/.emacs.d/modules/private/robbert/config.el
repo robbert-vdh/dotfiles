@@ -155,6 +155,9 @@
 (add-hook! :append 'doom-init-ui-hook
   (blink-cursor-mode -1))
 
+;; evil-org provides better key bindings already
+(remove-hook 'org-load-hook '+org|setup-keybinds)
+
 ;; Automatically delete trailing whitespace
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
