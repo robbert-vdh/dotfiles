@@ -4,7 +4,9 @@
 
 (load! +bindings)
 
-;; TODO: SPC / *
+;; TODO: SPC / * to search for the word under the cursor
+;; TODO: Copy snippets from Spacemacs config
+;; TODO: Autoload most defined functions just like in +default
 
 (def-package! evil-collection
   :after company-tng ;; Should be `evil', but this makes it a little easier
@@ -48,7 +50,7 @@
   (define-key magit-mode-map (kbd doom-leader-key) nil)
   ;; evil-vimish-fold overrides evil-magit's `z' keys and it's not useful anywya
   ;; in here, so we'll disable it
-  (add-hook 'magit-mode-hook (lambda () (evil-vimish-fold-mode -1))))
+  (add-hook! 'magit-mode-hook (evil-vimish-fold-mode -1)))
 
 (def-package! evil-org
   :after org
@@ -146,7 +148,8 @@
                            :size (if (eq system-name "laptop") 18 16)))
 
 ;; Disable blinking
-(add-hook 'doom-init-ui-hook (lambda () (blink-cursor-mode -1)) t)
+(add-hook! :append 'doom-init-ui-hook
+  (blink-cursor-mode -1))
 
 ;; Make `w' and `b' handle more like in vim
 (defun +robbert/fix-evil-words-underscore ()
@@ -177,7 +180,7 @@
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 3) ((control)))
       scroll-conservatively 3
       scroll-margin 3)
-(add-hook 'term-mode-hook (lambda () (setq-local scroll-margin 0)))
+(add-hook! 'term-mode-hook (setq-local scroll-margin 0))
 
 ;; Auto reload PDFs
 (add-hook 'doc-view-mode-hook #'auto-revert-mode)
