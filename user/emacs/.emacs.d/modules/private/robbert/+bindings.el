@@ -1,5 +1,8 @@
 ;;; private/robbert/+bindings.el -*- lexical-binding: t; -*-
 
+;; FIXME: Keybindings with shift + meta are broken, so they use this weird
+;;        vector notation
+
 (map!
  [remap dabbrev-expand] #'hippie-expand
 
@@ -44,6 +47,14 @@
 
  (:after evil-org
    (:map org-mode-map
+     :niv "M-h"    #'org-metaleft
+     :niv "M-j"    #'org-metadown
+     :niv "M-k"    #'org-metaup
+     :niv "M-l"    #'org-metaright
+     :niv [(shift meta h)] #'org-shiftmetaleft
+     :niv [(shift meta j)] #'org-shiftmetadown
+     :niv [(shift meta k)] #'org-shiftmetaup
+     :niv [(shift meta l)] #'org-shiftmetaright
      :ni "M-o"    #'+robbert/evil-org-always-open-below
      :ni "M-RET"  #'+robbert/evil-org-always-open-below))
 

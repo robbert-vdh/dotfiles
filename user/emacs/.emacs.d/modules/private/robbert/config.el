@@ -94,11 +94,13 @@
 
 (after! org
   ;; Restore default indentation behavior
-  (remove-hook 'org-mode-hook 'org-indent-mode)
+  (remove-hook! 'org-mode-hook '(org-indent-mode visual-line-mode))
   (setq org-adapt-indentation t
         org-startup-indented nil)
 
   (setq org-highlight-latex-and-related '(latex script entities))
+  (set-face-attribute
+   'org-todo nil :foreground (doom-darken (face-foreground 'org-todo) 0.2))
 
   ;; Org mode should use komascript for LaTeX exports and code fragments should be colored
   (with-eval-after-load 'ox-latex
