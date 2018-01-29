@@ -22,7 +22,7 @@
      :desc "Revert"                  :n "R"  #'revert-buffer)
 
    (:desc "file"                     :prefix "f"
-     :desc "Delete current file"     :n "D"  #'+robbert/delete-file-and-buffer)
+     :desc "Delete current file"     :n "k"  #'+robbert/delete-file-and-buffer)
 
    (:desc "git"                      :prefix "g"
      :desc "Git blame (follow copy)" :n "b"  #'+robbert/magit-blame-follow-copy
