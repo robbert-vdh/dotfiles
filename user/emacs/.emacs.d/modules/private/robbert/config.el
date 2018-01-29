@@ -6,7 +6,7 @@
 
 ;; TODO: SPC / * to search for the word under the cursor
 ;; TODO: Copy snippets from Spacemacs config
-;; TODO: Autoload most defined functions just like in +default
+;; TODO: Strip trailing whitespace on save
 
 (def-package! evil-collection
   :after company-tng ;; Should be `evil', but this makes it a little easier
@@ -80,6 +80,14 @@
   ;; Make sure racer can find Rust's source files and disable gtags as Rust's
   ;; Language Server does a better job already
   (exec-path-from-shell-copy-envs '("LD_LIBRARY_PATH" "RUST_SRC_PATH")))
+
+(after! flyspell
+  ;; Don't automatically spellcheck large buffers
+  (define-advice +spellcheck|automatically
+      (:before-while (&rest args))
+    (<= (buffer-size) 5000))
+  (add-hook! '(git-commit-mode-hook org-mode-hook)
+    'flyspell-mode))
 
 (after! helpful
   (set! :evil-state 'helpful-mode 'motion))
@@ -168,6 +176,9 @@
 (loop for (mode . value) in '((php-mode-hook . 120)
                               (rust-mode-hook . 100))
       do (add-hook mode `(lambda () (setq fill-column ,value))))
+
+;; Flycheck popup tweaks
+(setq flycheck-pos-tip-timeout 15)
 
 ;; Improve scrolling behaviour by recentering the screen when jumping to
 ;; something off screen

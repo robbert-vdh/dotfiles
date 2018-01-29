@@ -32,15 +32,18 @@
      :desc "Git status"              :n "s"  #'magit-status
      :desc "Git stage hunk"          :n "S"  #'git-gutter:stage-hunk)
 
-   (:desc "Project"                  :prefix "p"
+   (:desc "project"                  :prefix "p"
      :desc "Find file in proejct"    :nv "." #'counsel-projectile-find-file
-     :desc "Ripgrep in project"      :nv "/" #'counsel-projectile-rg))
+     :desc "Ripgrep in project"      :nv "/" #'counsel-projectile-rg)
+
+   (:desc "toggle"                   :prefix "t"
+     :desc "Change dictionary"       :n "S"  #'ispell-change-dictionary))
 
  (:after company
    (:map company-active-map
      "C-a"        #'company-abort
-     "C-j"        #'company-select-next
-     "C-k"        #'company-select-previous
+     ;; "C-j"        #'company-select-next
+     ;; "C-k"        #'company-select-previous
      "C-l"        #'company-complete
      [tab]        #'+robbert/company-select-next-or-complete
      [escape]     nil))
