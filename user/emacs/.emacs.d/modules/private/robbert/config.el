@@ -29,9 +29,9 @@
   ;;       but it somehow breaks magit
   (define-advice git-commit-propertize-diff
       (:around (original-function &rest args))
-    (remove-hook 'diff-mode-hook 'evil-collection-diff-toggle-setup)
+    (remove-hook 'diff-mode-hook #'evil-collection-diff-toggle-setup)
     (apply original-function args)
-    (add-hook 'diff-mode-hook 'evil-collection-diff-toggle-setup)))
+    (add-hook 'diff-mode-hook #'evil-collection-diff-toggle-setup)))
 
 (def-package! evil-ediff
   :after ediff)
@@ -47,7 +47,7 @@
   (setq magit-commit-show-diff nil)
   (remove-hook 'git-commit-mode-hook #'evil-insert-state)
   ;; Doom Emacs disables evil in `magit-blame' by default
-  (add-hook 'magit-blame-mode-hook 'evil-local-mode t)
+  (add-hook 'magit-blame-mode-hook #'evil-local-mode t)
   ;; Don't interfere with the leader key
   (define-key magit-mode-map (kbd doom-leader-key) nil)
   ;; evil-vimish-fold overrides evil-magit's `z' keys and it's not useful anywya
@@ -58,7 +58,7 @@
   :after org
   :config
   (setq evil-org-use-additional-insert t)
-  (add-hook 'org-mode-hook 'evil-org-mode)
+  (add-hook 'org-mode-hook #'evil-org-mode)
   (add-hook! 'evil-org-mode-hook (evil-org-set-key-theme)))
 
 ;;; Overrides
@@ -82,10 +82,8 @@
   (exec-path-from-shell-copy-envs '("LD_LIBRARY_PATH" "RUST_SRC_PATH")))
 
 (after! flyspell
-  ;; Don't automatically spellcheck large buffers
-  (define-advice +spellcheck|automatically
-      (:before-while (&rest args))
-    (<= (buffer-size) 5000))
+  ;; Don't automatically spellcheck when enabling flycheck
+  (remove-hook 'flyspell-mode-hook #'+spellcheck|automatically)
   (add-hook! '(git-commit-mode-hook org-mode-hook)
     'flyspell-mode))
 
@@ -156,6 +154,9 @@
 ;; Disable blinking
 (add-hook! :append 'doom-init-ui-hook
   (blink-cursor-mode -1))
+
+;; Automatically delete trailing whitespace
+(add-hook 'before-save-hook #'delete-trailing-whitespace)
 
 ;; Make `w' and `b' handle more like in vim
 (add-hook 'after-change-major-mode-hook #'+robbert/fix-evil-words-underscore)
