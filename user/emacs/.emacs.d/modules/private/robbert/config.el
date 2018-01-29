@@ -5,8 +5,6 @@
 (load! +bindings)
 
 ;; TODO: SPC / * to search for the word under the cursor
-;; TODO: Copy snippets from Spacemacs config
-;; TODO: Strip trailing whitespace on save
 
 (def-package! evil-collection
   :after company-tng ;; Should be `evil', but this makes it a little easier
@@ -136,6 +134,9 @@
           org-latex-listings 'minted
           ;; latexmk tends to play along nicer than pdflatex
           org-latex-pdf-process '("latexmk -f -pdf %f"))))
+
+(after! yasnippet
+  (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand))
 
 ;;; Settings
 
