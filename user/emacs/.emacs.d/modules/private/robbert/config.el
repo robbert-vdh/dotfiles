@@ -55,7 +55,9 @@
 (def-package! evil-org
   :after org
   :config
-  (setq evil-org-use-additional-insert t))
+  (setq evil-org-use-additional-insert t)
+  (add-hook 'org-mode-hook 'evil-org-mode)
+  (add-hook! 'evil-org-mode-hook (evil-org-set-key-theme)))
 
 ;;; Overrides
 
