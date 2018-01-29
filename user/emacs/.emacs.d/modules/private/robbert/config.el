@@ -4,7 +4,6 @@
 
 (load! +bindings)
 
-;; TODO: Make counsel-rg M-RET act the same way as in Spacemacs
 ;; TODO: SPC / *
 ;; TODO: Fix f/F/t/T and ;
 
