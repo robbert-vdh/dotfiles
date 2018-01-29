@@ -35,8 +35,6 @@
 ;; packages
 (def-package-hook! evil :pre-init (setq evil-want-C-u-scroll t) t)
 (def-package-hook! evil :post-init (setq evil-want-integration nil) t)
-;; evil-snipe overrides the `s' and `S' keys
-(def-package-hook! evil-snipe :disable)
 ;; The tng-frontend should be added before `company-quickhelp' gets loaded, or
 ;; else it will get overridden
 (def-package-hook! company :post-config

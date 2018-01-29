@@ -42,6 +42,8 @@
   :after magit
   :config
   (remove-hook 'git-commit-mode-hook #'evil-insert-state)
+  ;; Doom Emacs disables evil in `magit-blame' by default
+  (add-hook 'magit-blame-mode-hook 'evil-local-mode t)
   ;; Don't interfere with the leader key
   (define-key magit-mode-map (kbd doom-leader-key) nil)
   ;; evil-vimish-fold overrides evil-magit's `z' keys and it's not useful anywya
@@ -67,6 +69,7 @@
 (autoload 'counsel-projectile-rg "counsel-projectile" nil t)
 
 (after! evil
+  (setq-default evil-symbol-word-search t)
   ;; Doom Emacs overrides the `;' and `,' keys to also repeat things like
   ;; searches. Because it uses evil-snipe by default this hasn't been done for
   ;; the default f/F/t/T keybindings.
@@ -132,7 +135,6 @@
 
 (setq completion-styles '(partial-completion initials)
       evil-goggles-duration 0.25
-      evil-symbol-word-search t
       ivy-re-builders-alist '((swiper . ivy--regex-plus)
                               (t      . ivy--regex-ignore-order))
       +org-dir (expand-file-name "~/Documenten/notes/")

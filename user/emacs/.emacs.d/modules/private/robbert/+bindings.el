@@ -51,4 +51,9 @@
    (:map helpful-mode-map
      :m "q"       #'quit-window
      :m "ZZ"      #'quit-window
-     :m "ZQ"      #'quit-window)))
+     :m "ZQ"      #'quit-window))
+
+ (:after ivy
+   (:map ivy-minibuffer-map
+     "C-d"        #'ivy-scroll-up-command
+     "C-u"        #'ivy-scroll-down-command)))
