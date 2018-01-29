@@ -55,15 +55,7 @@
 (def-package! evil-org
   :after org
   :config
-  (setq evil-org-use-additional-insert t)
-
-  ;; Add an easier 'insert item after this line' keybinding. evil-org only
-  ;; inserts a new item when the bullet is on the current line.
-  (defun +robbert/evil-org-always-open-below ()
-    (interactive)
-    (end-of-visible-line)
-    (org-meta-return)
-    (evil-insert nil)))
+  (setq evil-org-use-additional-insert t))
 
 ;;; Overrides
 
@@ -152,10 +144,6 @@
   (blink-cursor-mode -1))
 
 ;; Make `w' and `b' handle more like in vim
-(defun +robbert/fix-evil-words-underscore ()
-  (modify-syntax-entry ?_ "w"))
-(defun +robbert/fix-evil-words-dash ()
-  (modify-syntax-entry ?- "w"))
 (add-hook 'after-change-major-mode-hook #'+robbert/fix-evil-words-underscore)
 
 ;; Set default indentation levels and coding styles
@@ -190,78 +178,3 @@
 (require 'company-tng)
 (setq company-idle-delay 0.2
       company-minimum-prefix-length 2)
-
-;;; Functions
-
-(defun +robbert/company-select-next-or-complete (&optional arg)
-  "Select the next candidate if more than one, else complete.
-With ARG, move by that many elements. This removes the default
-'match prefix' funcitonality."
-  (interactive "p")
-  (if (> company-candidates-length 1)
-      (company-select-next arg)
-    (company-complete-selection)))
-
-(defun +robbert/delete-file-and-buffer ()
-  "Kill the current buffer and deletes the file it is visiting.
-Take from
-http://emacsredux.com/blog/2013/04/03/delete-file-and-buffer/."
-  (interactive)
-  (when buffer-file-name
-    (if (vc-backend buffer-file-name)
-        (vc-delete-file buffer-file-name)
-      (progn
-        (delete-file buffer-file-name)
-        (message "Deleted file %s" buffer-file-name)
-        (kill-buffer)))))
-
-(defun +robbert/find-file-in-dir ()
-  (interactive)
-  (setq current-prefix-arg '(4))
-  (call-interactively 'counsel-file-jump))
-
-(defun +robbert/find-file-in-project ()
-  (interactive)
-  (counsel-file-jump nil (projectile-project-root)))
-(defun +robbert/newline-and-indent ()
-  "Inserts a newline and possibly indents it. This is the same as
-`+doom/newline-and-indent' but without the comment handling."
-  (interactive)
-  (if (sp-point-in-string)
-      (newline)
-    (progn
-      (newline nil t)
-      (indent-according-to-mode))))
-
-(defun +robbert/indent-pasted-text ()
-  "Indents whatever was just pasted."
-  (interactive)
-  (save-excursion
-    (+evil/reselect-paste)
-    (call-interactively 'indent-region)))
-
-;; Add keybindings for locating a file in a directory or in the current
-;; project, even when it's ignored.
-(defun +robbert/magit-blame-follow-copy ()
-  "Blame with the `-wCCC' options, telling Git to track copied
-text"
-  (interactive)
-  (magit-blame magit-buffer-refname buffer-file-name '("-wCCC")))
-
-(define-minor-mode pleb-mode
-  "Emacs for normal people"
-  :lighter " PLEB"
-  :global t
-  ;; Enable more standard keybindings
-  (evil-mode 'toggle)
-  (cua-mode 'toggle)
-  (if pleb-mode
-      (progn
-        ;; File trees are nice
-        (+neotree/toggle)
-        (other-window -1)
-        ;; Always use the bar cursor
-        (setq cursor-type 'bar)
-        ;; What is this weird numbering?
-        (nlinum-relative-off))
-    (nlinum-relative-on)))
