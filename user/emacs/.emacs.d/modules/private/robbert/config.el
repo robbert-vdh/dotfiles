@@ -5,7 +5,6 @@
 (load! +bindings)
 
 ;; TODO: SPC / *
-;; TODO: Fix f/F/t/T and ;
 
 (def-package! evil-collection
   :after company-tng ;; Should be `evil', but this makes it a little easier
@@ -66,6 +65,15 @@
 
 ;; `counsel-projectile-rg' doesn't get autoloaded in the default config
 (autoload 'counsel-projectile-rg "counsel-projectile" nil t)
+
+(after! evil
+  ;; Doom Emacs overrides the `;' and `,' keys to also repeat things like
+  ;; searches. Because it uses evil-snipe by default this hasn't been done for
+  ;; the default f/F/t/T keybindings.
+  (do-repeat! evil-find-char evil-repeat-find-char evil-repeat-find-char-reverse)
+  (do-repeat! evil-find-char-backward evil-repeat-find-char evil-repeat-find-char-reverse)
+  (do-repeat! evil-find-char-to evil-repeat-find-char evil-repeat-find-char-reverse)
+  (do-repeat! evil-find-char-to-backward evil-repeat-find-char evil-repeat-find-char-reverse))
 
 (after! exec-path-from-shell
   ;; Make sure racer can find Rust's source files and disable gtags as Rust's
