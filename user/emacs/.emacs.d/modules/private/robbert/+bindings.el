@@ -25,7 +25,9 @@
      :desc "Swiper"                  :nv "s" #'swiper)
 
    (:desc "buffer"                   :prefix "b"
-     :desc "Revert"                  :n "R"  #'revert-buffer)
+     :desc "Replace with clipboard"  :n "P"  #'+robbert/clipboard-to-buffer
+     :desc "Revert"                  :n "R"  #'revert-buffer
+     :desc "Copy to clipboard"       :n "Y"  #'+robbert/buffer-to-clipboard)
 
    (:desc "file"                     :prefix "f"
      :desc "Delete current file"     :n "k"  #'+robbert/delete-file-and-buffer)
@@ -40,7 +42,9 @@
      :desc "Ripgrep in project"      :nv "/" #'counsel-projectile-rg)
 
    (:desc "toggle"                   :prefix "t"
-     :desc "Change dictionary"       :n "S"  #'ispell-change-dictionary))
+     :desc "Change dictionary"       :n "S"  #'ispell-change-dictionary
+     :desc "LanguageTool"            :n "t"  #'+robbert/languagetool-toggle
+     :desc "LanguageTool correct"    :n "T"  #'langtool-correct-buffer))
 
  (:after company
    (:map company-active-map
