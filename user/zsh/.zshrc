@@ -2,9 +2,6 @@
 # User configuration sourced by interactive shells
 #
 
-# This should not be needed, but exec-path-from-shell won't read $PATH
-# otherwise
-source ~/.zshenv
 bindkey -e
 
 # Source zim
