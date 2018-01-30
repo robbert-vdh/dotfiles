@@ -79,6 +79,12 @@
   (do-repeat! evil-find-char-to evil-repeat-find-char evil-repeat-find-char-reverse)
   (do-repeat! evil-find-char-to-backward evil-repeat-find-char evil-repeat-find-char-reverse))
 
+(after! evil-surround
+  ;; Add evil-surround support for common markup symbols
+  (dolist (pair '((?$ . ("$" . "$")) (?= . ("=" . "=")) (?~ . ("~" . "~"))
+                  (?/ . ("/" . "/")) (?* . ("*" . "*")) (?* . (":" . ":"))))
+    (push pair evil-surround-pairs-alist)))
+
 (after! exec-path-from-shell
   ;; Make sure racer can find Rust's source files and disable gtags as Rust's
   ;; Language Server does a better job already
@@ -111,7 +117,8 @@
   (setq org-adapt-indentation t
         org-startup-indented nil)
 
-  (setq org-highlight-latex-and-related '(latex script entities))
+  (setq org-imenu-depth 3
+        org-highlight-latex-and-related '(latex script entities))
   (set-face-attribute
    'org-todo nil :foreground (doom-darken (face-foreground 'org-todo) 0.2))
 
@@ -140,6 +147,10 @@
           ;; latexmk tends to play along nicer than pdflatex
           org-latex-pdf-process '("latexmk -f -pdf %f"))))
 
+(after! ox-pandoc
+  ;; Doom explicitely adds the deprecated `parse-raw' option
+  (setq org-pandoc-options '((standalone . t) (mathjax . t))))
+
 (after! yasnippet
   (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand))
 
@@ -155,7 +166,8 @@
       ;; doom-line-numbers-style 'relative ;; FIXME: Broken right now
       doom-font (font-spec :family "Input Mono"
                            :width 'semi-condensed
-                           :size (if (eq system-name "laptop") 18 16)))
+                           :size (if (eq system-name "laptop") 18 16))
+      doom-big-font (font-spec :family "Input Mono" :size 32))
 
 ;; Disable blinking
 (add-hook! :append 'doom-init-ui-hook
@@ -205,3 +217,6 @@
 (require 'company-tng)
 (setq company-idle-delay 0.2
       company-minimum-prefix-length 2)
+
+;; Explicitely load evil-surround so that extra pairs can be loaded in time
+(require 'evil-surround)
