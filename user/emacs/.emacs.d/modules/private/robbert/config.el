@@ -59,6 +59,11 @@
   (add-hook 'org-mode-hook #'evil-org-mode)
   (add-hook! 'evil-org-mode-hook (evil-org-set-key-theme)))
 
+(def-package! langtool
+  :config
+  (setq langtool-disabled-rules '("WHITESPACE_RULE")
+        langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*"))
+
 ;;; Overrides
 
 ;; `counsel-projectile-rg' doesn't get autoloaded in the default config
@@ -82,7 +87,7 @@
 (after! flyspell
   ;; Don't automatically spellcheck when enabling flycheck
   (remove-hook 'flyspell-mode-hook #'+spellcheck|automatically)
-  (add-hook! '(git-commit-mode-hook org-mode-hook)
+  (add-hook! (git-commit-mode org-mode text-mode)
     'flyspell-mode))
 
 (after! helpful

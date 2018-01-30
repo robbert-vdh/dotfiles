@@ -14,6 +14,9 @@
  :nvie "M-q"   #'fill-paragraph ;; Doom Emacs overrides this to quit by default
  :v "C-u"      #'evil-scroll-up ;; `evil-want-C-u-scroll' doesn't do anything in visual mode
 
+ :m "[a" #'+robbert/languagetool-previous-error
+ :m "]a" #'+robbert/langaugetool-next-error
+
  (:leader
    (:desc "search"                   :prefix "/"
      :desc "Ripgrep"                 :nv "/" #'counsel-rg
