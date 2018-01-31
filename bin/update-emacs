@@ -1,31 +1,19 @@
-#/usr/bin/env zsh
-
+#!/usr/bin/env zsh
+#
 # Updates and rebases Spacemacs automatically
 
 cd ~/.emacs.d/
 
-[[ -z $(git diff) ]] || should_stash=true
-if [[ $should_stash = true ]]; then
-    git stash > /dev/null
+old_revision=$(git show-ref HEAD)
+git pull --rebase
+new_revision=$(git show-ref HEAD)
+
+if [[ $old_revision == $new_revision ]]; then
+  exit 0
 fi
 
-git fetch upstream > /dev/null 2>&1
-rebase_result=$(git rebase upstream/develop 2>/dev/null)
-[[ $? -ne 0 ]] && rebase_failed=true
+make
+make cc
 
-if [[ $(head -n1 <<< $swek) =~ 'is up to date' ]]; then
-    echo "Repository is already up to date."
-elif [[ $rebase_failed = true ]]; then
-    echo "Rebasing changes failed, you should manually fix ~/.emacs.d/."
-    exit 1
-fi
-
-if [[ $should_stash = true ]]; then
-    git stash pop > /dev/null
-    if [[ $? -ne 0 ]]; then
-        echo "Unstashing failed, you should manually fix ~/.emacs.d/."
-        exit 1
-    fi
-fi
-
-git push
+# Just in case the daemon is still running
+kill $(emacsclient -en "(emacs-pid)" 2>/dev/null) 2>/dev/null
