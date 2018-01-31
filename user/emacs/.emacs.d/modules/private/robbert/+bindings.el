@@ -72,4 +72,9 @@
  (:after ivy
    (:map ivy-minibuffer-map
      "C-d"        #'ivy-scroll-up-command
-     "C-u"        #'ivy-scroll-down-command)))
+     "C-u"        #'ivy-scroll-down-command))
+
+ (:after term
+   (:map term-raw-map
+     ;; Allow for window bindings in term-mode
+     "C-w"        evil-window-map)))

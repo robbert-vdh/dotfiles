@@ -1,5 +1,5 @@
 # Dotfiles
-These dotfiles are managed using 
+These dotfiles are managed using
 [GNU Stow](https://www.gnu.org/software/stow/stow.html).
 
 ## Installation
@@ -11,16 +11,11 @@ $ cd ~/.dotfiles
 $ ./install.sh
 ```
 
-## Spacemacs layers
-I've moved my Spacemacs layers my
-[fork](https://github.com/robbert-vdh/spacemacs/tree/develop) for easier
-maintenance. Check the
-[diff](https://github.com/syl20bnr/spacemacs/compare/develop...robbert-vdh:develop)
-for a list of layers and changes.
-
-They can be found over
-at [user/emacs/.emacs.d/private/layers](user/emacs/.emacs.d/private/layers),
-along with installation instructions.
+## Emacs configuration
+My Emacs configuration is based on [Doom
+Emacs](https://github.com/hlissner/doom-emacs). The files in
+`usr/emacs/.emacs.d` can simply be copied or symlinked to wherever Doom is
+installed.
 
 ## xfce + i3
 KDE handles most non-WM shortcuts and things like text rendering and themes.
