@@ -54,7 +54,7 @@ Copied from Spacemacs."
 Take from
 http://emacsredux.com/blog/2013/04/03/delete-file-and-buffer/."
   (interactive)
-  (when buffer-file-name
+  (when (and buffer-file-name (yes-or-no-p "Really delete current file?"))
     (if (vc-backend buffer-file-name)
         (vc-delete-file buffer-file-name)
       (progn
