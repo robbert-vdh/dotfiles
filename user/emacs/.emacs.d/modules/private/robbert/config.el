@@ -5,6 +5,7 @@
 (load! +bindings)
 
 ;; TODO: SPC / * to search for the word under the cursor
+;; TODO: Auto indent on paste
 
 (def-package! evil-collection
   :after company-tng ;; Should be `evil', but this makes it a little easier
@@ -157,12 +158,14 @@
 ;;; Settings
 
 (setq completion-styles '(partial-completion initials)
+      confirm-nonexistent-file-or-buffer nil
       evil-goggles-duration 0.25
+      ;; Order should only matter when fuzzy searching within a file
       ivy-re-builders-alist '((swiper . ivy--regex-plus)
                               (t      . ivy--regex-ignore-order))
-      +org-dir (expand-file-name "~/Documenten/notes/")
       nav-flash-delay 0.25
       which-key-idle-delay 0.4
+      +org-dir (expand-file-name "~/Documenten/notes/")
       ;; doom-line-numbers-style 'relative ;; FIXME: Broken right now
       doom-font (font-spec :family "Input Mono"
                            :width 'semi-condensed
