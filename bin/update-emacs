@@ -8,11 +8,11 @@ old_revision=$(git show-ref HEAD)
 git pull --rebase
 new_revision=$(git show-ref HEAD)
 
-if [[ $old_revision == $new_revision ]]; then
-  exit 0
+if [[ $old_revision != $new_revision ]]; then
+  make autoloads autoremove install update compile-core
+else
+  make update
 fi
-
-make autoloads autoremove install update compile-core
 
 # Just in case the daemon is still running
 kill $(emacsclient -en "(emacs-pid)" 2>/dev/null) 2>/dev/null
