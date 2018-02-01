@@ -35,6 +35,7 @@
    (:desc "git"                      :prefix "g"
      :desc "Git blame (follow copy)" :n "b"  #'+robbert/magit-blame-follow-copy
      :desc "Git status"              :n "s"  #'magit-status
+     :desc "Git log current file"    :n "l"  #'magit-log-buffer-file
      :desc "Git stage hunk"          :n "S"  #'git-gutter:stage-hunk)
 
    (:desc "project"                  :prefix "p"
