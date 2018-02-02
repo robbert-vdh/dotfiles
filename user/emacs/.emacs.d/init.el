@@ -31,6 +31,8 @@
 
 ;;; Overrides
 
+;; This won't get set otherwise
+(def-package-hook! evil :pre-init (setq evil-want-C-u-scroll t) t)
 ;; The tng-frontend should be added before `company-quickhelp' gets loaded, or
 ;; else it will get overridden
 (def-package-hook! company :post-config

@@ -85,5 +85,9 @@
 
  (:after term
    (:map term-raw-map
+     ;; Manage multiple terminals
+     "M-j"        #'multi-term-next
+     "M-k"        #'multi-term-prev
+     "M-n"        #'multi-term
      ;; Allow for window bindings in term-mode
      "C-w"        evil-window-map)))
