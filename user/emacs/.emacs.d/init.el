@@ -31,10 +31,6 @@
 
 ;;; Overrides
 
-;; `evil-collection' fully replaces the built in integration evil has for some
-;; packages
-(def-package-hook! evil :pre-init (setq evil-want-C-u-scroll t) t)
-(def-package-hook! evil :post-init (setq evil-want-integration nil) t)
 ;; The tng-frontend should be added before `company-quickhelp' gets loaded, or
 ;; else it will get overridden
 (def-package-hook! company :post-config

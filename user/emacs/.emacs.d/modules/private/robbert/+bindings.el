@@ -8,7 +8,7 @@
 
  :ni "C-S-SPC" #'company-yasnippet
  :i "RET"      #'+robbert/newline-and-indent
- :i "M-RET"    #'doom/newline-and-indent
+ :i [(meta return)]   #'doom/newline-and-indent ;;
  :ne [(shift meta f)] #'counsel-rg ;; As a complement to the `M-f' Swiper defined in +defualt
  :ni "M-p"     #'+robbert/indent-pasted-text
  :nvie "M-q"   #'fill-paragraph ;; Doom Emacs overrides this to quit by default
@@ -50,11 +50,15 @@
  (:after company
    (:map company-active-map
      "C-a"        #'company-abort
-     ;; "C-j"        #'company-select-next
-     ;; "C-k"        #'company-select-previous
      "C-l"        #'company-complete
      [tab]        #'+robbert/company-select-next-or-complete
+     "RET"        nil
      [escape]     nil))
+
+ (:after diff-mode
+   (:map diff-mode-map
+     :nm "{"      #'diff-hunk-prev
+     :nm "}"      #'diff-hunk-next))
 
  (:after evil-org
    (:map evil-org-mode-map
@@ -63,6 +67,10 @@
    ;; Not sure why, but org somehow overrides the binding without this
    (:map org-mode-map
      :nmi [remap outline-insert-heading] #'+robbert/evil-org-always-open-below))
+
+ (:after flycheck
+   (:map flycheck-error-list-mode-map
+     :m "M-RET"   #'flycheck-error-list-explain-erro))
 
  (:after helpful
    (:map helpful-mode-map
