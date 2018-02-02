@@ -153,6 +153,17 @@
   ;; Doom explicitely adds the deprecated `parse-raw' option
   (setq org-pandoc-options '((standalone . t) (mathjax . t))))
 
+(after! rust-mode
+  ;; Add missing confugration
+  (set! :electric '(rust-mode) :chars '(?\n ?\}))
+  (add-hook 'rust-mode-hook 'flycheck-mode))
+
+(after! smartparens
+  ;; Automatically indent a block when pressing enter inside curly braces or
+  ;; square brackets
+  (sp-pair "{" nil :post-handlers '(:add ("||\n[i]" "RET")))
+  (sp-pair "[" nil :post-handlers '(:add ("||\n[i]" "RET"))))
+
 (after! yasnippet
   ;; `~/.emacs/snippets' should come first as it's used as the default snippet
   ;; save location
