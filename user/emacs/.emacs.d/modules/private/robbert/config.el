@@ -19,10 +19,11 @@
                     evil-collection-mode-list))
   (evil-collection-init)
 
-  ;; `SPC' should still be a leader key in dired
+  ;; `SPC' should still be a leader key in dired and special modes like the
+  ;; dashboard
+  (evil-define-key 'normal special-mode-map " " nil)
   (after! dired
-    (evil-define-key 'normal dired-mode-map
-      " " nil))
+    (evil-define-key 'normal dired-mode-map " " nil))
 
   ;; HACK: evil-collection tries to make diff buffers read only, which is nice,
   ;;       but it somehow breaks magit
