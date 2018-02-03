@@ -133,13 +133,13 @@
 (after! rust-mode
   ;; Add missing confugration
   (set! :electric '(rust-mode) :chars '(?\n ?\}))
-  (add-hook 'rust-mode-hook 'flycheck-mode))
+  (add-hook! 'rust-mode-hook '(highlight-numbers-mode flycheck-mode)))
 
 (after! smartparens
   ;; Automatically indent a block when pressing enter inside curly braces or
   ;; square brackets
-  (sp-pair "{" nil :post-handlers '(:add ("||\n[i]" "RET")))
-  (sp-pair "[" nil :post-handlers '(:add ("||\n[i]" "RET"))))
+  (dolist (brace '("(" "{" "["))
+    (sp-pair brace nil :post-handlers '(:add ("||\n[i]" "RET")))))
 
 (after! yasnippet
   ;; `~/.emacs/snippets' should come first as it's used as the default snippet
@@ -149,7 +149,8 @@
 
 ;;; Settings
 
-(setq completion-styles '(partial-completion initials)
+(setq company-minimum-prefix-length 2
+      completion-styles '(partial-completion initials)
       confirm-nonexistent-file-or-buffer nil
       evil-goggles-duration 0.25
       ;; Order should only matter when fuzzy searching within a file
@@ -208,11 +209,9 @@
 (add-hook 'doc-view-mode-hook #'auto-revert-mode)
 
 ;; Enable automatic auto completion.
-(require 'company)
+(+company/toggle-auto-completion)
 (require 'company-tng)
 (company-tng-configure-default)
-(setq company-idle-delay 0.2
-      company-minimum-prefix-length 2)
 
 ;; Explicitely load evil-surround so that extra pairs can be loaded in time
 (require 'evil-surround)
