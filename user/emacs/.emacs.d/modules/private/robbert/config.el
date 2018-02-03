@@ -162,8 +162,8 @@
       ;; doom-line-numbers-style 'relative ;; FIXME: Broken right now
       doom-font (font-spec :family "Input Mono"
                            :width 'semi-condensed
-                           :size (if (eq system-name "laptop") 18 16))
-      doom-big-font (font-spec :family "Input Mono" :size 32))
+                           :size (if (equal system-name "laptop") 18 16))
+      doom-big-font (font-spec :family "Input Mono" :size 29))
 
 ;; Disable blinking
 (add-hook! :append 'doom-init-ui-hook
