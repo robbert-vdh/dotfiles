@@ -108,10 +108,13 @@ http://emacsredux.com/blog/2013/04/03/delete-file-and-buffer/."
   indentation on paste.")
 
 ;;;###autoload
-(defun +robbert/indent-paste-advise (original-function &rest args)
+(defun +robbert/indent-paste-advise (original-function prefix &rest args)
   "Automatically indent pasted code. See
 `+robbert/indentation-sensitive-modes'."
-  (if (member major-mode +robbert/indentation-sensitive-modes)
+  ;; Don't auto indent when the mode is indentation sensitive or a prefix
+  ;; argument is set
+  (if (or (member major-mode +robbert/indentation-sensitive-modes)
+          (equal '(4) prefix))
       (apply original-function args)
     (let ((inhibit-message t))
       (evil-start-undo-step)
