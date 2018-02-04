@@ -4,9 +4,9 @@
 
 cd ~/.emacs.d/
 
-old_revision=$(git show-ref HEAD)
+old_revision=$(git rev-parse HEAD)
 git pull --rebase
-new_revision=$(git show-ref HEAD)
+new_revision=$(git rev-parse HEAD)
 
 if [[ $old_revision != $new_revision ]]; then
   make autoloads autoremove install update compile-core
