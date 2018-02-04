@@ -108,20 +108,23 @@ http://emacsredux.com/blog/2013/04/03/delete-file-and-buffer/."
   indentation on paste.")
 
 ;;;###autoload
-(defun +robbert/indent-paste-advise (original-function prefix &rest args)
+(defun +robbert/indent-paste-advise (original-function &rest args)
   "Automatically indent pasted code. See
 `+robbert/indentation-sensitive-modes'."
-  ;; Don't auto indent when the mode is indentation sensitive or a prefix
-  ;; argument is set
-  (if (or (member major-mode +robbert/indentation-sensitive-modes)
-          (equal '(4) prefix))
-      (apply original-function args)
-    (let ((inhibit-message t))
+  (if (or (member major-mode +robbert/indentation-sensitive-modes))
+      (apply original-function (cdr args))
+    (let ((inhibit-message t)
+          (transient-mark-mode nil))
       (evil-start-undo-step)
-      (apply original-function args)
+      ;; This would otherwise cause double highlighting
+      (let ((evil-goggles-mode nil))
+        (apply original-function args))
       ;; Only indent whent the region is not too large
       (when (<= (- (region-end) (region-beginning)) +robbert/indentation-max-length)
-        (indent-region (region-beginning) (region-end)))
+        (indent-region (region-beginning) (region-end) nil))
+      ;; HACK: For some reason the `(evil-end-undo-step)' moves the point one
+      ;;       unit to the left when in insert mode
+      (when (evil-insert-state-p) (forward-char))
       (evil-end-undo-step))))
 
 ;; Add keybindings for locating a file in a directory or in the current
