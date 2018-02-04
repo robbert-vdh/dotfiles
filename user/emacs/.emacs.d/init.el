@@ -34,6 +34,8 @@
 ;; This won't get set otherwise
 (def-package-hook! evil :pre-init (setq evil-want-C-u-scroll t) t)
 (def-package-hook! evil :post-init (setq evil-want-Y-yank-to-eol nil) t)
+;; DIsable evil-snipe's s/S searching
+(def-package-hook! evil-snipe :post-init (remove-hook 'doom-post-init 'evil-snipe-mode) t)
 ;; The tng-frontend should be added before `company-quickhelp' gets loaded, or
 ;; else it will get overridden
 (def-package-hook! company :post-config
