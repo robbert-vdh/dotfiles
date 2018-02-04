@@ -100,13 +100,26 @@ http://emacsredux.com/blog/2013/04/03/delete-file-and-buffer/."
       (newline nil t)
       (indent-according-to-mode))))
 
+(defvar +robbert/indentation-sensitive-modes '()
+  "Modes that should not automatically indent when pasting")
+
+(defvar +robbert/indentation-max-length 2000
+  "The maximum length in characters for which to apply automatic
+  indentation on paste.")
+
 ;;;###autoload
-(defun +robbert/indent-pasted-text ()
-  "Indents whatever was just pasted."
-  (interactive)
-  (save-excursion
-    (+evil/reselect-paste)
-    (call-interactively 'indent-region)))
+(defun +robbert/indent-paste-advise (original-function &rest args)
+  "Automatically indent pasted code. See
+`+robbert/indentation-sensitive-modes'."
+  (if (member major-mode +robbert/indentation-sensitive-modes)
+      (apply original-function args)
+    (let ((inhibit-message t))
+      (evil-start-undo-step)
+      (apply original-function args)
+      ;; Only indent whent the region is not too large
+      (when (<= (- (region-end) (region-beginning)) +robbert/indentation-max-length)
+        (indent-region (region-beginning) (region-end)))
+      (evil-end-undo-step))))
 
 ;; Add keybindings for locating a file in a directory or in the current
 ;; project, even when it's ignored.

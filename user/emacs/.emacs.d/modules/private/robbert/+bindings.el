@@ -10,7 +10,6 @@
  :i "RET"      #'+robbert/newline-and-indent
  :i [(meta return)]   #'doom/newline-and-indent ;;
  :ne [(shift meta f)] #'counsel-rg ;; As a complement to the `M-f' Swiper defined in +defualt
- :ni "M-p"     #'+robbert/indent-pasted-text
  :nvie "M-q"   #'fill-paragraph ;; Doom Emacs overrides this to quit by default
  :v "C-u"      #'evil-scroll-up ;; `evil-want-C-u-scroll' doesn't do anything in visual mode
 
