@@ -134,6 +134,7 @@
 
 (after! rust-mode
   ;; Add missing confugration
+  (setq rust-format-on-save t)
   (set! :electric '(rust-mode) :chars '(?\n ?\}))
   (add-hook! 'rust-mode-hook '(highlight-numbers-mode flycheck-mode)))
 
