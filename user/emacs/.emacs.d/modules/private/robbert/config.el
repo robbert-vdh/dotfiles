@@ -156,21 +156,29 @@
       completion-styles '(partial-completion initials)
       confirm-nonexistent-file-or-buffer nil
       evil-goggles-duration 0.25
+      evil-want-C-u-scroll t
+      evil-want-Y-yank-to-eol nil
       ;; Order should only matter when fuzzy searching within a file
       ivy-re-builders-alist '((swiper . ivy--regex-plus)
                               (t      . ivy--regex-ignore-order))
       nav-flash-delay 0.25
+      show-trailing-whitespace t
       which-key-idle-delay 0.4
+
       +org-dir (expand-file-name "~/Documenten/notes/")
       ;; doom-line-numbers-style 'relative ;; FIXME: Broken right now
       doom-font (font-spec :family "Input Mono"
                            :width 'semi-condensed
                            :size (if (equal system-name "laptop") 18 16))
+      doom-variable-pitch-font (font-spec :family "Roboto")
       doom-big-font (font-spec :family "Input Mono" :size 29))
 
 ;; Disable blinking
 (add-hook! :append 'doom-init-ui-hook
   (blink-cursor-mode -1))
+
+;; Trailing whitespace is not important when working with the minibuffer
+(add-hook! minibuffer-setup (setq-local show-trailing-whitespace nil))
 
 ;; evil-org provides better key bindings already
 (remove-hook 'org-load-hook '+org|setup-keybinds)
