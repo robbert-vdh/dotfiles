@@ -29,9 +29,9 @@
 
 (def-package! evil-org
   :after org
+  :hook (org-mode-hook . evil-org-mode)
   :config
   (setq evil-org-use-additional-insert t)
-  (add-hook 'org-mode-hook #'evil-org-mode)
   (add-hook! 'evil-org-mode-hook (evil-org-set-key-theme)))
 
 (def-package! langtool

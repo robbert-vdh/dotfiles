@@ -29,6 +29,8 @@
      :desc "Copy to clipboard"       :n "Y"  #'+robbert/buffer-to-clipboard)
 
    (:desc "file"                     :prefix "f"
+     :desc "Find file in dotfiles"   :n "d"  #'+robbert/find-in-dotfiles
+     :desc "Browse dotfiles"         :n "D"  #'+robbert/browse-dotfiles
      :desc "Delete current file"     :n "k"  #'+robbert/delete-file-and-buffer)
 
    (:desc "git"                      :prefix "g"
