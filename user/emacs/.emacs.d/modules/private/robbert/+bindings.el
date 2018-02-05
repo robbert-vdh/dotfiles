@@ -14,7 +14,7 @@
  :v "C-u"      #'evil-scroll-up ;; `evil-want-C-u-scroll' doesn't do anything in visual mode
 
  :m "[a" #'+robbert/languagetool-previous-error
- :m "]a" #'+robbert/langaugetool-next-error
+ :m "]a" #'+robbert/languagetool-next-error
 
  (:leader
    (:desc "search"                   :prefix "/"
