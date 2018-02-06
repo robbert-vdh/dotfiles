@@ -88,6 +88,11 @@
           ("HACK"  . ,(face-foreground 'error))
           ("NOTE"  . ,(face-foreground 'success)))))
 
+(after! ivy
+  ;; Use ivy for minibuffer completion, Doom disables this by default
+  (setq ivy-do-completion-in-region t
+        completion-in-region-function 'ivy-completion-in-region))
+
 (after! python
   ;; Python docstrings should always be on multiple lines
   (setq python-fill-docstring-style 'django))
