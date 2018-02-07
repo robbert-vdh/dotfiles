@@ -57,6 +57,9 @@
   (do-repeat! evil-find-char-to evil-repeat-find-char evil-repeat-find-char-reverse)
   (do-repeat! evil-find-char-to-backward evil-repeat-find-char evil-repeat-find-char-reverse))
 
+(after! evil-snipe
+  (remove-hook 'doom-post-init-hook #'evil-snipe-mode))
+
 (after! evil-surround
   ;; Add evil-surround support for common markup symbols
   (dolist (pair '((?$ . ("$" . "$")) (?= . ("=" . "=")) (?~ . ("~" . "~"))
@@ -210,6 +213,9 @@
 (loop for (mode . value) in '((php-mode-hook . 120)
                               (rust-mode-hook . 100))
       do (add-hook mode `(lambda () (setq fill-column ,value))))
+
+;; Twig is missing highlighting
+(add-to-list 'auto-mode-alist '("\\.twig$" . web-mode))
 
 ;; Flycheck popup tweaks
 (setq flycheck-pos-tip-timeout 15)
