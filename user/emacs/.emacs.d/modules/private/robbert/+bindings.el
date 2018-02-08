@@ -63,11 +63,10 @@
      :nm "}"      #'diff-hunk-next))
 
  (:after evil-org
-   (:map evil-org-mode-map
-     :ni "M-o"    #'+robbert/evil-org-always-open-below
-     :ni "M-RET"  #'+robbert/evil-org-always-open-below)
-   ;; Not sure why, but org somehow overrides the binding without this
    (:map org-mode-map
+     :ni "M-o"    #'+robbert/evil-org-always-open-below
+     :ni "M-RET"  #'+robbert/evil-org-always-open-below
+     ;; Not sure why, but org somehow overrides the binding without this
      :nmi [remap outline-insert-heading] #'+robbert/evil-org-always-open-below))
 
  (:after flycheck
