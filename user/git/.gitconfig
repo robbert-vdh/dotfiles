@@ -3,14 +3,16 @@
 	email = mail@robbertvanderhelm.nl
 [diff]
 	compactionHeuristic = true
-  indentHeuristic = true
+	indentHeuristic = true
 	tool = kdiff3
 [commit]
 	verbose = true
+[pull]
+	rebase = true
 [core]
-  editor = vim
-  excludesfile = ~/.gitignore_global
-  pager = diff-so-fancy | less --tabs=4 -RFX
+	editor = vim
+	excludesfile = ~/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [merge]
 	conflictStyle = diff3
 [alias]
