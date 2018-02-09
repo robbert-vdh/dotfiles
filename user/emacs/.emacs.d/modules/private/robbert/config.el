@@ -179,7 +179,7 @@
       which-key-idle-delay 0.4
 
       +org-dir (expand-file-name "~/Documenten/notes/")
-      ;; doom-line-numbers-style 'relative ;; FIXME: Broken right now
+      doom-line-numbers-style 'relative
       doom-font (font-spec :family "Input Mono"
                            :width 'semi-condensed
                            :size (if (equal system-name "laptop") 18 16))
