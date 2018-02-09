@@ -152,8 +152,8 @@
   (add-hook! 'rust-mode-hook '(highlight-numbers-mode flycheck-mode)))
 
 (after! smartparens
-  ;; Automatically indent a block when pressing enter inside curly braces or
-  ;; square brackets
+  ;; Automatically indent a block when pressing enter inside curly braces,
+  ;; square brackets or parentheses
   (dolist (brace '("(" "{" "["))
     (sp-pair brace nil :post-handlers '(:add ("||\n[i]" "RET")))))
 
