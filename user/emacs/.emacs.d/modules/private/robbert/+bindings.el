@@ -82,7 +82,18 @@
  (:after ivy
    (:map ivy-minibuffer-map
      "C-d"        #'ivy-scroll-up-command
-     "C-u"        #'ivy-scroll-down-command))
+     "C-u"        #'ivy-scroll-down-command)
+
+   (:map ivy-occur-mode-map
+     :n "RET"     #'ivy-occur-press-and-switch
+     :n "C-SPC"   #'ivy-occur-press
+     :n "M-RET"   #'ivy-occur-press
+     :n "j"       #'ivy-occur-next-line
+     :n "k"       #'ivy-occur-previous-line
+     :n "ga"      #'ivy-occur-read-action
+     :n "M-o"     #'ivy-occur-dispatch
+     :n "gr"      #'ivy-occur-revert-buffer
+     :n "q"       #'quit-window))
 
  (:after term
    (:map term-raw-map
