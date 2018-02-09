@@ -63,6 +63,7 @@
   (defun +robbert/disable-evil-snipe-once ()
     (remove-hook 'evil-snipe-mode-hook '+robbert/disable-evil-snipe-once)
     (evil-snipe-mode -1))
+  (evil-snipe-override-mode -1)
   (add-hook 'evil-snipe-mode-hook '+robbert/disable-evil-snipe-once))
 
 (after! evil-surround
