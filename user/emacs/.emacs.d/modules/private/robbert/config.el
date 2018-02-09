@@ -172,8 +172,8 @@
       evil-goggles-duration 0.25
       evil-want-C-u-scroll t
       evil-want-Y-yank-to-eol nil
-      ;; Order should only matter when fuzzy searching within a file
-      ivy-re-builders-alist '((swiper . ivy--regex-plus)
+      ;; Order should not matter when searching
+      ivy-re-builders-alist '(;; (swiper . ivy--regex-plus)
                               (t      . ivy--regex-ignore-order))
       nav-flash-delay 0.25
       show-trailing-whitespace t
