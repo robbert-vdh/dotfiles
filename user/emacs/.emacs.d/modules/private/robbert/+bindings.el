@@ -31,7 +31,8 @@
    (:desc "file"                     :prefix "f"
      :desc "Find file in dotfiles"   :n "d"  #'+robbert/find-in-dotfiles
      :desc "Browse dotfiles"         :n "D"  #'+robbert/browse-dotfiles
-     :desc "Delete current file"     :n "k"  #'+robbert/delete-file-and-buffer)
+     :desc "Delete current file"     :n "k"  #'+robbert/delete-file-and-buffer
+     :desc "Open file externally"    :n "x"  #'counsel-find-file-extern)
 
    (:desc "git"                      :prefix "g"
      :desc "Git blame (follow copy)" :n "b"  #'+robbert/magit-blame-follow-copy
@@ -67,7 +68,10 @@
      :ni "M-o"    #'+robbert/evil-org-always-open-below
      :ni "M-RET"  #'+robbert/evil-org-always-open-below
      ;; Not sure why, but org somehow overrides the binding without this
-     :nmi [remap outline-insert-heading] #'+robbert/evil-org-always-open-below))
+     :nmi [remap outline-insert-heading] #'+robbert/evil-org-always-open-below)
+
+   (:map org-columns-map
+     :nm "q"      #'org-columns-quit))
 
  (:after flycheck
    (:map flycheck-error-list-mode-map

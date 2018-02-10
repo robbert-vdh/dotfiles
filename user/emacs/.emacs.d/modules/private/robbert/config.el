@@ -187,6 +187,10 @@
       doom-variable-pitch-font (font-spec :family "Roboto")
       doom-big-font (font-spec :family "Input Mono" :size 29))
 
+;; Fix xdg-open and similar progrems not openening. Not sure why this is needed,
+;; and might break others things.
+(setq process-connection-type nil)
+
 ;; Disable blinking
 (add-hook! :append 'doom-init-ui-hook
   (blink-cursor-mode -1))
