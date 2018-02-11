@@ -299,8 +299,6 @@ exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk
 # Start KeePassXC on the last workspace
 exec --no-startup-id keepassxc
-# Preload an Emacs daemon
-exec --no-startup-id emacs --daemon
 # Launch Albert
 exec --no-startup-id albert
 

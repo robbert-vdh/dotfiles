@@ -247,3 +247,7 @@
 
 ;; Explicitely load evil-surround so that extra pairs can be loaded in time
 (require 'evil-surround)
+
+;; Doom Emacs doesn't play along nicely with the noninteractive Emacs daemon,
+;; but server functinoaly is still very useful
+(server-start)
