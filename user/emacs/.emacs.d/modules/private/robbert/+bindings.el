@@ -68,10 +68,7 @@
      :ni "M-o"    #'+robbert/evil-org-always-open-below
      :ni "M-RET"  #'+robbert/evil-org-always-open-below
      ;; Not sure why, but org somehow overrides the binding without this
-     :nmi [remap outline-insert-heading] #'+robbert/evil-org-always-open-below)
-
-   (:map org-columns-map
-     :nm "q"      #'org-columns-quit))
+     :nmi [remap outline-insert-heading] #'+robbert/evil-org-always-open-below))
 
  (:after flycheck
    (:map flycheck-error-list-mode-map
