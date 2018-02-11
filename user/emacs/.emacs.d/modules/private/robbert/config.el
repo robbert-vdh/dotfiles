@@ -106,6 +106,11 @@
   ;; Python docstrings should always be on multiple lines
   (setq python-fill-docstring-style 'django))
 
+(after! omnisharp
+  ;; FIXME: This should not be necesary as aldoc is already enabled for
+  ;;        `csharp-mode'
+  (add-hook 'omnisharp-mode-hook 'eldoc-mode))
+
 (after! org
   ;; Restore default indentation behavior
   (remove-hook! 'org-mode-hook '(org-indent-mode visual-line-mode))
