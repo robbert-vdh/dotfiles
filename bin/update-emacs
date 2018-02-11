@@ -3,10 +3,15 @@
 # Updates and rebases Spacemacs automatically
 
 cd ~/.emacs.d/
+[[ -z $(git diff) ]] || should_stash=true
 
+[[ $should_stash = true ]] && git stash >/dev/null
 old_revision=$(git rev-parse HEAD)
 git pull --rebase
 new_revision=$(git rev-parse HEAD)
+[[ $should_stash = true ]] && ( \
+  git stash pop >/dev/null || \
+  (echo "Unstashing failed, you should manually fix ~/.emacs.d/."; exit 1))
 
 if [[ $old_revision != $new_revision ]]; then
   make autoloads autoremove install update compile-core
