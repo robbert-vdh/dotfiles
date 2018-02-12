@@ -34,6 +34,20 @@
   (setq evil-org-use-additional-insert t)
   (add-hook! 'evil-org-mode-hook (evil-org-set-key-theme)))
 
+(def-package! ggtags
+  :config
+  (add-hook 'ggtags-mode-hook #'eldoc-mode)
+  ;; Sort global results by nearness. This helps when editing Sass, as the
+  ;; default variables will have a lower priority.
+  (setq ggtags-sort-by-nearness t)
+  ;; Fix gtags for Sass. Pygments has got a parser that works great, but it
+  ;; doesn't use the dollar sign prefix. We'll have to manually add the jump
+  ;; handler to scss-mode as there are not any yet.
+  (add-hook! 'scss-mode-hook (modify-syntax-entry ?$ "'") (modify-syntax-entry ?% "."))
+  (add-hook 'scss-mode-hook #'ggtags-mode)
+  (set! :lookup 'scss-mode :definition ggtags-find-tag-dwim :references ggtags-find-reference)
+  (set! :company-backend '(css-mode scss-mode) 'company-gtags 'company-css))
+
 (def-package! langtool
   :config
   (setq langtool-disabled-rules '("WHITESPACE_RULE")
@@ -231,6 +245,13 @@
 
 ;; Twig is missing highlighting
 (add-to-list 'auto-mode-alist '("\\.twig$" . web-mode))
+
+;; Fix jumping to Sass files when the leading underscore is ommitted
+(add-to-list 'ffap-alist
+             '(scss-mode . (λ! (filename) (replace-regexp-in-string
+                                           "^\\(.*?\\)\\([^/]+\\)$"
+                                           "\\1_\\2.scss"
+                                           filename))))
 
 ;; Flycheck popup tweaks
 (setq flycheck-pos-tip-timeout 15)
