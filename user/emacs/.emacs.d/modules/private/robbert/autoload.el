@@ -76,6 +76,15 @@ http://emacsredux.com/blog/2013/04/03/delete-file-and-buffer/."
   (modify-syntax-entry ?- "w"))
 
 ;;;###autoload
+(defun +robbert/generate-scss-tags ()
+  "(Re)generate SCSS tags for the current project. This will
+  overwrite all existing tags."
+  (interactive)
+  (projectile-with-default-dir (projectile-project-root)
+    (shell-command "find node_modules/bootstrap node_modules/foundation-sites assets public src -iname '*.scss' >gtags.files 2>/dev/null")
+    (shell-command "gtags --gtagslabel pygments")))
+
+;;;###autoload
 (defun +robbert/newline-and-indent ()
   "Inserts a newline and possibly indents it. This is the same as
 `+doom/newline-and-indent' but without the comment handling."
