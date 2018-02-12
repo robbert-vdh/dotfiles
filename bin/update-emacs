@@ -20,4 +20,4 @@ else
 fi
 
 # Just in case the daemon is still running
-kill $(emacsclient -en "(emacs-pid)" 2>/dev/null) 2>/dev/null
+kill $(emacsclient -en "(emacs-pid)" 2>/dev/null) 2>/dev/null || true
