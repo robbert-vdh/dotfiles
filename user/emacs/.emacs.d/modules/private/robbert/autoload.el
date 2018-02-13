@@ -77,8 +77,8 @@ http://emacsredux.com/blog/2013/04/03/delete-file-and-buffer/."
 
 ;;;###autoload
 (defun +robbert/generate-scss-tags ()
-  "(Re)generate SCSS tags for the current project. This will
-  overwrite all existing tags."
+  "Regenerate SCSS tags for the current project. This will overwrite all
+existing tags."
   (interactive)
   (projectile-with-default-dir (projectile-project-root)
     (shell-command "find node_modules/bootstrap node_modules/foundation-sites assets public src -iname '*.scss' >gtags.files 2>/dev/null")

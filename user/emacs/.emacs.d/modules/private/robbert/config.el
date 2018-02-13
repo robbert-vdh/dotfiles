@@ -35,6 +35,7 @@
   (add-hook! 'evil-org-mode-hook (evil-org-set-key-theme)))
 
 (def-package! ggtags
+  :commands (ggtags-find-tag-dwim ggtags-find-reference)
   :config
   (add-hook 'ggtags-mode-hook #'eldoc-mode)
   ;; Sort global results by nearness. This helps when editing Sass, as the
@@ -45,7 +46,7 @@
   ;; handler to scss-mode as there are not any yet.
   (add-hook! 'scss-mode-hook (modify-syntax-entry ?$ "'") (modify-syntax-entry ?% "."))
   (add-hook 'scss-mode-hook #'ggtags-mode)
-  (set! :lookup 'scss-mode :definition ggtags-find-tag-dwim :references ggtags-find-reference)
+  (set! :lookup 'scss-mode :definition #'ggtags-find-tag-dwim :references #'ggtags-find-reference)
   (set! :company-backend '(css-mode scss-mode) 'company-gtags 'company-css))
 
 (def-package! langtool
