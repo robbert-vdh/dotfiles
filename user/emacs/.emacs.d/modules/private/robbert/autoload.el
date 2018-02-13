@@ -122,14 +122,30 @@ existing tags."
       (when (evil-insert-state-p) (forward-char))
       (evil-end-undo-step))))
 
-;; Add keybindings for locating a file in a directory or in the current
-;; project, even when it's ignored.
 ;;;###autoload
 (defun +robbert/magit-blame-follow-copy ()
   "Blame with the `-wCCC' options, telling Git to track copied
 text"
   (interactive)
   (magit-blame magit-buffer-refname buffer-file-name '("-wCCC")))
+
+;;;###autoload
+(defun +robbert--is-terminal-buffer-p (buffer)
+  (with-current-buffer (cdr buffer)
+    (memq major-mode '(term-mode multi-term-mode shell-mode eshell-mode))))
+
+;;;###autoload
+(defun +robbert/switch-terminal-buffer ()
+  "Switch to a terminal buffer. This is useful when multiple
+multi-term buffers are open at once."
+  (interactive)
+  (ivy-read "Switch to terminal: " 'internal-complete-buffer
+            :predicate #'+robbert--is-terminal-buffer-p
+            :matcher #'ivy--switch-buffer-matcher
+            :preselect (buffer-name (other-buffer (current-buffer)))
+            :action #'ivy--switch-buffer-action
+            :keymap ivy-switch-buffer-map
+            :caller '+robbert/switch-terminal-buffer))
 
 ;;;###autoload
 (define-minor-mode pleb-mode

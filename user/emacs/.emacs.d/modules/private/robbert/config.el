@@ -121,6 +121,15 @@
   ;; Python docstrings should always be on multiple lines
   (setq python-fill-docstring-style 'django))
 
+(after! multi-term
+  ;; Term-mode only allows binding new keys using an alist
+  (dolist
+      (bind '(("C-c b" . +robbert/switch-terminal-buffer)
+              ("C-c j" . multi-term-next)
+              ("C-c k" . multi-term-prev)
+              ("C-c n" . multi-term)))
+    (add-to-list 'term-bind-key-alist bind)))
+
 (after! omnisharp
   ;; FIXME: This should not be necesary as aldoc is already enabled for
   ;;        `csharp-mode'
