@@ -96,6 +96,15 @@
      :n "gr"      #'ivy-occur-revert-buffer
      :n "q"       #'quit-window))
 
+ ;; Python offers some nicer ways to work with REPLs
+ (:after python
+   (:map python-mode-map
+     (:localleader
+       (:desc "REPL send"  :prefix "r"
+         :desc "Buffer"    :nv "b" #'python-shell-send-buffer
+         :desc "Function"  :nv "f" #'python-shell-send-defun
+         :desc "Region"    :nv "r" #'python-shell-send-region))))
+
  (:after term
    (:map term-raw-map
      ;; Manage multiple terminals
