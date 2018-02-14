@@ -13,7 +13,7 @@ for file in files:
     if not tracks or tracks[0].duration is None:
         continue
 
-    duration = int(float(tracks[0].duration))
+    duration = int(tracks[0].duration / 1000)
     minutes, seconds = divmod(duration, 60)
     hours, minutes = divmod(minutes, 60)
     runtime = "{}s".format(seconds)
