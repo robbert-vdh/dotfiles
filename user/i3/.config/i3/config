@@ -272,6 +272,9 @@ bindsym $mod+F11 exec --no-startup-id "pkill panel; xfce4-panel"
 # Toggle the compositor
 bindsym $mod+F12 exec --no-startup-id pkill compton || compton --respect-prop-shadow
 
+# Banter
+bindsym $mod+F1 exec --no-startup-id ssh candy@stichting-raam ffplay /home/candy/Music/mlg-airhorn.mp3
+
 #
 # Spotify doesn't bind its own media keys
 #
