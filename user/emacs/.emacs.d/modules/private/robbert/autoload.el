@@ -34,20 +34,6 @@ Copied from Spacemacs."
   (clipboard-yank)
   (deactivate-mark))
 
-;;;###autoload
-(defun +robbert/delete-file-and-buffer ()
-  "Kill the current buffer and deletes the file it is visiting.
-Take from
-http://emacsredux.com/blog/2013/04/03/delete-file-and-buffer/."
-  (interactive)
-  (when (and buffer-file-name (yes-or-no-p "Really delete current file?"))
-    (if (vc-backend buffer-file-name)
-        (vc-delete-file buffer-file-name)
-      (progn
-        (delete-file buffer-file-name)
-        (message "Deleted file %s" buffer-file-name)
-        (kill-buffer)))))
-
 ;; Add an easier 'insert item after this line' keybinding. evil-org only
 ;; inserts a new item when the bullet is on the current line.
 ;;;###autoload
@@ -177,6 +163,8 @@ multi-term buffers are open at once."
   (interactive "p")
   (dotimes (_ count) (langtool-goto-previous-error))
   (langtool-show-message-at-point))
+
+(autoload 'langtool-check-buffer "langtool" nil t)
 
 ;;;###autoload
 (defun +robbert/languagetool-toggle ()

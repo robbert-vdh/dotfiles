@@ -49,11 +49,6 @@
   (set! :lookup 'scss-mode :definition #'ggtags-find-tag-dwim :references #'ggtags-find-reference)
   (set! :company-backend '(css-mode scss-mode) 'company-gtags 'company-css))
 
-(def-package! langtool
-  :config
-  (setq langtool-disabled-rules '("WHITESPACE_RULE")
-        langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*"))
-
 ;;; Overrides
 
 ;; `counsel-projectile-rg' doesn't get autoloaded in the default config
@@ -116,6 +111,10 @@
   ;; Use ivy for minibuffer completion, Doom disables this by default
   (setq ivy-do-completion-in-region t
         completion-in-region-function 'ivy-completion-in-region))
+
+(after! langtool
+  (setq langtool-disabled-rules '("WHITESPACE_RULE")
+        langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*"))
 
 (after! python
   ;; Python docstrings should always be on multiple lines
@@ -180,12 +179,6 @@
   (setq rust-format-on-save t)
   (set! :electric '(rust-mode) :chars '(?\n ?\}))
   (add-hook! 'rust-mode-hook '(highlight-numbers-mode flycheck-mode)))
-
-(after! smartparens
-  ;; Automatically indent a block when pressing enter inside curly braces,
-  ;; square brackets or parentheses
-  (dolist (brace '("(" "{" "["))
-    (sp-pair brace nil :post-handlers '(:add ("||\n[i]" "RET")))))
 
 (after! yasnippet
   ;; `~/.emacs/snippets' should come first as it's used as the default snippet

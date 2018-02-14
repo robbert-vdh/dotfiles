@@ -8,10 +8,10 @@
 
  :ni "C-S-SPC" #'company-yasnippet
  :i "RET"      #'+robbert/newline-and-indent
- :i [(meta return)]   #'doom/newline-and-indent ;;
+ :i [(meta return)]   #'newline-and-indent ;; The default is adviced to continue comments
  :ne [(shift meta f)] #'counsel-rg ;; As a complement to the `M-f' Swiper defined in +defualt
- :nvie "M-q"   #'fill-paragraph ;; Doom Emacs overrides this to quit by default
- :v "C-u"      #'evil-scroll-up ;; `evil-want-C-u-scroll' doesn't do anything in visual mode
+ :nvie "M-q"   #'fill-paragraph    ;; Doom Emacs overrides this to quit by default
+ :v "C-u"      #'evil-scroll-up    ;; `evil-want-C-u-scroll' doesn't do anything in visual mode
 
  :m "[a" #'+robbert/languagetool-previous-error
  :m "]a" #'+robbert/languagetool-next-error
@@ -31,7 +31,9 @@
    (:desc "file"                     :prefix "f"
      :desc "Find file in dotfiles"   :n "d"  #'+robbert/find-in-dotfiles
      :desc "Browse dotfiles"         :n "D"  #'+robbert/browse-dotfiles
-     :desc "Delete current file"     :n "k"  #'+robbert/delete-file-and-buffer
+     :desc "Delete current file"     :n "k"  #'doom/delete-this-file
+     :desc "Move current file"       :n "m"  #'doom/move-this-file
+     :desc "Copy current file"       :n "M"  #'doom/copy-this-file
      :desc "Open file externally"    :n "x"  #'counsel-find-file-extern)
 
    (:desc "git"                      :prefix "g"

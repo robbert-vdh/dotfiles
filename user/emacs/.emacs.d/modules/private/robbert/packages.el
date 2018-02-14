@@ -6,4 +6,3 @@
 (package! evil-magit)
 (package! evil-org)
 (package! ggtags)
-(package! langtool)

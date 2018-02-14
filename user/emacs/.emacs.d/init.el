@@ -92,7 +92,7 @@
        make              ; run make tasks from Emacs
        neotree           ; a project drawer, like NERDTree for vim
       ;password-store    ; password manager for nerds
-      ;pdf               ; pdf enhancements
+       pdf               ; pdf enhancements
        rotate-text       ; cycle region at point between text candidates
        term              ; terminals in Emacs
        tmux              ; an API for interacting with tmux
@@ -149,7 +149,9 @@
       ;irc               ; how neckbeards socialize
       ;rss               ; emacs as an RSS reader
       ;twitter           ; twitter client https://twitter.com/vnought
-       write             ; emacs as a word processor (latex + org + markdown)
+       (write            ; emacs as a word processor (latex + org + markdown)
+        +wordnut         ; wordnet (wn) search
+        +langtool)       ; a proofreader (grammar/style check) for Emacs
 
        ;; Private modules are where you place your personal configuration files.
        ;; By default, they are not tracked. There is one module included here,
