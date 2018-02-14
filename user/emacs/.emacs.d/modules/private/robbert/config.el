@@ -212,6 +212,7 @@
 ;; Fix xdg-open and similar progrems not openening. Not sure why this is needed,
 ;; and might break others things.
 (setq process-connection-type nil)
+(add-hook! 'term-mode-hook (setq-local process-connection-type t))
 
 ;; Disable blinking
 (add-hook! :append 'doom-init-ui-hook
