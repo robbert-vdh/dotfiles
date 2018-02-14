@@ -286,4 +286,4 @@
 
 ;; Doom Emacs doesn't play along nicely with the noninteractive Emacs daemon,
 ;; but server functinoaly is still very useful
-(server-start)
+(unless (server-running-p) (server-start))
