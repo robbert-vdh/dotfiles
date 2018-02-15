@@ -37,6 +37,14 @@ client.urgent           $color-alert      $color-bg         $color-text #900000 
 client.placeholder      #000000           $color-bg         $color-text #000000   $color-bg
 client.background       $color-text
 
+# Bind most workspaces to the laptop's screen by default
+workspace 1 output eDP-1
+workspace 2 output eDP-1
+workspace 3 output eDP-1
+workspace 4 output eDP-1
+workspace 5 output eDP-1
+workspace 10 output eDP-1
+
 # Start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec konsole
@@ -274,6 +282,7 @@ bindsym $mod+F12 exec --no-startup-id pkill compton || compton --respect-prop-sh
 
 # Banter
 bindsym $mod+F1 exec --no-startup-id ssh candy@stichting-raam ffplay /home/candy/Music/mlg-airhorn.mp3
+bindsym $mod+F2 exec --no-startup-id ssh candy@stichting-raam ffplay /home/candy/Music/and-his-name-is-john-cena-1.mp3
 
 #
 # Spotify doesn't bind its own media keys
