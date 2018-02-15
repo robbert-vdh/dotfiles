@@ -108,6 +108,7 @@
       ;elixir            ; erlang done right
       ;elm               ; care for a cup of TEA?
        emacs-lisp        ; drown in parentheses
+      ;ess               ; emacs speaks statistics
       ;go                ; the hipster dialect
        (haskell +intero) ; a language that's lazier than I am
       ;hy                ; readability of scheme w/ speed of python
@@ -153,9 +154,16 @@
         +wordnut         ; wordnet (wn) search
         +langtool)       ; a proofreader (grammar/style check) for Emacs
 
-       ;; Private modules are where you place your personal configuration files.
-       ;; By default, they are not tracked. There is one module included here,
-       ;; the defaults module. It contains a Spacemacs-inspired keybinding
-       ;; scheme and additional ex commands for evil-mode. Use it as a reference
-       ;; for your own.
-       :private (default +bindings +snippets +evil-commands) robbert)
+       :config
+       ;; The default module set reasonable defaults for Emacs. It also provides
+       ;; a Spacemacs-inspired keybinding scheme, a custom yasnippet library,
+       ;; and additional ex commands for evil-mode. Use it as a reference for
+       ;; your own modules.
+       (default +bindings +snippets +evil-commands)
+
+       ;; This allows you to store your private module at $XDG_CONFIG_HOME/doom.
+       ;; Without +xdg it uses ~/.doom.d/. If your config directory doesn't
+       ;; exist, this module does nothing.
+      ;(private +xdg)
+       
+       :private robbert)
