@@ -8,3 +8,6 @@ TextHinting=Enabled
 [Main View]
 ShowBottomBar=false
 ShowLeftPanel=false
+
+[PageView]
+MouseMode=TextSelect
