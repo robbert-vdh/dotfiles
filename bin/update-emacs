@@ -14,7 +14,7 @@ new_revision=$(git rev-parse HEAD)
   (echo "Unstashing failed, you should manually fix ~/.emacs.d/."; exit 1))
 
 if [[ $old_revision != $new_revision ]]; then
-  make autoloads autoremove install update compile-core
+  make clean autoloads autoremove install update compile-core
 else
   make update
 fi

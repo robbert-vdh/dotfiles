@@ -7,7 +7,15 @@
 ;; TODO: SPC / * to search for the word under the cursor
 
 (def-package! evil-ediff
-  :after ediff)
+  :after ediff
+  :config
+  ;; Ancestor is already shown in buffer C
+  (setq ediff-show-ancestor nil)
+  ;; Allow easy navigation between windows
+  (push '("\C-h" . evil-window-left)  evil-ediff-bindings)
+  (push '("\C-j" . evil-window-down)  evil-ediff-bindings)
+  (push '("\C-k" . evil-window-up)    evil-ediff-bindings)
+  (push '("\C-l" . evil-window-right) evil-ediff-bindings))
 
 (def-package! evil-lion
   :after evil
@@ -223,6 +231,9 @@
 
 ;; evil-org provides better key bindings already
 (remove-hook 'org-load-hook '+org|setup-keybinds)
+
+;; The smerge hydra is not always needed
+(remove-hook 'find-file-hook '+vcs|enable-smerge-mode-maybe)
 
 ;; Automatically delete trailing whitespace
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
