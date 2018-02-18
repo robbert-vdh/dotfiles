@@ -1,5 +1,5 @@
 ;; -*- no-byte-compile: t; -*-
-;;; private/robbert/packages.el
+;;; ~/.config/doom/packages.el
 
 (package! evil-ediff)
 (package! evil-lion)

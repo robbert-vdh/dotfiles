@@ -1,12 +1,4 @@
-;;; ../../.dotfiles/user/emacs/.emacs.d/modules/private/robbert/autoload.el -*- lexical-binding: t; -*-
-
-(setq +dotfiles-dir (expand-file-name "~/.dotfiles/"))
-;;;###autoload (autoload '+robbert/find-in-dotfiles "private/robbert/autoload" nil t)
-(+default--def-find-in!   dotfiles +dotfiles-dir robbert)
-;;;###autoload (autoload '+robbert/browse-dotfiles "private/robbert/autoload" nil t)
-(+default--def-browse-in! dotfiles +dotfiles-dir robbert)
-
-;;; Custom functions used in config and keybindigns
+;;; ~/.config/doom/autoload/functions.el -*- lexical-binding: t; -*-
 
 ;;;###autoload
 (defun +robbert/buffer-to-clipboard ()
@@ -187,7 +179,7 @@ LanguageTool. Flyspell errors will be cleared if the
   "Try to parse the current spell checking language for a usable
 locale string, as they may be different from what languagetool is
 expecting."
-  (when-let ((language (or ispell-local-dictionary ispell-dictionary)))
+  (when-let* ((language (or ispell-local-dictionary ispell-dictionary)))
     ;; We'll assume the language is either a locale or a named language (i.e.
     ;; "en_GB" or "english")
     (let* ((locale

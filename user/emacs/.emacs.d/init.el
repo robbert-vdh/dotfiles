@@ -29,22 +29,10 @@
 
 (require 'core (concat user-emacs-directory "core/core"))
 
-;;; Overrides
-
-;; This won't get set otherwise
-(def-package-hook! evil :pre-init (setq evil-want-C-u-scroll t) t)
-(def-package-hook! evil :post-init (setq evil-want-Y-yank-to-eol nil) t)
-;; The tng-frontend should be added before `company-quickhelp' gets loaded, or
-;; else it will get overridden
-(def-package-hook! company :post-config
-  (setq company-frontends
-        '(company-tng-frontend
-          company-preview-if-just-one-frontend
-          company-pseudo-tooltip-unless-just-one-frontend)) t)
-
-;;; Initialization
-
 (doom! :feature
+       (popup            ; tame sudden yet inevitable temporary windows
+        +all             ; catch all popups that start with an asterix
+        +defaults)       ; default popup rules
        debugger          ; FIXME stepping through code, to help you add bugs
        eval              ; run code, run (also, repls)
        evil              ; come to the dark side, we have cookies
@@ -52,9 +40,6 @@
        (lookup           ; helps you navigate your code and documentation
         +devdocs         ; ...on devdocs.io online
         +docsets)        ; ...or in Dash docsets locally
-       (popup            ; tame sudden yet inevitable temporary windows
-        +all             ; catch all popups that start with an asterix
-        +defaults)       ; default popup rules
        services          ; TODO managing external services & code builders
        snippets          ; my elves. They type so I don't have to
        spellcheck        ; tasing you for misspelling mispelling
@@ -79,7 +64,7 @@
       ;unicode           ; extended unicode support for various languages
       ;tabbar            ; FIXME an (incomplete) tab bar for Emacs
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
-       (window-select +ace-window)  ; visually switch windows
+       window-select     ; visually switch windows
 
        :tools
        dired             ; making dired pretty [functional]
@@ -145,7 +130,7 @@
        ;; toward a specific purpose. They may have additional dependencies and
        ;; should be loaded late.
        :app
-      ;email             ; emacs as an email client
+      ;(email +gmail)    ; emacs as an email client
       ;irc               ; how neckbeards socialize
       ;rss               ; emacs as an RSS reader
       ;twitter           ; twitter client https://twitter.com/vnought
@@ -163,6 +148,4 @@
        ;; This allows you to store your private module at $XDG_CONFIG_HOME/doom.
        ;; Without +xdg it uses ~/.doom.d/. If your config directory doesn't
        ;; exist, this module does nothing.
-      ;(private +xdg)
-
-       :private robbert)
+       (private +xdg))

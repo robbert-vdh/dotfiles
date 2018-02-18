@@ -1,4 +1,4 @@
-;;; private/robbert/config.el -*- lexical-binding: t; -*-
+;;; ~/.config/doom/config.el -*- lexical-binding: t; -*-
 
 (require 'cl)
 

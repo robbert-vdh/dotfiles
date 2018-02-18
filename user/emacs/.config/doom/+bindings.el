@@ -1,4 +1,4 @@
-;;; private/robbert/+bindings.el -*- lexical-binding: t; -*-
+;;; ~/.config/doom/+bindings.el -*- lexical-binding: t; -*-
 
 ;; FIXME: Keybindings with shift + meta are broken, so they use this weird
 ;;        vector notation
