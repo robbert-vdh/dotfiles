@@ -188,7 +188,7 @@
 (after! yasnippet
   ;; `~/.emacs/snippets' should come first as it's used as the default snippet
   ;; save location
-  (push yas--default-user-snippets-dir yas-snippet-dirs)
+  (push (expand-file-name "snippets" +private-config-path) yas-snippet-dirs)
   (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand))
 
 ;;; Settings
