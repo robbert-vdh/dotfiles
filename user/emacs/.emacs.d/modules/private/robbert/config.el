@@ -35,12 +35,9 @@
   ;; in here, so we'll disable it
   (add-hook! 'magit-mode-hook (evil-vimish-fold-mode -1)))
 
-(def-package! evil-org
-  :after org
-  :hook (org-mode . evil-org-mode)
-  :config
+(after! evil-org
   (setq evil-org-use-additional-insert t)
-  (add-hook! 'evil-org-mode-hook (evil-org-set-key-theme)))
+  (evil-org-set-key-theme))
 
 (def-package! ggtags
   :commands (ggtags-find-tag-dwim ggtags-find-reference)
@@ -228,9 +225,6 @@
 
 ;; Trailing whitespace is not important when working with the minibuffer
 (add-hook! minibuffer-setup (setq-local show-trailing-whitespace nil))
-
-;; evil-org provides better key bindings already
-(remove-hook 'org-load-hook '+org|setup-keybinds)
 
 ;; The smerge hydra is not always needed
 (remove-hook 'find-file-hook '+vcs|enable-smerge-mode-maybe)
