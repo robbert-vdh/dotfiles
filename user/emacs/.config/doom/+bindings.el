@@ -54,50 +54,47 @@
 
  (:after company
    (:map company-active-map
-     "C-a"        #'company-abort
-     "C-l"        #'company-complete
-     [tab]        #'+robbert/company-select-next-or-complete
-     "C-/"        #'counsel-company ;; Search the candidates using ivy
-     "RET"        nil
-     [escape]     nil))
+     "C-a"            #'company-abort
+     "C-l"            #'company-complete
+     [tab]            #'+robbert/company-select-next-or-complete
+     "C-/"            #'counsel-company ;; Search the candidates using ivy
+     "RET"            nil
+     [escape]         nil))
 
  (:after diff-mode
    (:map diff-mode-map
-     :nm "{"      #'diff-hunk-prev
-     :nm "}"      #'diff-hunk-next))
+     :nm "{"          #'diff-hunk-prev
+     :nm "}"          #'diff-hunk-next))
 
  (:after evil-org
-   (:map org-mode-map
-     :ni "M-o"    #'+robbert/evil-org-always-open-below
-     :ni "M-RET"  #'+robbert/evil-org-always-open-below
-     ;; Not sure why, but org somehow overrides the binding without this
-     :nmi [remap outline-insert-heading] #'+robbert/evil-org-always-open-below))
+   (:map evil-org-mode-map
+     :ni [M-return]   #'+robbert/evil-org-always-open-below))
 
  (:after flycheck
    (:map flycheck-error-list-mode-map
-     :m "M-RET"   #'flycheck-error-list-explain-erro))
+     :m "M-RET"       #'flycheck-error-list-explain-erro))
 
  (:after helpful
    (:map helpful-mode-map
-     :m "q"       #'quit-window
-     :m "ZZ"      #'quit-window
-     :m "ZQ"      #'quit-window))
+     :m "q"           #'quit-window
+     :m "ZZ"          #'quit-window
+     :m "ZQ"          #'quit-window))
 
  (:after ivy
    (:map ivy-minibuffer-map
-     "C-d"        #'ivy-scroll-up-command
-     "C-u"        #'ivy-scroll-down-command)
+     "C-d"            #'ivy-scroll-up-command
+     "C-u"            #'ivy-scroll-down-command)
 
    (:map ivy-occur-mode-map
-     :n "RET"     #'ivy-occur-press-and-switch
-     :n "C-SPC"   #'ivy-occur-press
-     :n "M-RET"   #'ivy-occur-press
-     :n "j"       #'ivy-occur-next-line
-     :n "k"       #'ivy-occur-previous-line
-     :n "ga"      #'ivy-occur-read-action
-     :n "M-o"     #'ivy-occur-dispatch
-     :n "gr"      #'ivy-occur-revert-buffer
-     :n "q"       #'quit-window))
+     :n "RET"         #'ivy-occur-press-and-switch
+     :n "C-SPC"       #'ivy-occur-press
+     :n "M-RET"       #'ivy-occur-press
+     :n "j"           #'ivy-occur-next-line
+     :n "k"           #'ivy-occur-previous-line
+     :n "ga"          #'ivy-occur-read-action
+     :n "M-o"         #'ivy-occur-dispatch
+     :n "gr"          #'ivy-occur-revert-buffer
+     :n "q"           #'quit-window))
 
  ;; Python offers some nicer ways to work with REPLs
  (:after python
