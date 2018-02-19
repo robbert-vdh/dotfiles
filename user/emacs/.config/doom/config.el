@@ -252,8 +252,10 @@
                               (rust-mode-hook . 100))
       do (add-hook mode `(lambda () (setq fill-column ,value))))
 
-;; Twig is missing highlighting
+;; Add missing syntax highlighting
 (add-to-list 'auto-mode-alist '("\\.twig$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.csproj$" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.ruleset$" . nxml-mode))
 
 ;; Fix jumping to Sass files when the leading underscore is ommitted
 (add-to-list 'ffap-alist
