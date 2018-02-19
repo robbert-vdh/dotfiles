@@ -137,7 +137,11 @@
 (after! omnisharp
   ;; FIXME: This should not be necesary as aldoc is already enabled for
   ;;        `csharp-mode'
-  (add-hook 'omnisharp-mode-hook 'eldoc-mode))
+  (add-hook 'omnisharp-mode-hook 'eldoc-mode)
+
+  ;; Use a more modern omnisharp server than the package specifies
+  (when (equal omnisharp-expected-server-version "1.26.3")
+    (setq omnisharp-expected-server-version "1.29.1")))
 
 (after! org
   ;; Restore default indentation behavior
