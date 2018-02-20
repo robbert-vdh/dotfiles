@@ -7,8 +7,8 @@
  [remap dabbrev-expand] #'hippie-expand
 
  :ni "C-S-SPC" #'company-yasnippet
- :i "RET"      #'+robbert/newline-and-indent
- :i [(meta return)]   #'newline-and-indent ;; The default is adviced to continue comments
+ :i "<return>" #'+robbert/newline-and-indent
+ :i [M-return] #'newline-and-indent ;; The default is adviced to continue comments
  :ne [(shift meta f)] #'counsel-rg ;; As a complement to the `M-f' Swiper defined in +defualt
  :nvie "M-q"   #'fill-paragraph    ;; Doom Emacs overrides this to quit by default
  :v "C-u"      #'evil-scroll-up    ;; `evil-want-C-u-scroll' doesn't do anything in visual mode
@@ -72,7 +72,7 @@
 
  (:after flycheck
    (:map flycheck-error-list-mode-map
-     :m "M-RET"       #'flycheck-error-list-explain-erro))
+     :m [M-return] #'flycheck-error-list-explain-erro))
 
  (:after helpful
    (:map helpful-mode-map
@@ -86,9 +86,9 @@
      "C-u"            #'ivy-scroll-down-command)
 
    (:map ivy-occur-mode-map
-     :n "RET"         #'ivy-occur-press-and-switch
+     :n "<return>"    #'ivy-occur-press-and-switch
      :n "C-SPC"       #'ivy-occur-press
-     :n "M-RET"       #'ivy-occur-press
+     :n [M-return]    #'ivy-occur-press
      :n "j"           #'ivy-occur-next-line
      :n "k"           #'ivy-occur-previous-line
      :n "ga"          #'ivy-occur-read-action
@@ -106,6 +106,9 @@
          :desc "Region"    :nv "r" #'python-shell-send-region))))
 
  (:after term
+   (:map term-mode-map
+     "C-c C-l"        #'+robbert/term-toggle-line-mode)
    (:map term-raw-map
      ;; Allow for window bindings in term-mode
-     "C-w"        evil-window-map)))
+     "C-w"            evil-window-map
+     :i "<return>"    #'term-send-return)))

@@ -128,16 +128,22 @@
 (after! multi-term
   ;; Term-mode only allows binding new keys using an alist
   (dolist
-      (bind '(("C-c b" . +robbert/switch-terminal-buffer)
-              ("C-c j" . multi-term-next)
-              ("C-c k" . multi-term-prev)
-              ("C-c n" . multi-term)))
+      (bind '(("C-c C-l" . +robbert/term-toggle-line-mode)
+              ("C-c C-z" . term-send-raw)
+              ("C-c b"   . +robbert/switch-terminal-buffer)
+              ("C-c j"   . multi-term-next)
+              ("C-c k"   . multi-term-prev)
+              ("C-c n"   . multi-term)))
     (add-to-list 'term-bind-key-alist bind)))
 
 (after! omnisharp
   ;; FIXME: This should not be necesary as aldoc is already enabled for
   ;;        `csharp-mode'
-  (add-hook 'omnisharp-mode-hook 'eldoc-mode))
+  (add-hook 'omnisharp-mode-hook 'eldoc-mode)
+
+  ;; Use a more modern omnisharp server than the package specifies
+  (when (equal omnisharp-expected-server-version "1.26.3")
+    (setq omnisharp-expected-server-version "1.29.1")))
 
 (after! org
   ;; Restore default indentation behavior
