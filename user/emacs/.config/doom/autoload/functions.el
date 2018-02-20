@@ -126,6 +126,17 @@ multi-term buffers are open at once."
             :caller '+robbert/switch-terminal-buffer))
 
 ;;;###autoload
+(defun +robbert/term-toggle-line-mode ()
+  "Toggles between line and char mode in term-mode."
+  (interactive)
+  (if (term-in-line-mode)
+      (progn
+        (evil-emacs-state)
+        (term-char-mode))
+    (evil-motion-state)
+    (term-line-mode)))
+
+;;;###autoload
 (define-minor-mode pleb-mode
   "Emacs for normal people"
   :lighter " PLEB"

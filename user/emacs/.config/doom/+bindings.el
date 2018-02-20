@@ -106,6 +106,8 @@
          :desc "Region"    :nv "r" #'python-shell-send-region))))
 
  (:after term
+   (:map term-mode-map
+     "C-c C-l"        #'+robbert/term-toggle-line-mode)
    (:map term-raw-map
      ;; Allow for window bindings in term-mode
      "C-w"            evil-window-map

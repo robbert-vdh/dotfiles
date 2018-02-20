@@ -128,10 +128,12 @@
 (after! multi-term
   ;; Term-mode only allows binding new keys using an alist
   (dolist
-      (bind '(("C-c b" . +robbert/switch-terminal-buffer)
-              ("C-c j" . multi-term-next)
-              ("C-c k" . multi-term-prev)
-              ("C-c n" . multi-term)))
+      (bind '(("C-c C-l" . +robbert/term-toggle-line-mode)
+              ("C-c C-z" . term-send-raw)
+              ("C-c b"   . +robbert/switch-terminal-buffer)
+              ("C-c j"   . multi-term-next)
+              ("C-c k"   . multi-term-prev)
+              ("C-c n"   . multi-term)))
     (add-to-list 'term-bind-key-alist bind)))
 
 (after! omnisharp
