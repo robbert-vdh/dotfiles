@@ -125,6 +125,10 @@
   ;; Python docstrings should always be on multiple lines
   (setq python-fill-docstring-style 'django))
 
+(after! markdown-mode
+  ;; Doom adds extra line spacing in markdown documents
+  (add-hook! :append markdown-mode (setq line-spacing nil)))
+
 (after! multi-term
   ;; Term-mode only allows binding new keys using an alist
   (dolist
