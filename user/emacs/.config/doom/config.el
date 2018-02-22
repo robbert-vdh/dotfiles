@@ -284,6 +284,9 @@
       scroll-margin 3)
 (add-hook! 'term-mode-hook (setq-local scroll-margin 0))
 
+;; Also highlight todos in text modes
+(add-hook 'text-mode-hook #'hl-todo-mode)
+
 ;; Auto reload PDFs
 (add-hook 'doc-view-mode-hook #'auto-revert-mode)
 
