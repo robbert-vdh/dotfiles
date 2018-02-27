@@ -96,6 +96,11 @@
      :n "gr"          #'ivy-occur-revert-buffer
      :n "q"           #'quit-window))
 
+ (:after omnisharp
+   (:map omnisharp-mode-map
+     :localleader
+     :desc "Refactor this" :n "SPC" #'omnisharp-run-code-action-refactoring))
+
  ;; Python offers some nicer ways to work with REPLs
  (:after python
    (:map python-mode-map

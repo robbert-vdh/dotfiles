@@ -141,9 +141,13 @@
     (add-to-list 'term-bind-key-alist bind)))
 
 (after! omnisharp
-  ;; FIXME: This should not be necesary as aldoc is already enabled for
-  ;;        `csharp-mode'
+  ;; FIXME: This should not be necesary as aldoc and smartparens are already
+  ;;        enabled for `csharp-mode'
   (add-hook 'omnisharp-mode-hook 'eldoc-mode)
+  (dolist (brace '("(" "{" "["))
+    (sp-local-pair 'csharp-mode brace nil
+             :post-handlers '(("||\n[i]" "<return>") ("| " "SPC"))
+             :unless '(sp-point-before-word-p sp-point-before-same-p)))
 
   ;; Use a more modern omnisharp server than the package specifies
   (when (equal omnisharp-expected-server-version "1.26.3")
