@@ -1,6 +1,7 @@
 # -*- mode: gitignore; -*-
 
 .gdb_history
+.tern-port
 dump.php
 pimple.json
 

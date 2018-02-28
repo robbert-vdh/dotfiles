@@ -144,10 +144,6 @@
   ;; FIXME: This should not be necesary as aldoc and smartparens are already
   ;;        enabled for `csharp-mode'
   (add-hook 'omnisharp-mode-hook 'eldoc-mode)
-  (dolist (brace '("(" "{" "["))
-    (sp-local-pair 'csharp-mode brace nil
-             :post-handlers '(("||\n[i]" "<return>") ("| " "SPC"))
-             :unless '(sp-point-before-word-p sp-point-before-same-p)))
 
   ;; Use a more modern omnisharp server than the package specifies
   (when (equal omnisharp-expected-server-version "1.26.3")
@@ -198,6 +194,12 @@
   (setq rust-format-on-save t)
   (set! :electric '(rust-mode) :chars '(?\n ?\}))
   (add-hook! 'rust-mode-hook '(highlight-numbers-mode flycheck-mode)))
+
+(after! smartparens
+  ;; FIXME: Brace expansion sometimes doesn't happen with `RET', but it works
+  ;;        with `<return>'
+  (dolist (brace '("(" "{" "["))
+    (sp-pair brace nil :post-handlers '(:append ("||\n[i]" "<return>")))))
 
 (after! yasnippet
   ;; `~/.emacs/snippets' should come first as it's used as the default snippet
