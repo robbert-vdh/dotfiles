@@ -199,7 +199,7 @@
   ;; FIXME: Brace expansion sometimes doesn't happen with `RET', but it works
   ;;        with `<return>'
   (dolist (brace '("(" "{" "["))
-    (sp-pair brace nil :post-handlers '(:append ("||\n[i]" "<return>")))))
+    (sp-pair brace nil :post-handlers '(:add ("||\n[i]" "<return>")))))
 
 (after! yasnippet
   ;; `~/.emacs/snippets' should come first as it's used as the default snippet
