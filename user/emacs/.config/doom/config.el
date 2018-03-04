@@ -8,7 +8,10 @@
 
 (def-package! atomic-chrome
   :config
-  (setq atomic-chrome-default-major-mode 'markdown-mode))
+  (setq atomic-chrome-buffer-open-style 'frame
+        atomic-chrome-buffer-frame-height 25
+        atomic-chrome-buffer-frame-width 85
+        atomic-chrome-default-major-mode 'markdown-mode))
 
 (def-package! evil-ediff
   :after ediff
