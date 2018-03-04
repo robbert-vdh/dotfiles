@@ -32,7 +32,8 @@
   :after magit
   :config
   ;; git-commit is always verbose as specified in ~/.gitconfig
-  (setq magit-commit-show-diff nil)
+  (setq magit-commit-show-diff nil
+        magit-diff-refine-hunk 'all)
   (remove-hook 'git-commit-mode-hook #'evil-insert-state)
   ;; Doom Emacs disables evil in `magit-blame' by default
   (add-hook 'magit-blame-mode-hook #'evil-local-mode t)
