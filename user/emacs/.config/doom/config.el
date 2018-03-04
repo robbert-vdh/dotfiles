@@ -8,8 +8,7 @@
 
 (def-package! atomic-chrome
   :config
-  (setq atomic-chrome-default-major-mode 'markdown-mode)
-  (atomic-chrome-start-server))
+  (setq atomic-chrome-default-major-mode 'markdown-mode))
 
 (def-package! evil-ediff
   :after ediff
@@ -312,4 +311,9 @@
 ;; Doom Emacs doesn't play along nicely with the noninteractive Emacs daemon,
 ;; but server functinoaly is still very useful
 (require 'server)
-(unless (server-running-p) (server-start))
+(unless (server-running-p)
+  (server-start)
+  (atomic-chrome-start-server))
+
+;; TODO: Remove
+(autoload 'evil-vimish-fold-mode "evil-vimish-fold")
