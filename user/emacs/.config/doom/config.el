@@ -199,14 +199,17 @@
 (after! rust-mode
   ;; Add missing confugration
   (setq rust-format-on-save t)
-  (set! :electric '(rust-mode) :chars '(?\n ?\}))
-  (add-hook! 'rust-mode-hook '(highlight-numbers-mode)))
+  (set! :electric '(rust-mode) :chars '(?\n ?\})))
 
 (after! smartparens
   ;; FIXME: Brace expansion sometimes doesn't happen with `RET', but it works
   ;;        with `<return>'
   (dolist (brace '("(" "{" "["))
     (sp-pair brace nil :post-handlers '(:add ("||\n[i]" "<return>")))))
+
+(after! tide
+  (add-hook! 'typescript-mode-hook
+    (add-hook! :local 'before-save-hook 'tide-format-before-save)))
 
 (after! yasnippet
   ;; `~/.emacs/snippets' should come first as it's used as the default snippet
@@ -257,6 +260,9 @@
 
 ;; Make `w' and `b' handle more like in vim
 (add-hook 'after-change-major-mode-hook #'+robbert/fix-evil-words-underscore)
+
+;; Always highlight numbers as it looks pretty
+(add-hook 'prog-mode-hook 'highlight-numbers-mode)
 
 ;; Set default indentation levels and coding styles
 (setq css-indent-offset 2

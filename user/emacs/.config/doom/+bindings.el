@@ -98,8 +98,9 @@
 
  (:after omnisharp
    (:map omnisharp-mode-map
-     :localleader
-     :desc "Refactor this" :n "SPC" #'omnisharp-run-code-action-refactoring))
+     :nv [M-return] #'omnisharp-run-code-action-refactoring
+     (:localleader
+       :desc "Refactor this" :nv "SPC" #'omnisharp-run-code-action-refactoring)))
 
  ;; Python offers some nicer ways to work with REPLs
  (:after python
@@ -116,4 +117,17 @@
    (:map term-raw-map
      ;; Allow for window bindings in term-mode
      "C-w"            evil-window-map
-     :i "<return>"    #'term-send-return)))
+     :i "<return>"    #'term-send-return))
+
+ (:after tide
+   (:map tide-mode-map
+     :nv [M-return] #'tide-fix
+     (:localleader
+       :desc "JSDoc template" :nv "c"   #'tide-jsdoc-template
+       :desc "Documentation"  :nv "h"   #'tide-documentation-at-point
+       :desc "Fix imports"    :nv "i"   #'tide-organize-imports
+       :desc "Rename"         :nv "r"   #'tide-rename-symbol
+       :desc "Refactor this"  :nv "R"   #'tide-refactor
+       :desc "Fix issue"      :nv "SPC" #'tide-fix
+       (:desc "+server"       :prefix "s"
+         :desc "Restart"      :n "r"    #'tide-restart-server)))))
