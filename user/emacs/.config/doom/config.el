@@ -6,6 +6,11 @@
 
 ;; TODO: SPC / * to search for the word under the cursor
 
+(def-package! atomic-chrome
+  :config
+  (setq atomic-chrome-default-major-mode 'markdown-mode)
+  (atomic-chrome-start-server))
+
 (def-package! evil-ediff
   :after ediff
   :config
