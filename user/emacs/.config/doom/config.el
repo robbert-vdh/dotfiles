@@ -155,7 +155,11 @@
 
   ;; Use a more modern omnisharp server than the package specifies
   (when (equal omnisharp-expected-server-version "1.26.3")
-    (setq omnisharp-expected-server-version "1.29.1")))
+    (setq omnisharp-expected-server-version "1.29.1"))
+
+  ;; Killing the omnisharp server doesn't work as well when constantly switching
+  ;; branches and previewing files
+  (advice-add #'+csharp|cleanup-omnisharp-server :override #'ignore))
 
 (after! org
   ;; Restore default indentation behavior
