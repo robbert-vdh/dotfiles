@@ -37,6 +37,7 @@
      :desc "Open file externally"    :n "x"  #'counsel-find-file-extern)
 
    (:desc "git"                      :prefix "g"
+     :desc "Browse in revision"      :n "."  #'magit-find-file
      :desc "Git blame (follow copy)" :n "b"  #'+robbert/magit-blame-follow-copy
      :desc "SMerge hydra"            :n "m"  #'+hydra-smerge/body
      :desc "Git log current file"    :n "l"  #'magit-log-buffer-file
