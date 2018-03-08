@@ -230,6 +230,7 @@
 (setq company-minimum-prefix-length 2
       completion-styles '(partial-completion initials)
       confirm-nonexistent-file-or-buffer nil
+      evil-ex-substitute-global nil
       evil-goggles-duration 0.25
       evil-want-C-u-scroll t
       evil-want-Y-yank-to-eol nil
