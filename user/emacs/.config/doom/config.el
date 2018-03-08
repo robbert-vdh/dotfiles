@@ -67,6 +67,9 @@
 ;; `counsel-projectile-rg' doesn't get autoloaded in the default config
 (autoload 'counsel-projectile-rg "counsel-projectile" nil t)
 
+(after! csharp-mode
+  (set! :electric '(csharp-mode) :chars '(?\n ?\{)))
+
 (after! evil
   (setq-default evil-symbol-word-search t)
   ;; Automatically indent when pasting
