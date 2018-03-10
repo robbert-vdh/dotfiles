@@ -54,11 +54,14 @@ Copied from Spacemacs."
   (modify-syntax-entry ?- "w"))
 
 ;;;###autoload
-(defun +robbert/generate-scss-tags ()
+(defun +robbert/generate-scss-tags (&optional directory)
   "Regenerate SCSS tags for the current project. This will overwrite all
 existing tags."
   (interactive)
-  (projectile-with-default-dir (projectile-project-root)
+  (let ((default-directory (or directory
+                               (and current-prefix-arg
+                                    (read-directory-name "Project root: "))
+                               (projectile-project-root))))
     (shell-command "find node_modules/bootstrap node_modules/foundation-sites assets public src -iname '*.scss' >gtags.files 2>/dev/null")
     (shell-command "gtags --gtagslabel pygments")))
 
