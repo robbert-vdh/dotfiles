@@ -32,6 +32,10 @@ alias rsync-sync="rsync-copy --update --delete"
 alias rsync-copy-compress="rsync-copy --compress"
 alias rsync-sync-compress="rsync-sync --compress"
 
+# The dotnet CLI is broken right now https://github.com/dotnet/sdk/issues/1916
+alias dotnet="TERM=xterm dotnet"
+alias dotnet-dev="ASPNETCORE_ENVIRONMENT=Development dotnet"
+
 # Set the wineprefix to /mnt/data/wine/<prefix>
 function wineprefix() {
   if [[ -z $1 ]]; then
