@@ -49,6 +49,7 @@
 
 (def-package! ggtags
   :commands (ggtags-find-tag-dwim ggtags-find-reference)
+  :commands (ggtags-mode)
   :config
   (add-hook 'ggtags-mode-hook #'eldoc-mode)
   ;; Sort global results by nearness. This helps when editing Sass, as the
@@ -58,7 +59,6 @@
   ;; doesn't use the dollar sign prefix. We'll have to manually add the jump
   ;; handler to scss-mode as there are not any yet.
   (add-hook! 'scss-mode-hook (modify-syntax-entry ?$ "'") (modify-syntax-entry ?% "."))
-  (add-hook 'scss-mode-hook #'ggtags-mode)
   (set! :lookup 'scss-mode :definition #'ggtags-find-tag-dwim :references #'ggtags-find-reference)
   (set! :company-backend '(css-mode scss-mode) 'company-gtags 'company-css))
 
@@ -219,6 +219,13 @@
   (add-hook! 'typescript-mode-hook
     (add-hook! :local 'before-save-hook 'tide-format-before-save)))
 
+(after! web-mode
+  ;; Editorconfig tells web-mode to indent attributes instead of aligning
+  (add-hook! :append 'web-mode-hook
+    (setq web-mode-attr-indent-offset nil
+          web-mode-attr-value-indent-offset nil
+          web-mode-block-padding 0)))
+
 (after! yasnippet
   ;; `~/.emacs/snippets' should come first as it's used as the default snippet
   ;; save location
@@ -294,6 +301,9 @@
 (add-to-list 'auto-mode-alist '("\\.twig$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.csproj$" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.ruleset$" . nxml-mode))
+
+;; Use ggtags in certain modes
+(add-hook 'scss-mode-hook #'ggtags-mode)
 
 ;; Fix jumping to Sass files when the leading underscore is ommitted
 (add-to-list 'ffap-alist
