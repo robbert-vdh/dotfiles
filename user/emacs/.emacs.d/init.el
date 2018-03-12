@@ -65,6 +65,8 @@
       ;tabbar            ; FIXME an (incomplete) tab bar for Emacs
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        window-select     ; visually switch windows
+      ;posframe          ; use child frames where possible (Emacs 26+ only)
+                         ; TODO: Re-enable after company-quickhelp works
 
        :tools
        dired             ; making dired pretty [functional]
