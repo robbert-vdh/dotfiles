@@ -112,6 +112,11 @@
          :desc "Function"  :nv "f" #'python-shell-send-defun
          :desc "Region"    :nv "r" #'python-shell-send-region))))
 
+ ;; scss-mode is built in so we can't use a use-package hook
+ (:map* scss-mode-map
+   (:localleader
+     :desc "Generate tags" :nv "t" #'+robbert/generate-scss-tags))
+
  (:after term
    (:map term-mode-map
      "C-c C-l"        #'+robbert/term-toggle-line-mode)
@@ -130,5 +135,4 @@
        :desc "Rename"         :nv "r"   #'tide-rename-symbol
        :desc "Refactor this"  :nv "R"   #'tide-refactor
        :desc "Fix issue"      :nv "SPC" #'tide-fix
-       (:desc "+server"       :prefix "s"
-         :desc "Restart"      :n "r"    #'tide-restart-server)))))
+       :desc "Restart"        :n "s"    #'tide-restart-server))))
