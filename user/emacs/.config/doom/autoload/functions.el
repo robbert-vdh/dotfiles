@@ -53,18 +53,30 @@ Copied from Spacemacs."
 (defun +robbert/fix-evil-words-dash ()
   (modify-syntax-entry ?- "w"))
 
+(defvar +robbert/scss-tag-dirs
+  '("node_modules/bootstrap"
+    "node_modules/foundation-sites"
+    "assets"
+    "ClientApp/styles" ;; ASP.NET SPA
+    "public"
+    "src")
+  "The directories, starting from a Node.JS project root, that
+  should be searched for SCSS tags.")
+
 ;;;###autoload
 (defun +robbert/generate-scss-tags (&optional directory)
-  "Regenerate SCSS tags for the current project. This will overwrite all
-existing tags."
+  "Regenerate SCSS tags for the current project, starting at the
+nearest `package.json' or the project root. This will overwrite
+all existing tags."
   (interactive)
   (let ((default-directory (or directory
                                ;; Prompt when there's a prefix argument
                                (and current-prefix-arg
                                     (read-directory-name "Project root: "))
                                (locate-dominating-file "." "package.json")
-                               (projectile-project-root))))
-    (shell-command "find node_modules/bootstrap node_modules/foundation-sites assets public src -iname '*.scss' >gtags.files 2>/dev/null")
+                               (projectile-project-root)))
+        (scss-dirs (string-join +robbert/scss-tag-dirs " ")))
+    (shell-command (concat  "find " scss-dirs " -iname '*.scss' >gtags.files 2>/dev/null"))
     (shell-command "gtags --gtagslabel pygments")))
 
 ;;;###autoload
