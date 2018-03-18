@@ -113,7 +113,9 @@
     'flyspell-mode))
 
 (after! helpful
-  (set! :evil-state 'helpful-mode 'motion))
+  (set! :evil-state 'helpful-mode 'motion)
+  ;; Increase the size of help popups to match Ivy's height
+  (set! :popup "^\\*Help" '((size . 0.3)) '((select . t))))
 
 (after! hl-todo
   (setq hl-todo-keyword-faces
