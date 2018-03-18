@@ -1,6 +1,6 @@
 ;;; ~/.config/doom/config.el -*- lexical-binding: t; -*-
 
-(require 'cl)
+(require 'cl-lib)
 
 (load! +bindings)
 
