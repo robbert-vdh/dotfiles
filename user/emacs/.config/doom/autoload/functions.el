@@ -59,8 +59,10 @@ Copied from Spacemacs."
 existing tags."
   (interactive)
   (let ((default-directory (or directory
+                               ;; Prompt when there's a prefix argument
                                (and current-prefix-arg
                                     (read-directory-name "Project root: "))
+                               (locate-dominating-file "." "package.json")
                                (projectile-project-root))))
     (shell-command "find node_modules/bootstrap node_modules/foundation-sites assets public src -iname '*.scss' >gtags.files 2>/dev/null")
     (shell-command "gtags --gtagslabel pygments")))
