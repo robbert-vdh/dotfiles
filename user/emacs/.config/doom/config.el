@@ -1,7 +1,5 @@
 ;;; ~/.config/doom/config.el -*- lexical-binding: t; -*-
 
-(require 'cl-lib)
-
 (load! +bindings)
 
 ;; TODO: SPC / * to search for the word under the cursor
@@ -295,9 +293,9 @@
 
 ;; Different languages use different line lengths (there's probably a better
 ;; way to keep the variable value in the lambda)
-(loop for (mode . value) in '((php-mode-hook . 120)
-                              (rust-mode-hook . 100))
-      do (add-hook mode `(lambda () (setq fill-column ,value))))
+(cl-loop for (mode . value) in '((php-mode-hook . 120)
+                                 (rust-mode-hook . 100))
+         do (add-hook mode `(lambda () (setq fill-column ,value))))
 
 ;; Add missing syntax highlighting
 (add-to-list 'auto-mode-alist '("\\.twig$" . web-mode))
