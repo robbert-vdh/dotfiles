@@ -125,11 +125,29 @@ text"
   (magit-blame magit-buffer-refname buffer-file-name '("-wCCC")))
 
 ;;;###autoload
-(defun +robbert/scss-find-file (filename)
-  "`find-file-at-point' won't find find partials (starting with
-  an underscore) by default, so we'll have to manually push it in
-  the right direction."
-  (replace-regexp-in-string "^\\(.*?\\)\\([^/]+\\)$" "\\1_\\2.scss" filename))
+(defun +robbert/scss-find-file (raw-filename)
+  "`find-file-at-point' won't find find some file names by
+   default, so we'll have to manually push it in the right
+   direction. There are two special cases handled here:
+
+   1) The file is a partial, and an underscore should be added.
+   2) The file is located in `node_modules' and starts with a
+      tilde."
+  (let* ((project-root (locate-dominating-file "." "node_modules"))
+         (node-modules (concat project-root "node_modules/"))
+         (filename (replace-regexp-in-string "^~" node-modules raw-filename))
+         ;; The file extension is probably missing
+         (filename (if (string-suffix-p ".scss" filename)
+                       filename
+                     (concat filename ".scss")))
+         ;; Scss partials include an underscore before the filename
+         (partial-filename (concat (file-name-directory filename)
+                                   "_"
+                                   (file-name-nondirectory filename))))
+    ;; Try both with and without an underscore, as `ffap-file-at-point' only
+    ;; expects a single result
+    (or (and (file-exists-p partial-filename) partial-filename)
+        filename)))
 
 ;;;###autoload
 (defun +robbert--is-terminal-buffer-p (buffer)
