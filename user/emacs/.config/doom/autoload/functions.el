@@ -125,6 +125,13 @@ text"
   (magit-blame magit-buffer-refname buffer-file-name '("-wCCC")))
 
 ;;;###autoload
+(defun +robbert/scss-find-file (filename)
+  "`find-file-at-point' won't find find partials (starting with
+  an underscore) by default, so we'll have to manually push it in
+  the right direction."
+  (replace-regexp-in-string "^\\(.*?\\)\\([^/]+\\)$" "\\1_\\2.scss" filename))
+
+;;;###autoload
 (defun +robbert--is-terminal-buffer-p (buffer)
   (with-current-buffer (cdr buffer)
     (memq major-mode '(term-mode multi-term-mode shell-mode eshell-mode))))

@@ -306,11 +306,7 @@
 (add-hook 'scss-mode-hook #'ggtags-mode)
 
 ;; Fix jumping to Sass files when the leading underscore is ommitted
-(add-to-list 'ffap-alist
-             '(scss-mode . (λ! (filename) (replace-regexp-in-string
-                                           "^\\(.*?\\)\\([^/]+\\)$"
-                                           "\\1_\\2.scss"
-                                           filename))))
+(add-to-list 'ffap-alist '(scss-mode . +robbert/scss-find-file))
 
 ;; Flycheck popup tweaks
 (setq flycheck-pos-tip-timeout 15)
