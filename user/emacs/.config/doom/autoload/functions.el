@@ -136,8 +136,9 @@ text"
   (let* ((project-root (locate-dominating-file "." "node_modules"))
          (node-modules (concat project-root "node_modules/"))
          (filename (replace-regexp-in-string "^~" node-modules filename))
-         ;; The file extension is probably missing
-         (filename (or (and (string-suffix-p ".scss" filename) filename)
+         ;; The file extension is probably missing, so we'll add it unless the
+         ;; file is clearly a directory
+         (filename (or (and (string-match-p "\\(.scss\\|\\/\\)$" filename) filename)
                        (concat filename ".scss")))
          ;; Scss partials include an underscore before the filename
          (partial-filename (concat (file-name-directory filename)
