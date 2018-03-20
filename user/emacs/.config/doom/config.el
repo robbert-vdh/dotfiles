@@ -227,6 +227,9 @@
           web-mode-attr-value-indent-offset nil
           web-mode-block-padding 0)))
 
+(after! wordnut
+  (set! :popup "^\\*WordNut\\*$" '((size . 0.3)) '((select . t))))
+
 (after! yasnippet
   ;; `~/.emacs/snippets' should come first as it's used as the default snippet
   ;; save location
