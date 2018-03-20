@@ -4,5 +4,4 @@
 (package! atomic-chrome)
 (package! evil-ediff)
 (package! evil-lion)
-(package! evil-magit)
 (package! ggtags)

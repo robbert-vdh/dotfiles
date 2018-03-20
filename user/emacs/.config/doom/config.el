@@ -26,21 +26,6 @@
   :after evil
   :config (evil-lion-mode))
 
-(def-package! evil-magit
-  :after magit
-  :config
-  ;; git-commit is always verbose as specified in ~/.gitconfig
-  (setq magit-commit-show-diff nil
-        magit-diff-refine-hunk 'all)
-  (remove-hook 'git-commit-mode-hook #'evil-insert-state)
-  ;; Doom Emacs disables evil in `magit-blame' by default
-  (add-hook 'magit-blame-mode-hook #'evil-local-mode t)
-  ;; Don't interfere with the leader key
-  (define-key magit-mode-map (kbd doom-leader-key) nil)
-  ;; evil-vimish-fold overrides evil-magit's `z' keys and it's not useful anywya
-  ;; in here, so we'll disable it
-  (add-hook! 'magit-mode-hook (evil-vimish-fold-mode -1)))
-
 (after! evil-org
   (setq evil-org-use-additional-insert t)
   (evil-org-set-key-theme))
@@ -95,6 +80,17 @@
   (dolist (pair '((?$ . ("$" . "$")) (?= . ("=" . "=")) (?~ . ("~" . "~"))
                   (?/ . ("/" . "/")) (?* . ("*" . "*")) (?* . (":" . ":"))))
     (push pair evil-surround-pairs-alist)))
+
+(after! evil-magit
+  ;; git-commit is always verbose as specified in ~/.gitconfig
+  (setq magit-commit-show-diff nil
+        magit-diff-refine-hunk 'all)
+  (remove-hook 'git-commit-mode-hook #'evil-insert-state)
+  ;; Doom Emacs disables evil in `magit-blame' by default
+  (add-hook 'magit-blame-mode-hook #'evil-local-mode t)
+  ;; Don't interfere with the leader key
+  (dolist (mode (list magit-mode-map magit-revision-mode-map))
+    (define-key mode (kbd doom-leader-key) nil)))
 
 (after! exec-path-from-shell
   ;; Make sure racer can find Rust's source files and disable gtags as Rust's
