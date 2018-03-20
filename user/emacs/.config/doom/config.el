@@ -260,6 +260,18 @@
       doom-variable-pitch-font (font-spec :family "Roboto")
       doom-big-font (font-spec :family "Input Mono" :size 29))
 
+;; Remove less useful functions from hippie expand
+(setq hippie-expand-try-functions-list
+      '(try-complete-file-name-partially
+        try-complete-file-name
+        try-expand-all-abbrevs
+        try-expand-line
+        try-expand-dabbrev-visible
+        try-expand-dabbrev-all-buffers
+        try-expand-dabbrev-from-kill
+        try-complete-lisp-symbol-partially
+        try-complete-lisp-symbol))
+
 ;; Fix xdg-open and similar progrems not openening. Not sure why this is needed,
 ;; and might break others things.
 (setq process-connection-type nil)
