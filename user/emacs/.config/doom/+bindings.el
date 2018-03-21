@@ -135,4 +135,8 @@
        :desc "Rename"         :nv "r"   #'tide-rename-symbol
        :desc "Refactor this"  :nv "R"   #'tide-refactor
        :desc "Fix issue"      :nv "SPC" #'tide-fix
-       :desc "Restart"        :n "s"    #'tide-restart-server))))
+       :desc "Restart"        :n "s"    #'tide-restart-server)))
+
+ (:after web-mode
+   (:map web-mode-map
+     "M-/" nil)))
