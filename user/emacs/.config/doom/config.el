@@ -4,6 +4,12 @@
 
 ;; TODO: SPC / * to search for the word under the cursor
 
+;; FIXME: Magit is broken with full emacs-collection
+(def-package! evil-collection
+  :after evil
+  :config
+  (evil-collection-dired-setup))
+
 (def-package! atomic-chrome
   :config
   (setq atomic-chrome-buffer-open-style 'frame
