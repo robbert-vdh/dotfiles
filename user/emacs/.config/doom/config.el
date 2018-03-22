@@ -9,7 +9,12 @@
   :after evil
   :config
   (require 'evil-collection-dired)
-  (evil-collection-dired-setup))
+  (evil-collection-dired-setup)
+  (after! dired
+    (evil-define-key* 'normal dired-mode-map
+                      (kbd doom-leader-key) nil
+                      (kbd "[") nil
+                      (kbd "]") nil)))
 
 (def-package! atomic-chrome
   :config
