@@ -8,6 +8,7 @@
 (def-package! evil-collection
   :after evil
   :config
+  (require 'evil-collection-dired)
   (evil-collection-dired-setup))
 
 (def-package! atomic-chrome
