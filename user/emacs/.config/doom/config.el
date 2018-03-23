@@ -4,18 +4,6 @@
 
 ;; TODO: SPC / * to search for the word under the cursor
 
-;; FIXME: Magit is broken with full emacs-collection
-(def-package! evil-collection
-  :after evil
-  :config
-  (require 'evil-collection-dired)
-  (evil-collection-dired-setup)
-  (after! dired
-    (evil-define-key* 'normal dired-mode-map
-                      (kbd doom-leader-key) nil
-                      (kbd "[") nil
-                      (kbd "]") nil)))
-
 (def-package! atomic-chrome
   :config
   (setq atomic-chrome-buffer-open-style 'frame
@@ -77,6 +65,11 @@
   (do-repeat! evil-find-char-backward evil-repeat-find-char evil-repeat-find-char-reverse)
   (do-repeat! evil-find-char-to evil-repeat-find-char evil-repeat-find-char-reverse)
   (do-repeat! evil-find-char-to-backward evil-repeat-find-char evil-repeat-find-char-reverse))
+
+(after! evil-collection
+  ;; FIXME: This setup breaks commiting in magit
+  (after! diff-mode
+    (remove-hook 'diff-mode-hook 'evil-collection-diff-toggle-setup)))
 
 (after! evil-snipe
   ;; Disable evil-snipe overriding the S/s keys. This is a bit of a hack but the

@@ -9,12 +9,15 @@
  :ni "C-S-SPC" #'company-yasnippet
  :i "<return>" #'+robbert/newline-and-indent
  :i [M-return] #'newline-and-indent ;; The default is adviced to continue comments
- :ne [(shift meta f)] #'counsel-rg ;; As a complement to the `M-f' Swiper defined in +defualt
- :nvie "M-q"   #'fill-paragraph    ;; Doom Emacs overrides this to quit by default
- :v "C-u"      #'evil-scroll-up    ;; `evil-want-C-u-scroll' doesn't do anything in visual mode
+ :ne [(shift meta f)] #'counsel-rg  ;; As a complement to the `M-f' Swiper defined in +defualt
+ :nvie "M-q"   #'fill-paragraph     ;; Doom Emacs overrides this to quit by default
+ :v "C-u"      #'evil-scroll-up     ;; `evil-want-C-u-scroll' doesn't do anything in visual mode
 
- :m "[a" #'+robbert/languagetool-previous-error
- :m "]a" #'+robbert/languagetool-next-error
+ :m "[a"       #'+robbert/languagetool-previous-error
+ :m "]a"       #'+robbert/languagetool-next-error
+
+ ;; Override for the default config, this breaks magit
+ :n  "z"       nil
 
  (:leader
    (:desc "search"                   :prefix "/"
