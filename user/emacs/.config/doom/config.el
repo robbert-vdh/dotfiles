@@ -11,6 +11,10 @@
         atomic-chrome-buffer-frame-width 90
         atomic-chrome-default-major-mode 'markdown-mode))
 
+;; FIXME: Overaggressive popup rules should ignore ein
+(def-package! ein
+  :config (require 'ein-loaddefs))
+
 (def-package! evil-ediff
   :after ediff
   :config

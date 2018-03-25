@@ -26,6 +26,11 @@ Copied from Spacemacs."
   (clipboard-yank)
   (deactivate-mark))
 
+;;;###autoload
+(defun +robbert/ein:worksheet-merge-cell-next ()
+  (interactive)
+  (ein:worksheet-merge-cell (ein:worksheet--get-ws-or-error) (ein:worksheet-get-current-cell) t t))
+
 ;; Add an easier 'insert item after this line' keybinding. evil-org only
 ;; inserts a new item when the bullet is on the current line.
 ;;;###autoload

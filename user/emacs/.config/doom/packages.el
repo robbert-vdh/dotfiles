@@ -2,6 +2,7 @@
 ;;; ~/.config/doom/packages.el
 
 (package! atomic-chrome)
+(package! ein)
 (package! evil-ediff)
 (package! evil-lion)
 (package! ggtags)
