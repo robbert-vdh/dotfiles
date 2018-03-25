@@ -20,18 +20,18 @@
  :n  "z"                nil
 
  (:leader
-   (:desc "search"                   :prefix "/"
+   (:desc "+search"                  :prefix "/"
      :desc "Ripgrep"                 :nv "/" #'counsel-rg
      :desc "Find in directory"       :nv "f" #'+robbert/find-file-in-dir
      :desc "Find in project"         :nv "p" #'+robbert/find-file-in-project
      :desc "Swiper"                  :nv "s" #'swiper)
 
-   (:desc "buffer"                   :prefix "b"
+   (:desc "+buffer"                  :prefix "b"
      :desc "Replace with clipboard"  :n "P"  #'+robbert/clipboard-to-buffer
      :desc "Revert"                  :n "R"  #'revert-buffer
      :desc "Copy to clipboard"       :n "Y"  #'+robbert/buffer-to-clipboard)
 
-   (:desc "file"                     :prefix "f"
+   (:desc "+file"                    :prefix "f"
      :desc "Find file in dotfiles"   :n "d"  #'+robbert/find-in-dotfiles
      :desc "Browse dotfiles"         :n "D"  #'+robbert/browse-dotfiles
      :desc "Delete current file"     :n "k"  #'doom/delete-this-file
@@ -39,7 +39,7 @@
      :desc "Copy current file"       :n "M"  #'doom/copy-this-file
      :desc "Open file externally"    :n "x"  #'counsel-find-file-extern)
 
-   (:desc "git"                      :prefix "g"
+   (:desc "+git"                     :prefix "g"
      :desc "Browse in revision"      :n "."  #'magit-find-file
      :desc "Git blame (follow copy)" :n "b"  #'+robbert/magit-blame-follow-copy
      :desc "SMerge hydra"            :n "m"  #'+hydra-smerge/body
@@ -47,11 +47,11 @@
      :desc "Git status"              :n "s"  #'magit-status
      :desc "Git stage hunk"          :n "S"  #'git-gutter:stage-hunk)
 
-   (:desc "project"                  :prefix "p"
+   (:desc "+project"                 :prefix "p"
      :desc "Find file in proejct"    :nv "." #'counsel-projectile-find-file
      :desc "Ripgrep in project"      :nv "/" #'counsel-projectile-rg)
 
-   (:desc "toggle"                   :prefix "t"
+   (:desc "+toggle"                  :prefix "t"
      :desc "Change dictionary"       :n "S"  #'ispell-change-dictionary
      :desc "LanguageTool"            :n "t"  #'+robbert/languagetool-toggle
      :desc "LanguageTool correct"    :n "T"  #'langtool-correct-buffer))
