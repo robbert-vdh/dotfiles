@@ -47,6 +47,13 @@
      :desc "Git status"              :n "s"  #'magit-status
      :desc "Git stage hunk"          :n "S"  #'git-gutter:stage-hunk)
 
+   (:desc "+open"                    :prefix "o"
+     (:desc "+jupyter"               :prefix "j"
+       :desc "Open in browser"       :nv "b" #'ein:notebook-open-in-browser
+       :desc "Open this file"        :n "f"  #'ein:notebooklist-open-notebook-by-file-name
+       :desc "Login and open"        :n "o"  #'ein:jupyter-server-login-and-open
+       :desc "Start server"          :n "s"  #'ein:jupyter-server-start))
+
    (:desc "+project"                 :prefix "p"
      :desc "Find file in proejct"    :nv "." #'counsel-projectile-find-file
      :desc "Ripgrep in project"      :nv "/" #'counsel-projectile-rg)
