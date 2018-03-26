@@ -20,12 +20,6 @@
  :n  "z"                nil
 
  (:leader
-   (:desc "search"                   :prefix "/"
-     :desc "Project"                 :nv "/" #'+ivy/project-search
-     :desc "Find in directory"       :nv "f" #'+robbert/find-file-in-dir
-     :desc "Find in project"         :nv "p" #'+robbert/find-file-in-project
-     :desc "Buffer"                  :nv "s" #'swiper)
-
    (:desc "buffer"                   :prefix "b"
      :desc "Replace with clipboard"  :n "P"  #'+robbert/clipboard-to-buffer
      :desc "Revert"                  :n "R"  #'revert-buffer
@@ -57,6 +51,12 @@
    (:desc "project"                  :prefix "p"
      :desc "Find file in proejct"    :nv "." #'counsel-projectile-find-file
      :desc "Ripgrep in project"      :nv "/" #'counsel-projectile-rg)
+
+   (:desc "search"                   :prefix "/"
+     :desc "Project"                 :nv "/" #'+ivy/project-search
+     :desc "Find in directory"       :nv "f" #'+robbert/find-file-in-dir
+     :desc "Find in project"         :nv "p" #'+robbert/find-file-in-project
+     :desc "Buffer"                  :nv "s" #'swiper)
 
    (:desc "toggle"                   :prefix "t"
      :desc "Change dictionary"       :n "S"  #'ispell-change-dictionary
