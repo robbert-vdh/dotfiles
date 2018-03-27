@@ -2,7 +2,11 @@
 #
 # Updates and rebases Spacemacs automatically
 
-cd ~/.emacs.d/
+# Make sure dotfiles are up to date first
+cd ~/.dotfiles
+git pull --rebase --autostash
+
+cd ~/.emacs.d
 
 old_revision=$(git rev-parse HEAD)
 git pull --rebase --autostash
