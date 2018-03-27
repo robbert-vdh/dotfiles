@@ -204,6 +204,7 @@
    (:map tide-mode-map
      :nv [M-return] #'tide-fix
      (:localleader
+       ;; TODO: Add Doom's refactor menu
        :desc "JSDoc template" :nv "c"   #'tide-jsdoc-template
        :desc "Documentation"  :nv "h"   #'tide-documentation-at-point
        :desc "Fix imports"    :nv "i"   #'tide-organize-imports
