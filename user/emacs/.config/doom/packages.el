@@ -6,3 +6,4 @@
 (package! evil-ediff)
 (package! evil-lion)
 (package! ggtags)
+(package! pkgbuild-mode)

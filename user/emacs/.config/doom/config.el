@@ -49,6 +49,8 @@
   (set! :lookup 'scss-mode :definition #'ggtags-find-tag-dwim :references #'ggtags-find-reference)
   (set! :company-backend '(css-mode scss-mode) 'company-gtags 'company-css))
 
+(def-package! pkgbuild-mode)
+
 ;;; Overrides
 
 ;; `counsel-projectile-rg' doesn't get autoloaded in the default config
