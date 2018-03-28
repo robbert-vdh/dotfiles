@@ -224,8 +224,11 @@
     (sp-pair brace nil :post-handlers '(:add ("||\n[i]" "<return>")))))
 
 (after! tide
-  (add-hook! 'typescript-mode-hook
-    (add-hook! :local 'before-save-hook 'tide-format-before-save)))
+  (add-hook! :append 'typescript-mode-hook
+    (add-hook! :local 'before-save-hook 'tide-format-before-save)
+    ;; FIXME: This should not be necesary as aldoc and smartparens are already
+    ;;        enabled for `tide-mode'
+    (eldoc-mode +1)))
 
 (after! web-mode
   ;; Editorconfig tells web-mode to indent attributes instead of aligning
