@@ -217,12 +217,6 @@
   (setq rust-format-on-save t)
   (set! :electric '(rust-mode) :chars '(?\n ?\})))
 
-(after! smartparens
-  ;; FIXME: Brace expansion sometimes doesn't happen with `RET', but it works
-  ;;        with `<return>'
-  (dolist (brace '("(" "{" "["))
-    (sp-pair brace nil :post-handlers '(:add ("||\n[i]" "<return>")))))
-
 (after! tide
   (add-hook! :append 'typescript-mode-hook
     (add-hook! :local 'before-save-hook 'tide-format-before-save)
