@@ -50,7 +50,9 @@
 
    (:desc "project"                  :prefix "p"
      :desc "Find file in proejct"    :nv "." #'counsel-projectile-find-file
-     :desc "Ripgrep in project"      :nv "/" #'counsel-projectile-rg)
+     :desc "Ripgrep in project"      :nv "/" #'counsel-projectile-rg
+     :desc "Open terminal in project":n  "t" #'+term/open-popup-in-project
+     :desc "List project tasks"      :n  "T" #'+ivy/tasks)
 
    (:desc "search"                   :prefix "/"
      :desc "Project"                 :nv "/" #'counsel-rg
