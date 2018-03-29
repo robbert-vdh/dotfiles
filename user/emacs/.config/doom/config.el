@@ -163,9 +163,9 @@
   ;;        enabled for `csharp-mode'
   (add-hook 'omnisharp-mode-hook 'eldoc-mode)
 
-  ;; ;; Use a more modern omnisharp server than the package specifies
-  ;; (when (equal omnisharp-expected-server-version "1.26.3")
-  ;;   (setq omnisharp-expected-server-version "1.29.1"))
+  ;; Use a more modern omnisharp server than the package specifies
+  (when (equal omnisharp-expected-server-version "1.26.3")
+    (setq omnisharp-expected-server-version "1.29.1"))
 
   ;; Killing the omnisharp server doesn't work as well when constantly switching
   ;; branches and previewing files
