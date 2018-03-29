@@ -51,6 +51,9 @@
 
 (def-package! pkgbuild-mode)
 
+(def-package! yapfify
+  :hook (python-mode . yapf-mode))
+
 ;;; Overrides
 
 ;; `counsel-projectile-rg' doesn't get autoloaded in the default config

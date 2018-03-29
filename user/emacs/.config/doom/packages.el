@@ -7,3 +7,4 @@
 (package! evil-lion)
 (package! ggtags)
 (package! pkgbuild-mode)
+(package! yapfify)
