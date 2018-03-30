@@ -178,7 +178,8 @@
    (:map omnisharp-mode-map
      :nv [M-return] #'omnisharp-run-code-action-refactoring
      (:localleader
-       :desc "Refactor this" :nv "SPC" #'omnisharp-run-code-action-refactoring)))
+       :desc "Refactor this"  :nv "SPC" #'omnisharp-run-code-action-refactoring
+       :desc "Restart server" :n  "s"   #'omnisharp-start-omnisharp-server)))
 
  ;; Python offers some nicer ways to work with REPLs
  (:after python
