@@ -20,64 +20,64 @@
  :n  "z"                nil
 
  (:leader
-   (:desc "buffer"                   :prefix "b"
-     :desc "Replace with clipboard"  :n "P"  #'+robbert/clipboard-to-buffer
-     :desc "Revert"                  :n "R"  #'revert-buffer
-     :desc "Copy to clipboard"       :n "Y"  #'+robbert/buffer-to-clipboard)
+   (:desc "buffer"                    :prefix "b"
+     :desc "Replace with clipboard"   :n "P"  #'+robbert/clipboard-to-buffer
+     :desc "Revert"                   :n "R"  #'revert-buffer
+     :desc "Copy to clipboard"        :n "Y"  #'+robbert/buffer-to-clipboard)
 
-   (:desc "file"                     :prefix "f"
-     :desc "Find file in dotfiles"   :n "d"  #'+robbert/find-in-dotfiles
-     :desc "Browse dotfiles"         :n "D"  #'+robbert/browse-dotfiles
-     :desc "Delete current file"     :n "k"  #'doom/delete-this-file
-     :desc "Move current file"       :n "m"  #'doom/move-this-file
-     :desc "Copy current file"       :n "M"  #'doom/copy-this-file
-     :desc "Open file externally"    :n "x"  #'counsel-find-file-extern)
+   (:desc "file"                      :prefix "f"
+     :desc "Find file in dotfiles"    :n "d"  #'+robbert/find-in-dotfiles
+     :desc "Browse dotfiles"          :n "D"  #'+robbert/browse-dotfiles
+     :desc "Delete current file"      :n "k"  #'doom/delete-this-file
+     :desc "Move current file"        :n "m"  #'doom/move-this-file
+     :desc "Copy current file"        :n "M"  #'doom/copy-this-file
+     :desc "Open file externally"     :n "x"  #'counsel-find-file-extern)
 
-   (:desc "git"                      :prefix "g"
-     :desc "Browse in revision"      :n "."  #'magit-find-file
-     :desc "Git blame (follow copy)" :n "b"  #'+robbert/magit-blame-follow-copy
-     :desc "SMerge hydra"            :n "m"  #'+hydra-smerge/body
-     :desc "Git log current file"    :n "l"  #'magit-log-buffer-file
-     :desc "Git status"              :n "s"  #'magit-status
-     :desc "Git stage hunk"          :n "S"  #'git-gutter:stage-hunk)
+   (:desc "git"                       :prefix "g"
+     :desc "Browse in revision"       :n "."  #'magit-find-file
+     :desc "Git blame (follow copy)"  :n "b"  #'+robbert/magit-blame-follow-copy
+     :desc "SMerge hydra"             :n "m"  #'+hydra-smerge/body
+     :desc "Git log current file"     :n "l"  #'magit-log-buffer-file
+     :desc "Git status"               :n "s"  #'magit-status
+     :desc "Git stage hunk"           :n "S"  #'git-gutter:stage-hunk)
 
-   (:desc "open"                     :prefix "o"
-     (:desc "+jupyter"               :prefix "j"
-       :desc "Open in browser"       :nv "b" #'ein:notebook-open-in-browser
-       :desc "Open this file"        :n "f"  #'ein:notebooklist-open-notebook-by-file-name
-       :desc "Login and open"        :n "o"  #'ein:jupyter-server-login-and-open
-       :desc "Start server"          :n "s"  #'ein:jupyter-server-start))
+   (:desc "open"                      :prefix "o"
+     (:desc "+jupyter"                :prefix "j"
+       :desc "Open in browser"        :nv "b" #'ein:notebook-open-in-browser
+       :desc "Open this file"         :n "f"  #'ein:notebooklist-open-notebook-by-file-name
+       :desc "Login and open"         :n "o"  #'ein:jupyter-server-login-and-open
+       :desc "Start server"           :n "s"  #'ein:jupyter-server-start))
 
-   (:desc "project"                  :prefix "p"
-     :desc "Find file in proejct"    :nv "." #'counsel-projectile-find-file
-     :desc "Ripgrep in project"      :nv "/" #'counsel-projectile-rg
-     :desc "Open terminal in project":n  "t" #'+term/open-popup-in-project
-     :desc "List project tasks"      :n  "T" #'+ivy/tasks)
+   (:desc "project"                   :prefix "p"
+     :desc "Find file in proejct"     :nv "." #'counsel-projectile-find-file
+     :desc "Ripgrep in project"       :nv "/" #'counsel-projectile-rg
+     :desc "Open terminal in project" :n  "t" #'+term/open-popup-in-project
+     :desc "List project tasks"       :n  "T" #'+ivy/tasks)
 
-   (:desc "search"                   :prefix "/"
-     :desc "Project"                 :nv "/" #'counsel-rg
-     :desc "Find in directory"       :nv "f" #'+robbert/find-file-in-dir
-     :desc "Find in project"         :nv "p" #'+robbert/find-file-in-project
-     :desc "Buffer"                  :nv "s" #'swiper)
+   (:desc "search"                    :prefix "/"
+     :desc "Project"                  :nv "/" #'counsel-rg
+     :desc "Find in directory"        :nv "f" #'+robbert/find-file-in-dir
+     :desc "Find in project"          :nv "p" #'+robbert/find-file-in-project
+     :desc "Buffer"                   :nv "s" #'swiper)
 
-   (:desc "toggle"                   :prefix "t"
-     :desc "Change dictionary"       :n "S"  #'ispell-change-dictionary
-     :desc "LanguageTool"            :n "t"  #'+robbert/languagetool-toggle
-     :desc "LanguageTool correct"    :n "T"  #'langtool-correct-buffer))
+   (:desc "toggle"                    :prefix "t"
+     :desc "Change dictionary"        :n "S"  #'ispell-change-dictionary
+     :desc "LanguageTool"             :n "t"  #'+robbert/languagetool-toggle
+     :desc "LanguageTool correct"     :n "T"  #'langtool-correct-buffer))
 
  (:after company
    (:map company-active-map
-     "C-a"            #'company-abort
-     "C-l"            #'company-complete
-     [tab]            #'+robbert/company-select-next-or-complete
-     "C-/"            #'counsel-company ;; Search the candidates using ivy
-     "RET"            nil
-     [escape]         nil))
+     "C-a"    #'company-abort
+     "C-l"    #'company-complete
+     [tab]    #'+robbert/company-select-next-or-complete
+     "C-/"    #'counsel-company ;; Search the candidates using ivy
+     "RET"    nil
+     [escape] nil))
 
  (:after diff-mode
    (:map diff-mode-map
-     :nm "{"          #'diff-hunk-prev
-     :nm "}"          #'diff-hunk-next))
+     :nm "{" #'diff-hunk-prev
+     :nm "}" #'diff-hunk-next))
 
  ;; Most of this is copied from Spacemacs
  ;; https://github.com/syl20bnr/spacemacs/blob/0fa3658cd8e283825dcd0a54ce1579dec55eb568/layers/%2Blang/ipython-notebook/packages.el
@@ -154,7 +154,7 @@
 
  (:after evil-org
    (:map evil-org-mode-map
-     :ni [M-return]   #'+robbert/evil-org-always-open-below))
+     :ni [M-return] #'+robbert/evil-org-always-open-below))
 
  (:after flycheck
    (:map flycheck-error-list-mode-map
@@ -162,29 +162,29 @@
 
  (:after helpful
    (:map helpful-mode-map
-     :m "q"           #'quit-window
-     :m "ZZ"          #'quit-window
-     :m "ZQ"          #'quit-window))
+     :m "q"  #'quit-window
+     :m "ZZ" #'quit-window
+     :m "ZQ" #'quit-window))
 
  (:after ivy
    (:map ivy-minibuffer-map
-     "C-d"            #'ivy-scroll-up-command
-     "C-u"            #'ivy-scroll-down-command)
+     "C-d"         #'ivy-scroll-up-command
+     "C-u"         #'ivy-scroll-down-command)
 
    (:map ivy-occur-mode-map
-     :n "<return>"    #'ivy-occur-press-and-switch
-     :n "C-SPC"       #'ivy-occur-press
-     :n [M-return]    #'ivy-occur-press
-     :n "j"           #'ivy-occur-next-line
-     :n "k"           #'ivy-occur-previous-line
-     :n "ga"          #'ivy-occur-read-action
-     :n "M-o"         #'ivy-occur-dispatch
-     :n "gr"          #'ivy-occur-revert-buffer
-     :n "q"           #'quit-window))
+     :n "<return>" #'ivy-occur-press-and-switch
+     :n "C-SPC"    #'ivy-occur-press
+     :n [M-return] #'ivy-occur-press
+     :n "j"        #'ivy-occur-next-line
+     :n "k"        #'ivy-occur-previous-line
+     :n "ga"       #'ivy-occur-read-action
+     :n "M-o"      #'ivy-occur-dispatch
+     :n "gr"       #'ivy-occur-revert-buffer
+     :n "q"        #'quit-window))
 
  (:after omnisharp
    (:map omnisharp-mode-map
-     :nv [M-return] #'omnisharp-run-code-action-refactoring
+     :nv [M-return]                     #'omnisharp-run-code-action-refactoring
      (:localleader
        :desc "Refactor this"  :nv "SPC" #'omnisharp-run-code-action-refactoring
        :desc "Restart server" :n  "s"   #'omnisharp-start-omnisharp-server)))
