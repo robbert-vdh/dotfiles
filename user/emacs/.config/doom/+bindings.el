@@ -136,6 +136,14 @@
      ;;   :nv "fs"    #'ein:notebook-save-notebook-command))
        )))
 
+ ;; Disable evil-collection overrides
+ (:map compilation-mode-map
+   :n  "SPC" nil
+   :nv "C-h" nil
+   :nv "C-j" nil
+   :nv "C-k" nil
+   :nv "C-l" nil)
+
  (:after ein-traceback
    (:map ein:traceback-mode-map
      (:localleader
