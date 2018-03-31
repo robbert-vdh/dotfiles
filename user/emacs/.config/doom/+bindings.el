@@ -79,6 +79,14 @@
      :nm "{" #'diff-hunk-prev
      :nm "}" #'diff-hunk-next))
 
+ ;; Disable evil-collection overrides
+ (:after dired
+   (:map dired-mode-map
+     :n "[" nil
+     :n "]" nil
+     :n "{" #'dired-prev-dirline
+     :n "}" #'dired-next-dirline))
+
  ;; Most of this is copied from Spacemacs
  ;; https://github.com/syl20bnr/spacemacs/blob/0fa3658cd8e283825dcd0a54ce1579dec55eb568/layers/%2Blang/ipython-notebook/packages.el
  (:after ein-multilang
