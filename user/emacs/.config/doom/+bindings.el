@@ -87,8 +87,6 @@
      :n "{" #'dired-prev-dirline
      :n "}" #'dired-next-dirline))
 
- ;; Most of this is copied from Spacemacs
- ;; https://github.com/syl20bnr/spacemacs/blob/0fa3658cd8e283825dcd0a54ce1579dec55eb568/layers/%2Blang/ipython-notebook/packages.el
  (:after ein-multilang
    (:map ein:notebook-multilang-mode-map
      :ni [C-return] #'ein:worksheet-execute-cell
@@ -98,51 +96,10 @@
      :nv "M-j"      #'ein:worksheet-move-cell-down
      :nv "M-k"      #'ein:worksheet-move-cell-up
      :nv "C-s"      #'ein:notebook-save-notebook-command
-
      (:localleader
        :nv "y"     #'ein:worksheet-copy-cell
        :nv "p"     #'ein:worksheet-yank-cell
-       :nv "d"     #'ein:worksheet-kill-cell
-     ;;   :nv "h"     #'ein:notebook-worksheet-open-prev-or-last
-     ;;   :nv "i"     #'ein:worksheet-insert-cell-below
-     ;;   :nv "I"     #'ein:worksheet-insert-cell-above
-     ;;   :nv "j"     #'ein:worksheet-goto-next-input
-     ;;   :nv "k"     #'ein:worksheet-goto-prev-input
-     ;;   :nv "l"     #'ein:notebook-worksheet-open-next-or-first
-     ;;   :nv "H"     #'ein:notebook-worksheet-move-prev
-     ;;   :nv "J"     #'ein:worksheet-move-cell-down
-     ;;   :nv "K"     #'ein:worksheet-move-cell-up
-     ;;   :nv "L"     #'ein:notebook-worksheet-move-next
-     ;;   :nv "t"     #'ein:worksheet-toggle-output
-     ;;   :nv "R"     #'ein:worksheet-rename-sheet
-     ;;   :nv "RET"   #'ein:worksheet-execute-cell-and-goto-next
-     ;;   ;; Output
-     ;;   :nv "C-l"   #'ein:worksheet-clear-output
-     ;;   :nv "C-S-l" #'ein:worksheet-clear-all-output
-     ;;   ;;Console
-     ;;   :nv "C-o"   #'ein:console-open
-     ;;   ;; Merge cells
-     ;;   :nv "C-k"   #'ein:worksheet-merge-cell
-     ;;   :nv "C-j"   #'+robbert/ein:worksheet-merge-cell-next
-     ;;   :nv "s"     #'ein:worksheet-split-cell-at-point
-     ;;   ;; Notebook
-     ;;   :nv "C-s"   #'ein:notebook-save-notebook-command
-     ;;   :nv "C-r"   #'ein:notebook-rename-command
-     ;;   :nv "1"     #'ein:notebook-worksheet-open-1th
-     ;;   :nv "2"     #'ein:notebook-worksheet-open-2th
-     ;;   :nv "3"     #'ein:notebook-worksheet-open-3th
-     ;;   :nv "4"     #'ein:notebook-worksheet-open-4th
-     ;;   :nv "5"     #'ein:notebook-worksheet-open-5th
-     ;;   :nv "6"     #'ein:notebook-worksheet-open-6th
-     ;;   :nv "7"     #'ein:notebook-worksheet-open-7th
-     ;;   :nv "8"     #'ein:notebook-worksheet-open-8th
-     ;;   :nv "9"     #'ein:notebook-worksheet-open-last
-     ;;   :nv "+"     #'ein:notebook-worksheet-insert-next
-     ;;   :nv "-"     #'ein:notebook-worksheet-delete
-     ;;   :nv "x"     #'ein:notebook-close
-     ;;   :nv "u"     #'ein:worksheet-change-cell-type
-     ;;   :nv "fs"    #'ein:notebook-save-notebook-command))
-       )))
+       :nv "d"     #'ein:worksheet-kill-cell)))
 
  ;; Disable evil-collection overrides
  (:map compilation-mode-map
