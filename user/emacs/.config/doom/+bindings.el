@@ -74,6 +74,14 @@
      "RET"    nil
      [escape] nil))
 
+ ;; Disable evil-collection overrides
+ (:map compilation-mode-map
+   :n  "SPC" nil
+   :nv "C-h" nil
+   :nv "C-j" nil
+   :nv "C-k" nil
+   :nv "C-l" nil)
+
  (:after diff-mode
    (:map diff-mode-map
      :nm "{" #'diff-hunk-prev
@@ -100,14 +108,6 @@
        :nv "y"     #'ein:worksheet-copy-cell
        :nv "p"     #'ein:worksheet-yank-cell
        :nv "d"     #'ein:worksheet-kill-cell)))
-
- ;; Disable evil-collection overrides
- (:map compilation-mode-map
-   :n  "SPC" nil
-   :nv "C-h" nil
-   :nv "C-j" nil
-   :nv "C-k" nil
-   :nv "C-l" nil)
 
  (:after ein-traceback
    (:map ein:traceback-mode-map
