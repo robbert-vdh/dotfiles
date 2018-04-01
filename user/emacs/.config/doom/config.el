@@ -147,8 +147,8 @@
         langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*"))
 
 (after! python
-  ;; Python docstrings should always be on multiple lines
-  (setq python-fill-docstring-style 'django))
+  ;; Set this to `django' to force docstring to always be on multiple lines
+  (setq python-fill-docstring-style 'pep-257))
 
 (after! markdown-mode
   ;; Doom adds extra line spacing in markdown documents
