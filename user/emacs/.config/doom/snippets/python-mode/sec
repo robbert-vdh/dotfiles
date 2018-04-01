@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: NumPy docstring section
+# key: sec
+# --
+$1
+${1:$(make-string (string-width yas-text) ?\-)}
+$0
