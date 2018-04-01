@@ -78,7 +78,11 @@
 (after! evil-collection
   ;; FIXME: This setup breaks commiting in magit
   (after! diff-mode
-    (remove-hook 'diff-mode-hook 'evil-collection-diff-toggle-setup)))
+    (remove-hook 'diff-mode-hook 'evil-collection-diff-toggle-setup))
+
+  ;; Make sure neotree keybindings are loaded, sometimes they are not
+  (after! neotree
+    (evil-collection-neotree-setup)))
 
 (after! evil-snipe
   ;; Disable evil-snipe overriding the S/s keys. This is a bit of a hack but the
