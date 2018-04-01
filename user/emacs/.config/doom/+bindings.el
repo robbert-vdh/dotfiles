@@ -74,26 +74,10 @@
      "RET"    nil
      [escape] nil))
 
- ;; Disable evil-collection overrides
- (:map compilation-mode-map
-   :n  "SPC" nil
-   :nv "C-h" nil
-   :nv "C-j" nil
-   :nv "C-k" nil
-   :nv "C-l" nil)
-
  (:after diff-mode
    (:map diff-mode-map
      :nm "{" #'diff-hunk-prev
      :nm "}" #'diff-hunk-next))
-
- ;; Disable evil-collection overrides
- (:after dired
-   (:map dired-mode-map
-     :n "[" nil
-     :n "]" nil
-     :n "{" #'dired-prev-dirline
-     :n "}" #'dired-next-dirline))
 
  (:after ein-multilang
    (:map ein:notebook-multilang-mode-map
@@ -191,4 +175,21 @@
 
  (:after web-mode
    (:map web-mode-map
-     "M-/" nil)))
+     "M-/" nil))
+
+ ;; Disable evil-collection overrides
+ (:map compilation-mode-map
+   :n  "SPC" nil
+   :nv "C-h" nil
+   :nv "C-j" nil
+   :nv "C-k" nil
+   :nv "C-l" nil)
+ (:after dired
+   (:map dired-mode-map
+     :n "[" nil
+     :n "]" nil
+     :n "{" #'dired-prev-dirline
+     :n "}" #'dired-next-dirline))
+ (:after python
+   (:map python-mode-map
+     :n "gz" nil)))
