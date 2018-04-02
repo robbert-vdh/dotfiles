@@ -1,5 +1,26 @@
 ;;; ~/.config/doom/autoload/functions.el -*- lexical-binding: t; -*-
 
+;;; Variables
+
+(defvar +robbert/indentation-sensitive-modes '()
+  "Modes that should not automatically indent when pasting")
+
+(defvar +robbert/indentation-max-length 2000
+  "The maximum length in characters for which to apply automatic
+  indentation on paste.")
+
+(defvar +robbert/scss-tag-dirs
+  '("node_modules/bootstrap"
+    "node_modules/foundation-sites"
+    "assets"
+    "ClientApp/styles" ;; ASP.NET SPA
+    "public"
+    "src")
+  "The directories, starting from a Node.JS project root, that
+  should be searched for SCSS tags.")
+
+;;; Functions
+
 ;;;###autoload
 (defun +robbert/buffer-to-clipboard ()
   "Copy the buffer's contents to the system clipboard. Copied
@@ -58,16 +79,6 @@ Copied from Spacemacs."
 (defun +robbert/fix-evil-words-dash ()
   (modify-syntax-entry ?- "w"))
 
-(defvar +robbert/scss-tag-dirs
-  '("node_modules/bootstrap"
-    "node_modules/foundation-sites"
-    "assets"
-    "ClientApp/styles" ;; ASP.NET SPA
-    "public"
-    "src")
-  "The directories, starting from a Node.JS project root, that
-  should be searched for SCSS tags.")
-
 ;;;###autoload
 (defun +robbert/generate-scss-tags (&optional directory)
   "Regenerate SCSS tags for the current project, starting at the
@@ -94,33 +105,6 @@ all existing tags."
     (progn
       (newline nil t)
       (indent-according-to-mode))))
-
-(defvar +robbert/indentation-sensitive-modes '()
-  "Modes that should not automatically indent when pasting")
-
-(defvar +robbert/indentation-max-length 2000
-  "The maximum length in characters for which to apply automatic
-  indentation on paste.")
-
-;;;###autoload
-(defun +robbert/indent-paste-advise (original-function &rest args)
-  "Automatically indent pasted code. See
-`+robbert/indentation-sensitive-modes'."
-  (if (or (member major-mode +robbert/indentation-sensitive-modes))
-      (apply original-function (cdr args))
-    (let ((inhibit-message t)
-          (transient-mark-mode nil))
-      (evil-start-undo-step)
-      ;; This would otherwise cause double highlighting
-      (let ((evil-goggles-mode nil))
-        (apply original-function args))
-      ;; Only indent whent the region is not too large
-      (when (<= (- (region-end) (region-beginning)) +robbert/indentation-max-length)
-        (indent-region (region-beginning) (region-end) nil))
-      ;; HACK: For some reason the `(evil-end-undo-step)' moves the point one
-      ;;       unit to the left when in insert mode
-      (when (evil-insert-state-p) (forward-char))
-      (evil-end-undo-step))))
 
 ;;;###autoload
 (defun +robbert/magit-blame-follow-copy ()
@@ -155,11 +139,6 @@ text"
         filename)))
 
 ;;;###autoload
-(defun +robbert--is-terminal-buffer-p (buffer)
-  (with-current-buffer (cdr buffer)
-    (memq major-mode '(term-mode multi-term-mode shell-mode eshell-mode))))
-
-;;;###autoload
 (defun +robbert/switch-terminal-buffer ()
   "Switch to a terminal buffer. This is useful when multiple
 multi-term buffers are open at once."
@@ -182,25 +161,6 @@ multi-term buffers are open at once."
         (term-char-mode))
     (evil-motion-state)
     (term-line-mode)))
-
-;;;###autoload
-(define-minor-mode pleb-mode
-  "Emacs for normal people"
-  :lighter " PLEB"
-  :global t
-  ;; Enable more standard keybindings
-  (evil-mode 'toggle)
-  (cua-mode 'toggle)
-  (if pleb-mode
-      (progn
-        ;; File trees are nice
-        (+neotree/toggle)
-        (other-window -1)
-        ;; Always use the bar cursor
-        (setq cursor-type 'bar)
-        ;; What is this weird numbering?
-        (nlinum-relative-off))
-    (nlinum-relative-on)))
 
 ;;;###autoload
 (defun +robbert/languagetool-next-error (count)
@@ -231,6 +191,56 @@ LanguageTool. Flyspell errors will be cleared if the
         (progn
           (langtool-check-buffer (+robbert--languagetool-get-language))
           (flyspell-delete-all-overlays))))))
+
+;;; Modes
+
+;;;###autoload
+(define-minor-mode pleb-mode
+  "Emacs for normal people"
+  :lighter " PLEB"
+  :global t
+  ;; Enable more standard keybindings
+  (evil-mode 'toggle)
+  (cua-mode 'toggle)
+  (if pleb-mode
+      (progn
+        ;; File trees are nice
+        (+neotree/toggle)
+        (other-window -1)
+        ;; Always use the bar cursor
+        (setq cursor-type 'bar)
+        ;; What is this weird numbering?
+        (nlinum-relative-off))
+    (nlinum-relative-on)))
+
+;;; Advice
+
+;;;###autoload
+(defun +robbert/indent-paste-advise (original-function &rest args)
+  "Automatically indent pasted code. See
+`+robbert/indentation-sensitive-modes'."
+  (if (or (member major-mode +robbert/indentation-sensitive-modes))
+      (apply original-function (cdr args))
+    (let ((inhibit-message t)
+          (transient-mark-mode nil))
+      (evil-start-undo-step)
+      ;; This would otherwise cause double highlighting
+      (let ((evil-goggles-mode nil))
+        (apply original-function args))
+      ;; Only indent whent the region is not too large
+      (when (<= (- (region-end) (region-beginning)) +robbert/indentation-max-length)
+        (indent-region (region-beginning) (region-end) nil))
+      ;; HACK: For some reason the `(evil-end-undo-step)' moves the point one
+      ;;       unit to the left when in insert mode
+      (when (evil-insert-state-p) (forward-char))
+      (evil-end-undo-step))))
+
+;;; Helper functions
+
+;;;###autoload
+(defun +robbert--is-terminal-buffer-p (buffer)
+  (with-current-buffer (cdr buffer)
+    (memq major-mode '(term-mode multi-term-mode shell-mode eshell-mode))))
 
 ;;;###autoload
 (defun +robbert--languagetool-get-language ()
