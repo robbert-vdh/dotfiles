@@ -192,6 +192,15 @@ LanguageTool. Flyspell errors will be cleared if the
           (langtool-check-buffer (+robbert--languagetool-get-language))
           (flyspell-delete-all-overlays))))))
 
+;;;###autoload
+(defun +robbert/unfill-paragraph (&optional region)
+  "The inverse of `fill-paragraph', i.e. put an entire pagraph on
+  a single line. Source:
+  https://www.emacswiki.org/emacs/UnfillParagraph"
+  (interactive (progn (barf-if-buffer-read-only) '(t)))
+  (let ((fill-column (point-max)))
+    (fill-paragraph nil region)))
+
 ;;; Modes
 
 ;;;###autoload

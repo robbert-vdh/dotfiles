@@ -11,6 +11,7 @@
  :ni "C-S-SPC"          #'company-yasnippet
  :ne [(shift meta f)]   #'counsel-rg         ;; As a complement to the `M-f' Swiper defined in +defualt
  :nvie "M-q"            #'fill-paragraph     ;; Doom Emacs overrides this to quit by default
+ :nvie "M-Q"            #'+robbert/unfill-paragraph
  :v "C-u"               #'evil-scroll-up     ;; `evil-want-C-u-scroll' doesn't do anything in visual mode
 
  :m "[a"                #'+robbert/languagetool-previous-error
