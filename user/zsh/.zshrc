@@ -4,9 +4,15 @@
 
 bindkey -e
 
-# Source zim
+# The awesome zim configuration framework sets up most things
 if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
   source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
+fi
+
+# Keybindings for searching for files and directories. The commands are
+# overwritten in ~/.zshenv to use fd instead of GNU find.
+if [[ -f /usr/share/fzf/key-bindings.zsh ]]; then
+  source /usr/share/fzf/key-bindings.zsh
 fi
 
 alias firefox="firefox-developer-edition"

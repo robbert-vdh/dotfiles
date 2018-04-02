@@ -17,3 +17,8 @@ export RUST_SRC_PATH="$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/
 # Needed until rustfmt-nightly gets their stuff together
 #export LD_LIBRARY_PATH=$(rustc --print sysroot)/lib
 export LD_LIBRARY_PATH="$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib"
+
+# Use the excelent fd for fzf to respect VCS ignores and hidden files
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND='fd --hidden --follow --exclude .git'
+export FZF_ALT_C_COMMAND='fd --type d --hidden --no-ignore-vcs --exclude .git'
