@@ -65,9 +65,11 @@
 
 (after! evil
   (setq-default evil-symbol-word-search t)
+
   ;; Automatically indent when pasting
   (dolist (func '(evil-paste-before evil-paste-after))
     (advice-add func :around '+robbert/indent-paste-advise))
+
   ;; Doom Emacs overrides the `;' and `,' keys to also repeat things like
   ;; searches. Because it uses evil-snipe by default this hasn't been done for
   ;; the default f/F/t/T keybindings.
@@ -247,9 +249,6 @@
   (set! :popup "^\\*WordNut\\*$" '((size . 0.3)) '((select . t))))
 
 (after! yasnippet
-  ;; `~/.emacs/snippets' should come first as it's used as the default snippet
-  ;; save location
-  (push (expand-file-name "snippets" +private-config-path) yas-snippet-dirs)
   (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand))
 
 ;;; Settings
@@ -370,6 +369,3 @@
 (unless (server-running-p)
   (server-start)
   (atomic-chrome-start-server))
-
-;; TODO: Remove
-(autoload 'evil-vimish-fold-mode "evil-vimish-fold")
