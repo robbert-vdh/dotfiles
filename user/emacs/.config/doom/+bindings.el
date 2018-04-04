@@ -118,6 +118,7 @@
 
  (:after ivy
    (:map ivy-minibuffer-map
+     [backtab]     #'ivy-occur ;; Mimics Doom's S-TAB `wgrep' binding for other searches
      "C-d"         #'ivy-scroll-up-command
      "C-u"         #'ivy-scroll-down-command)
 
