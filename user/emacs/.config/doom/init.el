@@ -3,10 +3,6 @@
 ;; This won't get set otherwise
 (def-package-hook! evil :post-init (setq evil-want-Y-yank-to-eol nil) t)
 
-(def-package-hook! evil-collection :pre-config
-  ;; These keybindings are set by Doom anyway, and it breaks quitting magit
-  (delq 'simple evil-collection-mode-list))
-
 (doom! :feature
        (popup            ; tame sudden yet inevitable temporary windows
         +all             ; catch all popups that start with an asterix
