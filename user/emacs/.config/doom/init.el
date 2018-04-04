@@ -3,6 +3,14 @@
 ;; This won't get set otherwise
 (def-package-hook! evil :post-init (setq evil-want-Y-yank-to-eol nil) t)
 
+;; The tng-frontend should be added before `company-quickhelp' gets loaded, or
+;; else it will get overridden
+(def-package-hook! company :post-config
+  (setq company-frontends
+        '(company-tng-frontend
+          company-preview-if-just-one-frontend
+          company-pseudo-tooltip-unless-just-one-frontend)) t)
+
 (doom! :feature
        (popup            ; tame sudden yet inevitable temporary windows
         +all             ; catch all popups that start with an asterix
