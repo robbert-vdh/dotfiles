@@ -110,12 +110,6 @@
    (:map flycheck-error-list-mode-map
      :m [M-return] #'flycheck-error-list-explain-erro))
 
- (:after helpful
-   (:map helpful-mode-map
-     :m "q"  #'quit-window
-     :m "ZZ" #'quit-window
-     :m "ZQ" #'quit-window))
-
  (:after ivy
    (:map ivy-minibuffer-map
      [backtab]     #'ivy-occur ;; Mimics Doom's S-TAB `wgrep' binding for other searches
