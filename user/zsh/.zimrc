@@ -1,3 +1,5 @@
+# -*- mode: shell-script; -*-
+
 #################
 # CORE SETTINGS #
 #################
@@ -25,7 +27,6 @@ zmodules=(
   syntax-highlighting
   utility
 )
-
 
 ###################
 # MODULE SETTINGS #
@@ -59,7 +60,7 @@ setopt CORRECT
 #
 
 # Set the string below to the desired terminal title format string.
-# The terminal title is redrawn upon directory change, however, variables like 
+# The terminal title is redrawn upon directory change, however, variables like
 # ${PWD} are only evaluated once. Use prompt expansion strings for dynamic data:
 #   http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
 # The example below uses the following format: 'username@host:/current/directory'
@@ -93,7 +94,6 @@ fi
 
 # Load these ssh identities with the ssh module
 zssh_ids=(id_rsa)
-
 
 #
 # Pacman
