@@ -111,7 +111,8 @@ all existing tags."
   "Blame with the `-wCCC' options, telling Git to track copied
 text"
   (interactive)
-  (magit-blame magit-buffer-refname buffer-file-name '("-wCCC")))
+  (let ((magit-blame-arguments (cons "-CCC" magit-blame-arguments)))
+    (magit-blame)))
 
 ;;;###autoload
 (defun +robbert/scss-find-file (filename)
