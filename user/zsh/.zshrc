@@ -21,6 +21,7 @@ alias xpaste="xsel -o"
 
 # Open emacsclient inside terminal (compliment to ~/.dotfiles/bin/em)
 alias en="emacsclient -nw -a ''"
+alias restart-emacs="systemctl --user restart emacs.service"
 
 # More modern ls replacement
 alias ls="exa --group-directories-first"
