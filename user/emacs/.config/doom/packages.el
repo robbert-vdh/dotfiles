@@ -6,5 +6,6 @@
 (package! evil-ediff)
 (package! evil-lion)
 (package! ggtags)
+(package! page-break-lines)
 (package! pkgbuild-mode)
 (package! yapfify)

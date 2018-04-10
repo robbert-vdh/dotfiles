@@ -50,6 +50,11 @@
   (set! :lookup 'scss-mode :definition #'ggtags-find-tag-dwim :references #'ggtags-find-reference)
   (set! :company-backend '(css-mode scss-mode) 'company-gtags 'company-css))
 
+;; Transforms ^L characters into horizontal lines
+(def-package! page-break-lines
+  :config
+  (add-hook! (emacs-lisp-mode view-mode) 'turn-on-page-break-lines-mode))
+
 (def-package! pkgbuild-mode)
 
 (def-package! yapfify
