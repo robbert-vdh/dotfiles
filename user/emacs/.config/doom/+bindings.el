@@ -186,6 +186,15 @@
      :n "]" nil
      :n "{" #'dired-prev-dirline
      :n "}" #'dired-next-dirline))
+ (:after evil-collection-view
+   (:map outline-mode-map
+     :n "[" nil
+     :n "]" nil
+     :n "{" #'outline-previous-visible-heading
+     :n "}" #'outline-next-visible-heading)
+   (:map view-mode-map
+     :n "SPC" nil
+     :n "S-SPC" nil))
  (:after python
    (:map python-mode-map
      :n "gz" nil)))
