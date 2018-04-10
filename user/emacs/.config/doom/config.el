@@ -9,7 +9,8 @@
   (setq atomic-chrome-buffer-open-style 'frame
         atomic-chrome-buffer-frame-height 20
         atomic-chrome-buffer-frame-width 90
-        atomic-chrome-default-major-mode 'markdown-mode))
+        atomic-chrome-default-major-mode 'markdown-mode)
+  (atomic-chrome-start-server))
 
 (def-package! ein
   :config
@@ -374,5 +375,4 @@
 ;; but server functinoaly is still very useful
 (require 'server)
 (unless (server-running-p)
-  (server-start)
-  (atomic-chrome-start-server))
+  (server-start))
