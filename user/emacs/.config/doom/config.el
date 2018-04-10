@@ -264,6 +264,7 @@
       evil-goggles-duration 0.25
       evil-want-C-u-scroll t
       evil-want-Y-yank-to-eol nil
+      executable-prefix-env t
       ;; Order should not matter when searching
       ivy-re-builders-alist '(;; (swiper . ivy--regex-plus)
                               (t      . ivy--regex-ignore-order))
@@ -351,7 +352,8 @@
 ;; something off screen
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 3) ((control)))
       scroll-conservatively 3
-      scroll-margin 3)
+      scroll-margin 3
+      maximum-scroll-margin 0.2)
 (add-hook! 'term-mode-hook (setq-local scroll-margin 0))
 
 ;; Also highlight todos in text modes
