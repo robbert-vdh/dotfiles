@@ -272,7 +272,8 @@
       doom-font (font-spec :family "Input Mono"
                            :width 'semi-condensed
                            :size (if (equal system-name "laptop") 18 16))
-      doom-variable-pitch-font (font-spec :family "Roboto")
+      doom-variable-pitch-font (font-spec :family "Roboto"
+                                          :size (if (equal system-name "laptop") 18 16))
       doom-big-font (font-spec :family "Input Mono" :size 29))
 
 ;; Remove less useful functions from hippie expand
