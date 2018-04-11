@@ -10,7 +10,7 @@
         atomic-chrome-buffer-frame-height 20
         atomic-chrome-buffer-frame-width 90
         atomic-chrome-default-major-mode 'markdown-mode)
-  (atomic-chrome-start-server))
+  (ignore-errors (atomic-chrome-start-server)))
 
 (def-package! ein
   :config
