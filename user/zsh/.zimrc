@@ -9,21 +9,22 @@
 #
 
 # Select what modules you would like enabled.
-# The second line of modules may depend on options set by modules in the first line.
-# These dependencies are noted on the respective module's README.md.
+# The second line of modules may depend on options set by modules in the first
+# line. These dependencies are noted on the respective module's README.md.
 zmodules=(
-  archive
   autosuggestions
   completion
   custom
   directory
   environment
   git
+  git-info
   history
   history-substring-search
   input
-  meta
+  pacman
   prompt
+  ssh
   syntax-highlighting
   utility
 )
@@ -83,10 +84,8 @@ zdouble_dot_expand='true'
 #   https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
 # For (u)rxvt, termite and gnome-terminal users,
 # removing the 'cursor' highlighter will fix the disappearing cursor problem
-zhighlighters=(main brackets)
-if [[ $TERM != 'eterm-color' ]]; then
-  zhighlighters+=(cursor)
-fi
+zhighlighters=(main brackets cursor)
+
 
 #
 # SSH
@@ -95,14 +94,13 @@ fi
 # Load these ssh identities with the ssh module
 zssh_ids=(id_rsa)
 
+
 #
 # Pacman
 #
 
 # Set (optional) pacman front-end.
 #zpacman_frontend='powerpill'
-zpacman_frontend='powerpill'
 
 # Load any helper scripts as defined here
-#zpacman_helper=(aur)
 zpacman_helper=(aur)

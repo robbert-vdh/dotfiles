@@ -1,13 +1,10 @@
-#
-# User configuration sourced by interactive shells
-#
-
 bindkey -e
 
-# The awesome zim configuration framework sets up most things
-if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
-  source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
-fi
+# Change default zim location
+export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+
+# Start zim
+[[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
 
 # Keybindings for searching for files and directories. The commands are
 # overwritten in ~/.zshenv to use fd instead of GNU find.
