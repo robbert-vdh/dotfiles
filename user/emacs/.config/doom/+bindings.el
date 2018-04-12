@@ -174,13 +174,14 @@
      "M-/" nil))
 
  ;; Disable evil-collection overrides
- (:map compilation-mode-map
-   :n  "SPC" nil
-   :nv "C-h" nil
-   :nv "C-j" nil
-   :nv "C-k" nil
-   :nv "C-l" nil)
- (:after dired
+ (:after evil-collection-compile
+   (:map compilation-mode-map
+     :n  "SPC" nil
+     :nv "C-h" nil
+     :nv "C-j" nil
+     :nv "C-k" nil
+     :nv "C-l" nil))
+ (:after evil-collection-dired
    (:map dired-mode-map
      :n "[" nil
      :n "]" nil
@@ -197,4 +198,10 @@
      :n "S-SPC" nil))
  (:after python
    (:map python-mode-map
-     :n "gz" nil)))
+     :n "gz" nil))
+ (:after evil-collection-term
+   (:map term-mode-map
+     :n "C-h" nil
+     :n "C-j" nil
+     :n "C-k" nil
+     :n "C-l" nil)))
