@@ -42,7 +42,7 @@ zprompt_theme='pure'
 
 # There's some weird issue with unicode characters in Emacs' ansi-term
 if [[ $TERM = 'eterm-color' ]]; then
-  export PURE_PROMPT_SYMBOL=">"
+  export PURE_PROMPT_SYMBOL='$'
 fi
 
 #
