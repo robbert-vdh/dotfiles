@@ -135,10 +135,7 @@
 
   ;; Make sure neotree keybindings are loaded, sometimes they are not
   (after! neotree
-    (evil-collection-neotree-setup))
-
-  ;; HACK: Overrides are not getting loaded otherwise, not sure why
-  (add-hook! 'doom-after-switch-window-hook (load! +bindings)))
+    (evil-collection-neotree-setup)))
 
 (after! evil-snipe
   ;; Disable evil-snipe overriding the S/s keys. This is a bit of a hack but the

@@ -174,34 +174,35 @@
      "M-/" nil))
 
  ;; Disable evil-collection overrides
- (:after evil-collection-compile
+ (:after compile
    (:map compilation-mode-map
-     :n  "SPC" nil
-     :nv "C-h" nil
-     :nv "C-j" nil
-     :nv "C-k" nil
-     :nv "C-l" nil))
- (:after evil-collection-dired
+     :n  "SPC"  nil
+     :nv "C-h"  nil
+     :nv "C-j"  nil
+     :nv "C-k"  nil
+     :nv "C-l"  nil))
+ (:after dired
    (:map dired-mode-map
-     :n "[" nil
-     :n "]" nil
-     :n "{" #'dired-prev-dirline
-     :n "}" #'dired-next-dirline))
- (:after evil-collection-view
+     :n "["     nil
+     :n "]"     nil
+     :n "{"     #'dired-prev-dirline
+     :n "}"     #'dired-next-dirline))
+ (:after outline
    (:map outline-mode-map
-     :n "[" nil
-     :n "]" nil
-     :n "{" #'outline-previous-visible-heading
-     :n "}" #'outline-next-visible-heading)
-   (:map view-mode-map
-     :n "SPC" nil
-     :n "S-SPC" nil))
+     :n "["     nil
+     :n "]"     nil
+     :n "{"     #'outline-previous-visible-heading
+     :n "}"     #'outline-next-visible-heading))
  (:after python
    (:map python-mode-map
-     :n "gz" nil))
- (:after evil-collection-term
+     :n "gz"    nil))
+ (:after multi-term
    (:map term-mode-map
-     :n "C-h" nil
-     :n "C-j" nil
-     :n "C-k" nil
-     :n "C-l" nil)))
+     :n "C-h"   nil
+     :n "C-j"   nil
+     :n "C-k"   nil
+     :n "C-l"   nil))
+ (:after view
+   (:map view-mode-map
+     :n "SPC"   nil
+     :n "S-SPC" nil)))
