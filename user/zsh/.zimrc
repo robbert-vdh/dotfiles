@@ -40,6 +40,11 @@ zmodules=(
 # Set your desired prompt here
 zprompt_theme='pure'
 
+# There's some weird issue with unicode characters in Emacs' ansi-term
+if [[ $TERM = 'eterm-color' ]]; then
+  export PURE_PROMPT_SYMBOL=">"
+fi
+
 #
 # Completion
 #
@@ -84,8 +89,11 @@ zdouble_dot_expand='true'
 #   https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
 # For (u)rxvt, termite and gnome-terminal users,
 # removing the 'cursor' highlighter will fix the disappearing cursor problem
-zhighlighters=(main brackets cursor)
+zhighlighters=(main brackets)
 
+if [[ $TERM != 'eterm-color' ]]; then
+  zhighlighters+=(cursor)
+fi
 
 #
 # SSH
