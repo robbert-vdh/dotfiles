@@ -354,7 +354,8 @@
 (remove-hook 'find-file-hook '+vcs|enable-smerge-mode-maybe)
 
 ;; Automatically delete trailing whitespace
-(add-hook 'before-save-hook #'delete-trailing-whitespace)
+(add-hook! 'prog-mode-hook
+  (add-hook! :local 'before-save-hook #'delete-trailing-whitespace))
 
 ;; Make `w' and `b' handle more like in vim
 (add-hook 'after-change-major-mode-hook #'+robbert/fix-evil-words-underscore)
