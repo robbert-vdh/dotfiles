@@ -53,7 +53,7 @@
   (load "ein-loaddefs.el" nil t t)
   (setq
    ;; Slide images into rows so that we can navigate buffers with images more easily
-   ein:slice-image t
+   ein:slice-image '(10 nil)
    ein:jupyter-default-server-command "/usr/bin/jupyter"
    ein:jupyter-server-args '("--no-browser")
    ein:notebook-modes
@@ -354,7 +354,7 @@
 (remove-hook 'find-file-hook '+vcs|enable-smerge-mode-maybe)
 
 ;; Automatically delete trailing whitespace
-(add-hook! 'prog-mode-hook
+(add-hook! (prog-mode text-mode)
   (add-hook! :local 'before-save-hook #'delete-trailing-whitespace))
 
 ;; Make `w' and `b' handle more like in vim
