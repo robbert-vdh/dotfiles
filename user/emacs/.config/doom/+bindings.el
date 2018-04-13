@@ -18,7 +18,7 @@
  :m "]a"                #'+robbert/languagetool-next-error
 
  ;; Override for the default config, this breaks magit
- :n  "z"                nil
+ :n "z"                 nil
 
  (:leader
    (:desc "buffer"                    :prefix "b"
