@@ -82,17 +82,18 @@
 
  (:after ein-multilang
    (:map ein:notebook-multilang-mode-map
-     :ni [C-return] #'ein:worksheet-execute-cell
-     :ni [S-return] #'ein:worksheet-execute-cell-and-goto-next
-     :n  "gj"       #'ein:worksheet-goto-next-input
-     :n  "gk"       #'ein:worksheet-goto-prev-input
-     :nv "M-j"      #'ein:worksheet-move-cell-down
-     :nv "M-k"      #'ein:worksheet-move-cell-up
-     :nv "C-s"      #'ein:notebook-save-notebook-command
+     :ni  [C-return] #'ein:worksheet-execute-cell
+     :ni  [S-return] #'ein:worksheet-execute-cell-and-goto-next
+     :nvi [backtab]  #'ein:pytools-request-tooltip-or-help
+     :n   "gj"       #'ein:worksheet-goto-next-input
+     :n   "gk"       #'ein:worksheet-goto-prev-input
+     :nv  "M-j"      #'ein:worksheet-move-cell-down
+     :nv  "M-k"      #'ein:worksheet-move-cell-up
+     :nv  "C-s"      #'ein:notebook-save-notebook-command
      (:localleader
-       :nv "y"     #'ein:worksheet-copy-cell
-       :nv "p"     #'ein:worksheet-yank-cell
-       :nv "d"     #'ein:worksheet-kill-cell)))
+       :nv "y"       #'ein:worksheet-copy-cell
+       :nv "p"       #'ein:worksheet-yank-cell
+       :nv "d"       #'ein:worksheet-kill-cell)))
 
  (:after ein-traceback
    (:map ein:traceback-mode-map
