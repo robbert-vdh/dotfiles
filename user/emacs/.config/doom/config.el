@@ -12,55 +12,6 @@
         atomic-chrome-default-major-mode 'markdown-mode)
   (ignore-errors (atomic-chrome-start-server)))
 
-(def-package! ein
-  :commands (ein:notebooklist-open ein:notebooklist-login ein:jupyter-server-start)
-  :init
-  (defun +ein/ace-link-ein ()
-    "Ace jump to links in ein notebooklist."
-    (interactive)
-    (let ((res (avy-with +ein/ace-link-ein
-                         (avy--process
-                          (+ein--collect-ein-buffer-links)
-                          #'avy--overlay-pre))))
-                                        ;(avy--style-fn avy-style)))))
-      (when (numberp res)
-        (goto-char (1+ res))
-        (widget-button-press (point)))))
-
-  (defun +ein--collect-ein-buffer-links ()
-    (interactive)
-    (let ((end (window-end))
-          points)
-      (save-excursion
-        (goto-char (window-start))
-        (while (re-search-forward "~?/.+\\|\s\\[" end t)
-          (push (+ (match-beginning 0) 1) points))
-        (nreverse points))))
-
-  (set! :popup "\\*ein:*" :ignore)
-  (set! :popup "\\*ein:notebooklist *" '((side . left)) '((size . 40) (select)))
-  ;; Ace-link on notebook list buffers
-  (add-hook! 'ein:notebooklist-mode-hook
-    (map! :map ein:notebooklist-mode-map
-          "o" #'+ein/ace-link-ein))
-  ;; Ein uses request to store http cookies. Store them in the cache dir.
-  (setq request-storage-directory (concat doom-cache-dir "/request"))
-  ;; Auto complete with company
-  (set! :company-backend '(ein:notebook-multilang-mode ein:notebook-python-mode ein:notebook-plain-mode)
-    'ein:company-backend)
-  :config
-  ;; Manually load the autoloads of EIN. This takes time...
-  (load "ein-loaddefs.el" nil t t)
-  (setq
-   ;; Slide images into rows so that we can navigate buffers with images more easily
-   ein:slice-image '(10 nil)
-   ein:jupyter-default-server-command "/usr/bin/jupyter"
-   ein:jupyter-server-args '("--no-browser")
-   ein:notebook-modes
-   '(ein:notebook-multilang-mode ein:notebook-python-mode ein:notebook-plain-mode))
-  ;; Avy is required for showing links in the notebook list with ace-link.
-  (require 'avy))
-
 (def-package! evil-ediff
   :after ediff
   :config
@@ -112,6 +63,24 @@
 
 (after! csharp-mode
   (set! :electric '(csharp-mode) :chars '(?\n ?\{)))
+
+(after! ein
+  (setq ein:slice-image '(10 nil))
+
+  ;; Remove this after it gets merged:
+  (push (lambda (buf) (string-match-p "^\\*ein: .*" (buffer-name buf)))
+        doom-real-buffer-functions)
+  (set! :popup "\\*ein: .*" :ignore)
+  (set! :popup "\\*ein:tb .*" '((side . bottom) (size . 0.3)) '((quit . t) (transient) (select)))
+  (set! :popup "\\*ein:notebooklist *" '((side . left) (size . 50)) '((select)))
+
+  (when (featurep! :completion company)
+    (setq ein:completion-backend 'ein:use-company-backend)
+    (set! :company-backend
+      '(ein:notebook-multilang-mode
+        ein:notebook-python-mode
+        ein:notebook-plain-mode)
+      'ein:company-backend)))
 
 (after! evil
   (setq-default evil-symbol-word-search t)

@@ -52,6 +52,7 @@
 
        :tools
        dired             ; making dired pretty [functional]
+       ein               ; tame Jupyter notebooks with emacs
        electric-indent   ; smarter, keyword-based electric-indent
        eshell            ; a consistent, cross-platform shell (WIP)
        gist              ; interacting with github gists
