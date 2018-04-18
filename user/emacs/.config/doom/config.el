@@ -65,7 +65,8 @@
   (set! :electric '(csharp-mode) :chars '(?\n ?\{)))
 
 (after! ein
-  (setq ein:slice-image '(10 nil))
+  (setq ein:jupyter-default-notebook-directory nil
+        ein:slice-image '(10 nil))
 
   ;; Remove this after it gets merged:
   (push (lambda (buf) (string-match-p "^\\*ein: .*" (buffer-name buf)))
