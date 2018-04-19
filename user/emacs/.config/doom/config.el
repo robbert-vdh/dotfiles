@@ -66,22 +66,7 @@
 
 (after! ein
   (setq ein:jupyter-default-notebook-directory nil
-        ein:slice-image '(10 nil))
-
-  ;; Remove this after it gets merged:
-  (push (lambda (buf) (string-match-p "^\\*ein: .*" (buffer-name buf)))
-        doom-real-buffer-functions)
-  (set! :popup "\\*ein: .*" :ignore)
-  (set! :popup "\\*ein:tb .*" '((side . bottom) (size . 0.3)) '((quit . t) (transient) (select)))
-  (set! :popup "\\*ein:notebooklist *" '((side . left) (size . 50)) '((select)))
-
-  (when (featurep! :completion company)
-    (setq ein:completion-backend 'ein:use-company-backend)
-    (set! :company-backend
-      '(ein:notebook-multilang-mode
-        ein:notebook-python-mode
-        ein:notebook-plain-mode)
-      'ein:company-backend)))
+        ein:slice-image '(10 nil)))
 
 (after! evil
   (setq-default evil-symbol-word-search t)
