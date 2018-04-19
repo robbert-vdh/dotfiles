@@ -173,10 +173,6 @@
     (add-to-list 'term-bind-key-alist bind)))
 
 (after! omnisharp
-  ;; FIXME: This should not be necesary as aldoc and smartparens are already
-  ;;        enabled for `csharp-mode'
-  (add-hook 'omnisharp-mode-hook 'eldoc-mode)
-
   ;; Use a more modern omnisharp server than the package specifies
   (when (equal omnisharp-expected-server-version "1.26.3")
     (setq omnisharp-expected-server-version "1.29.1"))
@@ -237,10 +233,7 @@
 
   ;; Format TypeScript on save
   (add-hook! 'typescript-mode-hook
-    (add-hook! :local 'before-save-hook 'tide-format-before-save))
-  ;; FIXME: This should not be necesary as aldoc and smartparens are already
-  ;;        enabled for `tide-mode'
-  (add-hook! :append 'tide-mode-hook (eldoc-mode +1)))
+    (add-hook! :local 'before-save-hook 'tide-format-before-save)))
 
 (after! web-mode
   ;; Editorconfig tells web-mode to indent attributes instead of aligning
