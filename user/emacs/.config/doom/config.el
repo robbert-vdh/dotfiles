@@ -129,8 +129,8 @@
 (after! flyspell
   ;; Don't automatically spellcheck when enabling flycheck
   (remove-hook 'flyspell-mode-hook #'+spellcheck|automatically)
-  (add-hook! (git-commit-mode org-mode text-mode)
-    'flyspell-mode))
+  (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
+  (add-hook! (org-mode text-mode) 'flyspell-mode))
 
 (after! helpful
   ;; Increase the size of help popups to match Ivy's height
