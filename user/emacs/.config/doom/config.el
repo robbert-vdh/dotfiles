@@ -35,7 +35,6 @@
   :commands (ggtags-find-tag-dwim ggtags-find-reference)
   :commands (ggtags-mode)
   :config
-  (add-hook 'ggtags-mode-hook #'eldoc-mode)
   ;; Sort global results by nearness. This helps when editing Sass, as the
   ;; default variables will have a lower priority.
   (setq ggtags-sort-by-nearness t)
