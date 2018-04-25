@@ -273,8 +273,8 @@ bindsym $mod+F11 exec --no-startup-id "pkill panel; xfce4-panel"
 bindsym $mod+F12 exec --no-startup-id pkill compton || compton --respect-prop-shadow
 
 # Banter
-bindsym $mod+F1 exec --no-startup-id ssh candy@stichting-raam ffplay /home/candy/Music/mlg-airhorn.mp3
-bindsym $mod+F2 exec --no-startup-id ssh candy@stichting-raam ffplay /home/candy/Music/and-his-name-is-john-cena-1.mp3
+bindsym $mod+F1 exec --no-startup-id ssh -p 13337 candy@robbertvanderhelm.nl mpv --no-vid /home/candy/Music/mlg-airhorn.mp3
+bindsym $mod+F2 exec --no-startup-id ssh -p 13337 candy@robbertvanderhelm.nl mpv --no-vid /home/candy/Music/and-his-name-is-john-cena-1.mp3
 
 #
 # Spotify doesn't bind its own media keys
