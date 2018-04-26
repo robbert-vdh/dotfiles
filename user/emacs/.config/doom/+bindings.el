@@ -161,14 +161,14 @@
    (:map tide-mode-map
      :nv [M-return] #'tide-fix
      (:localleader
-       ;; TODO: Add Doom's refactor menu
        :desc "JSDoc template" :nv "c"   #'tide-jsdoc-template
        :desc "Documentation"  :nv "h"   #'tide-documentation-at-point
        :desc "Fix imports"    :nv "i"   #'tide-organize-imports
        :desc "Rename"         :nv "r"   #'tide-rename-symbol
        :desc "Refactor this"  :nv "R"   #'tide-refactor
-       :desc "Fix issue"      :nv "SPC" #'tide-fix
-       :desc "Restart"        :n "s"    #'tide-restart-server)))
+       :desc "Restart"        :n "s"    #'tide-restart-server
+       :desc "Fix issue"      :nv "RET" #'tide-fix
+       :desc "Refactor..."    :nv "SPC" #'+javascript/refactor-menu)))
 
  (:after web-mode
    (:map web-mode-map
