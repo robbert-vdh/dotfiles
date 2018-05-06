@@ -27,9 +27,9 @@
   :after evil
   :config (evil-lion-mode))
 
-(after! evil-org
-  (setq evil-org-use-additional-insert t)
-  (evil-org-set-key-theme))
+(def-package! fish-mode
+  :config
+  (set! :electric '(fish-mode) :words '("end")))
 
 (def-package! ggtags
   :commands (ggtags-find-tag-dwim ggtags-find-reference)
@@ -100,11 +100,9 @@
   (evil-snipe-override-mode -1)
   (add-hook 'evil-snipe-mode-hook '+robbert/disable-evil-snipe-once))
 
-(after! evil-surround
-  ;; Add evil-surround support for common markup symbols
-  (dolist (pair '((?$ . ("$" . "$")) (?= . ("=" . "=")) (?~ . ("~" . "~"))
-                  (?/ . ("/" . "/")) (?* . ("*" . "*")) (?* . (":" . ":"))))
-    (push pair evil-surround-pairs-alist)))
+(after! evil-org
+  (setq evil-org-use-additional-insert t)
+  (evil-org-set-key-theme))
 
 (after! evil-magit
   ;; git-commit is always verbose as specified in ~/.gitconfig
@@ -116,6 +114,12 @@
   ;; Don't interfere with the leader key
   (dolist (mode (list magit-mode-map magit-revision-mode-map))
     (define-key mode (kbd doom-leader-key) nil)))
+
+(after! evil-surround
+  ;; Add evil-surround support for common markup symbols
+  (dolist (pair '((?$ . ("$" . "$")) (?= . ("=" . "=")) (?~ . ("~" . "~"))
+                  (?/ . ("/" . "/")) (?* . ("*" . "*")) (?* . (":" . ":"))))
+    (push pair evil-surround-pairs-alist)))
 
 (after! exec-path-from-shell
   ;; Make sure racer can find Rust's source files and disable gtags as Rust's
