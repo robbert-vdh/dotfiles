@@ -1,0 +1,16 @@
+__format_time.fish
+__fzf_cd.fish
+__fzf_complete.fish
+__fzf_find_file.fish
+__fzf_get_dir.fish
+__fzf_parse_commandline.fish
+__fzf_reverse_isearch.fish
+__fzfcmd.fish
+__parse_current_folder.fish
+__parse_git_branch.fish
+__pure_set_default.fish
+fish_greeting.fish
+fish_prompt.fish
+fish_right_prompt.fish
+fish_title.fish
+installer.fish
