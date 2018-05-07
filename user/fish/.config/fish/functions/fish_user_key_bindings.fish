@@ -1,6 +1,6 @@
 function fish_user_key_bindings
     # Expand three dots to ../..
-    bind . expand-triple-dot
+    bind . expand_triple_dot
 
     ### fzf ###
     if test "$FZF_LEGACY_KEYBINDINGS" -eq 1

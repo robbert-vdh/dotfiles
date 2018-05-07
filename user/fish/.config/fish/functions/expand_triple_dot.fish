@@ -1,4 +1,4 @@
-function expand-triple-dot -d 'expand ... to ../..'
+function expand_triple_dot -d 'expand ... to ../..'
     set cmd (commandline --cut-at-cursor)
 
     switch $cmd[-1]
