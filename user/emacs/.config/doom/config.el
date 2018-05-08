@@ -29,7 +29,7 @@
 
 (def-package! fish-mode
   :config
-  (set! :electric '(fish-mode) :words '("end")))
+  (set! :electric '(fish-mode) :words '("else" "end")))
 
 (def-package! ggtags
   :commands (ggtags-find-tag-dwim ggtags-find-reference)
