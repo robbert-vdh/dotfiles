@@ -1,3 +1,22 @@
 completions/
 fish_universal_variables
 fishd.*
+
+# Plugins
+conf.d/fzf.fish
+functions/__format_time.fish
+functions/__fzf_cd.fish
+functions/__fzf_complete.fish
+functions/__fzf_find_file.fish
+functions/__fzf_get_dir.fish
+functions/__fzf_parse_commandline.fish
+functions/__fzf_reverse_isearch.fish
+functions/__fzfcmd.fish
+functions/__parse_current_folder.fish
+functions/__parse_git_branch.fish
+functions/__pure_set_default.fish
+functions/fish_greeting.fish
+functions/fish_prompt.fish
+functions/fish_right_prompt.fish
+functions/fish_title.fish
+functions/installer.fish
