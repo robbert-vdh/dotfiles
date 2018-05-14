@@ -131,8 +131,11 @@
 
 (after! flyspell
   ;; Don't automatically spellcheck when enabling flycheck
-  (remove-hook 'flyspell-mode-hook #'+spellcheck|automatically)
-  (add-hook! (git-commit-mode org-mode text-mode) 'flyspell-mode))
+  (setq-hook! (git-commit-mode org-mode text-mode)
+    +spellcheck-immediately nil)
+
+  (after! magit
+    (add-hook 'git-commit-setup-hook 'flyspell-mode)))
 
 (after! helpful
   ;; Increase the size of help popups to match Ivy's height
