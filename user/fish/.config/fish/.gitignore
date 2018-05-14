@@ -3,7 +3,10 @@ fish_universal_variables
 fishd.*
 
 # Plugins
+conf.d/.gitignore
 conf.d/fzf.fish
+conf.d/thefuck.init.fish
+functions/.gitignore
 functions/__format_time.fish
 functions/__fzf_cd.fish
 functions/__fzf_complete.fish
@@ -15,8 +18,11 @@ functions/__fzfcmd.fish
 functions/__parse_current_folder.fish
 functions/__parse_git_branch.fish
 functions/__pure_set_default.fish
+functions/__tf_updt.fish
 functions/fish_greeting.fish
 functions/fish_prompt.fish
 functions/fish_right_prompt.fish
 functions/fish_title.fish
+functions/fuck.fish
 functions/installer.fish
+functions/thefuck-command-line.fish

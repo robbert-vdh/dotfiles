@@ -1,6 +1,8 @@
 function fish_user_key_bindings
     # Expand three dots to ../..
     bind . expand_triple_dot
+    # Correct previous command on ESCAPE-ESCAPE
+    bind \e\e 'thefuck-command-line'
 
     ### fzf ###
     if test "$FZF_LEGACY_KEYBINDINGS" -eq 1
