@@ -134,8 +134,7 @@
   (setq-hook! (git-commit-mode org-mode text-mode)
     +spellcheck-immediately nil)
 
-  (after! magit
-    (add-hook 'git-commit-setup-hook 'flyspell-mode)))
+  (add-hook! (org-mode magit) 'flyspell-mode))
 
 (after! helpful
   ;; Increase the size of help popups to match Ivy's height
