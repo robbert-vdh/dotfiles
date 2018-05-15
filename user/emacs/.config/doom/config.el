@@ -2,7 +2,7 @@
 
 (load! +bindings)
 
-;; TODO: SPC / * to search for the word under the cursor
+;; TODO: Use the new `:defer input/buffer' directives
 
 (def-package! atomic-chrome
   :config
@@ -293,6 +293,7 @@
 ;; Fix xdg-open and similar progrems not openening. Not sure why this is needed,
 ;; and might break others things.
 (setq process-connection-type nil)
+;; TODO: Refactor this and similar calls to `setq-hook!'
 (add-hook! 'term-mode-hook (setq-local process-connection-type t))
 
 ;; Disable blinking
@@ -345,6 +346,8 @@
 (add-hook 'scss-mode-hook #'ggtags-mode)
 
 ;; Fix jumping to Sass files when the leading underscore is ommitted
+;; TODO: Refactor this to use the new `+lookup/file' function
+(require 'ffap)
 (add-to-list 'ffap-alist '(scss-mode . +robbert/scss-find-file))
 
 ;; Flycheck popup tweaks

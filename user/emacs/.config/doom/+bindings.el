@@ -173,6 +173,7 @@
      "M-/" nil))
 
  ;; Disable evil-collection overrides
+ ;; TODO: Check if these are still needed after refactored default/+bindings.el
  (:after compile
    (:map compilation-mode-map
      :n  "SPC"  nil
