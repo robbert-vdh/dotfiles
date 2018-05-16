@@ -235,6 +235,12 @@
     (add-hook! :local 'before-save-hook 'tide-format-before-save)))
 
 (after! web-mode
+  ;; Fix web-mode and smartparens conflicts
+  ;; (sp-pair "%" "%" :wrap "C-%")
+  ;; (sp-pair "<" ">" :wrap "C->")
+
+  (setq web-mode-enable-auto-pairing nil)
+
   ;; Editorconfig tells web-mode to indent attributes instead of aligning
   (add-hook! :append 'web-mode-hook
     (setq web-mode-attr-indent-offset nil
