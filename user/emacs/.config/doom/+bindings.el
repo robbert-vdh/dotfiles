@@ -183,7 +183,7 @@
      :nv "C-l"  nil))
  (:after dired
    (:map dired-mode-map
-     :n "SPC"   nil
+     :n "SPC"   nil ;; FIXME
      :n "["     nil
      :n "]"     nil
      :n "{"     #'dired-prev-dirline
