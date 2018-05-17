@@ -68,7 +68,18 @@
     (setq company-frontends
           '(company-preview-if-just-one-frontend
             company-tng-frontend
-            company-box-frontend)))
+            company-box-frontend))
+
+    ;; Fix icons (all-the-icons is not loaded in time)
+    (let ((all-the-icons-scale-factor 1.0))
+      (setq company-box-backends-colors nil
+            company-box-icons-elisp
+            (list (all-the-icons-material "functions" :face 'all-the-icons-purple)
+                  (all-the-icons-material "check_circle" :face 'all-the-icons-blue)
+                  (all-the-icons-material "stars" :face 'all-the-icons-yellow)
+                  (all-the-icons-material "format_paint" :face 'all-the-icons-pink))
+            company-box-icons-unknown (all-the-icons-material "find_in_page" :face 'all-the-icons-silver)
+            company-box-icons-yasnippet nil)))
 
   (advice-add #'company-box--next-line :after #'+robbert--company-box-tng-update)
   (advice-add #'company-box--prev-line :after #'+robbert--company-box-tng-update))
