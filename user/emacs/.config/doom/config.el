@@ -71,7 +71,7 @@
             company-box-frontend))
 
     ;; Fix icons (all-the-icons is not loaded in time)
-    (let ((all-the-icons-scale-factor 1.0))
+    (let ((all-the-icons-scale-factor 0.95))
       (setq company-box-backends-colors nil
             company-box-icons-elisp
             (list (all-the-icons-material "functions" :face 'all-the-icons-purple)
