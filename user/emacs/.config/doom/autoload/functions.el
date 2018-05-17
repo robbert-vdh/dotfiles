@@ -250,13 +250,17 @@ LanguageTool. Flyspell errors will be cleared if the
 ;;; Advice
 
 ;;;###autoload
-(defun +robbert--company-box-hide-line-if-unselected (&rest args)
+(defun +robbert--company-box-fix-tng (&rest args)
   "Hides the `company-box' line if nothing is selected.
  `company-tng' uses `company-selection-changed' to emulate an
-'unselected' state."
-  (unless company-selection-changed
+'unselected' state. Also makes sure the scroll bar is not too wide."
+  (when (and company-candidates (not company-selection-changed))
     (with-selected-window (get-buffer-window (company-box--get-buffer) t)
-      (move-overlay (company-box--get-ov) -1 -1))))
+      (move-overlay (company-box--get-ov) -1 -1)))
+
+  ;; TODO: Fix
+  (when (window-live-p company-box--scrollbar-window)
+    (window-resize company-box--scrollbar-window 0 t)))
 
 ;;;###autoload
 (defun +robbert--indent-paste-advise (original-function &rest args)

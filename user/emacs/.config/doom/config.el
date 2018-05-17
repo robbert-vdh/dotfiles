@@ -77,8 +77,8 @@
 
   (advice-add #'company-box--next-line :override #'+robbert/company-box-next-line)
   (advice-add #'company-box--prev-line :override #'+robbert/company-box-prev-line)
-  (advice-add #'company-box--change-line :after #'+robbert--company-box-hide-line-if-unselected)
-  (advice-add #'company-box--render-buffer :after #'+robbert--company-box-hide-line-if-unselected))
+  (advice-add #'company-box--change-line :after #'+robbert--company-box-fix-tng)
+  (advice-add #'company-box--render-buffer :after #'+robbert--company-box-fix-tng))
 
 (after! csharp-mode
   (set! :electric '(csharp-mode) :chars '(?\n ?\{)))
