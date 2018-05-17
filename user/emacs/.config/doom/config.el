@@ -61,16 +61,10 @@
 (autoload 'counsel-projectile-rg "counsel-projectile" nil t)
 
 (after! company-box
-  ;; Enable vim-style auto completion
-  (require 'company-tng)
-  (company-tng-configure-default)
+  ;; Fix icons (all-the-icons is not loaded in time)
   (add-hook! 'company-box-mode-hook
-    (setq company-frontends
-          '(company-preview-if-just-one-frontend
-            company-tng-frontend
-            company-box-frontend))
-
-    ;; Fix icons (all-the-icons is not loaded in time)
+    ;; FIXME: The window does not scale correctly when the icons are larger than
+    ;;        the text
     (let ((all-the-icons-scale-factor 0.95))
       (setq company-box-backends-colors nil
             company-box-icons-elisp
@@ -81,8 +75,10 @@
             company-box-icons-unknown (all-the-icons-material "find_in_page" :face 'all-the-icons-silver)
             company-box-icons-yasnippet nil)))
 
-  (advice-add #'company-box--next-line :after #'+robbert--company-box-tng-update)
-  (advice-add #'company-box--prev-line :after #'+robbert--company-box-tng-update))
+  (advice-add #'company-box--next-line :override #'+robbert/company-box-next-line)
+  (advice-add #'company-box--prev-line :override #'+robbert/company-box-prev-line)
+  (advice-add #'company-box--change-line :after #'+robbert--company-box-hide-line-if-unselected)
+  (advice-add #'company-box--render-buffer :after #'+robbert--company-box-hide-line-if-unselected))
 
 (after! csharp-mode
   (set! :electric '(csharp-mode) :chars '(?\n ?\{)))
@@ -391,6 +387,14 @@
 
 ;; Auto reload PDFs
 (add-hook 'doc-view-mode-hook #'auto-revert-mode)
+
+;; Enable vim-style auto completion
+(require 'company-tng)
+(company-tng-configure-default)
+(setq company-frontends
+      '(company-preview-if-just-one-frontend
+        company-tng-frontend
+        company-pseudo-tooltip-frontend))
 
 ;; Explicitely load evil-surround so that extra pairs can be loaded in time
 (require 'evil-surround)

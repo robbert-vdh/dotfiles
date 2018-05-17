@@ -39,6 +39,30 @@ With ARG, move by that many elements. This removes the default
     (company-complete-selection)))
 
 ;;;###autoload
+(defun +robbert/company-box-next-line ()
+  "Override for `company-box--next-line' to make
+`company-tng-frontend' work. Emulates the normal behaviour of
+`company-select-next'."
+  (interactive)
+  (let ((company-frontends '(company-tng-frontend)))
+    (+robbert/company-select-next-or-complete))
+
+  (company-box--change-line)
+  (company-box--update-width))
+
+;;;###autoload
+(defun +robbert/company-box-prev-line ()
+  "Override for `company-box--prev-line' to make
+`company-tng-frontend' work. Emulates the normal behaviour of
+`company-select-previous'."
+  (interactive)
+  (let ((company-frontends '(company-tng-frontend)))
+    (company-select-previous))
+
+  (company-box--change-line)
+  (company-box--update-width))
+
+;;;###autoload
 (defun +robbert/clipboard-to-buffer ()
   "Replace the buffer's contents with the clipboard's contents.
 Copied from Spacemacs."
@@ -226,13 +250,13 @@ LanguageTool. Flyspell errors will be cleared if the
 ;;; Advice
 
 ;;;###autoload
-(defun +robbert--company-box-tng-update ()
-  "Manually sends the `update' event after selecting the
-next/previous line in company-box so `company-tng-frontend'knows
-to show the suggestion. See `company-set-selection'."
-  (setq company-selection company-selection
-        company-selection-changed t)
-  (company-tng-frontend 'update))
+(defun +robbert--company-box-hide-line-if-unselected (&rest args)
+  "Hides the `company-box' line if nothing is selected.
+ `company-tng' uses `company-selection-changed' to emulate an
+'unselected' state."
+  (unless company-selection-changed
+    (with-selected-window (get-buffer-window (company-box--get-buffer) t)
+      (move-overlay (company-box--get-ov) -1 -1))))
 
 ;;;###autoload
 (defun +robbert--indent-paste-advise (original-function &rest args)
