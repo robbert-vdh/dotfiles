@@ -60,6 +60,19 @@
 ;; `counsel-projectile-rg' doesn't get autoloaded in the default config
 (autoload 'counsel-projectile-rg "counsel-projectile" nil t)
 
+(after! company-box
+  ;; Enable vim-style auto completion
+  (require 'company-tng)
+  (company-tng-configure-default)
+  (add-hook! 'company-box-mode-hook
+    (setq company-frontends
+          '(company-preview-if-just-one-frontend
+            company-tng-frontend
+            company-box-frontend)))
+
+  (advice-add #'company-box--next-line :after #'+robbert--company-box-tng-update)
+  (advice-add #'company-box--prev-line :after #'+robbert--company-box-tng-update))
+
 (after! csharp-mode
   (set! :electric '(csharp-mode) :chars '(?\n ?\{)))
 
@@ -72,7 +85,7 @@
 
   ;; Automatically indent when pasting
   (dolist (func '(evil-paste-before evil-paste-after))
-    (advice-add func :around '+robbert/indent-paste-advise))
+    (advice-add func :around '+robbert--indent-paste-advise))
 
   ;; Doom Emacs overrides the `;' and `,' keys to also repeat things like
   ;; searches. Because it uses evil-snipe by default this hasn't been done for
@@ -367,11 +380,6 @@
 
 ;; Auto reload PDFs
 (add-hook 'doc-view-mode-hook #'auto-revert-mode)
-
-;; Enable automatic auto completion.
-(+company/toggle-auto-completion)
-(require 'company-tng)
-(company-tng-configure-default)
 
 ;; Explicitely load evil-surround so that extra pairs can be loaded in time
 (require 'evil-surround)

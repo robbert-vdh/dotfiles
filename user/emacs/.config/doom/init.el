@@ -1,18 +1,10 @@
 ;;; ~/.config/doom/init.el -*- lexical-binding: t; -*-
 
-;; FIXME: These are broken right now, manually remove assertion from
-;;        `def-package-hook!'
+;; FIXME: Without this autoloads are broken right now
+(add-to-list 'load-path doom-modules-dir)
 
 ;; This won't get set otherwise
 (def-package-hook! evil :post-init (setq evil-want-Y-yank-to-eol nil) t)
-
-;; The tng-frontend should be added before `company-quickhelp' gets loaded, or
-;; else it will get overridden
-(def-package-hook! company :post-config
-  (setq company-frontends
-        '(company-tng-frontend
-          company-preview-if-just-one-frontend
-          company-pseudo-tooltip-unless-just-one-frontend)) t)
 
 (doom! :feature
        debugger          ; FIXME stepping through code, to help you add bugs
@@ -32,9 +24,8 @@
 
        :completion
        (company          ; the ultimate code completion backend
-       ;+auto            ; as-you-type code completion
-       ;+childframe)     ; a nicer company UI (Emacs 26+ only)
-        )
+        +auto            ; as-you-type code completion
+        +childframe)     ; a nicer company UI (Emacs 26+ only)
       ;helm              ; the *other* search engine for love and life
       ;ido               ; the other *other* search engine...
        (ivy              ; a search engine for love and life

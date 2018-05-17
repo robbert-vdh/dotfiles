@@ -226,7 +226,16 @@ LanguageTool. Flyspell errors will be cleared if the
 ;;; Advice
 
 ;;;###autoload
-(defun +robbert/indent-paste-advise (original-function &rest args)
+(defun +robbert--company-box-tng-update ()
+  "Manually sends the `update' event after selecting the
+next/previous line in company-box so `company-tng-frontend'knows
+to show the suggestion. See `company-set-selection'."
+  (setq company-selection company-selection
+        company-selection-changed t)
+  (company-tng-frontend 'update))
+
+;;;###autoload
+(defun +robbert--indent-paste-advise (original-function &rest args)
   "Automatically indent pasted code. See
 `+robbert/indentation-sensitive-modes'."
   (if (or (member major-mode +robbert/indentation-sensitive-modes))

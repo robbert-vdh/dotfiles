@@ -75,6 +75,10 @@
      "RET"    nil
      [escape] nil))
 
+ (:after company-box
+   (:map company-box-mode-map
+     [remap +robbert/company-select-next-or-complete] #'company-box-next-line))
+
  (:after diff-mode
    (:map diff-mode-map
      :nm "{" #'diff-hunk-prev
@@ -167,6 +171,13 @@
        :desc "Restart"        :n  "s"   #'tide-restart-server
        :desc "Fix issue"      :nv "RET" #'tide-fix
        :desc "Refactor..."    :nv "SPC" #'+javascript/refactor-menu)))
+
+ ;; These keybindings tend to cause unwanted behaviour when combined with
+ ;; company-tng
+ (:after yasnippet
+   (:map yas-minor-mode-map
+     :ig "<tab>" nil
+     :ig "TAB" nil))
 
  (:after web-mode
    (:map web-mode-map
