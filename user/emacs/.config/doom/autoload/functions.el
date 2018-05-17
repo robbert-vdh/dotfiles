@@ -254,8 +254,10 @@ LanguageTool. Flyspell errors will be cleared if the
   "Hides the `company-box' line if nothing is selected.
  `company-tng' uses `company-selection-changed' to emulate an
 'unselected' state. Also makes sure the scroll bar is not too wide."
-  (when (and company-candidates (not company-selection-changed))
-    (with-selected-window (get-buffer-window (company-box--get-buffer) t)
+  (when-let* ((window (and company-candidates
+                           (not company-selection-changed)
+                           (get-buffer-window (company-box--get-buffer) t))))
+    (with-selected-window window
       (move-overlay (company-box--get-ov) -1 -1)))
 
   ;; TODO: Fix
