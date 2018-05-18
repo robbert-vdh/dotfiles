@@ -14,8 +14,10 @@
  :nvie "M-Q"            #'+robbert/unfill-paragraph
  :v "C-u"               #'evil-scroll-up     ;; `evil-want-C-u-scroll' doesn't do anything in visual mode
 
- :m "[a"                #'+robbert/languagetool-previous-error
- :m "]a"                #'+robbert/languagetool-next-error
+ ;; These keybindigns don't make a lot of sense, but they're easy to use and not
+ ;; in use for anything else
+ :n "[f"                #'+robbert/languagetool-previous-error
+ :n "]f"                #'+robbert/languagetool-next-error
 
  ;; Override for the default config, this breaks magit
  :n "z"                 nil
