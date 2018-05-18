@@ -196,6 +196,7 @@
      :nv "C-l"  nil))
  (:after dired
    (:map dired-mode-map
+     "SPC"      nil ;; FIXME
      :n "SPC"   nil ;; FIXME
      :n "["     nil
      :n "]"     nil
