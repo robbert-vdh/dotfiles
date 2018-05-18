@@ -135,6 +135,7 @@ all existing tags."
   "Blame with the `-wCCC' options, telling Git to track copied
 text"
   (interactive)
+  (require 'magit-blame)
   (let ((magit-blame-arguments (cons "-CCC" (magit-blame-arguments))))
     (magit-blame)))
 
