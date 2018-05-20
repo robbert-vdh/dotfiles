@@ -8,5 +8,6 @@
 (package! fish-mode)
 (package! ggtags)
 (package! page-break-lines)
+(package! phpcbf)
 (package! pkgbuild-mode)
 (package! yapfify)

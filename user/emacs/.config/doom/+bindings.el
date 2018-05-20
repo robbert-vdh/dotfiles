@@ -141,6 +141,11 @@
        :desc "Refactor this"  :nv "SPC" #'omnisharp-run-code-action-refactoring
        :desc "Restart server" :n  "s"   #'omnisharp-start-omnisharp-server)))
 
+ (:after phpcbf
+   (:map php-mode-map
+     (:localleader
+       :desc "Format" :nv "=" #'phpcbf)))
+
  ;; Python offers some nicer ways to work with REPLs
  (:after python
    (:map python-mode-map
@@ -148,7 +153,10 @@
        (:desc "REPL send"  :prefix "r"
          :desc "Buffer"    :nv "b" #'python-shell-send-buffer
          :desc "Function"  :nv "f" #'python-shell-send-defun
-         :desc "Region"    :nv "r" #'python-shell-send-region))))
+         :desc "Region"    :nv "r" #'python-shell-send-region)
+
+       (:after yapfify
+         :desc "Format"    :nv "=" #'yapfify-region))))
 
  ;; scss-mode is built in so we can't use a use-package hook
  (:map* scss-mode-map
@@ -197,7 +205,7 @@
  (:after dired
    (:map dired-mode-map
      "SPC"      nil ;; FIXME
-     :n "SPC"   nil ;; FIXME
+     :nm "SPC"  nil ;; FIXME
      :n "["     nil
      :n "]"     nil
      :n "{"     #'dired-prev-dirline
