@@ -141,7 +141,7 @@
        :desc "Refactor this"  :nv "SPC" #'omnisharp-run-code-action-refactoring
        :desc "Restart server" :n  "s"   #'omnisharp-start-omnisharp-server)))
 
- (:after phpcbf
+ (:after php-mode
    (:map php-mode-map
      (:localleader
        :desc "Format" :nv "=" #'phpcbf)))
