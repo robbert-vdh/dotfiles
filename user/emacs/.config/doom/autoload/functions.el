@@ -261,9 +261,8 @@ LanguageTool. Flyspell errors will be cleared if the
     (with-selected-window window
       (move-overlay (company-box--get-ov) -1 -1)))
 
-  ;; TODO: Fix
-  (when (window-live-p company-box--scrollbar-window)
-    (window-resize company-box--scrollbar-window 0 t)))
+  ;; TODO: Fix scroll bar sizing
+  )
 
 ;;;###autoload
 (defun +robbert--indent-paste-advise (original-function &rest args)
