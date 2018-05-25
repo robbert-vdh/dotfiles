@@ -50,12 +50,10 @@
   :config
   (add-hook! (emacs-lisp-mode view-mode) 'turn-on-page-break-lines-mode))
 
-(def-package! phpcbf
-  :config
-  ;; The standard should be set either through a configuration file or globally
-  ;; using `phpcs --config-set default_standard psr2' to ensure that flymake and
-  ;; phpcbf use the same standard
-  (add-hook 'php-mode-hook 'phpcbf-enable-on-save))
+;; The standard should be set either through a configuration file or globally
+;; using `phpcs --config-set default_standard psr2' to ensure that flymake and
+;; phpcbf use the same standard
+(def-package! phpcbf)
 
 (def-package! pkgbuild-mode)
 
