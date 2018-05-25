@@ -319,15 +319,14 @@
 ;; Fix xdg-open and similar progrems not openening. Not sure why this is needed,
 ;; and might break others things.
 (setq process-connection-type nil)
-;; TODO: Refactor this and similar calls to `setq-hook!'
-(add-hook! 'term-mode-hook (setq-local process-connection-type t))
+(setq-hook! 'term-mode-hook process-connection-type t)
 
 ;; Disable blinking
 (add-hook! :append 'doom-init-ui-hook
   (blink-cursor-mode -1))
 
 ;; Trailing whitespace is not important when working with the minibuffer
-(add-hook! minibuffer-setup (setq-local show-trailing-whitespace nil))
+(setq-hook! minibuffer-setup show-trailing-whitespace nil)
 
 ;; The smerge hydra is not always needed
 (remove-hook 'find-file-hook '+vcs|enable-smerge-mode-maybe)
@@ -385,7 +384,7 @@
       scroll-conservatively 3
       scroll-margin 3
       maximum-scroll-margin 0.2)
-(add-hook! 'term-mode-hook (setq-local scroll-margin 0))
+(setq-hook! 'term-mode-hook scroll-margin 0)
 
 ;; Also highlight todos in text modes
 (add-hook 'text-mode-hook #'hl-todo-mode)
