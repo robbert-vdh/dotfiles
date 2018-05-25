@@ -198,10 +198,10 @@
  (:after compile
    (:map compilation-mode-map
      :n  "SPC"  nil
-     :nv "C-h"  nil
-     :nv "C-j"  nil
-     :nv "C-k"  nil
-     :nv "C-l"  nil))
+     :nvg "C-h"  nil
+     :nvg "C-j"  nil
+     :nvg "C-k"  nil
+     :nvg "C-l"  nil))
  (:after dired
    (:map dired-mode-map
      "SPC"      nil ;; FIXME
