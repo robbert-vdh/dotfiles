@@ -3,6 +3,8 @@
 ;; These macros are copied from config/default/+autoload/default, as they
 ;; somehow can't be found with the new module format.
 
+;; TODO: Use the new, included macros for this, see `+default/bindings.el'
+
 ;;;###autoload
 (defmacro +robbert--def-browse-in! (name dir &optional prefix)
     (let ((prefix (or prefix (cdr (doom-module-from-path (or load-file-name byte-compile-current-file))))))
