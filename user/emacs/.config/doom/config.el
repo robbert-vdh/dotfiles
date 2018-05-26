@@ -203,7 +203,8 @@
 
   ;; Killing the omnisharp server doesn't work as well when constantly switching
   ;; branches and previewing files
-  (advice-add #'+csharp|cleanup-omnisharp-server :override #'ignore))
+  (add-hook! :append csharp-mode
+    (remove-hook 'kill-buffer-hook #'omnisharp-stop-server t)))
 
 (after! org
   ;; Restore default indentation behavior
