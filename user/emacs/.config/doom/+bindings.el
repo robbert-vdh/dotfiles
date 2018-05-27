@@ -45,6 +45,11 @@
      :desc "SMerge hydra"             :n "m"  #'+hydra-smerge/body)
 
    (:desc "open"                      :prefix "o"
+     ;; These four keybindings are swapped compared to `default/+bindings'
+     :desc "Terminal"                 :n  "T" #'+term/open
+     :desc "Terminal in popup"        :n  "t" #'+term/open-popup-in-project
+     :desc "Eshell"                   :n  "E" #'+eshell/open
+     :desc "Eshell in popup"          :n  "e" #'+eshell/open-popup
      (:desc "+jupyter"                :prefix "j"
        :desc "Open in browser"        :nv "b" #'ein:notebook-open-in-browser
        :desc "Open this file"         :n "f"  #'ein:notebooklist-open-notebook-by-file-name
