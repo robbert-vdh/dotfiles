@@ -124,6 +124,7 @@
 
 (after! evil-org
   (setq evil-org-use-additional-insert t)
+  (add-to-list 'additional 'evil-org-key-theme)
   (evil-org-set-key-theme))
 
 (after! evil-magit
