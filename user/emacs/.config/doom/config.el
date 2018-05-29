@@ -1,6 +1,6 @@
 ;;; ~/.config/doom/config.el -*- lexical-binding: t; -*-
 
-(load! +bindings)
+(load! "+bindings")
 
 ;; TODO: Use the new `:defer input/buffer' directives
 
