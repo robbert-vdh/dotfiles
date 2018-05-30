@@ -289,8 +289,12 @@
       evil-want-Y-yank-to-eol nil
       executable-prefix-env t
       ;; Order should not matter when searching
-      ivy-re-builders-alist '(;; (swiper . ivy--regex-plus)
-                              (t      . ivy--regex-ignore-order))
+      ;; TODO: See whether flx works well, then either delete or reenable
+      ivy-re-builders-alist '((counsel-ag . ivy--regex-ignore-order)
+                              (counsel-rg . ivy--regex-ignore-order)
+                              (counsel-pt . ivy--regex-ignore-order)
+                              (counsel-grep-or-swiper . ivy--regex-ignore-order)
+                              (t . ivy--regex-fuzzy))
       nav-flash-delay 0.25
       show-trailing-whitespace t
       which-key-idle-delay 0.4
