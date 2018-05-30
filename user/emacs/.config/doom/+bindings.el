@@ -39,9 +39,6 @@
    (:desc "git"                       :prefix "g"
      :desc "Browse in revision"       :n "."  #'magit-find-file
      :desc "Git blame (follow copy)"  :n "b"  #'+robbert/magit-blame-follow-copy
-     ;; TODO: Remove, below keybinding is bound to `git-gutter:stage-hunk' in
-     ;;       develop but this is clearly a bug
-     :desc "Git status"               :n "s"  #'magit-status
      :desc "SMerge hydra"             :n "m"  #'+hydra-smerge/body)
 
    (:desc "open"                      :prefix "o"

@@ -1,8 +1,5 @@
 ;;; ~/.config/doom/init.el -*- lexical-binding: t; -*-
 
-;; FIXME: Without this autoloads are broken right now
-(add-to-list 'load-path doom-modules-dir)
-
 ;; This won't get set otherwise
 (def-package-hook! evil :post-init (setq evil-want-Y-yank-to-eol nil) t)
 
@@ -48,15 +45,18 @@
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        window-select     ; visually switch windows
 
-       :tools
+       :emacs
        dired             ; making dired pretty [functional]
        ediff             ; comparing files in Emacs
-       editorconfig      ; let someone else argue about tabs vs spaces
        electric-indent   ; smarter, keyword-based electric-indent
-       ein               ; tame Jupyter notebooks with emacs
        eshell            ; a consistent, cross-platform shell (WIP)
-       gist              ; interacting with github gists
        imenu             ; an imenu sidebar and searchable code index
+       term              ; terminals in Emacs
+
+       :tools
+       editorconfig      ; let someone else argue about tabs vs spaces
+       ein               ; tame Jupyter notebooks with emacs
+       gist              ; interacting with github gists
       ;macos             ; MacOS-specific commands
        make              ; run make tasks from Emacs
        magit             ;
@@ -65,7 +65,6 @@
        prodigy           ; FIXME managing external services & code builders
        rgb               ; creating color strings
        rotate-text       ; cycle region at point between text candidates
-       term              ; terminals in Emacs
       ;tmux              ; an API for interacting with tmux
        upload            ; map local to remote projects via ssh/ftp
 
@@ -127,6 +126,7 @@
         +langtool)       ; a proofreader (grammar/style check) for Emacs
 
        :collab
+      ;floobits          ; peer programming for a price
       ;impatient-mode    ; show off code over HTTP
 
        :config
