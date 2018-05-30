@@ -12,17 +12,6 @@
         atomic-chrome-default-major-mode 'markdown-mode)
   (ignore-errors (atomic-chrome-start-server)))
 
-(def-package! evil-ediff
-  :after ediff
-  :config
-  ;; Ancestor is already shown in buffer C
-  (setq ediff-show-ancestor nil)
-  ;; Allow easy navigation between windows
-  (push '("\C-h" . evil-window-left)  evil-ediff-bindings)
-  (push '("\C-j" . evil-window-down)  evil-ediff-bindings)
-  (push '("\C-k" . evil-window-up)    evil-ediff-bindings)
-  (push '("\C-l" . evil-window-right) evil-ediff-bindings))
-
 (def-package! evil-lion
   :after evil
   :config (evil-lion-mode))
@@ -115,6 +104,15 @@
   ;; Make sure neotree keybindings are loaded, sometimes they are not
   (after! neotree
     (evil-collection-neotree-setup)))
+
+(after! evil-ediff
+  ;; Ancestor is already shown in buffer C
+  (setq ediff-show-ancestor nil)
+  ;; Allow easy navigation between windows
+  (push '("\C-h" . evil-window-left)  evil-ediff-bindings)
+  (push '("\C-j" . evil-window-down)  evil-ediff-bindings)
+  (push '("\C-k" . evil-window-up)    evil-ediff-bindings)
+  (push '("\C-l" . evil-window-right) evil-ediff-bindings))
 
 (after! evil-snipe
   ;; Disable evil-snipe overriding the S/s keys. This is a bit of a hack but the

@@ -50,6 +50,7 @@
 
        :tools
        dired             ; making dired pretty [functional]
+       ediff             ; comparing files in Emacs
        editorconfig      ; let someone else argue about tabs vs spaces
        electric-indent   ; smarter, keyword-based electric-indent
        ein               ; tame Jupyter notebooks with emacs

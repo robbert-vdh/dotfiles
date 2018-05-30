@@ -3,7 +3,6 @@
 
 (package! atomic-chrome)
 (package! ein)
-(package! evil-ediff)
 (package! evil-lion)
 (package! fish-mode)
 (package! ggtags)
