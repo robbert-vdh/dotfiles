@@ -147,6 +147,16 @@
   ;; Language Server does a better job already
   (exec-path-from-shell-copy-envs '("LD_LIBRARY_PATH" "RUST_SRC_PATH")))
 
+(after! flx
+  ;; Prefer more freeform regexes when fuzzy search isn't active
+  (setq ivy-re-builders-alist '((counsel-ag . ivy--regex-ignore-order)
+                                (counsel-rg . ivy--regex-ignore-order)
+                                (counsel-pt . ivy--regex-ignore-order)
+                                (counsel-grep . ivy--regex-ignore-order)
+                                (counsel-grep-or-swiper . ivy--regex-ignore-order)
+                                (swiper . ivy--regex-ignore-order)
+                                (t . ivy--regex-fuzzy))))
+
 (after! flycheck
   (set! :evil-state 'flycheck-error-list-mode 'normal))
 
@@ -290,11 +300,8 @@
       executable-prefix-env t
       ;; Order should not matter when searching
       ;; TODO: See whether flx works well, then either delete or reenable
-      ivy-re-builders-alist '((counsel-ag . ivy--regex-ignore-order)
-                              (counsel-rg . ivy--regex-ignore-order)
-                              (counsel-pt . ivy--regex-ignore-order)
-                              (counsel-grep-or-swiper . ivy--regex-ignore-order)
-                              (t . ivy--regex-fuzzy))
+      ;; ivy-re-builders-alist '(;; (swiper . ivy--regex-plus)
+      ;;                         (t      . ivy--regex-ignore-order))
       nav-flash-delay 0.25
       show-trailing-whitespace t
       which-key-idle-delay 0.4
