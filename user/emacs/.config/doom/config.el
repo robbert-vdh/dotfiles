@@ -302,6 +302,7 @@
       ;; TODO: See whether flx works well, then either delete or reenable
       ;; ivy-re-builders-alist '(;; (swiper . ivy--regex-plus)
       ;;                         (t      . ivy--regex-ignore-order))
+      flyspell-default-dictionary "english"
       nav-flash-delay 0.25
       show-trailing-whitespace t
       which-key-idle-delay 0.4
