@@ -27,7 +27,7 @@ KDE handles most non-WM shortcuts and things like text rendering and themes.
 -   i3-gaps-next-git
 -   konsole
 -   kvantum
--   Liberation Mono font
+-   Liberation Mono font with powerline patch (i.e. ttf-literation-mono-powerline)
 -   light-locker
 -   qt5ct
 -   Papirus icon theme
