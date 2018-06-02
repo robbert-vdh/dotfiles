@@ -177,11 +177,6 @@
           ("HACK"  . ,(face-foreground 'error))
           ("NOTE"  . ,(face-foreground 'success)))))
 
-(after! ivy
-  ;; Use ivy for minibuffer completion, Doom disables this by default
-  (setq ivy-do-completion-in-region t
-        completion-in-region-function 'ivy-completion-in-region))
-
 (after! langtool
   (setq langtool-disabled-rules '("WHITESPACE_RULE")
         langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*"))
