@@ -126,12 +126,12 @@
   (evil-org-set-key-theme))
 
 (after! evil-magit
+  (remove-hook 'git-commit-mode-hook #'evil-insert-state)
   ;; git-commit is always verbose as specified in ~/.gitconfig
   (setq magit-commit-show-diff nil
         magit-diff-refine-hunk 'all)
-  (remove-hook 'git-commit-mode-hook #'evil-insert-state)
-  ;; Doom Emacs disables evil in `magit-blame' by default
-  (add-hook 'magit-blame-mode-hook #'evil-local-mode t)
+  ;; Use the traditional window splitting behaviour (I think it's cleaner)
+  (setq magit-display-buffer-function 'magit-display-buffer-traditional)
   ;; Don't interfere with the leader key
   (dolist (mode (list magit-mode-map magit-revision-mode-map))
     (define-key mode (kbd doom-leader-key) nil)))
