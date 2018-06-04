@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name : /// <returns> ... <returns>
-# key: comment
+# key: returns
 # --
 /// <returns>$2</returns>
