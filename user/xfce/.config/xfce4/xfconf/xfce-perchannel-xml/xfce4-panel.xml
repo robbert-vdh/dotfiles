@@ -69,6 +69,7 @@
         <value type="string" value="claudia.py"/>
         <value type="string" value="albert"/>
         <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="cadence"/>
         <value type="string" value="slack"/>
         <value type="string" value="cadence.py"/>
         <value type="string" value="veracrypt"/>
@@ -77,7 +78,7 @@
     <property name="plugin-7" type="string" value="whiskermenu"/>
     <property name="plugin-9" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
-      <property name="mpris-players" type="string" value=";spotify"/>
+      <property name="mpris-players" type="string" value=";Gwenview;spotify"/>
     </property>
     <property name="plugin-11" type="string" value="xfce4-mount-plugin"/>
     <property name="plugin-1" type="string" value="i3-workspaces"/>

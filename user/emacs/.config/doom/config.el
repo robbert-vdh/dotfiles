@@ -142,11 +142,6 @@
                   (?/ . ("/" . "/")) (?* . ("*" . "*")) (?* . (":" . ":"))))
     (push pair evil-surround-pairs-alist)))
 
-(after! exec-path-from-shell
-  ;; Make sure racer can find Rust's source files and disable gtags as Rust's
-  ;; Language Server does a better job already
-  (exec-path-from-shell-copy-envs '("LD_LIBRARY_PATH" "RUST_SRC_PATH")))
-
 (after! flx
   ;; Prefer more freeform regexes when fuzzy search isn't active
   (setq ivy-re-builders-alist '((counsel-ag . ivy--regex-ignore-order)
@@ -251,6 +246,10 @@
   ;; Doom explicitely adds the deprecated `parse-raw' option
   (setq org-pandoc-options '((standalone . t) (mathjax . t))))
 
+(after! racer
+  ;; Tell racer where to find library sources
+  (setq racer-rust-src-path "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"))
+
 (after! rust-mode
   ;; Add missing confugration
   (setq rust-format-on-save t)
@@ -289,7 +288,6 @@
       completion-styles '(partial-completion initials)
       confirm-nonexistent-file-or-buffer nil
       evil-ex-substitute-global nil
-      evil-goggles-duration 0.25
       evil-want-C-u-scroll t
       evil-want-Y-yank-to-eol nil
       executable-prefix-env t
@@ -322,6 +320,10 @@
         try-expand-dabbrev-from-kill
         try-complete-lisp-symbol-partially
         try-complete-lisp-symbol))
+
+;; Fix $PATH now that Doom doesn't include `exec-path-from-shell' anymore
+(add-to-list 'exec-path "~/.local/bin")
+(add-to-list 'exec-path "~/.cargo/bin")
 
 ;; Fix xdg-open and similar progrems not openening. Not sure why this is needed,
 ;; and might break others things.
