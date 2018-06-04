@@ -248,7 +248,10 @@
 
 (after! racer
   ;; Tell racer where to find library sources
-  (setq racer-rust-src-path "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"))
+  (setq racer-rust-src-path "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src")
+  ;; Don't show snippets in the completion, as these tend to cause a lot of
+  ;; clutter
+  (set! :company-backend 'rust-mode 'company-capf))
 
 (after! rust-mode
   ;; Add missing confugration
