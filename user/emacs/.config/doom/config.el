@@ -290,6 +290,8 @@
 (setq company-minimum-prefix-length 2
       completion-styles '(partial-completion initials)
       confirm-nonexistent-file-or-buffer nil
+      ;; `jk' tends to cause a lot of issues when writing in Dutch
+      evil-escape-key-sequence nil
       evil-ex-substitute-global nil
       evil-want-C-u-scroll t
       evil-want-Y-yank-to-eol nil
