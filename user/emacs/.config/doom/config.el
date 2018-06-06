@@ -44,8 +44,6 @@
 ;; phpcbf use the same standard
 (def-package! phpcbf)
 
-(def-package! pkgbuild-mode)
-
 (def-package! yapfify
   :hook (python-mode . yapf-mode))
 
