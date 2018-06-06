@@ -142,16 +142,6 @@
                   (?/ . ("/" . "/")) (?* . ("*" . "*")) (?* . (":" . ":"))))
     (push pair evil-surround-pairs-alist)))
 
-(after! flx
-  ;; Prefer more freeform regexes when fuzzy search isn't active
-  (setq ivy-re-builders-alist '((counsel-ag . ivy--regex-ignore-order)
-                                (counsel-rg . ivy--regex-ignore-order)
-                                (counsel-pt . ivy--regex-ignore-order)
-                                (counsel-grep . ivy--regex-ignore-order)
-                                (counsel-grep-or-swiper . ivy--regex-ignore-order)
-                                (swiper . ivy--regex-ignore-order)
-                                (t . ivy--regex-fuzzy))))
-
 (after! flycheck
   (set! :evil-state 'flycheck-error-list-mode 'normal))
 
@@ -297,9 +287,8 @@
       evil-want-Y-yank-to-eol nil
       executable-prefix-env t
       ;; Order should not matter when searching
-      ;; TODO: See whether flx works well, then either delete or reenable
-      ;; ivy-re-builders-alist '(;; (swiper . ivy--regex-plus)
-      ;;                         (t      . ivy--regex-ignore-order))
+      ivy-re-builders-alist '(;; (swiper . ivy--regex-plus)
+                              (t      . ivy--regex-ignore-order))
       flyspell-default-dictionary "english"
       nav-flash-delay 0.25
       show-trailing-whitespace t
