@@ -12,6 +12,34 @@
         atomic-chrome-default-major-mode 'markdown-mode)
   (ignore-errors (atomic-chrome-start-server)))
 
+(def-package! eglot
+  :config
+  ;; TODO: Move this lambda to a proper function
+  (add-hook! 'rust-mode-hook (unless (eglot--current-server) (call-interactively 'eglot)))
+
+  (set! :lookup 'eglot--managed-mode :xref-backend #'eglot-xref-backend :documentation #'eglot-help-at-point)
+  ;; FIXME: This should be covered by the above line
+  (add-hook! 'rust-mode-hook (add-hook '+lookup-documentation-functions #'eglot-help-at-point nil t))
+
+  ;; TODO: Creater a proper wrapper around `eglot-help-at-point'
+  ;; NOTE: This is needed for now, as `eglot-help-at-point' always returns nil,
+  ;;       regardless of whether or not documentation was found. Otherwide we'd
+  ;;       jump to devdocs.
+  (defun +robbert--return-t (original-function &rest args)
+    (apply original-function args)
+    t)
+  (advice-add 'eglot-help-at-point :around #'+robbert--return-t)
+
+  ;; Eglot uses flymake instead of flycheck, so we have to make some adjustments
+  ;; ourself
+  ;; TODO: Move this elsewhere
+  (setq-hook! 'eglot--managed-mode-hook next-error-function 'flymake-goto-next-error)
+
+  ;; RLS, for some reason, always wants to use the stable compiler's source code
+  ;; even when specifically running the nightly RLS
+  (setenv "RUST_SRC_PATH"
+          (expand-file-name "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src")))
+
 (def-package! evil-lion
   :after evil
   :config (evil-lion-mode))
@@ -33,22 +61,6 @@
   (add-hook! 'scss-mode-hook (modify-syntax-entry ?$ "'") (modify-syntax-entry ?% "."))
   (set! :lookup 'scss-mode :definition #'ggtags-find-tag-dwim :references #'ggtags-find-reference)
   (set! :company-backend '(css-mode scss-mode) 'company-gtags 'company-css))
-
-;; `lsp-ui' and `company-lsp' are not configured yet
-(def-package! lsp-mode
-  :init
-  (require 'lsp-imenu)
-  (add-hook 'lsp-mode-hook 'lsp-enable-imenu))
-
-(def-package! lsp-rust
-  :after lsp-mode
-  :hook (rust-mode . lsp-rust-enable)
-  :config
-  ;; RLS, for some reason, always wants to use the stable compiler's source code
-  ;; even when specifically running the nightly RLS
-  (setenv "RUST_SRC_PATH"
-          (expand-file-name "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"))
-  (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls")))
 
 ;; Transforms ^L characters into horizontal lines
 (def-package! page-break-lines
