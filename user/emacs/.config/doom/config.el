@@ -34,6 +34,22 @@
   (set! :lookup 'scss-mode :definition #'ggtags-find-tag-dwim :references #'ggtags-find-reference)
   (set! :company-backend '(css-mode scss-mode) 'company-gtags 'company-css))
 
+;; `lsp-ui' and `company-lsp' are not configured yet
+(def-package! lsp-mode
+  :init
+  (require 'lsp-imenu)
+  (add-hook 'lsp-mode-hook 'lsp-enable-imenu))
+
+(def-package! lsp-rust
+  :after lsp-mode
+  :hook (rust-mode . lsp-rust-enable)
+  :config
+  ;; RLS, for some reason, always wants to use the stable compiler's source code
+  ;; even when specifically running the nightly RLS
+  (setenv "RUST_SRC_PATH"
+          (expand-file-name "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"))
+  (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls")))
+
 ;; Transforms ^L characters into horizontal lines
 (def-package! page-break-lines
   :config
@@ -54,17 +70,45 @@
 
 (after! company-box
   ;; Fix icons (all-the-icons is not loaded in time)
-  (add-hook! 'company-box-mode-hook
+  (add-hook! :after 'company-box-mode-hook
     ;; FIXME: The window does not scale correctly when the icons are larger than
     ;;        the text
-    (let ((all-the-icons-scale-factor 0.95))
+    (let ((all-the-icons-scale-factor 0.9))
       (setq company-box-backends-colors nil
             company-box-icons-elisp
             (list (all-the-icons-material "functions" :face 'all-the-icons-purple)
                   (all-the-icons-material "check_circle" :face 'all-the-icons-blue)
                   (all-the-icons-material "stars" :face 'all-the-icons-yellow)
                   (all-the-icons-material "format_paint" :face 'all-the-icons-pink))
-            company-box-icons-unknown (all-the-icons-material "find_in_page" :face 'all-the-icons-silver)
+            ;; These are all copied form
+            ;; https://github.com/sebastiencs/company-box/wiki/icons and translated to use `all-the-icons'
+            company-box-icons-lsp
+            `((1 . ,(all-the-icons-faicon "tags")) ;; Text
+              (2 . ,(all-the-icons-faicon "tags" :face 'all-the-icons-purple)) ;; Method
+              (3 . ,(all-the-icons-faicon "tag" :face 'all-the-icons-purple)) ;; Function
+              (4 . ,(all-the-icons-faicon "tag" :face 'all-the-icons-purple)) ;; Constructor
+              (5 . ,(all-the-icons-faicon "cog" :face 'all-the-icons-blue)) ;; Field
+              (6 . ,(all-the-icons-faicon "cog" :face 'all-the-icons-blue)) ;; Variable
+              (7 . ,(all-the-icons-faicon "cube" :face 'all-the-icons-yellow)) ;; Class
+              (8 . ,(all-the-icons-faicon "cube" :face 'all-the-icons-yellow)) ;; Interface
+              (9 . ,(all-the-icons-faicon "cube" :face 'all-the-icons-yellow)) ;; Module
+              (10 . ,(all-the-icons-faicon "cog" :face 'all-the-icons-blue)) ;; Property
+              (11 . ,(all-the-icons-material "settings_system_daydream")) ;; Unit
+              (12 . ,(all-the-icons-faicon "cog" :face 'all-the-icons-blue)) ;; Value
+              (13 . ,(all-the-icons-material "storage" :face 'all-the-icons-yellow)) ;; Enum
+              (14 . ,(all-the-icons-material "closed_caption" :face 'all-the-icons-dyellow)) ;; Keyword
+              (15 . ,(all-the-icons-material "closed_caption")) ;; Snippet
+              (16 . ,(all-the-icons-material "color_lens" :face 'all-the-icons-cyan)) ;; Color
+              (17 . ,(all-the-icons-faicon "file-text-o")) ;; File
+              (18 . ,(all-the-icons-material "refresh")) ;; Reference
+              (19 . ,(all-the-icons-faicon "folder-open")) ;; Folder
+              (20 . ,(all-the-icons-material "closed_caption" :face 'all-the-icons-dorange)) ;; EnumMember
+              (21 . ,(all-the-icons-faicon "square" :face 'all-the-icons-lblue)) ;; Constant
+              (22 . ,(all-the-icons-faicon "cube" :face 'all-the-icons-yellow)) ;; Struct
+              (23 . ,(all-the-icons-faicon "calendar")) ;; Event
+              (24 . ,(all-the-icons-faicon "square-o")) ;; Operator
+              (25 . ,(all-the-icons-faicon "arrows"))) ;; TypeParameter
+            company-box-icons-unknown nil
             company-box-icons-yasnippet nil)))
 
   (advice-add #'company-box--next-line :override #'+robbert/company-box-next-line)
