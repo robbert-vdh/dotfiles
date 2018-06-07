@@ -31,9 +31,8 @@
   (advice-add 'eglot-help-at-point :around #'+robbert--return-t)
 
   ;; Eglot uses flymake instead of flycheck, so we have to make some adjustments
-  ;; ourself
-  ;; TODO: Move this elsewhere
-  (setq-hook! 'eglot--managed-mode-hook next-error-function 'flymake-goto-next-error)
+  ;; ourself. I've overridden `next-error' and `previous-error' in the
+  ;; keybindings.
 
   ;; RLS, for some reason, always wants to use the stable compiler's source code
   ;; even when specifically running the nightly RLS

@@ -123,6 +123,14 @@
    (:map flycheck-error-list-mode-map
      :m [M-return] #'flycheck-error-list-explain-erro))
 
+ (:after flymake
+   (:map flymake-mode-map
+     (:desc "previous..." :prefix "["
+      :desc "Error"       :nv "e" #'flymake-goto-prev-error)
+
+     (:desc "next..."     :prefix "]"
+      :desc "Error"       :nv "e" #'flymake-goto-next-error)))
+
  (:after ivy
    (:map ivy-minibuffer-map
      [backtab]     #'ivy-occur ;; Mimics Doom's S-TAB `wgrep' binding for other searches
