@@ -3,14 +3,14 @@
 
 (package! atomic-chrome)
 (package! company-racer :disable :ignore) ;; racer's capf backend is better
-(package! eglot)
+(package! eglot :ignore)
 (package! ein)
 (package! evil-lion)
 (package! fish-mode)
-(package! flycheck-rust :disable :ignore)
+(package! flycheck-rust)
 (package! ggtags)
 (package! page-break-lines)
 (package! phpcbf)
 (package! pkgbuild-mode)
-(package! racer :disable :ignore)
+(package! racer)
 (package! yapfify)

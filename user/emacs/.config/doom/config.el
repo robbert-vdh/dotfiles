@@ -13,13 +13,18 @@
   (ignore-errors (atomic-chrome-start-server)))
 
 (def-package! eglot
+  :disabled
   :config
   ;; TODO: Move this lambda to a proper function
   (add-hook! 'rust-mode-hook (unless (eglot--current-server) (call-interactively 'eglot)))
+  ;; FIXME: This should be covered by the line below
+  (add-hook! 'rust-mode-hook (add-hook '+lookup-documentation-functions #'eglot-help-at-point nil t))
 
   (set! :lookup 'eglot--managed-mode :xref-backend #'eglot-xref-backend :documentation #'eglot-help-at-point)
-  ;; FIXME: This should be covered by the above line
-  (add-hook! 'rust-mode-hook (add-hook '+lookup-documentation-functions #'eglot-help-at-point nil t))
+
+  ;; Eglot uses flymake instead of flycheck, so we have to make some adjustments
+  ;; ourself. I've overridden `next-error' and `previous-error' in the
+  ;; keybindings.
 
   ;; TODO: Creater a proper wrapper around `eglot-help-at-point'
   ;; NOTE: This is needed for now, as `eglot-help-at-point' always returns nil,
@@ -28,16 +33,7 @@
   (defun +robbert--return-t (original-function &rest args)
     (apply original-function args)
     t)
-  (advice-add 'eglot-help-at-point :around #'+robbert--return-t)
-
-  ;; Eglot uses flymake instead of flycheck, so we have to make some adjustments
-  ;; ourself. I've overridden `next-error' and `previous-error' in the
-  ;; keybindings.
-
-  ;; RLS, for some reason, always wants to use the stable compiler's source code
-  ;; even when specifically running the nightly RLS
-  (setenv "RUST_SRC_PATH"
-          (expand-file-name "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src")))
+  (advice-add 'eglot-help-at-point :around #'+robbert--return-t))
 
 (def-package! evil-lion
   :after evil
@@ -299,7 +295,12 @@
 (after! rust-mode
   ;; Add missing confugration
   (setq rust-format-on-save t)
-  (set! :electric '(rust-mode) :chars '(?\n ?\})))
+  (set! :electric '(rust-mode) :chars '(?\n ?\}))
+
+  ;; RLS, for some reason, always wants to use the stable compiler's source code
+  ;; even when specifically running the nightly RLS
+  (setenv "RUST_SRC_PATH"
+          (expand-file-name "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src")))
 
 (after! tide
   ;; Use the built in tsserver as formatting breaks otherwise
