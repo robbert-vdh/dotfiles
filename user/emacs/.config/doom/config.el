@@ -179,8 +179,10 @@
   ;; git-commit is always verbose as specified in ~/.gitconfig
   (setq magit-commit-show-diff nil
         magit-diff-refine-hunk 'all)
-  ;; Use the traditional window splitting behaviour (I think it's cleaner)
-  (setq magit-display-buffer-function 'magit-display-buffer-traditional)
+  ;; TODO: Decide on whether or not to keep this after trying the new behaviour
+  ;;       out
+  ;; ;; Use the traditional window splitting behaviour (I think it's cleaner)
+  ;; (setq magit-display-buffer-function 'magit-display-buffer-traditional)
   ;; Don't interfere with the leader key
   (dolist (mode (list magit-mode-map magit-revision-mode-map))
     (define-key mode (kbd doom-leader-key) nil)))
