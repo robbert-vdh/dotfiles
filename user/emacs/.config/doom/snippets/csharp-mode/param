@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name : /// <param name="..."> ... </param>
-# key: comment
+# key: param
 # --
 /// <param name="$1">$2</param>
