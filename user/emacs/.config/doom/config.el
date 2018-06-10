@@ -265,12 +265,17 @@
 (after! racer
   ;; Don't show snippets in the completion, as these tend to cause a lot of
   ;; clutter
-  (set! :company-backend 'rust-mode 'company-capf))
+  (set! :company-backend 'rust-mode 'company-capf)
+  (setq racer-rust-src-path (getenv "RUST_SRC_PATH")))
 
 (after! rust-mode
   ;; Add missing confugration
   (setq rust-format-on-save t)
   (set! :electric '(rust-mode) :chars '(?\n ?\}))
+
+  ;; Slight hack to priority using clippy without manually overriding the used
+  ;; checker
+  (push 'rust-clippy flycheck-checkers)
 
   ;; RLS, for some reason, always wants to use the stable compiler's source code
   ;; even when specifically running the nightly RLS

@@ -2,8 +2,8 @@
 ;;; ~/.config/doom/packages.el
 
 (package! atomic-chrome)
-(package! company-racer :disable :ignore) ;; racer's capf backend is better
-(package! eglot :ignore)
+(package! company-racer :disable t :ignore t) ;; racer's capf backend is better
+(package! eglot :ignore t)
 (package! ein)
 (package! evil-lion)
 (package! fish-mode)
