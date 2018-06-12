@@ -103,6 +103,15 @@
 (after! csharp-mode
   (set! :electric '(csharp-mode) :chars '(?\n ?\{)))
 
+(after! ediff
+  ;; Ancestor is already shown in buffer C
+  (setq ediff-show-ancestor nil)
+  ;; Allow easy navigation between windows
+  (push '("\C-h" . evil-window-left)  evil-ediff-bindings)
+  (push '("\C-j" . evil-window-down)  evil-ediff-bindings)
+  (push '("\C-k" . evil-window-up)    evil-ediff-bindings)
+  (push '("\C-l" . evil-window-right) evil-ediff-bindings))
+
 (after! ein
   (setq ein:jupyter-default-notebook-directory nil
         ein:slice-image '(10 nil)))
@@ -130,15 +139,6 @@
   ;; Make sure neotree keybindings are loaded, sometimes they are not
   (after! neotree
     (evil-collection-neotree-setup)))
-
-(after! evil-ediff
-  ;; Ancestor is already shown in buffer C
-  (setq ediff-show-ancestor nil)
-  ;; Allow easy navigation between windows
-  (push '("\C-h" . evil-window-left)  evil-ediff-bindings)
-  (push '("\C-j" . evil-window-down)  evil-ediff-bindings)
-  (push '("\C-k" . evil-window-up)    evil-ediff-bindings)
-  (push '("\C-l" . evil-window-right) evil-ediff-bindings))
 
 (after! evil-snipe
   ;; Disable evil-snipe overriding the S/s keys. This is a bit of a hack but the
