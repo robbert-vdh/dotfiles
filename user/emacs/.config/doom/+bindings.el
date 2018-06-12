@@ -230,6 +230,13 @@
      :n "]"     nil
      :n "{"     #'outline-previous-visible-heading
      :n "}"     #'outline-next-visible-heading))
+ (:after magit
+   (:map magit-diff-mode-map
+     :n  "SPC"  nil
+     :nvg "C-h"  nil
+     :nvg "C-j"  nil
+     :nvg "C-k"  nil
+     :nvg "C-l"  nil))
  (:after python
    (:map python-mode-map
      :n "gz"    nil))
