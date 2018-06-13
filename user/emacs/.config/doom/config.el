@@ -105,12 +105,7 @@
 
 (after! ediff
   ;; Ancestor is already shown in buffer C
-  (setq ediff-show-ancestor nil)
-  ;; Allow easy navigation between windows
-  (push '("\C-h" . evil-window-left)  evil-ediff-bindings)
-  (push '("\C-j" . evil-window-down)  evil-ediff-bindings)
-  (push '("\C-k" . evil-window-up)    evil-ediff-bindings)
-  (push '("\C-l" . evil-window-right) evil-ediff-bindings))
+  (setq ediff-show-ancestor nil))
 
 (after! ein
   (setq ein:jupyter-default-notebook-directory nil
