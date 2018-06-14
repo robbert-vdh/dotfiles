@@ -115,6 +115,15 @@
        :nv "p"   #'ein:tb-prev-item
        :nv "q"   #'bury-buffer)))
 
+ (:after evil
+   ;; This makes the up and down motions in visual line mode handle like the
+   ;; regular motions
+   (:map visual-line-mode-map
+     :o [remap evil-next-line] #'evil-next-line
+     :o [remap evil-previous-line] #'evil-previous-line
+     :o [remap evil-next-visual-line] #'evil-next-visual-line
+     :o [remap evil-previous-visual-line] #'evil-previous-visual-line))
+
  (:after evil-org
    (:map evil-org-mode-map
      :ni [M-return] #'+robbert/evil-org-always-open-below))

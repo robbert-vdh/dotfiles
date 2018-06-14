@@ -218,7 +218,7 @@
 
 (after! org
   ;; Restore default indentation behavior
-  (remove-hook! 'org-mode-hook '(org-indent-mode visual-line-mode))
+  (remove-hook 'org-mode-hook #'org-indent-mode)
   (setq org-adapt-indentation t
         org-startup-indented nil)
 
