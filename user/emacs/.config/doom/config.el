@@ -267,6 +267,11 @@
   (setq rust-format-on-save t)
   (set! :electric '(rust-mode) :chars '(?\n ?\}))
 
+  ;; Without this, function opening braces don't expand
+  (dolist (brace '("(" "{" "["))
+    (sp-local-pair 'rust-mode brace nil
+                   :post-handlers '(("||\n[i]" "RET") ("| " "SPC"))))
+
   ;; RLS, for some reason, always wants to use the stable compiler's source code
   ;; even when specifically running the nightly RLS
   (setenv "RUST_SRC_PATH"
