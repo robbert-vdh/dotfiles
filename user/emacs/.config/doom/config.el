@@ -27,12 +27,15 @@
   ;; Sort global results by nearness. This helps when editing Sass, as the
   ;; default variables will have a lower priority.
   (setq ggtags-sort-by-nearness t)
+
   ;; Fix gtags for Sass. Pygments has got a parser that works great, but it
   ;; doesn't use the dollar sign prefix. We'll have to manually add the jump
   ;; handler to scss-mode as there are not any yet.
   (add-hook! 'scss-mode-hook (modify-syntax-entry ?$ "'") (modify-syntax-entry ?% "."))
+
+  ;; Completion is handled through `company-capf'
   (set! :lookup 'scss-mode :definition #'ggtags-find-tag-dwim :references #'ggtags-find-reference)
-  (set! :company-backend '(css-mode scss-mode) 'company-gtags 'company-css))
+  (add-hook! :append 'scss-mode-hook (push 'ggtags-completion-at-point completion-at-point-functions)))
 
 ;; Transforms ^L characters into horizontal lines
 (def-package! page-break-lines
