@@ -44,7 +44,7 @@
    (:desc "open"                      :prefix "o"
      ;; These four keybindings are swapped compared to `default/+bindings'
      :desc "Terminal"                 :n  "T" #'+term/open
-     :desc "Terminal in popup"        :n  "t" #'+term/open-popup-in-project
+     :desc "Terminal in popup"        :n  "t" #'+term/open-popup
      :desc "Eshell"                   :n  "E" #'+eshell/open
      :desc "Eshell in popup"          :n  "e" #'+eshell/open-popup
      (:desc "+jupyter"                :prefix "j"
