@@ -116,7 +116,7 @@ all existing tags."
                                (locate-dominating-file "." "package.json")
                                (projectile-project-root)))
         (scss-dirs (string-join +robbert/scss-tag-dirs " ")))
-    (shell-command (concat  "find " scss-dirs " -iname '*.scss' >gtags.files 2>/dev/null"))
+    (shell-command (concat  "find " scss-dirs " -iname '*.scss' >gtags.files 2>/dev/null | true"))
     (shell-command "gtags --gtagslabel pygments")))
 
 ;;;###autoload
