@@ -15,7 +15,8 @@
     "assets"
     "ClientApp/styles" ;; ASP.NET SPA
     "public"
-    "src")
+    "src"
+    "theme/theme")
   "The directories, starting from a Node.JS project root, that
   should be searched for SCSS tags.")
 
