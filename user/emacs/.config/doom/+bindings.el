@@ -75,7 +75,6 @@
      "C-a"    #'company-abort
      "C-l"    #'company-complete
      [tab]    #'+robbert/company-select-next-or-complete
-     "C-/"    #'counsel-company ;; Search the candidates using ivy
      "RET"    nil
      [escape] nil))
 

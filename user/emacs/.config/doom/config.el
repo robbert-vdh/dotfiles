@@ -18,7 +18,7 @@
 
 (def-package! fish-mode
   :config
-  (set! :electric '(fish-mode) :words '("else" "end")))
+  (set-electric! 'fish-mode :words '("else" "end")))
 
 (def-package! ggtags
   :commands (ggtags-find-tag-dwim ggtags-find-reference)
@@ -34,7 +34,7 @@
   (add-hook! 'scss-mode-hook (modify-syntax-entry ?$ "'") (modify-syntax-entry ?% "."))
 
   ;; Completion is handled through `company-capf'
-  (set! :lookup 'scss-mode :definition #'ggtags-find-tag-dwim :references #'ggtags-find-reference)
+  (set-lookup-handlers! 'scss-mode :definition #'ggtags-find-tag-dwim :references #'ggtags-find-reference)
   (add-hook! :append 'scss-mode-hook (push 'ggtags-completion-at-point completion-at-point-functions)))
 
 ;; Transforms ^L characters into horizontal lines
@@ -104,7 +104,7 @@
   (advice-add #'company-box--render-buffer :after #'+robbert--company-box-fix-tng))
 
 (after! csharp-mode
-  (set! :electric '(csharp-mode) :chars '(?\n ?\{)))
+  (set-electric! 'csharp-mode :chars '(?\n ?\{)))
 
 (after! ediff
   ;; Ancestor is already shown in buffer C
@@ -170,7 +170,7 @@
     (push pair evil-surround-pairs-alist)))
 
 (after! flycheck
-  (set! :evil-state 'flycheck-error-list-mode 'normal))
+  (set-evil-initial-state! 'flycheck-error-list-mode 'normal))
 
 (after! flyspell
   ;; Don't automatically spellcheck when enabling flycheck
@@ -179,7 +179,7 @@
 
 (after! helpful
   ;; Increase the size of help popups to match Ivy's height
-  (set! :popup "^\\*Help" '((size . 0.3)) '((select . t))))
+  (set-popup-rule! "^\\*Help" :size 0.3 :select t))
 
 (after! hl-todo
   (setq hl-todo-keyword-faces
@@ -266,12 +266,12 @@
 (after! racer
   ;; Don't show snippets in the completion, as these tend to cause a lot of
   ;; clutter
-  (set! :company-backend 'rust-mode 'company-capf))
+  (set-company-backend! 'rust-mode 'company-capf))
 
 (after! rust-mode
   ;; Add missing confugration
   (setq rust-format-on-save t)
-  (set! :electric '(rust-mode) :chars '(?\n ?\}))
+  (set-electric! 'rust-mode :chars '(?\n ?\}))
 
   ;; Without this, function opening braces don't expand
   (dolist (brace '("(" "{" "["))
@@ -306,7 +306,7 @@
           web-mode-block-padding 0)))
 
 (after! wordnut
-  (set! :popup "^\\*WordNut\\*$" '((size . 0.3)) '((select . t))))
+  (set-popup-rule! "^\\*WordNut\\*$" :size 0.3 :select t))
 
 (after! yasnippet
   (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand))
@@ -458,7 +458,7 @@
   ;; FIXME: This should be covered by the line below
   (add-hook! 'rust-mode-hook (add-hook '+lookup-documentation-functions #'eglot-help-at-point nil t))
 
-  (set! :lookup 'eglot--managed-mode :xref-backend #'eglot-xref-backend :documentation #'eglot-help-at-point)
+  (set-lookup-handlers! 'eglot--managed-mode :xref-backend #'eglot-xref-backend :documentation #'eglot-help-at-point)
 
   ;; Eglot uses flymake instead of flycheck, so we have to make some adjustments
   ;; ourself. I've overridden `next-error' and `previous-error' in the
