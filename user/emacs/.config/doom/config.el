@@ -12,6 +12,11 @@
         atomic-chrome-default-major-mode 'markdown-mode)
   (ignore-errors (atomic-chrome-start-server)))
 
+(def-package! company-lsp
+  :after (company lsp-mode)
+  :config
+  (add-hook! 'lsp-mode-hook (push 'company-lsp company-backends)))
+
 (def-package! evil-lion
   :after evil
   :config (evil-lion-mode))
@@ -33,9 +38,32 @@
   ;; handler to scss-mode as there are not any yet.
   (add-hook! 'scss-mode-hook (modify-syntax-entry ?$ "'") (modify-syntax-entry ?% "."))
 
+  ;; FIXME: Refactor this when `set-lookup-handlers!' supports minor modes
   ;; Completion is handled through `company-capf'
   (set-lookup-handlers! 'scss-mode :definition #'ggtags-find-tag-dwim :references #'ggtags-find-reference)
-  (add-hook! :append 'scss-mode-hook (push 'ggtags-completion-at-point completion-at-point-functions)))
+  (add-hook! :append 'scss-mode-hook (push #'ggtags-completion-at-point completion-at-point-functions)))
+
+(def-package! lsp-mode
+  :config
+  ;; Don't highlight symbols automatically, use `gh' to do this manually
+  (setq lsp-highlight-symbol-at-point nil)
+  ;; FIXME: Refactor this when `set-lookup-handlers!' supports minor modes
+  (set-lookup-handlers! 'rust-mode :documentation 'lsp-info-under-point))
+
+(def-package! lsp-rust
+  :after lsp-mode
+  :hook ((rust-mode . lsp-rust-enable)
+         (rust-mode . flycheck-mode))
+  :config
+  ;; Enable clippy support
+  (lsp-rust-set-config "clippy_preference" "on"))
+
+(def-package! lsp-ui
+  :after lsp-mode
+  :hook (rust-mode . lsp-ui-mode)
+  :config
+  (setq lsp-ui-doc-position 'bottom
+        lsp-ui-sideline-show-flycheck nil))
 
 ;; Transforms ^L characters into horizontal lines
 (def-package! page-break-lines
@@ -266,17 +294,16 @@
   ;; Doom explicitely adds the deprecated `parse-raw' option
   (setq org-pandoc-options '((standalone . t) (mathjax . t))))
 
-(after! racer
-  ;; Don't show snippets in the completion, as these tend to cause a lot of
-  ;; clutter
-  (set-company-backend! 'rust-mode 'company-capf))
-
 (after! rust-mode
   ;; Add missing confugration
   (setq rust-format-on-save t)
   (set-electric! 'rust-mode :chars '(?\n ?\}))
 
-  ;; Without this, function opening braces don't expand
+  ;; Don't show snippets in the completion, as these tend to cause a lot of
+  ;; clutter
+  (set-company-backend! 'rust-mode 'company-capf)
+
+  ;; FIXME: Without this, function opening braces don't expand
   (dolist (brace '("(" "{" "["))
     (sp-local-pair 'rust-mode brace nil
                    :post-handlers '(("||\n[i]" "RET") ("| " "SPC"))))

@@ -135,6 +135,14 @@
      (:desc "next..."     :prefix "]"
       :desc "Error"       :nv "e" #'flymake-goto-next-error)))
 
+ ;; There is no keymap for `lsp-mode'
+ (:after lsp-ui
+   (:map lsp-ui-mode-map
+     :nvi [M-return]  #'lsp-execute-code-action
+     :nv  "gh"        #'lsp-symbol-highlight
+     (:localleader
+       :desc "Rename" :nv "r" #'lsp-rename)))
+
  (:after ivy
    (:map ivy-minibuffer-map
      [backtab]     #'ivy-occur ;; Mimics Doom's S-TAB `wgrep' binding for other searches
