@@ -76,7 +76,7 @@
 
 (def-package! lsp-ui
   :after lsp-mode
-  :hook (rust-mode . lsp-ui-mode)
+  :hook (lsp-mode . lsp-ui-mode)
   :config
   (setq lsp-ui-doc-position 'bottom
         lsp-ui-sideline-show-flycheck nil))
