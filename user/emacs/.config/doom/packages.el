@@ -9,6 +9,7 @@
 (package! fish-mode)
 (package! flycheck-rust)
 (package! ggtags)
+(package! lsp-css :recipe (:fetcher github :repo "emacs-lsp/lsp-css"))
 (package! lsp-mode)
 (package! lsp-rust)
 (package! lsp-ui)

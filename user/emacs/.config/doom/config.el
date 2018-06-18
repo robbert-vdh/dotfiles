@@ -26,8 +26,8 @@
   (set-electric! 'fish-mode :words '("else" "end")))
 
 (def-package! ggtags
-  :commands (ggtags-find-tag-dwim ggtags-find-reference)
-  :commands (ggtags-mode)
+  :commands (ggtags-find-tag-dwim ggtags-find-reference ggtags-mode)
+  :hook (scss-mode . ggtags-mode)
   :config
   ;; Sort global results by nearness. This helps when editing Sass, as the
   ;; default variables will have a lower priority.
@@ -38,10 +38,26 @@
   ;; handler to scss-mode as there are not any yet.
   (add-hook! 'scss-mode-hook (modify-syntax-entry ?$ "'") (modify-syntax-entry ?% "."))
 
-  ;; FIXME: Refactor this when `set-lookup-handlers!' supports minor modes
-  ;; Completion is handled through `company-capf'
-  (set-lookup-handlers! 'scss-mode :definition #'ggtags-find-tag-dwim :references #'ggtags-find-reference)
-  (add-hook! :append 'scss-mode-hook (push #'ggtags-completion-at-point completion-at-point-functions)))
+  ;; Completion is handled through `company-capf', though for scss in particular
+  ;; we just want to use tags together with the lsp server as the built in
+  ;; support misses a lot of variables
+  (set-lookup-handlers! 'scss-mode :definition #'ggtags-find-tag-dwim :references #'ggtags-find-reference))
+
+(def-package! lsp-css
+  :after lsp-mode
+  :hook ((css-mode . +robbert//lsp-css-enable)
+         (less-mode . lsp-less-enable)
+         (sass-mode . lsp-sass-enable)
+         (scss-mode . lsp-scss-enable))
+  :config
+  (defun +robbert//lsp-css-enable ()
+    "Don't enable lsp-css in derived modes."
+    (when (eq major-mode 'css-mode) (lsp-css-enable)))
+
+  (add-hook! 'lsp-after-open-hook
+    (when (eq major-mode 'scss-mode)
+      (setq completion-at-point-functions '(ggtags-completion-at-point)
+            company-backends '((:separate company-lsp company-capf))))))
 
 (def-package! lsp-mode
   :config
@@ -435,9 +451,6 @@
 (add-to-list 'auto-mode-alist '("\\.socket$" . conf-unix-mode))
 (add-to-list 'auto-mode-alist '("\\.target$" . conf-unix-mode))
 (add-to-list 'auto-mode-alist '("\\.timer$" . conf-unix-mode))
-
-;; Use ggtags in certain modes
-(add-hook 'scss-mode-hook #'ggtags-mode)
 
 ;; Fix jumping to Sass files when the leading underscore is ommitted
 ;; TODO: Refactor this to use the new `+lookup/file' function
