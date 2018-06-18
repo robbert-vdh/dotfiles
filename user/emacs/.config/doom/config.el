@@ -189,6 +189,9 @@
           ("HACK"  . ,(face-foreground 'error))
           ("NOTE"  . ,(face-foreground 'success)))))
 
+(after! latex-mode
+  (set-electric! 'latex-mode :chars '(?\n ?\{)))
+
 (after! langtool
   (setq langtool-disabled-rules '("WHITESPACE_RULE")
         langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*"))
