@@ -3,7 +3,6 @@
 
 (package! atomic-chrome)
 (package! company-racer :disable t :ignore t) ;; racer's capf backend is better
-(package! eglot :disable t :ignore t)
 (package! ein)
 (package! evil-lion)
 (package! fish-mode)

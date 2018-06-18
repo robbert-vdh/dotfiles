@@ -87,10 +87,6 @@
      :nm "{" #'diff-hunk-prev
      :nm "}" #'diff-hunk-next))
 
- (:after eglot
-   (:map eglot-mode-map
-     :niv [M-return] #'eglot-code-actions))
-
  (:after ein-multilang
    (:map ein:notebook-multilang-mode-map
      :ni  [C-return] #'ein:worksheet-execute-cell

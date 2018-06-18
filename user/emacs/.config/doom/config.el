@@ -450,28 +450,3 @@
 (require 'server)
 (unless (server-running-p)
   (server-start))
-
-;;; Disabled packages
-
-(def-package! eglot
-  :disabled
-  :config
-  ;; TODO: Move this lambda to a proper function
-  (add-hook! 'rust-mode-hook (unless (eglot--current-server) (call-interactively 'eglot)))
-  ;; FIXME: This should be covered by the line below
-  (add-hook! 'rust-mode-hook (add-hook '+lookup-documentation-functions #'eglot-help-at-point nil t))
-
-  (set-lookup-handlers! 'eglot--managed-mode :xref-backend #'eglot-xref-backend :documentation #'eglot-help-at-point)
-
-  ;; Eglot uses flymake instead of flycheck, so we have to make some adjustments
-  ;; ourself. I've overridden `next-error' and `previous-error' in the
-  ;; keybindings.
-
-  ;; TODO: Creater a proper wrapper around `eglot-help-at-point'
-  ;; NOTE: This is needed for now, as `eglot-help-at-point' always returns nil,
-  ;;       regardless of whether or not documentation was found. Otherwide we'd
-  ;;       jump to devdocs.
-  (defun +robbert--return-t (original-function &rest args)
-    (apply original-function args)
-    t)
-  (advice-add 'eglot-help-at-point :around #'+robbert--return-t))
