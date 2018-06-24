@@ -216,6 +216,10 @@
 (after! flycheck
   (set-evil-initial-state! 'flycheck-error-list-mode 'normal))
 
+(after! flycheck-posframe
+  ;; FIXME Doom should be doing this for us
+  (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode))
+
 (after! flyspell
   ;; Don't automatically spellcheck when enabling flycheck
   (add-hook 'text-mode-hook 'flyspell-mode)
