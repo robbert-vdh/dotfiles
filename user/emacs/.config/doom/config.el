@@ -71,6 +71,9 @@
   :hook ((rust-mode . lsp-rust-enable)
          (rust-mode . flycheck-mode))
   :config
+  ;; Fix locally built RLS
+  ;; TODO: Remove when rustup RLS gets updated
+  (setenv "LD_LIBRARY_PATH" "/home/robbert/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib")
   ;; Enable clippy support
   (lsp-rust-set-config "clippy_preference" "on"))
 
