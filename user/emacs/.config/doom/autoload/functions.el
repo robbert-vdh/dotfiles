@@ -121,6 +121,10 @@ all existing tags."
     (shell-command "gtags --gtagslabel pygments")))
 
 ;;;###autoload
+(defun +robbert/lsp-format-before-save ()
+  (add-hook! 'rust-mode-hook (add-hook 'before-save-hook #'lsp-format-buffer nil t)))
+
+;;;###autoload
 (defun +robbert/newline-and-indent ()
   "Inserts a newline and possibly indents it. This is the same as
 `+doom/newline-and-indent' but without the comment handling."

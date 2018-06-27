@@ -68,14 +68,15 @@
 
 (def-package! lsp-rust
   :after lsp-mode
-  :hook ((rust-mode . lsp-rust-enable)
-         (rust-mode . flycheck-mode))
+  :hook (rust-mode . lsp-rust-enable)
   :config
   ;; Fix locally built RLS
   ;; TODO: Remove when rustup RLS gets updated
   (setenv "LD_LIBRARY_PATH" "/home/robbert/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib")
   ;; Enable clippy support
-  (lsp-rust-set-config "clippy_preference" "on"))
+  (lsp-rust-set-config "clippy_preference" "on")
+  ;; Format before saving
+  (add-hook 'rust-mode-hook #'+robbert/lsp-format-before-save))
 
 (def-package! lsp-ui
   :after lsp-mode
@@ -217,9 +218,7 @@
     (push pair evil-surround-pairs-alist)))
 
 (after! flycheck
-  (set-evil-initial-state! 'flycheck-error-list-mode 'normal))
-
-(after! flycheck-posframe
+  (set-evil-initial-state! 'flycheck-error-list-mode 'normal)
   ;; FIXME Doom should be doing this for us
   (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode))
 
@@ -319,7 +318,6 @@
 
 (after! rust-mode
   ;; Add missing confugration
-  (setq rust-format-on-save t)
   (set-electric! 'rust-mode :chars '(?\n ?\}))
 
   ;; Don't show snippets in the completion, as these tend to cause a lot of
