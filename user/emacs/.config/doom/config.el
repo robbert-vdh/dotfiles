@@ -70,9 +70,6 @@
   :after lsp-mode
   :hook (rust-mode . lsp-rust-enable)
   :config
-  ;; Fix locally built RLS
-  ;; TODO: Remove when rustup RLS gets updated
-  (setenv "LD_LIBRARY_PATH" "/home/robbert/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib")
   ;; Enable clippy support
   (lsp-rust-set-config "clippy_preference" "on")
   ;; Format before saving
@@ -218,9 +215,7 @@
     (push pair evil-surround-pairs-alist)))
 
 (after! flycheck
-  (set-evil-initial-state! 'flycheck-error-list-mode 'normal)
-  ;; FIXME Doom should be doing this for us
-  (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode))
+  (set-evil-initial-state! 'flycheck-error-list-mode 'normal))
 
 (after! flyspell
   ;; Don't automatically spellcheck when enabling flycheck
@@ -486,6 +481,9 @@
       '(company-preview-if-just-one-frontend
         company-tng-frontend
         company-pseudo-tooltip-frontend))
+
+;; FIXME Doom should be doing this for us
+(flycheck-posframe-mode +1)
 
 ;; Explicitely load evil-surround so that extra pairs can be loaded in time
 (require 'evil-surround)
