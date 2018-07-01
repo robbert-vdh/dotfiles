@@ -151,6 +151,10 @@
 (after! csharp-mode
   (set-electric! 'csharp-mode :chars '(?\n ?\{)))
 
+(after! emmet
+  ;; Don't put an XML style slash at the end of self closing tags
+  (setq emmet-self-closing-tag-style ""))
+
 (after! ediff
   ;; Ancestor is already shown in buffer C
   (setq ediff-show-ancestor nil))
