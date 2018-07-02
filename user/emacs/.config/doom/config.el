@@ -201,7 +201,7 @@
 (after! evil-magit
   (remove-hook 'git-commit-mode-hook #'evil-insert-state)
   ;; git-commit is always verbose as specified in ~/.gitconfig
-  (setq magit-commit-show-diff nil
+  (setq ;; magit-commit-show-diff nil
         magit-diff-refine-hunk 'all)
 
   ;; TODO: Decide which behaviour is better
