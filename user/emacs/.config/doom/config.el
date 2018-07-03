@@ -346,6 +346,10 @@
   ;; Fix double curly braces caused by smartparens
   (sp-local-pair 'web-mode "{" nil :actions nil)
 
+  ;; Make sure that attributes are indented when breaking lines (e.g. long lists
+  ;; of classes)
+  (set-electric! 'web-mode :chars '(?\<))
+
   ;; Editorconfig tells web-mode to indent attributes instead of aligning
   (add-hook! :append 'web-mode-hook
     (setq web-mode-attr-indent-offset nil

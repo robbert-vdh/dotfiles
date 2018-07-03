@@ -127,13 +127,23 @@ all existing tags."
 ;;;###autoload
 (defun +robbert/newline-and-indent ()
   "Inserts a newline and possibly indents it. This is the same as
-`+doom/newline-and-indent' but without the comment handling."
+`doom*newline-and-indent' but without the comment handling."
   (interactive)
   (if (sp-point-in-string)
       (newline)
     (progn
       (newline nil t)
       (indent-according-to-mode))))
+
+;;;###autoload
+(defun +robbert/newline-and-indent-always ()
+  "Inserts a newline and always indent it. This is useful for
+HTML, where string are really just argument lists and should be
+treaded the same. This is needed because `newline-and-indent'
+gets overridden."
+  (interactive)
+  (newline nil t)
+  (indent-according-to-mode))
 
 ;;;###autoload
 (defun +robbert/magit-blame-follow-copy ()

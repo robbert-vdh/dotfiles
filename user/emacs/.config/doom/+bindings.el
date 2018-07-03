@@ -217,7 +217,11 @@
 
  (:after web-mode
    (:map web-mode-map
-     "M-/" nil))
+     "M-/" nil
+
+     ;; In HTML we DO want to automatically indent broken 'strings', as these
+     ;; are likely long attributes like a list of classes
+     :ig "RET" #'+robbert/newline-and-indent-always))
 
  ;; Disable evil-collection overrides
  ;; TODO: Check if these are still needed after refactored default/+bindings.el
