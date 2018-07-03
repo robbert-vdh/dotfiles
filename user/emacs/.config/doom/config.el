@@ -196,7 +196,7 @@
 (after! evil-org
   (setq evil-org-use-additional-insert t)
   (add-to-list 'evil-org-key-theme 'additional)
-  (evil-org-set-key-theme))
+  (evil-org--populate-additional-bindings))
 
 (after! evil-magit
   (remove-hook 'git-commit-mode-hook #'evil-insert-state)
