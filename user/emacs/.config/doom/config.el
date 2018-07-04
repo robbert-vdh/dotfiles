@@ -382,6 +382,9 @@
       which-key-idle-delay 0.4
 
       +org-dir (expand-file-name "~/Documenten/notes/")
+      ;; The gray comments are hard to read in my terminal, although I rarely
+      ;; use Emacs in a terminal
+      doom-one-brighter-comments (not (display-graphic-p))
       doom-line-numbers-style 'relative
       doom-font (font-spec :family "Input Mono"
                            :width 'semi-condensed
