@@ -11,6 +11,7 @@
 
 (defvar +robbert/scss-tag-dirs
   '("node_modules/bootstrap"
+    "node_modules/motion-ui"
     "node_modules/foundation-sites"
     "assets"
     "ClientApp/styles" ;; ASP.NET SPA
