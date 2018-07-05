@@ -30,7 +30,10 @@
 
        :ui
        doom              ; what makes DOOM look the way it does
-       doom-dashboard    ; a nifty splash screen for Emacs
+       ;; FIXME: Doom's dashboard looks slick, but I never actually use it and
+       ;;        it always pops up when deleting a workspace. Re-enable this
+       ;;        when this doesn't happen anymore.
+      ;doom-dashboard    ; a nifty splash screen for Emacs
        doom-modeline     ; a snazzy Atom-inspired mode-line
        doom-quit         ; DOOM quit-message prompts when you quit Emacs
        evil-goggles      ; display visual hints when editing in evil
