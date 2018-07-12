@@ -348,7 +348,7 @@
 
   ;; Make sure that attributes are indented when breaking lines (e.g. long lists
   ;; of classes)
-  (set-electric! 'web-mode :chars '(?\<))
+  (set-electric! 'web-mode :chars '(?\<) :words '("endfor" "endif" "endblock"))
 
   ;; Editorconfig tells web-mode to indent attributes instead of aligning
   (add-hook! :append 'web-mode-hook
