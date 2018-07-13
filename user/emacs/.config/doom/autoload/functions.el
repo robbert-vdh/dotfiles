@@ -156,6 +156,17 @@ text"
     (magit-blame)))
 
 ;;;###autoload
+(defun +robbert/python-enable-lsp ()
+  "Enables pyls for the current project. This is not enabled by
+default as anaconda is sufficient for most use cases."
+  (interactive
+   (save-window-excursion
+     (let ((default-directory (projectile-project-root))
+           (+file-templates-alist '()))
+       (add-dir-local-variable 'python-mode 'eval '((lsp-python-enable)))
+       (basic-save-buffer)))))
+
+;;;###autoload
 (defun +robbert/scss-find-file (filename)
   "`find-file-at-point' won't find find some file names by
    default, so we'll have to manually push it in the right

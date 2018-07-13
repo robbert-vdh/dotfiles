@@ -42,8 +42,8 @@
 (def-package! lsp-python
   :after lsp-mode
   ;; lsp-python only makes sense in larger projects, so this should be enabled
-  ;; with through .dir-locals.el
-  ;; :hook (python-mode . lsp-python-enable)
+  ;; with through .dir-locals.el or by calling `+robbert/python-enable-lsp'
+  ;; which does it for you.
   :config
   ;; Since lsp-python is not enabled globally we'll have to use hooks for the
   ;; rest of the setup
@@ -53,8 +53,11 @@
       ;; FIXME: Refactor this when `set-lookup-handlers!' supports minor modes
       (add-hook '+lookup-documentation-functions #'lsp-info-under-point nil t)
 
+      ;; TODO: Check if these are always loaded before LSP finished setting up,
+      ;;       otherwise add hooks
       ;; Duplicate functionality can be disabled now
-      (anaconda-mode -1))))
+      (anaconda-mode -1)
+      (yapf-mode -1))))
 
 (def-package! lsp-rust
   :after lsp-mode
