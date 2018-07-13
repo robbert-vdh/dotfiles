@@ -12,6 +12,7 @@
 (package! lsp-css :recipe (:fetcher github :repo "emacs-lsp/lsp-css"))
 (package! lsp-mode)
 (package! lsp-rust)
+(package! lsp-python)
 (package! lsp-ui)
 (package! page-break-lines)
 (package! phpcbf)

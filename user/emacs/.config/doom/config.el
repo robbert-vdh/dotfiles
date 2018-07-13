@@ -66,6 +66,23 @@
   ;; FIXME: Refactor this when `set-lookup-handlers!' supports minor modes
   (set-lookup-handlers! 'rust-mode :documentation 'lsp-info-under-point))
 
+(def-package! lsp-python
+  :after lsp-mode
+  ;; lsp-python only makes sense in larger projects, so this should be enabled
+  ;; with through .dir-locals.el
+  ;; :hook (python-mode . lsp-python-enable)
+  :config
+  ;; Since lsp-python is not enabled globally we'll have to use hooks for the
+  ;; rest of the setup
+  (add-hook! 'python-mode-hook
+    (add-hook! :local 'lsp-mode-hook
+      (+robbert/lsp-format-before-save)
+      ;; FIXME: Refactor this when `set-lookup-handlers!' supports minor modes
+      (add-hook '+lookup-documentation-functions #'lsp-info-under-point nil t)
+
+      ;; Duplicate functionality can be disabled now
+      (anaconda-mode -1))))
+
 (def-package! lsp-rust
   :after lsp-mode
   :hook (rust-mode . lsp-rust-enable)

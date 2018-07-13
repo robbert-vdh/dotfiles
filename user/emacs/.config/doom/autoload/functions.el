@@ -123,7 +123,7 @@ all existing tags."
 
 ;;;###autoload
 (defun +robbert/lsp-format-before-save ()
-  (add-hook! 'rust-mode-hook (add-hook 'before-save-hook #'lsp-format-buffer nil t)))
+  (add-hook 'before-save-hook #'lsp-format-buffer nil t))
 
 ;;;###autoload
 (defun +robbert/newline-and-indent ()
