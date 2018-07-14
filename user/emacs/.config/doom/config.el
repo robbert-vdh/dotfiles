@@ -211,7 +211,11 @@
 
 (after! python
   ;; Set this to `django' to force docstring to always be on multiple lines
-  (setq python-fill-docstring-style 'pep-257))
+  (setq python-fill-docstring-style 'pep-257)
+
+  ;; Disable the default template, as we don't need a hashbang in every Python
+  ;; file
+  (set-file-template! 'python-mode :ignore t))
 
 (after! markdown-mode
   ;; Doom adds extra line spacing in markdown documents
