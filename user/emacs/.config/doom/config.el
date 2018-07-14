@@ -279,6 +279,9 @@
   ;; Doom explicitely adds the deprecated `parse-raw' option
   (setq org-pandoc-options '((standalone . t) (mathjax . t))))
 
+(after! prodigy
+  (set-evil-initial-state! 'prodigy-mode 'normal))
+
 (after! rust-mode
   ;; Add missing confugration
   (set-electric! 'rust-mode :chars '(?\n ?\}))
