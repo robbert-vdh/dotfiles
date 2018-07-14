@@ -53,10 +53,9 @@
       ;; FIXME: Refactor this when `set-lookup-handlers!' supports minor modes
       (add-hook '+lookup-documentation-functions #'lsp-info-under-point nil t)
 
-      ;; TODO: Check if these are always loaded before LSP finished setting up,
-      ;;       otherwise add hooks
       ;; Duplicate functionality can be disabled now
       (anaconda-mode -1)
+      (anaconda-eldoc-mode -1)
       (yapf-mode -1))))
 
 (def-package! lsp-rust
