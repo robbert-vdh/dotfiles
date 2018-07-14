@@ -11,11 +11,12 @@
 (package! ggtags)
 (package! lsp-css :recipe (:fetcher github :repo "emacs-lsp/lsp-css"))
 (package! lsp-mode)
-(package! lsp-rust)
 (package! lsp-python)
+(package! lsp-rust)
 (package! lsp-ui)
 (package! page-break-lines)
 (package! phpcbf)
+(package! pipenv)
 (package! pkgbuild-mode)
 (package! racer :disable t :ignore t) ;; Handled through rls instead
 (package! racer)

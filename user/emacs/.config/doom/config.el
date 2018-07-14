@@ -49,6 +49,13 @@
 ;; phpcbf use the same standard
 (def-package! phpcbf)
 
+(def-package! pipenv
+  :init
+  ;; Conditionally enable pipenv if the project comes with a `Pipfile'
+  ;; FIXME: This should ideally be done after switching buffers to support
+  ;;        multiple projects
+  (add-hook 'python-mode-hook #'+robbert/python-maybe-enable-pipenv))
+
 (def-package! yapfify
   :hook (python-mode . yapf-mode))
 

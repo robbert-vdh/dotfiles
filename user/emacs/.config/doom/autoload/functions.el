@@ -166,6 +166,25 @@ default as anaconda is sufficient for most use cases."
        (add-dir-local-variable 'python-mode 'eval '((lsp-python-enable)))
        (basic-save-buffer)))))
 
+(defvar +robbert--pipenv-project-root nil
+  "The last project we've checked pipenv for. This prevents
+  unnecesarily trying to activate pipenv while it's already
+  active.")
+
+;;;###autoload
+(defun +robbert/python-maybe-enable-pipenv ()
+  "Either enables or disables pipenv depending on the presence of
+  a `Pipfile' in the current project."
+  (interactive)
+  (when (not (equal +robbert--pipenv-project-root (projectile-project-root)))
+    (if (locate-dominating-file default-directory "Pipfile")
+        (progn
+          (pipenv-activate)
+          (message "Pipenv activated for current project"))
+      (pipenv-deactivate))
+
+    (setq +robbert--pipenv-project-root (projectile-project-root))))
+
 ;;;###autoload
 (defun +robbert/scss-find-file (filename)
   "`find-file-at-point' won't find find some file names by
