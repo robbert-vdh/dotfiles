@@ -327,6 +327,13 @@
           web-mode-attr-value-indent-offset nil
           web-mode-block-padding 0)))
 
+(def-project-mode! +web-django-mode
+  :modes (web-mode js-mode coffee-mode css-mode haml-mode pug-mode)
+  :files ("manage.py")
+  :on-enter
+  (when (eq major-mode 'web-mode)
+    (web-mode-set-engine "django")))
+
 (after! wordnut
   (set-popup-rule! "^\\*WordNut\\*$" :size 0.3 :select t))
 
