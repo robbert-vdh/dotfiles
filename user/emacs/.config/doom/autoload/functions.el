@@ -163,7 +163,7 @@ default as anaconda is sufficient for most use cases."
    (save-window-excursion
      (let ((default-directory (projectile-project-root))
            (+file-templates-alist '()))
-       (add-dir-local-variable 'python-mode 'eval '((lsp-python-enable)))
+       (add-dir-local-variable 'python-mode 'eval '(lsp-python-enable))
        (basic-save-buffer)))))
 
 (defvar +robbert--pipenv-project-root nil
