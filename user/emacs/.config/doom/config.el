@@ -460,6 +460,10 @@
       '(company-preview-if-just-one-frontend
         company-tng-frontend
         company-pseudo-tooltip-frontend))
+;; Doom advices the company-box frontend to always show even when there's only
+;; one candidate, but this is not needed as I've also enabled the preview
+(after! company-box
+  (advice-remove #'company-box-frontend #'+company*box-frontend-even-if-single))
 
 ;; FIXME Doom should be doing this for us
 (flycheck-posframe-mode +1)
