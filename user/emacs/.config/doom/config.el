@@ -54,7 +54,10 @@
   ;; Conditionally enable pipenv if the project comes with a `Pipfile'
   ;; FIXME: This should ideally be done after switching buffers to support
   ;;        multiple projects
-  (add-hook 'python-mode-hook #'+robbert/python-maybe-enable-pipenv))
+  (add-hook 'python-mode-hook #'+robbert/python-maybe-enable-pipenv)
+
+  (add-to-list 'auto-mode-alist '("Pipfile$" . toml-mode))
+  (add-to-list 'auto-mode-alist '("Pipfile\\.lock$" . json-mode)))
 
 (def-package! yapfify
   :hook (python-mode . yapf-mode))
@@ -431,12 +434,12 @@
          do (add-hook mode `(lambda () (setq fill-column ,value))))
 
 ;; Add missing syntax highlighting
-(add-to-list 'auto-mode-alist '("\\.csproj$" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.ruleset$" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.service$" . conf-unix-mode))
 (add-to-list 'auto-mode-alist '("\\.socket$" . conf-unix-mode))
 (add-to-list 'auto-mode-alist '("\\.target$" . conf-unix-mode))
 (add-to-list 'auto-mode-alist '("\\.timer$" . conf-unix-mode))
+(add-to-list 'auto-mode-alist '("\\.csproj$" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.ruleset$" . nxml-mode))
 
 ;; Fix jumping to Sass files when the leading underscore is ommitted
 ;; TODO: Refactor this to use the new `+lookup/file' function
