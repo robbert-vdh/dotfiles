@@ -17,10 +17,6 @@
   :after evil
   :config (evil-lion-mode))
 
-(def-package! fish-mode
-  :config
-  (set-electric! 'fish-mode :words '("else" "end")))
-
 (def-package! ggtags
   :commands (ggtags-find-tag-dwim ggtags-find-reference ggtags-mode)
   :hook (scss-mode . ggtags-mode)
@@ -186,6 +182,9 @@
   (dolist (pair '((?$ . ("$" . "$")) (?= . ("=" . "=")) (?~ . ("~" . "~"))
                   (?/ . ("/" . "/")) (?* . ("*" . "*")) (?* . (":" . ":"))))
     (push pair evil-surround-pairs-alist)))
+
+(after! fish-mode
+  (set-electric! 'fish-mode :words '("else" "end")))
 
 (after! flycheck
   (set-evil-initial-state! 'flycheck-error-list-mode 'normal))
