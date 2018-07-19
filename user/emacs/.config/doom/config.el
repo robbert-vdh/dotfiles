@@ -39,6 +39,8 @@
   ;; support misses a lot of variables
   (set-lookup-handlers! 'scss-mode :definition #'ggtags-find-tag-dwim :references #'ggtags-find-reference))
 
+(def-package! kotlin-mode)
+
 ;; Transforms ^L characters into horizontal lines
 (def-package! page-break-lines
   :config
@@ -214,7 +216,7 @@
 
 (after! python
   ;; Set this to `django' to force docstring to always be on multiple lines
-  (setq python-fill-docstring-style 'pep-257)
+  (setq python-fill-docstring-style 'onetwo)
 
   ;; Disable the default template, as we don't need a hashbang in every Python
   ;; file

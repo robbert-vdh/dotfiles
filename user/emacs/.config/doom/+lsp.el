@@ -7,6 +7,7 @@
   ;; Don't highlight symbols automatically, use `gh' to do this manually
   (setq lsp-highlight-symbol-at-point nil)
   ;; FIXME: Refactor this when `set-lookup-handlers!' supports minor modes
+  (set-lookup-handlers! 'kotlin-mode :documentation 'lsp-info-under-point)
   (set-lookup-handlers! 'rust-mode :documentation 'lsp-info-under-point))
 
 (def-package! lsp-ui
@@ -39,6 +40,11 @@
       (setq completion-at-point-functions '(ggtags-completion-at-point)
             company-backends '((:separate company-lsp company-capf))))))
 
+(def-package! lsp-intellij
+  :hook ((kotlin-mode . lsp-intellij-enable))
+  :config
+  (add-hook 'kotlin-mode-hook #'+robbert/lsp-format-before-save))
+
 (def-package! lsp-python
   :after lsp-mode
   ;; lsp-python only makes sense in larger projects, so this should be enabled
@@ -54,8 +60,12 @@
       (add-hook '+lookup-documentation-functions #'lsp-info-under-point nil t)
 
       ;; Duplicate functionality can be disabled now
-      (anaconda-mode -1)
-      (anaconda-eldoc-mode -1)
+
+      ;; FIXME: Eldoc is missing from pyls and the completion doesn't work with
+      ;;        pipenv https://github.com/palantir/python-language-server/issues/390
+      (delq 'company-lsp company-backends)
+      ;; (anaconda-mode -1)
+      ;; (anaconda-eldoc-mode 1)
       (yapf-mode -1))))
 
 (def-package! lsp-rust
