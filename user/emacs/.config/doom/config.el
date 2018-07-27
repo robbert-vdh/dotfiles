@@ -467,14 +467,20 @@
 ;; Enable vim-style auto completion
 (require 'company-tng)
 (company-tng-configure-default)
-(setq company-frontends
-      '(company-preview-if-just-one-frontend
-        company-tng-frontend
-        company-pseudo-tooltip-frontend))
+(after! company
+  (setq company-frontends
+        '(company-preview-if-just-one-frontend
+          company-tng-frontend
+          company-pseudo-tooltip-frontend
+          company-echo-metadata-frontend)))
 ;; Doom advices the company-box frontend to always show even when there's only
 ;; one candidate, but this is not needed as I've also enabled the preview
 (after! company-box
-  (advice-remove #'company-box-frontend #'+company*box-frontend-even-if-single))
+  (advice-remove #'company-box-frontend #'+company*box-frontend-even-if-single)
+  (setq-default company-frontends
+        '(company-preview-if-just-one-frontend
+          company-tng-frontend
+          company-box-frontend)))
 
 ;; FIXME Doom should be doing this for us
 (flycheck-posframe-mode +1)
