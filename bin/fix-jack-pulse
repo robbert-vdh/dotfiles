@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+# Sets the currect sinks and sources in PulseAudio for use with Jack
+
+jack_sink=$(pacmd list-sinks \
+    | awk 'match($0, "name: <(jack_out[^>]*?)", m) {print m[1]}' \
+    | tail -n1)
+jack_source=$(pacmd list-sources \
+    | awk 'match($0, "name: <(jack_in[^>]*?)", m) {print m[1]}' \
+    | tail -n1)
+
+pacmd set-default-sink "$jack_sink"
+pacmd set-default-source "$jack_source"
