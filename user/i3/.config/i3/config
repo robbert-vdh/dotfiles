@@ -268,7 +268,7 @@ bindsym Control+Shift+Print exec --no-startup-id " \
     && notify-send \\"Screenshot geüpload naar\n$(xclip -o -sel clip)\\""
 
 # Restart XFCE's panel
-bindsym $mod+F11 exec --no-startup-id "pkill panel; xfce4-panel"
+bindsym $mod+F11 exec --no-startup-id "pkill panel; xfce4-panel --disable-wm-check"
 # Toggle the compositor
 bindsym $mod+F12 exec --no-startup-id pkill compton || compton --respect-prop-shadow
 
@@ -307,5 +307,8 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id keepassxc
 # Launch Albert
 exec --no-startup-id albert
+
+# At this point the xfce4-panel might be hanging, so we'll give it a hand
+exec --no-startup-id "pkill panel; xfce4-panel --disable-wm-check"
 
 # vim:filetype=i3

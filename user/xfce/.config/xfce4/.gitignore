@@ -1,2 +1,6 @@
 xfce4-screenshooter
 xfce4-taskmanager.rc
+/panel/whiskermenu-7.rc
+/xfconf/xfce-perchannel-xml/xfce4-notifyd.xml
+/xfconf/xfce-perchannel-xml/xfce4-settings-editor.xml
+/xfconf/xfce-perchannel-xml/xfwm4.xml
