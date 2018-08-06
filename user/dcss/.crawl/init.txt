@@ -85,10 +85,28 @@
 # include                 = 0.13_monster_glyphs.txt
 # include                 = 0.14_monster_glyphs.txt
 
-# Increase the text size
+# Increase the text size to a readable level and use a smaller window by default
 tile_cell_pixels = 48
 tile_font_crt_size = 17
-tile_font_stat_size = 17
-tile_font_msg_size = 17
-tile_font_tip_size = 17
 tile_font_lbl_size = 17
+tile_font_msg_size = 17
+tile_font_stat_size = 17
+tile_font_tip_size = 17
+tile_force_overlay = true
+tile_window_height = 700
+tile_window_width = 1300
+
+# Automatically butcher corpses on autoexplore
+auto_butcher = true            
+# Escape webs with <TAB>
+autofight_caught = true        
+# Stop autofighting earlier in case of danger
+autofight_stop = 75            
+# Don't autotrain skills when starting a new game
+default_manual_training = true 
+# Automatically eat chunks before rations
+easy_eat_chunks = true         
+# Unequip items by re-equiping them
+equip_unequip = true           
+# Show the low HP warning earlier
+hp_warning = 20                
