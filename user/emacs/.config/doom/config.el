@@ -131,7 +131,17 @@
   (do-repeat! evil-find-char evil-repeat-find-char evil-repeat-find-char-reverse)
   (do-repeat! evil-find-char-backward evil-repeat-find-char evil-repeat-find-char-reverse)
   (do-repeat! evil-find-char-to evil-repeat-find-char evil-repeat-find-char-reverse)
-  (do-repeat! evil-find-char-to-backward evil-repeat-find-char evil-repeat-find-char-reverse))
+  (do-repeat! evil-find-char-to-backward evil-repeat-find-char evil-repeat-find-char-reverse)
+
+  ;; FIXME: This shouldn't be needed, but these keys are undefined otherwise.
+  ;;        These lines are directly copied from `evil-maps.el'.
+  (define-key evil-normal-state-map "zo" 'evil-open-fold)
+  (define-key evil-normal-state-map "zO" 'evil-open-fold-rec)
+  (define-key evil-normal-state-map "zc" 'evil-close-fold)
+  (define-key evil-normal-state-map "za" 'evil-toggle-fold)
+  (define-key evil-normal-state-map "zr" 'evil-open-folds)
+  (define-key evil-normal-state-map "zm" 'evil-close-folds)
+  (define-key evil-normal-state-map "z=" 'ispell-word))
 
 (after! evil-collection
   ;; FIXME: This setup breaks commiting in magit
