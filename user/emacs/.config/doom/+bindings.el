@@ -5,8 +5,8 @@
 
 (map!
  [remap dabbrev-expand]     #'hippie-expand
- [remap newline-and-indent] #'+robbert/newline-and-indent
- :ig [M-return]             #'newline-and-indent ;; The default is adviced to continue comments
+ [remap newline]            #'+robbert/newline-and-indent
+ :gi [M-return]             #'newline-and-indent ;; The default is adviced to continue comments
 
  :ni "C-S-SPC"              #'company-yasnippet
  :ne [(shift meta f)]       #'counsel-rg         ;; As a complement to the `M-f' Swiper defined in +defualt
@@ -221,7 +221,7 @@
 
      ;; In HTML we DO want to automatically indent broken 'strings', as these
      ;; are likely long attributes like a list of classes
-     :ig "RET" #'+robbert/newline-and-indent-always))
+     [remap newline] #'+robbert/newline-and-indent-always))
 
  ;; Disable evil-collection overrides
  ;; TODO: Check if these are still needed after refactored default/+bindings.el

@@ -47,16 +47,6 @@
 ;; phpcbf use the same standard
 (def-package! phpcbf)
 
-(def-package! pipenv
-  :init
-  ;; Conditionally enable pipenv if the project comes with a `Pipfile'
-  ;; FIXME: This should ideally be done after switching buffers to support
-  ;;        multiple projects
-  (add-hook 'python-mode-hook #'+robbert/python-maybe-enable-pipenv)
-
-  (add-to-list 'auto-mode-alist '("Pipfile$" . toml-mode))
-  (add-to-list 'auto-mode-alist '("Pipfile\\.lock$" . json-mode)))
-
 (def-package! yapfify
   :hook (python-mode . yapf-mode))
 
@@ -287,6 +277,16 @@
   ;; Doom explicitely adds the deprecated `parse-raw' option
   (setq org-pandoc-options '((standalone . t) (mathjax . t))))
 
+(after! pipenv
+  :init
+  ;; Conditionally enable pipenv if the project comes with a `Pipfile'
+  ;; FIXME: This should ideally be done after switching buffers to support
+  ;;        multiple projects
+  (add-hook 'python-mode-hook #'+robbert/python-maybe-enable-pipenv)
+
+  (add-to-list 'auto-mode-alist '("Pipfile$" . toml-mode))
+  (add-to-list 'auto-mode-alist '("Pipfile\\.lock$" . json-mode)))
+
 (after! prodigy
   (set-evil-initial-state! 'prodigy-mode 'normal))
 
@@ -363,6 +363,7 @@
       show-trailing-whitespace t
       which-key-idle-delay 0.4
 
+      +doom-modeline-height 30
       +org-dir (expand-file-name "~/Documenten/notes/")
       ;; The gray comments are hard to read in my terminal, although I rarely
       ;; use Emacs in a terminal
@@ -412,9 +413,6 @@
 
 ;; Make `w' and `b' handle more like in vim
 (add-hook 'after-change-major-mode-hook #'+robbert/fix-evil-words-underscore)
-
-;; Always highlight numbers as it looks pretty
-(add-hook 'prog-mode-hook 'highlight-numbers-mode)
 
 ;; Set default indentation levels and coding styles
 (setq css-indent-offset 2

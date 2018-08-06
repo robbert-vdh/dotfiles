@@ -10,7 +10,6 @@
 (package! kotlin-mode)
 (package! page-break-lines)
 (package! phpcbf)
-(package! pipenv)
 (package! pkgbuild-mode)
 (package! racer :disable t :ignore t) ;; Handled through rls instead
 (package! yapfify)
