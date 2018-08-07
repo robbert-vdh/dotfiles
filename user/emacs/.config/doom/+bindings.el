@@ -110,6 +110,10 @@
        :nv "p"   #'ein:tb-prev-item
        :nv "q"   #'bury-buffer)))
 
+ (:after emmet-mode
+   (:map emmet-mode-keymap
+     :i [backtab] #'emmet-expand-line))
+
  (:after evil
    ;; This makes the up and down motions in visual line mode handle like the
    ;; regular motions
