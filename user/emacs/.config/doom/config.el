@@ -5,6 +5,11 @@
 
 ;; TODO: Use the new `:defer input/buffer' directives
 
+;; TODO: Remove this when Doom adds it back again (it got deleted during
+;;       refactoring)
+(def-package! ivy-rich
+  :after ivy)
+
 (def-package! atomic-chrome
   :config
   (setq atomic-chrome-buffer-open-style 'frame
@@ -105,6 +110,12 @@
 
 (after! csharp-mode
   (set-electric! 'csharp-mode :chars '(?\n ?\{)))
+
+(after! emacs-snippets
+  ;; By default web-mode's snippets inherit from html-mode which in turn
+  ;; inherits from nxml-mode, which contains a lot of snippets that are not
+  ;; necesary when using emmet
+  (remhash 'web-mode yas--parents))
 
 (after! emmet-mode
   ;; Don't put an XML style slash at the end of self closing tags
