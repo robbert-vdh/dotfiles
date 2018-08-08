@@ -20,7 +20,7 @@ function __version_diff -d 'Highlight lines with changed major/minor ver'
             match($4, /^[^.]+\.[^.[:alpha:]]+/, new_version)
 
             if (old_version[0] != new_version[0]) {
-                printf "\x1b[32m" $0 "\x1b[0m"
+                print "\x1b[32m" $0 "\x1b[0m"
             } else {
                 print $0
             }
