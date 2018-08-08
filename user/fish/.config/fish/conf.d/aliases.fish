@@ -29,6 +29,3 @@ alias rsync-sync-compress "rsync-sync --compress"
 # The dotnet CLI is broken right now https://github.com/dotnet/sdk/issues/1916
 alias dotnet "env TERM=xterm dotnet"
 alias dotnet-dev "env ASPNETCORE_ENVIRONMENT=Development dotnet"
-
-# Also check for AUR updates (through yay instead of cower)
-alias checkupdates "cat (command checkupdates | psub) (yay -Pu | psub)"
