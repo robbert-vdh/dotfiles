@@ -153,7 +153,9 @@ bindsym $mod+Shift+c reload
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # Exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec --no-startup-id xfce4-session-logout
+bindsym $mod+Shift+e exec " \
+   zenity --question --default-cancel --width=50 --text='Really quit i3?' \
+   && i3-msg exit"
 
 # Lock the screen
 bindsym $mod+Control+l exec --no-startup-id light-locker-command -l
@@ -206,11 +208,6 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-# We'll use polybar instead of i3bar
-#bar {
-#  status_command i3status
-#}
 
 #
 # Window rules
@@ -268,7 +265,7 @@ bindsym Control+Shift+Print exec --no-startup-id " \
     && notify-send \\"Screenshot geüpload naar\n$(xclip -o -sel clip)\\""
 
 # Restart XFCE's panel
-bindsym $mod+F11 exec --no-startup-id "pkill panel; xfce4-panel --disable-wm-check"
+bindsym $mod+F11 exec --no-startup-id "pkill polybar; polybar main"
 # Toggle the compositor
 bindsym $mod+F12 exec --no-startup-id pkill compton || compton --respect-prop-shadow
 
@@ -290,25 +287,27 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 # Startup applications
 #
 
-# Speed up keyboard repeating
-exec_always --no-startup-id xset r rate 250 15
-# Execute profile configuration (e.g. resolution)
-exec --no-startup-id ~/.xprofile
 # Transparency and eye candy
 exec --no-startup-id compton --respect-prop-shadow
+# Notifications daemon (it tends to crash, so we'll run it as a systemd unit)
+exec --no-startup-id systemctl --user start xfce4-notifyd
+# Start polybar
+exec --no-startup-id polybar main
 # Set a wallpaper
 exec_always --no-startup-id feh --bg-fill ~/.dotfiles/user/wallpapers/Afbeeldingen/wallpapers/arc.png
+# Speed up keyboard repeating
+exec_always --no-startup-id xset r rate 250 15
 
 # Network Manager
 exec --no-startup-id nm-applet
 # Redshift
 exec --no-startup-id redshift-gtk
+# Volume control
+exec --no-startup-id volumeicon
+
 # Start KeePassXC on the last workspace
 exec --no-startup-id keepassxc
-# Launch Albert
+# Applicatoin launcher and the rest of the kitchen sink
 exec --no-startup-id albert
-
-# At this point the xfce4-panel might be hanging, so we'll give it a hand
-exec --no-startup-id "pkill panel; xfce4-panel --disable-wm-check"
 
 # vim:filetype=i3
