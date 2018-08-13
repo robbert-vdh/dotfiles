@@ -17,10 +17,10 @@
 ;==========================================================
 
 [colors]
-background = #e7e8eb
-background-alt = #dbdbdf
-foreground = #2f343f
-foreground-alt = #2f343f
+background = #2f343f
+background-alt = #3c4251
+foreground = #c6cfdd
+foreground-alt = #f3fdff
 primary = #383c4a
 secondary = #e60053
 alert = #fac8cb
@@ -34,9 +34,7 @@ fixed-center = false
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 2
-overline-color = #f00
-underline-color = #00f
+line-size = 0
 
 border-size = 0
 
@@ -47,6 +45,7 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = Noto Sans:pixelsize=12;3
+font-1 = Noto Sans:pixelsize=12:weight=bold;3
 
 modules-left = i3
 modules-center = xwindow
@@ -101,7 +100,7 @@ label-mode-foreground = ${colors.primary}
 
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-font = 2
 label-focused-padding = 2
 
 label-unfocused = %index%

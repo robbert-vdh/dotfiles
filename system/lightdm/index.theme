@@ -1,3 +1,2 @@
 [Icon Theme]
-#Inherits=Adwaita
-Inherits=breeze_cursors
+Inherits=Papirus,breeze_cursors

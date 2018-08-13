@@ -457,6 +457,7 @@
 (add-to-list 'auto-mode-alist '("\\.service$" . conf-unix-mode))
 (add-to-list 'auto-mode-alist '("\\.socket$" . conf-unix-mode))
 (add-to-list 'auto-mode-alist '("\\.target$" . conf-unix-mode))
+(add-to-list 'auto-mode-alist '("index\\.theme$" . conf-unix-mode))
 (add-to-list 'auto-mode-alist '("\\.timer$" . conf-unix-mode))
 (add-to-list 'auto-mode-alist '("\\.csproj$" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.ruleset$" . nxml-mode))
