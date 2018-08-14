@@ -70,7 +70,7 @@ image/x-portable-graymap=org.kde.gwenview.desktop;
 image/x-portable-pixmap=org.kde.gwenview.desktop;
 image/x-xbitmap=org.kde.gwenview.desktop;
 image/x-xpixmap=org.kde.gwenview.desktop;
-inode/directory=exo-file-manager.desktop
+inode/directory=dolphin.desktop
 text/css=emacsclient.desktop;nvim.desktop;
 text/plain=emacsclient.desktop;nvim.desktop;libreoffice-writer.desktop;emacs.desktop;wine-extension-txt.desktop;
 text/xml=
@@ -146,3 +146,5 @@ x-scheme-handler/https=firefox-developer-edition.desktop
 x-scheme-handler/mailto=thunderbird.desktop
 x-scheme-handler/tg=telegramdesktop.desktop
 video/mpeg=mpv.desktop;
+inode/directory=dolphin.desktop
+
