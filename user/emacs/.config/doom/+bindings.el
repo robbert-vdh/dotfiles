@@ -5,7 +5,7 @@
 
 (map!
  [remap dabbrev-expand]     #'hippie-expand
- [remap newline]            #'+robbert/newline-and-indent
+ :i [remap newline]         #'+robbert/newline-and-indent
  :gi [M-return]             #'newline-and-indent ;; The default is adviced to continue comments
 
  :ni "C-S-SPC"              #'company-yasnippet
