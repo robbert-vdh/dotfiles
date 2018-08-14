@@ -46,6 +46,7 @@ module-margin-right = 2
 
 font-0 = Noto Sans:pixelsize=12;3
 font-1 = Noto Sans:pixelsize=12:weight=bold;3
+font-2 = Open Sans:pixelsize=12;3
 
 modules-left = i3
 modules-center = xwindow
@@ -84,6 +85,7 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 label = %date% %time%
+label-font = 3
 
 [module/i3]
 type = internal/i3
