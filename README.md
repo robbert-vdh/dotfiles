@@ -33,6 +33,7 @@ installed.
 -   kvantum
 -   light-locker
 -   polybar
+-   mate-polkit
 -   playerctl for Spotify
 -   qt5ct
 -   xdotool
