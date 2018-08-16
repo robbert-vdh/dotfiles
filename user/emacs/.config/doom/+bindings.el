@@ -4,31 +4,31 @@
 ;;        vector notation
 
 (map!
- [remap dabbrev-expand]     #'hippie-expand
- :i [remap newline]         #'+robbert/newline-and-indent
- :gi [M-return]             #'newline-and-indent ;; The default is adviced to continue comments
+ [remap dabbrev-expand] #'hippie-expand
+ :i [remap newline]     #'+robbert/newline-and-indent
+ :gi [M-return]         #'newline-and-indent ;; The default is adviced to continue comments
 
- :ni "C-S-SPC"              #'company-yasnippet
- :ne [(shift meta f)]       #'counsel-rg         ;; As a complement to the `M-f' Swiper defined in +defualt
- :nvie "M-q"                #'fill-paragraph     ;; Doom Emacs overrides this to quit by default
- :nvie "M-Q"                #'+robbert/unfill-paragraph
- :v "C-u"                   #'evil-scroll-up     ;; `evil-want-C-u-scroll' doesn't do anything in visual mode
+ :ni "C-S-SPC"          #'company-yasnippet
+ :ne [(shift meta f)]   #'counsel-rg         ;; As a complement to the `M-f' Swiper defined in +defualt
+ :nvie "M-q"            #'fill-paragraph     ;; Doom Emacs overrides this to quit by default
+ :nvie "M-Q"            #'+robbert/unfill-paragraph
+ :v "C-u"               #'evil-scroll-up     ;; `evil-want-C-u-scroll' doesn't do anything in visual mode
 
  ;; These keybindigns don't make a lot of sense, but they're easy to use and not
  ;; in use for anything else
- :n "[f"                    #'+robbert/languagetool-previous-error
- :n "]f"                    #'+robbert/languagetool-next-error
+ :n "[f"                #'+robbert/languagetool-previous-error
+ :n "]f"                #'+robbert/languagetool-next-error
 
  ;; Override for the default config, this breaks magit
- :n "z"                     nil
+ :n "z"                 nil
 
  (:leader
-   (:desc "buffer"                    :prefix "b"
+   (:desc "+buffer" :prefix "b"
      :desc "Replace with clipboard"   :n "P"  #'+robbert/clipboard-to-buffer
      :desc "Revert"                   :n "R"  #'revert-buffer
      :desc "Copy to clipboard"        :n "Y"  #'+robbert/buffer-to-clipboard)
 
-   (:desc "file"                      :prefix "f"
+   (:desc "+file" :prefix "f"
      :desc "Find file in dotfiles"    :n "d"  #'+robbert/find-in-dotfiles
      :desc "Browse dotfiles"          :n "D"  #'+robbert/browse-dotfiles
      :desc "Delete current file"      :n "k"  #'doom/delete-this-file
@@ -36,36 +36,35 @@
      :desc "Copy current file"        :n "M"  #'doom/copy-this-file
      :desc "Open file externally"     :n "x"  #'counsel-find-file-extern)
 
-   (:desc "git"                       :prefix "g"
+   (:desc "+git" :prefix "g"
      :desc "Browse in revision"       :n "."  #'magit-find-file
      :desc "Git blame (follow copy)"  :n "b"  #'+robbert/magit-blame-follow-copy
      :desc "SMerge hydra"             :n "m"  #'+hydra-smerge/body)
 
-   (:desc "open"                      :prefix "o"
+   (:desc "+open" :prefix "o"
      ;; These four keybindings are swapped compared to `default/+bindings'
      :desc "Terminal"                 :n  "T" #'+term/open
      :desc "Terminal in popup"        :n  "t" #'+term/open-popup
      :desc "Eshell"                   :n  "E" #'+eshell/open
      :desc "Eshell in popup"          :n  "e" #'+eshell/open-popup
-     (:desc "+jupyter"                :prefix "j"
+     (:desc "+jupyter" :prefix "j"
        :desc "Open in browser"        :nv "b" #'ein:notebook-open-in-browser
        :desc "Open this file"         :n "f"  #'ein:notebooklist-open-notebook-by-file-name
        :desc "Login and open"         :n "o"  #'ein:jupyter-server-login-and-open
        :desc "Start server"           :n "s"  #'ein:jupyter-server-start))
 
-   (:desc "project"                   :prefix "p"
+   (:desc "+project" :prefix "p"
      :desc "Find file in proejct"     :nv "." #'counsel-projectile-find-file
      :desc "Ripgrep in project"       :nv "/" #'counsel-projectile-rg
      :desc "Open terminal in project" :n  "t" #'+term/open-popup-in-project
      :desc "List project tasks"       :n  "T" #'+ivy/tasks)
 
-   (:desc "search"                    :prefix "/"
-     :desc "Project"                  :nv "/" #'counsel-rg
-     :desc "Find in directory"        :nv "f" #'+robbert/find-file-in-dir
-     :desc "Find in project"          :nv "p" #'+robbert/find-file-in-project
-     :desc "Buffer"                   :nv "s" #'swiper)
+   (:desc "+search" :prefix "/"
+     (:desc "+find" :prefix "f"
+       :desc "In directory"           :n "d" #'+robbert/find-file-in-dir
+       :desc "In project"             :n "p" #'+robbert/find-file-in-project))
 
-   (:desc "toggle"                    :prefix "t"
+   (:desc "+toggle" :prefix "t"
      :desc "Change dictionary"        :n "S"  #'ispell-change-dictionary
      :desc "LanguageTool"             :n "t"  #'+robbert/languagetool-toggle
      :desc "LanguageTool correct"     :n "T"  #'langtool-correct-buffer))
