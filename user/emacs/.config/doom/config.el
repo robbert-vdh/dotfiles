@@ -257,13 +257,14 @@
 
 (after! org
   ;; Restore default indentation behavior
-  (remove-hook 'org-mode-hook #'org-indent-mode)
-  (setq org-adapt-indentation t
-        org-startup-indented nil)
+  ;; (remove-hook 'org-mode-hook #'org-indent-mode)
+  ;; (setq org-adapt-indentation t
+  ;;       org-startup-indented nil)
 
   (setq org-export-with-smart-quotes t
         org-imenu-depth 3
         org-highlight-latex-and-related '(latex script entities))
+
   (set-face-attribute
    'org-todo nil :foreground (doom-darken (face-foreground 'org-todo) 0.2))
 
