@@ -7,17 +7,17 @@
 
 ;;;###autoload
 (defmacro +robbert--def-browse-in! (name dir &optional prefix)
-    (let ((prefix (or prefix (cdr (doom-module-from-path (or load-file-name byte-compile-current-file))))))
-          `(defun ,(intern (format "+%s/browse-%s" prefix name)) ()
-                    (interactive)
-                           (doom-project-browse ,dir))))
+  (let ((prefix (or prefix (cdr (doom-module-from-path (or load-file-name byte-compile-current-file))))))
+    `(defun ,(intern (format "+%s/browse-%s" prefix name)) ()
+       (interactive)
+       (doom-project-browse ,dir))))
 
 ;;;###autoload
 (defmacro +robbert--def-find-in! (name dir &optional prefix)
-    (let ((prefix (or prefix (cdr (doom-module-from-path (or load-file-name byte-compile-current-file))))))
-          `(defun ,(intern (format "+%s/find-in-%s" prefix name)) ()
-                    (interactive)
-                           (doom-project-find-file ,dir))))
+  (let ((prefix (or prefix (cdr (doom-module-from-path (or load-file-name byte-compile-current-file))))))
+    `(defun ,(intern (format "+%s/find-in-%s" prefix name)) ()
+       (interactive)
+       (doom-project-find-file ,dir))))
 
 (setq +dotfiles-dir (expand-file-name "~/.dotfiles/"))
 ;;;###autoload (autoload '+robbert/find-in-dotfiles "~/.config/doom/autoload/browse.el" nil t)

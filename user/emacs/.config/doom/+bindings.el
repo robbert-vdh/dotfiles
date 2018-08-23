@@ -133,10 +133,10 @@
  (:after flymake
    (:map flymake-mode-map
      (:desc "previous..." :prefix "["
-      :desc "Error"       :nv "e" #'flymake-goto-prev-error)
+       :desc "Error"      :nv "e" #'flymake-goto-prev-error)
 
      (:desc "next..."     :prefix "]"
-      :desc "Error"       :nv "e" #'flymake-goto-next-error)))
+       :desc "Error"      :nv "e" #'flymake-goto-next-error)))
 
  ;; There is no keymap for `lsp-mode'
  (:after lsp-ui

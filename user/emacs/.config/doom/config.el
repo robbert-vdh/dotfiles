@@ -485,9 +485,9 @@
 (after! company-box
   (advice-remove #'company-box-frontend #'+company*box-frontend-even-if-single)
   (setq-default company-frontends
-        '(company-preview-if-just-one-frontend
-          company-tng-frontend
-          company-box-frontend)))
+                '(company-preview-if-just-one-frontend
+                  company-tng-frontend
+                  company-box-frontend)))
 
 ;; FIXME Doom should be doing this for us
 (flycheck-posframe-mode +1)
