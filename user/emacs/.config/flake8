@@ -1,0 +1,8 @@
+# -*- mode: conf-toml; -*-
+
+[flake8]
+# This config is used for compatibility with 'black', which works great but is
+# very stubborn about quotes and line lengths
+ignore = E501
+max-complexity = 18
+select = B,C,E,F,W,T4,B9
