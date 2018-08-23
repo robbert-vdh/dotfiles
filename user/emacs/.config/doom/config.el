@@ -446,7 +446,7 @@
 (add-to-list 'auto-mode-alist '("\\.csproj$" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.ruleset$" . nxml-mode))
 
-(add-to-list 'auto-mode-alist '("Pipfile$" . toml-mode))
+(add-to-list 'auto-mode-alist '("Pipfile$" . conf-toml-mode))
 (add-to-list 'auto-mode-alist '("Pipfile\\.lock$" . json-mode))
 
 ;; Fix jumping to Sass files when the leading underscore is ommitted
