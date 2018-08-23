@@ -50,10 +50,9 @@
 ;; The standard should be set either through a configuration file or globally
 ;; using `phpcs --config-set default_standard psr2' to ensure that flymake and
 ;; phpcbf use the same standard
-(def-package! phpcbf)
-
-(def-package! yapfify
-  :hook (python-mode . yapf-mode))
+(def-package! phpcbf
+  :config
+  (set-formatter! 'php-mode #'phpcbf))
 
 ;;; Overrides
 
@@ -297,16 +296,6 @@
   ;; Doom explicitely adds the deprecated `parse-raw' option
   (setq org-pandoc-options '((standalone . t) (mathjax . t))))
 
-(after! pipenv
-  :init
-  ;; Conditionally enable pipenv if the project comes with a `Pipfile'
-  ;; FIXME: This should ideally be done after switching buffers to support
-  ;;        multiple projects
-  (add-hook 'python-mode-hook #'+robbert/python-maybe-enable-pipenv)
-
-  (add-to-list 'auto-mode-alist '("Pipfile$" . toml-mode))
-  (add-to-list 'auto-mode-alist '("Pipfile\\.lock$" . json-mode)))
-
 (after! prodigy
   (set-evil-initial-state! 'prodigy-mode 'normal))
 
@@ -333,14 +322,10 @@
   ;; Use the built in tsserver as formatting breaks otherwise
   (setq tide-tsserver-locator-function 'ignore)
 
-  ;; Format TypeScript on save
-  (add-hook! 'typescript-mode-hook
-    (add-hook! :local 'before-save-hook 'tide-format-before-save)))
+  ;; Use tide's formatting capabilities instead of the prettier
+  (set-formatter! '(javascript-mode typescript-mode tide-mode) #'tide-format))
 
 (after! web-mode
-  ;; Fix double curly braces caused by smartparens
-  (sp-local-pair 'web-mode "{" nil :actions nil)
-
   ;; Make sure that attributes are indented when breaking lines (e.g. long lists
   ;; of classes)
   (set-electric! 'web-mode :chars '(?\<) :words '("endfor" "endif" "endblock"))
@@ -388,7 +373,7 @@
       ;; The gray comments are hard to read in my terminal, although I rarely
       ;; use Emacs in a terminal
       doom-one-brighter-comments (not (or (display-graphic-p) (daemonp)))
-      doom-line-numbers-style 'relative
+      display-line-numbers-type 'relative
       doom-font (font-spec :family "Input Mono"
                            :width 'semi-condensed
                            :size (if (equal system-name "laptop") 18 16))
@@ -460,6 +445,9 @@
 (add-to-list 'auto-mode-alist '("\\.timer$" . conf-unix-mode))
 (add-to-list 'auto-mode-alist '("\\.csproj$" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.ruleset$" . nxml-mode))
+
+(add-to-list 'auto-mode-alist '("Pipfile$" . toml-mode))
+(add-to-list 'auto-mode-alist '("Pipfile\\.lock$" . json-mode))
 
 ;; Fix jumping to Sass files when the leading underscore is ommitted
 ;; TODO: Refactor this to use the new `+lookup/file' function

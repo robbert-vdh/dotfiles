@@ -155,17 +155,6 @@ text"
   (let ((magit-blame-arguments (cons "-CCC" (magit-blame-arguments))))
     (magit-blame)))
 
-;;;###autoload
-(defun +robbert/python-enable-lsp ()
-  "Enables pyls for the current project. This is not enabled by
-default as anaconda is sufficient for most use cases."
-  (interactive
-   (save-window-excursion
-     (let ((default-directory (projectile-project-root))
-           (+file-templates-alist '()))
-       (add-dir-local-variable 'python-mode 'eval '(lsp-python-enable))
-       (basic-save-buffer)))))
-
 (defvar +robbert--pipenv-project-root nil
   "The last project we've checked pipenv for. This prevents
   unnecesarily trying to activate pipenv while it's already
