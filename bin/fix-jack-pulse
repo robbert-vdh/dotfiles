@@ -11,3 +11,5 @@ jack_source=$(pacmd list-sources \
 
 pacmd set-default-sink "$jack_sink"
 pacmd set-default-source "$jack_source"
+
+pulseaudio -k
