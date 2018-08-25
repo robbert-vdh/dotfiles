@@ -34,12 +34,11 @@
     "Don't enable lsp-css in derived modes."
     (when (eq major-mode 'css-mode) (lsp-css-enable)))
 
-  (add-hook! 'lsp-after-open-hook
-    (when (eq major-mode 'scss-mode)
-      ;; `lsp-mode' overrides our tags here, but we need those for variable name
-      ;; completions as `lsp-css' isn't that smart yet
-      (setq completion-at-point-functions '(ggtags-completion-at-point)
-            company-backends '((:separate company-lsp company-capf))))))
+  ;; `lsp-mode' overrides our tags here, but we need those for variable name
+  ;; completions as `lsp-css' isn't that smart yet
+  (set-company-backend! 'scss-mode '(:separate company-lsp company-capf))
+  (setq-hook! 'scss-mode-hook
+    completion-at-point-functions '(ggtags-completion-at-point)))
 
 (def-package! lsp-intellij
   :hook (kotlin-mode . lsp-intellij-enable))
