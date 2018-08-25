@@ -365,7 +365,6 @@
                               (t      . ivy--regex-ignore-order))
       flyspell-default-dictionary "english"
       nav-flash-delay 0.25
-      show-trailing-whitespace t
       which-key-idle-delay 0.4
 
       +evil-want-o/O-to-continue-comments nil
@@ -407,15 +406,17 @@
 (add-hook! :append 'doom-init-ui-hook
   (blink-cursor-mode -1))
 
-;; Trailing whitespace is not important when working with the minibuffer
-(setq-hook! minibuffer-setup show-trailing-whitespace nil)
-
 ;; The smerge hydra is not always needed
 (remove-hook 'find-file-hook '+vcs|enable-smerge-mode-maybe)
 
-;; Automatically delete trailing whitespace
-(add-hook! (prog-mode text-mode)
-  (add-hook! :local 'before-save-hook #'delete-trailing-whitespace))
+;; Automatically delete trailing whitespace. Because `format-all-buffer' can
+;; error out when there's no formatter configured for the current mode, we can't
+;; use specific mode hooks.
+(add-hook! :append 'after-change-major-mode-hook
+  (when (and (derived-mode-p 'prog-mode 'text-mode)
+             (not (derived-mode-p 'markdown-mode)))
+    (setq-local show-trailing-whitespace t)
+    (add-hook! :local 'before-save-hook #'delete-trailing-whitespace)))
 
 ;; Make `w' and `b' handle more like in vim
 (add-hook 'after-change-major-mode-hook #'+robbert/fix-evil-words-underscore)
