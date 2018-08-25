@@ -5,11 +5,6 @@
 
 ;; TODO: Use the new `:defer input/buffer' directives
 
-;; TODO: Remove this when Doom adds it back again (it got deleted during
-;;       refactoring)
-(def-package! ivy-rich
-  :after ivy)
-
 (def-package! atomic-chrome
   :config
   (setq atomic-chrome-buffer-open-style 'frame
@@ -55,9 +50,6 @@
   (set-formatter! 'php-mode #'phpcbf))
 
 ;;; Overrides
-
-;; `counsel-projectile-rg' doesn't get autoloaded in the default config
-(autoload 'counsel-projectile-rg "counsel-projectile" nil t)
 
 (after! company-box
   ;; Fix icons (all-the-icons is not loaded in time)
@@ -178,6 +170,12 @@
   (dolist (pair '((?$ . ("$" . "$")) (?= . ("=" . "=")) (?~ . ("~" . "~"))
                   (?/ . ("/" . "/")) (?* . ("*" . "*")) (?* . (":" . ":"))))
     (push pair evil-surround-pairs-alist)))
+
+(after! helm
+  (setq helm-default-external-file-browser "mimeopen"))
+
+(after! helm-ag
+  (setq helm-ag-base-command "rg --no-heading"))
 
 (after! fish-mode
   (set-electric! 'fish-mode :words '("else" "end")))
@@ -396,11 +394,6 @@
 ;; Fix $PATH now that Doom doesn't include `exec-path-from-shell' anymore
 (add-to-list 'exec-path "~/.local/bin")
 (add-to-list 'exec-path "~/.cargo/bin")
-
-;; Fix xdg-open and similar progrems not openening. Not sure why this is needed,
-;; and might break others things.
-(setq process-connection-type nil)
-(setq-hook! 'term-mode-hook process-connection-type t)
 
 ;; Disable blinking
 (add-hook! :append 'doom-init-ui-hook

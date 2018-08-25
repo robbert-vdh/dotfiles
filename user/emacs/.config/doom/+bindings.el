@@ -6,13 +6,13 @@
 (map!
  [remap dabbrev-expand] #'hippie-expand
  :i [remap newline]     #'+robbert/newline-and-indent
- :gi [M-return]         #'newline-and-indent ;; The default is adviced to continue comments
+ :gi [M-return]         #'newline-and-indent   ;; The default is adviced to continue comments
 
  :ni "C-S-SPC"          #'company-yasnippet
- :ne [(shift meta f)]   #'counsel-rg         ;; As a complement to the `M-f' Swiper defined in +defualt
- :nvie "M-q"            #'fill-paragraph     ;; Doom Emacs overrides this to quit by default
+ :ne [(shift meta f)]   #'+helm/project-search ;; As a complement to the `M-f' Swiper defined in +defualt
+ :nvie "M-q"            #'fill-paragraph       ;; Doom Emacs overrides this to quit by default
  :nvie "M-Q"            #'+robbert/unfill-paragraph
- :v "C-u"               #'evil-scroll-up     ;; `evil-want-C-u-scroll' doesn't do anything in visual mode
+ :v "C-u"               #'evil-scroll-up       ;; `evil-want-C-u-scroll' doesn't do anything in visual mode
 
  ;; These keybindigns don't make a lot of sense, but they're easy to use and not
  ;; in use for anything else
@@ -33,8 +33,7 @@
      :desc "Browse dotfiles"          :n "D"  #'+robbert/browse-dotfiles
      :desc "Delete current file"      :n "k"  #'doom/delete-this-file
      :desc "Move current file"        :n "m"  #'doom/move-this-file
-     :desc "Copy current file"        :n "M"  #'doom/copy-this-file
-     :desc "Open file externally"     :n "x"  #'counsel-find-file-extern)
+     :desc "Copy current file"        :n "M"  #'doom/copy-this-file)
 
    (:desc "+git" :prefix "g"
      :desc "Browse in revision"       :n "."  #'magit-find-file
@@ -54,12 +53,11 @@
        :desc "Start server"           :n "s"  #'ein:jupyter-server-start))
 
    (:desc "+project" :prefix "p"
-     :desc "Find file in proejct"     :nv "." #'counsel-projectile-find-file
-     :desc "Ripgrep in project"       :nv "/" #'counsel-projectile-rg
      :desc "Open terminal in project" :n  "t" #'+term/open-popup-in-project
      :desc "List project tasks"       :n  "T" #'+ivy/tasks)
 
    (:desc "+search" :prefix "/"
+     :desc "Elsewhere"                :n "." #'helm-do-ag
      (:desc "+find" :prefix "f"
        :desc "In directory"           :n "d" #'+robbert/find-file-in-dir
        :desc "In project"             :n "p" #'+robbert/find-file-in-project))
@@ -137,6 +135,22 @@
 
      (:desc "next..."     :prefix "]"
        :desc "Error"      :nv "e" #'flymake-goto-next-error)))
+
+ (:after helm
+   (:map helm-map
+     ;; These should not be bound, yet they are
+     "<left>"  nil
+     "<right>" nil
+     ;; Doom binds C-f and C-S-f, but C-d/C-u is just too comfortable
+     "C-d" #'helm-next-page
+     "C-u" #'helm-previous-page))
+
+ (:after helm-ag
+   (:map helm-ag-map
+     "<left>"  nil
+     "<right>" nil
+     "C-S-k"   #'helm-ag--previous-file
+     "C-S-j"   #'helm-ag--next-file))
 
  ;; There is no keymap for `lsp-mode'
  (:after lsp-ui

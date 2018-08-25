@@ -91,12 +91,13 @@ Copied from Spacemacs."
 (defun +robbert/find-file-in-dir ()
   (interactive)
   (setq current-prefix-arg '(4))
-  (call-interactively 'counsel-file-jump))
+  (call-interactively 'helm-find))
 
 ;;;###autoload
 (defun +robbert/find-file-in-project ()
   (interactive)
-  (counsel-file-jump nil (projectile-project-root)))
+  (let ((default-directory (projectile-project-root)))
+    (call-interactively 'helm-find)))
 
 ;;;###autoload
 (defun +robbert/fix-evil-words-underscore ()
@@ -204,6 +205,7 @@ text"
   "Switch to a terminal buffer. This is useful when multiple
 multi-term buffers are open at once."
   (interactive)
+  ;; TODO: Rewrite this for Helm or scrap it as I don't really use this anyway
   (ivy-read "Switch to terminal: " 'internal-complete-buffer
             :predicate #'+robbert--is-terminal-buffer-p
             :matcher #'ivy--switch-buffer-matcher
