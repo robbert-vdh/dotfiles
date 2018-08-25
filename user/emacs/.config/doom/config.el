@@ -173,18 +173,6 @@
   (add-to-list 'evil-org-key-theme 'additional)
   (evil-org--populate-additional-bindings))
 
-(after! evil-magit
-  (remove-hook 'git-commit-setup-hook #'+vc|start-in-insert-state-maybe)
-  (setq magit-diff-refine-hunk 'all)
-
-  ;; TODO: Decide which behaviour is better
-  ;; Use the traditional window splitting behaviour (I think it's cleaner)
-  ;; (setq magit-display-buffer-function 'magit-display-buffer-traditional)
-
-  ;; Don't interfere with the leader key
-  (dolist (mode (list magit-mode-map magit-revision-mode-map))
-    (define-key mode (kbd doom-leader-key) nil)))
-
 (after! evil-surround
   ;; Add evil-surround support for common markup symbols
   (dolist (pair '((?$ . ("$" . "$")) (?= . ("=" . "=")) (?~ . ("~" . "~"))
@@ -220,6 +208,18 @@
 (after! langtool
   (setq langtool-disabled-rules '("WHITESPACE_RULE")
         langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*"))
+
+(after! magit
+  (remove-hook 'git-commit-setup-hook #'+vc|start-in-insert-state-maybe)
+  (setq magit-diff-refine-hunk 'all)
+
+  ;; Magit is missing a few useful switches by default
+  (magit-define-popup-switch 'magit-pull-popup
+    ?a "Stash changes during rebase pull" "--autostash")
+
+  ;; Never interfere with the leader key
+  (dolist (mode (list magit-revision-mode-map))
+    (define-key mode (kbd doom-leader-key) nil)))
 
 (after! python
   ;; Set this to `django' to force docstring to always be on multiple lines
@@ -368,6 +368,7 @@
       show-trailing-whitespace t
       which-key-idle-delay 0.4
 
+      +evil-want-o/O-to-continue-comments nil
       +doom-modeline-height 30
       +org-dir (expand-file-name "~/Documenten/notes/")
       ;; The gray comments are hard to read in my terminal, although I rarely
