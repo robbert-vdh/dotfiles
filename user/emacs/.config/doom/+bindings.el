@@ -138,17 +138,12 @@
 
  (:after helm
    (:map helm-map
-     ;; These should not be bound, yet they are
-     "<left>"  nil
-     "<right>" nil
      ;; Doom binds C-f and C-S-f, but C-d/C-u is just too comfortable
      "C-d" #'helm-next-page
      "C-u" #'helm-previous-page))
 
  (:after helm-ag
    (:map helm-ag-map
-     "<left>"  nil
-     "<right>" nil
      "C-S-k"   #'helm-ag--previous-file
      "C-S-j"   #'helm-ag--next-file))
 
