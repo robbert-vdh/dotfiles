@@ -313,6 +313,8 @@ exec --no-startup-id redshift-gtk
 # Volume control
 exec --no-startup-id volumeicon
 
+# KDE-connect's daemon (the indicator is separate, but I never use that anyway)
+exec --no-startup-id /usr/lib/kdeconnectd
 # Start KeePassXC on the last workspace
 exec --no-startup-id keepassxc
 # Applicatoin launcher and the rest of the kitchen sink
