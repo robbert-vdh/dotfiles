@@ -247,25 +247,25 @@ for_window [class="Firefox"] layout tabbed
 # Screenshot and copy image to clipboard
 bindsym Print exec --no-startup-id " \
   FILE_NAME=~/Afbeeldingen/$(date +%F-%T).png; \
-  maim -d 0.05 -u $FILE_NAME && xclip -sel clip -t image/png -i $FILE_NAME \
+  maim -d 0.1 -u $FILE_NAME && xclip -sel clip -t image/png -i $FILE_NAME \
     && notify-send \\"Screenshot opgeslagen\n$FILE_NAME\\""
 
 # Screenshot region and copy image to clipboard
 bindsym Shift+Print exec --no-startup-id " \
   FILE_NAME=~/Afbeeldingen/$(date +%F-%T).png; \
-  maim -d 0.05 -su $FILE_NAME && xclip -sel clip -t image/png -i $FILE_NAME \
+  maim -d 0.1 -su $FILE_NAME && xclip -sel clip -t image/png -i $FILE_NAME \
     && notify-send \\"Screenshot opgeslagen\n$FILE_NAME\\""
 
 # Screenshot, upload to imgur and copy link to clipboard
 bindsym Control+Print exec --no-startup-id " \
   FILE_NAME=/tmp/screenshot.png; \
-  maim -d 0.05 -u $FILE_NAME && imgurbash2 $FILE_NAME \
+  maim -d 0.1 -u $FILE_NAME && imgurbash2 $FILE_NAME \
     && notify-send \\"Screenshot geüpload naar\n$(xclip -o -sel clip)\\""
 
 # Screenshot region, upload to imgur and copy link to clipboard
 bindsym Control+Shift+Print exec --no-startup-id " \
   FILE_NAME=/tmp/screenshot.png; \
-  maim -d 0.05 -su $FILE_NAME && imgurbash2 $FILE_NAME \
+  maim -d 0.1 -su $FILE_NAME && imgurbash2 $FILE_NAME \
     && notify-send \\"Screenshot geüpload naar\n$(xclip -o -sel clip)\\""
 
 # Restart XFCE's panel
