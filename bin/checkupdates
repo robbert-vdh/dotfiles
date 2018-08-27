@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+"""Check and highlight both repo and AUR updates."""
+
+import re
+import subprocess
+from termcolor import colored
+
+aur_updates = subprocess.check_output(["yay", "-Pu"], encoding="ascii")
+repo_updates = subprocess.check_output(["/usr/bin/checkupdates"], encoding="ascii")
+
+GET_MAJOR_MINOR_VERSION = re.compile(
+    r"""
+    ^(0\.)?          # Versions in the 0.x range don't really have a major version yet
+    [^.]+            # Major version, skippign the epoch
+    ([:.][^a-z.-]+)? # Minor version, up until the revision or package revision
+    """,
+    re.IGNORECASE | re.VERBOSE,
+)
+STRIP_ANSII_CODES = re.compile(r"\x1b\[[^\x1b]*?m")
+
+# Upgrading these packages might break things, so we'll highlight them separately
+SPECIAL_PACKAGES = {"linux", "nvidia"}
+
+
+def highlight_upgrades(diff):
+    """Highlight major/minor version upgrades and special packages."""
+
+    # The AUR updates already contain ANSI color codes, which have to be stripped first
+    diff = STRIP_ANSII_CODES.sub("", diff)
+
+    output = []
+    for line in diff.splitlines():
+        name, old_version, _, new_version = line.split(" ")
+        old_mm = GET_MAJOR_MINOR_VERSION.match(old_version)[0]
+        new_mm = GET_MAJOR_MINOR_VERSION.match(new_version)[0]
+
+        format_attrs = ["bold"] if name in SPECIAL_PACKAGES else []
+        format_color = "green" if old_mm != new_mm else None
+
+        output.append(colored(line, format_color, attrs=format_attrs))
+
+    return "\n".join(output)
+
+
+print(highlight_upgrades(repo_updates))
+if aur_updates:
+    print(f"\n{colored('Aur updates', attrs=['bold'])}:")
+    print(highlight_upgrades(aur_updates))
