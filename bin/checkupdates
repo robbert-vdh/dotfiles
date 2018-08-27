@@ -16,7 +16,7 @@ GET_MAJOR_MINOR_VERSION = re.compile(
     """,
     re.IGNORECASE | re.VERBOSE,
 )
-STRIP_ANSII_CODES = re.compile(r"\x1b\[[^\x1b]*?m")
+STRIP_ANSI_CODES = re.compile(r"\x1b\[[^\x1b]*?m")
 
 # Upgrading these packages might break things, so we'll highlight them separately
 SPECIAL_PACKAGES = {"linux", "nvidia"}
@@ -26,7 +26,7 @@ def highlight_upgrades(diff):
     """Highlight major/minor version upgrades and special packages."""
 
     # The AUR updates already contain ANSI color codes, which have to be stripped first
-    diff = STRIP_ANSII_CODES.sub("", diff)
+    diff = STRIP_ANSI_CODES.sub("", diff)
 
     output = []
     for line in diff.splitlines():
