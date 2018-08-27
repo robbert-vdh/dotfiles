@@ -316,6 +316,9 @@
           (expand-file-name "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"))
   (setq racer-rust-src-path (getenv "RUST_SRC_PATH")))
 
+(after! css-mode
+  (set-electric! 'css-mode :chars '(?})))
+
 (after! tide
   ;; Use the built in tsserver as formatting breaks otherwise
   (setq tide-tsserver-locator-function 'ignore)

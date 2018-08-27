@@ -34,6 +34,10 @@
     "Don't enable lsp-css in derived modes."
     (when (eq major-mode 'css-mode) (lsp-css-enable)))
 
+  ;; lsp-css slows down company by a lot
+  (setq-hook! 'css-mode-hook
+    company-idle-delay 0.2)
+
   ;; `lsp-mode' overrides our tags here, but we need those for variable name
   ;; completions as `lsp-css' isn't that smart yet
   (set-company-backend! 'scss-mode '(:separate company-lsp company-capf))
