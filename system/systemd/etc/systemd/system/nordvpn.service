@@ -1,0 +1,14 @@
+[Unit]
+Description=NordVPN autocnnnect
+After=NetworkManager.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=/usr/bin/nordvpn connect
+ExecStop=/usr/bin/nordvpn disconnect
+Restart=Always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target
