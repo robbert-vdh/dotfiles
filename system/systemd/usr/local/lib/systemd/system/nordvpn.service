@@ -7,7 +7,10 @@ After=nework-online.target
 Type=idle
 RemainAfterExit=true
 ExecStart=/usr/bin/nordvpn connect
+# Right now nordvpn is a bit too limiting and blocks us from running servers
+ExecStartPost=/bin/sh -c "(sleep 5; iptables -I INPUT -s localhost -j ACCEPT) &"
 ExecStop=/usr/bin/nordvpn disconnect
+ExecStopPost=/usr/bin/iptables -D INPUT -s localhost -j ACCEPT
 Restart=always
 RestartSec=1
 
