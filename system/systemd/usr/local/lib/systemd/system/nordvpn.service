@@ -1,13 +1,14 @@
 [Unit]
 Description=NordVPN autocnnnect
-After=NetworkManager.service
+Requires=network-online.target
+After=nework-online.target
 
 [Service]
-Type=oneshot
+Type=idle
 RemainAfterExit=true
 ExecStart=/usr/bin/nordvpn connect
 ExecStop=/usr/bin/nordvpn disconnect
-Restart=Always
+Restart=always
 RestartSec=1
 
 [Install]
