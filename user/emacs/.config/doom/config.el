@@ -411,8 +411,8 @@
 (add-hook! :append 'after-change-major-mode-hook
   (when (and (derived-mode-p 'prog-mode 'text-mode)
              (not (derived-mode-p 'markdown-mode)))
-    (setq-local show-trailing-whitespace t)
-    (add-hook! :local 'before-save-hook #'delete-trailing-whitespace)))
+    (setq-local show-trailing-whitespace t)))
+(add-hook 'markdown-mode #'doom|disable-delete-trailing-whitespace)
 
 ;; Make `w' and `b' handle more like in vim
 (add-hook 'after-change-major-mode-hook #'+robbert/fix-evil-words-underscore)
