@@ -120,6 +120,10 @@
   (setq ein:jupyter-default-notebook-directory nil
         ein:slice-image '(10 nil)))
 
+(after! ess
+  (set-evil-initial-state! 'ess-help-mode 'motion)
+  (set-company-backend! 'inferior-ess-mode (car ess-r-company-backends)))
+
 (after! evil
   (setq-default evil-symbol-word-search t)
 

@@ -141,6 +141,7 @@
      ;; Doom binds C-f and C-S-f, but C-d/C-u is just too comfortable
      "C-d"   #'helm-next-page
      "C-u"   #'helm-previous-page))
+ ;; TODO: Fix this
  (:after helm-commands
    (:map helm-M-x-map
      "C-u"   #'helm-previous-page
