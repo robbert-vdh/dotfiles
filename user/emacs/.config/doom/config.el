@@ -122,6 +122,8 @@
 
 (after! ess
   (set-evil-initial-state! 'ess-help-mode 'motion)
+
+  (require 'ess-r-mode)
   (set-company-backend! 'inferior-ess-mode (car ess-r-company-backends)))
 
 (after! evil
