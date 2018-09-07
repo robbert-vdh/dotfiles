@@ -1,4 +1,5 @@
 # Dotfiles
+
 These dotfiles are managed using
 [GNU Stow](https://www.gnu.org/software/stow/stow.html).
 
@@ -21,36 +22,37 @@ installed.
 
 ## Packages needed for i3 setup
 
--   Arc GTK theme
--   Liberation Mono font with powerline patch (i.e. ttf-literation-mono-powerline)
--   Papirus icon theme
--   Roboto font
--   arc-kde
--   compton
--   feh
--   i3-gaps-next-git
--   konsole
--   kvantum
--   light-locker
--   polybar
--   mate-polkit
--   playerctl for Spotify
--   qt5ct
--   xdotool
--   zenity
--   xfce4-notifyd
+- Arc GTK theme
+- Liberation Mono font with powerline patch (i.e. ttf-literation-mono-powerline)
+- Papirus icon theme
+- Roboto font
+- arc-kde
+- compton
+- feh
+- i3-gaps-next-git
+- konsole
+- kvantum
+- light
+- light-locker
+- polybar
+- mate-polkit
+- playerctl for Spotify
+- qt5ct
+- xdotool
+- zenity
+- xfce4-notifyd
 
 ### Screenshots
 
--   imgurbash2
--   maim
--   slop
+- imgurbash2
+- maim
+- slop
 
 ### Autostarted
 
--   albert
--   kdeconnect
--   keepassxc
--   network-manager-applet
--   redshift
--   volumeicon
+- albert
+- kdeconnect
+- keepassxc
+- network-manager-applet
+- redshift
+- volumeicon
