@@ -124,7 +124,9 @@
   (set-evil-initial-state! 'ess-help-mode 'motion)
 
   (require 'ess-r-mode)
-  (set-company-backend! 'inferior-ess-mode (car ess-r-company-backends)))
+  (set-company-backend! 'inferior-ess-mode (car ess-r-company-backends))
+  ;; Smartparens broke this a few months ago
+  (add-hook 'inferior-ess-mode-hook #'smartparens-mode))
 
 (after! evil
   (setq-default evil-symbol-word-search t)
