@@ -308,6 +308,8 @@ exec_always --no-startup-id feh --bg-fill ~/.dotfiles/user/wallpapers/Afbeelding
 # Speed up keyboard repeating
 exec_always --no-startup-id xset r rate 250 15
 
+# Battery status
+exec --no-startup-id cbatticon
 # Network Manager
 exec --no-startup-id nm-applet
 # Redshift

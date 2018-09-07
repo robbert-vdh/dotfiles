@@ -51,6 +51,7 @@ installed.
 ### Autostarted
 
 - albert
+- cbatticon
 - kdeconnect
 - keepassxc
 - network-manager-applet
