@@ -280,14 +280,14 @@ bindsym $mod+F5 exec --no-startup-id ssh -p 13337 candy@robbertvanderhelm.nl pac
 bindsym $mod+F6 exec --no-startup-id ssh -p 13337 candy@robbertvanderhelm.nl pactl set-sink-volume 0 +3%
 
 # Spotify doesn't bind its own media keys
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioStop exec playerctl stop
-bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioStop exec --no-startup-id playerctl stop
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioNext exec --no-startup-id playerctl next
 
 # Brightness controls
-bindsym XF86MonBrightnessUp exec light -A 5
-bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
 #
 # Startup applications
