@@ -211,11 +211,9 @@
      :nv [M-return] #'tide-fix
      (:localleader
        :desc "JSDoc template" :nv "c"   #'tide-jsdoc-template
-       :desc "Rename"         :nv "r"   #'tide-rename-symbol
-       :desc "Refactor this"  :nv "R"   #'tide-refactor
        :desc "Restart"        :n  "s"   #'tide-restart-server
        :desc "Fix issue"      :nv "RET" #'tide-fix
-       :desc "Refactor..."    :nv "SPC" #'+javascript/refactor-menu)))
+       :desc "Refactor..."    :nv "SPC" #'tide-refactor)))
 
  ;; These keybindings tend to cause unwanted behaviour when combined with
  ;; company-tng
