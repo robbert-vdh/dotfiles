@@ -46,6 +46,7 @@
      :desc "Terminal in popup"        :n  "t" #'+term/open-popup
      :desc "Eshell"                   :n  "E" #'+eshell/open
      :desc "Eshell in popup"          :n  "e" #'+eshell/open-popup
+     :desc "R (ESS)"                  :n  "R" #'R
      (:desc "+jupyter" :prefix "j"
        :desc "Open in browser"        :nv "b" #'ein:notebook-open-in-browser
        :desc "Open this file"         :n "f"  #'ein:notebooklist-open-notebook-by-file-name
