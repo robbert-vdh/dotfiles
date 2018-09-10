@@ -126,6 +126,9 @@
   (require 'ess-r-mode)
   (set-company-backend! 'ess-mode (car ess-r-company-backends))
   (set-company-backend! 'inferior-ess-mode (car ess-r-company-backends))
+
+  ;; ESS buffers should not be cleaned up automatically
+  (add-hook 'inferior-ess-mode-hook #'doom|mark-buffer-as-real)
   ;; Smartparens broke this a few months ago
   (add-hook 'inferior-ess-mode-hook #'smartparens-mode))
 

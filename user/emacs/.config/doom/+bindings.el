@@ -233,6 +233,12 @@
 
  ;; Disable evil-collection overrides
  ;; TODO: Check if these are still needed after refactored default/+bindings.el
+ (:after comint
+   (:map comint-mode-map
+     :n "[" nil
+     :n "]" nil
+     :n "{" #'comint-previous-input
+     :n "}" #'comint-next-input))
  (:after compile
    (:map compilation-mode-map
      :n  "SPC"  nil
