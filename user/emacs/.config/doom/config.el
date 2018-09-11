@@ -342,6 +342,9 @@
   ;; Make sure that attributes are indented when breaking lines (e.g. long lists
   ;; of classes)
   (set-electric! 'web-mode :chars '(?\<) :words '("endfor" "endif" "endblock"))
+  ;; We don't have a formatter, so disable this until Doom's smart enough to do
+  ;; it for us
+  (add-to-list '+format-on-save-enabled-modes 'web-mode t)
 
   ;; Editorconfig tells web-mode to indent attributes instead of aligning
   (add-hook! :append 'web-mode-hook
