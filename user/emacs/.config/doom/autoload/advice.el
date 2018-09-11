@@ -1,7 +1,7 @@
 ;;; ~/.config/doom/autoload/advice.el -*- lexical-binding: t; -*-
 
 ;;;###autoload
-(defun +robbert--company-box-fix-tng (&rest args)
+(defun +robbert*company-box-fix-tng (&rest args)
   "Hides the `company-box' line if nothing is selected.
  `company-tng' uses `company-selection-changed' to emulate an
 'unselected' state. Also makes sure the scroll bar is not too wide."
@@ -15,7 +15,7 @@
   )
 
 ;;;###autoload
-(defun +robbert--indent-paste-advise (original-function &rest args)
+(defun +robbert*indent-paste-advise (original-function &rest args)
   "Automatically indent pasted code. See
 `+robbert/indentation-sensitive-modes'."
   (if (or (member major-mode +robbert/indentation-sensitive-modes))
