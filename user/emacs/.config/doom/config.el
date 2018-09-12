@@ -123,6 +123,8 @@
 (after! ess
   (set-evil-initial-state! 'ess-help-mode 'motion)
 
+  ;; The company backends are either not set or overwritten as `ess-mode'
+  ;; inherrits from `prog-mode'
   (require 'ess-r-mode)
   (set-company-backend! 'ess-mode (car ess-r-company-backends))
   (set-company-backend! 'inferior-ess-mode (car ess-r-company-backends))
