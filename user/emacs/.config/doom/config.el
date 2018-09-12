@@ -184,7 +184,11 @@
     (push pair evil-surround-pairs-alist)))
 
 (after! helm
-  (setq helm-default-external-file-browser "mimeopen"))
+  (setq helm-default-external-file-browser "mimeopen")
+
+  ;; Some of the default Helm windows are a bit too small for my liking
+  (set-popup-rule! "^\\*helm" :vslot -100 :size 12)
+  (set-popup-rule! "^\\*swiper\\*" :vslot -100 :size 12))
 
 (after! helm-ag
   (setq helm-ag-base-command "rg --no-heading"))
