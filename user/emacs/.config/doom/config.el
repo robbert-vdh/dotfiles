@@ -206,6 +206,12 @@
   (add-hook 'text-mode-hook 'flyspell-mode)
   (setq-default +spellcheck-immediately nil))
 
+(after! format-all
+  ;; Not having a formatter set will stop all other `before-save-hook' hooks, so
+  ;; disable this until Doom's smart enough to do it for us
+  (add-to-list '+format-on-save-enabled-modes 'org-mode t)
+  (add-to-list '+format-on-save-enabled-modes 'web-mode t))
+
 (after! helpful
   ;; Increase the size of help popups to match Ivy's height
   (set-popup-rule! "^\\*Help" :size 0.3 :select t))
@@ -348,9 +354,6 @@
   ;; Make sure that attributes are indented when breaking lines (e.g. long lists
   ;; of classes)
   (set-electric! 'web-mode :chars '(?\<) :words '("endfor" "endif" "endblock"))
-  ;; We don't have a formatter, so disable this until Doom's smart enough to do
-  ;; it for us
-  (add-to-list '+format-on-save-enabled-modes 'web-mode t)
 
   ;; Editorconfig tells web-mode to indent attributes instead of aligning
   (add-hook! :append 'web-mode-hook
