@@ -46,7 +46,6 @@ ask() {
   done
 }
 
-# Update Spacemacs layers
 git submodule init > /dev/null
 git submodule update > /dev/null
 
