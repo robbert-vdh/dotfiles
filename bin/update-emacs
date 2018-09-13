@@ -16,7 +16,6 @@ if [[ $old_revision != $new_revision ]]; then
   bin/doom -y install
   bin/doom -y autoremove
   bin/doom compile :core
-  bin/doom autoloads
 fi
 
 bin/doom -y update
