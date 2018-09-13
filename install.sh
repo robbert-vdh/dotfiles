@@ -46,6 +46,8 @@ ask() {
   done
 }
 
+cd "$(dirname "$0")"
+
 git submodule init > /dev/null
 git submodule update > /dev/null
 
