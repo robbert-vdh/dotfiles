@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
-# Every folder in ./user/ will be stowed to $HOME and every folder in ./system/
-# will be stowed to /. If there's an executable file named 'install' present in
-# a directory, the script will be executed instead.
+# Every directory in ./user/ will be stowed to $HOME and every directory in
+# ./system/ will be stowed to /. If there's an executable file named 'install'
+# present in a directory, the script will be executed instead.
 
 # Source https://gist.github.com/davejamesmiller/1965569
 ask() {
