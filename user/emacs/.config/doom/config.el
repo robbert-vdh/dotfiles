@@ -209,6 +209,7 @@
 (after! format-all
   ;; Not having a formatter set will stop all other `before-save-hook' hooks, so
   ;; disable this until Doom's smart enough to do it for us
+  (add-to-list '+format-on-save-enabled-modes 'ein:notebook-multilang-mode t)
   (add-to-list '+format-on-save-enabled-modes 'ess-mode t)
   (add-to-list '+format-on-save-enabled-modes 'org-mode t)
   (add-to-list '+format-on-save-enabled-modes 'web-mode t))

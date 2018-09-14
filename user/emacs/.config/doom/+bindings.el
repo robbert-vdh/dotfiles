@@ -6,7 +6,7 @@
 (map!
  [remap dabbrev-expand] #'hippie-expand
  :i [remap newline]     #'+robbert/newline-and-indent
- :gi [M-return]         #'newline-and-indent   ;; The default is adviced to continue comments
+ :i [M-return]         #'newline-and-indent   ;; The default is adviced to continue comments
 
  :ni "C-S-SPC"          #'company-yasnippet
  :ne [(shift meta f)]   #'+helm/project-search ;; As a complement to the `M-f' Swiper defined in +defualt
