@@ -23,7 +23,7 @@ foreground = #c6cfdd
 foreground-alt = #f3fdff
 primary = #383c4a
 secondary = #e60053
-alert = #fac8cb
+alert = #aafc4138
 
 [bar/main]
 width = 100%
@@ -34,7 +34,7 @@ fixed-center = false
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 0
+line-size = 2
 
 border-size = 0
 
@@ -100,6 +100,8 @@ label-unfocused-padding = 2
 
 label-urgent = %index%
 label-urgent-background = ${colors.alert}
+label-urgent-foreground = #ffffff
+label-urgent-font = 2
 label-urgent-padding = 2
 
 label-visible = %index%
