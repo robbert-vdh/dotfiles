@@ -342,7 +342,7 @@
   (setq tide-tsserver-locator-function 'ignore)
 
   ;; Use tide's formatting capabilities instead of the prettier
-  (set-formatter! 'tide #'tide-format :modes '(javascript-mode typescript-mode tide-mode)))
+  (set-formatter! 'tide #'tide-format :modes '(javascript-mode typescript-mode)))
 
 (after! web-mode
   ;; Make sure that attributes are indented when breaking lines (e.g. long lists
