@@ -19,7 +19,9 @@
 (def-package! company-lsp
   :after (company lsp-mode)
   :config
-  (set-company-backend! 'lsp-mode #'company-lsp))
+  (set-company-backend! 'lsp-mode #'company-lsp)
+  ;; lsp slows down company by a lot
+  (setq-hook! 'lsp-mode-hook company-idle-delay 0.2))
 
 ;;; Language support
 
@@ -33,10 +35,6 @@
   (defun +robbert//lsp-css-enable ()
     "Don't enable lsp-css in derived modes."
     (when (eq major-mode 'css-mode) (lsp-css-enable)))
-
-  ;; lsp-css slows down company by a lot
-  (setq-hook! 'css-mode-hook
-    company-idle-delay 0.2)
 
   ;; `lsp-mode' overrides our tags here, but we need those for variable name
   ;; completions as `lsp-css' isn't that smart yet
