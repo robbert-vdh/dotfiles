@@ -1,6 +1,7 @@
 # -*- mode: gitignore; -*-
 
 .gdb_history
+.ipynb_checkpoints
 .tern-port
 dump.php
 pimple.json
