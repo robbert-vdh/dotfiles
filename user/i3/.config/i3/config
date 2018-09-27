@@ -272,6 +272,8 @@ bindsym Control+Shift+Print exec --no-startup-id " \
 # editing a screenshot
 bindsym $mod+Print exec --no-startup-id flameshot gui
 
+# Volumeicon doesn't detect new audio interfaces
+bindsym $mod+F10 exec --no-startup-id "pkill volumeicon; volumeicon"
 # Restart XFCE's panel
 bindsym $mod+F11 exec --no-startup-id "pkill polybar; polybar main"
 # Toggle the compositor
