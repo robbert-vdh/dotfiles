@@ -14,7 +14,8 @@
   :config
   (set-formatter! 'lsp-mode #'lsp-format-buffer)
   (setq lsp-ui-doc-position 'bottom
-        lsp-ui-sideline-show-flycheck nil))
+        lsp-ui-sideline-show-flycheck nil
+        lsp-ui-sideline-show-symbol nil))
 
 (def-package! company-lsp
   :after (company lsp-mode)
