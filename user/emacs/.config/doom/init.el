@@ -1,5 +1,8 @@
 ;;; ~/.config/doom/init.el -*- lexical-binding: t; -*-
 
+;; This won't get set otherwise
+(def-package-hook! evil :post-init (setq evil-want-Y-yank-to-eol nil) t)
+
 (doom! :feature
        debugger          ; FIXME stepping through code, to help you add bugs
        eval              ; run code, run (also, repls)
