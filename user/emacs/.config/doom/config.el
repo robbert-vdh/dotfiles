@@ -338,11 +338,11 @@
   (set-electric! 'css-mode :chars '(?})))
 
 (after! tide
-  ;; Use the built in tsserver as formatting breaks otherwise
-  (setq tide-tsserver-locator-function 'ignore)
-
-  ;; Use tide's formatting capabilities instead of the prettier
-  (set-formatter! 'tide #'tide-format :modes '(javascript-mode typescript-mode)))
+  ;; Format TypeScript on save using tide isntead of prettier
+  (add-to-list '+format-on-save-enabled-modes 'typescript-mode t)
+  (add-to-list '+format-on-save-enabled-modes 'javascript-mode t)
+  (add-hook! 'tide-mode-hook
+    (add-hook! :local 'before-save-hook 'tide-format-before-save)))
 
 (after! web-mode
   ;; Make sure that attributes are indented when breaking lines (e.g. long lists
