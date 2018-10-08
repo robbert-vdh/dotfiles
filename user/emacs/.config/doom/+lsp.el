@@ -12,7 +12,11 @@
   :after lsp-mode
   :hook (lsp-mode . lsp-ui-mode)
   :config
-  (set-formatter! 'lsp-mode #'lsp-format-buffer)
+
+  ;; Use the LSP's own formatter instead formal-all
+  (set-formatter! 'lsp-mode #'ignore)
+  (add-hook 'lsp-mode-hook #'+robbert/lsp-format-before-save)
+
   (setq lsp-ui-doc-position 'bottom
         lsp-ui-sideline-show-flycheck nil
         lsp-ui-sideline-show-symbol nil))
