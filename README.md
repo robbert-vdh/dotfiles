@@ -27,12 +27,12 @@ installed.
 - Papirus icon theme
 - Roboto font
 - arc-kde
+- brillo
 - compton
 - feh
 - i3-gaps-next-git
 - konsole
 - kvantum
-- light
 - light-locker
 - polybar
 - mate-polkit
