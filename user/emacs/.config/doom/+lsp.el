@@ -19,7 +19,7 @@
 
   (setq lsp-ui-doc-position 'bottom
         lsp-ui-sideline-show-flycheck nil
-        lsp-ui-sideline-show-symbol nil))
+        lsp-ui-sideline-show-hover nil))
 
 (def-package! company-lsp
   :after (company lsp-mode)

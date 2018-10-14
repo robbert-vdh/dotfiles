@@ -112,6 +112,12 @@
    (:map emmet-mode-keymap
      :i [backtab] #'emmet-expand-line))
 
+ (:after ess
+   (:map ess-mode-map
+     ;; Don't do the roxygen continuation, as this collides with Doom's own
+     ;; comment continuation.
+     "RET" nil))
+
  (:after evil
    ;; This makes the up and down motions in visual line mode handle like the
    ;; regular motions
