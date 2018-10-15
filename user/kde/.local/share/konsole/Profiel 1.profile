@@ -2,7 +2,7 @@
 AntiAliasFonts=true
 BoldIntense=true
 ColorScheme=base16-tomorrow-night
-Font=Liberation Mono for Powerline,12,-1,5,50,0,0,0,0,0,Regular
+Font=Monospace,12,-1,5,50,0,0,0,0,0,Regular
 LineSpacing=0
 UseFontLineChararacters=false
 
