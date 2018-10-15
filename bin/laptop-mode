@@ -2,7 +2,7 @@
 
 import click
 import os
-import re
+import regex
 import subprocess
 
 LIBERATION_MONO = "Liberation Mono,{},-1,5,75,0,0,0,0,0,Bold"
@@ -53,42 +53,42 @@ SETTINGS = {
     "regex": {
         "GTK2": [
             {
-                "regex": re.compile(r'(?<=gtk-font-name=".+?)\d+(?=")'),
+                "regex": regex.compile(r'(?<=gtk-font-name=".+?)\d+(?=")'),
                 "enable": 11,
                 "disable": 10,
             }
         ],
         "GTK3": [
             {
-                "regex": re.compile(r"(?<=gtk-font-name=.+?)\d+"),
+                "regex": regex.compile(r"(?<=gtk-font-name=.+?)\d+"),
                 "enable": 11,
                 "disable": 10,
             }
         ],
         "i3": [
             {
-                "regex": re.compile(r"(?<=font pango:.+?)\d+"),
+                "regex": regex.compile(r"(?<=font pango:.+?)\d+"),
                 "enable": 14,
                 "disable": 13,
             }
         ],
         "phpstorm": [
             {
-                "regex": re.compile(r'(?<=name="FONT_SIZE" value=")\d+(?=")'),
+                "regex": regex.compile(r'(?<=name="FONT_SIZE" value=")\d+(?=")'),
                 "enable": 18,
                 "disable": 16,
             }
         ],
         "Spacemacs": [
             {
-                "regex": re.compile(
+                "regex": regex.compile(
                     r"(?<=:size ,\(if \(equal system-name " r'"laptop"\) )\d+'
                 ),
                 "enable": 18,
                 "disable": 16,
             },
             {
-                "regex": re.compile(
+                "regex": regex.compile(
                     r"(?<=:scale ,\(if \(equal system-name " r'"laptop"\) )\d+'
                 ),
                 "enable": 1.5,
@@ -96,7 +96,7 @@ SETTINGS = {
             },
         ],
     },
-}  # yapf: disable
+}
 
 LOCATIONS = {
     "GTK2": os.path.expanduser("~/.gtkrc-2.0"),
