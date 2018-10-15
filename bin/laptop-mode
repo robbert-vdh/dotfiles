@@ -2,112 +2,120 @@
 
 import click
 import os
-import regex
+import re
 import subprocess
 
-LIBERATION_MONO = 'Liberation Mono,{},-1,5,75,0,0,0,0,0,Bold'
-MONOSPACE = 'Monospace,{},-1,5,50,0,0,0,0,0,Regular'
-NOTO_SANS = 'Noto Sans [GOOG],{},-1,5,50,0,0,0,0,0,Regular'
+LIBERATION_MONO = "Liberation Mono,{},-1,5,75,0,0,0,0,0,Bold"
+MONOSPACE = "Monospace,{},-1,5,50,0,0,0,0,0,Regular"
+NOTO_SANS = "Noto Sans [GOOG],{},-1,5,50,0,0,0,0,0,Regular"
 
 SETTINGS = {
-    'kde': {
-        'kdeglobals': {
-            'General': {
-                'fixed': {
-                    'enable': LIBERATION_MONO.format(12),
-                    'disable': LIBERATION_MONO.format(11)
+    "kde": {
+        "kdeglobals": {
+            "General": {
+                "fixed": {
+                    "enable": LIBERATION_MONO.format(12),
+                    "disable": LIBERATION_MONO.format(11),
                 },
-                'font': {
-                    'enable': NOTO_SANS.format(11),
-                    'disable': NOTO_SANS.format(10)
+                "font": {
+                    "enable": NOTO_SANS.format(11),
+                    "disable": NOTO_SANS.format(10),
                 },
-                'menuFont': {
-                    'enable': NOTO_SANS.format(11),
-                    'disable': NOTO_SANS.format(10)
+                "menuFont": {
+                    "enable": NOTO_SANS.format(11),
+                    "disable": NOTO_SANS.format(10),
                 },
-                'smallestReadableFont': {
-                    'enable': NOTO_SANS.format(9),
-                    'disable': NOTO_SANS.format(8)
+                "smallestReadableFont": {
+                    "enable": NOTO_SANS.format(9),
+                    "disable": NOTO_SANS.format(8),
                 },
-                'toolBarFont': {
-                    'enable': NOTO_SANS.format(10),
-                    'disable': NOTO_SANS.format(9)
+                "toolBarFont": {
+                    "enable": NOTO_SANS.format(10),
+                    "disable": NOTO_SANS.format(9),
+                },
+            },
+            "WM": {
+                "activeFont": {
+                    "enable": NOTO_SANS.format(11),
+                    "disable": NOTO_SANS.format(10),
                 }
             },
-            'WM': {
-                'activeFont': {
-                    'enable': NOTO_SANS.format(11),
-                    'disable': NOTO_SANS.format(10)
+        },
+        "konsole": {
+            "Appearance": {
+                "Font": {
+                    "enable": MONOSPACE.format(12),
+                    "disable": MONOSPACE.format(11),
                 }
             }
         },
-        'konsole': {
-            'Appearance': {
-                'Font': {
-                    'enable': MONOSPACE.format(12),
-                    'disable': MONOSPACE.format(11)
-                }
-            }
-        }
     },
-    'regex': {
-        'GTK2': [{
-            'regex': regex.compile(r'(?<=gtk-font-name=".+?)\d+(?=")'),
-            'enable': 11,
-            'disable': 10
-        }],
-        'GTK3': [{
-            'regex': regex.compile(r'(?<=gtk-font-name=.+?)\d+'),
-            'enable': 11,
-            'disable': 10
-        }],
-        'i3': [{
-            'regex': regex.compile(r'(?<=font pango:.+?)\d+'),
-            'enable': 14,
-            'disable': 13
-        }],
-        'phpstorm': [{
-            'regex': regex.compile(r'(?<=name="FONT_SIZE" value=")\d+(?=")'),
-            'enable': 18,
-            'disable': 16
-        }],
-        'Spacemacs': [
+    "regex": {
+        "GTK2": [
             {
-                'regex': regex.compile(r'(?<=:size ,\(if \(equal system-name '
-                                       r'"laptop"\) )\d+'),
-                'enable': 18,
-                'disable': 16
+                "regex": re.compile(r'(?<=gtk-font-name=".+?)\d+(?=")'),
+                "enable": 11,
+                "disable": 10,
+            }
+        ],
+        "GTK3": [
+            {
+                "regex": re.compile(r"(?<=gtk-font-name=.+?)\d+"),
+                "enable": 11,
+                "disable": 10,
+            }
+        ],
+        "i3": [
+            {
+                "regex": re.compile(r"(?<=font pango:.+?)\d+"),
+                "enable": 14,
+                "disable": 13,
+            }
+        ],
+        "phpstorm": [
+            {
+                "regex": re.compile(r'(?<=name="FONT_SIZE" value=")\d+(?=")'),
+                "enable": 18,
+                "disable": 16,
+            }
+        ],
+        "Spacemacs": [
+            {
+                "regex": re.compile(
+                    r"(?<=:size ,\(if \(equal system-name " r'"laptop"\) )\d+'
+                ),
+                "enable": 18,
+                "disable": 16,
             },
             {
-                'regex': regex.compile(r'(?<=:scale ,\(if \(equal system-name '
-                                       r'"laptop"\) )\d+'),
-                'enable': 1.5,
-                'disable': 1.25
-            }
-        ]
-    }
+                "regex": re.compile(
+                    r"(?<=:scale ,\(if \(equal system-name " r'"laptop"\) )\d+'
+                ),
+                "enable": 1.5,
+                "disable": 1.25,
+            },
+        ],
+    },
 }  # yapf: disable
 
 LOCATIONS = {
-    'GTK2': os.path.expanduser('~/.gtkrc-2.0'),
-    'GTK3': os.path.expanduser('~/.config/gtk-3.0/settings.ini'),
-    'i3': os.path.expanduser('~/.config/i3/config'),
-    'kdeglobals': os.path.expanduser('~/.config/kdeglobals'),
-    'konsole': os.path.expanduser('~/.local/share/konsole/Profiel 1.profile'),
-    'phpstorm':
-    os.path.expanduser('~/.PhpStorm2017.2/config/options/editor.xml'),
-    'Spacemacs': os.path.expanduser('~/.spacemacs')
+    "GTK2": os.path.expanduser("~/.gtkrc-2.0"),
+    "GTK3": os.path.expanduser("~/.config/gtk-3.0/settings.ini"),
+    "i3": os.path.expanduser("~/.config/i3/config"),
+    "kdeglobals": os.path.expanduser("~/.config/kdeglobals"),
+    "konsole": os.path.expanduser("~/.local/share/konsole/Profiel 1.profile"),
+    "phpstorm": os.path.expanduser("~/.PhpStorm2017.2/config/options/editor.xml"),
+    "Spacemacs": os.path.expanduser("~/.spacemacs"),
 }
 
 
 @click.command()
-@click.argument(
-    'enabled', type=click.Choice(['enable', 'disable']), required=True)
+@click.argument("enabled", type=click.Choice(["enable", "disable"]), required=True)
 def main(enabled):
     """
     Increase or decrease font sizes in KDE Plasma 5 and spacemacs.
     """
-    for filename, config in SETTINGS['kde'].items():
+    for filename, config in SETTINGS["kde"].items():
         filename = LOCATIONS[filename]
         if os.path.isfile(filename):
             for group, settings in config.items():
@@ -115,50 +123,58 @@ def main(enabled):
                     value = values[enabled]
                     subprocess.run(
                         [
-                            'kwriteconfig5', '--file', filename, '--group',
-                            group, '--key', setting, value
+                            "kwriteconfig5",
+                            "--file",
+                            filename,
+                            "--group",
+                            group,
+                            "--key",
+                            setting,
+                            value,
                         ],
-                        check=True)
+                        check=True,
+                    )
         else:
-            click.echo(filename + ' not installed, skipping!')
+            click.echo(filename + " not installed, skipping!")
 
-    for filename, regexes in SETTINGS['regex'].items():
+    for filename, regexes in SETTINGS["regex"].items():
         filename = LOCATIONS[filename]
         if os.path.isfile(filename):
             for setting in regexes:
-                regex = setting['regex']
+                regex = setting["regex"]
                 value = str(setting[enabled])
-                with open(filename, 'r+') as file:
+                with open(filename, "r+") as file:
                     result = regex.sub(value, file.read())
                     file.seek(0)
                     file.write(result)
                     file.truncate()
         else:
-            click.echo(filename + ' not installed, skipping!')
+            click.echo(filename + " not installed, skipping!")
 
-    for application in [['kbuildsycoca5'], ['kquitapp5', 'plasmashell']]:
+    for application in [["kbuildsycoca5"], ["kquitapp5", "plasmashell"]]:
         subprocess.run(
-            application, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            application, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+        )
 
     # Restart Plasma and the currently running WM
-    restart = [['kstart5', 'plasmashell']]
-    if is_running('kwin_x11'):
-        restart.append(['kwin_x11', '--replace'])
-    if is_running('i3'):
-        restart.append(['i3-msg', 'reload'])
+    restart = [["kstart5", "plasmashell"]]
+    if is_running("kwin_x11"):
+        restart.append(["kwin_x11", "--replace"])
+    if is_running("i3"):
+        restart.append(["i3-msg", "reload"])
 
     for application in restart:
         subprocess.Popen(
-            application, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            application, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+        )
 
-    click.echo('You might have to restart some applications to apply the '
-               'changes')
+    click.echo("You might have to restart some applications to apply the " "changes")
 
 
 def is_running(application):
-    pgrep = subprocess.run(['pgrep', application], stdout=subprocess.DEVNULL)
+    pgrep = subprocess.run(["pgrep", application], stdout=subprocess.DEVNULL)
     return pgrep.returncode == 0
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
