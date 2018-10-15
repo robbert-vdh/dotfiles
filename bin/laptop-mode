@@ -65,47 +65,14 @@ SETTINGS = {
                 "disable": 10,
             }
         ],
-        "i3": [
-            {
-                "regex": regex.compile(r"(?<=font pango:.+?)\d+"),
-                "enable": 14,
-                "disable": 13,
-            }
-        ],
-        "phpstorm": [
-            {
-                "regex": regex.compile(r'(?<=name="FONT_SIZE" value=")\d+(?=")'),
-                "enable": 18,
-                "disable": 16,
-            }
-        ],
-        "Spacemacs": [
-            {
-                "regex": regex.compile(
-                    r"(?<=:size ,\(if \(equal system-name " r'"laptop"\) )\d+'
-                ),
-                "enable": 18,
-                "disable": 16,
-            },
-            {
-                "regex": regex.compile(
-                    r"(?<=:scale ,\(if \(equal system-name " r'"laptop"\) )\d+'
-                ),
-                "enable": 1.5,
-                "disable": 1.25,
-            },
-        ],
     },
 }
 
 LOCATIONS = {
     "GTK2": os.path.expanduser("~/.gtkrc-2.0"),
     "GTK3": os.path.expanduser("~/.config/gtk-3.0/settings.ini"),
-    "i3": os.path.expanduser("~/.config/i3/config"),
     "kdeglobals": os.path.expanduser("~/.config/kdeglobals"),
     "konsole": os.path.expanduser("~/.local/share/konsole/Profiel 1.profile"),
-    "phpstorm": os.path.expanduser("~/.PhpStorm2017.2/config/options/editor.xml"),
-    "Spacemacs": os.path.expanduser("~/.spacemacs"),
 }
 
 
