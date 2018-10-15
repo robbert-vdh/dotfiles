@@ -66,7 +66,8 @@
    (:desc "+toggle" :prefix "t"
      :desc "Change dictionary"        :n "S"  #'ispell-change-dictionary
      :desc "LanguageTool"             :n "t"  #'+robbert/languagetool-toggle
-     :desc "LanguageTool correct"     :n "T"  #'langtool-correct-buffer))
+     :desc "LanguageTool correct"     :n "T"  #'langtool-correct-buffer
+     :desc "Line wrapping"            :n "w"  #'+robbert/enable-wrapping))
 
  (:after company
    (:map company-active-map
