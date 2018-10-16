@@ -1,7 +1,7 @@
-set -gx EDITOR nvim
+set -gx EDITOR vim
 set -gx VISUAL $EDITOR
 set -gx PAGER less
-set -gx BROWSER firefox-developer-edition
+set -gx BROWSER firefox
 
 set -gx RUST_SRC_PATH "$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 

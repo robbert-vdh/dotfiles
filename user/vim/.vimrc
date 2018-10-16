@@ -12,19 +12,10 @@ Plug 'chriskempson/base16-vim'
 
 " Interface
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimfiler.vim'
-Plug 'simnalamburt/vim-mundo'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
-Plug 'w0rp/ale'
-Plug 'zchee/deoplete-jedi'
 
 " Workflow enhancements
 Plug 'ervandew/supertab'
@@ -32,13 +23,14 @@ Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
 
 " Syntax
+Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'cespare/vim-toml'
+Plug 'dag/vim-fish'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'lepture/vim-jinja'
 Plug 'othree/html5.vim'
 Plug 'plasticboy/vim-markdown'
-Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'stephpy/vim-yaml'
 
 call plug#end()
@@ -95,28 +87,12 @@ au FileType scss   setl ts=2 sw=2 sts=2
 au FileType make   setl ts=4 sw=4 sts=4 noet
 au FileType gitcommit setl spell
 
-" ALE-related configurations
-let g:ale_linters = {
-\    'haskell': ['stack-ghc', 'ghc'],
-\}
-
 " Markdown-related configurations
 augroup mkd
   autocmd BufRead *.markdown set formatoptions=tcroqn2 comments=n:> spell
   autocmd BufRead *.mkdn     set formatoptions=tcroqn2 comments=n:> spell
   autocmd BufRead *.mkd      set formatoptions=tcroqn2 comments=n:> spell
 augroup END
-
-" Haskell-related config
-let g:haskell_quasi         = 0
-let g:haskell_interpolation = 0
-let g:haskell_regex         = 0
-let g:haskell_jmacro        = 0
-let g:haskell_shqq          = 0
-let g:haskell_sql           = 0
-let g:haskell_json          = 0
-let g:haskell_xml           = 0
-let g:haskell_hsp           = 0
 
 " English and Dutch spelling checker
 setlocal spelllang=en_gb,nl
@@ -133,40 +109,13 @@ highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 autocmd WinEnter * match OverLength /\%81v.\+/
 
-" gVim-specific configurations (including MacVim).
-if has("gui_running")
-  set bg=dark
-  set guioptions=egmrLt
-  set linespace=1
-endif
-
 " Vim-airline
 let g:airline_powerline_fonts = 1
-
-" Mundo -- Undo tree visualization
-set undofile
-set undodir=~/.config/nvim/undo
-nnoremap <F5> :MundoToggle
-
-" Use Vimfiler as default explorer like netrw
-let g:vimfiler_as_default_explorer = 1
-
-" deoplete
-let g:deoplete#enable_at_startup = 1
-
-" VimShell
-let g:vimshell_prompt_expr = '$USER . " " . fnamemodify(getcwd(), ":~") . " $ "'
-let g:vimshell_prompt_pattern = '^[a-z_-][a-z0-9_-]\{,31\} [~/][^$ ]* $ '
 
 " Colorscheme
 " Not needed since we've already enabled `termguicolors`
 "let base16colorspace=256
 colorscheme base16-tomorrow-night
-set background=dark
-" Disable the theme's background and simply use the terminal background
-highlight Normal guibg=none ctermbg=none
-highlight DiffAdded guibg=none ctermbg=none
-highlight DiffRemoved guibg=none ctermbg=none
 
 " Don't automatically fold sections in markdown files
 let g:vim_markdown_folding_disabled = 1
