@@ -6,5 +6,5 @@ if [[ $2 == 'up' ]]; then
   nordvpn connect
   # Nordvpn's CLI messes up iptables. Without this you won't be able to host any
   # servers.
-  iptables -I INPUT -s 127.0.0.1 -j ACCEPT
+  iptables -I INPUT -d 127.0.0.1 -j ACCEPT
 fi
