@@ -149,3 +149,4 @@ x-scheme-handler/http=firefox-developer-edition.desktop
 x-scheme-handler/https=firefox-developer-edition.desktop
 x-scheme-handler/mailto=thunderbird.desktop
 x-scheme-handler/tg=telegramdesktop.desktop
+text/csv=libreoffice-calc.desktop;
