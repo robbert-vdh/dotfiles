@@ -400,6 +400,10 @@
                                           :size (if (equal system-name "laptop") 18 16))
       doom-big-font (font-spec :family "Input Mono" :size 29))
 
+;; Increase the default frame size
+(add-to-list 'default-frame-alist '(height . 35))
+(add-to-list 'default-frame-alist '(width . 90))
+
 ;; Remove less useful functions from hippie expand
 (setq hippie-expand-try-functions-list
       '(try-complete-file-name-partially
