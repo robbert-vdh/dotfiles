@@ -2,7 +2,6 @@
 ;;; ~/.config/doom/packages.el
 
 (package! atomic-chrome)
-(package! company-racer :disable t :ignore t) ;; racer's capf backend is better
 (package! ein)
 (package! evil-lion)
 (package! ggtags)
