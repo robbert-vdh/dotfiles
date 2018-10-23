@@ -6,5 +6,12 @@ if [[ $2 == 'up' ]]; then
   nordvpn connect
   # Nordvpn's CLI messes up iptables. Without this you won't be able to host any
   # servers.
-  iptables -I INPUT -j ACCEPT
+  iptables -I INPUT -d 127.0.0.1 -j ACCEPT
+
+  # KDE connect:
+  iptables -I INPUT -p udp --dport 1714:1764 -m state --state NEW,ESTABLISHED -j ACCEPT
+  iptables -I INPUT -p tcp --dport 1714:1764 -m state --state NEW,ESTABLISHED -j ACCEPT
+
+  iptables -I OUTPUT -p udp --sport 1714:1764 -m state --state NEW,ESTABLISHED -j ACCEPT
+  iptables -I OUTPUT -p tcp --sport 1714:1764 -m state --state NEW,ESTABLISHED -j ACCEPT
 fi
