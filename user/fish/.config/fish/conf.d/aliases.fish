@@ -1,5 +1,3 @@
-alias firefox "firefox-developer-edition"
-
 # Enable colours wherever applicable
 alias grep "grep --color=auto"
 
