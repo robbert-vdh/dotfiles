@@ -1,5 +1,4 @@
 $pdf_mode = 1;
 $pdf_previewer = "mimeopen";
 
-$latex = 'latex  %O --shell-escape %S';
-$pdflatex = 'pdflatex  %O --shell-escape -interaction=nonstopmode %S';
+push @extra_pdflatex_options, '-synctex=1 --shell-escape --interaction=nonstopmode';
