@@ -21,7 +21,7 @@ STRIP_ANSI_CODES = re.compile(r"\x1b\[[^\x1b]*?m")
 # Upgrading these packages might break things, so we'll highlight them
 # separately. Manjaro calls the NVIDIA driver `linux4XX-nvidia`, so we have to
 # use a regexp here.
-SPECIAL_PACKAGES_REGEXP = re.compile(r"^(linux|nvidia)$|^linux\d{3}")
+SPECIAL_PACKAGES_REGEXP = re.compile(r"^(linux(\d{3}(-nvidia)?)?|nvidia)$")
 
 
 def highlight_upgrades(diff):
