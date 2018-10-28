@@ -8,35 +8,38 @@ from termcolor import colored
 aur_updates = subprocess.check_output(["yay", "--aur", "-Pu"], encoding="ascii")
 repo_updates = subprocess.check_output(["/usr/bin/checkupdates"], encoding="ascii")
 
-GET_MAJOR_MINOR_VERSION = re.compile(
-    r"""
-    ^(0\.)?          # Versions in the 0.x range don't really have a major version yet
-    [^.]+            # Major version, skippign the epoch
-    ([:.][^a-z.-]+)? # Minor version, up until the revision or package revision
-    """,
-    re.IGNORECASE | re.VERBOSE,
-)
-STRIP_ANSI_CODES = re.compile(r"\x1b\[[^\x1b]*?m")
+STRIP_ANSI_CODES_RE = re.compile(r"\x1b\[[^\x1b]*?m")
+
+# Instead of parsing version strings it's way simpler to just simply ignore the
+# last group
+VERSION_GROUP_RE = re.compile(r"\d+")
+STRIP_PACKAGE_REVISION_RE = re.compile(r"^(.+)-.+?$")
 
 # Upgrading these packages might break things, so we'll highlight them
 # separately. Manjaro calls the NVIDIA driver `linux4XX-nvidia`, so we have to
 # use a regexp here.
-SPECIAL_PACKAGES_REGEXP = re.compile(r"^(linux(\d{3}(-nvidia)?)?|nvidia)$")
+SPECIAL_PACKAGES_RE = re.compile(r"^(linux(\d{3}(-nvidia)?)?|nvidia)$")
+
+
+def get_major_minor_version(full_version_string):
+    version = STRIP_PACKAGE_REVISION_RE.match(full_version_string)[1]
+
+    return VERSION_GROUP_RE.findall(version)[:-1]
 
 
 def highlight_upgrades(diff):
     """Highlight major/minor version upgrades and special packages."""
 
     # The AUR updates already contain ANSI color codes, which have to be stripped first
-    diff = STRIP_ANSI_CODES.sub("", diff)
+    diff = STRIP_ANSI_CODES_RE.sub("", diff)
 
     output = []
     for line in diff.splitlines():
         name, old_version, _, new_version = line.split(" ")
-        old_mm = GET_MAJOR_MINOR_VERSION.match(old_version)[0]
-        new_mm = GET_MAJOR_MINOR_VERSION.match(new_version)[0]
+        old_mm = get_major_minor_version(old_version)
+        new_mm = get_major_minor_version(new_version)
 
-        format_attrs = ["bold"] if SPECIAL_PACKAGES_REGEXP.match(name) else []
+        format_attrs = ["bold"] if SPECIAL_PACKAGES_RE.match(name) else []
         format_color = "green" if old_mm != new_mm else None
 
         output.append(colored(line, format_color, attrs=format_attrs))
