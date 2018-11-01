@@ -18,6 +18,9 @@ MiddleClickPasteMode=1
 TrimTrailingSpacesInSelectedText=true
 UnderlineFilesEnabled=true
 
+[Keyboard]
+KeyBindings=linux
+
 [Scrolling]
 HistoryMode=1
 HistorySize=2000
