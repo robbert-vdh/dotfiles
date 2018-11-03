@@ -5,6 +5,7 @@
 (package! evil-lion)
 (package! ggtags)
 (package! kotlin-mode)
+(package! ob-ipython)
 (package! page-break-lines)
 (package! phpcbf)
 (package! pkgbuild-mode)
