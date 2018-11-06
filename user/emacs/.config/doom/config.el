@@ -191,8 +191,9 @@
   (setq helm-default-external-file-browser "mimeopen")
 
   ;; Some of the default Helm windows are a bit too small for my liking
-  (set-popup-rule! "^\\*helm" :vslot -100 :size 12)
-  (set-popup-rule! "^\\*swiper\\*" :vslot -100 :size 12))
+  (add-hook! 'helm-after-initialize-hook
+    (set-popup-rule! "^\\*helm" :vslot -100 :size 10 :ttl nil)
+    (set-popup-rule! "^\\*swiper\\*" :vslot -100 :size 10 :ttl nil)))
 
 (after! helm-ag
   (setq helm-ag-base-command "rg --no-heading"))
