@@ -359,6 +359,9 @@
 (after! yasnippet
   (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand))
 
+;; Hack emacs-anywhere to make it a bit more useful
+(add-hook 'ea-popup-hook #'+robbert/init-emacs-anywhere)
+
 ;;; Settings
 
 (setq company-minimum-prefix-length 2

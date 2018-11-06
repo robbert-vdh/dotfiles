@@ -133,6 +133,14 @@ all existing tags."
     (shell-command "gtags --gtagslabel pygments")))
 
 ;;;###autoload
+(defun +robbert/init-emacs-anywhere (app-name window-title x y w h)
+  (+robbert/clipboard-to-buffer)
+  (pcase app-name
+    ("Firefox"
+     (cond ((string-prefix-p "JupyterLab" window-title) (python-mode))
+           (t (markdown-mode))))))
+
+;;;###autoload
 (defun +robbert/lsp-format-before-save ()
   (add-hook 'before-save-hook #'lsp-format-buffer nil t))
 
