@@ -1,7 +1,6 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; ~/.config/doom/packages.el
 
-(package! atomic-chrome)
 (package! ein)
 (package! evil-lion)
 (package! ggtags)
