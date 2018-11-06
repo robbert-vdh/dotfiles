@@ -10,7 +10,9 @@
   (setq atomic-chrome-buffer-open-style 'frame
         atomic-chrome-buffer-frame-height 20
         atomic-chrome-buffer-frame-width 90
-        atomic-chrome-default-major-mode 'markdown-mode)
+        atomic-chrome-default-major-mode 'markdown-mode
+        atomic-chrome-url-major-mode-alist
+        '(("localhost:8888" . python-mode)))
   (ignore-errors (atomic-chrome-start-server)))
 
 (def-package! evil-lion
