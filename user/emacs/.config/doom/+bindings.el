@@ -217,6 +217,11 @@
  (:after tide
    (:map tide-mode-map
      :nv [M-return] #'tide-fix
+     (:leader
+       (:desc "+code" :prefix "c"
+         ;; It's easier to overwrite this keybinding than to hack format-all to
+         ;; like LSP
+         :desc "Format buffer/region" :nv "f"  #'tide-format))
      (:localleader
        :desc "JSDoc template" :nv "c"   #'tide-jsdoc-template
        :desc "Restart"        :n  "s"   #'tide-restart-server
