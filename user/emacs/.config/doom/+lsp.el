@@ -5,7 +5,7 @@
 (def-package! lsp-mode
   :config
   ;; Don't highlight symbols automatically, use `gh' to do this manually
-  (setq lsp-highlight-symbol-at-point nil)
+  (remove-hook 'lsp-eldoc-hook #'lsp-document-highlight)
   (set-lookup-handlers! 'lsp-mode :documentation #'lsp-info-under-point))
 
 (def-package! lsp-ui
