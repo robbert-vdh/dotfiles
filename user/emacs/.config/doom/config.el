@@ -197,6 +197,9 @@
   (add-hook 'text-mode-hook 'flyspell-mode)
   (setq-default +spellcheck-immediately nil))
 
+(after! haskell-mode
+  (remove-hook 'haskell-mode-hook #'subword-mode))
+
 (after! helpful
   ;; Increase the size of help popups to match Ivy's height
   (set-popup-rule! "^\\*Help" :size 0.3 :select t))
