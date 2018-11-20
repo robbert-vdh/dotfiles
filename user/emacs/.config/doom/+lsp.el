@@ -14,7 +14,6 @@
   :config
 
   ;; Use the LSP's own formatter instead formal-all
-  (set-formatter! 'lsp-mode #'ignore)
   (add-hook 'lsp-mode-hook #'+robbert/lsp-format-before-save)
 
   (setq lsp-ui-doc-position 'bottom
