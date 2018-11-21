@@ -495,7 +495,7 @@
   (setq company-frontends
         '(company-preview-if-just-one-frontend
           company-tng-frontend
-          company-pseudo-tooltip-frontend
+          company-pseudo-tooltip-unless-just-one-frontend
           company-echo-metadata-frontend)))
 ;; ;; Doom advices the company-box frontend to always show even when there's only
 ;; ;; one candidate, but this is not needed as I've also enabled the preview
