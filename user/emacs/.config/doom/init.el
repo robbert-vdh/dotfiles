@@ -18,7 +18,7 @@
 
        :completion
        (company          ; the ultimate code completion backend
-        +childframe
+        ;+childframe
         +auto)           ; as-you-type code completion
        (helm             ; the *other* search engine for love and life
         +fuzzy)          ; enable fuzzy search backend for helm

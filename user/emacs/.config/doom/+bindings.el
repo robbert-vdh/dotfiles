@@ -77,9 +77,9 @@
      "RET"    nil
      [escape] nil))
 
- (:after company-box
-   (:map company-box-mode-map
-     [remap +robbert/company-select-next-or-complete] #'company-box--next-line))
+ ;; (:after company-box
+ ;;   (:map company-box-mode-map
+ ;;     [remap +robbert/company-select-next-or-complete] #'company-box--next-line))
 
  (:after diff-mode
    (:map diff-mode-map
