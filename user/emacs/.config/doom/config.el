@@ -325,7 +325,7 @@
   ;; RLS, for some reason, always wants to use the stable compiler's source code
   ;; even when specifically running the nightly RLS
   (setenv "RUST_SRC_PATH"
-          (expand-file-name "~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"))
+          (expand-file-name "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"))
   (setq racer-rust-src-path (getenv "RUST_SRC_PATH")))
 
 (after! css-mode
