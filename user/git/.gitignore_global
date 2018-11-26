@@ -15,6 +15,7 @@ pimple.json
 !user/vscode/.vscode
 
 # AUCTeX
+*.synctex.gz
 .auctex-auto
 _region_.prv
 _region_.tex
