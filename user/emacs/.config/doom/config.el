@@ -197,6 +197,9 @@
   (add-hook 'text-mode-hook 'flyspell-mode)
   (setq-default +spellcheck-immediately nil))
 
+(after! format-all
+  (add-to-list '+format-on-save-enabled-modes 'yaml-mode t))
+
 (after! haskell-mode
   (remove-hook 'haskell-mode-hook #'subword-mode))
 
