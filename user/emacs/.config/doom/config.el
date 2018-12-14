@@ -492,14 +492,16 @@
 (add-hook 'doc-view-mode-hook #'auto-revert-mode)
 
 ;; Enable vim-style auto completion
+(require 'company)
 (require 'company-tng)
 (company-tng-configure-default)
-(after! company
-  (setq company-frontends
-        '(company-preview-if-just-one-frontend
-          company-tng-frontend
-          company-pseudo-tooltip-unless-just-one-frontend
-          company-echo-metadata-frontend)))
+(setq company-idle-delay 0.1
+    company-frontends
+    '(company-preview-if-just-one-frontend
+        company-tng-frontend
+        company-pseudo-tooltip-unless-just-one-frontend
+        company-echo-metadata-frontend))
+
 ;; ;; Doom advices the company-box frontend to always show even when there's only
 ;; ;; one candidate, but this is not needed as I've also enabled the preview
 ;; (after! company-box

@@ -17,14 +17,11 @@
        workspaces        ; tab emulation, persistence & separate workspaces
 
        :completion
-       (company          ; the ultimate code completion backend
-        ;+childframe
-        +auto)           ; as-you-type code completion
+       company           ; the ultimate code completion backend
        (helm             ; the *other* search engine for love and life
         +fuzzy)          ; enable fuzzy search backend for helm
-       ;;ido               ; the other *other* search engine...
-       ;;(ivy              ; a search engine for love and life
-       ;; +fuzzy)          ; enable fuzzy search backend for ivy
+       ;;ido              ; the other *other* search engine...
+       ;;ivy              ; a search engine for love and life
 
        :ui
        ;;deft              ; notational velocity for Emacs
@@ -51,12 +48,15 @@
 
        :editor
        (format +onsave)  ; automated prettiness
+       ;;lispy             ; vim for lisp, for people who dont like vim
        multiple-cursors  ; editing in many places at once
        ;;parinfer          ; turn lisp into python, sort of
        rotate-text       ; cycle region at point between text candidates
 
        :emacs
-       dired             ; making dired pretty [functional]
+       (dired            ; making dired pretty [functional]
+        +ranger         ; bringing the goodness of ranger to dired
+        +icons)          ; colorful icons for dired-mode
        ediff             ; comparing files in Emacs
        electric          ; smarter, keyword-based electric-indent
        eshell            ; a consistent, cross-platform shell (WIP)
@@ -78,6 +78,7 @@
        pdf               ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
        rgb               ; creating color strings
+       ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
        ;;upload            ; map local to remote projects via ssh/ftp
        ;;wakatime
@@ -131,6 +132,7 @@
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        web               ; the tubes
+       ;;vala              ; GObjective-C
 
        ;; Applications are complex and opinionated modules that transform Emacs
        ;; toward a specific purpose. They may have additional dependencies and
@@ -157,4 +159,4 @@
        ;; provides a Spacemacs-inspired keybinding scheme, a custom yasnippet
        ;; library, and additional ex commands for evil-mode. Use it as a
        ;; reference for your own modules.
-       (default +bindings +snippets +evil-commands))
+       (default +bindings +evil-commands))
