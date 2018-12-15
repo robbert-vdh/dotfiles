@@ -13,8 +13,5 @@
 
 ;; +lsp
 (package! company-lsp)
-(package! lsp-css :recipe (:fetcher github :repo "emacs-lsp/lsp-css"))
-(package! lsp-intellij)
 (package! lsp-mode)
-(package! lsp-rust)
 (package! lsp-ui)

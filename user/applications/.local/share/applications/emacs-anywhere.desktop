@@ -1,9 +1,0 @@
-#!/usr/bin/env xdg-open
-
-[Desktop Entry]
-Comment=Edit the selected text using Emacs
-Exec=~/.emacs_anywhere/bin/run
-Icon=emacs
-Name=Emacs Anywhere
-Categories=Development;Utility;
-Type=Application

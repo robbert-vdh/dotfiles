@@ -3,58 +3,44 @@
 ;;; Core modes
 
 (def-package! lsp-mode
+  ;; lsp-mode supports a lot of modes out of the box, but for some languages,
+  ;; like Python and Haskell, I prefer to use the non-LSP tooling
+  :hook ((css-mode . lsp)
+         (html-mode . lsp)
+         (mhtml-mode . lsp)
+         (php-mode . lsp)
+         (rust-mode . lsp)
+         (sgml-mode . lsp)
+         (shell-mode . lsp)
+         (web-mode . lsp))
+  :init (require 'lsp-clients)
   :config
+  ;; Integrate lsp-mode into Doom's awesome UI
+  (set-lookup-handlers! 'lsp--managed-mode :documentation #'lsp-info-under-point)
+  ;; Use the LSP's own formatter instead formal-all
+  (add-hook 'lsp--managed-mode #'+robbert/lsp-format-before-save)
+
   ;; Don't highlight symbols automatically, use `gh' to do this manually
   (remove-hook 'lsp-eldoc-hook #'lsp-document-highlight)
-  (set-lookup-handlers! 'lsp-mode :documentation #'lsp-info-under-point))
 
-(def-package! lsp-ui
-  :after lsp-mode
-  :hook (lsp-mode . lsp-ui-mode)
-  :config
+  ;; Mode-specific configuration
 
-  ;; Use the LSP's own formatter instead formal-all
-  (add-hook 'lsp-mode-hook #'+robbert/lsp-format-before-save)
-
-  (setq lsp-ui-doc-position 'bottom
-        lsp-ui-sideline-show-flycheck nil
-        lsp-ui-sideline-show-hover nil))
-
-(def-package! company-lsp
-  :after (company lsp-mode)
-  :config
-  (set-company-backend! 'lsp-mode #'company-lsp)
-  ;; lsp slows down company by a lot
-  (setq-hook! 'lsp-mode-hook company-idle-delay 0.2))
-
-;;; Language support
-
-(def-package! lsp-css
-  :after lsp-mode
-  :hook ((css-mode . +robbert//lsp-css-enable)
-         (less-mode . lsp-less-enable)
-         (sass-mode . lsp-sass-enable)
-         (scss-mode . lsp-scss-enable))
-  :config
-  (defun +robbert//lsp-css-enable ()
-    "Don't enable lsp-css in derived modes."
-    (when (eq major-mode 'css-mode) (lsp-css-enable)))
+  ;; Enable clippy support
+  (add-hook! :append 'rust-mode-hook
+    (let ((preferences (make-hash-table)))
+      (puthash "clippy_preference" "on" preferences)
+      (lsp--set-configuration `(:rust ,preferences))))
 
   ;; `lsp-mode' overrides our tags here, but we need those for variable name
   ;; completions as `lsp-css' isn't that smart yet
-  (set-company-backend! 'scss-mode '(:separate company-lsp company-capf))
-  (add-hook! 'lsp-after-open-hook
-    (when (eq major-mode 'scss-mode)
-      ;; `lsp-mode' overrides our tags here, but we need those for variable name
-      ;; completions as `lsp-css' isn't that smart yet
-      (setq completion-at-point-functions '(ggtags-completion-at-point)))))
+  (add-hook! :append 'scss-mode-hook
+    (setq company-backends '(:separate company-lsp company-capf)
+          completion-at-point-functions '(ggtags-completion-at-point))))
 
-(def-package! lsp-intellij
-  :hook (kotlin-mode . lsp-intellij-enable))
-
-(def-package! lsp-rust
-  :after lsp-mode
-  :hook (rust-mode . lsp-rust-enable)
+;; Auto loaded by lsp-mode
+(def-package! lsp-ui
+  :defer t
   :config
-  ;; Enable clippy support
-  (lsp-rust-set-config "clippy_preference" "on"))
+  (setq lsp-ui-doc-use-childframe nil ;; This tends to obscure whatever you're editing
+        lsp-ui-sideline-show-diagnostics nil
+        lsp-ui-sideline-show-hover nil))
