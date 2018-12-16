@@ -23,16 +23,6 @@
   ;; Don't highlight symbols automatically, use `gh' to do this manually
   (remove-hook 'lsp-eldoc-hook #'lsp-document-highlight)
 
-  ;; FIXME: Hotfix until this gets added to lsp.el again
-  (add-to-list 'lsp-language-id-configuration '(less-mode . "less"))
-  (add-to-list 'lsp-language-id-configuration '(sass-mode . "sass"))
-  (add-to-list 'lsp-language-id-configuration '(scss-mode . "scss"))
-  (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection '("css-languageserver" "--stdio"))
-                    :major-modes '(less-mode sass-mode scss-mode)
-                    :action-handlers (lsp-ht ("_css.applyCodeAction" 'lsp-clients-css--apply-code-action))
-                    :server-id 'scss-ls))
-
   ;; Mode-specific configuration
 
   ;; Enable clippy support
