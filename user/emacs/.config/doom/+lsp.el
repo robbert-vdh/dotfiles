@@ -16,9 +16,9 @@
   :init (require 'lsp-clients)
   :config
   ;; Integrate lsp-mode into Doom's awesome UI
-  (set-lookup-handlers! 'lsp--managed-mode :documentation #'lsp-info-under-point)
+  (set-lookup-handlers! 'lsp--managed-mode :documentation #'lsp-describe-thing-at-point)
   ;; Use the LSP's own formatter instead formal-all
-  (add-hook 'lsp--managed-mode #'+robbert/lsp-format-before-save)
+  (add-hook 'lsp--managed-mode-hook #'+robbert/lsp-format-before-save)
 
   ;; Don't highlight symbols automatically, use `gh' to do this manually
   (remove-hook 'lsp-eldoc-hook #'lsp-document-highlight)

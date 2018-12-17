@@ -160,13 +160,11 @@
      "C-S-k"   #'helm-ag--previous-file
      "C-S-j"   #'helm-ag--next-file))
 
- ;; There is no keymap for `lsp-mode'
- (:after lsp-ui
-   (:map lsp-ui-mode-map
-     :nvi [M-return]  #'lsp-execute-code-action
-     :nv  "gh"        #'lsp-document-highlight
-     (:localleader
-       :desc "Rename" :nv "r" #'lsp-rename)))
+ ((:after intero
+    (:map intero-mode-map
+      ;; We can't just set the documentation function here since `intero-info'
+      ;; does its own buffer management
+      [remap +lookup/documentation] #'intero-info)))
 
  (:after ivy
    (:map ivy-minibuffer-map
@@ -184,6 +182,17 @@
      :n "M-o"      #'ivy-occur-dispatch
      :n "gr"       #'ivy-occur-revert-buffer
      :n "q"        #'quit-window))
+
+ ;; There is no keymap for `lsp-mode'
+ (:after lsp-ui
+   (:map lsp-ui-mode-map
+     :nvi [M-return]  #'lsp-execute-code-action
+     :nv  "gh"        #'lsp-document-highlight
+     (:leader
+       (:desc "+code" :prefix "c"
+         :desc "Format buffer/region" :nv "f" #'lsp-format-buffer))
+     (:localleader
+       :desc "Rename" :nv "r" #'lsp-rename)))
 
  (:after omnisharp
    (:map omnisharp-mode-map
