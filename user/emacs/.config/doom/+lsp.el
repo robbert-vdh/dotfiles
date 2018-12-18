@@ -42,6 +42,7 @@
   :defer t
   :config
   (setq lsp-prefer-flymake nil ;; Use regular old flycheck
-        lsp-ui-doc-use-childframe nil ;; This tends to obscure whatever you're editing
+        ;; Use Eldoc and the K-key instead since this tends to obscure a lot of information
+        lsp-ui-doc-enable nil
         lsp-ui-sideline-show-diagnostics nil
         lsp-ui-sideline-show-hover nil))
