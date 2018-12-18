@@ -201,6 +201,7 @@
   (add-to-list '+format-on-save-enabled-modes 'yaml-mode t))
 
 (after! haskell-mode
+  (set-formatter! 'hindent '("hindent") :modes '(haskell-mode  literate-haskell-mode))
   (remove-hook 'haskell-mode-hook #'subword-mode))
 
 (after! helpful
