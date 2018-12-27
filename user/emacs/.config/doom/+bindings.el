@@ -6,13 +6,12 @@
 (map!
  [remap dabbrev-expand] #'hippie-expand
  :i [remap newline]     #'+robbert/newline-and-indent
- :i [M-return]         #'newline-and-indent   ;; The default is adviced to continue comments
+ :i [M-return]          #'newline-and-indent         ;; The default is adviced to continue comments
 
  :ni "C-S-SPC"          #'company-yasnippet
- :ne [(shift meta f)]   #'+helm/project-search ;; As a complement to the `M-f' Swiper defined in +defualt
- :nvie "M-q"            #'fill-paragraph       ;; Doom Emacs overrides this to quit by default
- :nvie "M-Q"            #'+robbert/unfill-paragraph
- :v "C-u"               #'evil-scroll-up       ;; `evil-want-C-u-scroll' doesn't do anything in visual mode
+ :ne "M-f"              #'swiper-helm               ;; No longer a default, should it be?
+ :ne [(shift meta f)]   #'+helm/project-search      ;; As a complement to the `M-f' Swiper defined in +defualt
+ :nvie "M-Q"            #'+robbert/unfill-paragraph ;; As a complement to `M-q'
 
  ;; These keybindigns don't make a lot of sense, but they're easy to use and not
  ;; in use for anything else
@@ -23,58 +22,56 @@
  :n "z"                 nil
 
  (:leader
-   (:desc "+buffer" :prefix "b"
-     :desc "Replace with clipboard"   :n "P"  #'+robbert/clipboard-to-buffer
-     :desc "Revert"                   :n "R"  #'revert-buffer
-     :desc "Copy to clipboard"        :n "Y"  #'+robbert/buffer-to-clipboard)
+   (:prefix "b"
+     :desc "Replace with clipboard"   "P"  #'+robbert/clipboard-to-buffer
+     :desc "Revert"                   "R"  #'revert-buffer
+     :desc "Copy to clipboard"        "Y"  #'+robbert/buffer-to-clipboard)
 
-   (:desc "+file" :prefix "f"
-     :desc "Find file in dotfiles"    :n "d"  #'+robbert/find-in-dotfiles
-     :desc "Browse dotfiles"          :n "D"  #'+robbert/browse-dotfiles
-     :desc "Delete current file"      :n "k"  #'doom/delete-this-file
-     :desc "Move current file"        :n "m"  #'doom/move-this-file
-     :desc "Copy current file"        :n "M"  #'doom/copy-this-file)
+   (:prefix "f"
+     :desc "Find file in dotfiles"    "d"  #'+robbert/find-in-dotfiles
+     :desc "Browse dotfiles"          "D"  #'+robbert/browse-dotfiles
+     :desc "Delete current file"      "k"  #'doom/delete-this-file
+     :desc "Move current file"        "m"  #'doom/move-this-file
+     :desc "Copy current file"        "M"  #'doom/copy-this-file)
 
-   (:desc "+git" :prefix "g"
-     :desc "Browse in revision"       :n "."  #'magit-find-file
-     :desc "Git blame (follow copy)"  :n "b"  #'+robbert/magit-blame-follow-copy
-     :desc "SMerge hydra"             :n "m"  #'+hydra-smerge/body)
+   (:prefix "g"
+     :desc "Browse in revision"       "."  #'magit-find-file
+     :desc "Git blame (follow copy)"  "b"  #'+robbert/magit-blame-follow-copy
+     :desc "SMerge hydra"             "m"  #'+hydra-smerge/body)
 
-   (:desc "+open" :prefix "o"
+   (:prefix "o"
      ;; These four keybindings are swapped compared to `default/+bindings'
-     :desc "Terminal"                 :n  "T" #'+term/open
-     :desc "Terminal in popup"        :n  "t" #'+term/open-popup
-     :desc "Eshell"                   :n  "E" #'+eshell/open
-     :desc "Eshell in popup"          :n  "e" #'+eshell/open-popup
-     :desc "R (ESS)"                  :n  "R" #'R
+     :desc "Terminal"                 "T" #'+term/open
+     :desc "Terminal in popup"        "t" #'+term/open-popup
+     :desc "Eshell"                   "E" #'+eshell/open
+     :desc "Eshell in popup"          "e" #'+eshell/open-popup
+     :desc "R (ESS)"                  "R" #'R
      (:desc "+jupyter" :prefix "j"
-       :desc "Open in browser"        :nv "b" #'ein:notebook-open-in-browser
-       :desc "Open this file"         :n "f"  #'ein:notebooklist-open-notebook-by-file-name
-       :desc "Login and open"         :n "o"  #'ein:jupyter-server-login-and-open
-       :desc "Start server"           :n "s"  #'ein:jupyter-server-start))
+       :desc "Open in browser"        "b" #'ein:notebook-open-in-browser
+       :desc "Open this file"         "f"  #'ein:notebooklist-open-notebook-by-file-name
+       :desc "Login and open"         "o"  #'ein:jupyter-server-login-and-open
+       :desc "Start server"           "s"  #'ein:jupyter-server-start))
 
-   (:desc "+project" :prefix "p"
-     :desc "Open terminal in project" :n  "t" #'+term/open-popup-in-project
-     :desc "List project tasks"       :n  "T" #'+ivy/tasks)
+   (:prefix "p"
+     :desc "Open terminal in project" "t" #'+term/open-popup-in-project
+     :desc "List project tasks"       "T" #'+ivy/tasks)
 
-   (:desc "+search" :prefix "/"
-     :desc "Elsewhere"                :n "." #'helm-do-ag
+   (:prefix "/"
+     :desc "Elsewhere"                "." #'helm-do-ag
      (:desc "+find" :prefix "f"
-       :desc "In directory"           :n "d" #'+robbert/find-file-in-dir
-       :desc "In project"             :n "p" #'+robbert/find-file-in-project))
+       :desc "In directory"           "d" #'+robbert/find-file-in-dir
+       :desc "In project"             "p" #'+robbert/find-file-in-project))
 
-   (:desc "+toggle" :prefix "t"
-     :desc "Change dictionary"        :n "S"  #'ispell-change-dictionary
-     :desc "LanguageTool"             :n "t"  #'+robbert/languagetool-toggle
-     :desc "LanguageTool correct"     :n "T"  #'langtool-correct-buffer
-     :desc "Line wrapping"            :n "w"  #'+robbert/enable-wrapping))
+   (:prefix "t"
+     :desc "Change dictionary"        "S"  #'ispell-change-dictionary
+     :desc "LanguageTool"             "t"  #'+robbert/languagetool-toggle
+     :desc "LanguageTool correct"     "T"  #'langtool-correct-buffer
+     :desc "Line wrapping"            "w"  #'+robbert/enable-wrapping))
 
  (:after company
    (:map company-active-map
      "C-a"    #'company-abort
      "C-l"    #'company-complete
-     [tab]    #'+robbert/company-select-next-or-complete
-     "RET"    nil
      [escape] nil))
 
  (:after diff-mode
@@ -93,17 +90,17 @@
      :nv  "M-k"      #'ein:worksheet-move-cell-up
      :nv  "C-s"      #'ein:notebook-save-notebook-command
      (:localleader
-       :nv "y"       #'ein:worksheet-copy-cell
-       :nv "p"       #'ein:worksheet-yank-cell
-       :nv "d"       #'ein:worksheet-kill-cell)))
+       "y" #'ein:worksheet-copy-cell
+       "p" #'ein:worksheet-yank-cell
+       "d" #'ein:worksheet-kill-cell)))
 
  (:after ein-traceback
    (:map ein:traceback-mode-map
      (:localleader
-       :nv "RET" #'ein:tb-jump-to-source-at-point-command
-       :nv "n"   #'ein:tb-next-item
-       :nv "p"   #'ein:tb-prev-item
-       :nv "q"   #'bury-buffer)))
+       "RET" #'ein:tb-jump-to-source-at-point-command
+       "n"   #'ein:tb-next-item
+       "p"   #'ein:tb-prev-item
+       "q"   #'bury-buffer)))
 
  (:after emmet-mode
    (:map emmet-mode-keymap
@@ -134,11 +131,11 @@
 
  (:after flymake
    (:map flymake-mode-map
-     (:desc "previous..." :prefix "["
-       :desc "Error"      :nv "e" #'flymake-goto-prev-error)
+     (:prefix "["
+       :desc "Error" :nv "e" #'flymake-goto-prev-error)
 
-     (:desc "next..."     :prefix "]"
-       :desc "Error"      :nv "e" #'flymake-goto-next-error)))
+     (:prefix "]"
+       :desc "Error" :nv "e" #'flymake-goto-next-error)))
 
  (:after helm
    (:map helm-map
@@ -185,31 +182,31 @@
      :nvi [M-return]  #'lsp-execute-code-action
      :nv  "gh"        #'lsp-document-highlight
      (:leader
-       (:desc "+code" :prefix "c"
-         :desc "Format buffer/region" :nv "f" #'lsp-format-buffer))
+       (:prefix "c"
+         :desc "Format buffer/region" "f" #'lsp-format-buffer))
      (:localleader
-       :desc "Rename" :nv "r" #'lsp-rename)))
+       :desc "Rename" "r" #'lsp-rename)))
 
  (:after omnisharp
    (:map omnisharp-mode-map
-     :nv [M-return]                     #'omnisharp-run-code-action-refactoring
+     :nv [M-return]                 #'omnisharp-run-code-action-refactoring
      (:localleader
-       :desc "Refactor this"  :nv "SPC" #'omnisharp-run-code-action-refactoring
-       :desc "Restart server" :n  "s"   #'omnisharp-start-omnisharp-server)))
+       :desc "Refactor this"  "SPC" #'omnisharp-run-code-action-refactoring
+       :desc "Restart server" "s"   #'omnisharp-start-omnisharp-server)))
 
  ;; Python offers some nicer ways to work with REPLs
  (:after python
    (:map python-mode-map
      (:localleader
-       (:desc "REPL send"  :prefix "r"
-         :desc "Buffer"    :nv "b" #'python-shell-send-buffer
-         :desc "Function"  :nv "f" #'python-shell-send-defun
-         :desc "Region"    :nv "r" #'python-shell-send-region))))
+       (:prefix ("r" . "REPL send")
+         :desc "Buffer"   "b" #'python-shell-send-buffer
+         :desc "Function" "f" #'python-shell-send-defun
+         :desc "Region"   "r" #'python-shell-send-region))))
 
  ;; scss-mode is built in so we can't use a use-package hook
  (:map* scss-mode-map
    (:localleader
-     :desc "Generate tags" :nv "t" #'+robbert/generate-scss-tags))
+     :desc "Generate tags" "t" #'+robbert/generate-scss-tags))
 
  (:after term
    (:map term-mode-map
@@ -223,15 +220,15 @@
    (:map tide-mode-map
      :nv [M-return] #'tide-fix
      (:leader
-       (:desc "+code" :prefix "c"
+       (:prefix "c"
          ;; It's easier to overwrite this keybinding than to hack format-all to
          ;; like LSP
-         :desc "Format buffer/region" :nv "f"  #'tide-format))
+         :desc "Format buffer/region" "f"  #'tide-format))
      (:localleader
-       :desc "JSDoc template" :nv "c"   #'tide-jsdoc-template
-       :desc "Restart"        :n  "s"   #'tide-restart-server
-       :desc "Fix issue"      :nv "RET" #'tide-fix
-       :desc "Refactor..."    :nv "SPC" #'tide-refactor)))
+       :desc "JSDoc template"         "c"   #'tide-jsdoc-template
+       :desc "Restart"                "s"   #'tide-restart-server
+       :desc "Fix issue"              "RET" #'tide-fix
+       :desc "Refactor..."            "SPC" #'tide-refactor)))
 
  ;; These keybindings tend to cause unwanted behaviour when combined with
  ;; company-tng
@@ -258,11 +255,7 @@
      :n "}" #'comint-next-input))
  (:after compile
    (:map compilation-mode-map
-     :n  "SPC"  nil
-     :nvg "C-h"  nil
-     :nvg "C-j"  nil
-     :nvg "C-k"  nil
-     :nvg "C-l"  nil))
+     :n  "SPC"  nil))
  (:after dired
    (:map dired-mode-map
      "SPC"      nil ;; FIXME
@@ -279,20 +272,10 @@
      :n "}"     #'outline-next-visible-heading))
  (:after magit
    (:map magit-diff-mode-map
-     :n  "SPC"  nil
-     :nvg "C-h"  nil
-     :nvg "C-j"  nil
-     :nvg "C-k"  nil
-     :nvg "C-l"  nil))
+     :n  "SPC"  nil))
  (:after python
    (:map python-mode-map
      :n "gz"    nil))
- (:after multi-term
-   (:map term-mode-map
-     :n "C-h"   nil
-     :n "C-j"   nil
-     :n "C-k"   nil
-     :n "C-l"   nil))
  (:after view
    (:map view-mode-map
      :n "SPC"   nil
