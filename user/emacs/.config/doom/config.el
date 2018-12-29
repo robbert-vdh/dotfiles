@@ -187,6 +187,12 @@
   (dolist (mode (list magit-revision-mode-map))
     (define-key mode (kbd doom-leader-key) nil)))
 
+(after! projectile
+  ;; fd ignores dotfiles by default, but we don't want this in our repositories
+  (when (executable-find "fd")
+    (setq projectile-git-command "fd . --type f --hidden --exclude .git -0"
+          projectile-generic-command projectile-git-command)))
+
 (after! python
   ;; Set this to `django' to force docstring to always be on multiple lines
   (setq python-fill-docstring-style 'onetwo)
