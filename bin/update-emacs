@@ -12,13 +12,10 @@ old_revision=$(git rev-parse HEAD)
 git pull --rebase --autostash
 new_revision=$(git rev-parse HEAD)
 
+bin/doom -y refresh
 if [[ $old_revision != $new_revision ]]; then
-  bin/doom -y install
-  bin/doom -y autoremove
   bin/doom compile :core
 fi
-
-bin/doom -y update
 
 # Restart Emacs in case the daemon is still running
 if systemctl --user is-active emacs --quiet; then
