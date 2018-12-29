@@ -23,7 +23,7 @@ KeyBindings=linux
 
 [Scrolling]
 HistoryMode=1
-HistorySize=2000
+HistorySize=10000
 ScrollBarPosition=2
 
 [Terminal Features]
