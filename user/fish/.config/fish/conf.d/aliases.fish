@@ -1,4 +1,6 @@
-# Enable colours wherever applicable
+# Enable colours and readable file sizes wherever applicable
+alias df "df -h"
+alias du "du -h"
 alias grep "grep --color=auto"
 
 # Always copy and paste from the system clipboard
