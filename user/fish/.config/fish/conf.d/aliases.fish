@@ -2,6 +2,7 @@
 alias df "df -h"
 alias du "du -h"
 alias grep "grep --color=auto"
+alias less "less -R"
 
 # Always copy and paste from the system clipboard
 alias xsel "xsel -b"
