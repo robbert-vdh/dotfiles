@@ -153,8 +153,7 @@
   (add-to-list '+format-on-save-enabled-modes 'yaml-mode t))
 
 (after! haskell-mode
-  (set-formatter! 'hindent '("hindent") :modes '(haskell-mode  literate-haskell-mode))
-  (remove-hook 'haskell-mode-hook #'subword-mode))
+  (set-formatter! 'hindent '("hindent") :modes '(haskell-mode  literate-haskell-mode)))
 
 (after! helpful
   ;; Increase the size of help popups to match Ivy's height
