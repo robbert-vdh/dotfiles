@@ -23,3 +23,5 @@
 	refresh-interval = 5
 [magit]
 	hideCampaign = true
+[github]
+	user = robbert-vdh
