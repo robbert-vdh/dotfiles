@@ -3,23 +3,29 @@
 ;; FIXME: Keybindings with shift + meta are broken, so they use this weird
 ;;        vector notation
 
+(define-key!
+  ;; The default `M-f' binding uses ivy instead of helm since the general.el
+  ;; update
+  "M-f" #'swiper-helm
+  "M-F" #'+helm/project-search
+  "M-q" #'fill-paragraph
+  "M-Q" #'+robbert/unfill-paragraph)
+
 (map!
  [remap dabbrev-expand] #'hippie-expand
  :i [remap newline]     #'+robbert/newline-and-indent
  :i [M-return]          #'newline-and-indent         ;; The default is adviced to continue comments
 
  :ni "C-S-SPC"          #'company-yasnippet
- :ne "M-f"              #'swiper-helm               ;; No longer a default, should it be?
- :ne [(shift meta f)]   #'+helm/project-search      ;; As a complement to the `M-f' Swiper defined in +defualt
- :nvie "M-Q"            #'+robbert/unfill-paragraph ;; As a complement to `M-q'
 
  ;; These keybindigns don't make a lot of sense, but they're easy to use and not
  ;; in use for anything else
- :n "[f"                #'+robbert/languagetool-previous-error
- :n "]f"                #'+robbert/languagetool-next-error
+ :m "[f"                #'+robbert/languagetool-previous-error
+ :m "]f"                #'+robbert/languagetool-next-error
 
- ;; Override for the default config, this breaks magit
- :n "z"                 nil
+ ;; These also got lost during the great general.el migration
+ :m "]e"                #'next-error
+ :m "[e"                #'previous-error
 
  (:leader
    (:prefix "b"
