@@ -34,6 +34,10 @@ functions/_pure_prompt_git_arrows.fish
 functions/_pure_prompt_git_branch.fish
 functions/_pure_prompt_git_dirty.fish
 functions/_pure_prompt_host.fish
+functions/_pure_prompt_ssh.fish
+functions/_pure_prompt_ssh_host.fish
+functions/_pure_prompt_ssh_separator.fish
+functions/_pure_prompt_ssh_user.fish
 functions/_pure_prompt_symbol.fish
 functions/_pure_prompt_user.fish
 functions/_pure_prompt_user_and_host.fish
