@@ -167,6 +167,9 @@
           ("HACK"  . ,(face-foreground 'error))
           ("NOTE"  . ,(face-foreground 'success)))))
 
+(after! intero
+  (flycheck-add-next-checker 'intero '(warning . haskell-hlint)))
+
 (after! latex-mode
   (set-electric! 'latex-mode :chars '(?\n ?\{)))
 
