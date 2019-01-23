@@ -13,10 +13,10 @@
 
 (map!
  [remap dabbrev-expand] #'hippie-expand
- :i [remap newline]     #'+robbert/newline-and-indent
- :i [M-return]          #'newline-and-indent         ;; The default is adviced to continue comments
+ :gi [remap newline]     #'+robbert/newline-and-indent
+ :gi [M-return]          #'newline-and-indent         ;; The default is adviced to continue comments
 
- :ni "C-S-SPC"          #'company-yasnippet
+ :gni "C-S-SPC"          #'company-yasnippet
 
  ;; These keybindigns don't make a lot of sense, but they're easy to use and not
  ;; in use for anything else
