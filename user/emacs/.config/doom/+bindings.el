@@ -29,6 +29,7 @@
 
  (:leader
    (:prefix "b"
+     :desc "New buffer"               "c"  #'+default/new-buffer
      :desc "Replace with clipboard"   "P"  #'+robbert/clipboard-to-buffer
      :desc "Revert"                   "R"  #'revert-buffer
      :desc "Copy to clipboard"        "Y"  #'+robbert/buffer-to-clipboard)
