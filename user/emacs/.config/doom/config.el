@@ -168,7 +168,11 @@
           ("NOTE"  . ,(face-foreground 'success)))))
 
 (after! intero
-  (flycheck-add-next-checker 'intero '(warning . haskell-hlint)))
+  (flycheck-add-next-checker 'intero '(warning . haskell-hlint))
+
+  ;; HACK: Not sure why this is hapening, but having the same buffer open in two
+  ;;       windows causes flashing whenever the cursor moves.
+  (add-to-list +nav-flash-exclude-commands nil))
 
 (after! latex-mode
   (set-electric! 'latex-mode :chars '(?\n ?\{)))
