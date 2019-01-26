@@ -3,20 +3,18 @@
 ;; FIXME: Keybindings with shift + meta are broken, so they use this weird
 ;;        vector notation
 
-(define-key!
-  ;; The default `M-f' binding uses ivy instead of helm since the general.el
-  ;; update
-  "M-f" #'swiper-helm
-  "M-F" #'+helm/project-search
-  "M-q" #'fill-paragraph
-  "M-Q" #'+robbert/unfill-paragraph)
-
 (map!
  [remap dabbrev-expand] #'hippie-expand
- :gi [remap newline]     #'+robbert/newline-and-indent
- :gi [M-return]          #'newline-and-indent         ;; The default is adviced to continue comments
+ :gi [remap newline]    #'+robbert/newline-and-indent
+ :gi [M-return]         #'newline-and-indent         ;; The default is adviced to continue comments
 
- :gni "C-S-SPC"          #'company-yasnippet
+ ;; These keybindigns are no longer defaults, but they're still very useful
+ :gi [M-backspace]      #'doom/backward-kill-to-bol-and-indent
+ :g "M-f"               #'swiper-helm
+ :g "M-F"               #'+helm/project-search
+ :gnvi "M-Q"            #'+robbert/unfill-paragraph
+
+ :gni "C-S-SPC"         #'company-yasnippet
 
  ;; These keybindigns don't make a lot of sense, but they're easy to use and not
  ;; in use for anything else
