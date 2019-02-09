@@ -442,6 +442,7 @@
       scroll-conservatively 3
       scroll-margin 3
       maximum-scroll-margin 0.2)
+(setq-hook! 'intero-repl-mode-hook scroll-margin 0)
 (setq-hook! 'term-mode-hook scroll-margin 0)
 
 ;; Also highlight todos in text modes
