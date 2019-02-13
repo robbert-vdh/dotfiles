@@ -2,13 +2,6 @@
 
 ;;; Variables
 
-(defvar +robbert/indentation-sensitive-modes '()
-  "Modes that should not automatically indent when pasting")
-
-(defvar +robbert/indentation-max-length 2000
-  "The maximum length in characters for which to apply automatic
-  indentation on paste.")
-
 (defvar +robbert/scss-tag-dirs
   '("node_modules/bootstrap"
     "node_modules/motion-ui"

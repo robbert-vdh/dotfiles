@@ -1,5 +1,12 @@
 ;;; ~/.config/doom/autoload/advice.el -*- lexical-binding: t; -*-
 
+(defvar +robbert/indentation-sensitive-modes '(yaml-mode)
+  "Modes that should not automatically indent when pasting")
+
+(defvar +robbert/indentation-max-length 2000
+  "The maximum length in characters for which to apply automatic
+  indentation on paste.")
+
 ;;;###autoload
 (defun +robbert*company-box-fix-tng (&rest args)
   "Hides the `company-box' line if nothing is selected.

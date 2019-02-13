@@ -147,6 +147,7 @@
 (after! flyspell
   ;; Don't automatically spellcheck when enabling flycheck
   (add-hook 'text-mode-hook 'flyspell-mode)
+  (add-hook 'yaml-mode-hook 'flyspell-mode)
   (setq-default +spellcheck-immediately nil))
 
 (after! format-all
