@@ -4,6 +4,9 @@ set -gx PAGER less
 set -gx BROWSER firefox
 
 set -gx RUST_SRC_PATH "$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+# Let Firefox (and other compatible applications) use KDE dialogs
+set -gx GTK_USE_PORTAL 1
+# Always enable the esync patches in Wine
 set -gx WINEESYNC 1
 
 # Merge local directories with $PATH
