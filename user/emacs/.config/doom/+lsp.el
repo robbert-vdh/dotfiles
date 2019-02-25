@@ -1,48 +1,49 @@
 ;;; ~/.config/doom/+lsp.el -*- lexical-binding: t; -*-
 
-;;; Core modes
+;; TODO: See what of this is still needed now that LSP support is included in
+;;       Doom
 
-(def-package! lsp-mode
-  ;; lsp-mode supports a lot of modes out of the box, but for some languages,
-  ;; like Python and Haskell, I prefer to use the non-LSP tooling
-  :hook ((css-mode . lsp)
-         (html-mode . lsp)
-         (mhtml-mode . lsp)
-         (php-mode . lsp)
-         (rust-mode . lsp)
-         (sgml-mode . lsp)
-         (shell-mode . lsp)
-         (web-mode . lsp))
-  :init (require 'lsp-clients)
-  :config
-  ;; Integrate lsp-mode into Doom's awesome UI
-  (set-lookup-handlers! 'lsp--managed-mode :documentation #'lsp-describe-thing-at-point)
-  ;; Use the LSP's own formatter instead formal-all
-  (add-hook 'lsp--managed-mode-hook #'+robbert/lsp-format-before-save)
+;; (def-package! lsp-mode
+;;   ;; lsp-mode supports a lot of modes out of the box, but for some languages,
+;;   ;; like Python and Haskell, I prefer to use the non-LSP tooling
+;;   :hook ((css-mode . lsp)
+;;          (html-mode . lsp)
+;;          (mhtml-mode . lsp)
+;;          (php-mode . lsp)
+;;          (rust-mode . lsp)
+;;          (sgml-mode . lsp)
+;;          (shell-mode . lsp)
+;;          (web-mode . lsp))
+;;   :init (require 'lsp-clients)
+;;   :config
+;;   ;; Integrate lsp-mode into Doom's awesome UI
+;;   (set-lookup-handlers! 'lsp--managed-mode :documentation #'lsp-describe-thing-at-point)
+;;   ;; Use the LSP's own formatter instead formal-all
+;;   (add-hook 'lsp--managed-mode-hook #'+robbert/lsp-format-before-save)
 
-  ;; Don't highlight symbols automatically, use `gh' to do this manually
-  (remove-hook 'lsp-eldoc-hook #'lsp-document-highlight)
+;;   ;; Don't highlight symbols automatically, use `gh' to do this manually
+;;   (remove-hook 'lsp-eldoc-hook #'lsp-document-highlight)
 
-  ;; Mode-specific configuration
+;;   ;; Mode-specific configuration
 
-  ;; Enable clippy support
-  (add-hook! :append 'rust-mode-hook
-    (let ((preferences (make-hash-table)))
-      (puthash "clippy_preference" "on" preferences)
-      (lsp--set-configuration `(:rust ,preferences))))
+;;   ;; Enable clippy support
+;;   (add-hook! :append 'rust-mode-hook
+;;     (let ((preferences (make-hash-table)))
+;;       (puthash "clippy_preference" "on" preferences)
+;;       (lsp--set-configuration `(:rust ,preferences))))
 
-  ;; `lsp-mode' overrides our tags here, but we need those for variable name
-  ;; completions as `lsp-css' isn't that smart yet
-  (add-hook! :append 'scss-mode-hook
-    (setq company-backends '(:separate company-lsp company-capf)
-          completion-at-point-functions '(ggtags-completion-at-point))))
+;;   ;; `lsp-mode' overrides our tags here, but we need those for variable name
+;;   ;; completions as `lsp-css' isn't that smart yet
+;;   (add-hook! :append 'scss-mode-hook
+;;     (setq company-backends '(:separate company-lsp company-capf)
+;;           completion-at-point-functions '(ggtags-completion-at-point))))
 
-;; Auto loaded by lsp-mode
-(def-package! lsp-ui
-  :defer t
-  :config
-  (setq lsp-prefer-flymake nil ;; Use regular old flycheck
-        ;; Use Eldoc and the K-key instead since this tends to obscure a lot of information
-        lsp-ui-doc-enable nil
-        lsp-ui-sideline-show-diagnostics nil
-        lsp-ui-sideline-show-hover nil))
+;; ;; Auto loaded by lsp-mode
+;; (def-package! lsp-ui
+;;   :defer t
+;;   :config
+;;   (setq lsp-prefer-flymake nil ;; Use regular old flycheck
+;;         ;; Use Eldoc and the K-key instead since this tends to obscure a lot of information
+;;         lsp-ui-doc-enable nil
+;;         lsp-ui-sideline-show-diagnostics nil
+;;         lsp-ui-sideline-show-hover nil))
