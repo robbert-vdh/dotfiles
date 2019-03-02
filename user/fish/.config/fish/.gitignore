@@ -19,6 +19,7 @@ functions/__fzf_reverse_isearch.fish
 functions/__fzfcmd.fish
 functions/__tf_updt.fish
 functions/_pure_format_time.fish
+functions/_pure_get_prompt_symbol.fish
 functions/_pure_parse_directory.fish
 functions/_pure_parse_git_branch.fish
 functions/_pure_print_prompt.fish
@@ -33,6 +34,7 @@ functions/_pure_prompt_git.fish
 functions/_pure_prompt_git_arrows.fish
 functions/_pure_prompt_git_branch.fish
 functions/_pure_prompt_git_dirty.fish
+functions/_pure_prompt_git_pending_commits.fish
 functions/_pure_prompt_host.fish
 functions/_pure_prompt_ssh.fish
 functions/_pure_prompt_ssh_host.fish
