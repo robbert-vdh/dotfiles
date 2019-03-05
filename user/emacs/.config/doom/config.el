@@ -387,10 +387,6 @@
 (add-to-list 'exec-path "~/.local/bin")
 (add-to-list 'exec-path "~/.cargo/bin")
 
-;; Disable blinking
-(add-hook! :append 'doom-init-ui-hook
-  (blink-cursor-mode -1))
-
 ;; The smerge hydra is not always needed
 (remove-hook 'find-file-hook '+vcs|enable-smerge-mode-maybe)
 
