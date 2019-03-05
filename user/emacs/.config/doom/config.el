@@ -154,7 +154,14 @@
   (add-to-list '+format-on-save-enabled-modes 'yaml-mode t))
 
 (after! haskell-mode
-  (set-formatter! 'hindent '("hindent") :modes '(haskell-mode  literate-haskell-mode)))
+  (set-formatter! 'hindent '("hindent") :modes '(haskell-mode  literate-haskell-mode))
+  ;; Hindent usually works fine, but it doesn't play nice with preformatted
+  ;; files or with certain constructs
+  (add-to-list '+format-on-save-enabled-modes 'haskell-mode t)
+
+  ;; Improve code navigation in Haskell buffers
+  (add-hook 'haskell-mode-hook #'haskell-decl-scan-mode)
+  (setq-hook! 'haskell-mode-hook outline-regexp "-- \\*+"))
 
 (after! helpful
   ;; Increase the size of help popups to match Ivy's height
