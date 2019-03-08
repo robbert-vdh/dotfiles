@@ -25,3 +25,7 @@
 	hideCampaign = true
 [github]
 	user = robbert-vdh
+[log]
+	date = human
+[gitlab]
+	user = robbert
