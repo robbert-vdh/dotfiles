@@ -14,7 +14,7 @@ new_revision=$(git rev-parse HEAD)
 
 if [[ $old_revision != $new_revision ]]; then
   bin/doom -y refresh
-  bin/doom compile :core
+  bin/doom -y compile
 fi
 
 bin/doom -y update
