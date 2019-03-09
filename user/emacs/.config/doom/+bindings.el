@@ -46,8 +46,8 @@
 
    (:prefix "o"
      ;; These four keybindings are swapped compared to `default/+bindings'
-     :desc "Terminal"                 "T" #'+term/open
-     :desc "Terminal in popup"        "t" #'+term/open-popup
+     :desc "Terminal"                 "T" #'+vterm/open-popup-in-project
+     :desc "Terminal in popup"        "t" #'+vterm/open-popup
      :desc "Eshell"                   "E" #'+eshell/open
      :desc "Eshell in popup"          "e" #'+eshell/open-popup
      :desc "R (ESS)"                  "R" #'R
@@ -58,7 +58,7 @@
        :desc "Start server"           "s"  #'ein:jupyter-server-start))
 
    (:prefix "p"
-     :desc "Open terminal in project" "t" #'+term/open-popup-in-project
+     :desc "Open terminal in project" "t" #'+vterm/open-popup-in-project
      :desc "List project tasks"       "T" #'+ivy/tasks)
 
    (:prefix "/"

@@ -350,7 +350,7 @@
 
       +evil-want-o/O-to-continue-comments nil
       doom-modeline-height 30
-      +org-dir (expand-file-name "~/Documenten/notes/")
+      org-directory (expand-file-name "~/Documenten/notes/")
       ;; The gray comments are hard to read in my terminal, although I rarely
       ;; use Emacs in a terminal
       doom-one-brighter-comments (not (or (display-graphic-p) (daemonp)))
