@@ -1,7 +1,6 @@
 ;;; ~/.config/doom/config.el -*- lexical-binding: t; -*-
 
 (load! "+bindings")
-(load! "+lsp")
 
 (def-package! evil-lion
   :after evil
@@ -184,6 +183,44 @@
   (setq langtool-disabled-rules '("WHITESPACE_RULE")
         langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*"))
 
+(after! lsp-mode
+  ;; Integrate lsp-mode into Doom's awesome UI
+  (set-lookup-handlers! 'lsp--managed-mode :documentation #'lsp-describe-thing-at-point)
+  ;; Use the LSP's own formatter instead formal-all
+  (add-hook 'lsp--managed-mode-hook #'+robbert/lsp-format-before-save)
+  ;; Don't highlight symbols automatically, I'll use `gh' to do this manually
+  (remove-hook 'lsp-eldoc-hook #'lsp-document-highlight)
+
+  ;; Mode-specific configuration
+
+  ;; Enable clippy support
+  (add-hook! :append 'rust-mode-hook
+    (let ((preferences (make-hash-table)))
+      (puthash "clippy_preference" "on" preferences)
+      (lsp--set-configuration `(:rust ,preferences))))
+
+  ;; We can't apply our configuration in a simple hook as lsp-mode gets loaded
+  ;; asynchronously
+  (add-hook! :append 'lsp--managed-mode-hook
+    (prin1 major-mode)
+    (cond ((derived-mode-p 'scss-mode)
+           ;; `lsp-mode' overrides our tags here, but we need those for variable name
+           ;; completions as `lsp-css' isn't that smart yet
+           (setq company-backends '(:separate company-capf company-lsp)
+                 completion-at-point-functions '(ggtags-completion-at-point))))))
+
+(after! lsp-ui
+  ;; Use regular flycheck popups instead of the sideline
+  (add-hook 'lsp--managed-mode-hook #'flycheck-posframe-mode)
+  (setq lsp-ui-sideline-show-diagnostics nil
+        lsp-ui-sideline-show-hover nil)
+
+  ;; Use prettier and more useful documentation popups
+  ;; Disabled for now as there are still some weird margin issues
+  ;; (setq lsp-ui-doc-use-webkit t
+  ;;       lsp-ui-doc-max-height 80
+  ;;       lsp-ui-doc-max-width 40)
+  )
 (after! magit
   (remove-hook 'git-commit-setup-hook #'+vc|start-in-insert-state-maybe)
   (setq magit-diff-refine-hunk 'all)
