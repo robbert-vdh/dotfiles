@@ -181,17 +181,15 @@
      :n "gr"       #'ivy-occur-revert-buffer
      :n "q"        #'quit-window))
 
- ;; TODO: See what of this is still needed
- ;; ;; There is no keymap for `lsp-mode'
- ;; (:after lsp-ui
- ;;   (:map lsp-ui-mode-map
- ;;     :nvi [M-return]  #'lsp-execute-code-action
- ;;     :nv  "gh"        #'lsp-document-highlight
- ;;     (:leader
- ;;       (:prefix "c"
- ;;         :desc "Format buffer/region" "f" #'lsp-format-buffer))
- ;;     (:localleader
- ;;       :desc "Rename" "r" #'lsp-rename)))
+ (:after lsp-ui
+   (:map lsp-ui-mode-map
+     :nvi [M-return]  #'lsp-execute-code-action
+     :nv  "gh"        #'lsp-document-highlight
+     (:leader
+       (:prefix "c"
+         :desc "Format with LSP" "f" #'lsp-format-buffer))
+     (:localleader
+       :desc "Rename" "r" #'lsp-rename)))
 
  (:after omnisharp
    (:map omnisharp-mode-map
