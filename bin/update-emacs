@@ -19,7 +19,7 @@ new_revision=$(git rev-parse HEAD)
 
 # Install new packages and redo byte compilation whenever one of the two repos
 # are updated to prevent weird inconsistencies
-if $should_update; then
+if [[ $should_update ]]; then
 	bin/doom clean
 	bin/doom -y refresh
 	bin/doom -y compile
