@@ -4,25 +4,32 @@
 
 # Make sure dotfiles are up to date first
 cd ~/.dotfiles
+
+old_revision=$(git rev-parse HEAD)
 git pull --rebase --autostash
+new_revision=$(git rev-parse HEAD)
+[[ $old_revision != $new_revision ]] && should_update=true
 
 cd ~/.emacs.d
 
 old_revision=$(git rev-parse HEAD)
 git pull --rebase --autostash
 new_revision=$(git rev-parse HEAD)
+[[ $old_revision != $new_revision ]] && should_update=true
 
-if [[ $old_revision != $new_revision ]]; then
-  bin/doom clean
-  bin/doom -y refresh
-  bin/doom -y compile
+# Install new packages and redo byte compilation whenever one of the two repos
+# are updated to prevent weird inconsistencies
+if $should_update; then
+	bin/doom clean
+	bin/doom -y refresh
+	bin/doom -y compile
 fi
 
 bin/doom -y update
 
 # Restart Emacs in case the daemon is still running
 if systemctl --user is-active emacs --quiet; then
-  systemctl --user restart emacs
+	systemctl --user restart emacs
 else
-  kill $(emacsclient -en "(emacs-pid)" 2>/dev/null) 2>/dev/null || true
+	kill "$(emacsclient -en "(emacs-pid)" 2>/dev/null)" 2>/dev/null || true
 fi
