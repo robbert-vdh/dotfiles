@@ -145,6 +145,15 @@
   (setq-default +flyspell-immediately nil))
 
 (after! format-all
+  ;; Override shfmt to use two spaces instead of tabs
+  (set-formatter! 'shfmt
+    '("shfmt"
+      "-i" "2"
+      ;; Mode selection copied from the default config
+      ("-ln" "%s" (cl-case (and (boundp 'sh-shell) (symbol-value 'sh-shell))
+                    (bash "bash") (mksh "mksh") (t "posix"))))
+    :modes 'sh-mode)
+
   (add-to-list '+format-on-save-enabled-modes 'yaml-mode t))
 
 (after! haskell-mode
