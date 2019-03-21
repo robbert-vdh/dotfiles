@@ -87,6 +87,7 @@
        ;;wakatime
 
        :lang
+       agda
        ;;assembly          ; assembly for fun or debugging
        (cc +lsp)         ; C/C++/Obj-C madness
        ;;clojure           ; java with a lisp
