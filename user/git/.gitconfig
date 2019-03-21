@@ -9,6 +9,8 @@
 	verbose = true
 [pull]
 	rebase = true
+[rebase]
+	autoStash = true
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore_global
