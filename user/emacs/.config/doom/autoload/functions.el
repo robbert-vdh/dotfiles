@@ -14,6 +14,16 @@
   "The directories, starting from a Node.JS project root, that
   should be searched for SCSS tags.")
 
+;;; Interactive functions
+
+(setq +dotfiles-dir (expand-file-name "~/.dotfiles/"))
+;;;###autoload
+(defun +robbert/browse-dotfiles ()
+  (interactive) (doom-project-browse +dotfiles-dir))
+;;;###autoload
+(defun +default/find-in-dotfiles ()
+  (interactive) (doom-project-find-file +dotfiles-dir))
+
 ;;; Functions
 
 ;;;###autoload
