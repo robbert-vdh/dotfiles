@@ -21,7 +21,7 @@
 (defun +robbert/browse-dotfiles ()
   (interactive) (doom-project-browse +dotfiles-dir))
 ;;;###autoload
-(defun +default/find-in-dotfiles ()
+(defun +robbert/find-in-dotfiles ()
   (interactive) (doom-project-find-file +dotfiles-dir))
 
 ;;; Functions
