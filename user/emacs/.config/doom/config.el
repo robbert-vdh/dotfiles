@@ -40,6 +40,9 @@
 
 ;;; Overrides
 
+(after! agda2-mode
+  (set-lookup-handlers! 'agda2-mode :definition #'agda2-goto-definition-keyboard))
+
 (after! csharp-mode
   (set-electric! 'csharp-mode :chars '(?\n ?\{)))
 
