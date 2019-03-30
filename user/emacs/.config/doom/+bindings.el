@@ -73,6 +73,12 @@
      :desc "LanguageTool correct"     "T"  #'langtool-correct-buffer
      :desc "Line wrapping"            "w"  #'+robbert/enable-wrapping))
 
+ (:after agda2-mode
+   (:map agda2-mode-map
+     "C-c w" #'+robbert/agda-insert-with
+     (:localleader
+      :desc "Insert 'with'" "w" #'+robbert/agda-insert-with)))
+
  (:after company
    (:map company-active-map
      "C-a"    #'company-abort

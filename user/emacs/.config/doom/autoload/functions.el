@@ -27,6 +27,33 @@
 ;;; Functions
 
 ;;;###autoload
+(defun +robbert/agda-insert-with ()
+  "Replace the current goal with a 'with' clause."
+  (interactive)
+  (when-let* ((goal (car (agda2-goal-at (point))))
+              (goal-start (overlay-start goal))
+              (goal-end (overlay-end goal))
+              (goal-contents (buffer-substring-no-properties
+                              (+ goal-start 2)
+                              (- goal-end 2)))
+              ;; Either the goal's contents or whatever's entered through the
+              ;; prompt to match `agda2-goal-cmd'
+              (clause (if (string-match "^\\s-*$" goal-contents)
+                          (read-string "Replace with: " nil nil nil t)
+                        goal-contents))
+              (assignment-start (search-backward "=" nil t)))
+
+    (kill-region assignment-start goal-end)
+    (insert (concat "with " clause))
+    (newline-and-indent)
+    (insert (concat "..."
+                    (make-string (- (point) assignment-start) ? )
+                    "| _ = ?"))
+    (backward-char 5)
+
+    (agda2-load)))
+
+;;;###autoload
 (defun +robbert/buffer-to-clipboard ()
   "Copy the buffer's contents to the system clipboard. Copied
 from Spacemacs."
