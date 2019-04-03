@@ -162,6 +162,33 @@ all existing tags."
     (shell-command (concat  "find " scss-dirs " -iname '*.scss' >gtags.files 2>/dev/null | true"))
     (shell-command "gtags --gtagslabel pygments")))
 
+;; `haskell-mode' does some weird trickery with its indentation logic. This
+;; simply reimplements the O and o keys to respect the proper indentation. See
+;; https://github.com/haskell/haskell-mode/issues/1265#issuecomment-252492026.
+
+;;;###autoload
+(defun +robbert/haskell-evil-open-above (count)
+  (interactive "p")
+
+  (evil-start-undo-step)
+  (dotimes (_ count)
+    (evil-previous-line)
+    (evil-append-line nil)
+    (haskell-indentation-newline-and-indent)
+    (indent-according-to-mode))
+
+  (evil-end-undo-step))
+
+;;;###autoload
+(defun +robbert/haskell-evil-open-below (count)
+  (interactive "p")
+
+  (evil-start-undo-step)
+  (evil-append-line nil)
+  (dotimes (_ count) (haskell-indentation-newline-and-indent))
+
+  (evil-end-undo-step))
+
 ;;;###autoload
 (defun +robbert/init-emacs-anywhere (app-name window-title x y w h)
   (+robbert/clipboard-to-buffer)

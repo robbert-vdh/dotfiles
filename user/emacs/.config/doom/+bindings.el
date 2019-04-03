@@ -148,6 +148,11 @@
      (:prefix "]"
        :desc "Error" :nv "e" #'flymake-goto-next-error)))
 
+ (:after haskell-mode
+   (:map haskell-mode-map
+     [remap evil-open-above] #'+robbert/haskell-evil-open-above
+     [remap evil-open-below] #'+robbert/haskell-evil-open-below))
+
  (:after helm
    (:map helm-map
      ;; Doom binds C-f and C-S-f, but C-d/C-u is just too comfortable
@@ -229,11 +234,6 @@
  (:after tide
    (:map tide-mode-map
      :nv [M-return] #'tide-fix
-     (:leader
-       (:prefix "c"
-         ;; It's easier to overwrite this keybinding than to hack format-all to
-         ;; like LSP
-         :desc "Format buffer/region" "f"  #'tide-format))
      (:localleader
        :desc "JSDoc template"         "c"   #'tide-jsdoc-template
        :desc "Restart"                "s"   #'tide-restart-server
