@@ -167,7 +167,10 @@
 
   ;; Improve code navigation in Haskell buffers
   (add-hook 'haskell-mode-hook #'haskell-decl-scan-mode)
-  (setq-hook! 'haskell-mode-hook outline-regexp "-- \\*+"))
+  (setq-hook! 'haskell-mode-hook
+    outline-regexp "-- \\*+"
+    ;; `haskell-mode' sets the default tab width to eight spaces for some reason
+    tab-width 2))
 
 (after! helpful
   ;; Increase the size of help popups to match Ivy's height
