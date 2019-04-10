@@ -2,6 +2,8 @@
 
 (load! "+bindings")
 
+(def-package! academic-phrases)
+
 (def-package! evil-lion
   :after evil
   :config (evil-lion-mode))
@@ -300,7 +302,7 @@
                  '("koma-article"
                    "\\documentclass[parskip=half]{scrartcl}
                     [DEFAULT-PACKAGES] [PACKAGES]
-                    \\setminted{frame=leftline,framesep=1em,linenos,numbersep=1em,style=pastie}
+                    \\setminted{frame=leftline,framesep=1em,linenos,numbersep=1em,style=friednly}
                     \\setminted[python]{python3}
                     [EXTRA]"
                    ("\\section{%s}" . "\\section*{%s}")

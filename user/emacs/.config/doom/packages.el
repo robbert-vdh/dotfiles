@@ -1,6 +1,7 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; ~/.config/doom/packages.el
 
+(package! academic-phrases)
 (package! ein)
 (package! evil-lion)
 (package! ggtags)
