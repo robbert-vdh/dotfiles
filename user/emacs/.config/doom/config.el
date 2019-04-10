@@ -84,8 +84,8 @@
   (setq-default evil-symbol-word-search t)
 
   ;; Automatically indent when pasting
-  (dolist (func '(evil-paste-before evil-paste-after))
-    (advice-add func :around '+robbert*indent-paste-advise))
+  ;; (dolist (func '(evil-paste-before evil-paste-after))
+  ;;   (advice-add func :around '+robbert*indent-paste-advise))
 
   ;; Doom Emacs overrides the `;' and `,' keys to also repeat things like
   ;; searches. Because it uses evil-snipe by default this hasn't been done for
