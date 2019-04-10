@@ -18,8 +18,8 @@
 [merge]
 	conflictStyle = diff3
 [alias]
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	lga = log --graph --date=relative --all
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=human
+	lga = log --graph --date=human --all
 [tig]
 	refresh-mode = periodic
 	refresh-interval = 5
