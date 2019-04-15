@@ -169,6 +169,7 @@
 
   ;; Improve code navigation in Haskell buffers
   (add-hook 'haskell-mode-hook #'haskell-decl-scan-mode)
+  (add-hook 'haskell-mode-hook #'haskell-indentation-mode)
   (setq-hook! 'haskell-mode-hook
     outline-regexp "-- \\*+"
     ;; `haskell-mode' sets the default tab width to eight spaces for some reason
