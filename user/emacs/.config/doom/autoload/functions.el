@@ -172,10 +172,12 @@ all existing tags."
 
   (evil-start-undo-step)
   (dotimes (_ count)
-    (evil-previous-line)
-    (evil-append-line nil)
-    (haskell-indentation-newline-and-indent)
-    (indent-according-to-mode))
+    (if (eq (line-number-at-pos) 1)
+        (evil-open-above 1)
+      (evil-previous-line)
+      (evil-append-line nil)
+      (haskell-indentation-newline-and-indent)
+      (indent-according-to-mode)))
 
   (evil-end-undo-step))
 
