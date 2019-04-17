@@ -2,24 +2,35 @@
 #
 # Lists the length of every file in the current directory
 
+from multiprocessing import Pool
 import os
-from pymediainfo import MediaInfo
 import sys
 
-directory = sys.argv[1] if len(sys.argv) > 1 else '.'
-files = sorted(os.listdir(directory))
-for file in files:
-    tracks = MediaInfo.parse(os.path.join(directory, file)).tracks
+from pymediainfo import MediaInfo
+
+
+def get_runtime(filename):
+    tracks = MediaInfo.parse(filename).tracks
     if not tracks or tracks[0].duration is None:
-        continue
+        return None
 
     duration = int(tracks[0].duration / 1000)
     minutes, seconds = divmod(duration, 60)
     hours, minutes = divmod(minutes, 60)
-    runtime = "{}s".format(seconds)
+    runtime = f"{seconds}s"
     if minutes > 0:
-        runtime = "{}m ".format(minutes) + runtime
+        runtime = f"{minutes}m " + runtime
     if hours > 0:
-        runtime = "{}h ".format(hours) + runtime
+        runtime = f"{hours}h " + runtime
 
-    print('{} :: {}'.format(file, runtime))
+    return f"{filename} :: {runtime}"
+
+
+if len(sys.argv) > 1:
+    os.chdir(sys.argv[1])
+
+with Pool(8) as p:
+    files = [f for f in os.listdir() if os.path.isfile(f)]
+    lengths = [s for s in p.imap_unordered(get_runtime, files) if s is not None]
+
+    print("\n".join(sorted(lengths)))
