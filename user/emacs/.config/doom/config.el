@@ -202,8 +202,6 @@
         langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*"))
 
 (after! lsp-mode
-  ;; Integrate lsp-mode into Doom's awesome UI
-  (set-lookup-handlers! 'lsp--managed-mode :documentation #'lsp-describe-thing-at-point)
   ;; Use the LSP's own formatter instead formal-all
   (add-hook 'lsp--managed-mode-hook #'+robbert/lsp-format-before-save)
   ;; Don't highlight symbols automatically, I'll use `gh' to do this manually

@@ -194,11 +194,9 @@
 
  (:after lsp-ui
    (:map lsp-ui-mode-map
-     :nvi [M-return]  #'lsp-execute-code-action
-     :nv  "gh"        #'lsp-document-highlight
-     (:leader
-       (:prefix "c"
-         :desc "Format with LSP" "f" #'lsp-format-buffer))
+     [remap +format|buffer] #'lsp-format-buffer
+     :nvi [M-return]        #'lsp-execute-code-action
+     :nv  "gh"              #'lsp-document-highlight
      (:localleader
        :desc "Rename" "r" #'lsp-rename)))
 
