@@ -90,10 +90,10 @@
   ;; Doom Emacs overrides the `;' and `,' keys to also repeat things like
   ;; searches. Because it uses evil-snipe by default this hasn't been done for
   ;; the default f/F/t/T keybindings.
-  (do-repeat! evil-find-char evil-repeat-find-char evil-repeat-find-char-reverse)
-  (do-repeat! evil-find-char-backward evil-repeat-find-char evil-repeat-find-char-reverse)
-  (do-repeat! evil-find-char-to evil-repeat-find-char evil-repeat-find-char-reverse)
-  (do-repeat! evil-find-char-to-backward evil-repeat-find-char evil-repeat-find-char-reverse)
+  (set-repeater! evil-find-char evil-repeat-find-char evil-repeat-find-char-reverse)
+  (set-repeater! evil-find-char-backward evil-repeat-find-char evil-repeat-find-char-reverse)
+  (set-repeater! evil-find-char-to evil-repeat-find-char evil-repeat-find-char-reverse)
+  (set-repeater! evil-find-char-to-backward evil-repeat-find-char evil-repeat-find-char-reverse)
 
   ;; These are not necessary because of `scroll-conservatively'
   (advice-remove! '(evil-ex-search-forward
