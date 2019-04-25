@@ -176,8 +176,7 @@ all existing tags."
         (evil-open-above 1)
       (evil-previous-line)
       (evil-append-line nil)
-      (haskell-indentation-newline-and-indent)
-      (indent-according-to-mode)))
+      (haskell-indentation-newline-and-indent)))
 
   (evil-end-undo-step))
 
