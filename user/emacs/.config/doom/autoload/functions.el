@@ -54,6 +54,18 @@
     (agda2-load)))
 
 ;;;###autoload
+(defun +robbert/basic-haskell-mode ()
+  "Enable Haskell syntax highlighting but disable any syntax
+checking and auto completion. THis is useful when working with
+embedded DSLs."
+  (interactive)
+  (haskell-mode)
+  (intero-mode -1)
+  (setq company-backends '(:separate company-dabbrev-code
+                                     company-capf
+                                     company-yasnippet)))
+
+;;;###autoload
 (defun +robbert/buffer-to-clipboard ()
   "Copy the buffer's contents to the system clipboard. Copied
 from Spacemacs."

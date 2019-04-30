@@ -480,6 +480,9 @@
 (add-to-list 'auto-mode-alist '("Pipfile$" . conf-toml-mode))
 (add-to-list 'auto-mode-alist '("Pipfile\\.lock$" . json-mode))
 
+;; Haskell-like files (Happy, Alex, uuagc)
+(add-to-list 'auto-mode-alist '("\\.ag$" . +robbert/basic-haskell-mode))
+
 ;; Fix jumping to Sass files when the leading underscore is ommitted
 ;; TODO: Refactor this to use the new `+lookup/file' function
 (require 'ffap)
