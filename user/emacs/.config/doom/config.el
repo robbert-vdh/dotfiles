@@ -258,8 +258,10 @@
   (set-file-template! 'python-mode :ignore t))
 
 (after! markdown-mode
+  ;; Disable trailing whitespace stripping for Markdown mode
+  (add-hook 'markdown-mode-hook #'doom|disable-delete-trailing-whitespace)
   ;; Doom adds extra line spacing in markdown documents
-  (add-hook! :append markdown-mode (setq line-spacing nil)))
+  (add-hook! :append 'markdown-mode-hook (setq line-spacing nil)))
 
 (after! multi-term
   ;; Term-mode only allows binding new keys using an alist
@@ -385,8 +387,7 @@
 
 ;;; Settings
 
-(setq company-minimum-prefix-length 2
-      completion-styles '(partial-completion initials)
+(setq completion-styles '(partial-completion initials)
       confirm-nonexistent-file-or-buffer nil
       ;; `jk' tends to cause a lot of issues when writing in Dutch
       evil-escape-key-sequence nil
@@ -437,15 +438,6 @@
 
 ;; The smerge hydra is not always needed
 (remove-hook 'find-file-hook '+vcs|enable-smerge-mode-maybe)
-
-;; Automatically delete trailing whitespace. Because `format-all-buffer' can
-;; error out when there's no formatter configured for the current mode, we can't
-;; use specific mode hooks.
-(add-hook! :append 'after-change-major-mode-hook
-  (when (and (derived-mode-p 'prog-mode 'text-mode)
-             (not (derived-mode-p 'markdown-mode)))
-    (setq-local show-trailing-whitespace t)))
-(add-hook 'markdown-mode #'doom|disable-delete-trailing-whitespace)
 
 ;; Make `w' and `b' handle more like in vim
 (add-hook 'after-change-major-mode-hook #'+robbert/fix-evil-words-underscore)
@@ -510,9 +502,10 @@
 (require 'company)
 (require 'company-tng)
 (company-tng-configure-default)
-(setq company-idle-delay 0.1
-    company-frontends
-    '(company-preview-if-just-one-frontend
+(setq company-minimum-prefix-length 2
+      company-idle-delay 0.1
+      company-frontends
+      '(company-preview-if-just-one-frontend
         company-tng-frontend
         company-pseudo-tooltip-unless-just-one-frontend
         company-echo-metadata-frontend))
