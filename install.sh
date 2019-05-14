@@ -61,11 +61,6 @@ else
 
   if ask 'Install everything?' N; then
     NO_ASK=true
-
-    # Fix mimeapps, applications overwrite the symlink when updating it
-    if [[ -f ~/.config/mimeapps.list && ! -h ~/.config/mimeapps.list ]]; then
-      mv ~/.config/mimeapps.list user/xorg/.config/mimeapps.list
-    fi
   fi
 fi
 
