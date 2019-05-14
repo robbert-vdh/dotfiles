@@ -51,7 +51,8 @@
      :desc "Eshell"                   "E" #'+eshell/open
      :desc "Eshell in popup"          "e" #'+eshell/open-popup
      :desc "R (ESS)"                  "R" #'R
-     (:prefix-map ("j" . "jupyter")
+     ;; TODO: Use `:prefix-map' after this gets fixed
+     (:prefix ("j" . "jupyter")
        :desc "Open in browser"        "b" #'ein:notebook-open-in-browser
        :desc "Open this file"         "f"  #'ein:notebooklist-open-notebook-by-file-name
        :desc "Login and open"         "o"  #'ein:jupyter-server-login-and-open
@@ -63,7 +64,7 @@
 
    (:prefix "/"
      :desc "Elsewhere"                "." #'helm-do-ag
-     (:prefix-map ("f" . "find")
+     (:prefix ("f" . "find")
        :desc "In directory"           "d" #'+robbert/find-file-in-dir
        :desc "In project"             "p" #'+robbert/find-file-in-project))
 
