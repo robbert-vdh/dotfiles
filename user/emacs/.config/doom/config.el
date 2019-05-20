@@ -392,8 +392,6 @@
       ;; `jk' tends to cause a lot of issues when writing in Dutch
       evil-escape-key-sequence nil
       evil-ex-substitute-global nil
-      evil-want-C-u-scroll t
-      evil-want-Y-yank-to-eol nil
       executable-prefix-env t
       ;; Order should not matter when searching
       ivy-re-builders-alist '(;; (swiper . ivy--regex-plus)

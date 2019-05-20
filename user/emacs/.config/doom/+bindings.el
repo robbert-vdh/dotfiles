@@ -35,9 +35,7 @@
    (:prefix "f"
      :desc "Find file in dotfiles"    "d"  #'+robbert/find-in-dotfiles
      :desc "Browse dotfiles"          "D"  #'+robbert/browse-dotfiles
-     :desc "Delete current file"      "k"  #'doom/delete-this-file
-     :desc "Move current file"        "m"  #'doom/move-this-file
-     :desc "Copy current file"        "M"  #'doom/copy-this-file)
+     :desc "Copy file"                "M"  #'doom/copy-this-file)
 
    (:prefix "g"
      :desc "Browse in revision"       "."  #'magit-find-file
