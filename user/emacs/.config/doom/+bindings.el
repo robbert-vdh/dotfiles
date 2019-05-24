@@ -193,11 +193,11 @@
 
  (:after lsp-ui
    (:map lsp-ui-mode-map
-     [remap +format|buffer] #'lsp-format-buffer
-     :nvi [M-return]        #'lsp-execute-code-action
-     :nv  "gh"              #'lsp-document-highlight
+     [remap +format/region-or-buffer] #'lsp-format-buffer
+     :nvi [M-return]                  #'lsp-execute-code-action
+     :nv  "gh"                        #'lsp-document-highlight
      (:localleader
-       :desc "Rename" "r" #'lsp-rename)))
+       :desc "Rename" "r"             #'lsp-rename)))
 
  (:after omnisharp
    (:map omnisharp-mode-map
@@ -230,6 +230,7 @@
 
  (:after tide
    (:map tide-mode-map
+     [remap +format/region-or-buffer] #'tide-format
      :nv [M-return] #'tide-fix
      (:localleader
        :desc "JSDoc template"         "c"   #'tide-jsdoc-template
