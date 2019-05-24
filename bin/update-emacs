@@ -1,32 +1,18 @@
 #!/usr/bin/env bash
 #
-# Updates and rebases Spacemacs automatically
+# Update and rebase Doom Emacs automatically.
+
+set -e
 
 # Make sure dotfiles are up to date first
 cd ~/.dotfiles
-
-old_revision=$(git rev-parse HEAD)
 git pull --rebase --autostash
-new_revision=$(git rev-parse HEAD)
-[[ $old_revision != $new_revision ]] && should_update=true
 
 cd ~/.emacs.d
-
-old_revision=$(git rev-parse HEAD)
 git pull --rebase --autostash
-new_revision=$(git rev-parse HEAD)
-[[ $old_revision != $new_revision ]] && should_update=true
 
-# Byte compilation sometimes messes things up even after updating non-core
-# dependencies so we'll just have to deal with byte compiling everything from
-# scratch every time
 bin/doom clean
-
-if [[ $should_update ]]; then
-  bin/doom -y refresh
-fi
-
-bin/doom -y update
+bin/doom -y upgrade
 bin/doom -y compile
 
 # Restart Emacs in case the daemon is still running
