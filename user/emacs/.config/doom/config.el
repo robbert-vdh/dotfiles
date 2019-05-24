@@ -411,8 +411,7 @@
                            :width 'semi-condensed
                            :size (if (equal system-name "laptop") 18 16))
       doom-variable-pitch-font (font-spec :family "Roboto"
-                                          :size (if (equal system-name "laptop") 18 16))
-      doom-big-font (font-spec :family "Input Mono" :size 29))
+                                          :size (if (equal system-name "laptop") 18 16)))
 
 ;; Increase the default frame size
 (add-to-list 'default-frame-alist '(height . 35))
