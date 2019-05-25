@@ -211,7 +211,7 @@
 
   ;; We can't apply our configuration in a simple hook as lsp-mode gets loaded
   ;; asynchronously
-  (add-hook! :append 'lsp-mode-hook
+  (add-hook! :append '(lsp-mode-hook lsp--managed-mode-hook)
     (cond ((derived-mode-p 'scss-mode)
            ;; `lsp-mode' overrides our tags here, but we need those for variable name
            ;; completions as `lsp-css' isn't that smart yet
