@@ -215,7 +215,9 @@
     (cond ((derived-mode-p 'scss-mode)
            ;; `lsp-mode' overrides our tags here, but we need those for variable name
            ;; completions as `lsp-css' isn't that smart yet
-           (setq company-backends '(:separate company-capf company-lsp)
+           (setq company-backends '((:separate company-capf
+                                               company-lsp
+                                               company-yasnippet))
                  ;; lsp-css's auto completion returns so many results that
                  ;; company struggles to keep up
                  company-idle-delay 0.3
