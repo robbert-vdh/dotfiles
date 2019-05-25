@@ -109,12 +109,6 @@
   (after! neotree
     (evil-collection-neotree-setup)))
 
-(after! evil-snipe
-  ;; Disable evil-snipe overriding the S/s keys. This is a bit of a hack but the
-  ;; clean way to disable it doesn't work right now.
-  (evil-snipe-override-mode -1)
-  (evil-snipe-mode -1))
-
 (after! evil-org
   (setq evil-org-use-additional-insert t)
   (add-to-list 'evil-org-key-theme 'additional)
