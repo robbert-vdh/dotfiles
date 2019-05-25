@@ -1,5 +1,5 @@
---langdef=scss
---langmap=scss:.scss
+--langdef=Scss
+--langmap=Scss:.scss
 --regex-scss=/^[ \t]*@mixin ([A-Za-z0-9_-]+)/\1/m,mixin,mixins/
 --regex-scss=/^[ \t]*\$([A-Za-z0-9_-]+)/\1/v,variable,variables/
 --regex-scss=/^([A-Za-z0-9_-]*)*(\.[A-Za-z0-9_-]+) *[,{]/\2/c,class,classes/
