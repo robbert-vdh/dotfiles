@@ -205,7 +205,7 @@
   ;; Use the LSP's own formatter instead formal-all
   (add-hook 'lsp--managed-mode-hook #'+robbert/lsp-format-before-save)
   ;; Don't highlight symbols automatically, I'll use `gh' to do this manually
-  (remove-hook 'lsp-eldoc-hook #'lsp-document-highlight)
+  (setq lsp-enable-symbol-highlighting nil)
 
   ;; Mode-specific configuration
 
