@@ -211,12 +211,14 @@
 
   ;; We can't apply our configuration in a simple hook as lsp-mode gets loaded
   ;; asynchronously
-  (add-hook! :append 'lsp--managed-mode-hook
-    (prin1 major-mode)
+  (add-hook! :append 'lsp-mode-hook
     (cond ((derived-mode-p 'scss-mode)
            ;; `lsp-mode' overrides our tags here, but we need those for variable name
            ;; completions as `lsp-css' isn't that smart yet
            (setq company-backends '(:separate company-capf company-lsp)
+                 ;; lsp-css's auto completion returns so many results that
+                 ;; company struggles to keep up
+                 company-idle-delay 0.3
                  completion-at-point-functions '(ggtags-completion-at-point))))))
 
 (after! lsp-ui
