@@ -2,6 +2,15 @@
 
 (load! "+bindings")
 
+;; My lalptop has a HiDPI scree nand I prefer everything to be scaled up
+;; slightly
+(setq +scaling-ratio (pcase (system-name)
+                       ("thinkpad" 1.75)
+                       (_ 1.0))
+      +font-size (pcase (system-name)
+                   ("thinkpad" 13.0)
+                   (_ 12.0)))
+
 (def-package! academic-phrases)
 
 (def-package! evil-lion
@@ -314,7 +323,7 @@
     (setq org-latex-default-class "koma-article"
           org-format-latex-options
           (plist-put org-format-latex-options
-                     :scale (if (equal (system-name) "thinkpad") 2.5 1.25))
+                     :scale (* 1.25 +scaling-ratio))
           org-latex-caption-above nil
           org-latex-listings 'minted
           ;; latexmk tends to play along nicer than pdflatex
@@ -407,9 +416,9 @@
       display-line-numbers-type 'relative
       doom-font (font-spec :family "Input Mono"
                            :width 'semi-condensed
-                           :size (if (equal (system-name) "thinkpad") 28 16))
+                           :size +font-size)
       doom-variable-pitch-font (font-spec :family "Roboto"
-                                          :size (if (equal (system-name) "thinkpad") 28 16)))
+                                          :size +font-size))
 
 ;; Increase the default frame size
 (add-to-list 'default-frame-alist '(height . 35))
