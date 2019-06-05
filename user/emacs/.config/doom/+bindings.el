@@ -230,7 +230,6 @@
 
  (:after tide
    (:map tide-mode-map
-     [remap +format/region-or-buffer] #'tide-format
      :nv [M-return] #'tide-fix
      (:localleader
        :desc "JSDoc template"         "c"   #'tide-jsdoc-template

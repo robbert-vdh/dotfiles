@@ -260,6 +260,10 @@
   ;; Set this to `django' to force docstring to always be on multiple lines
   (setq python-fill-docstring-style 'onetwo)
 
+  ;; Electric indent on `:' only really works for `else' clauses and makes
+  ;; defining functions a lot harder than it should be
+  (set-electric! 'python-mode :chars '() :words '("else:"))
+  (setq-hook! 'python-mode-hook electric-indent-chars '())
   ;; Disable the default template, as we don't need a hashbang in every Python
   ;; file
   (set-file-template! 'python-mode :ignore t))
@@ -357,13 +361,6 @@
 
 (after! css-mode
   (set-electric! 'css-mode :chars '(?})))
-
-(after! tide
-  ;; Format TypeScript on save using tide isntead of prettier
-  (add-to-list '+format-on-save-enabled-modes 'typescript-mode t)
-  (add-to-list '+format-on-save-enabled-modes 'javascript-mode t)
-  (add-hook! 'tide-mode-hook
-    (add-hook! :local 'before-save-hook 'tide-format-before-save)))
 
 (after! web-mode
   ;; Make sure that attributes are indented when breaking lines (e.g. long lists
