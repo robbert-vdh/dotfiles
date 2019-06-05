@@ -8,7 +8,7 @@
                        ("thinkpad" 1.75)
                        (_ 1.0))
       +font-size (pcase (system-name)
-                   ("thinkpad" 13.0)
+                   ("thinkpad" 12.5)
                    (_ 12.0)))
 
 (def-package! academic-phrases)
