@@ -418,8 +418,8 @@
                                           :size +font-size))
 
 ;; Increase the default frame size
-(add-to-list 'default-frame-alist '(height . 35))
-(add-to-list 'default-frame-alist '(width . 90))
+(add-to-list 'default-frame-alist '(height . 40))
+(add-to-list 'default-frame-alist '(width . 120))
 
 ;; Remove less useful functions from hippie expand
 (setq hippie-expand-try-functions-list
