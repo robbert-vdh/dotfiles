@@ -7,7 +7,6 @@ Icon=flameshot
 Keywords=flameshot;screenshot;capture;shutter;
 Name=Take Screenshot
 NoDisplay=false
-Path[$e]=
 StartupNotify=false
 Terminal=0
 TerminalOptions=

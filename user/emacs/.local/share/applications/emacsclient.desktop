@@ -6,7 +6,6 @@ GenericName=Text Editor
 Icon=emacs
 Name=Emacsclient
 NoDisplay=false
-Path[$e]=$HOME
 StartupNotify=true
 Terminal=0
 TerminalOptions=
