@@ -10,8 +10,8 @@
 
  ;; These keybindigns are no longer defaults, but they're still very useful
  :gi [M-backspace]      #'doom/backward-kill-to-bol-and-indent
- :g "M-f"               #'swiper-helm
- :g "M-F"               #'+helm/project-search
+ :g "M-f"               #'swiper
+ :g "M-F"               #'+default/search-project
  :gnvi "M-Q"            #'+robbert/unfill-paragraph
 
  :gni "C-S-SPC"         #'company-yasnippet
@@ -173,23 +173,6 @@
       ;; We can't just set the documentation function here since `intero-info'
       ;; does its own buffer management
       [remap +lookup/documentation] #'intero-info)))
-
- (:after ivy
-   (:map ivy-minibuffer-map
-     [backtab]     #'ivy-occur ;; Mimics Doom's S-TAB `wgrep' binding for other searches
-     "C-d"         #'ivy-scroll-up-command
-     "C-u"         #'ivy-scroll-down-command)
-
-   (:map ivy-occur-mode-map
-     :n "<return>" #'ivy-occur-press-and-switch
-     :n "C-SPC"    #'ivy-occur-press
-     :n [M-return] #'ivy-occur-press
-     :n "j"        #'ivy-occur-next-line
-     :n "k"        #'ivy-occur-previous-line
-     :n "ga"       #'ivy-occur-read-action
-     :n "M-o"      #'ivy-occur-dispatch
-     :n "gr"       #'ivy-occur-revert-buffer
-     :n "q"        #'quit-window))
 
  (:after lsp-ui
    (:map lsp-ui-mode-map
