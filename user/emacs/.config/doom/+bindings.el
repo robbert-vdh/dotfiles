@@ -18,12 +18,8 @@
 
  ;; These keybindigns don't make a lot of sense, but they're easy to use and not
  ;; in use for anything else
- :m "[f"                #'+robbert/languagetool-previous-error
- :m "]f"                #'+robbert/languagetool-next-error
-
- ;; These also got lost during the great general.el migration
- :m "]e"                #'next-error
- :m "[e"                #'previous-error
+ :m "[v"                #'+robbert/languagetool-previous-error
+ :m "]v"                #'+robbert/languagetool-next-error
 
  (:leader
    (:prefix "b"
@@ -138,14 +134,6 @@
  (:after flycheck
    (:map flycheck-error-list-mode-map
      :m [M-return] #'flycheck-error-list-explain-erro))
-
- (:after flymake
-   (:map flymake-mode-map
-     (:prefix "["
-       :desc "Error" :nv "e" #'flymake-goto-prev-error)
-
-     (:prefix "]"
-       :desc "Error" :nv "e" #'flymake-goto-next-error)))
 
  (:after haskell-mode
    (:map haskell-mode-map
