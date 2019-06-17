@@ -14,10 +14,3 @@ git pull --rebase --autostash
 bin/doom clean
 bin/doom -y upgrade
 bin/doom -y compile
-
-# Restart Emacs in case the daemon is still running
-if systemctl --user is-active emacs --quiet; then
-  systemctl --user restart emacs
-else
-  kill "$(emacsclient -en "(emacs-pid)" 2>/dev/null)" 2>/dev/null || true
-fi
