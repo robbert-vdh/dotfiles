@@ -10,7 +10,7 @@
 
  ;; These keybindigns are no longer defaults, but they're still very useful
  :gi [M-backspace]      #'doom/backward-kill-to-bol-and-indent
- :g "M-f"               #'swiper
+ :g "M-f"               #'swiper-helm
  :g "M-F"               #'+default/search-project
  :gnvi "M-Q"            #'+robbert/unfill-paragraph
 
