@@ -73,40 +73,6 @@ from Spacemacs."
   (clipboard-kill-ring-save (point-min) (point-max)))
 
 ;;;###autoload
-(defun +robbert/company-select-next-or-complete (&optional arg)
-  "Select the next candidate if more than one, else complete.
-With ARG, move by that many elements. This removes the default
-'match prefix' funcitonality."
-  (interactive "p")
-  (if (> company-candidates-length 1)
-      (company-select-next arg)
-    (company-complete-selection)))
-
-;;;###autoload
-(defun +robbert/company-box-next-line ()
-  "Override for `company-box--next-line' to make
-`company-tng-frontend' work. Emulates the normal behaviour of
-`company-select-next'."
-  (interactive)
-  (let ((company-frontends '(company-tng-frontend)))
-    (+robbert/company-select-next-or-complete))
-
-  (company-box--change-line)
-  (company-box--update-width))
-
-;;;###autoload
-(defun +robbert/company-box-prev-line ()
-  "Override for `company-box--prev-line' to make
-`company-tng-frontend' work. Emulates the normal behaviour of
-`company-select-previous'."
-  (interactive)
-  (let ((company-frontends '(company-tng-frontend)))
-    (company-select-previous))
-
-  (company-box--change-line)
-  (company-box--update-width))
-
-;;;###autoload
 (defun +robbert/clipboard-to-buffer ()
   "Replace the buffer's contents with the clipboard's contents.
 Copied from Spacemacs."
@@ -201,14 +167,6 @@ all existing tags."
   (dotimes (_ count) (haskell-indentation-newline-and-indent))
 
   (evil-end-undo-step))
-
-;;;###autoload
-(defun +robbert/init-emacs-anywhere (app-name window-title x y w h)
-  (+robbert/clipboard-to-buffer)
-  (pcase app-name
-    ("Firefox"
-     (cond ((string-prefix-p "JupyterLab" window-title) (python-mode))
-           (t (markdown-mode))))))
 
 ;;;###autoload
 (defun +robbert/lsp-format-before-save ()

@@ -92,10 +92,6 @@
 (after! evil
   (setq-default evil-symbol-word-search t)
 
-  ;; Automatically indent when pasting
-  ;; (dolist (func '(evil-paste-before evil-paste-after))
-  ;;   (advice-add func :around '+robbert*indent-paste-advise))
-
   ;; Doom Emacs overrides the `;' and `,' keys to also repeat things like
   ;; searches. Because it uses evil-snipe by default this hasn't been done for
   ;; the default f/F/t/T keybindings.
@@ -385,9 +381,6 @@
 
 (after! yasnippet
   (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand))
-
-;; Hack emacs-anywhere to make it a bit more useful
-(add-hook 'ea-popup-hook #'+robbert/init-emacs-anywhere)
 
 ;;; Settings
 
