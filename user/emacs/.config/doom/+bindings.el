@@ -129,6 +129,9 @@
 
  (:after evil-org
    (:map evil-org-mode-map
+     ;; Doom changes c-return to always create new list items when inside of a
+     ;; list, but M-return already does this so I prefer the old behaviour
+     [C-return] (evil-org-define-eol-command org-insert-heading-respect-content)
      :ni [M-return] #'+robbert/evil-org-always-open-below))
 
  (:after flycheck
