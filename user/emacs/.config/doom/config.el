@@ -105,15 +105,6 @@
                     evil-ex-search-backward)
                   :after #'doom*recenter))
 
-(after! evil-collection
-  ;; FIXME: This setup breaks commiting in magit
-  (after! diff-mode
-    (remove-hook 'diff-mode-hook 'evil-collection-diff-toggle-setup))
-
-  ;; Make sure neotree keybindings are loaded, sometimes they are not
-  (after! neotree
-    (evil-collection-neotree-setup)))
-
 (after! evil-org
   (setq evil-org-use-additional-insert t)
   (add-to-list 'evil-org-key-theme 'additional)
@@ -187,11 +178,7 @@
           ("NOTE"  . ,(face-foreground 'success)))))
 
 (after! intero
-  (flycheck-add-next-checker 'intero '(warning . haskell-hlint))
-
-  ;; HACK: Not sure why this is hapening, but having the same buffer open in two
-  ;;       windows causes flashing whenever the cursor moves.
-  (add-to-list '+nav-flash-exclude-commands nil))
+  (flycheck-add-next-checker 'intero '(warning . haskell-hlint)))
 
 (after! latex-mode
   (set-electric! 'latex-mode :chars '(?\n ?\{)))
@@ -201,8 +188,6 @@
         langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*"))
 
 (after! lsp-mode
-  ;; Use the LSP's own formatter instead formal-all
-  (add-hook 'lsp--managed-mode-hook #'+robbert/lsp-format-before-save)
   ;; Don't highlight symbols automatically, I'll use `gh' to do this manually
   (setq lsp-enable-symbol-highlighting nil)
 
@@ -232,25 +217,15 @@
   ;; Use regular flycheck popups instead of the sideline
   (add-hook 'lsp--managed-mode-hook #'flycheck-posframe-mode)
   (setq lsp-ui-sideline-show-diagnostics nil
-        lsp-ui-sideline-show-hover nil)
+        lsp-ui-sideline-show-hover nil))
 
-  ;; Use prettier and more useful documentation popups
-  ;; Disabled for now as there are still some weird margin issues
-  ;; (setq lsp-ui-doc-use-webkit t
-  ;;       lsp-ui-doc-max-height 80
-  ;;       lsp-ui-doc-max-width 40)
-  )
 (after! magit
   (remove-hook 'git-commit-setup-hook #'+vc|start-in-insert-state-maybe)
   (setq magit-diff-refine-hunk 'all)
 
   ;; Magit is missing a few useful switches by default
   (magit-define-popup-switch 'magit-pull-popup
-    ?a "Stash changes during rebase pull" "--autostash")
-
-  ;; Never interfere with the leader key
-  (dolist (mode (list magit-revision-mode-map))
-    (define-key mode (kbd doom-leader-key) nil)))
+    ?a "Stash changes during rebase pull" "--autostash"))
 
 (after! python
   ;; Set this to `django' to force docstring to always be on multiple lines
@@ -282,21 +257,12 @@
     (add-to-list 'term-bind-key-alist bind)))
 
 (after! omnisharp
-  ;; Use a more modern omnisharp server than the package specifies
-  (when (equal omnisharp-expected-server-version "1.26.3")
-    (setq omnisharp-expected-server-version "1.30.1"))
-
   ;; Killing the omnisharp server doesn't work as well when constantly switching
   ;; branches and previewing files
   (add-hook! :append csharp-mode
     (remove-hook 'kill-buffer-hook #'omnisharp-stop-server t)))
 
 (after! org
-  ;; Restore default indentation behavior
-  ;; (remove-hook 'org-mode-hook #'org-indent-mode)
-  ;; (setq org-adapt-indentation t
-  ;;       org-startup-indented nil)
-
   (setq org-export-with-smart-quotes t
         org-imenu-depth 3
         org-highlight-latex-and-related '(latex script entities))
@@ -429,9 +395,6 @@
 ;; Fix $PATH now that Doom doesn't include `exec-path-from-shell' anymore
 (add-to-list 'exec-path "~/.local/bin")
 (add-to-list 'exec-path "~/.cargo/bin")
-
-;; The smerge hydra is not always needed
-(remove-hook 'find-file-hook '+vcs|enable-smerge-mode-maybe)
 
 ;; Make `w' and `b' handle more like in vim
 (add-hook 'after-change-major-mode-hook #'+robbert/fix-evil-words-underscore)
