@@ -227,6 +227,10 @@
   (magit-define-popup-switch 'magit-pull-popup
     ?a "Stash changes during rebase pull" "--autostash"))
 
+(after! magit-todos
+  ;; Ignore concatenated/minified files when searching for todos
+  (setq magit-todos-rg-extra-args '("-M 512")))
+
 (after! python
   ;; Set this to `django' to force docstring to always be on multiple lines
   (setq python-fill-docstring-style 'onetwo)

@@ -57,7 +57,6 @@
      :desc "List project tasks"       "T" #'+ivy/tasks)
 
    (:prefix "/"
-     :desc "Elsewhere"                "." #'helm-do-ag
      (:prefix ("f" . "find")
        :desc "In directory"           "d" #'+robbert/find-file-in-dir
        :desc "In project"             "p" #'+robbert/find-file-in-project))
