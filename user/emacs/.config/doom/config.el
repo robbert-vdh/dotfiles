@@ -194,7 +194,7 @@
   ;; Mode-specific configuration
 
   ;; Enable clippy support
-  (add-hook! :append 'rust-mode-hook
+  (add-hook! :append 'rustic-mode-hook
     (let ((preferences (make-hash-table)))
       (puthash "clippy_preference" "on" preferences)
       (lsp--set-configuration `(:rust ,preferences))))
@@ -306,17 +306,17 @@
 (after! prodigy
   (set-evil-initial-state! 'prodigy-mode 'normal))
 
-(after! rust-mode
+(after! rustic-mode
   ;; Add missing confugration
-  (set-electric! 'rust-mode :chars '(?\n ?\}))
+  (set-electric! 'rustic-mode :chars '(?\n ?\}))
 
   ;; Don't show snippets in the completion, as these tend to cause a lot of
   ;; clutter
-  (set-company-backend! 'rust-mode 'company-capf)
+  (set-company-backend! 'rustic-mode 'company-capf)
 
   ;; FIXME: Without this, function opening braces don't expand
   (dolist (brace '("(" "{" "["))
-    (sp-local-pair 'rust-mode brace nil
+    (sp-local-pair 'rustic-mode brace nil
                    :post-handlers '(("||\n[i]" "RET") ("| " "SPC"))))
 
   ;; RLS, for some reason, always wants to use the stable compiler's source code
@@ -418,7 +418,7 @@
 ;; way to keep the variable value in the lambda)
 (cl-loop for (mode . value) in '((php-mode-hook . 120)
                                  (python-mode-hook . 79)
-                                 (rust-mode-hook . 100))
+                                 (rustic-mode-hook . 100))
          do (add-hook mode `(lambda () (setq fill-column ,value))))
 
 ;; Add missing syntax highlighting
