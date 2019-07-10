@@ -3,6 +3,7 @@
 # Lists the length of every file in the current directory
 
 from multiprocessing import Pool
+import glob
 import os
 import sys
 
@@ -26,11 +27,23 @@ def get_runtime(filename):
     return f"{filename} :: {runtime}"
 
 
-if len(sys.argv) > 1:
-    os.chdir(sys.argv[1])
-
+args = sys.argv if len(sys.argv) > 1 else ["."]
 with Pool(8) as p:
-    files = [f for f in os.listdir() if os.path.isfile(f)]
+    # Recursively expand all directories
+    files = list(
+        set(
+            f
+            for arg in args
+            for f in (
+                glob.glob(os.path.join(arg, "**"), recursive=True)
+                if os.path.isdir(arg)
+                # Cannonicalizing these paths prevents duplicates from the glob
+                # above
+                else [os.path.join(".", arg)]
+            )
+            if not os.path.isdir(f)
+        )
+    )
     lengths = [s for s in p.imap_unordered(get_runtime, files) if s is not None]
 
     print("\n".join(sorted(lengths)))
