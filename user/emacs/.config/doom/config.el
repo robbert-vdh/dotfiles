@@ -416,10 +416,9 @@
 
 ;; Different languages use different line lengths (there's probably a better
 ;; way to keep the variable value in the lambda)
-(cl-loop for (mode . value) in '((php-mode-hook . 120)
-                                 (python-mode-hook . 79)
+(cl-loop for (mode . value) in '((python-mode-hook . 79)
                                  (rustic-mode-hook . 100))
-         do (add-hook mode `(lambda () (setq fill-column ,value))))
+         do (eval `(setq-hook! ,mode fill-column ,value)))
 
 ;; Add missing syntax highlighting
 (add-to-list 'auto-mode-alist '("\\.service$" . conf-unix-mode))
