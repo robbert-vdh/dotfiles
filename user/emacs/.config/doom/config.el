@@ -57,7 +57,7 @@
 (after! csharp-mode
   (set-electric! 'csharp-mode :chars '(?\n ?\{)))
 
-(after! emacs-snippets
+(after! (emacs-snippets yasnippet)
   ;; By default web-mode's snippets inherit from html-mode which in turn
   ;; inherits from nxml-mode, which contains a lot of snippets that are not
   ;; necesary when using emmet
