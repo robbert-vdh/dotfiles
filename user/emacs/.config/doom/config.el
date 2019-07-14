@@ -374,7 +374,7 @@
       ;; use Emacs in a terminal
       doom-one-brighter-comments (not (or (display-graphic-p) (daemonp)))
       display-line-numbers-type 'relative
-      doom-font (font-spec :family "Input Mono"
+      doom-font (font-spec :family "InputMono Nerd Font"
                            :width 'semi-condensed
                            :size +font-size)
       doom-variable-pitch-font (font-spec :family "Roboto"
