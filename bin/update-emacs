@@ -12,5 +12,6 @@ cd ~/.emacs.d
 git pull --rebase --autostash
 
 bin/doom clean
-bin/doom -y upgrade
+bin/doom -y update
+bin/doom -y refresh
 bin/doom -y compile
