@@ -2,7 +2,7 @@
 AntiAliasFonts=true
 BoldIntense=true
 ColorScheme=base16-tomorrow-night
-Font=Liberation Mono,12,-1,5,50,0,0,0,0,0,Regular
+Font=Bitstream Vera Sans Mono,12,-1,5,50,0,0,0,0,0,Roman
 LineSpacing=0
 UseFontLineChararacters=false
 
