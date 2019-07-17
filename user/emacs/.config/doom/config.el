@@ -407,11 +407,14 @@
 (add-hook! '(css-mode-hook
              haskell-mode-hook
              js2-mode-hook
-             php-mode-hook
              shell-mode-hook
              typescript-mode-hook
              web-mode-hook)
   (doom/set-indent-width 2))
+
+(setq web-mode-markup-indent-offset 2
+      web-mode-css-indent-offset 2
+      web-mode-comment-style 2)
 
 ;; Different languages use different line lengths (there's probably a better
 ;; way to keep the variable value in the lambda)
