@@ -11,13 +11,13 @@
                    ("thinkpad" 12.5)
                    (_ 12.0)))
 
-(def-package! academic-phrases)
+(use-package! academic-phrases)
 
-(def-package! evil-lion
+(use-package! evil-lion
   :after evil
   :config (evil-lion-mode))
 
-(def-package! ggtags
+(use-package! ggtags
   :commands (ggtags-find-tag-dwim ggtags-find-reference ggtags-mode)
   :hook (scss-mode . ggtags-mode)
   :config
@@ -35,17 +35,17 @@
   ;; support misses a lot of variables
   (set-lookup-handlers! 'scss-mode :definition #'ggtags-find-tag-dwim :references #'ggtags-find-reference))
 
-(def-package! kotlin-mode)
+(use-package! kotlin-mode)
 
 ;; Transforms ^L characters into horizontal lines
-(def-package! page-break-lines
+(use-package! page-break-lines
   :config
   (add-hook! (emacs-lisp-mode view-mode) 'turn-on-page-break-lines-mode))
 
 ;; The standard should be set either through a configuration file or globally
 ;; using `phpcs --config-set default_standard psr2' to ensure that flymake and
 ;; phpcbf use the same standard
-(def-package! phpcbf
+(use-package! phpcbf
   :config
   (set-formatter! 'php-mode #'phpcbf))
 
@@ -85,7 +85,7 @@
   (set-company-backend! 'inferior-ess-mode (car ess-r-company-backends))
 
   ;; ESS buffers should not be cleaned up automatically
-  (add-hook 'inferior-ess-mode-hook #'doom|mark-buffer-as-real)
+  (add-hook 'inferior-ess-mode-hook #'doom-mark-buffer-as-real-h)
   ;; Smartparens broke this a few months ago
   (add-hook 'inferior-ess-mode-hook #'smartparens-mode))
 
@@ -101,9 +101,8 @@
   (set-repeater! evil-find-char-to-backward evil-repeat-find-char evil-repeat-find-char-reverse)
 
   ;; These are not necessary because of `scroll-conservatively'
-  (advice-remove! '(evil-ex-search-forward
-                    evil-ex-search-backward)
-                  :after #'doom*recenter))
+  (dolist (fn '(evil-ex-search-forward evil-ex-search-backward))
+    (advice-remove fn #'doom-recenter-a)))
 
 (after! evil-org
   (setq evil-org-use-additional-insert t)
@@ -194,14 +193,14 @@
   ;; Mode-specific configuration
 
   ;; Enable clippy support
-  (add-hook! :append 'rustic-mode-hook
+  (add-hook! 'rustic-mode-hook :append
     (let ((preferences (make-hash-table)))
       (puthash "clippy_preference" "on" preferences)
       (lsp--set-configuration `(:rust ,preferences))))
 
   ;; We can't apply our configuration in a simple hook as lsp-mode gets loaded
   ;; asynchronously
-  (add-hook! :append '(lsp-mode-hook lsp--managed-mode-hook)
+  (add-hook! '(lsp-mode-hook lsp--managed-mode-hook) :append
     (cond ((derived-mode-p 'scss-mode)
            ;; `lsp-mode' overrides our tags here, but we need those for variable name
            ;; completions as `lsp-css' isn't that smart yet
@@ -215,17 +214,11 @@
 
 (after! lsp-ui
   ;; Use regular flycheck popups instead of the sideline
-  (add-hook 'lsp--managed-mode-hook #'flycheck-posframe-mode)
-  (setq lsp-ui-sideline-show-diagnostics nil
-        lsp-ui-sideline-show-hover nil))
+  (add-hook 'lsp--managed-mode-hook #'flycheck-posframe-mode))
 
 (after! magit
-  (remove-hook 'git-commit-setup-hook #'+vc|start-in-insert-state-maybe)
-  (setq magit-diff-refine-hunk 'all)
-
-  ;; Magit is missing a few useful switches by default
-  (magit-define-popup-switch 'magit-pull-popup
-    ?a "Stash changes during rebase pull" "--autostash"))
+  (remove-hook 'git-commit-setup-hook #'+vc--start-in-insert-state-maybe)
+  (setq magit-diff-refine-hunk 'all))
 
 (after! magit-todos
   ;; Ignore concatenated/minified files when searching for todos
@@ -245,9 +238,9 @@
 
 (after! markdown-mode
   ;; Disable trailing whitespace stripping for Markdown mode
-  (add-hook 'markdown-mode-hook #'doom|disable-delete-trailing-whitespace)
+  (add-hook 'markdown-mode-hook #'doom-disable-delete-trailing-whitespace-h)
   ;; Doom adds extra line spacing in markdown documents
-  (add-hook! :append 'markdown-mode-hook (setq line-spacing nil)))
+  (add-hook! 'markdown-mode-hook :append (setq line-spacing nil)))
 
 (after! multi-term
   ;; Term-mode only allows binding new keys using an alist
@@ -263,7 +256,7 @@
 (after! omnisharp
   ;; Killing the omnisharp server doesn't work as well when constantly switching
   ;; branches and previewing files
-  (add-hook! :append csharp-mode
+  (add-hook! csharp-mode :append
     (remove-hook 'kill-buffer-hook #'omnisharp-stop-server t)))
 
 (after! org
@@ -334,13 +327,13 @@
   (set-electric! 'web-mode :chars '(?\<) :words '("endfor" "endif" "endblock"))
 
   ;; Editorconfig tells web-mode to indent attributes instead of aligning
-  (add-hook! :append 'web-mode-hook
+  (add-hook! 'web-mode-hook :append
     (setq web-mode-attr-indent-offset nil
           web-mode-attr-value-indent-offset nil
           web-mode-block-padding 0)))
 
 (def-project-mode! +web-django-mode
-  :modes (web-mode js-mode coffee-mode css-mode haml-mode pug-mode)
+  :modes '(web-mode js-mode coffee-mode css-mode haml-mode pug-mode)
   :files ("manage.py")
   :on-enter
   (when (eq major-mode 'web-mode)
@@ -351,6 +344,11 @@
 
 (after! yasnippet
   (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand))
+
+(after! vterm
+  ;; Disable cursor blinking, this is not needed and it persists after the
+  ;; terminal clsoes
+  (add-hook! 'vterm-mode-hook (blink-cursor-mode -1)))
 
 ;;; Settings
 

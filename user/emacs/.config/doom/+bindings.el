@@ -39,11 +39,6 @@
      :desc "SMerge hydra"             "m"  #'+hydra-smerge/body)
 
    (:prefix "o"
-     ;; These four keybindings are swapped compared to `default/+bindings'
-     :desc "Terminal"                 "T" #'+vterm/open-popup-in-project
-     :desc "Terminal in popup"        "t" #'+vterm/open-popup
-     :desc "Eshell"                   "E" #'+eshell/open
-     :desc "Eshell in popup"          "e" #'+eshell/open-popup
      :desc "R (ESS)"                  "R" #'R
      ;; TODO: Use `:prefix-map' after this gets fixed
      (:prefix ("j" . "jupyter")
@@ -188,8 +183,7 @@
          :desc "Function" "f" #'python-shell-send-defun
          :desc "Region"   "r" #'python-shell-send-region))))
 
- ;; scss-mode is built in so we can't use a use-package hook
- (:map* scss-mode-map
+ (:map scss-mode-map
    (:localleader
      :desc "Generate tags" "t" #'+robbert/generate-scss-tags))
 

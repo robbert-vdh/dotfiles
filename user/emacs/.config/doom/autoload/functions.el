@@ -171,7 +171,7 @@ all existing tags."
 ;;;###autoload
 (defun +robbert/lsp-format-before-save ()
   ;; Use the server's formatter instead of format-all
-  (remove-hook 'before-save-hook #'+format|buffer t)
+  (format-all-mode -1)
   (add-hook 'before-save-hook #'lsp-format-buffer nil t))
 
 ;;;###autoload
