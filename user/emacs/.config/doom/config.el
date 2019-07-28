@@ -189,6 +189,9 @@
 (after! lsp-mode
   ;; Don't highlight symbols automatically, I'll use `gh' to do this manually
   (setq lsp-enable-symbol-highlighting nil)
+  ;; Increase the height of documentation (since these will contain long
+  ;; docstrings in them)
+  (set-popup-rule! "^\\*lsp-help\\*$" :size 0.3 :select t)
 
   ;; Mode-specific configuration
 
