@@ -408,6 +408,7 @@
 (add-hook! '(css-mode-hook
              haskell-mode-hook
              js2-mode-hook
+             scss-mode-hook
              shell-mode-hook
              typescript-mode-hook
              web-mode-hook)
