@@ -163,10 +163,11 @@
    (:map lsp-ui-mode-map
      :nvi [M-return]                  #'lsp-execute-code-action
      :nv  "gh"                        #'lsp-document-highlight
-     (:prefix "c"
-       :desc "Format (LSP)" "F"       #'lsp-format-buffer)
+     (:leader
+       (:prefix "c"
+         :desc "Format (LSP)" "F"     #'lsp-format-buffer))
      (:localleader
-       :desc "Rename"       "r"       #'lsp-rename)))
+       :desc "Rename"         "r"     #'lsp-rename)))
 
  (:after omnisharp
    (:map omnisharp-mode-map
