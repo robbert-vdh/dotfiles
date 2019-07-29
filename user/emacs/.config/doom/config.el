@@ -403,6 +403,12 @@
 ;; Make `w' and `b' handle more like in vim
 (add-hook 'after-change-major-mode-hook #'+robbert/fix-evil-words-underscore)
 
+;; Show trailing whitespace, this used to be a default
+(setq-default show-trailing-whitespace nil)
+(add-hook! (prog-mode text-mode conf-mode)
+  (defun doom-enable-show-trailing-whitespace-h ()
+    (setq show-trailing-whitespace t)))
+
 ;; Set default indentation levels and coding styles
 (add-hook! '(css-mode-hook
              haskell-mode-hook
