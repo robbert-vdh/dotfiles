@@ -233,8 +233,7 @@
 
   ;; Electric indent on `:' only really works for `else' clauses and makes
   ;; defining functions a lot harder than it should be
-  (set-electric! 'python-mode :chars '() :words '("else:"))
-  (setq-hook! 'python-mode-hook electric-indent-chars '())
+  (set-electric! 'python-mode :words '("else:"))
   ;; Disable the default template, as we don't need a hashbang in every Python
   ;; file
   (set-file-template! 'python-mode :ignore t))
