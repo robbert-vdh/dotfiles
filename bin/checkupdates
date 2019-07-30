@@ -22,9 +22,9 @@ MAJOR_MINOR_VERSION_RE = re.compile(
 )
 
 # Upgrading these packages might break things, so we'll highlight them
-# separately. Manjaro calls the NVIDIA driver `linux4XX-nvidia`, so we have to
+# separately. Manjaro calls the NVIDIA driver `linuxXXX-nvidia`, so we have to
 # use a regexp here.
-SPECIAL_PACKAGES_RE = re.compile(r"^(linux(\d{3}(-nvidia)?)?|nvidia)$")
+SPECIAL_PACKAGES_RE = re.compile(r"^(linux(\d*(-nvidia)?)?|nvidia)$")
 
 
 def highlight_upgrades(diff):
