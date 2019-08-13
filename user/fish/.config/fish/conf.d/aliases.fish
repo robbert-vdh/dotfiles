@@ -31,3 +31,7 @@ alias rsync-sync-compress "rsync-sync --compress"
 # The dotnet CLI is broken right now https://github.com/dotnet/sdk/issues/1916
 alias dotnet "env TERM=xterm dotnet"
 alias dotnet-dev "env ASPNETCORE_ENVIRONMENT=Development dotnet"
+
+# Open a module in the current pipenv project in an Emacs instance on the
+# current workspace, useful when working with Django projects
+alias pipview "env VISUAL=em pipenv open"
