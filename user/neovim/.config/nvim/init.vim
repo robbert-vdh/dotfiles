@@ -114,7 +114,7 @@ let g:airline_powerline_fonts = 1
 
 " Colorscheme
 " Not needed since we've already enabled `termguicolors`
-"let base16colorspace=256
+let base16colorspace=256
 colorscheme base16-tomorrow-night
 
 " Don't automatically fold sections in markdown files
