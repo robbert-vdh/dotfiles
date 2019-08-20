@@ -23,6 +23,7 @@
 
 //!HOOK SCALED
 //!BIND HOOKED
+//!DESC Anime4K
 //!BIND POSTKERNEL
 //!SAVE POSTKERNEL
 
@@ -39,6 +40,7 @@ vec4 hook() { //Save lum on POSTKERNEL
 
 //!HOOK SCALED
 //!BIND HOOKED
+//!DESC Anime4K
 //!BIND POSTKERNEL
 //!BIND NATIVE
 
@@ -66,25 +68,25 @@ float max3v(vec4 a, vec4 b, vec4 c) {
 
 vec4 hook()  {
 	vec2 d = HOOKED_pt;
-	
+
     vec4 cc = getRGBL(HOOKED_pos);
 	vec4 t = getRGBL(HOOKED_pos + vec2(0, -d.y));
 	vec4 tl = getRGBL(HOOKED_pos + vec2(-d.x, -d.y));
 	vec4 tr = getRGBL(HOOKED_pos + vec2(d.x, -d.y));
-	
+
 	vec4 l = getRGBL(HOOKED_pos + vec2(-d.x, 0));
 	vec4 r = getRGBL(HOOKED_pos + vec2(d.x, 0));
-	
+
 	vec4 b = getRGBL(HOOKED_pos + vec2(0, d.y));
 	vec4 bl = getRGBL(HOOKED_pos + vec2(-d.x, d.y));
 	vec4 br = getRGBL(HOOKED_pos + vec2(d.x, d.y));
-	
+
 	vec4 lightestColor = cc;
 
 	//Kernel 0 and 4
 	float maxDark = max3v(br, b, bl);
 	float minLight = min3v(tl, t, tr);
-	
+
 	if (minLight > cc.a && minLight > maxDark) {
 		lightestColor = getLargest(cc, lightestColor, tl, t, tr);
 	} else {
@@ -94,11 +96,11 @@ vec4 hook()  {
 			lightestColor = getLargest(cc, lightestColor, br, b, bl);
 		}
 	}
-	
+
 	//Kernel 1 and 5
 	maxDark = max3v(cc, l, b);
 	minLight = min3v(r, t, tr);
-	
+
 	if (minLight > maxDark) {
 		lightestColor = getLargest(cc, lightestColor, r, t, tr);
 	} else {
@@ -108,11 +110,11 @@ vec4 hook()  {
 			lightestColor = getLargest(cc, lightestColor, bl, l, b);
 		}
 	}
-	
+
 	//Kernel 2 and 6
 	maxDark = max3v(l, tl, bl);
 	minLight = min3v(r, br, tr);
-	
+
 	if (minLight > cc.a && minLight > maxDark) {
 		lightestColor = getLargest(cc, lightestColor, r, br, tr);
 	} else {
@@ -122,11 +124,11 @@ vec4 hook()  {
 			lightestColor = getLargest(cc, lightestColor, l, tl, bl);
 		}
 	}
-	
+
 	//Kernel 3 and 7
 	maxDark = max3v(cc, l, t);
 	minLight = min3v(r, br, b);
-	
+
 	if (minLight > maxDark) {
 		lightestColor = getLargest(cc, lightestColor, r, br, b);
 	} else {
@@ -136,14 +138,15 @@ vec4 hook()  {
 			lightestColor = getLargest(cc, lightestColor, t, l, tl);
 		}
 	}
-	
-	
+
+
 	return lightestColor;
 }
 
 
 //!HOOK SCALED
 //!BIND HOOKED
+//!DESC Anime4K
 //!BIND POSTKERNEL
 //!SAVE POSTKERNEL
 
@@ -160,6 +163,7 @@ vec4 hook() { //Save lum on POSTKERNEL
 
 //!HOOK SCALED
 //!BIND HOOKED
+//!DESC Anime4K
 //!BIND POSTKERNEL
 //!SAVE POSTKERNEL
 
@@ -169,7 +173,7 @@ vec4 getRGBL(vec2 pos) {
 
 vec4 hook() { //Save grad on POSTKERNEL
 	vec2 d = HOOKED_pt;
-	
+
 	//[tl  t tr]
 	//[ l cc  r]
 	//[bl  b br]
@@ -177,27 +181,27 @@ vec4 hook() { //Save grad on POSTKERNEL
 	vec4 t = getRGBL(HOOKED_pos + vec2(0, -d.y));
 	vec4 tl = getRGBL(HOOKED_pos + vec2(-d.x, -d.y));
 	vec4 tr = getRGBL(HOOKED_pos + vec2(d.x, -d.y));
-	
+
 	vec4 l = getRGBL(HOOKED_pos + vec2(-d.x, 0));
 	vec4 r = getRGBL(HOOKED_pos + vec2(d.x, 0));
-	
+
 	vec4 b = getRGBL(HOOKED_pos + vec2(0, d.y));
 	vec4 bl = getRGBL(HOOKED_pos + vec2(-d.x, d.y));
 	vec4 br = getRGBL(HOOKED_pos + vec2(d.x, d.y));
-	
-	
+
+
 	//Horizontal Gradient
 	//[-1  0  1]
 	//[-2  0  2]
 	//[-1  0  1]
 	float xgrad = (-tl.a + tr.a - l.a - l.a + r.a + r.a - bl.a + br.a);
-	
+
 	//Vertical Gradient
 	//[-1 -2 -1]
 	//[ 0  0  0]
 	//[ 1  2  1]
 	float ygrad = (-tl.a - t.a - t.a - tr.a + bl.a + b.a + b.a + br.a);
-	
+
 	//Computes the luminance's gradient and saves it in the unused alpha channel
 	return vec4(1 - clamp(sqrt(xgrad * xgrad + ygrad * ygrad), 0, 1));
 }
@@ -206,6 +210,7 @@ vec4 hook() { //Save grad on POSTKERNEL
 
 //!HOOK SCALED
 //!BIND HOOKED
+//!DESC Anime4K
 //!BIND POSTKERNEL
 //!BIND NATIVE
 
@@ -229,23 +234,23 @@ float max3v(vec4 a, vec4 b, vec4 c) {
 
 vec4 hook()  {
 	vec2 d = HOOKED_pt;
-	
+
     vec4 cc = getRGBL(HOOKED_pos);
 	vec4 t = getRGBL(HOOKED_pos + vec2(0, -d.y));
 	vec4 tl = getRGBL(HOOKED_pos + vec2(-d.x, -d.y));
 	vec4 tr = getRGBL(HOOKED_pos + vec2(d.x, -d.y));
-	
+
 	vec4 l = getRGBL(HOOKED_pos + vec2(-d.x, 0));
 	vec4 r = getRGBL(HOOKED_pos + vec2(d.x, 0));
-	
+
 	vec4 b = getRGBL(HOOKED_pos + vec2(0, d.y));
 	vec4 bl = getRGBL(HOOKED_pos + vec2(-d.x, d.y));
 	vec4 br = getRGBL(HOOKED_pos + vec2(d.x, d.y));
-	
+
 	//Kernel 0 and 4
 	float maxDark = max3v(br, b, bl);
 	float minLight = min3v(tl, t, tr);
-	
+
 	if (minLight > cc.a && minLight > maxDark) {
 		return getAverage(cc, tl, t, tr);
 	} else {
@@ -255,11 +260,11 @@ vec4 hook()  {
 			return getAverage(cc, br, b, bl);
 		}
 	}
-	
+
 	//Kernel 1 and 5
 	maxDark = max3v(cc, l, b);
 	minLight = min3v(r, t, tr);
-	
+
 	if (minLight > maxDark) {
 		return getAverage(cc, r, t, tr);
 	} else {
@@ -269,11 +274,11 @@ vec4 hook()  {
 			return getAverage(cc, bl, l, b);
 		}
 	}
-	
+
 	//Kernel 2 and 6
 	maxDark = max3v(l, tl, bl);
 	minLight = min3v(r, br, tr);
-	
+
 	if (minLight > cc.a && minLight > maxDark) {
 		return getAverage(cc, r, br, tr);
 	} else {
@@ -283,11 +288,11 @@ vec4 hook()  {
 			return getAverage(cc, l, tl, bl);
 		}
 	}
-	
+
 	//Kernel 3 and 7
 	maxDark = max3v(cc, l, t);
 	minLight = min3v(r, br, b);
-	
+
 	if (minLight > maxDark) {
 		return getAverage(cc, r, br, b);
 	} else {
@@ -297,7 +302,7 @@ vec4 hook()  {
 			return getAverage(cc, t, l, tl);
 		}
 	}
-	
-	
+
+
 	return cc;
 }
