@@ -258,7 +258,7 @@
 (after! omnisharp
   ;; Killing the omnisharp server doesn't work as well when constantly switching
   ;; branches and previewing files
-  (add-hook! csharp-mode :append
+  (add-hook! 'csharp-mode-hook :append
     (remove-hook 'kill-buffer-hook #'omnisharp-stop-server t)))
 
 (after! org
@@ -337,9 +337,7 @@
 (def-project-mode! +web-django-mode
   :modes '(web-mode js-mode coffee-mode css-mode haml-mode pug-mode)
   :files ("manage.py")
-  :on-enter
-  (when (eq major-mode 'web-mode)
-    (web-mode-set-engine "django")))
+  :on-enter (web-mode-set-engine "django"))
 
 (after! wordnut
   (set-popup-rule! "^\\*WordNut\\*$" :size 0.3 :select t))
@@ -418,6 +416,8 @@
              typescript-mode-hook
              web-mode-hook)
   (doom/set-indent-width 2))
+(setq css-indent-offset 2
+      typescript-indent-level 2)
 
 (setq web-mode-markup-indent-offset 2
       web-mode-css-indent-offset 2
