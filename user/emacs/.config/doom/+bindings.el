@@ -60,7 +60,7 @@
      :desc "Change dictionary"        "S"  #'ispell-change-dictionary
      :desc "LanguageTool"             "t"  #'+robbert/languagetool-toggle
      :desc "LanguageTool correct"     "T"  #'langtool-correct-buffer
-     :desc "Line wrapping"            "w"  #'+robbert/enable-wrapping))
+     :desc "Line wrapping"            "W"  #'+robbert/enable-wrapping))
 
  (:after agda2-mode
    (:map agda2-mode-map

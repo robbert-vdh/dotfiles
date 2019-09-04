@@ -417,9 +417,9 @@
              web-mode-hook)
   (doom/set-indent-width 2))
 (setq css-indent-offset 2
-      typescript-indent-level 2)
-
-(setq web-mode-markup-indent-offset 2
+      js-indent-level 2
+      typescript-indent-level 2
+      web-mode-markup-indent-offset 2
       web-mode-css-indent-offset 2
       web-mode-comment-style 2)
 
