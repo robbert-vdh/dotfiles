@@ -10,6 +10,9 @@ pimple.json
 .dir-locals.el
 .projectile
 
+# CMake/clangd
+compile_commands.json
+
 # VsCode
 .vscode
 !user/vscode/.vscode
