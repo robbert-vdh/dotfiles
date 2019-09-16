@@ -51,11 +51,6 @@
      :desc "Open terminal in project" "t" #'+vterm/open-popup-in-project
      :desc "List project tasks"       "T" #'+ivy/tasks)
 
-   (:prefix "/"
-     (:prefix ("f" . "find")
-       :desc "In directory"           "d" #'+robbert/find-file-in-dir
-       :desc "In project"             "p" #'+robbert/find-file-in-project))
-
    (:prefix "t"
      :desc "Change dictionary"        "S"  #'ispell-change-dictionary
      :desc "LanguageTool"             "t"  #'+robbert/languagetool-toggle
