@@ -10,7 +10,8 @@ pimple.json
 .dir-locals.el
 .projectile
 
-# CMake/clangd
+# CMake/clangd/ccls
+.ccls-cache/
 compile_commands.json
 
 # VsCode
