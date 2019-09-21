@@ -215,6 +215,28 @@
                  company-idle-delay 0.3
                  completion-at-point-functions '(ggtags-completion-at-point))))))
 
+;; lsp-python-ms
+;; They're missing some lints
+;; See https://github.com/microsoft/python-language-server for more diagnostics
+(setq lsp-python-ms-errors ["inherit-non-class"
+                            "parameter-missing"
+                            "positional-argument-after-keyword"
+                            "too-many-function-arguments"
+                            "typing-generic-arguments"
+                            "typing-newtype-arguments"
+                            "typing-typevar-arguments"
+                            "undefined-variable"
+                            "unknown-parameter-name"]
+      lsp-python-ms-warnings ["no-cls-argument"
+                              "no-method-argument"
+                              "no-self-argument"
+                              "parameter-already-specified"
+                              "return-in-init"
+                              "too-many-positional-arguments-before-star"
+                              "unresolved-import"
+                              "variable-not-defined-globally"
+                              "variable-not-defined-nonlocal"])
+
 (after! lsp-ui
   ;; Use regular flycheck popups instead of the sideline
   (add-hook 'lsp--managed-mode-hook #'flycheck-posframe-mode))
