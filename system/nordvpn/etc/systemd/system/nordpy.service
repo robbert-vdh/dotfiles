@@ -1,0 +1,13 @@
+[Unit]
+Description=Connect to NordVPN using NordPy on boot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/share/NordPy/nordpy.py --quick-connect --wait-connection
+ExecStop=/usr/share/NordPy/nordpy.py --quick-disconnect
+
+[Install]
+WantedBy=multi-user.target
