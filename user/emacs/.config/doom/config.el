@@ -11,6 +11,13 @@
                    ("thinkpad" 12.5)
                    (_ 12.0)))
 
+(defadvice! +robbert--doom-modeline--font-height-a ()
+  :override #'doom-modeline--font-height
+  (let ((height (face-attribute 'mode-line :height)))
+    (round (* 1.25 (cond ((integerp height) (/ height 10))
+                         ((floatp height) (* height (frame-char-height)))
+                         (t (frame-char-height)))))))
+
 (use-package! academic-phrases)
 
 (use-package! evil-lion
