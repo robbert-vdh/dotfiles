@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+cd "$(dirname "$0")"
+
+# NetworkManager requires dispatcher scripts to be owned by root and chmodded
+# 700 for security purposes. This is why we can't simply symlink this file.
+cp ./nordpy-connect /etc/NetworkManager/dispatcher.d
+chmod 700 /etc/NetworkManager/dispatcher.d/nordpy-connect

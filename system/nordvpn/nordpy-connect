@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ "$2" != "up" ]; then
+   exit
+fi
+
+exec nordpy --quick-connect --wait-connection
