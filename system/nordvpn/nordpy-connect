@@ -4,4 +4,10 @@ if [ "$2" != "up" ]; then
    exit
 fi
 
+# NordPy tends to cause the entire network connection to be unusable if the
+# connection status suddenly changes, so we will ensure nothing's broken before
+# we attempt to connect (which will change these settings back anyway)
+iptables -P INPUT ACCEPT
+iptables -P OUTPUT ACCEPT
+
 exec nordpy --quick-connect --wait-connection
