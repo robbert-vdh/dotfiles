@@ -187,6 +187,7 @@
   (flycheck-add-next-checker 'intero '(warning . haskell-hlint)))
 
 (after! latex-mode
+  (add-to-list '+format-on-save-enabled-modes 'latex-mode t)
   (set-electric! 'latex-mode :chars '(?\n ?\{)))
 
 (after! langtool
@@ -447,6 +448,7 @@
   (doom/set-indent-width 2))
 (setq css-indent-offset 2
       js-indent-level 2
+      sh-indentation 2
       typescript-indent-level 2
       web-mode-markup-indent-offset 2
       web-mode-css-indent-offset 2
