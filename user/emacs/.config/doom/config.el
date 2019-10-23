@@ -187,7 +187,6 @@
   (flycheck-add-next-checker 'intero '(warning . haskell-hlint)))
 
 (after! latex-mode
-  (add-to-list '+format-on-save-enabled-modes 'latex-mode t)
   (set-electric! 'latex-mode :chars '(?\n ?\{)))
 
 (after! langtool
