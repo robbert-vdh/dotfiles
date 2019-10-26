@@ -155,9 +155,16 @@
       [remap +lookup/documentation] #'intero-info)))
 
  (:after lsp-ui
+   (:map lsp-ui-peek-mode-map
+     [tab]           #'lsp-ui-peek--toggle-file
+     "j"             #'lsp-ui-peek--select-next
+     "k"             #'lsp-ui-peek--select-prev
+     "J"             #'lsp-ui-peek--select-next-file
+     "K"             #'lsp-ui-peek--select-prev-file
+     "l"             #'lsp-ui-peek--goto-xref)
    (:map lsp-ui-mode-map
-     :nvi [M-return]                  #'lsp-execute-code-action
-     :nv  "gh"                        #'lsp-document-highlight))
+     :nvi [M-return] #'lsp-execute-code-action
+     :nv  "gh"       #'lsp-document-highlight))
 
  (:after omnisharp
    (:map omnisharp-mode-map
