@@ -8,6 +8,7 @@ pimple.json
 
 # Emacs
 .dir-locals.el
+.project
 .projectile
 
 # CMake/clangd/ccls
