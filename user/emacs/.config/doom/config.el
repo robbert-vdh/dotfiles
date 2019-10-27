@@ -206,7 +206,6 @@
   (add-hook! 'rustic-mode-hook :append
     (let ((preferences (make-hash-table)))
       (puthash "clippy_preference" "on" preferences)
-      (puthash "all_targets" t preferences)
       (lsp--set-configuration `(:rust ,preferences))))
 
   ;; We can't apply our configuration in a simple hook as lsp-mode gets loaded
