@@ -5,8 +5,12 @@ import re
 import subprocess
 from termcolor import colored
 
-aur_updates = subprocess.check_output(["yay", "--aur", "-Pu"], encoding="ascii")
-repo_updates = subprocess.check_output(["/usr/bin/checkupdates"], encoding="ascii")
+aur_updates = subprocess.run(
+    ["yay", "--aur", "-Pu"], stdout=subprocess.PIPE, encoding="ascii"
+).stdout
+repo_updates = subprocess.run(
+    ["/usr/bin/checkupdates"], stdout=subprocess.PIPE, encoding="ascii"
+).stdout
 
 STRIP_ANSI_CODES_RE = re.compile(r"\x1b\[[^\x1b]*?m")
 
@@ -47,7 +51,9 @@ def highlight_upgrades(diff):
     return "\n".join(output)
 
 
-print(highlight_upgrades(repo_updates))
+if repo_updates:
+    print(highlight_upgrades(repo_updates))
+
 if aur_updates:
     print(f"\n{colored('Aur updates', attrs=['bold'])}:")
     print(highlight_upgrades(aur_updates))
