@@ -304,7 +304,7 @@
                  '("koma-article"
                    "\\documentclass[parskip=half]{scrartcl}
                     [DEFAULT-PACKAGES] [PACKAGES]
-                    \\setminted{frame=leftline,framesep=1em,linenos,numbersep=1em,style=friednly}
+                    \\setminted{frame=leftline,framesep=1em,linenos,numbersep=1em,style=friendly}
                     \\setminted[python]{python3}
                     [EXTRA]"
                    ("\\section{%s}" . "\\section*{%s}")
