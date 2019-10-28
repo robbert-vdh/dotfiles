@@ -457,7 +457,7 @@
 ;; way to keep the variable value in the lambda)
 (cl-loop for (mode . value) in '((python-mode-hook . 79)
                                  (rustic-mode-hook . 100))
-         do (eval `(setq-hook! ,mode fill-column ,value)))
+         do (prin1 `(setq-hook! ',mode fill-column ,value)))
 
 ;; Add missing syntax highlighting
 (add-to-list 'auto-mode-alist '("\\.service$" . conf-unix-mode))
