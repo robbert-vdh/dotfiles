@@ -222,28 +222,6 @@
                  company-idle-delay 0.3
                  completion-at-point-functions '(ggtags-completion-at-point))))))
 
-;; lsp-python-ms
-;; They're missing some lints
-;; See https://github.com/microsoft/python-language-server for more diagnostics
-(setq lsp-python-ms-errors ["inherit-non-class"
-                            "parameter-missing"
-                            "positional-argument-after-keyword"
-                            "too-many-function-arguments"
-                            "typing-generic-arguments"
-                            "typing-newtype-arguments"
-                            "typing-typevar-arguments"
-                            "undefined-variable"
-                            "unknown-parameter-name"]
-      lsp-python-ms-warnings ["no-cls-argument"
-                              "no-method-argument"
-                              "no-self-argument"
-                              "parameter-already-specified"
-                              "return-in-init"
-                              "too-many-positional-arguments-before-star"
-                              "unresolved-import"
-                              "variable-not-defined-globally"
-                              "variable-not-defined-nonlocal"])
-
 (after! lsp-ui
   ;; Use regular flycheck popups instead of the sideline
   (add-hook 'lsp--managed-mode-hook #'flycheck-posframe-mode))
@@ -259,6 +237,10 @@
 (after! python
   ;; Set this to `django' to force docstring to always be on multiple lines
   (setq python-fill-docstring-style 'onetwo)
+
+  (after! lsp-ui
+    ;; Also show flake8 warnings since mspyls misses a lot of things
+    (flycheck-add-next-checker 'lsp-ui '(warning . python-flake8)))
 
   ;; Electric indent on `:' only really works for `else' clauses and makes
   ;; defining functions a lot harder than it should be
