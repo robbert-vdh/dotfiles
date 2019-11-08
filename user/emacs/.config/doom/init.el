@@ -9,9 +9,9 @@
 
        :completion
        (company +auto +tng) ; the ultimate code completion backend
-       (helm +fuzzy)     ; the *other* search engine for love and life
+       ;;(helm +fuzzy)     ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
-       ;;ivy               ; a search engine for love and life
+       (ivy +prescient)  ; a search engine for love and life
 
        :ui
        ;;deft              ; notational velocity for Emacs

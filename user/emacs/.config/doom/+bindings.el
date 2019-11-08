@@ -10,7 +10,7 @@
 
  ;; These keybindigns are no longer defaults, but they're still very useful
  :gi [M-backspace]      #'doom/backward-kill-to-bol-and-indent
- :g "M-f"               #'swiper-helm
+ :g "M-f"               #'swiper
  :g "M-F"               #'+default/search-project
  :gnvi "M-Q"            #'+robbert/unfill-paragraph
 
@@ -148,11 +148,16 @@
      "C-S-k"   #'helm-ag--previous-file
      "C-S-j"   #'helm-ag--next-file))
 
- ((:after intero
-    (:map intero-mode-map
-      ;; We can't just set the documentation function here since `intero-info'
-      ;; does its own buffer management
-      [remap +lookup/documentation] #'intero-info)))
+ (:after intero
+   (:map intero-mode-map
+     ;; We can't just set the documentation function here since `intero-info'
+     ;; does its own buffer management
+     [remap +lookup/documentation] #'intero-info))
+
+ (:after ivy
+   (:map ivy-minibuffer-map
+     "C-d"         #'ivy-scroll-up-command
+     "C-u"         #'ivy-scroll-down-command))
 
  (:after lsp-ui
    (:map lsp-ui-peek-mode-map

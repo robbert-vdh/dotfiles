@@ -64,7 +64,7 @@
 (after! csharp-mode
   (set-electric! 'csharp-mode :chars '(?\n ?\{)))
 
-(after! (emacs-snippets yasnippet)
+(after! (yasnippet web-mode)
   ;; By default web-mode's snippets inherit from html-mode which in turn
   ;; inherits from nxml-mode, which contains a lot of snippets that are not
   ;; necesary when using emmet
@@ -388,8 +388,8 @@
       evil-ex-substitute-global nil
       executable-prefix-env t
       ;; Order should not matter when searching
-      ivy-re-builders-alist '(;; (swiper . ivy--regex-plus)
-                              (t      . ivy--regex-ignore-order))
+      ;; ivy-re-builders-alist '(;; (swiper . ivy--regex-plus)
+      ;;                         (t      . ivy--regex-ignore-order))
       flyspell-default-dictionary "english"
       nav-flash-delay 0.25
       which-key-idle-delay 0.4
