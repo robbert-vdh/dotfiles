@@ -16,8 +16,8 @@ function diff -d "Use Git's diffing engine instead of GNU diffutils"
     set file1 (realpath $argv[1])
     set file2 (realpath $argv[2])
     if command -sq git
-        git diff --color=auto --no-ext-diff --no-index $file1 $file2
+        git diff --color=auto --no-ext-diff --no-index $argv[3..-1] -- $file1 $file2
     else
-        diff --color=auto $file1 $file2
+        diff --color=auto $argv[3..-1] -- $file1 $file2
     end
 end
