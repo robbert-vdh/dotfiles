@@ -80,35 +80,37 @@
                     org-level-1))
       (set-face-extend face t)))
   (after! magit
-    (dolist (face '(magit-diff-hunk-heading
+    (dolist (face '(magit-diff-added
+                    magit-diff-added-highlight
+                    magit-diff-base
+                    magit-diff-base-highlight
+                    magit-diff-conflict-heading
+                    magit-diff-context
+                    magit-diff-context-highlight
+                    magit-diff-file-heading
+                    magit-diff-file-heading-highlight
+                    magit-diff-file-heading-selection
+                    magit-diff-hunk-heading
                     magit-diff-hunk-heading-highlight
                     magit-diff-hunk-heading-selection
                     magit-diff-hunk-region
-                    magit-diff-lines-heading
                     magit-diff-lines-boundary
-                    magit-diff-conflict-heading
-                    magit-diff-added
-                    magit-diff-removed
+                    magit-diff-lines-heading
                     magit-diff-our
-                    magit-diff-base
-                    magit-diff-their
-                    magit-diff-context
-                    magit-diff-added-highlight
-                    magit-diff-removed-highlight
                     magit-diff-our-highlight
-                    magit-diff-base-highlight
+                    magit-diff-removed
+                    magit-diff-removed-highlight
+                    magit-diff-revision-summary
+                    magit-diff-revision-summary-highlight
+                    magit-diff-their
                     magit-diff-their-highlight
-                    magit-diff-context-highlight
                     magit-diff-whitespace-warning
                     magit-diffstat-added
                     magit-diffstat-removed
                     magit-section-heading
                     magit-section-heading-selection
                     magit-section-highlight
-                    magit-section-secondary-heading
-                    magit-diff-file-heading
-                    magit-diff-file-heading-highlight
-                    magit-diff-file-heading-selection))
+                    magit-section-secondary-heading))
       (set-face-extend face t)))
   (after! ediff
     (dolist (face '(ediff-current-diff-A
