@@ -2,6 +2,7 @@ set -gx EDITOR nvim
 set -gx VISUAL $EDITOR
 set -gx PAGER less
 set -gx BROWSER firefox
+set -gx LESS "-R -j4"
 
 # Let Firefox (and other compatible applications) use KDE dialogs
 set -gx GTK_USE_PORTAL 1

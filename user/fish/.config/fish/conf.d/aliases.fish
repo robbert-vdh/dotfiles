@@ -3,7 +3,6 @@ alias df "df -h"
 alias du "du -h"
 alias grep "grep --color=auto"
 alias info "info --vi-keys"
-alias less "less -R"
 
 # Always copy and paste from the system clipboard
 alias xsel "xsel -b"
