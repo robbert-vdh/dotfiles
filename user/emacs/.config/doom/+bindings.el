@@ -7,14 +7,13 @@
  [remap dabbrev-expand] #'hippie-expand
  :gi [remap newline]    #'+robbert/newline-and-indent
  :gi [M-return]         #'newline-and-indent         ;; The default is adviced to continue comments
+ :g "M-F"               #'+default/search-project
+ :gnvi "M-Q"            #'+robbert/unfill-paragraph
+ :gni "C-S-SPC"         #'company-yasnippet
 
  ;; These keybindigns are no longer defaults, but they're still very useful
  :gi [M-backspace]      #'doom/backward-kill-to-bol-and-indent
  :g "M-f"               #'swiper
- :g "M-F"               #'+default/search-project
- :gnvi "M-Q"            #'+robbert/unfill-paragraph
-
- :gni "C-S-SPC"         #'company-yasnippet
 
  ;; These keybindigns don't make a lot of sense, but they're easy to use and not
  ;; in use for anything else
@@ -25,22 +24,17 @@
    (:prefix "b"
      :desc "New buffer"               "c"  #'+default/new-buffer
      :desc "Replace with clipboard"   "P"  #'+robbert/clipboard-to-buffer
-     :desc "Revert"                   "R"  #'revert-buffer
      :desc "Copy to clipboard"        "Y"  #'+robbert/buffer-to-clipboard)
 
    (:prefix "f"
-     :desc "Find file in dotfiles"    "d"  #'+robbert/find-in-dotfiles
-     :desc "Browse dotfiles"          "D"  #'+robbert/browse-dotfiles
-     :desc "Copy file"                "M"  #'doom/copy-this-file
-     :desc "Delete this file"         "X"   #'doom/delete-this-file)
+     :desc "Find file in dotfiles"    "t"  #'+robbert/find-in-dotfiles
+     :desc "Browse dotfiles"          "T"  #'+robbert/browse-dotfiles)
 
    (:prefix "g"
-     :desc "Browse in revision"       "."  #'magit-find-file
-     :desc "Git blame (follow copy)"  "b"  #'+robbert/magit-blame-follow-copy
+     :desc "Git blame (follow copy)"  "B"  #'+robbert/magit-blame-follow-copy
      :desc "SMerge hydra"             "m"  #'+hydra-smerge/body)
 
    (:prefix "o"
-     :desc "R (ESS)"                  "R" #'R
      ;; TODO: Use `:prefix-map' after this gets fixed
      (:prefix ("j" . "jupyter")
        :desc "Open in browser"        "b" #'ein:notebook-open-in-browser
@@ -48,15 +42,10 @@
        :desc "Login and open"         "o"  #'ein:jupyter-server-login-and-open
        :desc "Start server"           "s"  #'ein:jupyter-server-start))
 
-   (:prefix "p"
-     :desc "Open terminal in project" "t" #'+vterm/open-popup-in-project
-     :desc "List project tasks"       "T" #'+ivy/tasks)
-
    (:prefix "t"
      :desc "Change dictionary"        "S"  #'ispell-change-dictionary
      :desc "LanguageTool"             "t"  #'+robbert/languagetool-toggle
-     :desc "LanguageTool correct"     "T"  #'langtool-correct-buffer
-     :desc "Line wrapping"            "W"  #'+robbert/enable-wrapping))
+     :desc "LanguageTool correct"     "T"  #'langtool-correct-buffer)
 
  (:after agda2-mode
    (:map agda2-mode-map
@@ -225,40 +214,4 @@
 
      ;; In HTML we DO want to automatically indent broken 'strings', as these
      ;; are likely long attributes like a list of classes
-     [remap newline] #'+robbert/newline-and-indent-always))
-
- ;; Disable evil-collection overrides
- ;; TODO: Check if these are still needed after refactored default/+bindings.el
- (:after comint
-   (:map comint-mode-map
-     :n "[" nil
-     :n "]" nil
-     :n "{" #'comint-previous-input
-     :n "}" #'comint-next-input))
- (:after compile
-   (:map compilation-mode-map
-     :n  "SPC"  nil))
- (:after dired
-   (:map dired-mode-map
-     "SPC"      nil ;; FIXME
-     :nm "SPC"  nil ;; FIXME
-     :n "["     nil
-     :n "]"     nil
-     :n "{"     #'dired-prev-dirline
-     :n "}"     #'dired-next-dirline))
- (:after outline
-   (:map outline-mode-map
-     :n "["     nil
-     :n "]"     nil
-     :n "{"     #'outline-previous-visible-heading
-     :n "}"     #'outline-next-visible-heading))
- (:after magit
-   (:map magit-diff-mode-map
-     :n  "SPC"  nil))
- (:after python
-   (:map python-mode-map
-     :n "gz"    nil))
- (:after view
-   (:map view-mode-map
-     :n "SPC"   nil
-     :n "S-SPC" nil)))
+     [remap newline] #'+robbert/newline-and-indent-always))))

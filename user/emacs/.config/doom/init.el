@@ -92,7 +92,7 @@
        ;;wakatime
 
        :lang
-       agda              ; types of types of types of types...
+       ;;agda              ; types of types of types of types...
        ;;assembly          ; assembly for fun or debugging
        (cc +lsp)         ; C/C++/Obj-C madness
        ;;clojure           ; java with a lisp
@@ -105,7 +105,7 @@
        ;;elixir            ; erlang done right
        ;;elm               ; care for a cup of TEA?
        emacs-lisp        ; drown in parentheses
-       ess               ; emacs speaks statistics
+       ;;ess               ; emacs speaks statistics
        ;;fsharp           ; ML stands for Microsoft's Language
        ;;go                ; the hipster dialect
        (haskell +intero) ; a language that's lazier than I am

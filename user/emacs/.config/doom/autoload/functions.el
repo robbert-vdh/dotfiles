@@ -86,16 +86,6 @@ Copied from Spacemacs."
   (interactive)
   (ein:worksheet-merge-cell (ein:worksheet--get-ws-or-error) (ein:worksheet-get-current-cell) t t))
 
-;;;###autoload
-(defun +robbert/enable-wrapping ()
-  "Enable `truncate-lines' and `visual-line-mode', and disable `auto-fill-mode'.
-  This is useful when composing messages for things that respect
-  line breaks."
-  (interactive)
-  (toggle-truncate-lines)
-  (visual-line-mode +1)
-  (auto-fill-mode -1))
-
 ;; Add an easier 'insert item after this line' keybinding. evil-org only
 ;; inserts a new item when the bullet is on the current line.
 ;;;###autoload
@@ -200,9 +190,7 @@ gets overridden."
   "Blame with the `-wCCC' options, telling Git to track copied
 text"
   (interactive)
-  (require 'magit-blame)
-  (let ((magit-blame-arguments (cons "-CCC" (magit-blame-arguments))))
-    (magit-blame)))
+  (magit-blame-addition '("-w" "-CCC")))
 
 (defvar +robbert--pipenv-project-root nil
   "The last project we've checked pipenv for. This prevents

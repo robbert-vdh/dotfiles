@@ -72,7 +72,8 @@
 
 ;; HACK: Fix doom-themes not yet respecting the :extend attribute, should be
 ;;       removed once this gets fixed upstream
-(after! doom-themes
+;; `after-make-frame-functions' is for the daemon
+(add-hook! '(after-make-frame-functions doom-init-ui-hook) :append
   (after! org
     (dolist (face '(org-block
                     org-block-begin-line
@@ -304,6 +305,7 @@
   ;; Set this to `django' to force docstring to always be on multiple lines
   (setq python-fill-docstring-style 'onetwo)
 
+  (setq lsp-python-ms-nupkg-channel "beta")
   (after! lsp-ui
     ;; Also show flake8 warnings since mspyls misses a lot of things
     (flycheck-add-next-checker 'lsp-ui '(warning . python-flake8)))
