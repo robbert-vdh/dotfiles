@@ -45,13 +45,13 @@
    (:prefix "t"
      :desc "Change dictionary"        "S"  #'ispell-change-dictionary
      :desc "LanguageTool"             "t"  #'+robbert/languagetool-toggle
-     :desc "LanguageTool correct"     "T"  #'langtool-correct-buffer)
+     :desc "LanguageTool correct"     "T"  #'langtool-correct-buffer))
 
  (:after agda2-mode
    (:map agda2-mode-map
      "C-c w" #'+robbert/agda-insert-with
      (:localleader
-      :desc "Insert 'with'" "w" #'+robbert/agda-insert-with)))
+       :desc "Insert 'with'" "w" #'+robbert/agda-insert-with)))
 
  (:after company
    (:map company-active-map
@@ -201,17 +201,10 @@
        :desc "Fix issue"              "RET" #'tide-fix
        :desc "Refactor..."            "SPC" #'tide-refactor)))
 
- ;; These keybindings tend to cause unwanted behaviour when combined with
- ;; company-tng
- (:after yasnippet
-   (:map yas-minor-mode-map
-     :ig "<tab>" nil
-     :ig "TAB" nil))
-
  (:after web-mode
    (:map web-mode-map
      "M-/" nil
 
      ;; In HTML we DO want to automatically indent broken 'strings', as these
      ;; are likely long attributes like a list of classes
-     [remap newline] #'+robbert/newline-and-indent-always))))
+     [remap newline] #'+robbert/newline-and-indent-always)))
