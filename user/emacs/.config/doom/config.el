@@ -11,6 +11,8 @@
                    ("thinkpad" 12.5)
                    (_ 12.0)))
 
+;; HACK: The modeline doesn't scale proportion with the font size, this will
+;;       reduce the minimum height to match the larger font size defiend above
 (defadvice! +robbert--doom-modeline--font-height-a ()
   :override #'doom-modeline--font-height
   (let ((height (face-attribute 'mode-line :height)))
@@ -74,13 +76,13 @@
 ;;       removed once this gets fixed upstream
 ;; `after-make-frame-functions' is for the daemon
 (add-hook! '(after-make-frame-functions doom-init-ui-hook) :append
-  (after! org
+  (with-eval-after-load 'org
     (dolist (face '(org-block
                     org-block-begin-line
                     org-block-end-line
                     org-level-1))
       (set-face-extend face t)))
-  (after! magit
+  (with-eval-after-load 'magit
     (dolist (face '(magit-diff-added
                     magit-diff-added-highlight
                     magit-diff-base
