@@ -6,10 +6,10 @@
 ;; slightly
 (setq +scaling-ratio (pcase (system-name)
                        ("thinkpad" 1.75)
-                       (_ 1.0))
+                       (_ 1.2))
       +font-size (pcase (system-name)
-                   ("thinkpad" 12.5)
-                   (_ 12.0)))
+                   ("thinkpad" 3.5)
+                   (_ 13.0)))
 
 ;; HACK: The modeline doesn't scale proportion with the font size, this will
 ;;       reduce the minimum height to match the larger font size defiend above
@@ -71,73 +71,6 @@
   ;; inherits from nxml-mode, which contains a lot of snippets that are not
   ;; necesary when using emmet
   (remhash 'web-mode yas--parents))
-
-;; HACK: Fix doom-themes not yet respecting the :extend attribute, should be
-;;       removed once this gets fixed upstream
-;; `after-make-frame-functions' is for the daemon
-(add-hook! '(after-make-frame-functions doom-init-ui-hook) :append
-  (with-eval-after-load 'org
-    (dolist (face '(org-block
-                    org-block-begin-line
-                    org-block-end-line
-                    org-level-1))
-      (set-face-extend face t)))
-  (with-eval-after-load 'magit
-    (dolist (face '(magit-diff-added
-                    magit-diff-added-highlight
-                    magit-diff-base
-                    magit-diff-base-highlight
-                    magit-diff-conflict-heading
-                    magit-diff-context
-                    magit-diff-context-highlight
-                    magit-diff-file-heading
-                    magit-diff-file-heading-highlight
-                    magit-diff-file-heading-selection
-                    magit-diff-hunk-heading
-                    magit-diff-hunk-heading-highlight
-                    magit-diff-hunk-heading-selection
-                    magit-diff-hunk-region
-                    magit-diff-lines-boundary
-                    magit-diff-lines-heading
-                    magit-diff-our
-                    magit-diff-our-highlight
-                    magit-diff-removed
-                    magit-diff-removed-highlight
-                    magit-diff-revision-summary
-                    magit-diff-revision-summary-highlight
-                    magit-diff-their
-                    magit-diff-their-highlight
-                    magit-diff-whitespace-warning
-                    magit-diffstat-added
-                    magit-diffstat-removed
-                    magit-section-heading
-                    magit-section-heading-selection
-                    magit-section-highlight
-                    magit-section-secondary-heading))
-      (set-face-extend face t)))
-  (after! ediff
-    (dolist (face '(ediff-current-diff-A
-                    ediff-current-diff-Ancestor
-                    ediff-current-diff-B
-                    ediff-current-diff-C
-                    ediff-even-diff-A
-                    ediff-even-diff-Ancestor
-                    ediff-even-diff-B
-                    ediff-even-diff-C
-                    ediff-fine-diff-A
-                    ediff-fine-diff-Ancestor
-                    ediff-fine-diff-B
-                    ediff-fine-diff-C
-                    ediff-odd-diff-A
-                    ediff-odd-diff-Ancestor
-                    ediff-odd-diff-B
-                    ediff-odd-diff-C))
-      (set-face-extend face t)))
-  (after! hl-line
-    (set-face-extend 'hl-line t))
-  (after! faces
-    (dolist (face '(region secondary-selection))
-      (set-face-extend face t))))
 
 (after! emmet-mode
   ;; Don't put an XML style slash at the end of self closing tags
@@ -560,9 +493,6 @@
         company-tng-frontend
         company-pseudo-tooltip-unless-just-one-frontend
         company-echo-metadata-frontend))
-
-;; FIXME Doom should be doing this for us
-(flycheck-posframe-mode +1)
 
 ;; Explicitely load evil-surround so that extra pairs can be loaded in time
 (require 'evil-surround)
