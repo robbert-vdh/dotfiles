@@ -97,15 +97,6 @@
      ;; comment continuation.
      "RET" nil))
 
- (:after evil
-   ;; This makes the up and down motions in visual line mode handle like the
-   ;; regular motions
-   (:map visual-line-mode-map
-     :o [remap evil-next-line] #'evil-next-line
-     :o [remap evil-previous-line] #'evil-previous-line
-     :o [remap evil-next-visual-line] #'evil-next-visual-line
-     :o [remap evil-previous-visual-line] #'evil-previous-visual-line))
-
  (:after evil-org
    (:map evil-org-mode-map
      ;; Doom changes c-return to always create new list items when inside of a
