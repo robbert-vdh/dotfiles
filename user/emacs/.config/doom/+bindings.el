@@ -28,7 +28,8 @@
 
    (:prefix "f"
      :desc "Find file in dotfiles"    "t"  #'+robbert/find-in-dotfiles
-     :desc "Browse dotfiles"          "T"  #'+robbert/browse-dotfiles)
+     :desc "Browse dotfiles"          "T"  #'+robbert/browse-dotfiles
+     :desc "Find file externally"     "x"  #'counsel-find-file-extern)
 
    (:prefix "g"
      :desc "Git blame (follow copy)"  "B"  #'+robbert/magit-blame-follow-copy
