@@ -8,7 +8,7 @@
                        ("thinkpad" 1.75)
                        (_ 1.2))
       +font-size (pcase (system-name)
-                   ("thinkpad" 3.5)
+                   ("thinkpad" 13.5)
                    (_ 13.0)))
 
 ;; HACK: The modeline doesn't scale proportion with the font size, this will
