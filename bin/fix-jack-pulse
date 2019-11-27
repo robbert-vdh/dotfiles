@@ -1,15 +1,21 @@
 #!/usr/bin/env bash
 #
-# Sets the currect sinks and sources in PulseAudio for use with Jack
+# Sets the currect sinks and sources in PulseAudio for use with Jack.
 
-jack_sink=$(pacmd list-sinks \
-    | awk 'match($0, "name: <(jack_out[^>]*?)", m) {print m[1]}' \
-    | tail -n1)
-jack_source=$(pacmd list-sources \
-    | awk 'match($0, "name: <(jack_in[^>]*?)", m) {print m[1]}' \
-    | tail -n1)
+set -e pipefail
 
-pacmd set-default-sink "$jack_sink"
-pacmd set-default-source "$jack_source"
+pacmd set-default-sink jack_out
+pacmd set-default-source jack_in
 
-pulseaudio -k
+# The old sources will still be active even though they're not routed to
+# anything, so we will just mov everything to Jack
+sinks=$(pacmd list-sink-inputs | grep -oP 'index: \K\d+' || true)
+sources=$(pacmd list-source-outputs | grep -oP 'index: \K\d+' || true)
+
+for sink in $sinks; do
+  pacmd move-sink-input "$sink" jack_out
+done
+
+for source in $sources; do
+  pacmd move-sink-input "$source" jack_out
+done
