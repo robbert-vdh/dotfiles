@@ -42,7 +42,7 @@
   ;; Completion is handled through `company-capf', though for scss in particular
   ;; we just want to use tags together with the lsp server as the built in
   ;; support misses a lot of variables
-  (set-lookup-handlers! 'scss-mode :definition #'ggtags-find-tag-dwim :references #'ggtags-find-reference))
+  (set-lookup-handlers! 'ggtags-mode :definition #'ggtags-find-tag-dwim :references #'ggtags-find-reference))
 
 (use-package! kotlin-mode)
 
@@ -212,7 +212,7 @@
 
   ;; We can't apply our configuration in a simple hook as lsp-mode gets loaded
   ;; asynchronously
-  (add-hook! '(lsp-mode-hook lsp--managed-mode-hook) :append
+  (add-hook! 'lsp-managed-mode-hook :append
     (cond ((derived-mode-p 'scss-mode)
            ;; `lsp-mode' overrides our tags here, but we need those for variable name
            ;; completions as `lsp-css' isn't that smart yet
@@ -348,6 +348,7 @@
           web-mode-attr-value-indent-offset nil
           web-mode-block-padding 0)))
 
+(autoload 'web-mode-set-engine "web-mode" nil t)
 (def-project-mode! +web-django-mode
   :modes '(web-mode js-mode coffee-mode css-mode haml-mode pug-mode)
   :files ("manage.py")
