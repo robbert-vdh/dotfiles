@@ -11,15 +11,6 @@
                    ("thinkpad" 13.5)
                    (_ 13.0)))
 
-;; HACK: The modeline doesn't scale proportion with the font size, this will
-;;       reduce the minimum height to match the larger font size defiend above
-(defadvice! +robbert--doom-modeline--font-height-a ()
-  :override #'doom-modeline--font-height
-  (let ((height (face-attribute 'mode-line :height)))
-    (round (* 1.25 (cond ((integerp height) (/ height 10))
-                         ((floatp height) (* height (frame-char-height)))
-                         (t (frame-char-height)))))))
-
 (use-package! academic-phrases)
 
 (use-package! evil-lion
@@ -317,13 +308,11 @@
 
 (after! rustic-mode
   ;; Add missing confugration
+  ;; XXX: Is this still needed?
   (set-electric! 'rustic-mode :chars '(?\n ?\}))
 
-  ;; Don't show snippets in the completion, as these tend to cause a lot of
-  ;; clutter
-  (set-company-backend! 'rustic-mode 'company-capf)
-
   ;; FIXME: Without this, function opening braces don't expand
+  ;; XXX: Is this still needed?
   (dolist (brace '("(" "{" "["))
     (sp-local-pair 'rustic-mode brace nil
                    :post-handlers '(("||\n[i]" "RET") ("| " "SPC"))))
@@ -332,6 +321,7 @@
   ;; even when specifically running the nightly RLS
   (setenv "RUST_SRC_PATH"
           (expand-file-name "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"))
+  ;; XXX: Is this still needed?
   (setq racer-rust-src-path (getenv "RUST_SRC_PATH")))
 
 (after! css-mode
