@@ -125,7 +125,7 @@
        (org              ; organize your plain life in plain text
         +gnuplot
         +dragndrop       ; file drag & drop support
-        +ipython         ; ipython support for babel
+        +jupyter         ; ipython/jupyter support for babel
         +pandoc          ; pandoc integration into org's exporter
         +present)        ; using Emacs for presentationspresent)
        ;;perl              ; write code no one else can comprehend

@@ -54,6 +54,18 @@
 (after! agda2-mode
   (set-lookup-handlers! 'agda2-mode :definition #'agda2-goto-definition-keyboard))
 
+(after! company-tng
+  (setq company-minimum-prefix-length 2
+        company-idle-delay 0.1
+        ;; ;; The previews are nice, but it doesn't work that well when combined
+        ;; ;; with tng
+        ;; company-frontends
+        ;; '(company-preview-if-just-one-frontend
+        ;;   company-tng-frontend
+        ;;   company-pseudo-tooltip-unless-just-one-frontend
+        ;;   company-echo-metadata-frontend)
+        ))
+
 (after! csharp-mode
   (set-electric! 'csharp-mode :chars '(?\n ?\{)))
 
@@ -472,18 +484,6 @@
 
 ;; Auto reload PDFs
 (add-hook 'doc-view-mode-hook #'auto-revert-mode)
-
-;; Enable vim-style auto completion
-(require 'company)
-(require 'company-tng)
-(company-tng-configure-default)
-(setq company-minimum-prefix-length 2
-      company-idle-delay 0.1
-      company-frontends
-      '(company-preview-if-just-one-frontend
-        company-tng-frontend
-        company-pseudo-tooltip-unless-just-one-frontend
-        company-echo-metadata-frontend))
 
 ;; Explicitely load evil-surround so that extra pairs can be loaded in time
 (require 'evil-surround)
