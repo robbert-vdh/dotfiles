@@ -144,11 +144,7 @@
 (after! flycheck
   (set-evil-initial-state! 'flycheck-error-list-mode 'normal))
 
-(after! flyspell
-  ;; Don't automatically spellcheck when enabling flycheck
-  (add-hook 'text-mode-hook 'flyspell-mode)
-  (add-hook 'yaml-mode-hook 'flyspell-mode)
-  (setq-default +flyspell-immediately nil))
+(add-hook 'text-mode-hook 'flyspell-mode)
 
 (after! format-all
   ;; Override shfmt to use two spaces instead of tabs

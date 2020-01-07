@@ -12,7 +12,7 @@
  :gni "C-S-SPC"         #'company-yasnippet
 
  ;; These keybindigns are no longer defaults, but they're still very useful
- :gi [M-backspace]      #'doom/backward-kill-to-bol-and-indent
+ :gi [M-backspace]      #'evil-delete-back-to-indentation
  :g "M-f"               #'swiper
 
  ;; These keybindigns don't make a lot of sense, but they're easy to use and not
