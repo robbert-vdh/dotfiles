@@ -228,7 +228,7 @@
   (add-hook 'lsp--managed-mode-hook #'flycheck-posframe-mode))
 
 (after! magit
-  (remove-hook 'git-commit-setup-hook #'+vc-start-in-insert-state-maybe)
+  (remove-hook 'git-commit-setup-hook #'+vc-start-in-insert-state-maybe-h)
   (setq magit-diff-refine-hunk 'all))
 
 (after! magit-todos
