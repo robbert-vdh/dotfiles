@@ -1,3 +1,4 @@
+#!/usr/bin/env xdg-open
 [Desktop Entry]
 Actions=Configure;Capture;
 Comment=Powerful yet simple to use screenshot software.

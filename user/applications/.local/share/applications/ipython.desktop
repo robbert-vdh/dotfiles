@@ -4,14 +4,19 @@
 # most commonly use.
 
 [Desktop Entry]
+Categories=Development;Utility;
 Comment=Enhanced interactive Python shell
 Exec=ipython --pylab --no-banner -i -c "import re"
-GenericName[en_US]=IPython
 GenericName=IPython
+GenericName[en_US]=IPython
 Icon=ipython
-Name[en_US]=ipython
 Name=ipython
-Categories=Development;Utility;
+Name[en_US]=ipython
+NoDisplay=false
+Path[$e]=
 StartupNotify=false
-Terminal=true
+Terminal=1
+TerminalOptions=
 Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
