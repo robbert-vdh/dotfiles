@@ -370,7 +370,6 @@
       ;; `jk' tends to cause a lot of issues when writing in Dutch
       evil-escape-key-sequence nil
       evil-ex-substitute-global nil
-      executable-prefix-env t
       ;; Order should not matter when searching
       ;; ivy-re-builders-alist '(;; (swiper . ivy--regex-plus)
       ;;                         (t      . ivy--regex-ignore-order))
