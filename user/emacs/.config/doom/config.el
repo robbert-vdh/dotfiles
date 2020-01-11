@@ -223,10 +223,6 @@
                  company-idle-delay 0.3
                  completion-at-point-functions '(ggtags-completion-at-point))))))
 
-(after! lsp-ui
-  ;; Use regular flycheck popups instead of the sideline
-  (add-hook 'lsp--managed-mode-hook #'flycheck-posframe-mode))
-
 (after! magit
   (remove-hook 'git-commit-setup-hook #'+vc-start-in-insert-state-maybe-h)
   (setq magit-diff-refine-hunk 'all))
@@ -314,6 +310,7 @@
 (after! prodigy
   (set-evil-initial-state! 'prodigy-mode 'normal))
 
+(setq lsp-rust-server 'rust-analyzer)
 (after! rustic-mode
   ;; Add missing confugration
   ;; XXX: Is this still needed?
