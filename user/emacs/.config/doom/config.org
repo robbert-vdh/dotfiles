@@ -700,6 +700,12 @@ use mspyls and to make electric indent a less aggressive.
 #+begin_src emacs-lisp
 (setq-hook! 'rustic-mode-hook fill-column 100)
 
+(setq rustic-indent-offset 4)
+#+end_src
+
+Enable clippy support and enable rust-analyzer.
+
+#+begin_src emacs-lisp
 (setq lsp-rust-server 'rust-analyzer)
 (after! rustic-mode
   ;; RLS, for some reason, always wants to use the stable compiler's source code
@@ -707,16 +713,13 @@ use mspyls and to make electric indent a less aggressive.
   ;; XXX: Is this still needed?
   (setenv "RUST_SRC_PATH"
           (expand-file-name "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src")))
-#+end_src
 
-Enable clippy support for RLS.
-
-#+begin_src emacs-lisp
-;; TODO: This is probably done differently for rust-analyzer
-(add-hook! 'rustic-mode-hook :append
-  (let ((preferences (make-hash-table)))
-    (puthash "clippy_preference" "on" preferences)
-    (lsp--set-configuration `(:rust ,preferences))))
+(after! lsp-mode
+  ;; TODO: This is probably done differently for rust-analyzer
+  (add-hook! 'rustic-mode-hook :append
+    (let ((preferences (make-hash-table)))
+      (puthash "clippy_preference" "on" preferences)
+      (lsp--set-configuration `(:rust ,preferences)))))
 #+end_src
 
 ** Sass/CSS
