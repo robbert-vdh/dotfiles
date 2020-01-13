@@ -1,10 +1,80 @@
+#+TITLE: Doom config
+
+* Table of Contents :TOC_3:
+- [[#basic-settings][Basic settings]]
+  - [[#daemon][Daemon]]
+  - [[#environment][Environment]]
+  - [[#fonts-and-scaling][Fonts and scaling]]
+  - [[#line-numbers][Line numbers]]
+  - [[#scrolling][Scrolling]]
+  - [[#theming][Theming]]
+  - [[#whitespace][Whitespace]]
+- [[#keybindings][Keybindings]]
+- [[#evil][Evil]]
+  - [[#evil-lion][evil-lion]]
+  - [[#evil-surround][evil-surround]]
+- [[#packages][Packages]]
+  - [[#academic-phrases][Academic Phrases]]
+  - [[#company][Company]]
+  - [[#flycheck][Flycheck]]
+  - [[#flyspell][Flyspell]]
+  - [[#helpful][Helpful]]
+  - [[#hl-todo][hl-todo]]
+  - [[#hippie-expand][Hippie Expand]]
+  - [[#ivycounsel][Ivy/Counsel]]
+  - [[#languagetool][LanguageTool]]
+  - [[#lsp][LSP]]
+  - [[#magit-and-diffing][Magit and diffing]]
+  - [[#page-break-lines][Page break lines]]
+  - [[#pdf-tools][PDF tools]]
+  - [[#wordnut][Wordnut]]
+  - [[#vterm][Vterm]]
+- [[#programming][Programming]]
+  - [[#agda2][Agda2]]
+  - [[#c][C#]]
+  - [[#configuration-files][Configuration files]]
+  - [[#haskell][Haskell]]
+  - [[#jupyter][Jupyter]]
+  - [[#kotlin][Kotlin]]
+  - [[#latex][LaTeX]]
+  - [[#markdown][Markdown]]
+  - [[#org][Org]]
+  - [[#php][PHP]]
+  - [[#python][Python]]
+  - [[#rust][Rust]]
+  - [[#sasscss][Sass/CSS]]
+  - [[#shell-scripts][Shell scripts]]
+  - [[#typescriptjavsscript][TypeScript/JavsScript]]
+  - [[#web][Web]]
+    - [[#django][Django]]
+  - [[#yaml][YAML]]
+
+* Basic settings
+** Daemon
+Doom Emacs doesn't play along nicely with the noninteractive Emacs daemon, but
+enabling the daemon in a running GUI process still allows you to open files from
+the terminal in the current frame.
+
+#+begin_src emacs-lisp
 (require 'server)
 (unless (server-running-p)
   (server-start))
+#+end_src
 
+** Environment
+Doom doesn't load environment variables from a shell for performance reasons, so
+we have to set the =PATH= variable ourselves since this is not always inherited
+by Emacs:
+
+#+begin_src emacs-lisp
 (add-to-list 'exec-path "~/.local/bin")
 (add-to-list 'exec-path "~/.cargo/bin")
+#+end_src
+** Fonts and scaling
+My lalptop has a HiDPI scree nand I prefer everything to be scaled up slightly
+there. The =+scaling-ratio= setting is used in the [[Org][org-mode]] config.
 
+#+begin_src emacs-lisp
 (setq +scaling-ratio (pcase (system-name)
                        ("thinkpad" 1.75)
                        (_ 1.2))
@@ -17,9 +87,20 @@
                            :size +font-size)
       doom-variable-pitch-font (font-spec :family "Roboto"
                                           :size +font-size))
+#+end_src
 
+** Line numbers
+Relative line numbers are nice for vertical motions.
+
+#+begin_src emacs-lisp
 (setq display-line-numbers-type 'relative)
+#+end_src
 
+** Scrolling
+Recenter when jumping to something off screen. This requires more resources but
+it makes browsing code a lot easier.
+
+#+begin_src emacs-lisp
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 3) ((control)))
       scroll-conservatively 3
       scroll-margin 3
@@ -27,7 +108,13 @@
 
 (setq-hook! 'intero-repl-mode-hook scroll-margin 0)
 (setq-hook! 'term-mode-hook scroll-margin 0)
+#+end_src
 
+** Theming
+Also increase the default frame size so that a typical document fits in the
+default frame.
+
+#+begin_src emacs-lisp
 (add-to-list 'default-frame-alist '(height . 40))
 (add-to-list 'default-frame-alist '(width . 120))
 
@@ -37,13 +124,27 @@
       ;; The gray comments are hard to read in my terminal, although I rarely
       ;; use Emacs in a terminal
       doom-one-brighter-comments (not (or (display-graphic-p) (daemonp))))
+#+end_src
 
+** Whitespace
+Show trailing whitespace. This got removed as a default.
+
+#+begin_src emacs-lisp
 (setq-default show-trailing-whitespace nil)
 
 (add-hook! (prog-mode text-mode conf-mode)
   (defun doom-enable-show-trailing-whitespace-h ()
     (setq show-trailing-whitespace t)))
+#+end_src
 
+* Keybindings
+Doom has changed its keybindings quite a bit over time. These keybindings
+override the defaults and add back a few the keybindings Doom has removed over time.
+The most important changes here are =M-f= and =M-F= to search to current buffer
+or the whole project with =swiper= or ripgrep, and the newline keybindings are
+overridden to not continue comments.
+
+#+begin_src emacs-lisp
 (map!
  :gi [remap newline] #'+robbert/newline-and-indent
  :gi [M-return]      #'newline-and-indent
@@ -69,7 +170,16 @@
 
    (:prefix "t"
      :desc "Change dictionary"      "S" #'ispell-change-dictionary)))
+ #+end_src
 
+Other mode-specific keybindings are bundled with that mode for ease of reading.
+
+* Evil
+I disable the default ~jk~ escape sequence since this sequence and most
+sequences like it are pretty common in Dutch writing. There are some more
+settings in =init.el=, as those have to be set before evil gets loaded.
+
+#+begin_src emacs-lisp
 (setq evil-escape-key-sequence nil
       evil-ex-substitute-global nil
       +evil-want-o/O-to-continue-comments nil)
@@ -91,44 +201,88 @@
   ;; These are not necessary because of `scroll-conservatively'
   (dolist (fn '(evil-ex-search-forward evil-ex-search-backward))
     (advice-remove fn #'doom-recenter-a)))
+#+end_src
 
+Package specific evil configuration such as that for Org and Magit is grouped
+with the package.
+
+** evil-lion
+Alignment operator for evil. Bound to =gl= and =gL= by default.
+
+#+begin_src emacs-lisp
 (use-package! evil-lion
   :after evil
   :config (evil-lion-mode))
+#+end_src
 
+** evil-surround
+Add some more pairs commonly used in Org and LaTeX to evil-surround.
+
+#+begin_src emacs-lisp
 ;; TODO: Check whether this still works
 (after! evil-surround
   ;; Add evil-surround support for common markup symbols
   (dolist (pair '((?$ . ("$" . "$")) (?= . ("=" . "=")) (?~ . ("~" . "~"))
                   (?/ . ("/" . "/")) (?* . ("*" . "*")) (?* . (":" . ":"))))
     (push pair evil-surround-pairs-alist)))
+#+end_src
 
+* Packages
+** Academic Phrases
+#+begin_src emacs-lisp
 (use-package! academic-phrases)
+#+end_src
 
+** Company
+#+begin_src emacs-lisp
 (after! company-tng
   (setq company-minimum-prefix-length 2
         company-idle-delay 0.1))
+#+end_src
 
+Most of the default bindings are good, but when using company-tng it's nice to
+be able to cancel completion using the escape key.
+
+#+begin_src emacs-lisp
 (map!
  (:after company
    (:map company-active-map
      "C-a"    #'company-abort
      "C-l"    #'company-complete
      [escape] nil)))
+#+end_src
 
+** Flycheck
+#+begin_src emacs-lisp
 (setq flycheck-pos-tip-timeout 15)
 
 (map!
  (:after flycheck
    (:map flycheck-error-list-mode-map
      :m [M-return] #'flycheck-error-list-explain-erro)))
+#+end_src
 
+** Flyspell
+Add spell checking to all text documents.
+
+#+begin_src emacs-lisp
 (setq flyspell-default-dictionary "english")
 
 (add-hook 'text-mode-hook 'flyspell-mode)
+#+end_src
 
+** Helpful
+Increase the size of help popups to match Ivy's height.
+
+#+begin_src emacs-lisp
 (set-popup-rule! "^\\*Help" :size 0.3 :select t)
+#+end_src
 
+** hl-todo
+Add more useful TODO keywords to be highlighted, and also highlight TODOs in
+text documents.
+
+#+begin_src emacs-lisp
 (add-hook 'text-mode-hook #'hl-todo-mode)
 
 (after! hl-todo
@@ -138,7 +292,13 @@
           ("XXX"   . ,(face-foreground 'error))
           ("HACK"  . ,(face-foreground 'error))
           ("NOTE"  . ,(face-foreground 'success)))))
+#+end_src
 
+** Hippie Expand
+Hippie Expand is really useful, but it comes with quite a few redundant or error
+prone completion functions enabled by default.
+
+#+begin_src emacs-lisp
 (setq hippie-expand-try-functions-list
       '(try-complete-file-name-partially
         try-complete-file-name
@@ -154,7 +314,10 @@
   (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand))
 
 (map! [remap dabbrev-expand] #'hippie-expand)
+#+end_src
 
+** Ivy/Counsel
+#+begin_src emacs-lisp
 (setq completion-styles '(partial-completion initials)
       confirm-nonexistent-file-or-buffer nil)
 
@@ -163,7 +326,15 @@
    (:map ivy-minibuffer-map
      "C-d" #'ivy-scroll-up-command
      "C-u" #'ivy-scroll-down-command)))
+#+end_src
 
+** LanguageTool
+Using LanguageTool inside of a structured text document such as LaTeX, Org or
+Markdown you will get lots of whitespace related lints, so I just disable that
+rule from the start. The keybindigns don't make a lot of sense, but they're easy
+to use and not in use for anything else.
+
+#+begin_src emacs-lisp
 (after! langtool
   (setq langtool-disabled-rules '("WHITESPACE_RULE")
         langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*"))
@@ -176,7 +347,13 @@
    (:prefix "t"
      :desc "LanguageTool"         "t" #'+robbert/languagetool-toggle
      :desc "LanguageTool correct" "T" #'langtool-correct-buffer)))
+#+end_src
 
+** LSP
+=lsp-ui='s peek functionality is pretty cool, but it's missing default evil
+bindings.
+
+#+begin_src emacs-lisp
 (after! lsp-mode
   ;; Don't highlight symbols automatically, I'll use `gh' to do this manually
   (setq lsp-enable-symbol-highlighting nil)
@@ -201,7 +378,14 @@
      (:localleader
        (:prefix "g"
          :desc "Implementations" "i" #'lsp-ui-peek-find-implementation)))))
+#+end_src
 
+** Magit and diffing
+Magit can do word diffs. This is disabled by default since it is very slow, but
+it makes reading diffs a lot easier. I also disable commits starting in insert
+mode since this conflicts with years of muscle memory.
+
+#+begin_src emacs-lisp
 (after! ediff
   ;; Ancestor is already shown in buffer C
   (setq ediff-show-ancestor nil))
@@ -223,20 +407,41 @@
  (:leader
    (:prefix "g"
      :desc "Git blame (follow copy)" "B" #'+robbert/magit-blame-follow-copy)))
+#+end_src
 
+** Page break lines
+Transforms =^L= characters used in elisp into horizontal lines.
+
+#+begin_src emacs-lisp
 (use-package! page-break-lines
   :config
   (add-hook! (emacs-lisp-mode view-mode) 'turn-on-page-break-lines-mode))
+#+end_src
 
+** PDF tools
+#+begin_src emacs-lisp
 ;; Auto reload PDFs
 (add-hook 'doc-view-mode-hook #'auto-revert-mode)
+#+end_src
 
+** Wordnut
+#+begin_src emacs-lisp
 (after! wordnut
   (set-popup-rule! "^\\*WordNut\\*$" :size 0.3 :select t))
+#+end_src
 
+** Vterm
+Disable cursor blinking in =vterm-mode=. This is not needed and it persists
+after the terminal closes.
+
+#+begin_src emacs-lisp
 (after! vterm
   (add-hook! 'vterm-mode-hook (blink-cursor-mode -1)))
+#+end_src
 
+* Programming
+** Agda2
+#+begin_src emacs-lisp
 (after! agda2-mode
   (set-lookup-handlers! 'agda2-mode :definition #'agda2-goto-definition-keyboard)
 
@@ -245,7 +450,10 @@
 
         (:localleader
           :desc "Insert 'with'" "w" #'+robbert/agda-insert-with)))
+#+end_src
 
+** C#
+#+begin_src emacs-lisp
 (add-to-list 'auto-mode-alist '("\\.csproj$" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.ruleset$" . nxml-mode))
 
@@ -264,13 +472,27 @@
         (:localleader
           :desc "Refactor this"  "SPC" #'omnisharp-run-code-action-refactoring
           :desc "Restart server" "s"   #'omnisharp-start-omnisharp-server)) )
+#+end_src
 
+** Configuration files
+Systemd and other software use standard conf file syntax, but Emacs doesn't know
+about this by default since it can't infer it from the filename or the contents
+of the files.
+
+#+begin_src emacs-lisp
 (add-to-list 'auto-mode-alist '("\\.service$" . conf-unix-mode))
 (add-to-list 'auto-mode-alist '("\\.socket$" . conf-unix-mode))
 (add-to-list 'auto-mode-alist '("\\.target$" . conf-unix-mode))
 (add-to-list 'auto-mode-alist '("index\\.theme$" . conf-unix-mode))
 (add-to-list 'auto-mode-alist '("\\.timer$" . conf-unix-mode))
+#+end_src
 
+** Haskell
+Use hindent isntead of brittany for Haskell mode. I prefer hindent's style and
+brittany breaks very quickly. It does tend to be a bit overzealous though, so
+I'll invoke it manually when it's needed.
+
+#+begin_src emacs-lisp
 (after! haskell-mode
   (set-formatter! 'hindent '("hindent") :modes '(haskell-mode literate-haskell-mode))
   (add-to-list '+format-on-save-enabled-modes 'haskell-mode t)
@@ -295,9 +517,21 @@
         ;; We can't just set the documentation function here since `intero-info'
         ;; does its own buffer management
         [remap +lookup/documentation] #'intero-info))
+#+end_src
 
+Some Haskell preprocessors such as Happy, Alex and uuagc use haskell-like syntax
+with a few additions. For these files it's useful to have most of the
+functionality of haskell-mode available.
+
+#+begin_src emacs-lisp
 (add-to-list 'auto-mode-alist '("\\.ag$" . +robbert/basic-haskell-mode))
+#+end_src
 
+** Jupyter
+By default ein expects you to store all of your notebooks in a single directory,
+but I just jupyter for lots of different projects so that doesn't work for me.
+
+#+begin_src emacs-lisp
 (after! ein
   (setq ein:jupyter-default-notebook-directory nil
         ein:slice-image '(10 nil)))
@@ -333,15 +567,34 @@
        :desc "Open this file"  "f" #'ein:notebooklist-open-notebook-by-file-name
        :desc "Login and open"  "o" #'ein:jupyter-server-login-and-open
        :desc "Start server"    "s" #'ein:jupyter-server-start))))
+#+end_src
 
+** Kotlin
+#+begin_src emacs-lisp
 (use-package! kotlin-mode)
+#+end_src
 
+** LaTeX
+#+begin_src emacs-lisp
 (after! latex-mode
   (set-electric! 'latex-mode :chars '(?\n ?\{)))
+#+end_src
 
+** Markdown
+Disable trailing whitespace stripping for Markdown mode since this conflicts
+with explicit line breaks (i.e. two spaces at the end of a line).
+
+#+begin_src emacs-lisp
 (after! markdown-mode
   (add-hook 'markdown-mode-hook #'doom-disable-delete-trailing-whitespace-h))
+#+end_src
 
+** Org
+Org's default LaTeX and PDF exports are a bit barebones. This enables a lot of
+functionality I use in most of my LaTeX documents, including proper syntax
+highlighting.
+
+#+begin_src emacs-lisp
 (setq org-directory (expand-file-name "~/Documenten/notes/"))
 
 (after! org
@@ -387,15 +640,33 @@
         ;; list, but M-return already does this so I prefer the old behaviour
         [C-return] (evil-org-define-eol-command org-insert-heading-respect-content)
         :ni [M-return] #'+robbert/evil-org-always-open-below))
+#+end_src
 
+Doom also supports exporting Org documents using Pandoc. This enables LaTeX math
+notation in all exported documents.
+
+#+begin_src emacs-lisp
 (after! ox-pandoc
   ;; Doom explicitely adds the deprecated `parse-raw' option
   (setq org-pandoc-options '((standalone . t) (mathjax . t))))
+#+end_src
 
+** PHP
+The standard should be set either through a configuration file or globally using
+=phpcs --config-set default_standard psr2= to ensure that flymake and phpcbf use
+the same standard.
+
+#+begin_src emacs-lisp
 (use-package! phpcbf
   :config
   (set-formatter! 'php-mode #'phpcbf))
+#+end_src
 
+** Python
+Python offers some nicer ways to work with REPLs. Also change the defaults to
+use mspyls and to make electric indent a less aggressive.
+
+#+begin_src emacs-lisp
 (setq-hook! 'rustic-mode-hook fill-column 79)
 
 (add-to-list 'auto-mode-alist '("Pipfile$" . conf-toml-mode))
@@ -423,7 +694,10 @@
             :desc "Buffer"   "b" #'python-shell-send-buffer
             :desc "Function" "f" #'python-shell-send-defun
             :desc "Region"   "r" #'python-shell-send-region))))
+#+end_src
 
+** Rust
+#+begin_src emacs-lisp
 (setq-hook! 'rustic-mode-hook fill-column 100)
 
 (setq lsp-rust-server 'rust-analyzer)
@@ -433,18 +707,30 @@
   ;; XXX: Is this still needed?
   (setenv "RUST_SRC_PATH"
           (expand-file-name "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src")))
+#+end_src
 
+Enable clippy support for RLS.
+
+#+begin_src emacs-lisp
 ;; TODO: This is probably done differently for rust-analyzer
 (add-hook! 'rustic-mode-hook :append
   (let ((preferences (make-hash-table)))
     (puthash "clippy_preference" "on" preferences)
     (lsp--set-configuration `(:rust ,preferences))))
+#+end_src
 
+** Sass/CSS
+#+begin_src emacs-lisp
 (setq css-indent-offset 2)
 
 (after! css-mode
   (set-electric! 'css-mode :chars '(?})))
+#+end_src
 
+GNU Global is an easy way to hack function and mixin completion into
+=scss-mode=. We only need it for Sass so all setup is done here.
+
+#+begin_src emacs-lisp
 (use-package! ggtags
   :commands (ggtags-find-tag-dwim ggtags-find-reference ggtags-mode)
   :hook (scss-mode . ggtags-mode)
@@ -482,16 +768,27 @@
 (map! :map scss-mode-map
       (:localleader
         :desc "Generate tags" "t" #'+robbert/generate-scss-tags))
+#+end_src
 
+Allow jumping to stylesheets inside of =node_modules=:
+
+#+begin_src emacs-lisp
 ;; TODO: Refactor this to use the new `+lookup/file' function
 (require 'ffap)
 (add-to-list 'ffap-alist '(scss-mode . +robbert/scss-find-file))
+#+end_src
 
+** Shell scripts
+#+begin_src emacs-lisp
 (setq sh-basic-offset 2)
 
 (after! fish-mode
   (set-electric! 'fish-mode :words '("else" "end")))
+#+end_src
 
+Override shfmt to use two spaces instead of tabs:
+
+#+begin_src emacs-lisp
 (after! format-all
   (set-formatter! 'shfmt
     '("shfmt"
@@ -500,7 +797,10 @@
       ("-ln" "%s" (cl-case (and (boundp 'sh-shell) (symbol-value 'sh-shell))
                     (bash "bash") (mksh "mksh") (t "posix"))))
     :modes 'sh-mode))
+#+end_src
 
+** TypeScript/JavsScript
+#+begin_src emacs-lisp
 (setq js-indent-level 2
       typescript-indent-level 2)
 
@@ -513,13 +813,26 @@
        :desc "Restart"        "s"   #'tide-restart-server
        :desc "Fix issue"      "RET" #'tide-fix
        :desc "Refactor..."    "SPC" #'tide-refactor))))
+#+end_src
 
+** Web
+Prevent self-closing HTML elements from getting an XML-style closing slash.
+There are a lot of snippets included with yasnippet that override emmemt's
+behaviour, so we try our best to remove them.
+
+#+begin_src emacs-lisp
 (after! emmet-mode
   (setq emmet-self-closing-tag-style ""))
 
 (after! (yasnippet web-mode)
   (remhash 'web-mode yas--parents))
+#+end_src
 
+Editorconfig tries to be helpful and force =web-mode= to exactly follow the
+style defined in =.editorconfig=, but this makes indented attribute lists look
+weird.
+
+#+begin_src emacs-lisp
 (setq web-mode-markup-indent-offset 2
       web-mode-css-indent-offset 2
       web-mode-comment-style 2)
@@ -547,12 +860,25 @@
      ;; In HTML we DO want to automatically indent broken 'strings', as these
      ;; are likely long attributes like a list of classes
      [remap newline] #'+robbert/newline-and-indent-always)))
+#+end_src
 
+*** Django
+Automatically recognize django projects and enable the proper template syntax
+when we find a =manage.py= file in the project's root directory.
+
+#+begin_src emacs-lisp
 (autoload 'web-mode-set-engine "web-mode" nil t)
 
 (def-project-mode! +web-django-mode
   :modes '(web-mode js-mode coffee-mode css-mode haml-mode pug-mode)
   :files ("manage.py")
   :on-enter (web-mode-set-engine "django"))
+#+end_src
 
+** YAML
+Don't autoformat yaml files since these files are very complicated and
+formatting almost always breaks something.
+
+#+begin_src emacs-lisp
 (add-to-list '+format-on-save-enabled-modes 'yaml-mode t)
+#+end_src
