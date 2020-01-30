@@ -70,8 +70,9 @@ by Emacs:
 (add-to-list 'exec-path "~/.local/bin")
 (add-to-list 'exec-path "~/.cargo/bin")
 #+end_src
+
 ** Fonts and scaling
-My lalptop has a HiDPI scree nand I prefer everything to be scaled up slightly
+My laptop has a HiDPI scree nand I prefer everything to be scaled up slightly
 there. The =+scaling-ratio= setting is used in the [[Org][org-mode]] config.
 
 #+begin_src emacs-lisp
@@ -82,11 +83,18 @@ there. The =+scaling-ratio= setting is used in the [[Org][org-mode]] config.
                    ("thinkpad" 13.5)
                    (_ 13.0))
 
-      doom-font (font-spec :family "InputMono Nerd Font"
-                           :width 'semi-condensed
+      doom-font (font-spec :family "JetBrainsMono"
                            :size +font-size)
       doom-variable-pitch-font (font-spec :family "Roboto"
                                           :size +font-size))
+#+end_src
+
+When using JetBrains Mono, the default third bullet for org-bullet makes third
+level headers much taller than the others, so I'll change that one to something
+else.
+
+#+begin_src emacs-lisp
+(setq org-bullets-bullet-list '("◉" "⦿" "✸" "•" "▸"))
 #+end_src
 
 ** Line numbers

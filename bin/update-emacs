@@ -13,5 +13,5 @@ git pull --rebase --autostash
 
 bin/doom clean
 bin/doom -y refresh -p
-bin/doom update
+bin/doom -y update
 bin/doom -y compile
