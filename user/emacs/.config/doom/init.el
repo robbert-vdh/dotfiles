@@ -1,11 +1,7 @@
 ;;; ~/.config/doom/init.el -*- lexical-binding: t; -*-
 
 ;; These variables have to be set early
-(setq evil-want-Y-yank-to-eol nil
-      ;; This changes the behaviour of vertical motions in an inintuitive way.
-      ;; This swaps the motions for <dir> and g<dir> when `visual-line-mode' is
-      ;; enabled.
-      evil-respect-visual-line-mode nil)
+(setq evil-want-Y-yank-to-eol nil)
 
 (doom! :input
        ;;chinese

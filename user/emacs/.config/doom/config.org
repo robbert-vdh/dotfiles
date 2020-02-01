@@ -32,6 +32,8 @@
 - [[#programming][Programming]]
   - [[#agda2][Agda2]]
   - [[#c][C#]]
+  - [[#cc][CC]]
+    - [[#meson-build-system][Meson build system]]
   - [[#configuration-files][Configuration files]]
   - [[#haskell][Haskell]]
   - [[#jupyter][Jupyter]]
@@ -482,6 +484,13 @@ after the terminal closes.
           :desc "Restart server" "s"   #'omnisharp-start-omnisharp-server)) )
 #+end_src
 
+** CC
+*** Meson build system
+#+begin_src emacs-lisp
+(use-package! meson-mode
+  :mode "/meson\\(\\.build\\|_options\\.txt\\)\\'")
+#+end_src
+
 ** Configuration files
 Systemd and other software use standard conf file syntax, but Emacs doesn't know
 about this by default since it can't infer it from the filename or the contents
@@ -714,16 +723,14 @@ use mspyls and to make electric indent a less aggressive.
 Enable clippy support and enable rust-analyzer.
 
 #+begin_src emacs-lisp
-(setq rustic-lsp-server 'rust-analyzer
-      lsp-rust-server 'rust-analyzer
+(setq lsp-rust-server 'rust-analyzer
       lsp-rust-clippy-preference "on")
 
-(after! rustic-mode
-  ;; RLS, for some reason, always wants to use the stable compiler's source code
-  ;; even when specifically running the nightly RLS
-  ;; XXX: Is this still needed?
-  (setenv "RUST_SRC_PATH"
-          (expand-file-name "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src")))
+;; RLS, for some reason, always wants to use the stable compiler's source code
+;; even when specifically running the nightly RLS
+;; XXX: Is this still needed?
+(setenv "RUST_SRC_PATH"
+          (expand-file-name "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"))
 #+end_src
 
 ** Sass/CSS
