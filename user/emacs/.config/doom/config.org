@@ -175,9 +175,6 @@ overridden to not continue comments.
      :desc "Browse dotfiles"        "T" #'+robbert/browse-dotfiles
      :desc "Find file externally"   "x" #'counsel-find-file-extern)
 
-   (:prefix "g"
-     :desc "SMerge hydra"           "m" #'+hydra-smerge/body)
-
    (:prefix "t"
      :desc "Change dictionary"      "S" #'ispell-change-dictionary)))
  #+end_src
@@ -502,6 +499,7 @@ of the files.
 (add-to-list 'auto-mode-alist '("\\.target$" . conf-unix-mode))
 (add-to-list 'auto-mode-alist '("index\\.theme$" . conf-unix-mode))
 (add-to-list 'auto-mode-alist '("\\.timer$" . conf-unix-mode))
+(add-to-list 'auto-mode-alist '("\\.wrap$" . conf-unix-mode))
 #+end_src
 
 ** Haskell
