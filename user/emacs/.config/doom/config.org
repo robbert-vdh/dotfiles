@@ -206,7 +206,10 @@ settings in =init.el=, as those have to be set before evil gets loaded.
   (set-repeater! evil-find-char-to-backward evil-repeat-find-char evil-repeat-find-char-reverse)
 
   ;; These are not necessary because of `scroll-conservatively'
-  (dolist (fn '(evil-ex-search-forward evil-ex-search-backward))
+  (dolist (fn '(evil-ex-search-forward
+                evil-ex-search-backward
+                evil-ex-search-next
+                evil-ex-search-previous))
     (advice-remove fn #'doom-recenter-a)))
 #+end_src
 
