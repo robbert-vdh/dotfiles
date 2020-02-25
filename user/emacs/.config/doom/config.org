@@ -523,6 +523,8 @@ I'll invoke it manually when it's needed.
     ;; `haskell-mode' sets the default tab width to eight spaces for some reason
     tab-width 2)
 
+  ;; XXX: Doom recently added something similar so this is not being used
+  ;;      anymore. This version might be better though.
   (map! :map haskell-mode-map
         [remap evil-open-above] #'+robbert/haskell-evil-open-above
         [remap evil-open-below] #'+robbert/haskell-evil-open-below))
@@ -690,14 +692,14 @@ use mspyls and to make electric indent a less aggressive.
 (add-to-list 'auto-mode-alist '("Pipfile$" . conf-toml-mode))
 (add-to-list 'auto-mode-alist '("Pipfile\\.lock$" . json-mode))
 
+(setq lsp-python-ms-nupkg-channel "beta")
+(after! lsp-mode
+  ;; Also show flake8 warnings since mspyls misses a lot of things
+  (flycheck-add-next-checker 'lsp '(warning . python-flake8)))
+
 (after! python
   ;; Set this to `django' to force docstring to always be on multiple lines
   (setq python-fill-docstring-style 'onetwo)
-
-  (setq lsp-python-ms-nupkg-channel "beta")
-  (after! lsp-ui
-    ;; Also show flake8 warnings since mspyls misses a lot of things
-    (flycheck-add-next-checker 'lsp-ui '(warning . python-flake8)))
 
   ;; Electric indent on `:' only really works for `else' clauses and makes
   ;; defining functions a lot harder than it should be
@@ -796,6 +798,10 @@ Allow jumping to stylesheets inside of =node_modules=:
 ** Shell scripts
 #+begin_src emacs-lisp
 (setq sh-basic-offset 2)
+
+(after! lsp-mode
+  ;; Also show flake8 warnings since mspyls misses a lot of things
+  (flycheck-add-next-checker 'lsp '(warning . sh-shellcheck)))
 
 (after! fish-mode
   (set-electric! 'fish-mode :words '("else" "end")))
