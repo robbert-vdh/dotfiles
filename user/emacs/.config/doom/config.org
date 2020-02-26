@@ -26,6 +26,7 @@
   - [[#magit-and-diffing][Magit and diffing]]
   - [[#page-break-lines][Page break lines]]
   - [[#pdf-tools][PDF tools]]
+  - [[#treemacs][Treemacs]]
   - [[#wordnut][Wordnut]]
   - [[#vterm][Vterm]]
 - [[#programming][Programming]]
@@ -422,6 +423,12 @@ Transforms =^L= characters used in elisp into horizontal lines.
 #+begin_src emacs-lisp
 ;; Auto reload PDFs
 (add-hook 'doc-view-mode-hook #'auto-revert-mode)
+#+end_src
+
+** Treemacs
+Highlight directories based on git status
+#+begin_src emacs-lisp
+(setq +treemacs-git-mode 'deferred)
 #+end_src
 
 ** Wordnut
