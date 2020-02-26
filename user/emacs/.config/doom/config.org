@@ -11,7 +11,6 @@
   - [[#whitespace][Whitespace]]
 - [[#keybindings][Keybindings]]
 - [[#evil][Evil]]
-  - [[#evil-lion][evil-lion]]
   - [[#evil-surround][evil-surround]]
 - [[#packages][Packages]]
   - [[#academic-phrases][Academic Phrases]]
@@ -215,15 +214,6 @@ settings in =init.el=, as those have to be set before evil gets loaded.
 
 Package specific evil configuration such as that for Org and Magit is grouped
 with the package.
-
-** evil-lion
-Alignment operator for evil. Bound to =gl= and =gL= by default.
-
-#+begin_src emacs-lisp
-(use-package! evil-lion
-  :after evil
-  :config (evil-lion-mode))
-#+end_src
 
 ** evil-surround
 Add some more pairs commonly used in Org and LaTeX to evil-surround.

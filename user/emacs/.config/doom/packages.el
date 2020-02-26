@@ -3,7 +3,6 @@
 
 (package! academic-phrases)
 (package! ein)
-(package! evil-lion)
 (package! ggtags)
 (package! kotlin-mode)
 (package! meson-mode)
