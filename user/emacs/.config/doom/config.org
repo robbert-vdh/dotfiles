@@ -485,7 +485,8 @@ after the terminal closes.
 Use C++ as a default.
 
 #+begin_src emacs-lisp
-(setq +cc-default-header-file-mode 'c++-mode)
+(setq +cc-default-header-file-mode 'c++-mode
+      c-basic-offset 4)
 #+end_src
 
 *** Meson build system
