@@ -120,6 +120,17 @@ it makes browsing code a lot easier.
 (setq-hook! 'term-mode-hook scroll-margin 0)
 #+end_src
 
+These are not necessary because of =scroll-conservatively=:
+
+#+begin_src emacs-lisp
+(after! evil
+  (dolist (fn '(evil-ex-search-forward
+                evil-ex-search-backward
+                evil-ex-search-next
+                evil-ex-search-previous))
+    (advice-remove fn #'doom-recenter-a)))
+#+end_src
+
 ** Theming
 Also increase the default frame size so that a typical document fits in the
 default frame.
@@ -203,14 +214,7 @@ settings in =init.el=, as those have to be set before evil gets loaded.
   (set-repeater! evil-find-char evil-repeat-find-char evil-repeat-find-char-reverse)
   (set-repeater! evil-find-char-backward evil-repeat-find-char evil-repeat-find-char-reverse)
   (set-repeater! evil-find-char-to evil-repeat-find-char evil-repeat-find-char-reverse)
-  (set-repeater! evil-find-char-to-backward evil-repeat-find-char evil-repeat-find-char-reverse)
-
-  ;; These are not necessary because of `scroll-conservatively'
-  (dolist (fn '(evil-ex-search-forward
-                evil-ex-search-backward
-                evil-ex-search-next
-                evil-ex-search-previous))
-    (advice-remove fn #'doom-recenter-a)))
+  (set-repeater! evil-find-char-to-backward evil-repeat-find-char evil-repeat-find-char-reverse))
 #+end_src
 
 Package specific evil configuration such as that for Org and Magit is grouped
