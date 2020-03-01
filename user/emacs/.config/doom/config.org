@@ -240,21 +240,9 @@ Add some more pairs commonly used in Org and LaTeX to evil-surround.
 
 ** Company
 #+begin_src emacs-lisp
-(after! company-tng
+(after! company
   (setq company-minimum-prefix-length 2
         company-idle-delay 0.1))
-#+end_src
-
-Most of the default bindings are good, but when using company-tng it's nice to
-be able to cancel completion using the escape key.
-
-#+begin_src emacs-lisp
-(map!
- (:after company
-   (:map company-active-map
-     "C-a"    #'company-abort
-     "C-l"    #'company-complete
-     [escape] nil)))
 #+end_src
 
 ** Flycheck

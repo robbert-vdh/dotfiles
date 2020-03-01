@@ -8,7 +8,7 @@
        ;;japanese
 
        :completion
-       (company +auto +tng) ; the ultimate code completion backend
+       (company +auto)   ; the ultimate code completion backend
        ;;(helm +fuzzy)     ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        (ivy +prescient)  ; a search engine for love and life
