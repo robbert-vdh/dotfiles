@@ -15,3 +15,6 @@ bin/doom clean
 bin/doom -y refresh -p
 bin/doom -y update
 bin/doom -y compile
+
+# Restart the daemon if it is running
+systemctl --user try-restart emacs.service
