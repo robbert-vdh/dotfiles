@@ -478,7 +478,15 @@ Use C++ as a default.
 
 #+begin_src emacs-lisp
 (setq +cc-default-header-file-mode 'c++-mode
-      c-basic-offset 4)
+      ;; Match the Chromium clang-format style
+      c-basic-offset 4
+      c-offsets-alist '((innamespace . 0)
+                        (access-label . /)
+                        (inclass . +)))
+
+(after! cc-mode
+  ;; Also indent on colons
+  (set-electric! '(c-mode c++-mode objc-mode java-mode) :chars '(?\n ?\} ?\{ ?:)))
 #+end_src
 
 *** Meson build system
