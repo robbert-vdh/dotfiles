@@ -120,7 +120,7 @@ it makes browsing code a lot easier.
 (setq-hook! 'term-mode-hook scroll-margin 0)
 #+end_src
 
-These are not necessary because of =scroll-conservatively=:
+These are broken right now and not necessary because of =scroll-conservatively=:
 
 #+begin_src emacs-lisp
 (after! evil
@@ -128,7 +128,7 @@ These are not necessary because of =scroll-conservatively=:
                 evil-ex-search-backward
                 evil-ex-search-next
                 evil-ex-search-previous))
-    (advice-remove fn #'doom-recenter-a)))
+    (advice-remove fn #'doom-preserve-window-position-a)))
 #+end_src
 
 ** Theming
