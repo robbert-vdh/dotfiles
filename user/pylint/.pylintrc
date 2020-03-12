@@ -1,0 +1,15 @@
+# -*- mode: conf; -*-
+
+[MASTER]
+# Parallelize linting
+jobs=0
+
+[MESSAGES CONTROL]
+# pylint is super useful, but quite a few of the lints are way too strict and
+# cause a ton of false positives, especially when working with libraries such as
+# django that use mixins extensively
+disable=too-few-public-methods,
+        missing-class-docstring,
+        missing-function-docstring,
+        missing-module-docstring,
+        import-error
