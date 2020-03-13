@@ -9,10 +9,13 @@ jobs=0
 # cause a ton of false positives, especially when working with libraries such as
 # django that use mixins extensively
 disable=too-few-public-methods,
+        # Most things need a docstring, some things don't
         missing-class-docstring,
         missing-function-docstring,
         missing-module-docstring,
         # Pylint doesn't understand virtualenvs and this information is
         # redundant anyway
         import-error,
-        no-member
+        no-member,
+        # I'm capable of finding TODOs myself thank you
+        fixme
