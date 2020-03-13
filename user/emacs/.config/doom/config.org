@@ -6,6 +6,7 @@
   - [[#environment][Environment]]
   - [[#fonts-and-scaling][Fonts and scaling]]
     - [[#ligatures][Ligatures]]
+    - [[#input-method][Input Method]]
   - [[#line-numbers][Line numbers]]
   - [[#scrolling][Scrolling]]
   - [[#theming][Theming]]
@@ -136,6 +137,16 @@ regexps using the =regexp-opt= function.
   (dolist (char-regexp alist)
     (set-char-table-range composition-function-table (car char-regexp)
                           `([,(cdr char-regexp) 0 font-shape-gstring]))))
+#+end_src
+
+*** Input Method
+
+Emacs does some weird multilingual input character composing by default. This is
+not needed because AltGr is a thing and it also makes it impossible to type a
+quote followed by a vowel, so I just disable it.
+
+#+begin_src emacs-lisp
+(setq default-input-method nil)
 #+end_src
 
 ** Line numbers
