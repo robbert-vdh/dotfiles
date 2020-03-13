@@ -747,14 +747,14 @@ use mspyls and to make electric indent a less aggressive.
   ;; Also show flake8 warnings since mspyls misses a lot of things
   (flycheck-add-next-checker 'lsp '(warning . python-flake8)))
 
+;; mypy is automaitcally run after flake8, this doesn't work with virtualenvs
+;; without installing mypy to that virtualenv so I'll just disable it by
+;; default
+(setq-hook! 'python-mode-hook flycheck-disabled-checkers '(python-mypy))
+(add-hook 'python-mode-hook #'rainbow-delimiters-mode)
 (after! python
   ;; Set this to `django' to force docstring to always be on multiple lines
   (setq python-fill-docstring-style 'onetwo)
-
-  ;; mypy is automaitcally run after flake8, this doesn't work with virtualenvs
-  ;; without installing mypy to that virtualenv so I'll just disable it by
-  ;; default
-  (setq-hook! 'python-mode-hook flycheck-disabled-checkers '(python-mypy))
 
   ;; Electric indent on `:' only really works for `else' clauses and makes
   ;; defining functions a lot harder than it should be
