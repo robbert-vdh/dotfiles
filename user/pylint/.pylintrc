@@ -12,4 +12,7 @@ disable=too-few-public-methods,
         missing-class-docstring,
         missing-function-docstring,
         missing-module-docstring,
-        import-error
+        # Pylint doesn't understand virtualenvs and this information is
+        # redundant anyway
+        import-error,
+        no-member
