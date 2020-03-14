@@ -750,7 +750,7 @@ use mspyls and to make electric indent a less aggressive.
 ;; mypy is automaitcally run after flake8, this doesn't work with virtualenvs
 ;; without installing mypy to that virtualenv so I'll just disable it by
 ;; default
-(setq-hook! 'python-mode-hook flycheck-disabled-checkers '(python-mypy))
+(setq-hook! 'python-mode-hook flycheck-disabled-checkers '(python-mypy python-pylint))
 (add-hook 'python-mode-hook #'rainbow-delimiters-mode)
 (after! python
   ;; Set this to `django' to force docstring to always be on multiple lines

@@ -18,4 +18,9 @@ disable=too-few-public-methods,
         import-error,
         no-member,
         # I'm capable of finding TODOs myself thank you
-        fixme
+        fixme,
+        # It's a convention to use capital letters for matrices, pylint won't
+        # have any of that
+        invalid-name,
+        # I'll let black do all the formatting
+        bad-continuation
