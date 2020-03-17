@@ -758,7 +758,10 @@ use mspyls and to make electric indent a less aggressive.
 
   ;; Electric indent on `:' only really works for `else' clauses and makes
   ;; defining functions a lot harder than it should be
-  (set-electric! 'python-mode :words '("else:"))
+  (set-electric! 'python-mode ':words '("else:"))
+  ;; FIXME: The above doesn't clear the list of electric indent characters
+  ;;        anymore
+  (setq-hook! 'python-mode-hook electric-indent-chars '())
   ;; Disable the default template, as we don't need a hashbang in every Python
   ;; file
   (set-file-template! 'python-mode :ignore t)
