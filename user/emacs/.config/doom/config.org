@@ -400,6 +400,19 @@ bindings.
 (after! lsp-mode
   ;; Don't highlight symbols automatically, I'll use `gh' to do this manually
   (setq lsp-enable-symbol-highlighting nil)
+
+  ;; Doom disables a few LSP features by default, but some of them can be quite
+  ;; useful especially in C++
+  (setq lsp-enable-text-document-color t
+        lsp-enable-semantic-highlighting t
+        ;; Not sure if these two are actually used and, if they are, what they
+        ;; are used for. Might disable them later
+        lsp-enable-indentation t
+        lsp-enable-on-type-formatting t
+        ;; Already disabled by Doom, these don't really add anything
+        lsp-enable-folding nil
+        lsp-enable-file-watchers nil)
+
   ;; Increase the height of documentation (since these will contain long
   ;; docstrings in them)
   (set-popup-rule! "^\\*lsp-help\\*$" :size 0.3 :select t))
@@ -742,7 +755,7 @@ use mspyls and to make electric indent a less aggressive.
 (add-to-list 'auto-mode-alist '("Pipfile$" . conf-toml-mode))
 (add-to-list 'auto-mode-alist '("Pipfile\\.lock$" . json-mode))
 
-(setq lsp-python-ms-nupkg-channel "beta")
+(setq lsp-python-ms-nupkg-channel "stable")
 (after! lsp-mode
   ;; Also show flake8 warnings since mspyls misses a lot of things
   (flycheck-add-next-checker 'lsp '(warning . python-flake8)))
