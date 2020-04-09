@@ -50,7 +50,6 @@
   - [[#shell-scripts][Shell scripts]]
   - [[#typescriptjavsscript][TypeScript/JavsScript]]
   - [[#web][Web]]
-    - [[#django][Django]]
   - [[#yaml][YAML]]
 
 * Basic settings
@@ -168,17 +167,6 @@ it makes browsing code a lot easier.
 
 (setq-hook! 'intero-repl-mode-hook scroll-margin 0)
 (setq-hook! 'term-mode-hook scroll-margin 0)
-#+end_src
-
-These are broken right now and not necessary because of =scroll-conservatively=:
-
-#+begin_src emacs-lisp
-(after! evil
-  (dolist (fn '(evil-ex-search-forward
-                evil-ex-search-backward
-                evil-ex-search-next
-                evil-ex-search-previous))
-    (advice-remove fn #'doom-preserve-window-position-a)))
 #+end_src
 
 ** Theming
@@ -404,14 +392,14 @@ bindings.
   ;; Doom disables a few LSP features by default, but some of them can be quite
   ;; useful especially in C++
   (setq lsp-enable-text-document-color t
-        lsp-enable-semantic-highlighting t
+        lsp-semantic-highlighting :deferred
+        lsp-enable-file-watchers t
         ;; Not sure if these two are actually used and, if they are, what they
         ;; are used for. Might disable them later
         lsp-enable-indentation t
         lsp-enable-on-type-formatting t
         ;; Already disabled by Doom, these don't really add anything
-        lsp-enable-folding nil
-        lsp-enable-file-watchers nil)
+        lsp-enable-folding nil)
 
   ;; Increase the height of documentation (since these will contain long
   ;; docstrings in them)
@@ -755,7 +743,7 @@ use mspyls and to make electric indent a less aggressive.
 (add-to-list 'auto-mode-alist '("Pipfile$" . conf-toml-mode))
 (add-to-list 'auto-mode-alist '("Pipfile\\.lock$" . json-mode))
 
-(setq lsp-python-ms-nupkg-channel "stable")
+(setq lsp-python-ms-nupkg-channel "daily")
 (after! lsp-mode
   ;; Also show flake8 warnings since mspyls misses a lot of things
   (flycheck-add-next-checker 'lsp '(warning . python-flake8)))
@@ -952,19 +940,6 @@ weird.
      ;; In HTML we DO want to automatically indent broken 'strings', as these
      ;; are likely long attributes like a list of classes
      [remap newline] #'+robbert/newline-and-indent-always)))
-#+end_src
-
-*** Django
-Automatically recognize django projects and enable the proper template syntax
-when we find a =manage.py= file in the project's root directory.
-
-#+begin_src emacs-lisp
-(autoload 'web-mode-set-engine "web-mode" nil t)
-
-(def-project-mode! +web-django-mode
-  :modes '(web-mode js-mode coffee-mode css-mode haml-mode pug-mode)
-  :files ("manage.py")
-  :on-enter (web-mode-set-engine "django"))
 #+end_src
 
 ** YAML
