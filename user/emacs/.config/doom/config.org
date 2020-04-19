@@ -93,14 +93,6 @@ there. The =+scaling-ratio= setting is used in the [[Org][org-mode]] config.
                                           :size +font-size))
 #+end_src
 
-When using JetBrains Mono, the default third bullet for org-bullet makes third
-level headers much taller than the others, so I'll change that one to something
-else.
-
-#+begin_src emacs-lisp
-(setq org-bullets-bullet-list '("◉" "⦿" "✸" "•" "▸"))
-#+end_src
-
 *** Ligatures
 These are the ligatures for the JetBrains mono font. Since =composite.el= is
 quite a new feature, I had to build this list myself. The format for this
