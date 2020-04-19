@@ -382,6 +382,9 @@ bindings.
   ;; Don't highlight symbols automatically, I'll use `gh' to do this manually
   (setq lsp-enable-symbol-highlighting nil)
 
+  ;; Ignore build artifact directories used in Meson projects
+  (add-to-list 'lsp-file-watch-ignored "[/\\\\]build$")
+
   ;; Doom disables a few LSP features by default, but some of them can be quite
   ;; useful especially in C++
   (setq lsp-enable-text-document-color t
