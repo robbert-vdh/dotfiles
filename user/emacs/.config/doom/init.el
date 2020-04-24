@@ -84,7 +84,7 @@
         +docsets)        ; ...or in Dash docsets locally
        (lsp +peek)
        ;;macos             ; MacOS-specific commands
-       magit             ; a git porcelain for Emacs
+       (magit +forge)    ; a git porcelain for Emacs
        make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
        pdf               ; pdf enhancements
@@ -97,7 +97,6 @@
 
        :lang
        ;;agda              ; types of types of types of types...
-       ;;assembly          ; assembly for fun or debugging
        (cc +lsp)         ; C/C++/Obj-C madness
        ;;clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
@@ -115,6 +114,7 @@
        ;(haskell +ghcide) ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ;
+       (json +lsp)       ; At least it ain't XML
        ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
        javascript        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
@@ -150,6 +150,7 @@
        ;;terra             ; Earth and Moon in alignment for performance.
        (web +lsp)        ; the tubes
        ;;vala              ; GObjective-C
+       (yaml +lsp)       ; JSON, but readable
 
        :email
        ;;(mu4e +gmail)       ; WIP
