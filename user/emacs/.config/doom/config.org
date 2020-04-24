@@ -454,7 +454,7 @@ Transforms =^L= characters used in elisp into horizontal lines.
 #+begin_src emacs-lisp
 (use-package! page-break-lines
   :config
-  (add-hook! (emacs-lisp-mode view-mode) 'turn-on-page-break-lines-mode))
+  (add-hook! '(emacs-lisp-mode-hook view-mode-hook) 'turn-on-page-break-lines-mode))
 #+end_src
 
 ** PDF tools
@@ -489,8 +489,9 @@ Disable cursor blinking in =vterm-mode=. This is not needed and it persists
 after the terminal closes.
 
 #+begin_src emacs-lisp
-(after! vterm
-  (add-hook! 'vterm-mode-hook (blink-cursor-mode -1)))
+(add-hook! 'vterm-mode-hook
+  (defun +robbert-disable-vterm-blinking-h ()
+    (blink-cursor-mode -1)))
 #+end_src
 
 * Programming
@@ -518,7 +519,8 @@ after the terminal closes.
   ;; Killing the omnisharp server doesn't work as well when constantly switching
   ;; branches and previewing files
   (add-hook! 'csharp-mode-hook :append
-    (remove-hook 'kill-buffer-hook #'omnisharp-stop-server t))
+    (defun +robbert-dont-stop-omnisharp-h ()
+      (remove-hook 'kill-buffer-hook #'omnisharp-stop-server t) ))
 
   (map! :map omnisharp-mode-map
         :nv [M-return]                 #'omnisharp-run-code-action-refactoring
@@ -732,9 +734,9 @@ The standard should be set either through a configuration file or globally using
 the same standard.
 
 #+begin_src emacs-lisp
-(use-package! phpcbf
-  :config
-  (set-formatter! 'php-mode #'phpcbf))
+;; (use-package! phpcbf
+;;   :config
+;;   (set-formatter! 'php-mode #'phpcbf))
 #+end_src
 
 ** Python
@@ -822,7 +824,9 @@ GNU Global is an easy way to hack function and mixin completion into
   ;; Fix gtags for Sass. Pygments has got a parser that works great, but it
   ;; doesn't use the dollar sign prefix. We'll have to manually add the jump
   ;; handler to scss-mode as there are not any yet.
-  (add-hook! 'scss-mode-hook (modify-syntax-entry ?$ "'") (modify-syntax-entry ?% "."))
+  (add-hook! 'scss-mode-hook
+    (defun +robbert-fix-scss-syntax-table-h ()
+      (modify-syntax-entry ?$ "'") (modify-syntax-entry ?% ".")))
 
   ;; Completion is handled through `company-capf', though for scss in particular
   ;; we just want to use tags together with the lsp server as the built in
@@ -834,16 +838,17 @@ GNU Global is an easy way to hack function and mixin completion into
 ;; We can't apply our configuration in a simple hook as lsp-mode gets loaded
 ;; asynchronously
 (add-hook! 'lsp-managed-mode-hook :append
-  (cond ((derived-mode-p 'scss-mode)
-         ;; `lsp-mode' overrides our tags here, but we need those for variable name
-         ;; completions as `lsp-css' isn't that smart yet
-         (setq company-backends '((:separate company-capf
-                                             company-lsp
-                                             company-yasnippet))
-               ;; lsp-css's auto completion returns so many results that
-               ;; company struggles to keep up
-               company-idle-delay 0.3
-               completion-at-point-functions '(ggtags-completion-at-point)))))
+  (defun +robbert-lsp-scss-gtags-sestup-h ()
+    (cond ((derived-mode-p 'scss-mode)
+           ;; `lsp-mode' overrides our tags here, but we need those for variable
+           ;; name completions as `lsp-css' isn't that smart yet
+           (setq company-backends '((:separate company-capf
+                                               company-lsp
+                                               company-yasnippet))
+                 ;; lsp-css's auto completion returns so many results that
+                 ;; company struggles to keep up
+                 company-idle-delay 0.3
+                 completion-at-point-functions '(ggtags-completion-at-point))))))
 
 (map! :map scss-mode-map
       (:localleader
@@ -928,9 +933,10 @@ weird.
 
   ;; Editorconfig tells web-mode to indent attributes instead of aligning
   (add-hook! 'web-mode-hook :append
-    (setq web-mode-attr-indent-offset nil
-          web-mode-attr-value-indent-offset nil
-          web-mode-block-padding 0)))
+    (defun +robbert-undo-editorconfig-web-overrides-h ()
+      (setq web-mode-attr-indent-offset nil
+            web-mode-attr-value-indent-offset nil
+            web-mode-block-padding 0))))
 
 (map!
  (:after emmet-mode
