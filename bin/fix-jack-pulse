@@ -19,3 +19,7 @@ done
 for source in $sources; do
   pacmd move-sink-input "$source" jack_out
 done
+
+# Not related to jack, but pipewire for some reason claims exclusive access over
+# Alsa's raw MIDI devices
+systemctl --user stop pipewire.{socket,service}
