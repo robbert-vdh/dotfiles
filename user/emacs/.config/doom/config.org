@@ -94,7 +94,7 @@ there. The =+scaling-ratio= setting is used in the [[Org][org-mode]] config.
 #+end_src
 
 *** Ligatures
-These are the ligatures for the JetBrains mono font. Since =composite.el= is
+These are the ligatures for the JetBrains Mono font. Since =composite.el= is
 quite a new feature, I had to build this list myself. The format for this
 ligature alist and the way that =composition-function-table= works, is that the
 car for each cons cell is the first character of the ligature sequence, and the
@@ -198,13 +198,15 @@ overridden to not continue comments.
 
 #+begin_src emacs-lisp
 (map!
- :gi [remap newline] #'+robbert/newline-and-indent
- :gi [M-return]      #'newline-and-indent
- :gi [M-backspace]   #'evil-delete-back-to-indentation
- :g "M-f"            #'swiper
- :g "M-F"            #'+default/search-project
- :gnvi "M-Q"         #'+robbert/unfill-paragraph
- :gni "C-S-SPC"      #'company-yasnippet
+ ;; Doom's remaps `newline' to `newline-and-indent' and advices it to break
+ ;; comments. It's nice to have the option, but I don't like it as a default.
+ :i [remap newline] #'+robbert/newline-and-indent
+ :i [C-S-return]    #'newline-and-indent
+ :i [M-backspace]   #'evil-delete-back-to-indentation
+ :g "M-f"           #'swiper
+ :g "M-F"           #'+default/search-project
+ :gnvi "M-Q"        #'+robbert/unfill-paragraph
+ :gni "C-S-SPC"     #'company-yasnippet
 
  (:leader
    (:prefix "b"
