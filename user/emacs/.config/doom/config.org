@@ -844,13 +844,10 @@ GNU Global is an easy way to hack function and mixin completion into
     (cond ((derived-mode-p 'scss-mode)
            ;; `lsp-mode' overrides our tags here, but we need those for variable
            ;; name completions as `lsp-css' isn't that smart yet
-           (setq company-backends '((:separate company-capf
-                                               company-lsp
-                                               company-yasnippet))
-                 ;; lsp-css's auto completion returns so many results that
+           (setq ;; lsp-css's auto completion returns so many results that
                  ;; company struggles to keep up
                  company-idle-delay 0.3
-                 completion-at-point-functions '(ggtags-completion-at-point))))))
+                 completion-at-point-functions '(ggtags-completion-at-point lsp-completion-at-point))))))
 
 (map! :map scss-mode-map
       (:localleader
