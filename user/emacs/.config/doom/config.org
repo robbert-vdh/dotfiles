@@ -544,6 +544,15 @@ Use C++ as a default.
                         (inclass . +)))
 #+end_src
 
+=projectile-find-other-file= isn't very useful when multiple header and
+implementation files have the same file name.
+
+#+begin_src emacs-lisp
+(map! :map c-mode-map
+      :localleader
+      "o" #'ff-find-other-file)
+#+end_src
+
 *** Meson build system
 #+begin_src emacs-lisp
 (use-package! meson-mode
