@@ -548,7 +548,7 @@ Use C++ as a default.
 implementation files have the same file name.
 
 #+begin_src emacs-lisp
-(map! :map c-mode-map
+(map! :map (c-mode-map c++-mode-map)
       :localleader
       "o" #'ff-find-other-file)
 #+end_src
