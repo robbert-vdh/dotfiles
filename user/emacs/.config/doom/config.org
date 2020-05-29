@@ -538,10 +538,11 @@ Use C++ as a default.
 #+begin_src emacs-lisp
 (setq +cc-default-header-file-mode 'c++-mode
       ;; Match the Chromium clang-format style
-      c-basic-offset 4
       c-offsets-alist '((innamespace . 0)
                         (access-label . /)
                         (inclass . +)))
+
+(setq-hook! '(c-mode-hook c++-mode-hook) c-basic-offset 4)
 #+end_src
 
 =projectile-find-other-file= isn't very useful when multiple header and
