@@ -26,6 +26,7 @@
   - [[#languagetool][LanguageTool]]
   - [[#lsp][LSP]]
   - [[#magit-and-diffing][Magit and diffing]]
+    - [[#magit-delta][Magit Delta]]
   - [[#page-break-lines][Page break lines]]
   - [[#pdf-tools][PDF tools]]
   - [[#treemacs][Treemacs]]
@@ -433,7 +434,9 @@ mode since this conflicts with years of muscle memory.
 
 (after! magit
   (remove-hook 'git-commit-setup-hook #'+vc-start-in-insert-state-maybe-h)
-  (setq magit-diff-refine-hunk 'all))
+
+  ;; FIXME: Dns lookup is slow in Emacs 28
+  (setq magit-revision-show-gravatars nil))
 
 (after! magit-todos
   ;; Ignore concatenated/minified files when searching for todos
@@ -448,6 +451,18 @@ mode since this conflicts with years of muscle memory.
  (:leader
    (:prefix "g"
      :desc "Git blame (follow copy)" "B" #'+robbert/magit-blame-follow-copy)))
+#+end_src
+
+*** TODO Magit Delta
+Remove after merged upstream.
+
+#+begin_src emacs-lisp
+(use-package! magit-delta
+  :after magit
+  :config
+  (setq magit-delta-default-dark-theme "Nord"
+        magit-delta-default-light-theme "OneHalfLight")
+  (magit-delta-mode))
 #+end_src
 
 ** Page break lines

@@ -10,3 +10,6 @@
 (package! page-break-lines)
 (package! phpcbf)
 (package! pkgbuild-mode)
+
+;; TODO: Remove when merged upstream
+(package! magit-delta)
