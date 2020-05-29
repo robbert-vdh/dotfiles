@@ -11,8 +11,13 @@ git pull --rebase --autostash
 cd ~/.emacs.d
 git pull --rebase --autostash
 
-bin/doom clean
-bin/doom -y refresh -p
+# `bin/doom clean` is supposed to delete byte-compiled files, but this doesn't
+# really work since it will try to load these byte compiled files first and
+# thus fail
+shopt -s globstar
+rm **/*.elc
+
+bin/doom -y sync
 bin/doom -y update
 bin/doom -y compile
 
