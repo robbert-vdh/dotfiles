@@ -159,12 +159,6 @@ all existing tags."
   (evil-end-undo-step))
 
 ;;;###autoload
-(defun +robbert/lsp-format-before-save ()
-  ;; Use the server's formatter instead of format-all
-  (format-all-mode -1)
-  (add-hook 'before-save-hook #'lsp-format-buffer nil t))
-
-;;;###autoload
 (defun +robbert/newline-and-indent ()
   "Inserts a newline and possibly indents it. This is the same as
 `doom*newline-and-indent' but without the comment handling."
