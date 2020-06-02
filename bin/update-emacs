@@ -15,7 +15,7 @@ git pull --rebase --autostash
 # really work since it will try to load these byte compiled files first and
 # thus fail
 shopt -s globstar
-rm **/*.elc
+rm -f ./**/*.elc
 
 bin/doom -y sync
 bin/doom -y update
