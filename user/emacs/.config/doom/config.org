@@ -25,6 +25,8 @@
   - [[#ivycounsel][Ivy/Counsel]]
   - [[#languagetool][LanguageTool]]
   - [[#lsp][LSP]]
+    - [[#lsp-mode][lsp-mode]]
+    - [[#eglot][Eglot]]
   - [[#magit-and-diffing][Magit and diffing]]
     - [[#magit-delta][Magit Delta]]
   - [[#page-break-lines][Page break lines]]
@@ -420,6 +422,49 @@ bindings.
      (:localleader
        (:prefix "g"
          :desc "Implementations" "i" #'lsp-ui-peek-find-implementation)))))
+#+end_src
+
+Disable the default clang linting since this would be duplicate behavior and it
+also doesn't use the compilation database.
+
+#+begin_src emacs-lisp
+(setq-hook! '(eglot--managed-mode-hook lsp-managed-mode-hook)
+  flycheck-disabled-checkers '(c/c++-clang python-mypy python-pylint))
+#+end_src
+
+*** Eglot
+All other LSP related config is for lsp-mode. I found eglot a bit too bare bones
+when I tried using it a few years ago, but I'm giving it a shot again now that
+flymake integrates with flycheck.
+
+#+begin_src emacs-lisp
+;; Disable highlighting on hover
+(setq eglot-ignored-server-capabilites '(:documentHighlightProvider))
+#+end_src
+
+Use the Microsoft Python Language server. mspyls requires some settings to be
+set for it to work properly, even though the defaults should be obvious.
+
+#+begin_src emacs-lisp
+(after! eglot
+  ;; Snippet taken from https://github.com/joaotavora/eglot/issues/144#issuecomment-557229445
+
+  (defclass eglot-mspyls (eglot-lsp-server) ()
+    :documentation "MS Python Language Server.")
+
+  (setq-default eglot-workspace-configuration
+                '((:python
+                   :autoComplete (:extraPaths nil)
+                   :analysis (:autoSearchPaths :json-false :usePYTHONPATH :json-false))))
+
+  (cl-defmethod eglot-initialization-options ((_server eglot-mspyls))
+    `(:interpreter
+      (:properties
+       (:InterpreterPath "/usr/bin/python3"))
+      :searchPaths []))
+
+  (add-to-list 'eglot-server-programs
+               `(python-mode eglot-mspyls "mspyls")))
 #+end_src
 
 ** Magit and diffing
