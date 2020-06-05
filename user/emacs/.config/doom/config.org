@@ -217,6 +217,14 @@ overridden to not continue comments.
      :desc "Replace with clipboard" "P" #'+robbert/clipboard-to-buffer
      :desc "Copy to clipboard"      "Y" #'+robbert/buffer-to-clipboard)
 
+   ;; These lookup bindings are missing, there's an open PR that will maek
+   ;; similar changes
+   (:prefix "c"
+    :desc "Find implementations"    "i" #'+lookup/implementations
+    :desc "Find type definitions"   "t" #'+lookup/type-definition
+    (:when (and (featurep! :tools lsp) (not (featurep! :tools lsp +eglot)))
+     :desc "LSP Organize imports"   "o" #'lsp-organize-imports))
+
    (:prefix "f"
      :desc "Find file in dotfiles"  "t" #'+robbert/find-in-dotfiles
      :desc "Browse dotfiles"        "T" #'+robbert/browse-dotfiles
