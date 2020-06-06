@@ -290,8 +290,13 @@ Add some more pairs commonly used in Org and LaTeX to evil-surround.
 #+end_src
 
 ** Flycheck
+Revert the change made to when flycheck checkers are run. Since LSP is now used
+for most expensive checks anyways, running these a bit more often than strictly
+necessary won't cause an issue. Deferring checks to save also breaks diagnostics
+from LSP.
+
 #+begin_src emacs-lisp
-(setq flycheck-pos-tip-timeout 15)
+(setq flycheck-check-syntax-automatically '(save idle-change new-line mode-enabled))
 
 (map!
  (:after flycheck
