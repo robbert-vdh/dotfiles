@@ -296,7 +296,8 @@ necessary won't cause an issue. Deferring checks to save also breaks diagnostics
 from LSP.
 
 #+begin_src emacs-lisp
-(setq flycheck-check-syntax-automatically '(save idle-change new-line mode-enabled))
+(after! flycheck
+  (setq flycheck-check-syntax-automatically '(save idle-change new-line mode-enabled)))
 
 (map!
  (:after flycheck
