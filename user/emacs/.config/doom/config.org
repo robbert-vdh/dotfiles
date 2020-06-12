@@ -410,7 +410,7 @@ bindings.
   ;; Doom disables a few LSP features by default, but some of them can be quite
   ;; useful especially in C++
   (setq lsp-enable-text-document-color t
-        lsp-semantic-highlighting :deferred
+        lsp-enable-semantic-highlighting t
         lsp-enable-file-watchers t
         ;; Not sure if these two are actually used and, if they are, what they
         ;; are used for. Might disable them later
@@ -442,7 +442,11 @@ also doesn't use the compilation database.
 
 #+begin_src emacs-lisp
 (setq-hook! '(eglot--managed-mode-hook lsp-managed-mode-hook)
-  flycheck-disabled-checkers '(c/c++-clang python-mypy python-pylint))
+  flycheck-disabled-checkers '(c/c++-clang
+                               haskell-ghc
+                               haskell-stack-ghc
+                               python-mypy
+                               python-pylint))
 #+end_src
 
 *** Eglot
@@ -654,7 +658,7 @@ I'll invoke it manually when it's needed.
 
 #+begin_src emacs-lisp
 (after! haskell-mode
-  (set-formatter! 'hindent '("hindent") :modes '(haskell-mode literate-haskell-mode))
+  ;; (set-formatter! 'hindent '("hindent") :modes '(haskell-mode literate-haskell-mode))
   (add-to-list '+format-on-save-enabled-modes 'haskell-mode t)
 
   ;; Improve code navigation in Haskell buffers
