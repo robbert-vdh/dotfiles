@@ -211,27 +211,36 @@ overridden to not continue comments.
  :gnvi "M-Q"        #'+robbert/unfill-paragraph
  :gni "C-S-SPC"     #'company-yasnippet
 
+ ;; `next-error' and `previous-error' will keep cycling through the last used
+ ;; error buffer. This also causes them to keep cycling through compilation
+ ;; results or xref references, which is not what I typically want. Instead I'll
+ ;; move them so I can use flycheck's error checking directly.
+ :m "]e"            #'flycheck-next-error
+ :m "[e"            #'flycheck-previous-error
+ :m "]E"            #'next-error
+ :m "[E"            #'previous-error
+
  (:leader
-   (:prefix "b"
-     :desc "New buffer"             "c" #'+default/new-buffer
-     :desc "Replace with clipboard" "P" #'+robbert/clipboard-to-buffer
-     :desc "Copy to clipboard"      "Y" #'+robbert/buffer-to-clipboard)
+  (:prefix "b"
+   :desc "New buffer"             "c" #'+default/new-buffer
+   :desc "Replace with clipboard" "P" #'+robbert/clipboard-to-buffer
+   :desc "Copy to clipboard"      "Y" #'+robbert/buffer-to-clipboard)
 
-   ;; These lookup bindings are missing, there's an open PR that will maek
-   ;; similar changes
-   (:prefix "c"
-    :desc "Find implementations"    "i" #'+lookup/implementations
-    :desc "Find type definitions"   "t" #'+lookup/type-definition
-    (:when (and (featurep! :tools lsp) (not (featurep! :tools lsp +eglot)))
-     :desc "LSP Organize imports"   "o" #'lsp-organize-imports))
+  ;; These lookup bindings are missing, there's an open PR that will maek
+  ;; similar changes
+  (:prefix "c"
+   :desc "Find implementations"    "i" #'+lookup/implementations
+   :desc "Find type definitions"   "t" #'+lookup/type-definition
+   (:when (and (featurep! :tools lsp) (not (featurep! :tools lsp +eglot)))
+    :desc "LSP Organize imports"   "o" #'lsp-organize-imports))
 
-   (:prefix "f"
-     :desc "Find file in dotfiles"  "t" #'+robbert/find-in-dotfiles
-     :desc "Browse dotfiles"        "T" #'+robbert/browse-dotfiles
-     :desc "Find file externally"   "x" #'counsel-find-file-extern)
+  (:prefix "f"
+   :desc "Find file in dotfiles"  "t" #'+robbert/find-in-dotfiles
+   :desc "Browse dotfiles"        "T" #'+robbert/browse-dotfiles
+   :desc "Find file externally"   "x" #'counsel-find-file-extern)
 
-   (:prefix "t"
-     :desc "Change dictionary"      "S" #'ispell-change-dictionary)))
+  (:prefix "t"
+   :desc "Change dictionary"      "S" #'ispell-change-dictionary)))
  #+end_src
 
 Other mode-specific keybindings are bundled with that mode for ease of reading.
