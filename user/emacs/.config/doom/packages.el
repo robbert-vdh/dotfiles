@@ -13,3 +13,6 @@
 
 ;; TODO: Remove when merged upstream
 (package! magit-delta)
+
+;; I prefer instant feedback over slight improvements in resposniveness
+(package! flyspell-lazy :disable t)
