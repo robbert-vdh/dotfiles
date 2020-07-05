@@ -429,21 +429,21 @@ bindings.
         lsp-enable-folding nil))
 
 (map!
+ (:after lsp-mode
+  (:map lsp-mode-map
+   :nvi [M-return] #'lsp-execute-code-action
+   :nv  "gh"       #'lsp-document-highlight))
  (:after lsp-ui
-   (:map lsp-ui-peek-mode-map
-     [tab]           #'lsp-ui-peek--toggle-file
-     "j"             #'lsp-ui-peek--select-next
-     "C-j"           #'lsp-ui-peek--select-next
-     "k"             #'lsp-ui-peek--select-prev
-     "C-k"           #'lsp-ui-peek--select-prev
-     "l"             #'lsp-ui-peek--goto-xref
-     "C-l"           #'lsp-ui-peek--goto-xref
-     "J"             #'lsp-ui-peek--select-next-file
-     "K"             #'lsp-ui-peek--select-prev-file)
-
-   (:map lsp-ui-mode-map
-     :nvi [M-return] #'lsp-execute-code-action
-     :nv  "gh"       #'lsp-document-highlight)))
+  (:map lsp-ui-peek-mode-map
+   [tab]           #'lsp-ui-peek--toggle-file
+   "j"             #'lsp-ui-peek--select-next
+   "C-j"           #'lsp-ui-peek--select-next
+   "k"             #'lsp-ui-peek--select-prev
+   "C-k"           #'lsp-ui-peek--select-prev
+   "l"             #'lsp-ui-peek--goto-xref
+   "C-l"           #'lsp-ui-peek--goto-xref
+   "J"             #'lsp-ui-peek--select-next-file
+   "K"             #'lsp-ui-peek--select-prev-file)))
 #+end_src
 
 Disable the default clang linting since this would be duplicate behavior and it
