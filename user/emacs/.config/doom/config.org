@@ -684,6 +684,17 @@ I'll invoke it manually when it's needed.
         [remap evil-open-above] #'+robbert/haskell-evil-open-above
         [remap evil-open-below] #'+robbert/haskell-evil-open-below))
 
+(after! lsp-haskell
+  (flycheck-add-next-checker 'lsp '(warning . haskell-hlint))
+
+  ;; The formatter included with hls is not very good and it strips haddock
+  ;; comments
+  ;; TODO: Figure out how to use haskell-language-server's Brittany plugin
+  (setq-hook! 'haskell-mode-hook +format-with-lsp nil)
+
+  ;; Use hls
+  (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper"))
+
 ;; TODO: Replace by something else since intero's been deprecated
 (after! intero
   (flycheck-add-next-checker 'intero '(warning . haskell-hlint))
