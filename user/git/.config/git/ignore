@@ -3,22 +3,6 @@
 .gdb_history
 .ipynb_checkpoints
 .tern-port
-dump.php
-pimple.json
-
-# Emacs
-.dir-locals.el
-.project
-.projectile
-
-# CMake/clangd/ccls
-.ccls-cache/
-.ccls
-compile_commands.json
-
-# VsCode
-.vscode
-!user/vscode/.vscode
 
 # AUCTeX
 *.synctex.gz
@@ -27,8 +11,25 @@ _region_.prv
 _region_.tex
 prv_*.fmt
 
+# CMake/clangd/ccls
+.ccls-cache/
+.ccls
+compile_commands.json
+
+# Emacs
+.dir-locals.el
+.project
+.projectile
+
+# Haskell
+hie.yaml
+
 # IntelliJ
 .idea
+
+# PHP
+dump.php
+pimple.json
 
 # Tags
 .ac-php-conf.json
@@ -36,3 +37,7 @@ GPATH
 GRTAGS
 GTAGS
 gtags.files
+
+# VsCode
+.vscode
+!user/vscode/.vscode
