@@ -504,10 +504,7 @@ mode since this conflicts with years of muscle memory.
   (setq ediff-show-ancestor nil))
 
 (after! magit
-  (remove-hook 'git-commit-setup-hook #'+vc-start-in-insert-state-maybe-h)
-
-  ;; FIXME: Dns lookup is slow in Emacs 28
-  (setq magit-revision-show-gravatars nil))
+  (remove-hook 'git-commit-setup-hook #'+vc-start-in-insert-state-maybe-h))
 
 (after! magit-todos
   ;; Ignore concatenated/minified files when searching for todos
