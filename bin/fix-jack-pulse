@@ -17,7 +17,7 @@ for sink in $sinks; do
 done
 
 for source in $sources; do
-  pacmd move-sink-input "$source" jack_out
+  pacmd move-source-output "$source" jack_in
 done
 
 # Not related to jack, but pipewire for some reason claims exclusive access over
