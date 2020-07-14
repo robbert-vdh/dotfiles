@@ -331,19 +331,10 @@ Increase the size of help popups to match Ivy's height.
 #+end_src
 
 ** hl-todo
-Add more useful TODO keywords to be highlighted, and also highlight TODOs in
-text documents.
+Also highlight TODOs in text documents.
 
 #+begin_src emacs-lisp
 (add-hook 'text-mode-hook #'hl-todo-mode)
-
-(after! hl-todo
-  (setq hl-todo-keyword-faces
-        `(("TODO"  . ,(face-foreground 'warning))
-          ("FIXME" . ,(face-foreground 'error))
-          ("XXX"   . ,(face-foreground 'error))
-          ("HACK"  . ,(face-foreground 'error))
-          ("NOTE"  . ,(face-foreground 'success)))))
 #+end_src
 
 ** Hippie Expand
