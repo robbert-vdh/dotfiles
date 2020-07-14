@@ -674,13 +674,13 @@ I'll invoke it manually when it's needed.
         [remap evil-open-above] #'+robbert/haskell-evil-open-above
         [remap evil-open-below] #'+robbert/haskell-evil-open-below))
 
+;; The formatter included with hls is not very good and it strips haddock
+;; comments
+;; TODO: Figure out how to use haskell-language-server's Brittany plugin
+(setq-hook! 'haskell-mode-hook +format-with-lsp nil)
+
 (after! lsp-haskell
   (flycheck-add-next-checker 'lsp '(warning . haskell-hlint))
-
-  ;; The formatter included with hls is not very good and it strips haddock
-  ;; comments
-  ;; TODO: Figure out how to use haskell-language-server's Brittany plugin
-  (setq-hook! 'haskell-mode-hook +format-with-lsp nil)
 
   ;; Use hls
   (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper"))
@@ -890,7 +890,7 @@ make electric indent less aggressive.
 Enable clippy support and enable rust-analyzer.
 
 #+begin_src emacs-lisp
-(setq lsp-rust-server 'rust-analyzer
+(setq rustic-lsp-server 'rust-analyzer
       lsp-rust-clippy-preference "on")
 
 ;; RLS, for some reason, always wants to use the stable compiler's source code
