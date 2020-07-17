@@ -16,6 +16,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
+Plug 'easymotion/vim-easymotion'
 
 " Workflow enhancements
 Plug 'ervandew/supertab'
@@ -102,6 +103,9 @@ let g:exchange_no_mappings=1
 nmap gx <Plug>(Exchange)
 nmap gxx <Plug>(ExchangeLine)
 nmap gX <Plug>(ExchangeClear)
+
+" Same for easymotion
+map gs <Plug>(easymotion-prefix)
 
 " Show a ruler at 80 columns
 set colorcolumn=80
