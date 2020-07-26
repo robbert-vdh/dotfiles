@@ -883,6 +883,7 @@ make electric indent less aggressive.
 ** Rust
 #+begin_src emacs-lisp
 (setq-hook! 'rustic-mode-hook fill-column 100)
+(add-hook 'rustic-mode-hook #'rainbow-delimiters-mode)
 
 (setq rustic-indent-offset 4)
 #+end_src
