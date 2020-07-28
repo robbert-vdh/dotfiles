@@ -10,8 +10,8 @@ set -gx GTK_USE_PORTAL 1
 set -gx MAKEFLAGS "-j8"
 # Needed for some tooling
 set -gx RUST_SRC_PATH "$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
-# Always enable the esync patches in Wine
-set -gx WINEESYNC 1
+# Always enable the fsync patches in Wine
+set -gx WINEFSYNC 1
 
 # Merge local directories with $PATH
 set -g fish_user_paths ~/.cabal/bin ~/.cargo/bin ~/.dotfiles/bin ~/.ghcup/bin ~/.local/bin
