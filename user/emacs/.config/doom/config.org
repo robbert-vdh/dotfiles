@@ -843,13 +843,20 @@ Python offers some nicer ways to work with REPLs. Also change the defaults to
 make electric indent less aggressive.
 
 #+begin_src emacs-lisp
-(setq-hook! 'rustic-mode-hook fill-column 79)
+(setq-hook! 'python-mode-hook fill-column 79)
 
 (add-to-list 'auto-mode-alist '("Pipfile$" . conf-toml-mode))
 (add-to-list 'auto-mode-alist '("Pipfile\\.lock$" . json-mode))
 
+(defvar +robbert/lsp-pyright-report-missing-type-stubs t)
+
 (setq lsp-python-ms-nupkg-channel "daily")
 (after! lsp-mode
+  ;; FIXME: This doesn't work, and lsp-pyright will probably add something
+  ;;        similar sooner pr ;ater
+  (lsp-register-custom-settings
+   `(("pyright.reportMissingTypeStubs" +robbert/lsp-pyright-report-missing-type-stubs)))
+
   ;; Also show flake8 warnings since mspyls misses a lot of things
   (flycheck-add-next-checker 'lsp '(warning . python-flake8)))
 
