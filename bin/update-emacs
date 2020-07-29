@@ -14,8 +14,7 @@ git pull --rebase --autostash
 # `bin/doom clean` is supposed to delete byte-compiled files, but this doesn't
 # really work since it will try to load these byte compiled files first and
 # thus fail
-shopt -s globstar
-rm -f ./**/*.elc
+find ./* \( -iname '*.elc' -or -iname '*.eln' \) -delete
 
 bin/doom -y sync
 bin/doom -y update
