@@ -161,7 +161,6 @@ it makes browsing code a lot easier.
       scroll-margin 3
       maximum-scroll-margin 0.2)
 
-(setq-hook! 'intero-repl-mode-hook scroll-margin 0)
 (setq-hook! 'term-mode-hook scroll-margin 0)
 #+end_src
 
@@ -651,10 +650,6 @@ of the files.
 #+end_src
 
 ** Haskell
-Use hindent isntead of brittany for Haskell mode. I prefer hindent's style and
-brittany breaks very quickly. It does tend to be a bit overzealous though, so
-I'll invoke it manually when it's needed.
-
 #+begin_src emacs-lisp
 (after! haskell-mode
   ;; (set-formatter! 'hindent '("hindent") :modes '(haskell-mode literate-haskell-mode))
@@ -668,31 +663,37 @@ I'll invoke it manually when it's needed.
     ;; `haskell-mode' sets the default tab width to eight spaces for some reason
     tab-width 2)
 
-  ;; XXX: Doom recently added something similar so this is not being used
-  ;;      anymore. This version might be better though.
   (map! :map haskell-mode-map
+        ;; Doom now also provides something similar, but this works better
+        :n "o"                  nil
+        :n "O"                  nil
         [remap evil-open-above] #'+robbert/haskell-evil-open-above
         [remap evil-open-below] #'+robbert/haskell-evil-open-below))
 
 ;; The formatter included with hls is not very good and it strips haddock
 ;; comments
-;; TODO: Figure out how to use haskell-language-server's Brittany plugin
+;; TODO: Remove once haskell-language-server's Brittany plugin works again
 (setq-hook! 'haskell-mode-hook +format-with-lsp nil)
 
+(after! lsp-mode
+  ;; FIXME: `lsp-register-custom-settings` does not seem to work
+  ;; TODO: hlint is not actually implemented yet
+  (defvar +robbert/lsp-haskell-use-hlint t)
+  ;; TODO: Brittany does not support GHC 8.10 yet
+  (defvar +robbert/lsp-haskell-formatter "brittany")
+  (lsp-register-custom-settings
+   `(("haskell.hlintOn" +robbert/lsp-haskell-use-hlint t)
+     ("haskell.formattingProvider" +robbert/lsp-haskell-formatter))))
+
 (after! lsp-haskell
+  ;; TODO: Remove after hlint gets added to haskell-language-server
   (flycheck-add-next-checker 'lsp '(warning . haskell-hlint))
+
+  (lsp-haskell-set-formatter "floskell")
+  (lsp-haskell--set-configuration)
 
   ;; Use hls
   (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper"))
-
-;; TODO: Replace by something else since intero's been deprecated
-(after! intero
-  (flycheck-add-next-checker 'intero '(warning . haskell-hlint))
-
-  (map! :map intero-mode-map
-        ;; We can't just set the documentation function here since `intero-info'
-        ;; does its own buffer management
-        [remap +lookup/documentation] #'intero-info))
 #+end_src
 
 Some Haskell preprocessors such as Happy, Alex and uuagc use haskell-like syntax
@@ -848,14 +849,13 @@ make electric indent less aggressive.
 (add-to-list 'auto-mode-alist '("Pipfile$" . conf-toml-mode))
 (add-to-list 'auto-mode-alist '("Pipfile\\.lock$" . json-mode))
 
-(defvar +robbert/lsp-pyright-report-missing-type-stubs t)
-
 (setq lsp-python-ms-nupkg-channel "daily")
 (after! lsp-mode
   ;; FIXME: This doesn't work, and lsp-pyright will probably add something
   ;;        similar sooner pr ;ater
+  (defvar +robbert/lsp-pyright-report-missing-type-stubs t)
   (lsp-register-custom-settings
-   `(("pyright.reportMissingTypeStubs" +robbert/lsp-pyright-report-missing-type-stubs)))
+   `(("pyright.reportMissingTypeStubs" +robbert/lsp-pyright-report-missing-type-stubs t)))
 
   ;; Also show flake8 warnings since mspyls misses a lot of things
   (flycheck-add-next-checker 'lsp '(warning . python-flake8)))
