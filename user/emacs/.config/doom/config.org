@@ -258,15 +258,6 @@ settings in =init.el=, as those have to be set before evil gets loaded.
 
 ;; Make `w' and `b' handle more like in vim
 (add-hook 'after-change-major-mode-hook #'+robbert/fix-evil-words-underscore)
-
-(after! evil
-  ;; Doom Emacs overrides the `;' and `,' keys to also repeat things like
-  ;; searches. Because it uses evil-snipe by default this hasn't been done for
-  ;; the default f/F/t/T keybindings.
-  (set-repeater! evil-find-char evil-repeat-find-char evil-repeat-find-char-reverse)
-  (set-repeater! evil-find-char-backward evil-repeat-find-char evil-repeat-find-char-reverse)
-  (set-repeater! evil-find-char-to evil-repeat-find-char evil-repeat-find-char-reverse)
-  (set-repeater! evil-find-char-to-backward evil-repeat-find-char evil-repeat-find-char-reverse))
 #+end_src
 
 Package specific evil configuration such as that for Org and Magit is grouped
@@ -670,16 +661,10 @@ of the files.
         [remap evil-open-above] #'+robbert/haskell-evil-open-above
         [remap evil-open-below] #'+robbert/haskell-evil-open-below))
 
-;; The formatter included with hls is not very good and it strips haddock
-;; comments
-;; TODO: Remove once haskell-language-server's Brittany plugin works again
-(setq-hook! 'haskell-mode-hook +format-with-lsp nil)
-
 (after! lsp-mode
   ;; FIXME: `lsp-register-custom-settings` does not seem to work
   ;; TODO: hlint is not actually implemented yet
   (defvar +robbert/lsp-haskell-use-hlint t)
-  ;; TODO: Brittany does not support GHC 8.10 yet
   (defvar +robbert/lsp-haskell-formatter "brittany")
   (lsp-register-custom-settings
    `(("haskell.hlintOn" +robbert/lsp-haskell-use-hlint t)
@@ -689,7 +674,8 @@ of the files.
   ;; TODO: Remove after hlint gets added to haskell-language-server
   (flycheck-add-next-checker 'lsp '(warning . haskell-hlint))
 
-  (lsp-haskell-set-formatter "floskell")
+  ;; FIXME: The above setting for brittany should work, but somehow doesn't
+  (lsp-haskell-set-formatter "brittany")
   (lsp-haskell--set-configuration)
 
   ;; Use hls
