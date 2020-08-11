@@ -14,7 +14,7 @@ set -gx RUST_SRC_PATH "$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu
 set -gx WINEFSYNC 1
 
 # Merge local directories with $PATH
-set -g fish_user_paths ~/.cabal/bin ~/.cargo/bin ~/.dotfiles/bin ~/.ghcup/bin ~/.local/bin /opt/cuda/bin
+set -g fish_user_paths ~/.cabal/bin ~/.cargo/bin ~/.dotfiles/bin ~/.ghcup/bin ~/.local/bin
 
 # Enable colours in manpages
 set -gx LESS_TERMCAP_mb (set_color --bold red)
