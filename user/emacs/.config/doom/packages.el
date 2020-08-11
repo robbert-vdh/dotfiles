@@ -5,6 +5,7 @@
 (package! ein)
 (package! ggtags)
 (package! kotlin-mode)
+(package! lsp-treemacs)
 (package! meson-mode)
 (package! ob-ipython)
 (package! page-break-lines)
