@@ -515,6 +515,13 @@ mode since this conflicts with years of muscle memory.
      :desc "Git blame (follow copy)" "B" #'+robbert/magit-blame-follow-copy)))
 #+end_src
 
+Doom now overrides magit's splitting behaviour again, and the default left-split
+is unusable for me unless I run Emacs full screen.
+
+#+begin_src emacs-lisp
+(setq +magit-open-windows-in-direction 'down)
+#+end_src
+
 *** TODO Magit Delta
 Remove after merged upstream.
 
