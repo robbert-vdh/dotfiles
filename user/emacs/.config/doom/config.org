@@ -388,6 +388,17 @@ to use and not in use for anything else.
 bindings.
 
 #+begin_src emacs-lisp
+;; HACK: lsp-mode's flycheck integration got moved to `lsp-diagnostics', but
+;;       the`actual checker is only created after lsp-mode is enabled. Because
+;;       of this we can't use `flycheck-add-next-checker'.
+(after! lsp-mode
+  (require 'lsp-diagnostics)
+  (with-temp-buffer (lsp-diagnostics--flycheck-enable))
+
+  (flycheck-add-next-checker 'lsp '(warning . haskell-hlint))
+  (flycheck-add-next-checker 'lsp '(warning . python-flake8))
+  (flycheck-add-next-checker 'lsp '(warning . sh-shellcheck)))
+
 (after! lsp-mode
   ;; Don't highlight symbols automatically, I'll use `gh' to do this manually
   (setq lsp-enable-symbol-highlighting nil)
@@ -671,9 +682,6 @@ of the files.
      ("haskell.formattingProvider" +robbert/lsp-haskell-formatter))))
 
 (after! lsp-haskell
-  ;; TODO: Remove after hlint gets added to haskell-language-server
-  (flycheck-add-next-checker 'lsp '(warning . haskell-hlint))
-
   ;; FIXME: The above setting for brittany should work, but somehow doesn't
   (lsp-haskell-set-formatter "brittany")
   (lsp-haskell--set-configuration)
@@ -841,10 +849,7 @@ make electric indent less aggressive.
   ;;        similar sooner pr ;ater
   (defvar +robbert/lsp-pyright-report-missing-type-stubs t)
   (lsp-register-custom-settings
-   `(("pyright.reportMissingTypeStubs" +robbert/lsp-pyright-report-missing-type-stubs t)))
-
-  ;; Also show flake8 warnings since mspyls misses a lot of things
-  (flycheck-add-next-checker 'lsp '(warning . python-flake8)))
+   `(("pyright.reportMissingTypeStubs" +robbert/lsp-pyright-report-missing-type-stubs t))))
 
 ;; mypy is automaitcally run after flake8, this doesn't work with virtualenvs
 ;; without installing mypy to that virtualenv so I'll just disable it by
@@ -956,10 +961,6 @@ Allow jumping to stylesheets inside of =node_modules=:
 ** Shell scripts
 #+begin_src emacs-lisp
 (setq sh-basic-offset 2)
-
-(after! lsp-mode
-  ;; Also show flake8 warnings since mspyls misses a lot of things
-  (flycheck-add-next-checker 'lsp '(warning . sh-shellcheck)))
 
 (after! fish-mode
   (set-electric! 'fish-mode :words '("else" "end")))
