@@ -18,8 +18,6 @@ find ./* \( -iname '*.elc' -or -iname '*.eln' \) -delete
 
 bin/doom -y sync -up
 bin/doom -y compile
-# FIXME: Only needed temporarily because the regular compile fails on gccemacs
-bin/doom -y compile --core
 
 # Restart the daemon if it is running
 systemctl --user try-restart emacs.service
