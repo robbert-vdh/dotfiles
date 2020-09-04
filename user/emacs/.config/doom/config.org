@@ -18,7 +18,6 @@
   - [[#academic-phrases][Academic Phrases]]
   - [[#company][Company]]
   - [[#flycheck][Flycheck]]
-  - [[#flyspell][Flyspell]]
   - [[#helpful][Helpful]]
   - [[#hl-todo][hl-todo]]
   - [[#hippie-expand][Hippie Expand]]
@@ -302,15 +301,6 @@ from LSP.
  (:after flycheck
    (:map flycheck-error-list-mode-map
      :m [M-return] #'flycheck-error-list-explain-erro)))
-#+end_src
-
-** Flyspell
-Add spell checking to all text documents.
-
-#+begin_src emacs-lisp
-(setq flyspell-default-dictionary "english")
-
-(add-hook 'text-mode-hook 'flyspell-mode)
 #+end_src
 
 ** Helpful
