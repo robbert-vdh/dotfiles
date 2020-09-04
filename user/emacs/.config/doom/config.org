@@ -417,7 +417,12 @@ bindings.
  (:after lsp-mode
   (:map lsp-mode-map
    :nvi [M-return] #'lsp-execute-code-action
-   :nv  "gh"       #'lsp-document-highlight))
+   :nv  "gh"       #'lsp-document-highlight)
+  ;; TODO: Make sure these are not overwriting anything else
+  (:map evilem-map
+   "l"             #'lsp-avy-lens)
+  (:map lsp-command-map
+   "l"             #'lsp-lens-mode))
  (:after lsp-ui
   (:map lsp-ui-peek-mode-map
    [tab]           #'lsp-ui-peek--toggle-file
