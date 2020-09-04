@@ -381,10 +381,10 @@ bindings.
 ;; HACK: lsp-mode's flycheck integration got moved to `lsp-diagnostics', but
 ;;       the`actual checker is only created after lsp-mode is enabled. Because
 ;;       of this we can't use `flycheck-add-next-checker'.
-(after! lsp-mode
-  (require 'lsp-diagnostics)
-  (with-temp-buffer (lsp-diagnostics--flycheck-enable))
-
+(defadvice! +robbert--lsp-flycheck-chain-a (&rest _)
+  "Chain other checkers after lsp-mode's flycheck checker. Needed
+  because the checker is created on demand."
+  :after #'lsp-diagnostics--flycheck-enable
   (flycheck-add-next-checker 'lsp '(warning . haskell-hlint))
   (flycheck-add-next-checker 'lsp '(warning . python-flake8))
   (flycheck-add-next-checker 'lsp '(warning . sh-shellcheck)))
