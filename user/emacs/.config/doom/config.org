@@ -228,9 +228,7 @@ overridden to not continue comments.
   ;; similar changes
   (:prefix "c"
    :desc "Find implementations"    "i" #'+lookup/implementations
-   :desc "Find type definitions"   "t" #'+lookup/type-definition
-   (:when (and (featurep! :tools lsp) (not (featurep! :tools lsp +eglot)))
-    :desc "LSP Organize imports"   "o" #'lsp-organize-imports))
+   :desc "Find type definitions"   "t" #'+lookup/type-definition)
 
   (:prefix "f"
    :desc "Find file in dotfiles"  "t" #'+robbert/find-in-dotfiles
@@ -417,7 +415,11 @@ bindings.
  (:after lsp-mode
   (:map lsp-mode-map
    :nvi [M-return] #'lsp-execute-code-action
-   :nv  "gh"       #'lsp-document-highlight)
+   :nv  "gh"       #'lsp-document-highlight
+   (:leader
+    (:prefix "c"
+     "X"           #'lsp-treemacs-errors-list)))
+
   ;; TODO: Make sure these are not overwriting anything else
   (:map evilem-map
    "l"             #'lsp-avy-lens)
