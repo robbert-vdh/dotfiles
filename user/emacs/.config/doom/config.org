@@ -19,6 +19,7 @@
   - [[#company][Company]]
   - [[#flycheck][Flycheck]]
   - [[#helpful][Helpful]]
+  - [[#flyspell][Flyspell]]
   - [[#hl-todo][hl-todo]]
   - [[#hippie-expand][Hippie Expand]]
   - [[#ivycounsel][Ivy/Counsel]]
@@ -306,6 +307,15 @@ Increase the size of help popups to match Ivy's height.
 
 #+begin_src emacs-lisp
 (set-popup-rule! "^\\*Help" :size 0.3 :select t)
+#+end_src
+
+** Flyspell
+Add spell checking to all text documents.
+
+#+begin_src emacs-lisp
+(setq flyspell-default-dictionary "english")
+
+(add-hook 'text-mode-hook 'flyspell-mode)
 #+end_src
 
 ** hl-todo
