@@ -9,7 +9,7 @@ set -gx GTK_USE_PORTAL 1
 # Always build with 8 threads by default
 set -gx MAKEFLAGS "-j8"
 # Needed for some tooling
-set -gx RUST_SRC_PATH "$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+set -gx RUST_SRC_PATH (rustc --print sysroot)/lib/rustlib/src/rust/library
 # Always enable the fsync patches in Wine
 set -gx WINEFSYNC 1
 
