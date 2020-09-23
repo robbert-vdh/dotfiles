@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+# Run Wine with the MangoHud overlay, useful for debugging plugins running
+# under yabridge
+#
+# Usage: (WINELOADER has to be an absolute path)
+# env WINELOADER=$(which mangohud-wine) <host>
+
+# Prevent this file from being called recursively
+unset WINELOADER
+export MANGOHUD_DLSYM=1
+
+exec mangohud wine "$@"
