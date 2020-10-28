@@ -221,7 +221,6 @@ overridden to not continue comments.
 
  (:leader
   (:prefix "b"
-   :desc "New buffer"             "c" #'+default/new-buffer
    :desc "Replace with clipboard" "P" #'+robbert/clipboard-to-buffer
    :desc "Copy to clipboard"      "Y" #'+robbert/buffer-to-clipboard)
 
@@ -389,6 +388,7 @@ bindings.
 ;; HACK: lsp-mode's flycheck integration got moved to `lsp-diagnostics', but
 ;;       the`actual checker is only created after lsp-mode is enabled. Because
 ;;       of this we can't use `flycheck-add-next-checker'.
+;; FIXME: There's now a native way to do this
 (defadvice! +robbert--lsp-flycheck-chain-a (&rest _)
   "Chain other checkers after lsp-mode's flycheck checker. Needed
   because the checker is created on demand."
@@ -687,22 +687,7 @@ of the files.
         [remap evil-open-above] #'+robbert/haskell-evil-open-above
         [remap evil-open-below] #'+robbert/haskell-evil-open-below))
 
-(after! lsp-mode
-  ;; FIXME: `lsp-register-custom-settings` does not seem to work
-  ;; TODO: hlint is not actually implemented yet
-  (defvar +robbert/lsp-haskell-use-hlint t)
-  (defvar +robbert/lsp-haskell-formatter "brittany")
-  (lsp-register-custom-settings
-   `(("haskell.hlintOn" +robbert/lsp-haskell-use-hlint t)
-     ("haskell.formattingProvider" +robbert/lsp-haskell-formatter))))
-
-(after! lsp-haskell
-  ;; FIXME: The above setting for brittany should work, but somehow doesn't
-  (lsp-haskell-set-formatter "brittany")
-  (lsp-haskell--set-configuration)
-
-  ;; Use hls
-  (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper"))
+(setq lsp-haskell-formatting-provider "brittany")
 #+end_src
 
 Some Haskell preprocessors such as Happy, Alex and uuagc use haskell-like syntax

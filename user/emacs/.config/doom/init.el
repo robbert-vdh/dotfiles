@@ -3,6 +3,10 @@
 ;; These variables have to be set early
 (setq evil-want-Y-yank-to-eol nil)
 
+;; FIXME: Required with the latest gccemacs to load some packages, shouldn't be
+;;        needed for long
+(require 'cc-bytecomp)
+
 (doom! :input
        ;;chinese
        ;;japanese
@@ -124,7 +128,7 @@
        ;;idris             ;
        (json +lsp)       ; At least it ain't XML
        ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
-       javascript        ; all(hope(abandon(ye(who(enter(here))))))
+       (javascript +lsp)   ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
        (latex +latexmk +lsp) ; writing papers in Emacs has never been so fun
