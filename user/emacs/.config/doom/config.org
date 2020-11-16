@@ -1008,6 +1008,7 @@ weird.
 
 #+begin_src emacs-lisp
 (setq web-mode-markup-indent-offset 2
+      web-mode-code-indent-offset 2
       web-mode-css-indent-offset 2
       web-mode-comment-style 2)
 
@@ -1025,16 +1026,16 @@ weird.
 
 (map!
  (:after emmet-mode
-   (:map emmet-mode-keymap
-     :i [backtab] #'emmet-expand-line))
+  (:map emmet-mode-keymap
+   :i [backtab] #'emmet-expand-line))
 
  (:after web-mode
-   (:map web-mode-map
-     "M-/" nil
+  (:map web-mode-map
+   "M-/" nil
 
-     ;; In HTML we DO want to automatically indent broken 'strings', as these
-     ;; are likely long attributes like a list of classes
-     [remap newline] #'+robbert/newline-and-indent-always)))
+   ;; In HTML we DO want to automatically indent broken 'strings', as these
+   ;; are likely long attributes like a list of classes
+   [remap newline] #'+robbert/newline-and-indent-always)))
 #+end_src
 
 ** YAML
