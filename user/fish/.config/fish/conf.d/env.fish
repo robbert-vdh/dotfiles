@@ -16,6 +16,16 @@ set -gx WINEFSYNC 1
 # Merge local directories with $PATH
 set -g fish_user_paths ~/.cabal/bin ~/.cargo/bin ~/.dotfiles/bin ~/.ghcup/bin ~/.local/bin
 
+# Flatpak directories don't get picked up anymore, so we'll mimic /etc/profile.d/flatpak*.sh
+set -ga fish_user_paths ~/.local/share/flatpak/exports/bin /var/lib/flatpak/exports/bin
+set -gx --path XDG_DATA_DIRS ~/.local/share/flatpak/exports/share
+for install_dir in (flatpak --installations)
+    set -gxa XDG_DATA_DIRS $install_dir/exports/share
+end
+
+# These should also be here
+set -gxa XDG_DATA_DIRS /usr/local/share /usr/share /var/lib/snapd/desktop
+
 # Enable colours in manpages
 set -gx LESS_TERMCAP_mb (set_color --bold red)
 set -gx LESS_TERMCAP_md (set_color --bold red)
