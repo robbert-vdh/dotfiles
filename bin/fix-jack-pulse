@@ -4,22 +4,28 @@
 
 set -e pipefail
 
+# Create a secondary pair of Jack sources/sinks, useful for routing only desktop
+# audio to somewhere else
+pacmd load-module module-jack-sink client_name=jack_out_2 connect=yes
+pacmd load-module module-jack-source client_name=jack_in_2 connect=no
+
 pacmd set-default-sink jack_out
 pacmd set-default-source jack_in
 
-# The old sources will still be active even though they're not routed to
-# anything, so we will just mov everything to Jack
-sinks=$(pacmd list-sink-inputs | grep -oP 'index: \K\d+' || true)
-sources=$(pacmd list-source-outputs | grep -oP 'index: \K\d+' || true)
+# With PulseAudio 14.0/13.99.3 this is no longer n eeded
+# # The old sources will still be active even though they're not routed to
+# # anything, so we will just mov everything to Jack
+# sinks=$(pacmd list-sink-inputs | grep -oP 'index: \K\d+' || true)
+# sources=$(pacmd list-source-outputs | grep -oP 'index: \K\d+' || true)
 
-for sink in $sinks; do
-  pacmd move-sink-input "$sink" jack_out
-done
+# for sink in $sinks; do
+#   pacmd move-sink-input "$sink" jack_out
+# done
 
-for source in $sources; do
-  pacmd move-source-output "$source" jack_in
-done
+# for source in $sources; do
+#   pacmd move-source-output "$source" jack_in
+# done
 
-# Not related to jack, but pipewire for some reason claims exclusive access over
-# Alsa's raw MIDI devices
+# Not related to Jack, but PipeWire for some reason claims exclusive access over
+# ALSA's rawMIDI devices which breaks control surfaces in Bitwig
 systemctl --user stop pipewire.{socket,service}
