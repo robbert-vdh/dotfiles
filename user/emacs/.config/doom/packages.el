@@ -11,6 +11,7 @@
 (package! page-break-lines)
 (package! phpcbf)
 (package! pkgbuild-mode)
+(package! vue-mode)
 
 ;; TODO: Remove when merged upstream
 (package! magit-delta)

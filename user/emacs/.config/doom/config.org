@@ -53,6 +53,7 @@
   - [[#sasscss][Sass/CSS]]
   - [[#shell-scripts][Shell scripts]]
   - [[#typescriptjavsscript][TypeScript/JavsScript]]
+  - [[#vue][Vue]]
   - [[#web][Web]]
   - [[#yaml][YAML]]
 
@@ -356,6 +357,16 @@ prone completion functions enabled by default.
    (:map ivy-minibuffer-map
      "C-d" #'ivy-scroll-up-command
      "C-u" #'ivy-scroll-down-command)))
+#+end_src
+
+Change the filtering order to include fuzzy matches, but to order them last. The
+default with =+fuzzy= is ='(literal regexp initialism fuzzy)= which would cause
+fuzzy matches to appear first and literal matches to appear last, which is the
+exact opposite of what I want.
+
+#+begin_src emacs-lisp
+(after! ivy-prescient
+  (setq prescient-filter-method '(fuzzy regexp initialism literal)))
 #+end_src
 
 ** LanguageTool
@@ -987,6 +998,14 @@ Override shfmt to use two spaces instead of tabs:
        :desc "Restart"        "s"   #'tide-restart-server
        :desc "Fix issue"      "RET" #'tide-fix
        :desc "Refactor..."    "SPC" #'tide-refactor))))
+#+end_src
+
+** Vue
+#+begin_src emacs-lisp
+(use-package! vue-mode
+  :hook (vue-mode-local-vars . lsp!))
+
+(setq lsp-vetur-format-default-formatter-html "prettier")
 #+end_src
 
 ** Web
