@@ -646,6 +646,10 @@ Use C++ as a default.
                         (inclass . +)))
 
 (setq-hook! '(c-mode-hook c++-mode-hook) c-basic-offset 4)
+
+;; Disable automatic header includes because they don't take into account
+;; indirect includes
+(setq lsp-clients-clangd-args '("--header-insertion=never"))
 #+end_src
 
 =projectile-find-other-file= isn't very useful when multiple header and
