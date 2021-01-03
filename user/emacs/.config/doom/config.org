@@ -366,7 +366,7 @@ exact opposite of what I want.
 
 #+begin_src emacs-lisp
 (after! ivy-prescient
-  (setq prescient-filter-method '(fuzzy regexp initialism literal)))
+  (setq prescient-filter-method '(literal regexp fuzzy)))
 #+end_src
 
 ** LanguageTool
@@ -525,13 +525,9 @@ mode since this conflicts with years of muscle memory.
 
 (map!
  (:after diff-mode
-   (:map diff-mode-map
-     :nm "{" #'diff-hunk-prev
-     :nm "}" #'diff-hunk-next))
-
- (:leader
-   (:prefix "g"
-     :desc "Git blame (follow copy)" "B" #'+robbert/magit-blame-follow-copy)))
+  (:map diff-mode-map
+   :nm "{" #'diff-hunk-prev
+   :nm "}" #'diff-hunk-next)))
 #+end_src
 
 Doom now overrides magit's splitting behaviour again, and the default left-split
