@@ -6,8 +6,8 @@ set -e pipefail
 
 # Create a secondary pair of Jack sources/sinks, useful for routing only desktop
 # audio to somewhere else
-pacmd load-module module-jack-sink client_name=jack_out_2 connect=yes
-pacmd load-module module-jack-source client_name=jack_in_2 connect=no
+# pacmd load-module module-jack-sink client_name=jack_out_2 connect=yes
+# pacmd load-module module-jack-source client_name=jack_in_2 connect=no
 
 pacmd set-default-sink jack_out
 pacmd set-default-source jack_in
