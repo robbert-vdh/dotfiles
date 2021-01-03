@@ -14,6 +14,7 @@ prv_*.fmt
 # CMake/clangd/ccls
 .ccls-cache/
 .ccls
+.clangd
 compile_commands.json
 
 # Emacs
