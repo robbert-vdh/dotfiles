@@ -555,7 +555,7 @@ Transforms =^L= characters used in elisp into horizontal lines.
 #+begin_src emacs-lisp
 (use-package! page-break-lines
   :config
-  (add-hook! '(emacs-lisp-mode-hook view-mode-hook) 'turn-on-page-break-lines-mode))
+  (add-hook! '(emacs-lisp-mode-hook view-mode-hook) 'page-break-lines-mode))
 #+end_src
 
 ** PDF tools

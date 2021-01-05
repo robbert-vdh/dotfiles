@@ -1,3 +1,4 @@
 # Generated when tangling config.org
 config.el
+custom.el
 *.elc
