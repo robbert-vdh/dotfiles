@@ -43,8 +43,7 @@ ask() {
 
 cd "$(dirname "$0")"
 
-git submodule init >/dev/null
-git submodule update >/dev/null
+git submodule update --init --recursive >/dev/null
 
 if ask 'Dry run?' Y; then
   DRY_RUN=1
