@@ -55,6 +55,7 @@
   - [[#typescriptjavsscript][TypeScript/JavsScript]]
   - [[#vue][Vue]]
   - [[#web][Web]]
+  - [[#writeroom-mode][writeroom-mode]]
   - [[#yaml][YAML]]
 
 * Basic settings
@@ -404,7 +405,8 @@ bindings.
   "Chain other checkers after lsp-mode's flycheck checker. Needed
   because the checker is created on demand."
   :after #'lsp-diagnostics--flycheck-enable
-  (flycheck-add-next-checker 'lsp '(warning . haskell-hlint))
+  ;; TODO: CHeck whether hls's hlint plugin works now
+  ;; (flycheck-add-next-checker 'lsp '(warning . haskell-hlint))
   (flycheck-add-next-checker 'lsp '(warning . python-flake8))
   (flycheck-add-next-checker 'lsp '(warning . sh-shellcheck)))
 
@@ -1055,6 +1057,15 @@ weird.
    ;; In HTML we DO want to automatically indent broken 'strings', as these
    ;; are likely long attributes like a list of classes
    [remap newline] #'+robbert/newline-and-indent-always)))
+#+end_src
+
+** writeroom-mode
+Doom increases the font size by default. And even though I appreciate a larger
+font size, I'd rather keep everything consistent and just increase the font size
+manually if needed.
+
+#+begin_src emacs-lisp
+(setq +zen-text-scale 0)
 #+end_src
 
 ** YAML
