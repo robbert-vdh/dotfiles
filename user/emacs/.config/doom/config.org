@@ -637,13 +637,15 @@ after the terminal closes.
 Use C++ as a default.
 
 #+begin_src emacs-lisp
-(setq +cc-default-header-file-mode 'c++-mode
-      ;; Match the Chromium clang-format style
-      c-offsets-alist '((innamespace . 0)
-                        (access-label . /)
-                        (inclass . +)))
+(setq +cc-default-header-file-mode 'c++-mode)
 
 (setq-hook! '(c-mode-hook c++-mode-hook) c-basic-offset 4)
+
+;; Match the Chromium clang-format style
+(add-hook! '(c-mode-hook c++-mode-hook) :append
+  (add-to-list 'c-offsets-alist '(innamespace . 0))
+  (add-to-list 'c-offsets-alist '(access-label . /))
+  (add-to-list 'c-offsets-alist '(inclass . +)))
 
 ;; Disable automatic header includes because they don't take into account
 ;; indirect includes
