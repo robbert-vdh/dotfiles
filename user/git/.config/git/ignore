@@ -12,6 +12,7 @@ _region_.tex
 prv_*.fmt
 
 # CMake/clangd/ccls
+.cache/clangd
 .ccls-cache/
 .ccls
 .clangd
