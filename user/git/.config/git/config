@@ -34,3 +34,5 @@
 	user = robbert
 [color]
 	ui = true
+[init]
+	defaultBranch = master
