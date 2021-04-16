@@ -438,10 +438,7 @@ bindings.
  (:after lsp-mode
   (:map lsp-mode-map
    :nvi [M-return] #'lsp-execute-code-action
-   :nv  "gh"       #'lsp-document-highlight
-   (:leader
-    (:prefix "c"
-     "X"           #'lsp-treemacs-errors-list)))
+   :nv  "gh"       #'lsp-document-highlight)
 
   ;; TODO: Make sure these are not overwriting anything else
   (:map evilem-map
@@ -649,7 +646,7 @@ Use C++ as a default.
 
 ;; Disable automatic header includes because they don't take into account
 ;; indirect includes
-(setq lsp-clients-clangd-args '("--header-insertion=never"))
+(setq lsp-clients-clangd-args '("--header-insertion=never" "--clang-tidy"))
 #+end_src
 
 =projectile-find-other-file= isn't very useful when multiple header and
