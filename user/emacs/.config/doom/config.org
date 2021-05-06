@@ -464,6 +464,10 @@ also doesn't use the compilation database.
 #+begin_src emacs-lisp
 (setq-hook! '(eglot--managed-mode-hook lsp-managed-mode-hook)
   flycheck-disabled-checkers '(c/c++-clang
+                               ;; NOTE: Without disabling this, clangd will
+                               ;;       crash all the time when completing
+                               ;;       things from the `std` namespace
+                               c/c++-gcc
                                haskell-ghc
                                haskell-stack-ghc
                                python-mypy
