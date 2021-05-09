@@ -17,7 +17,7 @@ git pull --rebase --autostash
 find ./* \( -iname '*.elc' -or -iname '*.eln' \) -delete
 
 bin/doom -y sync -up
-bin/doom -y compile
+bin/doom -y compile --core
 
 # Restart the daemon if it is running
 systemctl --user try-restart emacs.service
