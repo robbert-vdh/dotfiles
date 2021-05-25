@@ -647,10 +647,6 @@ Use C++ as a default.
   (add-to-list 'c-offsets-alist '(innamespace . 0))
   (add-to-list 'c-offsets-alist '(access-label . /))
   (add-to-list 'c-offsets-alist '(inclass . +)))
-
-;; Disable automatic header includes because they don't take into account
-;; indirect includes
-(setq lsp-clients-clangd-args '("--header-insertion=never" "--clang-tidy"))
 #+end_src
 
 =projectile-find-other-file= isn't very useful when multiple header and
@@ -659,7 +655,7 @@ implementation files have the same file name.
 #+begin_src emacs-lisp
 (map! :map (c-mode-map c++-mode-map)
       :localleader
-      "o" #'ff-find-other-file)
+      "o" #'lsp-clangd-find-other-file)
 #+end_src
 
 *** Meson build system
