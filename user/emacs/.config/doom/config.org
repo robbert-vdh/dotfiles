@@ -647,6 +647,13 @@ Use C++ as a default.
   (add-to-list 'c-offsets-alist '(innamespace . 0))
   (add-to-list 'c-offsets-alist '(access-label . /))
   (add-to-list 'c-offsets-alist '(inclass . +)))
+
+(setq lsp-clients-clangd-args '("-j=3"
+                                "--background-index"
+                                "--clang-tidy"
+                                "--completion-style=detailed"
+                                "--header-insertion=never"
+                                "--header-insertion-decorators=0"))
 #+end_src
 
 =projectile-find-other-file= isn't very useful when multiple header and
