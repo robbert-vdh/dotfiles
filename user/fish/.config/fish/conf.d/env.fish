@@ -6,8 +6,8 @@ set -gx LESS "--RAW-CONTROL-CHARS --ignore-case --jump-target=4"
 
 # Let Firefox (and other compatible applications) use KDE dialogs
 set -gx GTK_USE_PORTAL 1
-# Always build with 8 threads by default
-set -gx MAKEFLAGS "-j8"
+# Always build with `nproc` threads by default
+set -gx MAKEFLAGS -j(nproc)
 # Needed for some tooling
 set -gx RUST_SRC_PATH (rustc --print sysroot)/lib/rustlib/src/rust/library
 # Always enable the fsync patches in Wine
