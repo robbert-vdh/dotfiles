@@ -23,8 +23,9 @@ for install_dir in (flatpak --installations)
     set -gxa XDG_DATA_DIRS $install_dir/exports/share
 end
 
-# Neither do the binaries from the CUDA package
-set -ga fish_user_paths /opt/cuda/bin
+# Neither do the binaries from the CUDA package. These need to be appended to
+# the path since CUDA includes an old version of GCC.
+set -gx PATH "$PATH:/opt/cuda/bin"
 
 # These should also be here
 set -gxa XDG_DATA_DIRS /usr/local/share /usr/share /var/lib/snapd/desktop
