@@ -10,6 +10,7 @@
 (package! page-break-lines)
 (package! phpcbf)
 (package! pkgbuild-mode)
+(package! strace-mode)
 (package! vue-mode)
 
 ;; TODO: Remove when merged upstream
