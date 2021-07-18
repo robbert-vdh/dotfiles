@@ -393,6 +393,14 @@ to use and not in use for anything else.
 
 ** LSP
 *** lsp-mode
+Right now for some reason yasnippet kind of overshadows the completions provided
+by the LSP server, so we'll just disable those for now. ~C-S-Spc~ brings those
+up anyways.
+
+#+begin_src emacs-lisp
+(setq +lsp-company-backends 'company-capf)
+#+end_src
+
 =lsp-ui='s peek functionality is pretty cool, but it's missing default evil
 bindings.
 
@@ -809,7 +817,7 @@ highlighting.
                    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                    ("\\paragraph{%s}" . "\\paragraph*{%s}")
                    ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-    (add-to-list 'org-latex-packages-alist '("dutch" "babel"))
+    (add-to-list 'org-latex-packages-alist '("english" "babel"))
     (add-to-list 'org-latex-packages-alist '("newfloat" "minted"))
     (setq org-latex-default-class "koma-article"
           org-format-latex-options
