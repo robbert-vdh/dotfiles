@@ -207,7 +207,7 @@ overridden to not continue comments.
  :i [remap newline] #'+robbert/newline-and-indent
  :i [C-S-return]    #'newline-and-indent
  :i [M-backspace]   #'evil-delete-back-to-indentation
- :g "M-f"           #'swiper
+ :g "M-f"           #'consult-line
  :g "M-F"           #'+default/search-project
  :gnvi "M-Q"        #'+robbert/unfill-paragraph
  :gni "C-S-SPC"     #'company-yasnippet
@@ -235,7 +235,7 @@ overridden to not continue comments.
   (:prefix "f"
    :desc "Find file in dotfiles"  "t" #'+robbert/find-in-dotfiles
    :desc "Browse dotfiles"        "T" #'+robbert/browse-dotfiles
-   :desc "Find file externally"   "x" #'counsel-find-file-extern)
+   :desc "Find file externally"   "x" #'consult-file-externally)
 
   (:prefix "t"
    :desc "Change dictionary"      "S" #'ispell-change-dictionary)))
@@ -350,14 +350,14 @@ prone completion functions enabled by default.
 
 ** Ivy/Counsel
 #+begin_src emacs-lisp
-(setq completion-styles '(partial-completion initials)
-      confirm-nonexistent-file-or-buffer nil)
-
 (map!
  (:after ivy
-   (:map ivy-minibuffer-map
-     "C-d" #'ivy-scroll-up-command
-     "C-u" #'ivy-scroll-down-command)))
+  (setq completion-styles '(partial-completion initials)
+        confirm-nonexistent-file-or-buffer nil)
+
+  (:map ivy-minibuffer-map
+   "C-d" #'ivy-scroll-up-command
+   "C-u" #'ivy-scroll-down-command)))
 #+end_src
 
 Change the filtering order to include fuzzy matches, but to order them last. The

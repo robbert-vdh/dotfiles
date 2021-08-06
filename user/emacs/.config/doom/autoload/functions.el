@@ -235,7 +235,7 @@ text"
   "Switch to a terminal buffer. This is useful when multiple
 multi-term buffers are open at once."
   (interactive)
-  ;; TODO: Rewrite this for Helm or scrap it as I don't really use this anyway
+  ;; TODO: Rewrite this for ~~Helm~~vertico or scrap it as I don't really use this anyway
   (ivy-read "Switch to terminal: " 'internal-complete-buffer
             :predicate #'+robbert--is-terminal-buffer-p
             :matcher #'ivy--switch-buffer-matcher

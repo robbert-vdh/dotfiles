@@ -10,12 +10,14 @@
 (doom! :input
        ;;chinese
        ;;japanese
+       ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
        (company +childframe) ; the ultimate code completion backend
        ;;(helm +fuzzy)     ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
-       (ivy +prescient +fuzzy) ; a search engine for love and life
+       ;;(ivy +prescient +fuzzy) ; a search engine for love and life
+       (vertico +icons)  ; the search engine of the future
 
        :ui
        ;;deft              ; notational velocity for Emacs
@@ -90,7 +92,7 @@
        gist              ; interacting with github gists
        (lookup           ; helps you navigate your code and documentation
         +docsets)        ; ...or in Dash docsets locally
-       (lsp)
+       lsp               ; M-x vscode
        ;;macos             ; MacOS-specific commands
        (magit +forge)    ; a git porcelain for Emacs
        make              ; run make tasks from Emacs
@@ -102,10 +104,14 @@
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
        ;;upload            ; map local to remote projects via ssh/ftp
-       ;;wakatime
+
+       :os
+       (:if IS-MAC macos)  ; improve compatibility with macOS
+       ;;tty               ; improve the terminal Emacs experience
 
        :lang
        ;;agda              ; types of types of types of types...
+       ;;beancount         ; mind the GAAP
        (cc +lsp)         ; C/C++/Obj-C madness
        ;;clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
@@ -114,6 +120,7 @@
        csharp            ; unity, .NET, and mono shenanigans
        data              ; config/data formats
        ;;(dart +flutter)   ; paint ui and not much else
+       ;;dhall
        ;;elixir            ; erlang done right
        ;;elm               ; care for a cup of TEA?
        emacs-lisp        ; drown in parentheses
@@ -122,6 +129,7 @@
        ;;faust             ; dsp, but you get to keep your soul
        ;;fsharp           ; ML stands for Microsoft's Language
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
+       ;;gdscript          ; the language you waited for
        ;;(go +lsp)         ; the hipster dialect
        (haskell +lsp)      ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
