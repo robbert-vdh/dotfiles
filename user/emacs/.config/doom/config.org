@@ -34,6 +34,7 @@
   - [[#treemacs][Treemacs]]
   - [[#undo-fu][undo-fu]]
   - [[#wordnut][Wordnut]]
+  - [[#vertico][Vertico]]
   - [[#vterm][Vterm]]
 - [[#programming][Programming]]
   - [[#agda2][Agda2]]
@@ -594,6 +595,17 @@ Allow undos adn redos within the selected region.
 #+begin_src emacs-lisp
 (after! wordnut
   (set-popup-rule! "^\\*WordNut\\*$" :size 0.3 :select t))
+#+end_src
+
+** Vertico
+Why is there no default keybinding for this?
+
+#+begin_src emacs-lisp
+(map!
+ (:after vertico
+  (:map vertico-map
+   "C-d" #'vertico-scroll-up
+   "C-u" #'vertico-scroll-down)))
 #+end_src
 
 ** Vterm
