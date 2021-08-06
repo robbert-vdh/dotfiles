@@ -207,7 +207,7 @@ overridden to not continue comments.
  :i [remap newline] #'+robbert/newline-and-indent
  :i [C-S-return]    #'newline-and-indent
  :i [M-backspace]   #'evil-delete-back-to-indentation
- :g "M-f"           #'consult-line
+ :g "M-f"           #'+default/search-buffer
  :g "M-F"           #'+default/search-project
  :gnvi "M-Q"        #'+robbert/unfill-paragraph
  :gni "C-S-SPC"     #'company-yasnippet
