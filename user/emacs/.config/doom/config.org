@@ -618,12 +618,15 @@ only do this for files within the current project.
 
     ;; For readability's sake, we want to either strip the current project's
     ;; root, or abbreviate leading directories in long paths outside of this
-    ;; project.
-    (if-let* ((absolute-root (marginalia--project-root))
-              (project-root (abbreviate-file-name absolute-root))
-              (is-prefix (string-prefix-p project-root buffer-path)))
-        (string-remove-prefix project-root buffer-path)
-      (shrink-path-file buffer-path))))
+    ;; project. And we should of course not change anything when we're not
+    ;; dealing with file backed buffers.
+    (if (and (not (string-empty-p buffer-path)) (file-exists-p buffer-path))
+        (if-let* ((absolute-root (marginalia--project-root))
+                  (project-root (abbreviate-file-name absolute-root))
+                  (is-prefix (string-prefix-p project-root buffer-path)))
+            (string-remove-prefix project-root buffer-path)
+          (shrink-path-file buffer-path))
+      buffer-path)))
 #+end_src
 
 ** Vterm
