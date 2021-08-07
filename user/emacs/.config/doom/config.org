@@ -608,6 +608,20 @@ Why is there no default keybinding for this?
    "C-u" #'vertico-scroll-down)))
 #+end_src
 
+Stripping project roots makes the buffer list look a bit less cluttered. We'll
+only do this for files within the current project.
+
+#+begin_src emacs-lisp
+(defadvice! +robbert--strip-project-root-a (fn &rest args)
+  :around #'marginalia--buffer-file
+  (let ((buffer-path (apply fn args))
+        (root (abbreviate-file-name (or (marginalia--project-root) ""))))
+
+    ;; For readability's sake, we want to strip both the current project's root,
+    ;; and also abbreviate leading directories in long paths.
+    (shrink-path-file (string-remove-prefix root buffer-path))))
+#+end_src
+
 ** Vterm
 Disable cursor blinking in =vterm-mode=. This is not needed and it persists
 after the terminal closes.
