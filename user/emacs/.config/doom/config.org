@@ -614,12 +614,16 @@ only do this for files within the current project.
 #+begin_src emacs-lisp
 (defadvice! +robbert--strip-project-root-a (fn &rest args)
   :around #'marginalia--buffer-file
-  (let ((buffer-path (apply fn args))
-        (root (abbreviate-file-name (or (marginalia--project-root) ""))))
+  (let ((buffer-path (apply fn args)))
 
-    ;; For readability's sake, we want to strip both the current project's root,
-    ;; and also abbreviate leading directories in long paths.
-    (shrink-path-file (string-remove-prefix root buffer-path))))
+    ;; For readability's sake, we want to either strip the current project's
+    ;; root, or abbreviate leading directories in long paths outside of this
+    ;; project.
+    (if-let* ((absolute-root (marginalia--project-root))
+              (project-root (abbreviate-file-name absolute-root))
+              (is-prefix (string-prefix-p project-root buffer-path)))
+        (string-remove-prefix project-root buffer-path)
+      (shrink-path-file buffer-path))))
 #+end_src
 
 ** Vterm
