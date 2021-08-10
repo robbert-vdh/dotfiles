@@ -606,6 +606,11 @@ Why is there no default keybinding for this?
   (:map vertico-map
    "C-d" #'vertico-scroll-up
    "C-u" #'vertico-scroll-down)))
+
+(after! vertico
+  ;; Doom uses a regexp that matches both spaces and ampersands, but with no way
+  ;; to escape those
+  (setq orderless-component-separator 'orderless-escapable-split-on-space))
 #+end_src
 
 Stripping project roots makes the buffer list look a bit less cluttered. We'll
