@@ -11,7 +11,7 @@ process_blacklist_re='^Not used at the moment'
 # first part of their command, and we'll mark the threads we're going to
 # reschedule.
 realtime_threads=$(ps hxH -u "$USER" -o tid,rtprio,comm,command |
-    awk '($2 > 50) {
+    awk '($2 >= 5) {
            if ($3 ~ THREAD_RE || $4 ~ PROCESS_RE) { printf "x\t" } else { printf " \t" }
            print $1 "\t" $3 "\t" $4;
          }' THREAD_RE="$thread_blacklist_re" PROCESS_RE="$process_blacklist_re" |
