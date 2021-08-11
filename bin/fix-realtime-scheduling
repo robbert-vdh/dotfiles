@@ -10,11 +10,21 @@ process_blacklist_re='^Not used at the moment'
 # reschedule, we'll print all realtime threads with their thread names and the
 # first part of their command, and we'll mark the threads we're going to
 # reschedule.
-realtime_threads=$(ps hxH -u "$USER" -o tid,rtprio,comm,command |
-    awk '($2 >= 5) {
-           if ($3 ~ THREAD_RE || $4 ~ PROCESS_RE) { printf "x\t" } else { printf " \t" }
-           print $2 "\t" $1 "\t" $3 "\t" $4;
-         }' THREAD_RE="$thread_blacklist_re" PROCESS_RE="$process_blacklist_re" |
+realtime_threads=$(ps hxH -u "$USER" -o tid:30,rtprio:30,comm:30,command |
+    # HACK: Since thread names can contain spaces and ps doesn't have a way to
+    #       specify a delimiter, we'll hack around this a bit by making every
+    #       every column fixed width and then manually adding tabs. This would
+    #       have been neater with some proper parsing, but, oh well...
+    #       We'll also truncate the last column for readability's sake.
+    sed -E 's/^(.{30}) /\1\t/;
+            s/(\t.{30}) /\1\t/;
+            s/(\t.{30}) /\1\t/;
+            s/  +//g;
+            s/(\t[^ ]+)( [^\t]+)?$/\1/' |
+    awk -F$'\t' '($2 >= 5) {
+                    if ($3 ~ THREAD_RE || $4 ~ PROCESS_RE) { printf "x\t" } else { printf " \t" }
+                    print $2 "\t" $1 "\t" $3 "\t" $4;
+                  }' THREAD_RE="$thread_blacklist_re" PROCESS_RE="$process_blacklist_re" |
     column -ts$'\t')
 need_rescheduling=$(echo "$realtime_threads" | awk '$1 == "x" { print $3 }')
 
