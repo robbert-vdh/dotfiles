@@ -1,3 +1,4 @@
+#!/usr/bin/env xdg-open
 [Desktop Entry]
 Version=1.5
 Type=Application
@@ -7,7 +8,7 @@ NoDisplay=false
 Comment=Modern music production and performance
 Icon=com.bitwig.BitwigStudio
 DBusActivatable=false
-Exec=sh -c 'fix-realtime-scheduling; env GTK_THEME=Arc bitwig-studio'
+Exec=/bin/sh -c 'fix-realtime-scheduling; env GTK_THEME=Arc bitwig-studio'
 Terminal=false
 MimeType=application/bitwig-clip;application/bitwig-device;application/bitwig-package;application/bitwig-preset;application/bitwig-project;application/bitwig-scene;application/bitwig-template;application/bitwig-extension;application/bitwig-remote-controls;application/bitwig-module;application/bitwig-modulator
 Categories=AudioVideo;Music;Audio;Sequencer;Midi;Mixer;Player;Recorder
