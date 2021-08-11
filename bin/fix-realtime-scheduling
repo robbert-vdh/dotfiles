@@ -4,7 +4,7 @@
 # latency spikes during DAW usage.
 
 thread_blacklist_re='^(webrtc_audio_mo|InotifyEventThr)$'
-process_blacklist_re='^Not used at the moment'
+process_blacklist_re='^/usr/lib/(firefox|signal-)'
 
 # To make it easier to see what's going on and which threads we're going to
 # reschedule, we'll print all realtime threads with their thread names and the
