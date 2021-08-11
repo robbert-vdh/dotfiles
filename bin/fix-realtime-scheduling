@@ -13,10 +13,10 @@ process_blacklist_re='^Not used at the moment'
 realtime_threads=$(ps hxH -u "$USER" -o tid,rtprio,comm,command |
     awk '($2 >= 5) {
            if ($3 ~ THREAD_RE || $4 ~ PROCESS_RE) { printf "x\t" } else { printf " \t" }
-           print $1 "\t" $3 "\t" $4;
+           print $2 "\t" $1 "\t" $3 "\t" $4;
          }' THREAD_RE="$thread_blacklist_re" PROCESS_RE="$process_blacklist_re" |
     column -ts$'\t')
-need_rescheduling=$(echo "$realtime_threads" | awk '$1 == "x" { print $2 }')
+need_rescheduling=$(echo "$realtime_threads" | awk '$1 == "x" { print $3 }')
 
 echo "$realtime_threads"
 
