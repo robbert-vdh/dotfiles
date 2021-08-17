@@ -1075,6 +1075,13 @@ behaviour, so we try our best to remove them.
   (remhash 'web-mode yas--parents))
 #+end_src
 
+lsp-mode doesn't know about =.twig= files.
+
+#+begin_src emacs-lisp
+(after! lsp-mode
+  (add-to-list 'lsp-language-id-configuration '(".*\\.twig$" . "html")))
+#+end_src
+
 Editorconfig tries to be helpful and force =web-mode= to exactly follow the
 style defined in =.editorconfig=, but this makes indented attribute lists look
 weird.
