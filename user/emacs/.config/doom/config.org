@@ -413,10 +413,11 @@ bindings.
 (defadvice! +robbert--lsp-flycheck-chain-a (&rest _)
   "Chain other checkers after lsp-mode's flycheck checker. Needed
   because the checker is created on demand."
-  :after #'lsp-diagnostics--flycheck-enable
+  :after #'lsp-diagnostics-flycheck-enable
   ;; TODO: CHeck whether hls's hlint plugin works now
   ;; (flycheck-add-next-checker 'lsp '(warning . haskell-hlint))
   (flycheck-add-next-checker 'lsp '(warning . python-flake8))
+  (flycheck-add-next-checker 'lsp '(warning . tex-chktex))
   (flycheck-add-next-checker 'lsp '(warning . sh-shellcheck)))
 
 (after! lsp-mode
