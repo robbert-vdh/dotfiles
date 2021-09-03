@@ -441,8 +441,7 @@ bindings.
         ;; are used for. Might disable them later
         lsp-enable-indentation t
         lsp-enable-on-type-formatting t
-        ;; Already disabled by Doom, these don't really add anything
-        lsp-enable-folding nil))
+        lsp-enable-folding t))
 
 (map!
  (:after lsp-mode
@@ -695,7 +694,7 @@ Use C++ as a default.
   (add-to-list 'c-offsets-alist '(access-label . /))
   (add-to-list 'c-offsets-alist '(inclass . +)))
 
-(setq lsp-clients-clangd-args '("-j=3"
+(setq lsp-clients-clangd-args '("-j=6"
                                 "--background-index"
                                 "--clang-tidy"
                                 "--completion-style=detailed"
