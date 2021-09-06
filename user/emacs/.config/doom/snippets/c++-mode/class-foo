@@ -1,0 +1,42 @@
+# -*- mode: snippet -*-
+# name: Lifecycle dummy class
+# key: class-foo
+# --
+class Foo {
+   public:
+    Foo() : instance_id(instances_count.fetch_add(1)) {
+        std::cerr << "Foo " << instance_id << " constructed" << std::endl;
+    }
+    ~Foo() { std::cerr << "Foo " << instance_id << " destroyed" << std::endl; }
+
+    Foo(const Foo& o) : instance_id(o.instance_id) {
+        std::cerr << "Foo " << o.instance_id << " copy constructed"
+                  << std::endl;
+    }
+    Foo& operator=(const Foo& o) {
+        std::cerr << "Foo " << o.instance_id << " copy assigned to Foo "
+                  << instance_id << std::endl;
+        instance_id = o.instance_id;
+
+        return *this;
+    }
+
+    Foo(Foo&& o) : instance_id(o.instance_id) {
+        std::cerr << "Foo " << o.instance_id << " move constructed"
+                  << std::endl;
+    }
+    Foo& operator=(Foo&& o) {
+        std::cerr << "Foo " << o.instance_id << " move assigned to Foo "
+                  << instance_id << std::endl;
+        instance_id = o.instance_id;
+
+        return *this;
+    }
+
+    size_t instance_id = 0;
+
+   private:
+    static std::atomic_size_t instances_count;
+};
+
+std::atomic_size_t Foo::instances_count = 0;

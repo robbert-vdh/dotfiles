@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Disable format-all-mode
+# key: dir-locals-format-all
+# --
+((nil . ((+format-on-save-enabled-modes . nil))))
