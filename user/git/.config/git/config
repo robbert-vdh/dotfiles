@@ -13,7 +13,7 @@
 	autoStash = true
 [core]
 	editor = nvim
-  pager = delta
+	pager = delta
 [interactive]
   diffFilter = delta --color-only
 [merge]
@@ -36,3 +36,5 @@
 	ui = true
 [init]
 	defaultBranch = master
+[sendemail]
+	confirm = always
