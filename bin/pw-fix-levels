@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+#
+# PipeWire + virtual sinks causes the Plasma volume widget to get confused and
+# output things at the wrong volume. Setting the actual device's volume to
+# maximum and the virtual sink to some other value seems to fix this.
+
+set -euo pipefail
+
+dewit() {
+    sinks=$(pw-dump |
+        jq '.[] |
+            select(.info.props["media.class"] == "Audio/Sink") |
+            {id, name: (.info.props["alsa.card_name"] // .info.props["node.name"])}')
+    device_idx=$(jq 'select(.name == "Scarlett 18i8 USB").id' <<<"$sinks")
+    virtual_idx=$(jq 'select(.name == "18i8_stereo").id' <<<"$sinks")
+
+    # In case pipewire-media-session hasn't created the virtual sink yet (or
+    # connected to the ALSA device), we'll return an error so we can retry this
+    # later. pw-monitor would allow us to detect that the device connects, but
+    # this also works and it would probably be difficult to do the pw-monitor
+    # thing atomically.
+    if [[ -z $device_idx || -z $virtual_idx ]]; then
+        return 1
+    fi
+
+    pactl set-sink-volume "$device_idx" 100%
+    pactl set-sink-volume "$virtual_idx" 70%
+    return 0
+}
+
+if ! dewit; then
+    echo "Devices aren't connected yet, trying again in two seconds..."
+    sleep 2
+    dewit
+fi
