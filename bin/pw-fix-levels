@@ -24,12 +24,12 @@ dewit() {
     fi
 
     pactl set-sink-volume "$device_idx" 100%
-    pactl set-sink-volume "$virtual_idx" 70%
+    pactl set-sink-volume "$virtual_idx" 100%
     return 0
 }
 
 if ! dewit; then
     echo "Devices aren't connected yet, trying again in two seconds..."
-    sleep 2
+    sleep 6
     dewit
 fi
