@@ -443,6 +443,11 @@ bindings.
         lsp-enable-on-type-formatting t
         lsp-enable-folding t))
 
+(after! lsp-ui
+  ;; These tend to get in the way when I'm just looking at stuff. K also opens a
+  ;; documentation popup.
+  (setq lsp-ui-doc-enable nil))
+
 (map!
  (:after lsp-mode
   (:map lsp-mode-map
@@ -465,6 +470,14 @@ bindings.
    "C-l"           #'lsp-ui-peek--goto-xref
    "J"             #'lsp-ui-peek--select-next-file
    "K"             #'lsp-ui-peek--select-prev-file)))
+#+end_src
+
+Doom enables this for some reason, but this would cause lenses to appear
+duplicated (not that lenses in lsp-mode work that well atm in the first place).
+
+#+begin_src emacs-lisp
+(after! ccls
+  (remove-hook 'lsp-lens-mode-hook #'ccls-code-lens-mode))
 #+end_src
 
 Disable the default clang linting since this would be duplicate behavior and it
