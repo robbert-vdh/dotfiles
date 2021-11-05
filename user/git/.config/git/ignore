@@ -43,3 +43,6 @@ gtags.files
 # VsCode
 .vscode
 !user/vscode/.vscode
+
+# Direnv
+.envrc
