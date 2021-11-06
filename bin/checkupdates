@@ -58,7 +58,9 @@ def highlight_upgrades(diff):
         new_mm = MAJOR_MINOR_VERSION_RE.match(new_version)[1]
 
         format_attrs = ["bold"] if SPECIAL_PACKAGES_RE.match(name) else []
-        format_color = "green" if old_mm != new_mm else None
+        format_color = (
+            "green" if (old_mm != new_mm and not new_mm.startswith(old_mm)) else None
+        )
 
         output.append(colored(line, format_color, attrs=format_attrs))
 
