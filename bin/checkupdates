@@ -5,9 +5,22 @@ import re
 import subprocess
 from termcolor import colored
 
-aur_updates = subprocess.run(
-    ["yay", "--aur", "-Pu"], stdout=subprocess.PIPE, encoding="ascii"
-).stdout
+
+def get_aur_updates():
+    helpers = [["paru", "--aur", "-Qu"], ["yay", "--aur", "-Pu"]]
+
+    for helper in helpers:
+        try:
+            return subprocess.run(
+                helper, stdout=subprocess.PIPE, encoding="ascii"
+            ).stdout
+        except FileNotFoundError:
+            pass
+
+    raise RuntimeError("No supported AUR helper found")
+
+
+aur_updates = get_aur_updates()
 repo_updates = subprocess.run(
     ["/usr/bin/checkupdates"], stdout=subprocess.PIPE, encoding="ascii"
 ).stdout
@@ -39,7 +52,8 @@ def highlight_upgrades(diff):
 
     output = []
     for line in diff.splitlines():
-        name, old_version, _, new_version = line.split(" ")
+        # Paru suffixes ignored packages with ` (ignored)`
+        name, old_version, _, new_version, *_ = line.split(" ")
         old_mm = MAJOR_MINOR_VERSION_RE.match(old_version)[1]
         new_mm = MAJOR_MINOR_VERSION_RE.match(new_version)[1]
 
