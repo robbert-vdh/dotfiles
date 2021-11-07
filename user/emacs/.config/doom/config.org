@@ -16,7 +16,6 @@
   - [[#evil-surround][evil-surround]]
 - [[#packages][Packages]]
   - [[#academic-phrases][Academic Phrases]]
-  - [[#company][Company]]
   - [[#flycheck][Flycheck]]
   - [[#helpful][Helpful]]
   - [[#flyspell][Flyspell]]
@@ -279,13 +278,6 @@ Add some more pairs commonly used in Org and LaTeX to evil-surround.
 ** Academic Phrases
 #+begin_src emacs-lisp
 (use-package! academic-phrases)
-#+end_src
-
-** Company
-#+begin_src emacs-lisp
-(after! company
-  (setq company-minimum-prefix-length 2
-        company-idle-delay 0.1))
 #+end_src
 
 ** Flycheck
