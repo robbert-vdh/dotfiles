@@ -5,6 +5,8 @@
 # threads to `SCHED_OTHER` and revoke their permissions to use realtime
 # scheduling. (although they could still use rtkit if that's enabled)
 
+set -euo pipefail
+
 thread_blacklist_re='^(webrtc_audio_mo|InotifyEventThr|AudioIPC Callba)$'
 process_blacklist_re='^(/usr/bin/telegram-desktop|/usr/lib/(firefox|signal-|thunderbird))'
 
@@ -33,11 +35,11 @@ need_rescheduling=$(echo "$realtime_threads" | awk '$1 == "x" { print $3 }')
 echo "$realtime_threads"
 
 # A process could keep spawning new realtime threads using rtkit. If that's the
-# case, then disabling rtkit is the only solution.
+# case, then disabling rtkit is the only solution. This can be done with:
+#
+# sudo systemctl mask --now rtkit-daemon.service
 if systemctl is-active --quiet rtkit-daemon.service; then
-    echo -e "\nIf new realtime processes keep popping up, then you may want to run the following"
-    echo -e "command to temporarily disable rtkit:\n"
-    echo "    sudo systemctl stop rtkit-daemon.service"
+    echo -e "\nNotice: rtkit is currently running, consider disabling it if new realtime processes keep popping up"
 fi
 
 if [[ -z $need_rescheduling ]]; then
