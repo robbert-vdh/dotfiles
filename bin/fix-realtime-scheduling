@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 #
 # Some applications like to spawn high priority realtime threads. This can cause
-# latency spikes during DAW usage.
+# latency spikes during DAW usage. To prevent this, this script will set those
+# threads to `SCHED_OTHER` and revoke their permissions to use realtime
+# scheduling. (although they could still use rtkit if that's enabled)
 
 thread_blacklist_re='^(webrtc_audio_mo|InotifyEventThr|AudioIPC Callba)$'
 process_blacklist_re='^/usr/lib/(firefox|signal-|thunderbird)'
@@ -33,6 +35,7 @@ echo "$realtime_threads"
 if [[ -z $need_rescheduling ]]; then
     echo -e "\nNothing to do here, modify the blacklists if needed."
 else
-    echo -e "\nSetting all marked threads to SCHED_OTHER..."
+    echo -e "\nSetting all marked threads to SCHED_OTHER with RLIMIT_RTPRIO=0..."
     echo "$need_rescheduling" | xargs --no-run-if-empty -n1 chrt -po 0
+    echo "$need_rescheduling" | xargs --no-run-if-empty -n1 prlimit --rtprio=0 -p
 fi
