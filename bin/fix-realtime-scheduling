@@ -32,6 +32,14 @@ need_rescheduling=$(echo "$realtime_threads" | awk '$1 == "x" { print $3 }')
 
 echo "$realtime_threads"
 
+# A process could keep spawning new realtime threads using rtkit. If that's the
+# case, then disabling rtkit is the only solution.
+if systemctl is-active --quiet rtkit-daemon.service; then
+    echo -e "\nIf new realtime processes keep popping up, then you may want to run the following"
+    echo -e "command to temporarily disable rtkit:\n"
+    echo "    sudo systemctl stop rtkit-daemon.service"
+fi
+
 if [[ -z $need_rescheduling ]]; then
     echo -e "\nNothing to do here, modify the blacklists if needed."
 else
