@@ -36,6 +36,6 @@ if [[ -z $need_rescheduling ]]; then
     echo -e "\nNothing to do here, modify the blacklists if needed."
 else
     echo -e "\nSetting all marked threads to SCHED_OTHER with RLIMIT_RTPRIO=0..."
-    echo "$need_rescheduling" | sudo xargs --no-run-if-empty -n1 chrt -po 0
     echo "$need_rescheduling" | sudo xargs --no-run-if-empty -n1 prlimit --rtprio=0 -p
+    echo "$need_rescheduling" | sudo xargs --no-run-if-empty -n1 chrt -po 0
 fi
