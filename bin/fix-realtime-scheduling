@@ -23,7 +23,7 @@ realtime_threads=$(ps hxH -u "$USER" -o tid:30,rtprio:30,comm:30,command |
             s/(\t.{30}) /\1\t/;
             s/  +//g;
             s/(\t[^ ]+)( [^\t]+)?$/\1/' |
-    awk -F$'\t' '($2 >= 5) {
+    awk -F$'\t' '($2 > 0) {
                     if ($3 ~ THREAD_RE || $4 ~ PROCESS_RE) { printf "x\t" } else { printf " \t" }
                     print $2 "\t" $1 "\t" $3 "\t" $4;
                   }' THREAD_RE="$thread_blacklist_re" PROCESS_RE="$process_blacklist_re" |
@@ -36,6 +36,6 @@ if [[ -z $need_rescheduling ]]; then
     echo -e "\nNothing to do here, modify the blacklists if needed."
 else
     echo -e "\nSetting all marked threads to SCHED_OTHER with RLIMIT_RTPRIO=0..."
-    echo "$need_rescheduling" | xargs --no-run-if-empty -n1 chrt -po 0
-    echo "$need_rescheduling" | xargs --no-run-if-empty -n1 prlimit --rtprio=0 -p
+    echo "$need_rescheduling" | sudo xargs --no-run-if-empty -n1 chrt -po 0
+    echo "$need_rescheduling" | sudo xargs --no-run-if-empty -n1 prlimit --rtprio=0 -p
 fi
