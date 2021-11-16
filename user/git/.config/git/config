@@ -1,40 +1,33 @@
 [user]
 	name = Robbert van der Helm
 	email = mail@robbertvanderhelm.nl
-[diff]
-	compactionHeuristic = true
-	indentHeuristic = true
-	tool = kdiff3
+[core]
+	editor = nvim
+	pager = delta
+[init]
+	defaultBranch = master
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=human
+	lga = log --graph --date=human --all
+[github]
+	user = robbert-vdh
+[gitlab]
+	user = robbert
 [commit]
 	verbose = true
 [pull]
 	rebase = true
-[rebase]
-	autoStash = true
-[core]
-	editor = nvim
-	pager = delta
-[interactive]
-  diffFilter = delta --color-only
 [merge]
 	conflictStyle = diff3
-[alias]
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=human
-	lga = log --graph --date=human --all
-[tig]
-	refresh-mode = periodic
-	refresh-interval = 5
-[magit]
-	hideCampaign = true
-[github]
-	user = robbert-vdh
+[rebase]
+	autoStash = true
+[interactive]
+    diffFilter = delta --color-only
 [log]
 	date = human
-[gitlab]
-	user = robbert
 [color]
 	ui = true
-[init]
-	defaultBranch = master
+[magit]
+	hideCampaign = true
 [sendemail]
 	confirm = always
