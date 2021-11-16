@@ -13,8 +13,9 @@ process_blacklist_re='^(/usr/bin/telegram-desktop|/usr/lib/(firefox|signal-|thun
 # To make it easier to see what's going on and which threads we're going to
 # reschedule, we'll print all realtime threads with their thread names and the
 # first part of their command, and we'll mark the threads we're going to
-# reschedule.
-realtime_threads=$(ps hxH -u "$USER" -o tid:30,rtprio:30,comm:30,command |
+# reschedule. Excluding pid 2 and all children of that will hide the kernel
+# threads since we don't want to mess with those.
+realtime_threads=$(ps Hah --ppid 2 -p 2 --deselect -o rtprio:30,tid:30,user:30,comm:30,command |
     # HACK: Since thread names can contain spaces and ps doesn't have a way to
     #       specify a delimiter, we'll hack around this a bit by making every
     #       every column fixed width and then manually adding tabs. This would
@@ -23,11 +24,12 @@ realtime_threads=$(ps hxH -u "$USER" -o tid:30,rtprio:30,comm:30,command |
     sed -E 's/^(.{30}) /\1\t/;
             s/(\t.{30}) /\1\t/;
             s/(\t.{30}) /\1\t/;
+            s/(\t.{30}) /\1\t/;
             s/  +//g;
             s/(\t[^ ]+)( [^\t]+)?$/\1/' |
-    awk -F$'\t' '($2 > 0) {
-                    if ($3 ~ THREAD_RE || $4 ~ PROCESS_RE) { printf "x\t" } else { printf " \t" }
-                    print $2 "\t" $1 "\t" $3 "\t" $4;
+    awk -F$'\t' '($1 > 0) {
+                    if ($4 ~ THREAD_RE || $5 ~ PROCESS_RE) { printf "x\t" } else { printf " \t" }
+                    print $1 "\t" $2 "\t" $3 "\t" $4 "\t" $5;
                   }' THREAD_RE="$thread_blacklist_re" PROCESS_RE="$process_blacklist_re" |
     column -ts$'\t')
 need_rescheduling=$(echo "$realtime_threads" | awk '$1 == "x" { print $3 }')
