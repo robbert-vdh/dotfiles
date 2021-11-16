@@ -13,12 +13,14 @@
 	user = robbert-vdh
 [gitlab]
 	user = robbert
+[diff]
+	algorithm = histogram
+[merge]
+	conflictStyle = diff3
 [commit]
 	verbose = true
 [pull]
 	rebase = true
-[merge]
-	conflictStyle = diff3
 [rebase]
 	autoStash = true
 [interactive]
