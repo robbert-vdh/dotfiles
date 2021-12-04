@@ -476,16 +476,17 @@ Disable the default clang linting since this would be duplicate behavior and it
 also doesn't use the compilation database.
 
 #+begin_src emacs-lisp
-(dolist (checker '(c/c++-clang
-                   ;; NOTE: Without disabling this, clangd will
-                   ;;       crash all the time when completing
-                   ;;       things from the `std` namespace
-                   c/c++-gcc
-                   haskell-ghc
-                   haskell-stack-ghc
-                   python-mypy
-                   python-pylint))
-  (add-to-list 'flycheck-disabled-checkers checker))
+(after! flycheck
+  (dolist (checker '(c/c++-clang
+                     ;; NOTE: Without disabling this, clangd will
+                     ;;       crash all the time when completing
+                     ;;       things from the `std` namespace
+                     c/c++-gcc
+                     haskell-ghc
+                     haskell-stack-ghc
+                     python-mypy
+                     python-pylint))
+    (add-to-list 'flycheck-disabled-checkers checker)))
 #+end_src
 
 *** Eglot
