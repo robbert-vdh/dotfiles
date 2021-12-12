@@ -1,2 +1,5 @@
 set -g fish_greeting ""
-starship init fish | source
+
+if command -vq starship
+    starship init fish | source
+end
