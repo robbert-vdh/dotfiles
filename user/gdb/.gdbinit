@@ -18,5 +18,17 @@ define db-minimal
   dashboard -l history breakpoints expressions source
 end
 
+define db-enable
+  dashboard -enabled on
+end
+
+define db-disable
+  dashboard -enabled off
+end
+
 set disassembly-flavor intel
+
+# Start with gdb-dashboard disabled because its clearing behavior makes it very
+# easy to throw away useful information. Still no way to disable that.
 db-minimal
+db-disable
