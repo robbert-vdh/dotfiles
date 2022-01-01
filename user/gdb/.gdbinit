@@ -1,20 +1,22 @@
-source /usr/share/gef/gef.py
+# This is where the gdb-dashboard package on Arch/Manjaro installs
+# gdb-dashboard's .gdbinit file
+source /usr/share/gdb-dashboard/.gdbinit
 
-# Enable gef-extras, tilde expansion doesn't work here
-gef config context.libc_args True
-gef config context.libc_args_path /home/robbert/.local/share/gef-extras/glibc-function-args
-gef config gef.extra_plugins_dir /home/robbert/.local/share/gef-extras/scripts
-gef config pcustom.struct_path /home/robbert/.local/share/gef-extras/structs
-gef config syscall-args.path /home/robbert/.local/share/gef-extras/syscall-tables
+# This shows everything on the dashboard in a logical order it's quite cluttered
+define db-everything
+  dashboard -l registers threads stack assembly memory history expressions breakpoints variables source
+end
 
-# Steal the prompts from gdb-dashboard, since I like those a lot better
-python GEF_PROMPT_ON = "\001\033[1;35m\002>>>\001\033[0m\002 "
-python GEF_PROMPT_OFF = "\001\033[1;30m\002>>>\001\033[0m\002 "
+define db-basic
+  dashboard -l history breakpoints expressions variables source
+end
 
-# For typical source based debugging I don't need all of this
-gef config context.enable False
+# Same as the above without showing all locals since formatting that can be
+# quite slow. It's quite useful, but `info locals` and `dashboard expression
+# watch` are almost as convenient and much faster.
+define db-minimal
+  dashboard -l history breakpoints expressions source
+end
 
-# GEF already sets most settings to how I like them, but I'll revert a few of
-# the defaults they've set
-set confirm on
-set output-radix 10
+set disassembly-flavor intel
+db-minimal
