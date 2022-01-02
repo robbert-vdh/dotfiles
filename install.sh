@@ -81,6 +81,11 @@ stow2() {
 cd "$(dirname "$0")"
 git submodule update --init --recursive >/dev/null
 
+if ! command -v stow >/dev/null; then
+  echo "GNU Stow needs to be installed for this script to work"
+  exit 1
+fi
+
 if ask 'Dry run?' Y; then
   DRY_RUN=1
 else
