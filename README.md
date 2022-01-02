@@ -72,6 +72,14 @@ then you may want to be aware of the following:
    systemctl --user restart pipewire pipewire-pulse wireplumber
    ```
 
+7. (optional, but recommended)  
+   Enable the Pro Audio profile for your audio interface. You can do this in
+   your desktop environment's volume manager (e.g. in KDE Plasma there's a
+   dropdown menu next to the device's volume level) or in a standalone
+   PulseAudio volume management GUI like pavucontrol-qt. This will expose all
+   input and output channels on the device instead of acting like a normal
+   desktop sound card.
+
 ## Emacs
 
 My Emacs configuration is based on [Doom
