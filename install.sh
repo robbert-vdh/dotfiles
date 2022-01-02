@@ -35,33 +35,18 @@ ask() {
 
     # Check if the reply is valid
     case $REPLY in
-    Y* | y*) return 0 ;;
-    N* | n*) return 1 ;;
+      Y* | y*) return 0 ;;
+      N* | n*) return 1 ;;
     esac
   done
 }
 
-cd "$(dirname "$0")"
-
-git submodule update --init --recursive >/dev/null
-
-if ask 'Dry run?' Y; then
-  DRY_RUN=1
-else
-  set -e
-  set -o pipefail
-
-  if ask 'Install everything?' N; then
-    NO_ASK=1
-  fi
-fi
-
-function stow2() {
+stow2() {
   # Execute a script instead of stowing if an installation script is present
   if [[ -x $1/install ]]; then
-    command="$1/install"
+    command="'$1/install'"
   else
-    command="stow $1 -t $2 -v"
+    command="stow '$(basename "$1")' --dir '$(dirname "$1")' --target '$2' -v"
   fi
 
   if [[ -z "$DRY_RUN" && $2 == '/' ]]; then
@@ -79,12 +64,24 @@ function stow2() {
   fi
 }
 
+cd "$(dirname "$0")"
+git submodule update --init --recursive >/dev/null
+
+if ask 'Dry run?' Y; then
+  DRY_RUN=1
+else
+  set -eo pipefail
+
+  if ask 'Install everything?' N; then
+    NO_ASK=1
+  fi
+fi
+
 if [[ -z "$DRY_RUN" ]]; then
   echo 'Installing configuration...'
 fi
 
-cd user
-for package in *; do
+for package in user/*; do
   if [ -d "$package" ]; then
     stow2 "$package" "$HOME"
   fi
@@ -96,8 +93,7 @@ if [[ -z "$DRY_RUN" ]]; then
   echo 'NOTE: Misconfiguration could mess up your system'
 fi
 
-cd ../system
-for package in *; do
+for package in system/*; do
   if [ -d "$package" ]; then
     stow2 "$package" '/'
   fi
