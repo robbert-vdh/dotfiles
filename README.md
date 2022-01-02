@@ -83,8 +83,10 @@ then you may want to be aware of the following:
 8. (optional, but recommended)  
    Configure PipeWire to always replace JACK. If you're running Arch or Manjaro,
    then you can install the
-   [pipewire-jack-dropin](https://aur.archlinux.org/packages/pipewire-jack-dropin/)
-   AUR package to configure this for you. Otherwise you'll need to [set this up
+   [`pipewire-jack-dropin`](https://aur.archlinux.org/packages/pipewire-jack-dropin/)
+   AUR package to configure this for you. On Fedora there's a similar package
+   called `pipewire-jack-audio-connection-kit`. Otherwise you'll need to [set
+   this up
    yourself](https://gitlab.freedesktop.org/pipewire/pipewire/-/blob/master/INSTALL.md#jack-emulation).
 
 ## Emacs
