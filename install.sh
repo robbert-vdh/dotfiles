@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 #
-# Every directory in ./user/ will be stowed to $HOME and every directory in
-# ./system/ will be stowed to /. If there's an executable file named 'install'
-# present in a directory, the script will be executed instead.
+# Usage:
+# ./install.sh [user/path1 user/path2 system/path3 ...]
+#
+# If any paths relative to this script are given as command line arguments, then
+# those packages will be installed.
+#
+# Otherwise, every directory in `user/` will be stowed to `$HOME` and every
+# directory in `system/` will be stowed to `/. If there's an executable file
+# named 'install' present in a directory, the script will be executed instead.
 
 # Source https://gist.github.com/davejamesmiller/1965569
 ask() {
@@ -81,15 +87,27 @@ else
   set -eo pipefail
 fi
 
-if ask 'Install everything? (alternatively, pass package names as arguments)' N; then
+if [[ $# -gt 0 ]]; then
+  packages=("$@")
+
   NO_ASK=1
+else
+  packages=(user/* system/*)
+
+  if ask 'Install everything? (alternatively, pass package names as arguments)' N; then
+    NO_ASK=1
+  fi
 fi
 
-if [[ -z $DRY_RUN ]]; then
-  echo 'Installing configuration...'
+if [[ -n $DRY_RUN ]]; then
+  echo -e '\nSimulating install...'
+else
+  echo -e '\nInstalling configuration...'
 fi
 
-for package in user/* system/*; do
+for package in "${packages[@]}"; do
+  echo "- $package"
+
   if [[ ! -d $package ]]; then
     echo "'$package' is not a directory"
     exit 1
