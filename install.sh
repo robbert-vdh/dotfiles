@@ -49,16 +49,24 @@ stow2() {
     command="stow '$(basename "$1")' --dir '$(dirname "$1")' --target '$2' -v"
   fi
 
-  if [[ -z "$DRY_RUN" && $2 == '/' ]]; then
+  if [[ -z $DRY_RUN && $2 == '/' ]]; then
     command="sudo $command"
+
+    if [[ -z $SUDO_WARNING_PRINTED ]]; then
+      echo ''
+      echo 'Installing systemm wide configuration...'
+      echo 'NOTE: Misconfiguration could mess up your system'
+
+      SUDO_WARNING_PRINTED=1
+    fi
   fi
 
-  if [[ -n "$DRY_RUN" ]]; then
+  if [[ -n $DRY_RUN ]]; then
     command+=" --no 2>&1 \
-      | grep -v 'WARNING: in simulation mode so not modifying filesystem.'"
+      | grep -v 'WARNING: in simulation mode so not modifying filesystem.' || true"
     eval "$command"
   else
-    if [[ -n "$NO_ASK" ]] || ask "Install configuration for $package?" Y; then
+    if [[ -n $NO_ASK ]] || ask "Install configuration for $package?" Y; then
       eval "$command"
     fi
   fi
@@ -71,30 +79,34 @@ if ask 'Dry run?' Y; then
   DRY_RUN=1
 else
   set -eo pipefail
-
-  if ask 'Install everything?' N; then
-    NO_ASK=1
-  fi
 fi
 
-if [[ -z "$DRY_RUN" ]]; then
+if ask 'Install everything? (alternatively, pass package names as arguments)' N; then
+  NO_ASK=1
+fi
+
+if [[ -z $DRY_RUN ]]; then
   echo 'Installing configuration...'
 fi
 
-for package in user/*; do
-  if [ -d "$package" ]; then
-    stow2 "$package" "$HOME"
+for package in user/* system/*; do
+  if [[ ! -d $package ]]; then
+    echo "'$package' is not a directory"
+    exit 1
   fi
-done
 
-if [[ -z "$DRY_RUN" ]]; then
-  echo ''
-  echo 'Installing systemm wide configuration...'
-  echo 'NOTE: Misconfiguration could mess up your system'
-fi
+  case "$package" in
+    user/*)
+      target="$HOME"
+      ;;
+    system/*)
+      target="/"
+      ;;
+    *)
+      echo "Unknown package location"
+      exit 1
+      ;;
+  esac
 
-for package in system/*; do
-  if [ -d "$package" ]; then
-    stow2 "$package" '/'
-  fi
+  stow2 "$package" "$target"
 done
