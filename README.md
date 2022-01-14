@@ -43,16 +43,16 @@ then you may want to be aware of the following:
 
 5. Some things you may want to change depending on your needs are:
 
-   - The ALSA period size. **You'll likely need to change this setting.**
-     PipeWire can run on very low ALSA period sizes and continuesly push small
-     amounts of audio to the audio device while processing larger buffers in the
-     graph. This greatly reduces the audio roundtrip latency, but the period
-     size achievable with your hardware very much depends on your system. This
-     value can be set in `~/.config/wireplumber/main.lua.d/90-alsa-config.lua`,
-     and the default is 20 samples. Some people can go as low as 8 samples,
-     others need 32 or even 64. If you get any crackling, especially while also
-     recording audio, then try increasing this value and restarting WirePlumber
-     with `systemctl --user restart wireplumber`.
+   - The ALSA period size and the number of periods. **You'll likely need to
+     change this setting.** PipeWire can run on very low ALSA period sizes and
+     continuesly push small amounts of audio to the audio device while
+     processing larger buffers in the graph. This greatly reduces the audio
+     roundtrip latency, but the period size achievable with your hardware very
+     much depends on your system. This value can be set in
+     `~/.config/wireplumber/main.lua.d/90-alsa-config.lua`, and the default is
+     64 frames/period with four periods. If you get any crackling, especially
+     while also recording audio, then try changing these settings. Make sure to
+     restart WirePlumber afterwards with `systemctl --user restart wireplumber`.
    - The sample rate. This is set to 44100 in my config. Change the sample rate
      values in both `~/.config/pipewire/pipewire.conf` and
      `~/.config/wireplumber/main.lua.d/90-alsa-config.lua` if you want to use a
