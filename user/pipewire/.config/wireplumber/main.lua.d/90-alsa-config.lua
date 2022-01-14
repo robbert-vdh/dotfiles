@@ -13,7 +13,10 @@ alsa_monitor.rules[#alsa_monitor.rules + 1] = {
   apply_properties = {
     ["audio.rate"]             = 44100,
     ["api.alsa.period-size"]   = 64,
-    ["api.alsa.period-num"]    = 4,
+    -- This is super weird right now, not sure why 32 is required here when ALSA
+    -- applications or JACK2 can normally do 64/3 frames/periods. Need to
+    -- investigate this further after a couple PipeWire updates.
+    ["api.alsa.period-num"]    = 32,
     ["api.alsa.disable-batch"] = true,
   },
 }
