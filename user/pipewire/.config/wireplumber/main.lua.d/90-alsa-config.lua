@@ -17,7 +17,7 @@ alsa_monitor.rules[#alsa_monitor.rules + 1] = {
     -- required here when ALSA applications or JACK2 can normally do 64/3
     -- frames/periods. Need to investigate this further after a couple PipeWire
     -- updates.
-    ["api.alsa.period-num"]    = 128,
+    ["api.alsa.period-num"]    = 192,
     ["api.alsa.disable-batch"] = true,
   },
 }
