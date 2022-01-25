@@ -10,8 +10,14 @@ set -gx GTK_USE_PORTAL 1
 set -gx MAKEFLAGS -j(nproc)
 # Needed for some tooling
 set -gx RUST_SRC_PATH (rustc --print sysroot)/lib/rustlib/src/rust/library
+
 # Always enable the fsync patches in Wine
 set -gx WINEFSYNC 1
+# Workaround for https://bugs.kde.org/show_bug.cgi?id=414785
+# https://www.reddit.com/r/kde/comments/h0u6j7/choppy_nvidia_x11_performance_on_plasma_519_with/ftoa0jv/
+# Doesn't actually fully resolve the issue, but it at least seems a tiny bit
+# better
+set -gx __GL_YIELD usleep
 
 # Merge local directories with $PATH
 set -g fish_user_paths ~/.cabal/bin ~/.cargo/bin ~/.dotfiles/bin ~/.ghcup/bin ~/.local/bin
