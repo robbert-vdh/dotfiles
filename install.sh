@@ -67,6 +67,10 @@ stow2() {
     fi
   fi
 
+  # Only print this package name here because otherwise it would come before the
+  # above system wide warning, which looks a bit confusing
+  echo "- $package"
+
   if [[ -n $DRY_RUN ]]; then
     command+=" --no 2>&1 \
       | grep -v 'WARNING: in simulation mode so not modifying filesystem.' || true"
@@ -111,8 +115,6 @@ else
 fi
 
 for package in "${packages[@]}"; do
-  echo "- $package"
-
   if [[ ! -d $package ]]; then
     echo "'$package' is not a directory"
     exit 1
