@@ -961,7 +961,8 @@ Enable clippy support and enable rust-analyzer.
 
 #+begin_src emacs-lisp
 (setq rustic-lsp-server 'rust-analyzer
-      lsp-rust-clippy-preference "on")
+      lsp-rust-clippy-preference "on"
+      lsp-rust-analyzer-import-merge-behaviour "last")
 #+end_src
 
 ** Sass/CSS
