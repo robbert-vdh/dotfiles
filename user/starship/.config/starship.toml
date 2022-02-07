@@ -1,0 +1,28 @@
+# The defaults mostly resemble Pure, but for some reason not quite. It's also a
+# bit too verbose for my liking
+[character]
+success_symbol = "[❯](bold purple)"
+
+[directory]
+# There doesn't seem to be a way to do the actual fish-style truncation based
+# on the size of the window
+fish_style_pwd_dir_length = 1
+truncation_length = 5
+style = "blue"
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "bold yellow"
+
+[status]
+disabled = false
+format = "[$symbol$status( $signal_name)]($style)"
+map_symbol = true
+pipestatus = true
+pipestatus_format = "\\[$pipestatus\\] => [$symbol$status( $signal_name)]($style)"
+
+[sudo]
+# Broken with sudo 1.9.9: https://github.com/starship/starship/issues/3551
+#disabled = false 
+format = "[#]($style) "
+style = "italic bright blue"
