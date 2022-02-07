@@ -81,12 +81,9 @@ then you may want to be aware of the following:
    desktop sound card.
 
 8. (optional, but recommended)  
-   Configure PipeWire to always replace JACK. If you're running Arch or Manjaro,
-   then you can install the
-   [`pipewire-jack-dropin`](https://aur.archlinux.org/packages/pipewire-jack-dropin/)
-   AUR package to configure this for you. On Fedora there's a similar package
-   called `pipewire-jack-audio-connection-kit`. Otherwise you'll need to [set
-   this up
+   Configure PipeWire to always replace JACK. This is now done by default on
+   Arch based distros with the `pipewire-jack` package and on Fedora with
+   `pipewire-jack-audio-connection-kit`. On other distros you may need to [set this up
    yourself](https://gitlab.freedesktop.org/pipewire/pipewire/-/blob/master/INSTALL.md#jack-emulation).
 
 ## Emacs
