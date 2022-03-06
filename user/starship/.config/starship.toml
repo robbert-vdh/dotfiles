@@ -22,7 +22,6 @@ pipestatus = true
 pipestatus_format = "\\[$pipestatus\\] => [$symbol$status( $signal_name)]($style)"
 
 [sudo]
-# Broken with sudo 1.9.9: https://github.com/starship/starship/issues/3551
-#disabled = false 
+disabled = false 
 format = "[#]($style) "
 style = "italic bright blue"
