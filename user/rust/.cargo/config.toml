@@ -1,4 +1,0 @@
-[net]
-# The libgit used by Cargo sometimes doesn't know of recently added Git options
-# and will thus error out
-git-fetch-with-cli = true
