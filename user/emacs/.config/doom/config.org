@@ -963,7 +963,9 @@ Enable clippy support and enable rust-analyzer.
 (setq rustic-lsp-server 'rust-analyzer
       lsp-rust-clippy-preference "on"
       lsp-rust-analyzer-cargo-watch-command "clippy"
-      lsp-rust-analyzer-import-merge-behaviour "last")
+      lsp-rust-analyzer-import-merge-behaviour "last"
+      lsp-rust-analyzer-proc-macro-enable t
+      lsp-rust-analyzer-experimental-proc-attr-macros t)
 #+end_src
 
 ** Sass/CSS
