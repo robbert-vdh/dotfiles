@@ -1089,6 +1089,7 @@ lsp-mode doesn't know about =.twig= files.
 
 #+begin_src emacs-lisp
 (after! lsp-mode
+  (setq lsp-html-format-end-with-newline t)
   (add-to-list 'lsp-language-id-configuration '(".*\\.twig$" . "html")))
 #+end_src
 
