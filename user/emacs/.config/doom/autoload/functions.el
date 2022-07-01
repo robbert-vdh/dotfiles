@@ -66,13 +66,6 @@ embedded DSLs."
                                      company-yasnippet)))
 
 ;;;###autoload
-(defun +robbert/buffer-to-clipboard ()
-  "Copy the buffer's contents to the system clipboard. Copied
-from Spacemacs."
-  (interactive)
-  (clipboard-kill-ring-save (point-min) (point-max)))
-
-;;;###autoload
 (defun +robbert/clipboard-to-buffer ()
   "Replace the buffer's contents with the clipboard's contents.
 Copied from Spacemacs."
