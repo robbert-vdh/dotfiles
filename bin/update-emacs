@@ -16,8 +16,8 @@ git pull --rebase --autostash
 # thus fail
 find ./* \( -iname '*.elc' -or -iname '*.eln' \) -delete
 
-bin/doom -y sync -up
-bin/doom -y compile --core
+bin/doom --force sync -up --jobs "$(nproc)"
+bin/doom --force compile --core
 
 # Restart the daemon if it is running
 systemctl --user try-restart emacs.service
