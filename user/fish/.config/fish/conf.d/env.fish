@@ -11,6 +11,9 @@ set -gx MAKEFLAGS -j(nproc)
 # Needed for some tooling
 set -gx RUST_SRC_PATH (rustc --print sysroot)/lib/rustlib/src/rust/library
 
+# This is supposed to be set automatically. It isn't.
+set -gx DEBUGINFOD_URLS 'https://debuginfod.archlinux.org'
+
 # Always enable the fsync patches in Wine
 set -gx WINEFSYNC 1
 # Workaround for https://bugs.kde.org/show_bug.cgi?id=414785
