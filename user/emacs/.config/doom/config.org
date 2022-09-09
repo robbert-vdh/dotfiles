@@ -182,6 +182,13 @@ default frame.
       doom-one-brighter-comments (not (or (display-graphic-p) (daemonp))))
 #+end_src
 
+The line inactive line numbers are barely visible by default, which makes
+relative line number jumps a bit more awkward than they'd otherwise be.
+
+#+begin_src emacs-lisp
+(custom-set-faces! `(line-number :foreground ,(face-foreground 'font-lock-comment-face)))
+#+end_src
+
 ** Whitespace
 Show trailing whitespace. This got removed as a default.
 
