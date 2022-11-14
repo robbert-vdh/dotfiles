@@ -53,7 +53,7 @@ then you may want to be aware of the following:
      64 frames/period with four periods. If you get any crackling, especially
      while also recording audio, then try changing these settings. Make sure to
      restart WirePlumber afterwards with `systemctl --user restart wireplumber`.
-   - The sample rate. This is set to 44100 in my config. Change the sample rate
+   - The sample rate. This is set to 48000 in my config. Change the sample rate
      values in both `~/.config/pipewire/pipewire.conf` and
      `~/.config/wireplumber/main.lua.d/90-alsa-config.lua` if you want to use a
      different sample rate.
