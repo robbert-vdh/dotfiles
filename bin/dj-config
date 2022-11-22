@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cd "$(dirname "$0")"
+
+# This script expects a 1st gen. Focusrite Scarlett 18i8 to be connected
+device_id=$(aplay -l | awk '/Scarlett 18i8 USB/ && match($0, /card ([0-9]+):/, matches) { print matches[1] }')
+if [[ -z $device_id ]]; then
+  echo "This script only works with a connected 1st gen. Focusrite Scarlett 18i8"
+  exit 1
+fi
+device_id="hw:$device_id"
+
+case ${1:-} in
+  "on")
+    pw-metadata -n settings 0 clock.force-quantum 128 >/dev/null
+    amixer -D "$device_id" sset 'Master 2L (Headphone 1) Source Playback Enu' 'PCM 3' >/dev/null
+    amixer -D "$device_id" sset 'Master 2R (Headphone 1) Source Playback Enu' 'PCM 4' >/dev/null
+    amixer -D "$device_id" sset 'Master 3L (Headphone 2) Source Playback Enu' 'PCM 3' >/dev/null
+    amixer -D "$device_id" sset 'Master 3R (Headphone 2) Source Playback Enu' 'PCM 4' >/dev/null
+
+    ./fix-realtime-scheduling
+
+    echo "Set quantum to 128 samples, headphone outputs set to channels 3 and 4, ran realtime config script"
+    ;;
+
+  "off")
+    pw-metadata -n settings 0 clock.force-quantum 0 >/dev/null
+    amixer -D "$device_id" sset 'Master 2L (Headphone 1) Source Playback Enu' 'PCM 1' >/dev/null
+    amixer -D "$device_id" sset 'Master 2R (Headphone 1) Source Playback Enu' 'PCM 2' >/dev/null
+    amixer -D "$device_id" sset 'Master 3L (Headphone 2) Source Playback Enu' 'PCM 1' >/dev/null
+    amixer -D "$device_id" sset 'Master 3R (Headphone 2) Source Playback Enu' 'PCM 2' >/dev/null
+
+    echo "Quantum size reset, headphone outputs restored to channels 1 and 2"
+    ;;
+
+  *)
+    echo "Usage:"
+    echo "$0 [on|off]"
+    ;;
+esac
