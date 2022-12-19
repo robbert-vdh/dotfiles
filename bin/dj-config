@@ -14,15 +14,16 @@ device_id="hw:$device_id"
 
 case ${1:-} in
   "on")
-    pw-metadata -n settings 0 clock.force-quantum 64 >/dev/null
+    pw-metadata -n settings 0 clock.force-quantum 128 >/dev/null
     amixer -D "$device_id" sset 'Master 2L (Headphone 1) Source Playback Enu' 'PCM 3' >/dev/null
     amixer -D "$device_id" sset 'Master 2R (Headphone 1) Source Playback Enu' 'PCM 4' >/dev/null
     amixer -D "$device_id" sset 'Master 3L (Headphone 2) Source Playback Enu' 'PCM 3' >/dev/null
     amixer -D "$device_id" sset 'Master 3R (Headphone 2) Source Playback Enu' 'PCM 4' >/dev/null
 
+    balooctl suspend
     ./fix-realtime-scheduling
 
-    echo "Quantum set to 64 samples, headphone outputs set to channels 3 and 4, ran realtime config script"
+    echo "Quantum set to 128 samples, headphone outputs set to channels 3 and 4, ran realtime config script"
     ;;
 
   "off")
