@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ -z $1 ]]; then
+    echo 'Usage:' >&2
+    echo "$0 <input-files...>" >&2
+    echo "$0 foo.flac" >&2
+    exit 1
+fi
+
+convert_binary=$(dirname "$0")/ffmpeg-convert
+for file in "${@}"; do
+    $convert_binary "$file" .mp3 -ab 320k
+done

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ $# -lt 2 ]]; then
+    echo 'Usage:' >&2
+    echo "$0 <input-file> .<new-extension> [options]" >&2
+    echo "$0 foo.flac .mp3 -ab 320k" >&2
+    echo "$0 foo.mp4 -reencoded.mp4 -c:v h264_nvenc -b:v 4M -c:a copy" >&2
+    exit 1
+fi
+
+# The extension should include a period. That way you can transcode something to
+# the same format but with a different extension
+extension=$2
+if [[ $extension != *'.'* ]]; then
+    echo "The extension ($extension) should contain a period" >&2
+    exit 1
+fi
+
+input_file=$1
+output_file=${input_file%.*}$extension
+
+args=("${@:3}")
+
+exec ffmpeg -i "$input_file" "${args[@]}" "$output_file"
