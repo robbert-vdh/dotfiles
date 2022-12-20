@@ -25,8 +25,13 @@ case ${1:-} in
       amixer -D "$device_id" sset 'Master 3R (Headphone 2) Source Playback Enu' 'PCM 4' >/dev/null
     fi
 
-    balooctl suspend
     ./fix-realtime-scheduling
+    balooctl suspend
+
+    if ! grep performance /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor >/dev/null; then
+      echo "Setting the frequency scaling governor to performance, this won't be reset when turning DJ-mode off again"
+      echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor >/dev/null
+    fi
 
     echo "Quantum set to 128 samples, headphone outputs set to channels 3 and 4, ran realtime config script"
     ;;
@@ -41,7 +46,7 @@ case ${1:-} in
       amixer -D "$device_id" sset 'Master 3R (Headphone 2) Source Playback Enu' 'PCM 2' >/dev/null
     fi
 
-    echo "Quantum size reset, headphone outputs restored to channels 1 and 2"
+    echo "Quantum size reset, headphone outputs restored to channels 1 and 2, other tweaks are still in effect"
     ;;
 
   *)
