@@ -7,18 +7,23 @@ cd "$(dirname "$0")"
 # This script expects a 1st gen. Focusrite Scarlett 18i8 to be connected
 device_id=$(aplay -l | awk '/Scarlett 18i8 USB/ && match($0, /card ([0-9]+):/, matches) { print matches[1] }')
 if [[ -z $device_id ]]; then
-  echo "This script only works with a connected 1st gen. Focusrite Scarlett 18i8"
-  exit 1
+  echo "No 1st gen. Focusrite Scarlett 18i8 connected, not changing mixer assignments"
+  remap_18i8_mixer=0
+else
+  device_id="hw:$device_id"
+  remap_18i8_mixer=1
 fi
-device_id="hw:$device_id"
 
 case ${1:-} in
   "on")
     pw-metadata -n settings 0 clock.force-quantum 128 >/dev/null
-    amixer -D "$device_id" sset 'Master 2L (Headphone 1) Source Playback Enu' 'PCM 3' >/dev/null
-    amixer -D "$device_id" sset 'Master 2R (Headphone 1) Source Playback Enu' 'PCM 4' >/dev/null
-    amixer -D "$device_id" sset 'Master 3L (Headphone 2) Source Playback Enu' 'PCM 3' >/dev/null
-    amixer -D "$device_id" sset 'Master 3R (Headphone 2) Source Playback Enu' 'PCM 4' >/dev/null
+
+    if [[ $remap_18i8_mixer -eq 1 ]]; then
+      amixer -D "$device_id" sset 'Master 2L (Headphone 1) Source Playback Enu' 'PCM 3' >/dev/null
+      amixer -D "$device_id" sset 'Master 2R (Headphone 1) Source Playback Enu' 'PCM 4' >/dev/null
+      amixer -D "$device_id" sset 'Master 3L (Headphone 2) Source Playback Enu' 'PCM 3' >/dev/null
+      amixer -D "$device_id" sset 'Master 3R (Headphone 2) Source Playback Enu' 'PCM 4' >/dev/null
+    fi
 
     balooctl suspend
     ./fix-realtime-scheduling
@@ -28,10 +33,13 @@ case ${1:-} in
 
   "off")
     pw-metadata -n settings 0 clock.force-quantum 0 >/dev/null
-    amixer -D "$device_id" sset 'Master 2L (Headphone 1) Source Playback Enu' 'PCM 1' >/dev/null
-    amixer -D "$device_id" sset 'Master 2R (Headphone 1) Source Playback Enu' 'PCM 2' >/dev/null
-    amixer -D "$device_id" sset 'Master 3L (Headphone 2) Source Playback Enu' 'PCM 1' >/dev/null
-    amixer -D "$device_id" sset 'Master 3R (Headphone 2) Source Playback Enu' 'PCM 2' >/dev/null
+
+    if [[ $remap_18i8_mixer -eq 1 ]]; then
+      amixer -D "$device_id" sset 'Master 2L (Headphone 1) Source Playback Enu' 'PCM 1' >/dev/null
+      amixer -D "$device_id" sset 'Master 2R (Headphone 1) Source Playback Enu' 'PCM 2' >/dev/null
+      amixer -D "$device_id" sset 'Master 3L (Headphone 2) Source Playback Enu' 'PCM 1' >/dev/null
+      amixer -D "$device_id" sset 'Master 3R (Headphone 2) Source Playback Enu' 'PCM 2' >/dev/null
+    fi
 
     echo "Quantum size reset, headphone outputs restored to channels 1 and 2"
     ;;
