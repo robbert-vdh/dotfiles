@@ -56,6 +56,7 @@
   - [[#vue][Vue]]
   - [[#web][Web]]
   - [[#writeroom-mode][writeroom-mode]]
+  - [[#xml][XML]]
   - [[#yaml][YAML]]
 
 * Basic settings
@@ -1149,6 +1150,22 @@ manually if needed.
 
 #+begin_src emacs-lisp
 (setq +zen-text-scale 0)
+#+end_src
+
+** XML
+Typing =</= will close the tag automatically as expected, but it also inserts an
+additional =>= character. This is apparently a known issue with Doom's config.
+The below snippet was taken from
+[[https://github.com/doomemacs/doomemacs/issues/6331#issuecomment-1109981584]].
+
+#+begin_src emacs-lisp
+(defadvice! --nxml-electric-slash-remove-duplicate-right-angle-and-indent (func arg)
+  :around 'nxml-electric-slash
+  (let ((point-before (point)))
+    (funcall func arg)
+    (unless (equal (+ 1 point-before) (point))
+      (delete-char 1)
+      (funcall indent-line-function))))
 #+end_src
 
 ** YAML
