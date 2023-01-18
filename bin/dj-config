@@ -27,7 +27,7 @@ case ${1:-} in
 
     ./fix-realtime-scheduling
     balooctl suspend
-    killall baloo_file
+    killall baloo_file 2>/dev/null || true
 
     if ! grep performance /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor >/dev/null; then
       echo "Setting the frequency scaling governor to performance, this won't be reset when turning DJ-mode off again"
