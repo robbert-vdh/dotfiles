@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#
+# The equivalent of latexmk -pvc for ConTeXt
+
+set -euo pipefail
+
+filename=$1
+if [[ -z $filename ]]; then
+    echo >&2 "Usage: $(basename "$0") <filename[.tex]>"
+    exit 1
+fi
+
+context "$filename"
+mimeopen "${filename%.tex}.pdf" &
+while inotifywait --event modify "$filename"; do
+    context "$filename" || true
+done
