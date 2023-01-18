@@ -221,10 +221,10 @@ overridden to not continue comments.
  :i [remap newline] #'+robbert/newline-and-indent
  :i [C-S-return]    #'newline-and-indent
  :i [M-backspace]   #'evil-delete-back-to-indentation
- :g "M-f"           #'+default/search-buffer
- :g "M-F"           #'+default/search-project
- :gnvi "M-Q"        #'+robbert/unfill-paragraph
- :gni "C-S-SPC"     #'company-yasnippet
+ :nvi "M-f"         #'+default/search-buffer
+ :nvi "M-F"         #'+default/search-project
+ :nvi "M-Q"         #'+robbert/unfill-paragraph
+ :nvi "C-S-SPC"     #'company-yasnippet
 
  ;; `next-error' and `previous-error' will keep cycling through the last used
  ;; error buffer. This also causes them to keep cycling through compilation
