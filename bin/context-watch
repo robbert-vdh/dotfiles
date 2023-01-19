@@ -11,8 +11,8 @@ if [[ -z $filename ]]; then
     exit 1
 fi
 
-context "$filename" "${args[@]}"
+context "$filename" --noconsole "${args[@]}"
 mimeopen "${filename%.tex}.pdf" &
 while inotifywait --event modify "$filename"; do
-    context "$filename" "${args[@]}" || true
+    context "$filename" --noconsole "${args[@]}" || true
 done
