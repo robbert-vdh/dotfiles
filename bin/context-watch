@@ -5,13 +5,14 @@
 set -euo pipefail
 
 filename=$1
+args=("${@:2}")
 if [[ -z $filename ]]; then
-    echo >&2 "Usage: $(basename "$0") <filename[.tex]>"
+    echo >&2 "Usage: $(basename "$0") <filename[.tex]> [args...]"
     exit 1
 fi
 
-context "$filename"
+context "$filename" "${args[@]}"
 mimeopen "${filename%.tex}.pdf" &
 while inotifywait --event modify "$filename"; do
-    context "$filename" || true
+    context "$filename" "${args[@]}" || true
 done
