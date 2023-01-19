@@ -44,7 +44,7 @@
   - [[#haskell][Haskell]]
   - [[#jupyter][Jupyter]]
   - [[#kotlin][Kotlin]]
-  - [[#latex][LaTeX]]
+  - [[#latexcontexttex][LaTeX/ConTeXt/TeX]]
   - [[#markdown][Markdown]]
   - [[#org][Org]]
   - [[#php][PHP]]
@@ -829,10 +829,24 @@ but I just jupyter for lots of different projects so that doesn't work for me.
 (use-package! kotlin-mode)
 #+end_src
 
-** LaTeX
+** LaTeX/ConTeXt/TeX
+For LaTeX:
+
 #+begin_src emacs-lisp
 (after! latex-mode
   (set-electric! 'latex-mode :chars '(?\n ?\{)))
+#+end_src
+
+For ConTeXt:
+
+#+begin_src emacs-lisp
+(after! lsp-mode
+  (add-to-list 'lsp-language-id-configuration (cons 'context-mode "context"))
+  (add-to-list 'lsp-language-id-configuration (cons 'ConTeXt-mode "context")))
+
+(setq ConTeXt-Mark-version "IV")
+(after! context
+  (add-hook! 'ConTeXt-mode-hook :append #'lsp!))
 #+end_src
 
 ** Markdown
