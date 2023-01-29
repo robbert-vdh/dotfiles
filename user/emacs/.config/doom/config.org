@@ -325,6 +325,30 @@ Add spell checking to all text documents.
 (add-hook 'text-mode-hook 'flyspell-mode)
 #+end_src
 
+Doom uses =lsp-prog-mode=, which only performs spell checking for strings and
+comments. It does this by checking the face at the point using
+=flyspell-generic-progmode-verify=, but this doesn't work together with
+=lsp-semantic-tokens-mode= for two reasons. First, semantic highlighting uses
+different faces. And second, =flyspell-generic-progmode-verify= doesn't consider
+regions with multiple faces applied to them. We'll need to override the function
+to fix this.
+
+#+begin_src emacs-lisp
+(defadvice! +robbert--flyspell-generic-progmode-verify ()
+  "`flyspell-generic-progmode-verify', but modified to consider all of the returned faces."
+  :override #'flyspell-generic-progmode-verify
+  (unless (eql (point) (point-min))
+    ;; (point) is next char after the word. Must check one char before.
+    (let ((f (get-text-property (1- (point)) 'face)))
+      ;; The original version didn't consider this, but f can be a single face or a list of faces
+      (if (seqp f) (seq-intersection f flyspell-prog-text-faces)
+        (memq f flyspell-prog-text-faces)))))
+
+(after! flyspell
+  (add-to-list 'flyspell-prog-text-faces 'lsp-face-semhl-comment)
+  (add-to-list 'flyspell-prog-text-faces 'lsp-face-semhl-string))
+#+end_src
+
 ** hl-todo
 Also highlight TODOs in text documents.
 
@@ -440,6 +464,8 @@ bindings.
   ;; Doom disables a few LSP features by default, but some of them can be quite
   ;; useful especially in C++
   (setq lsp-enable-text-document-color t
+        ;; The `flyspell-generic-progmode-verify' function needs to be
+        ;; overridden for this to not break spelling overlays, see above
         lsp-enable-semantic-highlighting t
         lsp-enable-file-watchers t
         ;; Not sure if these two are actually used and, if they are, what they
