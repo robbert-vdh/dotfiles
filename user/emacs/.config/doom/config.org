@@ -866,11 +866,11 @@ For LaTeX:
 For ConTeXt:
 
 #+begin_src emacs-lisp
-(after! lsp-mode
-  (add-to-list 'lsp-language-id-configuration (cons 'context-mode "context"))
-  (add-to-list 'lsp-language-id-configuration (cons 'ConTeXt-mode "context")))
-
 (setq ConTeXt-Mark-version "IV")
+
+(after! lsp-mode
+  (add-to-list 'lsp-language-id-configuration (cons 'context-mode "context")))
+
 (after! context
   (add-hook! 'ConTeXt-mode-hook :append #'lsp!))
 #+end_src
