@@ -27,6 +27,7 @@ define db-disable
 end
 
 set disassembly-flavor intel
+set debuginfod enabled on
 
 # Start with gdb-dashboard disabled because its clearing behavior makes it very
 # easy to throw away useful information. Still no way to disable that.
