@@ -11,11 +11,19 @@ if [[ -z $filename ]]; then
     exit 1
 fi
 
+# ConTeXt always outputs artifacts to the current directory
 input_basename=$(basename "$filename")
 output_filename="${input_basename%.tex}.pdf"
 
+# Any paths included in the file are also relative to the current directory.
+# We'll try to detect environment files used in the main file and also recompile
+# when those change. The overkill approach would be to recurisvely resolve these
+# files, and to recreate the list of watched files whenever any of the files
+# change, but this will do for our purposes.
+mapfile -t environment_files < <(rg -r '$1.tex' '^\s*\\environment\s+(.+)$' "$filename")
+
 context "$filename" "${args[@]}"
 mimeopen "$output_filename" &
-while inotifywait --event modify "$filename"; do
+while inotifywait --event modify "$filename" "${environment_files[@]}"; do
     context "$filename" "${args[@]}" || true
 done
