@@ -11,8 +11,11 @@ if [[ -z $filename ]]; then
     exit 1
 fi
 
+input_basename=$(basename "$filename")
+output_filename="${input_basename%.tex}.pdf"
+
 context "$filename" "${args[@]}"
-mimeopen "${filename%.tex}.pdf" &
+mimeopen "$output_filename" &
 while inotifywait --event modify "$filename"; do
     context "$filename" "${args[@]}" || true
 done
