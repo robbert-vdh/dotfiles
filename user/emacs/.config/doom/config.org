@@ -14,6 +14,7 @@
 - [[#keybindings][Keybindings]]
 - [[#evil][Evil]]
   - [[#evil-surround][evil-surround]]
+  - [[#evil-snipe][evil-snipe]]
 - [[#packages][Packages]]
   - [[#academic-phrases][Academic Phrases]]
   - [[#flycheck][Flycheck]]
@@ -285,6 +286,16 @@ Add some more pairs commonly used in Org and LaTeX to evil-surround.
   (dolist (pair '((?$ . ("$" . "$")) (?= . ("=" . "=")) (?~ . ("~" . "~"))
                   (?/ . ("/" . "/")) (?* . ("*" . "*")) (?* . (":" . ":"))))
     (push pair evil-surround-pairs-alist)))
+#+end_src
+
+** evil-snipe
+=evil-snipe= has a bug where =d f SPC= doesn't actually consume the space
+character (unlike, say, =d f a= which does consume the first =a= character it
+encounters). This can be worked around by disabling this option, but it's not
+ideal. See [[https://github.com/hlissner/evil-snipe/issues/86]].
+
+#+begin_src emacs-lisp
+(setq evil-snipe-skip-leading-whitespace nil)
 #+end_src
 
 * Packages
