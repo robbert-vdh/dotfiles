@@ -16,7 +16,7 @@ fi
 
 case ${1:-} in
   "on")
-    pw-metadata -n settings 0 clock.force-quantum 128 >/dev/null
+    pw-metadata -n settings 0 clock.force-quantum 64 >/dev/null
 
     if [[ $remap_18i8_mixer -eq 1 ]]; then
       amixer -D "$device_id" sset 'Master 2L (Headphone 1) Source Playback Enu' 'PCM 3' >/dev/null
@@ -34,7 +34,7 @@ case ${1:-} in
       echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor >/dev/null
     fi
 
-    echo "Quantum set to 128 samples, headphone outputs set to channels 3 and 4, ran realtime config script"
+    echo "Quantum set to 64 samples, headphone outputs set to channels 3 and 4, ran realtime config script"
     ;;
 
   "off")
