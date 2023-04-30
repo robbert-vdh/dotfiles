@@ -2,9 +2,12 @@
 AntiAliasFonts=true
 BoldIntense=true
 ColorScheme=base16-tomorrow-night
-Font=JetBrains Mono,12,-1,5,50,0,0,0,0,0,Regular
+Font=JetBrains Mono,12,-1,5,50,0,0,0,0,0
 LineSpacing=0
 UseFontLineChararacters=false
+WordMode=true
+WordModeAttr=false
+WordModeBrahmic=true
 
 [General]
 Command=/usr/bin/fish
@@ -19,7 +22,7 @@ TrimTrailingSpacesInSelectedText=true
 UnderlineFilesEnabled=true
 
 [Keyboard]
-KeyBindings=linux
+KeyBindings=default
 
 [Scrolling]
 HistoryMode=1
