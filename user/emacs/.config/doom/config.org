@@ -182,19 +182,22 @@ default frame.
 (add-to-list 'default-frame-alist '(height . 40))
 (add-to-list 'default-frame-alist '(width . 120))
 
-(setq doom-modeline-height 30
+(setq doom-theme 'doom-one
+      doom-modeline-height 30
       nav-flash-delay 0.25
-      which-key-idle-delay 0.4
-      ;; The gray comments are hard to read in my terminal, although I rarely
-      ;; use Emacs in a terminal
-      doom-one-brighter-comments (not (or (display-graphic-p) (daemonp))))
+      which-key-idle-delay 0.4)
 #+end_src
 
-The line inactive line numbers are barely visible by default, which makes
-relative line number jumps a bit more awkward than they'd otherwise be.
+By default comments are line numbers are very dim. There is an option to make
+comments brighter but that changes them to a completely different color and adds
+a different background color.
 
 #+begin_src emacs-lisp
-(custom-set-faces! `(line-number :foreground ,(face-foreground 'font-lock-comment-face)))
+(custom-set-faces!
+  ; foo
+  `(font-lock-comment-face :foreground ,(doom-lighten 'base5 .3))
+  `(font-lock-doc-face     :foreground ,(doom-lighten 'base5 .35))
+  `(line-number            :foreground ,(face-foreground 'font-lock-comment-face)))
 #+end_src
 
 ** Whitespace
