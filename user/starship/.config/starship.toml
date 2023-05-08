@@ -25,3 +25,7 @@ pipestatus_format = "\\[$pipestatus\\] => [$symbol$status( $signal_name)]($style
 disabled = false 
 format = "[#]($style) "
 style = "italic bright blue"
+
+[gcloud]
+# This is super verbose since I'm always connected
+disabled = true
