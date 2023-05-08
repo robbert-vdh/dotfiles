@@ -706,6 +706,13 @@ after the terminal closes.
     (blink-cursor-mode -1)))
 #+end_src
 
+I can't change my login shell on my home laptop, so vterm needs to manually be
+configured to use /the best shell/:
+
+#+begin_src emacs-lisp
+(setq vterm-shell "/usr/bin/fish")
+#+end_src
+
 * Programming
 ** Agda2
 #+begin_src emacs-lisp
