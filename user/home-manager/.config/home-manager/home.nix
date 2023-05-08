@@ -28,6 +28,7 @@
     pkgs.haskellPackages.implicit-hie
 
     # Lesser important tools
+    pkgs.bat
     pkgs.delta
     pkgs.exa
     pkgs.fd
