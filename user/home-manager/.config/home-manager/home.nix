@@ -24,6 +24,9 @@
     # Important tools
     pkgs.git
 
+    # Useful to have available globally of specific projects
+    pkgs.haskellPackages.implicit-hie
+
     # Lesser important tools
     pkgs.delta
     pkgs.exa
