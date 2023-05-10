@@ -37,6 +37,9 @@
     pkgs.ripgrep
     pkgs.websocat
 
+    # Python programs
+    pkgs.python310Packages.ipython
+
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
