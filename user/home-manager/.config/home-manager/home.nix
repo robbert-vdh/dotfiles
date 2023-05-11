@@ -40,6 +40,9 @@
     # Python programs
     pkgs.python310Packages.ipython
 
+    # Haskell programs
+    pkgs.haskellPackages.ghc-events
+
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
