@@ -43,6 +43,7 @@ in
 
     # Important tools. I'm not installing fish through Nix since I'm using it as
     # my login shell, and it needs some config to know about Nix.
+    pkgs.direnv
     pkgs.git
 
     # Useful to have available globally of specific projects
@@ -66,7 +67,7 @@ in
         matploblib = super.matplotlib.override { enableQt = true; enableTk = false; };
       };
     }).withPackages (ps: with ps; [
-      # Executables
+      # Binaries
       ipython
       jupyterlab
 
