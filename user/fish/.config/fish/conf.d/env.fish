@@ -41,6 +41,10 @@ set -gx PATH "$PATH:/opt/cuda/bin"
 # These should also be here
 set -gxa XDG_DATA_DIRS /usr/local/share /usr/share /var/lib/snapd/desktop
 
+# Not really used anymore, but this was once useful in conjunction with GNU
+# Global to get tags in .scss files
+set -gx GTAGSLABEL pygments
+
 # Enable colours in manpages
 set -gx LESS_TERMCAP_mb (set_color --bold red)
 set -gx LESS_TERMCAP_md (set_color --bold red)
