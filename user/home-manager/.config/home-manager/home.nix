@@ -18,8 +18,9 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    # TODO: Pin specific version
-    pkgs.emacs
+    # The pure-GTK option should allow for better Wayland compatibility. In
+    # theory.
+    (pkgs.emacs28.override { withPgtk = true; })
 
     # Important tools
     pkgs.git
