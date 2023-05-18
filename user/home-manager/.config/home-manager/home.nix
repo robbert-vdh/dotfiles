@@ -78,6 +78,7 @@ in
       # Libs
       librosa
       matplotlib
+      numpy
       pandas
       pyqt5 # Needed for matplotlib
       scipy
