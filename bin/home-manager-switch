@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# TODO: Maybe somehow include the machine name
+nproc=$(nproc)
+home-manager switch -j "$nproc" --cores "$nproc"
