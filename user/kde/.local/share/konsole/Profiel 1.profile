@@ -2,7 +2,7 @@
 AntiAliasFonts=true
 BoldIntense=true
 ColorScheme=base16-tomorrow-night
-Font=JetBrains Mono,12,-1,5,50,0,0,0,0,0
+Font=JetBrains Mono,13,-1,5,50,0,0,0,0,0
 LineSpacing=0
 UseFontLineChararacters=false
 WordMode=true
