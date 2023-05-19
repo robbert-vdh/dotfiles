@@ -55,6 +55,7 @@ in
     pkgs.exa
     pkgs.fd
     pkgs.fzf
+    pkgs.gh
     pkgs.httpie
     pkgs.ripgrep
     pkgs.shellcheck
