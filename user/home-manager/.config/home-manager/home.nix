@@ -57,6 +57,7 @@ in
     pkgs.fzf
     pkgs.httpie
     pkgs.ripgrep
+    pkgs.shellcheck
     pkgs.websocat
 
     ((pkgs.python310.override {
