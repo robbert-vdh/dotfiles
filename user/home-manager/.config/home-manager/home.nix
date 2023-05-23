@@ -34,6 +34,11 @@ in
   # release notes.
   home.stateVersion = "22.11"; # Please read the comment before changing.
 
+  # This option is broken right now:
+  # https://github.com/nix-community/home-manager/issues/2942#issuecomment-1119760100
+  # nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = (pkg: true);
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
