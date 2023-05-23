@@ -92,6 +92,7 @@ in
     pkgs.haskellPackages.ghc-events # Useful for investigating RTS event logs
 
     pkgs.nodePackages.bash-language-server
+    pkgs.nodePackages.pyright
 
     # HACK: Workaround needed to set the correct Qt plugin path so matplotlib
     #       works in IPython:
