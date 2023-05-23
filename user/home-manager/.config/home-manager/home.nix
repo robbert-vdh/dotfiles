@@ -70,6 +70,7 @@ in
       };
     }).withPackages (ps: with ps; [
       # Binaries
+      pgcli
       ipython
       jupyterlab
 
