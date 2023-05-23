@@ -56,6 +56,7 @@ in
 
     # Lesser important tools
     pkgs.bat
+    pkgs.cbor-diag
     pkgs.delta
     pkgs.exa
     pkgs.fd
