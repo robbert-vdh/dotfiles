@@ -2,6 +2,11 @@
 
 set -euo pipefail
 
+if ! command -v home-manager >/dev/null; then
+    echo "This script uses home-manager to set everything up. If you don't know what that is, then you'll probably want to look at the individual config files instead."
+    exit 1
+fi
+
 # Home Manager looks in `~/.config/home-manager` by default. Since the main
 # `flake.nix` file is at this repo's root, we'll just tell it to use that
 # instead of moving the config to `~/.config/home-manager`.
