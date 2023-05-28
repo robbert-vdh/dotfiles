@@ -92,6 +92,7 @@ in
       matplotlib
       numpy
       pandas
+      pyperclip
       pyqt5 # Needed for matplotlib
       scipy
       seaborn
