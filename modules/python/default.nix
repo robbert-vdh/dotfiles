@@ -20,7 +20,7 @@ let mkJupyterlab_code_formatter = ps: with ps; (buildPythonPackage rec {
     });
 in
 {
-  config.packages = [
+  home.packages = [
     ((pkgs.python310.override {
       packageOverrides = self: super: {
         # Neither Qt nor TK works out of the box. I figured out a workaround to

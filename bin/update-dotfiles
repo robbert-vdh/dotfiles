@@ -3,7 +3,7 @@
 set -euo pipefail
 
 if ! command -v home-manager >/dev/null; then
-    echo "This script uses home-manager to set everything up. If you don't know what that is, then you'll probably want to look at the individual config files instead."
+    echo >&2 "This script uses home-manager to set everything up. If you don't know what that is, then you'll probably want to look at the individual config files instead."
     exit 1
 fi
 
@@ -11,5 +11,13 @@ fi
 # `flake.nix` file is at this repo's root, we'll just tell it to use that
 # instead of moving the config to `~/.config/home-manager`.
 repo_root=$(dirname "$(dirname "$0")")
+
+# We'll also need to tell Nix to use our nix.conf file specifically, or flakes won't be enabled
+nix_conf_dir=$repo_root/modules/nix
+if [[ ! -d $nix_conf_dir ]]; then
+    echo >&2 "Couldn't find the Nix config file directory, this is an issue with this script"
+    exit 1
+fi
+
 nproc=$(nproc)
-home-manager --flake "$repo_root" switch -j "$nproc" --cores "$nproc"
+NIX_CONF_DIR="$nix_conf_dir" home-manager --flake "$repo_root" -j "$nproc" --cores "$nproc" switch

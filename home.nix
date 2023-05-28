@@ -2,6 +2,7 @@
 
 {
   imports = [
+    modules/nix
     modules/python
   ];
 
