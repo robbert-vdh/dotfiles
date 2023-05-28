@@ -56,16 +56,18 @@ in
 
     # Lesser important tools
     pkgs.bat
-    pkgs.cbor-diag
     pkgs.delta
     pkgs.exa
     pkgs.fd
     pkgs.fzf
     pkgs.gh
+    pkgs.html-tidy
     pkgs.httpie
+    pkgs.jq
     pkgs.ripgrep
     pkgs.shellcheck
     pkgs.websocat
+    pkgs.wl-clipboard
 
     ((pkgs.python310.override {
       packageOverrides = self: super: {
