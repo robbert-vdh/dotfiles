@@ -17,7 +17,7 @@ cd ~/.dotfiles
 ## PipeWire
 
 If you want to use my [PipeWire
-configuration](https://github.com/robbert-vdh/dotfiles/tree/master/user/pipewire),
+configuration](https://github.com/robbert-vdh/dotfiles/tree/master/legacy/user/pipewire),
 then you may want to be aware of the following:
 
 1. Make sure you're using the very latest version of PipeWire and WirePlumber.

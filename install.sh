@@ -101,7 +101,7 @@ if [[ $# -gt 0 ]]; then
 
   NO_ASK=1
 else
-  packages=(user/* system/*)
+  packages=(legacy/user/* legacy/system/*)
 
   if ask 'Install everything? (alternatively, pass package names as arguments)' N; then
     NO_ASK=1
@@ -121,10 +121,10 @@ for package in "${packages[@]}"; do
   fi
 
   case "$package" in
-    user/*)
+    legacy/user/*)
       target="$HOME"
       ;;
-    system/*)
+    legacy/system/*)
       target="/"
       ;;
     *)
