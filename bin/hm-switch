@@ -2,6 +2,9 @@
 
 set -euo pipefail
 
-# TODO: Maybe somehow include the machine name
+# Home Manager looks in `~/.config/home-manager` by default. Since the main
+# `flake.nix` file is at this repo's root, we'll just tell it to use that
+# instead of moving the config to `~/.config/home-manager`.
+repo_root=$(dirname "$(dirname "$0")")
 nproc=$(nproc)
-home-manager switch -j "$nproc" --cores "$nproc"
+home-manager --flake "$repo_root" switch -j "$nproc" --cores "$nproc"
