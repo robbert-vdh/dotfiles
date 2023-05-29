@@ -1,6 +1,9 @@
 { config, pkgs, username, ... }:
 
 {
+  # These modules all come with config files. Anything simple that doesn't
+  # require config files or custom package definitions is included directly in
+  # this file.
   imports = [
     modules/emacs
     modules/gdb
@@ -35,10 +38,6 @@
   #
   # Many of the modules imported above also add their own list of packages
   home.packages = [
-    # Important tools. I'm not installing fish through Nix since I'm using it as
-    # my login shell, and it needs some config to know about Nix.
-    pkgs.direnv
-
     # Useful to have available globally of specific projects
     pkgs.haskellPackages.implicit-hie
 
@@ -78,6 +77,9 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
+
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
