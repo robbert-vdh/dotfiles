@@ -1,7 +1,10 @@
 { pkgs, ... }:
 
 # These Python packages aren't packaged in nixpkgs
-let mkJupyterlab_code_formatter = ps: with ps; (buildPythonPackage rec {
+let
+  mkJupyterlab_code_formatter = ps:
+    with ps;
+    (buildPythonPackage rec {
       pname = "jupyterlab_code_formatter";
       version = "2.0.0";
       format = "pyproject";
@@ -11,45 +14,44 @@ let mkJupyterlab_code_formatter = ps: with ps; (buildPythonPackage rec {
         sha256 = "gGWqAPLmes6PqdKLYq1NPow23uL3TlOg0SKkHq0ixew=";
       };
 
-      buildInputs = [
-        hatchling
-        hatch-jupyter-builder
-        hatch-nodejs-version
-        jupyterlab
-      ];
+      buildInputs =
+        [ hatchling hatch-jupyter-builder hatch-nodejs-version jupyterlab ];
     });
-in
-{
+in {
   home.packages = [
     ((pkgs.python310.override {
       packageOverrides = self: super: {
         # Neither Qt nor TK works out of the box. I figured out a workaround to
         # get the Qt backend to work involving the `qt5-run` wrapper defined
         # below, so that's what I'm using for now.
-        matploblib = super.matplotlib.override { enableQt = true; enableTk = false; };
+        matploblib = super.matplotlib.override {
+          enableQt = true;
+          enableTk = false;
+        };
       };
-    }).withPackages (ps: with ps; [
-      # Binaries
-      pgcli
-      ipython
-      jupyterlab
+    }).withPackages (ps:
+      with ps; [
+        # Binaries
+        pgcli
+        ipython
+        jupyterlab
 
-      # Formatters and linters
-      black
-      (mkJupyterlab_code_formatter ps)
-      isort
+        # Formatters and linters
+        black
+        (mkJupyterlab_code_formatter ps)
+        isort
 
-      # Libs
-      librosa
-      matplotlib
-      numpy
-      pandas
-      pyperclip
-      pyqt5 # Needed for matplotlib
-      scipy
-      seaborn
-      statsmodels
-    ]))
+        # Libs
+        librosa
+        matplotlib
+        numpy
+        pandas
+        pyperclip
+        pyqt5 # Needed for matplotlib
+        scipy
+        seaborn
+        statsmodels
+      ]))
 
     # HACK: Workaround needed to set the correct Qt plugin path so matplotlib
     #       works in IPython:

@@ -5,7 +5,7 @@
     # Bit of a hacky way to get these config files in the right place. This
     # requires sudo, but it doesn't do anything if the files in /etc are already
     # symlinks to the correct files.
-    symlinkPacmanConfigs = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    symlinkPacmanConfigs = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       # We'll print a message the first time we require sudo here
       have_symlinked=0
 

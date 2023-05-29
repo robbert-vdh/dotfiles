@@ -16,18 +16,19 @@
   };
 
   outputs = { nixpkgs, home-manager, nix-doom-emacs, ... }:
-    let username = "robbert";
-        # This needs to be set for the `toAbsolutePath` function defined below
-        # to work. It's set in the `update-dotfiles` script and it requires this
-        # to be run with `--impure`.
-        dotfilesPath =
-          let path = builtins.getEnv "DOTFILES_DIR";
-              assertion = pkgs.lib.asserts.assertMsg
-                (path != "" && pkgs.lib.sources.pathIsDirectory path)
-                "'$DOTFILES_DIR' is not set, make sure to run this through the 'update-dotfiles' script";
-           in assert assertion; path;
-        system = "x86_64-linux";
-        pkgs = nixpkgs.legacyPackages.${system};
+    let
+      username = "robbert";
+      # This needs to be set for the `toAbsolutePath` function defined below to
+      # work. It's set in the `update-dotfiles` script and it requires this to
+      # be run with `--impure`.
+      dotfilesPath = let
+        path = builtins.getEnv "DOTFILES_DIR";
+        assertion = pkgs.lib.asserts.assertMsg
+          (path != "" && pkgs.lib.sources.pathIsDirectory path)
+          "'$DOTFILES_DIR' is not set, make sure to run this through the 'update-dotfiles' script";
+      in assert assertion; path;
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
     in {
       homeConfigurations."robbert" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -51,11 +52,12 @@
           # FIXME: I couldn't figure out how to define this in a module so we
           #        don't need to pass config in here
           mkAbsoluteSymlink = config: repoRelativePath:
-            let fullPath = "${dotfilesPath}/${repoRelativePath}";
-                assertion = pkgs.lib.asserts.assertMsg
-                  (builtins.pathExists fullPath)
-                  "'${fullPath}' does not exist (make sure --impure is enabled)";
-             in assert assertion; config.lib.file.mkOutOfStoreSymlink fullPath;
+            let
+              fullPath = "${dotfilesPath}/${repoRelativePath}";
+              assertion =
+                pkgs.lib.asserts.assertMsg (builtins.pathExists fullPath)
+                "'${fullPath}' does not exist (make sure --impure is enabled)";
+            in assert assertion; config.lib.file.mkOutOfStoreSymlink fullPath;
         };
       };
     };
