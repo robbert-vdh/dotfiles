@@ -3,6 +3,7 @@
 {
   imports = [
     modules/emacs
+    modules/gdb
     modules/nix
     modules/pacman
     modules/pipewire
@@ -31,9 +32,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   #
-  # Other modules that add packages are:
-  # - modules/emacs: Provides Emacs
-  # - modules/python: Python binaries and libraries
+  # Many of the modules imported above also add their own list of packages
   home.packages = [
     # Important tools. I'm not installing fish through Nix since I'm using it as
     # my login shell, and it needs some config to know about Nix.

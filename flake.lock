@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "gdb-dashboard": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1681401363,
+        "narHash": "sha256-UGHiYroUdqCr+a3ZgR1qKXQ3fiy2aQ5qo8gXefF9XDg=",
+        "owner": "cyrus-and",
+        "repo": "gdb-dashboard",
+        "rev": "c6b377277cb7ab48be0098d765633beb7f241567",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cyrus-and",
+        "repo": "gdb-dashboard",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -38,6 +54,7 @@
     },
     "root": {
       "inputs": {
+        "gdb-dashboard": "gdb-dashboard",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"
       }

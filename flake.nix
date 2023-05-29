@@ -4,9 +4,16 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # Flakes
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Non-flake repos
+    gdb-dashboard = {
+      url = "github:cyrus-and/gdb-dashboard";
+      flake = false;
     };
   };
 

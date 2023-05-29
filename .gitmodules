@@ -1,3 +1,0 @@
-[submodule "legacy/user/gdb/.local/share/gef-extras"]
-	path = legacy/user/gdb/.local/share/gef-extras
-	url = https://github.com/hugsy/gef-extras
