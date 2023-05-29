@@ -28,6 +28,9 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
+  #
+  # Other modules that add packages are:
+  # - modules/python: Python binaries and libraries
   home.packages = [
     # The pure-GTK option should allow for better Wayland compatibility. In
     # theory.
@@ -55,9 +58,6 @@
     pkgs.shellcheck
     pkgs.websocat
     pkgs.wl-clipboard
-
-    # See ./modules/python/default.nix for Python packages. Those require a bit
-    # more config.
 
     pkgs.haskellPackages.ghc-events # Useful for investigating RTS event logs
 
