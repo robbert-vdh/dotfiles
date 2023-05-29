@@ -1,5 +1,8 @@
 #+TITLE: Doom config
 
+# Needed for the tangling in ../default.nix
+#+PROPERTY: header-args:emacs-lisp :tangle yes
+
 * Table of Contents :TOC_3:
 - [[#basic-settings][Basic settings]]
   - [[#daemon][Daemon]]

@@ -2,6 +2,7 @@
 
 {
   imports = [
+    modules/emacs
     modules/nix
     modules/pacman
     modules/pipewire
@@ -31,12 +32,9 @@
   # environment.
   #
   # Other modules that add packages are:
+  # - modules/emacs: Indirectly provides Emacs through nix-doom-emacs
   # - modules/python: Python binaries and libraries
   home.packages = [
-    # The pure-GTK option should allow for better Wayland compatibility. In
-    # theory.
-    (pkgs.emacs28.override { withPgtk = true; })
-
     # Important tools. I'm not installing fish through Nix since I'm using it as
     # my login shell, and it needs some config to know about Nix.
     pkgs.direnv

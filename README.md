@@ -82,8 +82,9 @@ then you may want to be aware of the following:
 ## Emacs
 
 My Emacs configuration is based on [Doom
-Emacs](https://github.com/hlissner/doom-emacs). The files in
-`modules/emacs/config` can simply be copied or symlinked to wherever Doom is
+Emacs](https://github.com/hlissner/doom-emacs) using
+[`nix-doom-emacs`](https://github.com/nix-community/nix-doom-emacs). The files
+in `modules/emacs/doom` can simply be copied or symlinked to wherever Doom is
 installed.
 
 ## Nix quirks

@@ -8,7 +8,6 @@
 (package! meson-mode)
 (package! ob-ipython)
 (package! page-break-lines)
-(package! phpcbf)
 (package! pkgbuild-mode)
 (package! strace-mode)
 (package! vue-mode)
