@@ -43,6 +43,10 @@ in {
     pkgs.emacsPackages.vterm
   ];
 
+  # Not really used anymore, but this was once useful in conjunction with GNU
+  # Global to get tags in .scss files
+  home.sessionVariables.GTAGSLABEL = "pygments";
+
   home.file.".globalrc".source = ./.globalrc;
 
   # The derivation sure the `config.el` file is in sync with `config.org`

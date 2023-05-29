@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "fish-plugin-pufferfish": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1678892473,
+        "narHash": "sha256-aPxEHSXfiJJXosIm7b3Pd+yFnyz43W3GXyUB5BFAF54=",
+        "owner": "nickeb96",
+        "repo": "puffer-fish",
+        "rev": "5d3cb25e0d63356c3342fb3101810799bb651b64",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nickeb96",
+        "repo": "puffer-fish",
+        "type": "github"
+      }
+    },
     "gdb-dashboard": {
       "flake": false,
       "locked": {
@@ -54,6 +70,7 @@
     },
     "root": {
       "inputs": {
+        "fish-plugin-pufferfish": "fish-plugin-pufferfish",
         "gdb-dashboard": "gdb-dashboard",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"

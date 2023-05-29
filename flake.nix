@@ -11,6 +11,10 @@
     };
 
     # Non-flake repos
+    fish-plugin-pufferfish = {
+      url = "github:nickeb96/puffer-fish";
+      flake = false;
+    };
     gdb-dashboard = {
       url = "github:cyrus-and/gdb-dashboard";
       flake = false;

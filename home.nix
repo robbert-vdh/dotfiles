@@ -6,6 +6,7 @@
   # this file.
   imports = [
     modules/emacs
+    modules/fish
     modules/gdb
     modules/git
     modules/nix
@@ -50,6 +51,7 @@
     pkgs.shellcheck
     pkgs.websocat
     pkgs.wl-clipboard
+    pkgs.xsel
 
     pkgs.haskellPackages.ghc-events # Useful for investigating RTS event logs
 
@@ -79,7 +81,6 @@
   programs.direnv.nix-direnv.enable = true;
   programs.exa = {
     enable = true;
-    enableAliases = true;
     git = true;
     extraOptions = [ "--group-directories-first" ];
   };
@@ -99,20 +100,6 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-  };
-
-  # You can also manage environment variables but you will have to manually
-  # source
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/robbert/etc/profile.d/hm-session-vars.sh
-  #
-  # if you don't want to manage your shell through Home Manager.
-  home.sessionVariables = {
-    # EDITOR = "emacs";
   };
 
   # Let Home Manager install and manage itself.

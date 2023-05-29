@@ -1,4 +1,6 @@
-# Mimmick the original pure prompt colors
+set -g fish_greeting ""
+
+# Mimic the original pure prompt colors
 set -g pure_color_green (set_color magenta)
 
 # Syntax highlighting

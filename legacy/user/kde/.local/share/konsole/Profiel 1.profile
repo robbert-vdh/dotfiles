@@ -10,7 +10,7 @@ WordModeAttr=false
 WordModeBrahmic=true
 
 [General]
-Command=/usr/bin/fish
+Command=fish
 Name=Profiel 1
 Parent=FALLBACK/
 
