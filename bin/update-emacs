@@ -17,6 +17,3 @@ find ./* \( -iname '*.elc' -or -iname '*.eln' \) -delete
 
 bin/doom --force sync -up --jobs "$(nproc)"
 bin/doom --force compile --core
-
-# Restart the daemon if it is running
-systemctl --user try-restart emacs.service
