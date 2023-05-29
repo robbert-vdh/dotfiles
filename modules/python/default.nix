@@ -65,4 +65,6 @@ in
       exec "$@"
     ''))
   ];
+
+  xdg.configFile."flake8".source = ./flake8;
 }
