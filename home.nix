@@ -55,6 +55,7 @@
     pkgs.html-tidy
     pkgs.httpie
     pkgs.jq
+    pkgs.nixfmt
     pkgs.ripgrep
     pkgs.shellcheck
     pkgs.websocat
