@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#
+# All additional arguments are passed to `home-manager switch`.
 
 set -euo pipefail
 
@@ -19,7 +21,24 @@ if [[ ! -d $nix_conf_dir ]]; then
     exit 1
 fi
 
-git -C "$repo_root" pull
+# Make sure everything is up to date and that there are no untracked files in
+# the modules directory. Those won't be included in the flake which can result
+# in difficult to understand errors.
+last_fetch_timestamp=$(stat -c %Y .git/FETCH_HEAD)
+current_timestamp=$(date +%s)
+if [[ $((current_timestamp - last_fetch_timestamp)) -gt 3600 ]]; then
+    # This is only done once per hour to avoid unnecessary delays when iterating
+    # on the Home Manager config
+    git -C "$repo_root" pull
+fi
+
+modules_path="$repo_root/modules"
+untracked_module_files=$(git ls-files "$modules_path" --exclude-standard --others)
+if [[ -n $untracked_module_files ]]; then
+    echo >&2 "'$modules_path' contains untracked files. These must be 'git add'ed first:"
+    echo >&2 -e "$untracked_module_files"
+    exit 1
+fi
 
 export DOTFILES_DIR=$repo_root
 export NIX_CONF_DIR=$nix_conf_dir
