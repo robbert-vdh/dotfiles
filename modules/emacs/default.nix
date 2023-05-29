@@ -1,6 +1,5 @@
 { lib, pkgs, ... }:
 
-# FIXME: Fetch Doom from non-flake git, install
 let
   # Just to make sure everything is in sync
   emacsPkg = pkgs.emacs;
@@ -40,5 +39,6 @@ in {
   home.packages = [ emacsPkg ];
 
   home.file.".globalrc".source = ./.globalrc;
+
   xdg.configFile."doom".source = tangledDoomConfig;
 }

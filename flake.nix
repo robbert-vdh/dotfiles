@@ -8,8 +8,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # TODO: Non-flake DOom
   };
 
   outputs = { nixpkgs, home-manager, ... }:
