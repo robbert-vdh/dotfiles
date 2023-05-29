@@ -34,7 +34,7 @@ if [[ $((current_timestamp - last_fetch_timestamp)) -gt 3600 ]]; then
 fi
 
 modules_path="$repo_root/modules"
-untracked_module_files=$(git ls-files "$modules_path" --exclude-standard --others)
+untracked_module_files=$(git -C "$repo_root" ls-files "$modules_path" --exclude-standard --others)
 if [[ -n $untracked_module_files ]]; then
     echo >&2 "'$modules_path' contains untracked files. These must be 'git add'ed first:"
     echo >&2 -e "$untracked_module_files"
