@@ -12,6 +12,15 @@
 
   outputs = { nixpkgs, home-manager, ... }:
     let username = "robbert";
+        # This needs to be set for the `toAbsolutePath` function defined below
+        # to work. It's set in the `update-dotfiles` script and it requires this
+        # to be run with `--impure`.
+        dotfilesPath =
+          let path = builtins.getEnv "DOTFILES_PATH";
+              assertion = pkgs.lib.asserts.assertMsg
+                (pkgs.lib.sources.pathIsDirectory path)
+                "'$DOTFILES_DIR' is not set, make sure to run this through the 'update-dotfiles' script";
+           in assert assertion; path;
         system = "x86_64-linux";
         pkgs = nixpkgs.legacyPackages.${system};
     in {
