@@ -4,6 +4,7 @@
   imports = [
     modules/emacs
     modules/gdb
+    modules/git
     modules/nix
     modules/pacman
     modules/pipewire
@@ -37,18 +38,15 @@
     # Important tools. I'm not installing fish through Nix since I'm using it as
     # my login shell, and it needs some config to know about Nix.
     pkgs.direnv
-    pkgs.git
 
     # Useful to have available globally of specific projects
     pkgs.haskellPackages.implicit-hie
 
     # Lesser important tools
     pkgs.bat
-    pkgs.delta
     pkgs.exa
     pkgs.fd
     pkgs.fzf
-    pkgs.gh
     pkgs.html-tidy
     pkgs.httpie
     pkgs.jq
