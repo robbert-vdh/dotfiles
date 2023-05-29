@@ -69,4 +69,5 @@ in {
   ];
 
   xdg.configFile."flake8".source = ./flake8;
+  xdg.configFile."pylintrc".source = ./pylintrc;
 }
