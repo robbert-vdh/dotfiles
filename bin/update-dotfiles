@@ -19,5 +19,7 @@ if [[ ! -d $nix_conf_dir ]]; then
     exit 1
 fi
 
+git -C "$repo_root" pull
+
 nproc=$(nproc)
 NIX_CONF_DIR="$nix_conf_dir" home-manager --flake "$repo_root" -j "$nproc" --cores "$nproc" switch
