@@ -9,13 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-doom-emacs = {
-      url = "github:nix-community/nix-doom-emacs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # TODO: Non-flake DOom
   };
 
-  outputs = { nixpkgs, home-manager, nix-doom-emacs, ... }:
+  outputs = { nixpkgs, home-manager, ... }:
     let
       username = "robbert";
       # This needs to be set for the `toAbsolutePath` function defined below to
@@ -33,12 +30,7 @@
       homeConfigurations."robbert" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules = [
-          # Configured in `modules/emacs`
-          nix-doom-emacs.hmModule
-
-          ./home.nix
-        ];
+        modules = [ ./home.nix ];
 
         extraSpecialArgs = {
           inherit username;

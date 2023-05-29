@@ -32,7 +32,7 @@
   # environment.
   #
   # Other modules that add packages are:
-  # - modules/emacs: Indirectly provides Emacs through nix-doom-emacs
+  # - modules/emacs: Provides Emacs
   # - modules/python: Python binaries and libraries
   home.packages = [
     # Important tools. I'm not installing fish through Nix since I'm using it as
