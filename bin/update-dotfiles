@@ -30,6 +30,7 @@ if [[ $((current_timestamp - last_fetch_timestamp)) -gt 3600 ]]; then
     # This is only done once per hour to avoid unnecessary delays when iterating
     # on the Home Manager config
     git -C "$repo_root" pull
+    git -C "$repo_root" submodule update --init --recursive >/dev/null
 fi
 
 modules_path="$repo_root/modules"
