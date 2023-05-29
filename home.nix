@@ -42,13 +42,9 @@
     pkgs.haskellPackages.implicit-hie
 
     # Lesser important tools
-    pkgs.bat
-    pkgs.exa
     pkgs.fd
-    pkgs.fzf
     pkgs.html-tidy
     pkgs.httpie
-    pkgs.jq
     pkgs.nixfmt
     pkgs.ripgrep
     pkgs.shellcheck
@@ -78,8 +74,17 @@
     # '')
   ];
 
+  programs.bat.enable = true;
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
+  programs.exa = {
+    enable = true;
+    enableAliases = true;
+    git = true;
+    extraOptions = [ "--group-directories-first" ];
+  };
+  programs.fzf.enable = true;
+  programs.jq.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
