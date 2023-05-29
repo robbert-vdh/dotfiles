@@ -36,9 +36,15 @@ let
     '';
   };
 in {
-  home.packages = [ emacsPkg ];
+  home.packages = [
+    emacsPkg
+
+    # Needed for the vterm package. Magically works when you add this.
+    pkgs.emacsPackages.vterm
+  ];
 
   home.file.".globalrc".source = ./.globalrc;
 
+  # The derivation sure the `config.el` file is in sync with `config.org`
   xdg.configFile."doom".source = tangledDoomConfig;
 }

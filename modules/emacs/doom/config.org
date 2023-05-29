@@ -713,7 +713,8 @@ I can't change my login shell on my home laptop, so vterm needs to manually be
 configured to use /the best shell/:
 
 #+begin_src emacs-lisp
-(setq vterm-shell "/usr/bin/fish")
+;; This should use the `fish` binary from the Nix profile when available
+(setq vterm-shell "fish")
 #+end_src
 
 * Programming
