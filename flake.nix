@@ -16,9 +16,9 @@
         # to work. It's set in the `update-dotfiles` script and it requires this
         # to be run with `--impure`.
         dotfilesPath =
-          let path = builtins.getEnv "DOTFILES_PATH";
+          let path = builtins.getEnv "DOTFILES_DIR";
               assertion = pkgs.lib.asserts.assertMsg
-                (pkgs.lib.sources.pathIsDirectory path)
+                (path != "" && pkgs.lib.sources.pathIsDirectory path)
                 "'$DOTFILES_DIR' is not set, make sure to run this through the 'update-dotfiles' script";
            in assert assertion; path;
         system = "x86_64-linux";
@@ -33,6 +33,21 @@
 
         extraSpecialArgs = {
           inherit username;
+
+          # This is a super hacky way to get absolute paths from a Nix path.
+          # Flakes intentionally don't allow you to get this information, but we
+          # need this to be able to use `mkOutOfStoreSymlink` to create regular
+          # symlinks for configurations that should be mutable, like for Emacs'
+          # config and for fonts. This relies on `dotfilesPath` pointing to the
+          # directory that contains this file.
+          # FIXME: I couldn't figure out how to define this in a module so we
+          #        don't need to pass config in here
+          mkAbsoluteSymlink = config: repoRelativePath:
+            let fullPath = "${dotfilesPath}/${repoRelativePath}";
+                assertion = pkgs.lib.asserts.assertMsg
+                  (builtins.pathExists fullPath)
+                  "'${fullPath}' does not exist (make sure --impure is enabled)";
+             in assert assertion; config.lib.file.mkOutOfStoreSymlink fullPath;
         };
       };
     };

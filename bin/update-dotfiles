@@ -21,5 +21,8 @@ fi
 
 git -C "$repo_root" pull
 
+export DOTFILES_DIR=$repo_root
+export NIX_CONF_DIR=$nix_conf_dir
+
 nproc=$(nproc)
-NIX_CONF_DIR="$nix_conf_dir" home-manager --flake "$repo_root" --impure -j "$nproc" --cores "$nproc" switch "$@"
+home-manager --flake "$repo_root" --impure -j "$nproc" --cores "$nproc" switch "$@"
