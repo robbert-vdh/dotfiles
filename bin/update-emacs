@@ -2,11 +2,10 @@
 #
 # Update and rebase Doom Emacs automatically.
 
-set -e
+set -euo pipefail
 
 # Make sure dotfiles are up to date first
-cd ~/.dotfiles
-git pull --rebase --autostash
+~/.dotfiles/bin/update-dotfiles
 
 cd ~/.emacs.d
 git pull --rebase --autostash

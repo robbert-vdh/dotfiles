@@ -10,7 +10,9 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  # Directly passing the inputs along makes it easier to use files from
+  # non-flake repos
+  outputs = inputs@{ nixpkgs, home-manager, ... }:
     let
       username = "robbert";
       # This needs to be set for the `toAbsolutePath` function defined below to
@@ -31,7 +33,7 @@
         modules = [ ./home.nix ];
 
         extraSpecialArgs = {
-          inherit username;
+          inherit inputs username;
 
           # This is a super hacky way to get absolute paths from a Nix path.
           # Flakes intentionally don't allow you to get this information, but we
