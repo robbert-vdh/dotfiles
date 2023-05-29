@@ -11,9 +11,9 @@
   };
 
   outputs = { nixpkgs, home-manager, ... }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+    let username = "robbert";
+        system = "x86_64-linux";
+        pkgs = nixpkgs.legacyPackages.${system};
     in {
       homeConfigurations."robbert" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -22,8 +22,9 @@
         # the path to your home.nix.
         modules = [ ./home.nix ];
 
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+        extraSpecialArgs = {
+          inherit username;
+        };
       };
     };
 }
