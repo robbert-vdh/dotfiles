@@ -3,6 +3,7 @@
 {
   imports = [
     modules/nix
+    modules/pipewire
     modules/python
   ];
 

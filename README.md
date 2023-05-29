@@ -1,44 +1,37 @@
 # Dotfiles
 
-These dotfiles are managed using
-[GNU Stow](https://www.gnu.org/software/stow/stow.html).
+These dotfiles are managed using Nix and [Home
+Manager](https://github.com/nix-community/home-manager). Most config files are
+kept as plain text in `modules/<application_name>/`.
 
 ## Installation
 
-Clone and install: (or you may want to just copy over individual files and
-directories instead if you don't want to continue using these dotfiles)
+If you're reading this you'll probably want to take a look at the individual
+config files rather than setting up the entire dotfiles repo with Home Manager,
+but this can be done as follows:
 
 ```shell
 git clone https://github.com/robbert-vdh/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
-./install.sh
+~/.dotfiles/bin/update-dotfiles
 ```
 
 ## PipeWire
 
 If you want to use my [PipeWire
-configuration](https://github.com/robbert-vdh/dotfiles/tree/master/legacy/user/pipewire),
+configuration](https://github.com/robbert-vdh/dotfiles/tree/master/modules/pipewire),
 then you may want to be aware of the following:
 
 1. Make sure you're using the very latest version of PipeWire and WirePlumber.
-2. This configuration also uses regular realtime scheduling instead of rtkit, so
+2. The two directories in the directory linked above should be copied to your
+   `~/.config` directory.
+3. This configuration also uses regular realtime scheduling instead of rtkit, so
    make sure your user has realtime privileges.
-3. If you're still using the stock PipeWire media session, then you'll need to
+4. If you're still using the stock PipeWire media session, then you'll need to
    disable that one first and enable WirePlumber:
 
    ```shell
    systemctl --user disable --now pipewire-media-session
    systemctl --user enable --now wireplumber
-   ```
-
-4. Either copy over the files from the directory linked above to your
-   `~/.config` directory, or clone this repository to some place in your home
-   directory and use the install script to link everything in place:
-
-   ```shell
-   git clone https://github.com/robbert-vdh/dotfiles.git ~/.dotfiles-robbert
-   cd ~/.dotfiles-robbert
-   ./install.sh user/pipewire
    ```
 
 5. Some things you may want to change depending on your needs are:
@@ -90,5 +83,29 @@ then you may want to be aware of the following:
 
 My Emacs configuration is based on [Doom
 Emacs](https://github.com/hlissner/doom-emacs). The files in
-`usr/emacs/.emacs.d` can simply be copied or symlinked to wherever Doom is
+`modules/emacs/config` can simply be copied or symlinked to wherever Doom is
 installed.
+
+## Nix quirks
+
+Nix, flakes, and Home Manager do 90% of the work well and the other 10% gets
+really messy. This is a (likely incomplete list) of the workarounds used in this
+Home Manager config for future reference:
+
+- The `bin/update-dotfiles` script wraps around `home-manager switch` with a
+  couple additional options:
+  - Home Manager is told to specifically use this the flake from this repo's
+    root so we don't need to symlink the home manager configuration to
+    `~/.config/home-manager` first.
+  - The flake is run in impure mode so we can pass the path to this repo to the
+    flake through the `DOTFILES_DIR` environment variable.
+  - `NIX_CONF_DIR` is also overridden to point to the Nix config in this repo.
+    This is needed for the `nix` cli to work so the `nix` cli can be enabled.
+  - The script pulls changes from this repo and also makes sure that there are
+    no untracked files in `modules/`. Those wouldn't be included in the flake
+    which can be kind of confusing.
+- Some config files, like Emacs', are symlinked to this repo using absolute
+  paths, completely bypassing the Nix store. That is needed for them to be
+  mutable, but Home Manager+flakes makes doing so incredibly difficult. That's
+  why the aforementioned `DOTFILES_DIR` environment variable is needed, and why
+  Home Manager needs to be ran in impure mode.
