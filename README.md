@@ -109,3 +109,6 @@ Home Manager config for future reference:
   mutable, but Home Manager+flakes makes doing so incredibly difficult. That's
   why the aforementioned `DOTFILES_DIR` environment variable is needed, and why
   Home Manager needs to be ran in impure mode.
+- `modules/pacman/default.nix` defines an activation script that symlinks some
+  files to `/etc`. This is of course not something natively supported or
+  encouraged by Home Manager, but it works.
