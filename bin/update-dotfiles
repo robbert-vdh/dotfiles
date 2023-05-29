@@ -24,7 +24,7 @@ fi
 # Make sure everything is up to date and that there are no untracked files in
 # the modules directory. Those won't be included in the flake which can result
 # in difficult to understand errors.
-last_fetch_timestamp=$(stat -c %Y .git/FETCH_HEAD)
+last_fetch_timestamp=$(stat -c %Y "$repo_root/.git/FETCH_HEAD")
 current_timestamp=$(date +%s)
 if [[ $((current_timestamp - last_fetch_timestamp)) -gt 3600 ]]; then
     # This is only done once per hour to avoid unnecessary delays when iterating
