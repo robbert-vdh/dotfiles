@@ -601,7 +601,10 @@ mode since this conflicts with years of muscle memory.
  (:after diff-mode
   (:map diff-mode-map
    :nm "{" #'diff-hunk-prev
-   :nm "}" #'diff-hunk-next)))
+   :nm "}" #'diff-hunk-next))
+ (:after magit
+  (:map magit-blame-mode-map
+   :nm "RET" #'magit-show-commit)))
 #+end_src
 
 Doom now overrides magit's splitting behaviour again, and the default left-split
