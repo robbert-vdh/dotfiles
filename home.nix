@@ -56,6 +56,7 @@
     pkgs.haskellPackages.ghc-events # Useful for investigating RTS event logs
 
     pkgs.nodePackages.bash-language-server
+    pkgs.nodePackages.prettier
     pkgs.nodePackages.pyright
 
     # # Adds the 'hello' command to your environment. It prints a friendly
