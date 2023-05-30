@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "fish-plugin-nix-env": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1638213644,
+        "narHash": "sha256-RG/0rfhgq6aEKNZ0XwIqOaZ6K5S4+/Y5EEMnIdtfPhk=",
+        "owner": "lilyball",
+        "repo": "nix-env.fish",
+        "rev": "7b65bd228429e852c8fdfa07601159130a818cfa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lilyball",
+        "repo": "nix-env.fish",
+        "type": "github"
+      }
+    },
     "fish-plugin-pufferfish": {
       "flake": false,
       "locked": {
@@ -70,6 +86,7 @@
     },
     "root": {
       "inputs": {
+        "fish-plugin-nix-env": "fish-plugin-nix-env",
         "fish-plugin-pufferfish": "fish-plugin-pufferfish",
         "gdb-dashboard": "gdb-dashboard",
         "home-manager": "home-manager",

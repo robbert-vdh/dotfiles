@@ -4,10 +4,16 @@
   programs.fish = {
     enable = true;
 
-    plugins = [{
-      name = "pufferfish";
-      src = inputs.fish-plugin-pufferfish;
-    }];
+    plugins = [
+      {
+        name = "nix-env";
+        src = inputs.fish-plugin-nix-env;
+      }
+      {
+        name = "pufferfish";
+        src = inputs.fish-plugin-pufferfish;
+      }
+    ];
 
     # Other slightly less trivial functions are included directly as .fish files
     functions = {

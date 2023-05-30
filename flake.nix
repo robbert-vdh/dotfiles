@@ -11,6 +11,10 @@
     };
 
     # Non-flake repos
+    fish-plugin-nix-env = {
+      url = "github:lilyball/nix-env.fish";
+      flake = false;
+    };
     fish-plugin-pufferfish = {
       url = "github:nickeb96/puffer-fish";
       flake = false;
