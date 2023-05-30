@@ -92,12 +92,9 @@ there. The =+scaling-ratio= setting is used in the [[Org][org-mode]] config.
 #+begin_src emacs-lisp
 (setq +scaling-ratio (pcase (system-name)
                        ("thinkpad" 1.75)
-                       ("dev-lt-87" 1.5)
                        (_ 1.2))
       +font-size (pcase (system-name)
                    ("thinkpad" 13.5)
-                   ;; 4K screens, hooray
-                   ("dev-lt-87" 14.0)
                    (_ 13.0))
 
       doom-font (font-spec :family "JetBrainsMono"
