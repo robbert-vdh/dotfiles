@@ -50,5 +50,10 @@ in {
   home.file.".globalrc".source = ./.globalrc;
 
   # The derivation sure the `config.el` file is in sync with `config.org`
-  xdg.configFile."doom".source = tangledDoomConfig;
+  xdg.configFile."doom" = {
+    source = tangledDoomConfig;
+    # This keeps ~/.config/doom writable, although the individual files cannot
+    # be overwritten
+    recursive = true;
+  };
 }
