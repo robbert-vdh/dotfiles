@@ -47,6 +47,7 @@
     pkgs.html-tidy
     pkgs.httpie
     pkgs.nixfmt
+    pkgs.pre-commit
     pkgs.ripgrep
     pkgs.shellcheck
     pkgs.websocat
