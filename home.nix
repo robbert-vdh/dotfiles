@@ -7,6 +7,7 @@
   imports = [
     modules/emacs
     modules/fish
+    modules/fonts
     modules/gdb
     modules/git
     modules/nix
