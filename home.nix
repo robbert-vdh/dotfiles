@@ -10,6 +10,7 @@
     modules/fonts
     modules/gdb
     modules/git
+    modules/haskell
     modules/nix
     modules/pacman
     modules/pipewire
@@ -40,9 +41,6 @@
   #
   # Many of the modules imported above also add their own list of packages
   home.packages = [
-    # Useful to have available globally of specific projects
-    pkgs.haskellPackages.implicit-hie
-
     # Lesser important tools
     pkgs.fd
     pkgs.html-tidy
@@ -55,8 +53,6 @@
     pkgs.websocat
     pkgs.wl-clipboard
     pkgs.xsel
-
-    pkgs.haskellPackages.ghc-events # Useful for investigating RTS event logs
 
     pkgs.nodePackages.bash-language-server
     pkgs.nodePackages.prettier
