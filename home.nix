@@ -15,6 +15,7 @@
     modules/pacman
     modules/pipewire
     modules/python
+    modules/vim
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
