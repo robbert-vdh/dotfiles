@@ -49,6 +49,7 @@
     pkgs.nixfmt
     pkgs.pre-commit
     pkgs.ripgrep
+    pkgs.rnix-lsp
     pkgs.shellcheck
     pkgs.websocat
     pkgs.wl-clipboard
