@@ -59,6 +59,7 @@
     pkgs.nodePackages.bash-language-server
     pkgs.nodePackages.prettier
     pkgs.nodePackages.pyright
+    pkgs.nodePackages.yaml-language-server
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
