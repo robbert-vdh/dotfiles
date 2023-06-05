@@ -1,5 +1,5 @@
 # Always build with `nproc` threads by default
-set -gx MAKEFLAGS (nproc)
+set -gx MAKEFLAGS -j(nproc)
 
 # This is supposed to be set automatically. It isn't.
 if test -z $DEBUGINFOD_URLS
