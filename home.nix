@@ -46,7 +46,9 @@
     pkgs.fd
     pkgs.html-tidy
     pkgs.httpie
+    pkgs.inotify-tools
     pkgs.nixfmt
+    pkgs.overmind
     pkgs.pre-commit
     pkgs.ripgrep
     pkgs.rnix-lsp
