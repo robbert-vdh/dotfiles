@@ -42,7 +42,6 @@
   #
   # Many of the modules imported above also add their own list of packages
   home.packages = [
-    # Lesser important tools
     pkgs.fd
     pkgs.html-tidy
     pkgs.httpie
@@ -50,6 +49,7 @@
     pkgs.nixfmt
     pkgs.overmind
     pkgs.pre-commit
+    pkgs.rename
     pkgs.ripgrep
     pkgs.rnix-lsp
     pkgs.shellcheck
