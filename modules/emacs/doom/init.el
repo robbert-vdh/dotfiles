@@ -90,7 +90,7 @@
        (lookup           ; navigate your code and its documentation
         +docsets
         +dictionary)
-       lsp               ; M-x vscode
+       (lsp +peek)       ; M-x vscode
        (magit +forge)    ; a git porcelain for Emacs
        make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
