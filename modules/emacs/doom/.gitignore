@@ -1,0 +1,4 @@
+# Doom+Home Manager seems to break in a variety of ways. For now we'll just
+# symlink this directly (using some hacks in Home Manager)
+config.el
+custom.el

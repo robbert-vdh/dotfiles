@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, mkAbsoluteSymlink, ... }:
 
 let
   # Just to make sure everything is in sync
@@ -11,30 +11,32 @@ let
   # does this on `doom sync`. This version doesn't depend on the Doom CLI, but
   # it does require the `config.org` file to be annotated with `#+PROPERTY:
   # header-args:emacs-lisp :tangle yes`.
-  tangledDoomConfig = pkgs.stdenv.mkDerivation {
-    pname = "literate-emacs-config";
-    version = "dev";
+  # FIXME: Try this again at one point. We're now just symlinking ~/.config/doom
+  #        directly to this repo because otherwise things break
+  # tangledDoomConfig = pkgs.stdenv.mkDerivation {
+  #   pname = "literate-emacs-config";
+  #   version = "dev";
 
-    src = configDir;
-    dontUnpack = true;
+  #   src = configDir;
+  #   dontUnpack = true;
 
-    buildInputs = [ emacsPkg ];
+  #   buildInputs = [ emacsPkg ];
 
-    buildPhase = ''
-      cp -r $src/* .
-      emacs --batch -Q \
-        -l org \
-        config.org \
-        -f org-babel-tangle
-    '';
+  #   buildPhase = ''
+  #     cp -r $src/* .
+  #     emacs --batch -Q \
+  #       -l org \
+  #       config.org \
+  #       -f org-babel-tangle
+  #   '';
 
-    installPhase = ''
-      mkdir -p "$out"
-      # This needs to include everything from `./doom`, plus the generated
-      # config.el file
-      cp -r * "$out"
-    '';
-  };
+  #   installPhase = ''
+  #     mkdir -p "$out"
+  #     # This needs to include everything from `./doom`, plus the generated
+  #     # config.el file
+  #     cp -r * "$out"
+  #   '';
+  # };
 in {
   home.packages = [
     emacsPkg
@@ -49,9 +51,10 @@ in {
 
   home.file.".globalrc".source = ./.globalrc;
 
-  # The derivation sure the `config.el` file is in sync with `config.org`
   xdg.configFile."doom" = {
-    source = tangledDoomConfig;
+    # See above. This is a mutable symlink so Doom can be used imperatively
+    # without things breaking.
+    source = mkAbsoluteSymlink config "modules/emacs/doom";
     # This keeps ~/.config/doom writable, although the individual files cannot
     # be overwritten
     recursive = true;

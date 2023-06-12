@@ -1,7 +1,9 @@
 #+TITLE: Doom config
 
-# Needed for the tangling in ../default.nix
-#+PROPERTY: header-args:emacs-lisp :tangle yes
+#+begin_src emacs-lisp
+;; FIXME: Autoloads seem to be broken right now
+(load! "autoload/functions.el")
+#+end_src
 
 * Table of Contents :TOC_3:
 - [[#basic-settings][Basic settings]]
