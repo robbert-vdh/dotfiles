@@ -60,6 +60,7 @@
     pkgs.nodePackages.bash-language-server
     pkgs.nodePackages.prettier
     pkgs.nodePackages.pyright
+    pkgs.nodePackages.vscode-json-languageserver
     pkgs.nodePackages.yaml-language-server
 
     # # Adds the 'hello' command to your environment. It prints a friendly
