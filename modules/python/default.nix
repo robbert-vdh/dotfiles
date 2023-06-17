@@ -1,7 +1,14 @@
 { pkgs, ... }:
 
-# These Python packages aren't packaged in nixpkgs
 let
+  # See below
+  qtPluginPathMakeWrapperArgs = with pkgs.qt5; [
+    "--set"
+    "QT_PLUGIN_PATH"
+    "${qtbase}/${qtbase.qtPluginPrefix}"
+  ];
+
+  # These Python packages aren't packaged in nixpkgs
   mkJupyterlab_code_formatter = ps:
     with ps;
     (buildPythonPackage rec {
@@ -28,6 +35,14 @@ in {
           enableQt = true;
           enableTk = false;
         };
+
+        ipython = super.ipython.overridePythonAttrs (old: {
+          # HACK: Workaround needed to set the correct Qt plugin path so
+          #       matplotlib works in IPython:
+          #       https://github.com/NixOS/nixpkgs/issues/80147#issuecomment-784857897
+          makeWrapperArgs = (old.makeWrapperArgs or [ ])
+            ++ qtPluginPathMakeWrapperArgs;
+        });
       };
     }).withPackages (ps:
       with ps; [
@@ -52,20 +67,6 @@ in {
         seaborn
         statsmodels
       ]))
-
-    # HACK: Workaround needed to set the correct Qt plugin path so matplotlib
-    #       works in IPython:
-    #       https://github.com/NixOS/nixpkgs/issues/80147#issuecomment-784857897
-    # TODO: Modify the IPython package to do this in the wrapper
-    (pkgs.writeShellScriptBin "qt5-run" (with pkgs.qt5; ''
-      export QT_PLUGIN_PATH=${qtbase}/${qtbase.qtPluginPrefix}
-      if [[ $# -eq 0 ]]; then
-        echo >&2 "Usage: qt5-run <command...>"
-        exit 1
-      fi
-
-      exec "$@"
-    ''))
   ];
 
   xdg.configFile."flake8".source = ./flake8;
