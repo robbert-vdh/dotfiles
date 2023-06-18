@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ inputs, lib, pkgs, ... }:
 
 let
   # This is distributed as a .zip file with no top level directory. Flakes and
@@ -102,8 +102,8 @@ in {
   xdg.configFile."mpv/mpv.conf".text = renderOptions {
     # We can't use the Home Manager module's script management, and adding the
     # packages as is doesn't work because mpv will look in the wrong location.
-    # scripts = with pkgs.mpvScripts;
-    #   "${autocrop}/share/mpv/scripts/autocrop.lua:${uosc}/share/mpv/scripts/uosc.lua";
+    scripts =
+      "${inputs.mpv-thumbfast}/thumbfast.lua:${inputs.mpv-thumbfast-vanilla-osc}/player/lua/osc.lua";
 
     # TODO: Add these back in, depending on the host name
     # Performance tweaks, uncomment some of these if there are stutters

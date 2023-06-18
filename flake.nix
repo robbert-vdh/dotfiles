@@ -23,6 +23,16 @@
       url = "github:cyrus-and/gdb-dashboard";
       flake = false;
     };
+    # We can't use Nix's package or Home Manager's module for this because Nix's
+    # OpenGL and Vulkan support is broken outside of NixOS. See the mpv module.
+    mpv-thumbfast = {
+      url = "github:po5/thumbfast";
+      flake = false;
+    };
+    mpv-thumbfast-vanilla-osc = {
+      url = "github:po5/thumbfast/vanilla-osc";
+      flake = false;
+    };
   };
 
   # Directly passing the inputs along makes it easier to use files from

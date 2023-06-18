@@ -68,6 +68,39 @@
         "type": "github"
       }
     },
+    "mpv-thumbfast": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1686197291,
+        "narHash": "sha256-7EnFJVjEzqhWXAvhzURoOp/kad6WzwyidWxug6u8lVw=",
+        "owner": "po5",
+        "repo": "thumbfast",
+        "rev": "4241c7daa444d3859b51b65a39d30e922adb87e9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "po5",
+        "repo": "thumbfast",
+        "type": "github"
+      }
+    },
+    "mpv-thumbfast-vanilla-osc": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1683005828,
+        "narHash": "sha256-5zaMEsKeROfX48zAaEHCdlhC70CB7JRaLlndF/syoSU=",
+        "owner": "po5",
+        "repo": "thumbfast",
+        "rev": "dd04d535d4c8dae7d16e1216c3554415efea026a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "po5",
+        "ref": "vanilla-osc",
+        "repo": "thumbfast",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1685836261,
@@ -90,6 +123,8 @@
         "fish-plugin-pufferfish": "fish-plugin-pufferfish",
         "gdb-dashboard": "gdb-dashboard",
         "home-manager": "home-manager",
+        "mpv-thumbfast": "mpv-thumbfast",
+        "mpv-thumbfast-vanilla-osc": "mpv-thumbfast-vanilla-osc",
         "nixpkgs": "nixpkgs"
       }
     }
