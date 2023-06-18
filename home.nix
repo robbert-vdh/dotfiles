@@ -11,6 +11,7 @@
     modules/gdb
     modules/git
     modules/haskell
+    modules/mangohud
     modules/nix
     modules/pacman
     modules/pipewire
