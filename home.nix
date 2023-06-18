@@ -16,6 +16,7 @@
     modules/pacman
     modules/pipewire
     modules/python
+    modules/tmux
     modules/vim
   ];
 
