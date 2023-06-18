@@ -1,6 +1,12 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
+  fonts.fontconfig.enable = true;
+
+  # FIXME: For some reason this breaks bold text in Emacs, works fine with the
+  #        repo provided version
+  # home.packages = [ pkgs.jetbrains-mono ];
+
   xresources.extraConfig = ''
     ! FontConfig
     Xft.autohint: 0
@@ -11,10 +17,8 @@
     Xft.rgba: rgb
   '';
 
-  xdg.configFile."fonts" = {
-    source = ./conf;
-    # This keeps ~/.config/doom writable, although the individual files cannot
-    # be overwritten
+  xdg.configFile."fontconfig/conf.d" = {
+    source = ./conf.d;
     recursive = true;
   };
 }
