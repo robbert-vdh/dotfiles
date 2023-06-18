@@ -43,7 +43,6 @@
   # Many of the modules imported above also add their own list of packages
   home.packages = [
     pkgs.fd
-    pkgs.html-tidy
     pkgs.httpie
     pkgs.inotify-tools
     pkgs.nixfmt
@@ -51,17 +50,19 @@
     pkgs.pre-commit
     pkgs.rename
     pkgs.ripgrep
-    pkgs.rnix-lsp
-    pkgs.shellcheck
     pkgs.websocat
     pkgs.wl-clipboard
     pkgs.xsel
 
+    # Linters, LISP servers, editor integration things
+    pkgs.html-tidy
     pkgs.nodePackages.bash-language-server
     pkgs.nodePackages.prettier
     pkgs.nodePackages.pyright
     pkgs.nodePackages.vscode-json-languageserver
     pkgs.nodePackages.yaml-language-server
+    pkgs.rnix-lsp
+    pkgs.shellcheck
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
