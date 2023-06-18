@@ -20,7 +20,7 @@ let
   #   src = configDir;
   #   dontUnpack = true;
 
-  #   buildInputs = [ emacsPkg ];
+  #   nativeBuildInputs = [ emacsPkg ];
 
   #   buildPhase = ''
   #     cp -r $src/* .

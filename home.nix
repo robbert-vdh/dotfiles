@@ -13,6 +13,7 @@
     modules/haskell
     modules/mangohud
     modules/nix
+    modules/mpv
     modules/pacman
     modules/pipewire
     modules/python
