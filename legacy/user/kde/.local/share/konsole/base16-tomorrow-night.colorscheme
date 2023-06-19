@@ -92,7 +92,12 @@ Color=197,200,198
 Color=255,255,255
 
 [General]
+Anchor=0.5,0.5
 Blur=true
+ColorRandomization=false
 Description=Base16 Tomorrow Night
+FillStyle=Tile
 Opacity=0.9
 Wallpaper=
+WallpaperFlipType=NoFlip
+WallpaperOpacity=1
