@@ -46,9 +46,9 @@ let
   }).withPackages (ps:
     with ps; [
       # Binaries
-      pgcli
       ipython
       jupyterlab
+      pgcli
 
       # Formatters and linters
       black
@@ -67,7 +67,7 @@ let
       statsmodels
     ]));
 in {
-  home.packages = [ pythonEnv ];
+  home.packages = [ pythonEnv pkgs.nbstripout ];
 
   # The system installed Google Cloud environment cannot find NumPy by default
   # since it uses its own bundled Python interpreter. As a workaround we can
