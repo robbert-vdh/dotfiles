@@ -46,7 +46,7 @@
       dotfilesPath = let
         path = builtins.getEnv "DOTFILES_DIR";
         assertion = pkgs.lib.asserts.assertMsg
-          (path != "" && pkgs.lib.sources.pathIsDirectory path)
+          (path != "" && pkgs.lib.filesystem.pathIsDirectory path)
           "'$DOTFILES_DIR' is not set, make sure to run this through the 'update-dotfiles' script";
       in assert assertion; path;
       system = "x86_64-linux";

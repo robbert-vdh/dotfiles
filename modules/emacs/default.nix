@@ -2,7 +2,7 @@
 
 let
   # Just to make sure everything is in sync
-  emacsPkg = pkgs.emacs;
+  emacsPkg = pkgs.emacs29;
   configDir = ./doom;
 
   # Based on
