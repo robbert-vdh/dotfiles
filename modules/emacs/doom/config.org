@@ -100,7 +100,6 @@ there. The =+scaling-ratio= setting is used in the [[Org][org-mode]] config.
                    (_ 13.0))
 
       doom-font (font-spec :family "JetBrains Mono"
-                           :weight 'medium
                            :size +font-size)
       doom-variable-pitch-font (font-spec :family "Roboto"
                                           :size +font-size)
