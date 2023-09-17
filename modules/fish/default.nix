@@ -93,9 +93,9 @@
     grep = "grep --color=auto";
     info = "info --vi-keys";
 
-    # `programs.exa` can also define these but they're different form the ones I
+    # `programs.eza` can also define these but they're different form the ones I
     # prefer. It does already add `--git` and `--group-directories-first`.
-    ls = "exa";
+    ls = "eza";
     ll = "ls --long";
     la = "ll -a";
     lt = "la -T";
