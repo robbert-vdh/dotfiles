@@ -11,9 +11,10 @@
     modules/gdb
     modules/git
     modules/haskell
+    modules/kde
     modules/mangohud
-    modules/nix
     modules/mpv
+    modules/nix
     modules/pacman
     modules/pipewire
     modules/python
