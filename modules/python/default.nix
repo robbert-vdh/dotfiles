@@ -13,12 +13,12 @@ let
     with ps;
     (buildPythonPackage rec {
       pname = "jupyterlab_code_formatter";
-      version = "2.0.0";
+      version = "2.2.1";
       format = "pyproject";
 
       src = fetchPypi {
         inherit pname version;
-        sha256 = "gGWqAPLmes6PqdKLYq1NPow23uL3TlOg0SKkHq0ixew=";
+        sha256 = "hTIoGdph8CXrx8SoQpeZlPqBKtRMM0/bbrueutWNrgg=";
       };
 
       buildInputs =

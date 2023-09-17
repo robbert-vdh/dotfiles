@@ -91,7 +91,7 @@
   programs.bat.enable = true;
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
-  programs.exa = {
+  programs.eza = {
     enable = true;
     git = true;
     extraOptions = [ "--group-directories-first" ];
