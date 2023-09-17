@@ -810,7 +810,7 @@ of the files.
 #+begin_src emacs-lisp
 (after! haskell-mode
   ;; (set-formatter! 'hindent '("hindent") :modes '(haskell-mode literate-haskell-mode))
-  (add-to-list '+format-on-save-enabled-modes 'haskell-mode t)
+  (add-to-list '+format-on-save-disabled-modes 'haskell-mode t)
 
   ;; Improve code navigation in Haskell buffers
   (add-hook 'haskell-mode-hook #'haskell-decl-scan-mode)
@@ -1119,17 +1119,10 @@ Allow jumping to stylesheets inside of =node_modules=:
   (set-electric! 'fish-mode :words '("else" "end")))
 #+end_src
 
-Override shfmt to use two spaces instead of tabs:
+Enable automatic formatting for shell scripts.
 
 #+begin_src emacs-lisp
-(after! format-all
-  (set-formatter! 'shfmt
-    '("shfmt"
-      "-i" "2"
-      ;; Mode selection copied from the default config
-      ("-ln" "%s" (cl-case (and (boundp 'sh-shell) (symbol-value 'sh-shell))
-                    (bash "bash") (mksh "mksh") (t "posix"))))
-    :modes 'sh-mode))
+(setq-hook! 'sh-mode-hook +format-with 'shfmt)
 #+end_src
 
 ** TypeScript/JavsScript
@@ -1243,5 +1236,5 @@ Don't autoformat yaml files since these files are very complicated and
 formatting almost always breaks something.
 
 #+begin_src emacs-lisp
-(add-to-list '+format-on-save-enabled-modes 'yaml-mode t)
+(add-to-list '+format-on-save-disabled-modes 'yaml-mode t)
 #+end_src
