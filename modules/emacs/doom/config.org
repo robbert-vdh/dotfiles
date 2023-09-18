@@ -99,6 +99,11 @@ there. The =+scaling-ratio= setting is used in the [[Org][org-mode]] config.
                    ("thinkpad" 13.5)
                    (_ 13.0))
 
+      ;; The LSP progress indicator is too tall for the default and will
+      ;; otherwise cause the modeline to jump around (jump up jump up and get
+      ;; down)
+      doom-modeline-height (+ (frame-char-height) 10)
+
       doom-font (font-spec :family "JetBrains Mono"
                            :size +font-size)
       doom-variable-pitch-font (font-spec :family "Roboto"
