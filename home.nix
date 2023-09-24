@@ -53,7 +53,6 @@
     pkgs.nixfmt
     pkgs.overmind
     pkgs.pre-commit
-    pkgs.rename
     pkgs.ripgrep
     pkgs.websocat
     pkgs.wl-clipboard
