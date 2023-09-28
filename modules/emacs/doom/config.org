@@ -191,9 +191,11 @@ default frame.
       ;; The LSP progress indicator is too tall for the default and will
       ;; otherwise cause the modeline to jump around (jump up jump up and get
       ;; down)
-      doom-modeline-height (+ (frame-char-height) 10)
       nav-flash-delay 0.25
       which-key-idle-delay 0.4)
+
+(after! doom-modeline
+  (setq doom-modeline-height (+ (frame-char-height) 10)))
 #+end_src
 
 By default comments are line numbers are very dim. There is an option to make
