@@ -26,6 +26,7 @@
 
       commit.verbose = true;
       diff.algorithm = "histogram";
+      init.defaultBranch = "master";
       merge.conflictStyle = "zdiff3";
       pull.rebase = true;
       rebase.autoStash = true;
