@@ -427,6 +427,13 @@ up anyways.
 (setq +lsp-company-backends 'company-capf)
 #+end_src
 
+By default it takes up to half a second after you stop typing for diagnostics to get
+updated. This makes everything feel a lot slower.
+
+#+begin_src emacs-lisp
+(setq lsp-idle-delay 0.05)
+#+end_src
+
 =lsp-ui='s peek functionality is pretty cool, but it's missing default evil
 bindings.
 
