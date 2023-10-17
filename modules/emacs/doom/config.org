@@ -934,8 +934,8 @@ make electric indent less aggressive.
 (setq-hook! 'python-mode-hook flycheck-disabled-checkers '(python-mypy python-pylint))
 (add-hook 'python-mode-hook #'rainbow-delimiters-mode)
 (after! python
-  ;; Set this to `django' to force docstring to always be on multiple lines
-  (setq python-fill-docstring-style 'onetwo)
+  ;; Always use multiline docstrings with no trailing newline
+  (setq python-fill-docstring-style 'django)
 
   ;; Electric indent on `:' only really works for `else' clauses and makes
   ;; defining functions a lot harder than it should be
