@@ -837,6 +837,13 @@ with explicit line breaks (i.e. two spaces at the end of a line).
   (add-hook 'markdown-mode-hook #'doom-disable-delete-trailing-whitespace-h))
 #+end_src
 
+Auto formatting is no longer set up by default with the switch to ~apheleia~.
+
+#+begin_src emacs-lisp
+(after! apheleia
+  (add-to-list 'apheleia-mode-alist '(markdown-mode . prettier)))
+#+end_src
+
 ** Org
 Org's default LaTeX and PDF exports are a bit barebones. This enables a lot of
 functionality I use in most of my LaTeX documents, including proper syntax
