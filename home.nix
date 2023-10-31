@@ -50,6 +50,7 @@
     pkgs.fd
     pkgs.httpie
     pkgs.inotify-tools
+    pkgs.languagetool
     pkgs.nixfmt
     pkgs.overmind
     pkgs.pre-commit
