@@ -404,9 +404,8 @@ rule from the start. The keybindigns don't make a lot of sense, but they're easy
 to use and not in use for anything else.
 
 #+begin_src emacs-lisp
-(after! langtool
-  (setq langtool-disabled-rules '("WHITESPACE_RULE")
-        langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*"))
+(setq langtool-disabled-rules '("WHITESPACE_RULE")
+      langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*")
 
 (map!
  :m "[v" #'+robbert/languagetool-previous-error
@@ -416,6 +415,14 @@ to use and not in use for anything else.
    (:prefix "t"
      :desc "LanguageTool"         "t" #'+robbert/languagetool-toggle
      :desc "LanguageTool correct" "T" #'langtool-correct-buffer)))
+#+end_src
+
+if LanguageTool is installed through Nix, we'll need to override the command to
+use that version:
+
+#+begin_src emacs-lisp
+(when (executable-find "languagetool-commandline")
+  (setq langtool-bin "languagetool-commandline"))
 #+end_src
 
 ** LSP
