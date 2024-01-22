@@ -8,7 +8,6 @@
 * Table of Contents :TOC_3:
 - [[#basic-settings][Basic settings]]
   - [[#daemon][Daemon]]
-  - [[#environment][Environment]]
   - [[#fonts-and-scaling][Fonts and scaling]]
     - [[#ligatures][Ligatures]]
     - [[#input-method][Input Method]]
@@ -72,16 +71,6 @@ the terminal in the current frame.
 (require 'server)
 (unless (server-running-p)
   (server-start))
-#+end_src
-
-** Environment
-Doom doesn't load environment variables from a shell for performance reasons, so
-we have to set the =PATH= variable ourselves since this is not always inherited
-by Emacs:
-
-#+begin_src emacs-lisp
-(add-to-list 'exec-path "~/.local/bin")
-(add-to-list 'exec-path "~/.cargo/bin")
 #+end_src
 
 ** Fonts and scaling
