@@ -19,28 +19,37 @@ let
     });
 
   # git-blame this for a wrapper that fixes matplotlib+Qt
-  pythonEnv = pkgs.python310.withPackages (ps:
-    with ps; [
-      # Binaries
-      ipython
-      jupyterlab
-      pgcli
+  # NOTE: This implicit dependency hangs on the check phase
+  #       (https://github.com/NixOS/nixpkgs/issues/262000) without any overrides
+  pythonOverlay = self: super: {
+    debugpy =
+      super.debugpy.overrideAttrs (self: super: { pytestCheckPhase = "true"; });
+  };
 
-      # Formatters and linters
-      black
-      (mkJupyterlab_code_formatter ps)
-      isort
+  pythonEnv =
+    (pkgs.python310.override { packageOverrides = pythonOverlay; }).withPackages
+    (ps:
+      with ps; [
+        # Binaries
+        ipython
+        jupyterlab
+        pgcli
 
-      # Libs
-      librosa
-      matplotlib
-      numpy
-      pandas
-      pyperclip
-      scipy
-      seaborn
-      statsmodels
-    ]);
+        # Formatters and linters
+        black
+        (mkJupyterlab_code_formatter ps)
+        isort
+
+        # Libs
+        librosa
+        matplotlib
+        numpy
+        pandas
+        pyperclip
+        scipy
+        seaborn
+        statsmodels
+      ]);
 in {
   home.packages = [ pythonEnv pkgs.nbstripout ];
 

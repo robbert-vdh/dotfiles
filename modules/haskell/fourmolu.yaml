@@ -16,3 +16,5 @@ haddock-style-module: single-line
 let-style: mixed
 in-style: left-align
 unicode: never
+
+single-constraint-parens: never
