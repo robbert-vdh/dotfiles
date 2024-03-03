@@ -195,6 +195,12 @@ in {
     # This was bound to T by default
     F = "cycle ontop";
 
+    # mpv for some reason changed this to volume adjustment in an update
+    WHEEL_DOWN = "seek -10";
+    WHEEL_UP = "seek 10";
+    WHEEL_LEFT = "add volume -2";
+    WHEEL_RIGHT = "add volume 2";
+
     # Same as CTRL+Left/Right
     "Ctrl+WHEEL_DOWN" = "no-osd sub-seek -1";
     "Ctrl+WHEEL_UP" = "no-osd sub-seek  1";
