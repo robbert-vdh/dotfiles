@@ -746,7 +746,8 @@ of the files.
         [remap evil-open-above] #'+robbert/haskell-evil-open-above
         [remap evil-open-below] #'+robbert/haskell-evil-open-below))
 
-(setq lsp-haskell-formatting-provider "fourmolu")
+(setq lsp-haskell-formatting-provider "fourmolu"
+      lsp-haskell-plugin-stan-global-on nil)
 #+end_src
 
 Some Haskell preprocessors such as Happy, Alex and uuagc use haskell-like syntax
