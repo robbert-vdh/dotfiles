@@ -535,6 +535,18 @@ is unusable for me unless I run Emacs full screen.
 (setq +magit-open-windows-in-direction 'down)
 #+end_src
 
+Doom kills all magit buffers when closing the last magit window. This doesn't
+take other workspaces into account, which is usually fine, but it can be very
+useful to keep diffs alive for a bit longer while working on other things. Magit
+has a lock feature for this, but Doom will still kill locked buffers. This
+advice will prevent that.
+
+#+begin_src emacs-lisp
+(defadvice! +robbert--avoid-killing-locked-buffers (buf)
+  :before-until #'+magit--kill-buffer
+  (buffer-local-value 'magit-buffer-locked-p buf))
+#+end_src
+
 *** Magit Delta
 This adds syntax highlighting and words diffs to magit's buffers.
 
