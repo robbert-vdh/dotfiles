@@ -130,6 +130,8 @@ in {
     vo = "gpu-next";
     profile = "gpu-hq";
     gpu-api = "vulkan";
+    # This plus https://github.com/Zamundaaa/VK_hdr_layer are needed for HDR
+    target-colorspace-hint = true;
 
     # Upscaling and motion interpolation
     scale = "ewa_lanczos";
