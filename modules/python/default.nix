@@ -51,7 +51,10 @@ let
         statsmodels
       ]);
 in {
-  home.packages = [ pythonEnv pkgs.nbstripout ];
+  # Having a Nix provided Python installed system wide can cause quite a few
+  # problems with applications that expect `/usr/bin/env python3` to resolve to
+  # the Python interpreter provided by the package manager.
+  # home.packages = [ pythonEnv pkgs.nbstripout ];
 
   # The system installed Google Cloud environment cannot find NumPy by default
   # since it uses its own bundled Python interpreter. As a workaround we can
@@ -59,7 +62,7 @@ in {
   # be fine!
   home.sessionVariables = {
     CLOUDSDK_PYTHON_SITEPACKAGES = 1;
-    CLOUDSDK_PYTHON = "${pythonEnv}/bin/python3";
+    # CLOUDSDK_PYTHON = "${pythonEnv}/bin/python3";
   };
 
   xdg.configFile."flake8".source = ./flake8;

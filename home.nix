@@ -51,7 +51,7 @@
     pkgs.httpie
     pkgs.inotify-tools
     pkgs.languagetool
-    pkgs.nixfmt
+    pkgs.nixfmt-classic
     pkgs.overmind
     pkgs.pre-commit
     pkgs.ripgrep
@@ -66,7 +66,6 @@
     pkgs.nodePackages.pyright
     pkgs.nodePackages.vscode-json-languageserver
     pkgs.nodePackages.yaml-language-server
-    pkgs.rnix-lsp
     pkgs.shellcheck
     pkgs.shfmt
 
