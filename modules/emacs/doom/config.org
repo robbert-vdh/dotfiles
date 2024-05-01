@@ -434,27 +434,25 @@ updated. This makes everything feel a lot slower.
 bindings.
 
 #+begin_src emacs-lisp
-(after! lsp-mode
-  ;; Don't highlight symbols automatically, I'll use `gh' to do this manually
-  (setq lsp-enable-symbol-highlighting nil)
+;; Don't highlight symbols automatically, I'll use `gh' to do this manually
+(setq lsp-semantic-tokens-enable nil)
 
-  ;; Doom disables a few LSP features by default, but some of them can be quite
-  ;; useful especially in C++
-  (setq lsp-enable-text-document-color t
-        ;; The `flyspell-generic-progmode-verify' function needs to be
-        ;; overridden for this to not break spelling overlays, see above
-        lsp-enable-semantic-highlighting t
-        lsp-enable-file-watchers t
-        ;; Not sure if these two are actually used and, if they are, what they
-        ;; are used for. Might disable them later
-        lsp-enable-indentation t
-        lsp-enable-on-type-formatting t
-        lsp-enable-folding t))
+;; Doom disables a few LSP features by default, but some of them can be quite
+;; useful especially in C++
+(setq lsp-enable-text-document-color t
+      ;; The `flyspell-generic-progmode-verify' function needs to be
+      ;; overridden for this to not break spelling overlays, see above
+      lsp-enable-semantic-highlighting t
+      lsp-enable-file-watchers t
+      ;; Not sure if these two are actually used and, if they are, what they
+      ;; are used for. Might disable them later
+      lsp-enable-indentation t
+      lsp-enable-on-type-formatting t
+      lsp-enable-folding t)
 
-(after! lsp-ui
-  ;; These tend to get in the way when I'm just looking at stuff. K also opens a
-  ;; documentation popup.
-  (setq lsp-ui-doc-enable nil))
+;; These tend to get in the way when I'm just looking at stuff. K also opens a
+;; documentation popup.
+(setq lsp-ui-doc-enable nil)
 
 (map!
  (:after lsp-mode
@@ -760,6 +758,13 @@ of the files.
 
 (setq lsp-haskell-formatting-provider "fourmolu"
       lsp-haskell-plugin-stan-global-on nil)
+#+end_src
+
+HLS will send us a warning every time =lsp-mode= queries for semantic tokens
+which pegs a core at 100%, so we need to explicitly disable this:
+
+#+begin_src emacs-lisp
+(setq-hook! 'haskell-mode-hook lsp-semantic-tokens-enable nil)
 #+end_src
 
 Some Haskell preprocessors such as Happy, Alex and uuagc use haskell-like syntax

@@ -2,7 +2,7 @@
 
 let
   # Just to make sure everything is in sync
-  emacsPkg = pkgs.emacs29-gtk3;
+  emacsPkg = pkgs.emacs29;
   configDir = ./doom;
 
   # Based on
