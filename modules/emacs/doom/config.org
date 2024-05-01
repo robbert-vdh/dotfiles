@@ -434,15 +434,12 @@ updated. This makes everything feel a lot slower.
 bindings.
 
 #+begin_src emacs-lisp
-;; Don't highlight symbols automatically, I'll use `gh' to do this manually
-(setq lsp-semantic-tokens-enable nil)
-
 ;; Doom disables a few LSP features by default, but some of them can be quite
 ;; useful especially in C++
 (setq lsp-enable-text-document-color t
       ;; The `flyspell-generic-progmode-verify' function needs to be
       ;; overridden for this to not break spelling overlays, see above
-      lsp-enable-semantic-highlighting t
+      lsp-semantic-tokens-enable t
       lsp-enable-file-watchers t
       ;; Not sure if these two are actually used and, if they are, what they
       ;; are used for. Might disable them later
