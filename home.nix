@@ -15,7 +15,6 @@
     modules/mangohud
     modules/mpv
     modules/nix
-    modules/pacman
     modules/pipewire
     modules/python
     modules/tex
