@@ -3,6 +3,9 @@
 #+begin_src emacs-lisp
 ;; FIXME: Autoloads seem to be broken right now
 (load! "autoload/functions.el")
+
+(let ((path (expand-file-name  "~/channable/hackathon/personal/robbert/elisp/maintenance.el")))
+  (when (file-exists-p path) (load! path)))
 #+end_src
 
 * Table of Contents :TOC_3:
