@@ -54,6 +54,7 @@
   - [[#rust][Rust]]
   - [[#sasscss][Sass/CSS]]
   - [[#shell-scripts][Shell scripts]]
+  - [[#tidalcycles][TidalCycles]]
   - [[#typescriptjavsscript][TypeScript/JavsScript]]
   - [[#vue][Vue]]
   - [[#web][Web]]
@@ -1064,6 +1065,23 @@ Enable automatic formatting for shell scripts.
 
 #+begin_src emacs-lisp
 (setq-hook! 'sh-mode-hook +format-with 'shfmt)
+#+end_src
+
+** TidalCycles
+#+begin_src emacs-lisp
+(add-hook! 'tidal-mode-hook
+  (defun +robbert--tidal-completion-h ()
+    (require 'tidal-extras)
+     (add-hook 'completion-at-point-functions #'tidal-extras/completion-at-point nil t)))
+
+(map!
+ (:after tidal
+   (:map tidal-mode-map
+     :nvi [C-return] #'tidal-run-multiple-lines
+     :nvi [M-return] #'tidal-run-line
+
+     (:localleader
+       :desc "Hush" "s" #'+robbert/tidal-hush))))
 #+end_src
 
 ** TypeScript/JavsScript

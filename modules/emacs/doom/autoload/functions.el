@@ -279,6 +279,14 @@ LanguageTool. Flyspell errors will be cleared if the
           (flyspell-delete-all-overlays))))))
 
 ;;;###autoload
+(defun +robbert/tidal-hush ()
+  "Silence all sounds in tidal cycles"
+  (interactive)
+  (tidal-send-string ":{")
+  (tidal-send-string (concat " mapM_ ($ silence) [d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12]"))
+  (tidal-send-string ":}"))
+
+;;;###autoload
 (defun +robbert/unfill-paragraph (&optional region)
   "The inverse of `fill-paragraph', i.e. put an entire pagraph on
   a single line. Source:

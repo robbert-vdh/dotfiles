@@ -17,3 +17,6 @@
 
 ;; I prefer instant feedback over slight improvements in resposniveness
 (package! flyspell-lazy :disable t)
+
+(package! tidal)
+(package! tidal-extras :recipe (:repo "https://codeberg.org/bunnylushington/tidal-extras"))
