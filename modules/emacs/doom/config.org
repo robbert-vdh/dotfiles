@@ -758,6 +758,7 @@ of the files.
         [remap evil-open-below] #'+robbert/haskell-evil-open-below))
 
 (setq lsp-haskell-formatting-provider "fourmolu"
+      lsp-haskell-plugin-fourmolu-config-external t
       lsp-haskell-plugin-stan-global-on nil)
 #+end_src
 
