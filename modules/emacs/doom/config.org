@@ -227,7 +227,6 @@ overridden to not continue comments.
  :nvi "M-f"         #'+default/search-buffer
  :nvi "M-F"         #'+default/search-project
  :nvi "M-Q"         #'+robbert/unfill-paragraph
- :nvi "C-S-SPC"     #'company-yasnippet
 
  ;; `next-error' and `previous-error' will keep cycling through the last used
  ;; error buffer. This also causes them to keep cycling through compilation
@@ -419,14 +418,6 @@ use that version:
 #+end_src
 
 ** LSP
-Right now for some reason yasnippet kind of overshadows the completions provided
-by the LSP server, so we'll just disable those for now. ~C-S-Spc~ brings those
-up anyways.
-
-#+begin_src emacs-lisp
-(setq +lsp-company-backends 'company-capf)
-#+end_src
-
 By default it takes up to half a second after you stop typing for diagnostics to get
 updated. This makes everything feel a lot slower.
 
@@ -603,11 +594,6 @@ Why is there no default keybinding for this?
   (:map vertico-map
    "C-d" #'vertico-scroll-up
    "C-u" #'vertico-scroll-down)))
-
-(after! vertico
-  ;; Doom uses a regexp that matches both spaces and ampersands, but with no way
-  ;; to escape those
-  (setq orderless-component-separator 'orderless-escapable-split-on-space))
 #+end_src
 
 Stripping project roots makes the buffer list look a bit less cluttered. We'll
@@ -951,10 +937,7 @@ make electric indent less aggressive.
   (lsp-register-custom-settings
    `(("pyright.reportMissingTypeStubs" +robbert/lsp-pyright-report-missing-type-stubs t))))
 
-;; mypy is automaitcally run after flake8, this doesn't work with virtualenvs
-;; without installing mypy to that virtualenv so I'll just disable it by
-;; default
-(setq-hook! 'python-mode-hook flycheck-disabled-checkers '(python-mypy python-pylint))
+(setq-hook! 'python-mode-hook +format-with 'black)
 (add-hook 'python-mode-hook #'rainbow-delimiters-mode)
 (after! python
   ;; Always use multiline docstrings with no trailing newline
@@ -1025,9 +1008,9 @@ GNU Global is an easy way to hack function and mixin completion into
     (defun +robbert-fix-scss-syntax-table-h ()
       (modify-syntax-entry ?$ "'") (modify-syntax-entry ?% ".")))
 
-  ;; Completion is handled through `company-capf', though for scss in particular
-  ;; we just want to use tags together with the lsp server as the built in
-  ;; support misses a lot of variables
+  ;; Completion is handled through `capf', though for scss in particular we just
+  ;; want to use tags together with the lsp server as the built in support
+  ;; misses a lot of variables
   (set-lookup-handlers! 'ggtags-mode
     :definition #'ggtags-find-tag-dwim
     :references #'ggtags-find-reference))
@@ -1039,10 +1022,7 @@ GNU Global is an easy way to hack function and mixin completion into
     (cond ((derived-mode-p 'scss-mode)
            ;; `lsp-mode' overrides our tags here, but we need those for variable
            ;; name completions as `lsp-css' isn't that smart yet
-           (setq ;; lsp-css's auto completion returns so many results that
-                 ;; company struggles to keep up
-                 company-idle-delay 0.3
-                 completion-at-point-functions '(ggtags-completion-at-point lsp-completion-at-point))))))
+           (setq completion-at-point-functions '(ggtags-completion-at-point lsp-completion-at-point))))))
 
 (map! :map scss-mode-map
       (:localleader
