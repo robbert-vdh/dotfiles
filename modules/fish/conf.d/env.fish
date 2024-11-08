@@ -7,11 +7,11 @@ if test -z $DEBUGINFOD_URLS
 end
 
 # Merge local directories with $PATH
-set -g fish_user_paths ~/.cabal/bin ~/.cargo/bin ~/.dotfiles/bin ~/.ghcup/bin ~/.local/bin ~/Documenten/projecten/yabridge/build
+set -g fish_user_paths ~/.cabal/bin ~/.dotfiles/bin ~/.ghcup/bin ~/.local/bin ~/Documenten/projecten/yabridge/build
 
 # Neither do the binaries from the CUDA package. These need to be appended to
 # the path since CUDA includes an old version of GCC.
-set -gx PATH "$PATH:/opt/cuda/bin"
+set -gx PATH "$PATH:$HOME/.cargo/bin:/opt/cuda/bin"
 
 # Enable colours in manpages
 set -gx LESS_TERMCAP_mb (set_color --bold red)
