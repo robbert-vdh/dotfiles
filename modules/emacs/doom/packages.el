@@ -12,8 +12,8 @@
 (package! strace-mode)
 (package! vue-mode)
 
-;; TODO: Remove when merged upstream
 (package! magit-delta)
+(package! magit-todos)
 
 ;; I prefer instant feedback over slight improvements in resposniveness
 (package! flyspell-lazy :disable t)

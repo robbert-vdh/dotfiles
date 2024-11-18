@@ -33,6 +33,7 @@
   - [[#lsp][LSP]]
   - [[#magit-and-diffing][Magit and diffing]]
     - [[#magit-delta][Magit Delta]]
+    - [[#magit-todos][Magit Todos]]
   - [[#page-break-lines][Page break lines]]
   - [[#pdf-tools][PDF tools]]
   - [[#treemacs][Treemacs]]
@@ -547,6 +548,22 @@ This adds syntax highlighting and words diffs to magit's buffers.
   (setq magit-delta-default-dark-theme "Nord"
         magit-delta-default-light-theme "OneHalfLight")
   (magit-delta-mode))
+#+end_src
+
+*** Magit Todos
+
+This was removed from Doom's configuration.
+
+#+begin_src emacs-lisp
+(use-package! magit-todos
+  :after magit
+  :config
+  (setq magit-todos-keyword-suffix "\\(?:([^)]+)\\)?:?") ; make colon optional
+  (define-key magit-todos-section-map "j" nil))
+
+(map! :leader
+      (:prefix-map ("p" . "project")
+       :desc "List project todos"  "t" #'magit-todos-list))
 #+end_src
 
 ** Page break lines
