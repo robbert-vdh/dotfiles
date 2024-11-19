@@ -24,6 +24,7 @@
   - [[#evil-snipe][evil-snipe]]
 - [[#packages][Packages]]
   - [[#academic-phrases][Academic Phrases]]
+  - [[#corfu][Corfu]]
   - [[#flycheck][Flycheck]]
   - [[#helpful][Helpful]]
   - [[#flyspell][Flyspell]]
@@ -303,6 +304,15 @@ ideal. See [[https://github.com/hlissner/evil-snipe/issues/86]].
 ** Academic Phrases
 #+begin_src emacs-lisp
 (use-package! academic-phrases)
+#+end_src
+
+** Corfu
+The default delay is really long, which makes completion in =lsp-mode= feel very
+unresponsive.
+
+#+begin_src emacs-lisp
+(after! corfu
+  (setq corfu-auto-delay 0.05))
 #+end_src
 
 ** Flycheck
