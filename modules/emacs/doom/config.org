@@ -453,6 +453,15 @@ bindings.
       lsp-enable-on-type-formatting t
       lsp-enable-folding t)
 
+;; TODO: Hack, don't commit this, only needed for Meacs 30
+;; TODO: Solves the issue where the file is updated after saving and it gets into a weird state, but the server now sometimes desyncs. Can we somehow instead do this after fourmolu has run?
+(defun +robbert--force-write-with-evil ()
+  (when lsp-mode
+    (let ((after-save-hook '()))
+      (evil-write nil nil nil nil t))))
+(after! apheleia
+  (add-hook! 'after-save-hook :append #'+robbert--force-write-with-evil))
+
 ;; These tend to get in the way when I'm just looking at stuff. K also opens a
 ;; documentation popup.
 (setq lsp-ui-doc-enable nil)
@@ -958,11 +967,19 @@ make electric indent less aggressive.
 
 (setq lsp-python-ms-nupkg-channel "daily")
 (after! lsp-mode
+  ;; ;; FIXME: Ruff's LSP client complains about syntax errors that aren't there.
+  ;; ;;        Better just diable it outright.
+  ;; (add-to-list 'lsp-disabled-clients 'ruff)
+
   ;; FIXME: This doesn't work, and lsp-pyright will probably add something
   ;;        similar sooner pr ;ater
   (defvar +robbert/lsp-pyright-report-missing-type-stubs t)
   (lsp-register-custom-settings
    `(("pyright.reportMissingTypeStubs" +robbert/lsp-pyright-report-missing-type-stubs t))))
+
+(after! lsp-ruff
+  ;; FIXME: Ruff fails to start withotu this. Should be temporary.
+  (add-to-list 'lsp-ruff-ruff-args "--preview"))
 
 (setq-hook! 'python-mode-hook +format-with 'black)
 (add-hook 'python-mode-hook #'rainbow-delimiters-mode)
