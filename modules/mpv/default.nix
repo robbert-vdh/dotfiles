@@ -133,7 +133,7 @@ in {
     # This plus https://github.com/Zamundaaa/VK_hdr_layer are needed for HDR
     target-colorspace-hint = true;
 
-    # Upscaling and motion interpolation
+    # Better upscaling settings
     scale = "ewa_lanczos";
     cscale = "ewa_lanczos";
     # `ewa_lanczossharp` has been deprecated, this restores the old behavior
@@ -142,14 +142,6 @@ in {
 
     # From Anime4K, see below for key bindings for switching between different shader configs
     glsl-shaders = defaultShaders;
-
-    # The tempoeral interpolation settings are from
-    # https://github.com/mpv-player/mpv/issues/2685#issuecomment-434665993
-    interpolation = true;
-    tscale = "box";
-    tscale-window = "sphinx";
-    tscale-clamp = "0.0";
-    video-sync = "display-resample";
 
     # Language and subtitles
     alang = "jp,jpn,en,eng,nl";
