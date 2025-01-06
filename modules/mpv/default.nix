@@ -153,10 +153,10 @@ in {
 
     # Language and subtitles
     alang = "jp,jpn,en,eng,nl";
-    slang = "en,eng,jpn,nl";
+    slang = "jp,jpn,en,eng,nl";
     sub-blur = "1.0";
     sub-border-size = "2";
-    sub-font = "Roboto";
+    sub-font = "Noto Sans CJK JP";
     sub-font-size = "50";
     sub-margin-y = "40";
     sub-auto = "fuzzy";
