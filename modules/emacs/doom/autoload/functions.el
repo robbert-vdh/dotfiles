@@ -62,8 +62,8 @@ embedded DSLs."
   (haskell-mode)
   (intero-mode -1)
   (setq company-backends '(:separate company-dabbrev-code
-                                     company-capf
-                                     company-yasnippet)))
+                           company-capf
+                           company-yasnippet)))
 
 ;;;###autoload
 (defun +robbert/clipboard-to-buffer ()
@@ -178,6 +178,14 @@ gets overridden."
 text"
   (interactive)
   (magit-blame-addition '("-w" "-CCC")))
+
+;;;###autoload
+(defun +robbert/diff-remote ()
+  "Shortcut to diff the changes from origin/master to the specified branch."
+  (interactive)
+  (magit-fetch-all '())
+  (magit-diff-range (concat "origin/master..."
+                            (magit-read-branch-or-commit "Remote commit"))))
 
 (defvar +robbert--pipenv-project-root nil
   "The last project we've checked pipenv for. This prevents
