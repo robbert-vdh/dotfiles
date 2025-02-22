@@ -60,7 +60,7 @@
 
     # Linters, LISP servers, editor integration things
     pkgs.html-tidy
-    pkgs.pyright
+    pkgs.basedpyright
     pkgs.nodePackages.bash-language-server
     pkgs.nodePackages.prettier
     pkgs.nodePackages.vscode-json-languageserver
