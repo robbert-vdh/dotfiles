@@ -974,12 +974,12 @@ make electric indent less aggressive.
 (add-to-list 'auto-mode-alist '("Pipfile$" . conf-toml-mode))
 (add-to-list 'auto-mode-alist '("Pipfile\\.lock$" . json-mode))
 
-(setq lsp-python-ms-nupkg-channel "daily")
-(after! lsp-mode
-  ;; ;; FIXME: Ruff's LSP client complains about syntax errors that aren't there.
-  ;; ;;        Better just diable it outright.
-  ;; (add-to-list 'lsp-disabled-clients 'ruff)
+(setq lsp-python-ms-nupkg-channel "daily"
+      ;; Otherwise it will try to load every single Python project it knows of
+      ;; instead of just the one we're working on
+      lsp-pyright-multi-root nil)
 
+(after! lsp-mode
   ;; FIXME: This doesn't work, and lsp-pyright will probably add something
   ;;        similar sooner pr ;ater
   (defvar +robbert/lsp-pyright-report-missing-type-stubs t)
