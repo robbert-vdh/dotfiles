@@ -448,20 +448,19 @@ bindings.
       ;; overridden for this to not break spelling overlays, see above
       lsp-semantic-tokens-enable t
       lsp-enable-file-watchers t
+      lsp-file-watch-threshold 2048
       ;; Not sure if these two are actually used and, if they are, what they
       ;; are used for. Might disable them later
       lsp-enable-indentation t
       lsp-enable-on-type-formatting t
       lsp-enable-folding t)
 
-;; TODO: Hack, don't commit this, only needed for Meacs 30
-;; TODO: Solves the issue where the file is updated after saving and it gets into a weird state, but the server now sometimes desyncs. Can we somehow instead do this after fourmolu has run?
-(defun +robbert--force-write-with-evil ()
-  (when lsp-mode
-    (let ((after-save-hook '()))
-      (evil-write nil nil nil nil t))))
-(after! apheleia
-  (add-hook! 'after-save-hook :append #'+robbert--force-write-with-evil))
+;; Some more directories with lots of temporary files that should not be watched
+;; by lsp-mode
+(after! lsp-mode
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]joblet-data\\'")
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]integration[/\\\\]compute-test-data\\'")
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]integration[/\\\\]megalodon-test-data\\'"))
 
 ;; These tend to get in the way when I'm just looking at stuff. K also opens a
 ;; documentation popup.
