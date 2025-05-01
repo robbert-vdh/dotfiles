@@ -225,7 +225,7 @@ overridden to not continue comments.
  ;; Doom's remaps `newline' to `newline-and-indent' and advices it to break
  ;; comments. It's nice to have the option, but I don't like it as a default.
  :i [remap newline] #'+robbert/newline-and-indent
- :i [C-S-return]    #'newline-and-indent
+ :i [C-return]      #'newline-and-indent
  :i [M-backspace]   #'evil-delete-back-to-indentation
  :nvi "M-f"         #'+default/search-buffer
  :nvi "M-F"         #'+default/search-project
