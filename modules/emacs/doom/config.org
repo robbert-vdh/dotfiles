@@ -26,6 +26,7 @@
   - [[#corfu][Corfu]]
   - [[#flycheck][Flycheck]]
   - [[#helpful][Helpful]]
+  - [[#highlight-numbers][Highlight numbers]]
   - [[#flyspell][Flyspell]]
   - [[#hl-todo][hl-todo]]
   - [[#hippie-expand][Hippie Expand]]
@@ -299,6 +300,16 @@ Increase the size of help popups to match Ivy's height.
 
 #+begin_src emacs-lisp
 (set-popup-rule! "^\\*Help" :size 0.3 :select t)
+#+end_src
+
+** Highlight numbers
+This used to be included in Doom but it isn't anymore. Makes numeric literals
+stand out more.
+
+#+begin_src emacs-lisp
+(use-package! highlight-numbers
+  :hook ((prog-mode conf-mode) . highlight-numbers-mode)
+  :config (setq highlight-numbers-generic-regexp "\\_<[[:digit:]]+\\(?:\\.[0-9]*\\)?\\_>"))
 #+end_src
 
 ** Flyspell
@@ -583,10 +594,9 @@ This package has been removed from the Doom core, but it makes some languages
 much easier to visually parse.
 
 #+begin_src emacs-lisp
-(setq rainbow-delimiters-max-face-count 4)
-
-(add-hook 'lisp-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
+(use-package! rainbow-delimiters
+  :hook ((prog-mode conf-mode) . rainbow-delimiters-mode)
+  :config (setq rainbow-delimiters-max-face-count 4))
 
 (after! so-long
   (add-to-list 'so-long-minor-modes #'rainbow-delimiters-mode))
