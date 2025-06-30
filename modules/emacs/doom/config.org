@@ -12,7 +12,6 @@
 - [[#basic-settings][Basic settings]]
   - [[#daemon][Daemon]]
   - [[#fonts-and-scaling][Fonts and scaling]]
-    - [[#ligatures][Ligatures]]
     - [[#input-method][Input Method]]
   - [[#line-numbers][Line numbers]]
   - [[#scrolling][Scrolling]]
@@ -38,6 +37,7 @@
     - [[#code-review-mode][=code-review-mode=]]
   - [[#page-break-lines][Page break lines]]
   - [[#pdf-tools][PDF tools]]
+  - [[#rainbow-delimiters][Rainbow Delimiters]]
   - [[#treemacs][Treemacs]]
   - [[#undo-fu][undo-fu]]
   - [[#wordnut][Wordnut]]
@@ -102,44 +102,6 @@ there. The =+scaling-ratio= setting is used in the [[Org][org-mode]] config.
       doom-emoji-fallback-font-families (cons "Noto Color Emoji"
                                               (remove "Noto Color Emoji"
                                                       doom-emoji-fallback-font-families)))
-#+end_src
-
-*** Ligatures
-These are the ligatures for the JetBrains Mono font. Since =composite.el= is
-quite a new feature, I had to build this list myself. The format for this
-ligature alist and the way that =composition-function-table= works, is that the
-car for each cons cell is the first character of the ligature sequence, and the
-cdr is a regexp that matches ligatures that starts with that character. If you
-have a list of supported ligatures for a font, it's really easy to build these
-regexps using the =regexp-opt= function.
-
-#+begin_src emacs-lisp
-(let ((alist '((?! . "\\(?:!\\(?:==\\|[!=]\\)\\)")
-               (?# . "\\(?:#\\(?:###?\\|_(\\|[!#(:=?[_{]\\)\\)")
-               (?$ . "\\(?:\\$>\\)")
-               (?& . "\\(?:&&&?\\)")
-               (?* . "\\(?:\\*\\(?:\\*\\*\\|[/>]\\)\\)")
-               (?+ . "\\(?:\\+\\(?:\\+\\+\\|[+>]\\)\\)")
-               (?- . "\\(?:-\\(?:-[>-]\\|<<\\|>>\\|[<>|~-]\\)\\)")
-               (?. . "\\(?:\\.\\(?:\\.[.<]\\|[.=?-]\\)\\)")
-               (?/ . "\\(?:/\\(?:\\*\\*\\|//\\|==\\|[*/=>]\\)\\)")
-               (?: . "\\(?::\\(?:::\\|\\?>\\|[:<-?]\\)\\)")
-               (?\; . "\\(?:;;\\)")
-               (?< . "\\(?:<\\(?:!--\\|\\$>\\|\\*>\\|\\+>\\|-[<>|]\\|/>\\|<[<=-]\\|=\\(?:=>\\|[<=>|]\\)\\||\\(?:||::=\\|[>|]\\)\\|~[>~]\\|[$*+/:<=>|~-]\\)\\)")
-               (?= . "\\(?:=\\(?:!=\\|/=\\|:=\\|=[=>]\\|>>\\|[=>]\\)\\)")
-               (?> . "\\(?:>\\(?:=>\\|>[=>-]\\|[]:=-]\\)\\)")
-               (?? . "\\(?:\\?[.:=?]\\)")
-               (?\[ . "\\(?:\\[\\(?:||]\\|[<|]\\)\\)")
-               (?\ . "\\(?:\\\\/?\\)")
-               (?\] . "\\(?:]#\\)")
-               (?^ . "\\(?:\\^=\\)")
-               (?_ . "\\(?:_\\(?:|?_\\)\\)")
-               (?{ . "\\(?:{|\\)")
-               (?| . "\\(?:|\\(?:->\\|=>\\||\\(?:|>\\|[=>-]\\)\\|[]=>|}-]\\)\\)")
-               (?~ . "\\(?:~\\(?:~>\\|[=>@~-]\\)\\)"))))
-  (dolist (char-regexp alist)
-    (set-char-table-range composition-function-table (car char-regexp)
-                          `([,(cdr char-regexp) 0 font-shape-gstring]))))
 #+end_src
 
 *** Input Method
@@ -455,6 +417,14 @@ bindings.
       lsp-enable-on-type-formatting t
       lsp-enable-folding t)
 
+;; TODO: Solves the issue where the file is updated after saving and it gets into a weird state, but the server now sometimes desyncs. Can we somehow instead do this after fourmolu has run?
+(defun +robbert--force-write-with-evil ()
+  (when (bound-and-true-p lsp-mode)
+    (let ((after-save-hook '()))
+      (evil-write nil nil nil nil t))))
+(after! apheleia
+  (add-hook! 'after-save-hook :append #'+robbert--force-write-with-evil))
+
 ;; Some more directories with lots of temporary files that should not be watched
 ;; by lsp-mode
 (after! lsp-mode
@@ -606,6 +576,20 @@ Transforms =^L= characters used in elisp into horizontal lines.
 #+begin_src emacs-lisp
 ;; Auto reload PDFs
 (add-hook 'doc-view-mode-hook #'auto-revert-mode)
+#+end_src
+
+** Rainbow Delimiters
+This package has been removed from the Doom core, but it makes some languages
+much easier to visually parse.
+
+#+begin_src emacs-lisp
+(setq rainbow-delimiters-max-face-count 4)
+
+(add-hook 'lisp-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
+
+(after! so-long
+  (add-to-list 'so-long-minor-modes #'rainbow-delimiters-mode))
 #+end_src
 
 ** Treemacs

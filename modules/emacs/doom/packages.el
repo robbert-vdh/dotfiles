@@ -11,6 +11,7 @@
 (package! pkgbuild-mode)
 (package! strace-mode)
 (package! vue-mode)
+(package! rainbow-delimiters)
 
 (package! magit-delta)
 (package! magit-todos)
