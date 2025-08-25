@@ -774,6 +774,10 @@ of the files.
     ;; `haskell-mode' sets the default tab width to eight spaces for some reason
     tab-width 2)
 
+  ;; HLS is supposed to have hlint integration, but it hasn't been working for a
+  ;; while now
+  (set-next-checker! 'haskell-mode 'lsp 'haskell-hlint)
+
   (map! :map haskell-mode-map
         ;; Doom now also provides something similar, but this works better
         :n "o"                  nil
