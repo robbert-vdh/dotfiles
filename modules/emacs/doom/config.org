@@ -308,7 +308,7 @@ stand out more.
 
 #+begin_src emacs-lisp
 (use-package! highlight-numbers
-  :hook ((prog-mode conf-mode) . highlight-numbers-mode)
+  :hook ((prog-mode conf-mode yaml-mode) . highlight-numbers-mode)
   :config (setq highlight-numbers-generic-regexp "\\_<[[:digit:]]+\\(?:\\.[0-9]*\\)?\\_>"))
 #+end_src
 
