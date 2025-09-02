@@ -692,21 +692,7 @@ configured to use /the best shell/:
 (add-to-list 'auto-mode-alist '("\\.ruleset$" . nxml-mode))
 
 (after! csharp-mode
-  (set-electric! 'csharp-mode :chars '(?\n ?\{)))
-
-(after! omnisharp
-  ;; Killing the omnisharp server doesn't work as well when constantly switching
-  ;; branches and previewing files
-  (add-hook! 'csharp-mode-hook :append
-    (defun +robbert-dont-stop-omnisharp-h ()
-      (remove-hook 'kill-buffer-hook #'omnisharp-stop-server t) ))
-
-  (map! :map omnisharp-mode-map
-        :nv [M-return]                 #'omnisharp-run-code-action-refactoring
-
-        (:localleader
-          :desc "Refactor this"  "SPC" #'omnisharp-run-code-action-refactoring
-          :desc "Restart server" "s"   #'omnisharp-start-omnisharp-server)) )
+  (set-electric! 'csharp-ts-mode :chars '(?\n ?\{)))
 #+end_src
 
 ** CC
@@ -715,10 +701,10 @@ Use C++ as a default.
 #+begin_src emacs-lisp
 (setq +cc-default-header-file-mode 'c++-mode)
 
-(setq-hook! '(c-mode-hook c++-mode-hook) c-basic-offset 4)
+(setq-hook! '(c-mode-hook c-ts-mode-hook c++-mode-hook c++-ts-mode-hook) c-basic-offset 4)
 
 ;; Match the Chromium clang-format style
-(add-hook! '(c-mode-hook c++-mode-hook) :append
+(add-hook! '(c-mode-hook c-ts-mode-hook c++-ts-mode-hook) :append
   (add-to-list 'c-offsets-alist '(innamespace . 0))
   (add-to-list 'c-offsets-alist '(access-label . /))
   (add-to-list 'c-offsets-alist '(inclass . +)))
@@ -762,23 +748,26 @@ of the files.
 
 ** Haskell
 #+begin_src emacs-lisp
-(after! haskell-mode
-  ;; (set-formatter! 'hindent '("hindent") :modes '(haskell-mode literate-haskell-mode))
-  (add-to-list '+format-on-save-disabled-modes 'haskell-mode t)
+;; (set-formatter! 'hindent '("hindent") :modes '(haskell-mode literate-haskell-mode))
+(add-to-list '+format-on-save-disabled-modes 'haskell-mode t)
+(add-to-list '+format-on-save-disabled-modes 'haskell-ts-mode t)
 
+(after! haskell-mode
   ;; Improve code navigation in Haskell buffers
-  (add-hook 'haskell-mode-hook #'haskell-decl-scan-mode)
-  (add-hook 'haskell-mode-hook #'haskell-indentation-mode)
-  (setq-hook! 'haskell-mode-hook
+  (add-hook 'haskell-ts-mode-hook #'haskell-decl-scan-mode)
+  (add-hook 'haskell-ts-mode-hook #'haskell-indentation-mode)
+  (setq-hook! 'haskell-ts-mode-hook
     outline-regexp "-- \\*+"
     ;; `haskell-mode' sets the default tab width to eight spaces for some reason
     tab-width 2)
 
   ;; HLS is supposed to have hlint integration, but it hasn't been working for a
   ;; while now
-  (set-next-checker! 'haskell-mode 'lsp 'haskell-hlint)
+  (set-next-checker! 'haskell-ts-mode 'lsp 'haskell-hlint)
+  (unless (member 'haskell-ts-mode (flycheck-checker-get 'haskell-hlint 'modes))
+    (push 'haskell-ts-mode (flycheck-checker-get 'haskell-hlint 'modes)))
 
-  (map! :map haskell-mode-map
+  (map! :map haskell-ts-mode-map
         ;; Doom now also provides something similar, but this works better
         :n "o"                  nil
         :n "O"                  nil
@@ -794,7 +783,7 @@ HLS will send us a warning every time =lsp-mode= queries for semantic tokens
 which pegs a core at 100%, so we need to explicitly disable this:
 
 #+begin_src emacs-lisp
-(setq-hook! 'haskell-mode-hook lsp-semantic-tokens-enable nil)
+(setq-hook! 'haskell-ts-mode-hook lsp-semantic-tokens-enable nil)
 #+end_src
 
 Some Haskell preprocessors such as Happy, Alex and uuagc use haskell-like syntax
@@ -878,7 +867,7 @@ with explicit line breaks (i.e. two spaces at the end of a line).
 
 #+begin_src emacs-lisp
 (after! markdown-mode
-  (add-hook 'markdown-mode-hook #'doom-disable-delete-trailing-whitespace-h))
+  (add-hook 'markdown-ts-mode-hook #'doom-disable-delete-trailing-whitespace-h))
 #+end_src
 
 Auto formatting is no longer set up by default with the switch to ~apheleia~.
@@ -966,7 +955,7 @@ Python offers some nicer ways to work with REPLs. Also change the defaults to
 make electric indent less aggressive.
 
 #+begin_src emacs-lisp
-(setq-hook! 'python-mode-hook fill-column 79)
+(setq-hook! 'python-ts-mode-hook fill-column 79)
 
 (add-to-list 'auto-mode-alist '("Pipfile$" . conf-toml-mode))
 (add-to-list 'auto-mode-alist '("Pipfile\\.lock$" . json-mode))
@@ -987,18 +976,17 @@ make electric indent less aggressive.
   ;; FIXME: Ruff fails to start withotu this. Should be temporary.
   (add-to-list 'lsp-ruff-ruff-args "--preview"))
 
-(setq-hook! 'python-mode-hook +format-with 'black)
-(add-hook 'python-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'python-ts-mode-hook #'rainbow-delimiters-mode)
 (after! python
   ;; Always use multiline docstrings with no trailing newline
   (setq python-fill-docstring-style 'django)
 
-  ;; Electric indent on `:' only really works for `else' clauses and makes
-  ;; defining functions a lot harder than it should be
-  (set-electric! 'python-mode ':words '("else:"))
-  ;; FIXME: The above doesn't clear the list of electric indent characters
-  ;;        anymore
-  (setq-hook! 'python-mode-hook electric-indent-chars '())
+  ;; ;; Electric indent on `:' only really works for `else' clauses and makes
+  ;; ;; defining functions a lot harder than it should be
+  ;; (set-electric! 'python-ts-mode ':words '("else:"))
+  ;; ;; FIXME: The above doesn't clear the list of electric indent characters
+  ;; ;;        anymore
+  ;; (setq-hook! 'python-ts-mode-hook electric-indent-chars '())
   ;; Disable the default template, as we don't need a hashbang in every Python
   ;; file
   (set-file-template! 'python-mode :ignore t)
@@ -1110,7 +1098,7 @@ Enable automatic formatting for shell scripts.
 
 (map!
  (:after tidal
-   (:map haskell-mode-map
+   (:map haskell-ts-mode-map
      :nvi [C-return] #'tidal-run-multiple-lines
      :nvi [M-return] #'tidal-run-line
 
@@ -1185,7 +1173,7 @@ weird.
 (after! web-mode
   ;; Make sure that attributes are indented when breaking lines (e.g. long lists
   ;; of classes)
-  (set-electric! 'web-mode :chars '(?\<) :words '("endfor" "endif" "endblock"))
+  (set-electric! 'web-ts-mode :chars '(?\<) :words '("endfor" "endif" "endblock"))
 
   ;; Editorconfig tells web-mode to indent attributes instead of aligning
   (add-hook! 'web-mode-hook :append
