@@ -27,6 +27,7 @@
   - [[#flycheck][Flycheck]]
   - [[#helpful][Helpful]]
   - [[#highlight-numbers][Highlight numbers]]
+  - [[#gptel][gptel]]
   - [[#flyspell][Flyspell]]
   - [[#hl-todo][hl-todo]]
   - [[#hippie-expand][Hippie Expand]]
@@ -40,7 +41,6 @@
   - [[#pdf-tools][PDF tools]]
   - [[#rainbow-delimiters][Rainbow Delimiters]]
   - [[#treemacs][Treemacs]]
-  - [[#undo-fu][undo-fu]]
   - [[#wordnut][Wordnut]]
   - [[#vertico][Vertico]]
   - [[#vterm][Vterm]]
@@ -190,8 +190,8 @@ overridden to not continue comments.
  :i [remap newline] #'+robbert/newline-and-indent
  :i [C-return]      #'newline-and-indent
  :i [M-backspace]   #'evil-delete-back-to-indentation
- :nvi "M-f"         #'+default/search-buffer
- :nvi "M-F"         #'+default/search-project
+ :nv "M-f"         #'+default/search-buffer
+ :nv "M-F"         #'+default/search-project
  :nvi "M-Q"         #'+robbert/unfill-paragraph
 
  ;; `next-error' and `previous-error' will keep cycling through the last used
@@ -609,14 +609,6 @@ Highlight directories based on git status
 (setq +treemacs-git-mode 'deferred)
 #+end_src
 
-** undo-fu
-Allow undos adn redos within the selected region.
-
-#+begin_src emacs-lisp
-(after! undo-fu
-  (setq undo-fu-allow-undo-in-region t))
-#+end_src
-
 ** Wordnut
 #+begin_src emacs-lisp
 (after! wordnut
@@ -764,8 +756,7 @@ of the files.
   ;; HLS is supposed to have hlint integration, but it hasn't been working for a
   ;; while now
   (set-next-checker! 'haskell-ts-mode 'lsp 'haskell-hlint)
-  (unless (member 'haskell-ts-mode (flycheck-checker-get 'haskell-hlint 'modes))
-    (push 'haskell-ts-mode (flycheck-checker-get 'haskell-hlint 'modes)))
+  (flycheck-add-mode 'haskell-hlint 'haskell-ts-mode)
 
   (map! :map haskell-ts-mode-map
         ;; Doom now also provides something similar, but this works better
@@ -963,7 +954,8 @@ make electric indent less aggressive.
 (setq lsp-python-ms-nupkg-channel "daily"
       ;; Otherwise it will try to load every single Python project it knows of
       ;; instead of just the one we're working on
-      lsp-pyright-multi-root nil)
+      lsp-pyright-multi-root nil
+      lsp-pyright-langserver-command "basedpyright")
 
 (after! lsp-mode
   ;; FIXME: This doesn't work, and lsp-pyright will probably add something

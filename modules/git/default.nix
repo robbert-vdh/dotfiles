@@ -3,24 +3,30 @@
 {
   programs.gh.enable = true;
 
+  # Fancy syntax highlighting and word diffing. Also used in Emacs through
+  # `magit-delta`.
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+  };
+
   programs.git = {
     enable = true;
 
-    # Fancy syntax highlighting and word diffing. Also used in Emacs through
-    # `magit-delta`.
-    delta.enable = true;
     lfs.enable = true;
 
-    userName = "Robbert van der Helm";
-    userEmail = "mail@robbertvanderhelm.nl";
+    settings = {
+      user = {
+        name = "Robbert van der Helm";
+        email = "mail@robbertvanderhelm.nl";
+      };
 
-    aliases = {
-      lg =
-        "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=human";
-      lga = "log --graph --date=human --all";
-    };
+      aliases = {
+        lg =
+          "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=human";
+        lga = "log --graph --date=human --all";
+      };
 
-    extraConfig = {
       github.user = "robbert-vdh";
       gitlab.user = "robbert-vdh";
 
