@@ -61,7 +61,6 @@
   - [[#rust][Rust]]
   - [[#sasscss][Sass/CSS]]
   - [[#shell-scripts][Shell scripts]]
-  - [[#tidalcycles][TidalCycles]]
   - [[#typescriptjavsscript][TypeScript/JavsScript]]
   - [[#vue][Vue]]
   - [[#web][Web]]
@@ -746,19 +745,19 @@ of the files.
 
 (after! haskell-mode
   ;; Improve code navigation in Haskell buffers
-  (add-hook 'haskell-ts-mode-hook #'haskell-decl-scan-mode)
-  (add-hook 'haskell-ts-mode-hook #'haskell-indentation-mode)
-  (setq-hook! 'haskell-ts-mode-hook
+  (add-hook 'haskell-mode-hook #'haskell-decl-scan-mode)
+  (add-hook 'haskell-mode-hook #'haskell-indentation-mode)
+  (setq-hook! 'haskell-mode-hook
     outline-regexp "-- \\*+"
     ;; `haskell-mode' sets the default tab width to eight spaces for some reason
     tab-width 2)
 
   ;; HLS is supposed to have hlint integration, but it hasn't been working for a
   ;; while now
-  (set-next-checker! 'haskell-ts-mode 'lsp 'haskell-hlint)
-  (flycheck-add-mode 'haskell-hlint 'haskell-ts-mode)
+  ;; (set-next-checker! 'haskell-ts-mode 'lsp 'haskell-hlint)
+  (flycheck-add-mode 'haskell-hlint 'haskell-mode)
 
-  (map! :map haskell-ts-mode-map
+  (map! :map haskell-mode-map
         ;; Doom now also provides something similar, but this works better
         :n "o"                  nil
         :n "O"                  nil
@@ -774,7 +773,7 @@ HLS will send us a warning every time =lsp-mode= queries for semantic tokens
 which pegs a core at 100%, so we need to explicitly disable this:
 
 #+begin_src emacs-lisp
-(setq-hook! 'haskell-ts-mode-hook lsp-semantic-tokens-enable nil)
+(setq-hook! 'haskell-mode-hook lsp-semantic-tokens-enable nil)
 #+end_src
 
 Some Haskell preprocessors such as Happy, Alex and uuagc use haskell-like syntax
@@ -1079,32 +1078,6 @@ Enable automatic formatting for shell scripts.
 
 #+begin_src emacs-lisp
 (setq-hook! 'sh-mode-hook +format-with 'shfmt)
-#+end_src
-
-** TidalCycles
-#+begin_src emacs-lisp
-(add-hook! 'tidal-mode-hook
-  (defun +robbert--tidal-completion-h ()
-    (require 'tidal-extras)
-     (add-hook 'completion-at-point-functions #'tidal-extras/completion-at-point nil t)))
-
-(map!
- (:after tidal
-   (:map haskell-ts-mode-map
-     :nvi [C-return] #'tidal-run-multiple-lines
-     :nvi [M-return] #'tidal-run-line
-
-     (:localleader
-       :desc "Hush" "s" #'+robbert/tidal-hush))))
-
-(map!
- (:after tidal
-   (:map tidal-mode-map
-     :nvi [C-return] #'tidal-run-multiple-lines
-     :nvi [M-return] #'tidal-run-line
-
-     (:localleader
-       :desc "Hush" "s" #'+robbert/tidal-hush))))
 #+end_src
 
 ** TypeScript/JavsScript

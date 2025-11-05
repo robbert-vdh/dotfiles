@@ -140,7 +140,7 @@
        ;;gdscript          ; the language you waited for
        ;;(go +lsp +tree-sitter)         ; the hipster dialect
        ;;(graphql +lsp +tree-sitter)    ; Give queries a REST
-       (haskell +lsp +tree-sitter)    ; a language that's lazier than I am
+       (haskell +lsp)    ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
        (json +lsp +tree-sitter)       ; At least it ain't XML
