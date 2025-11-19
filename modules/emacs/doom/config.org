@@ -754,7 +754,7 @@ of the files.
 
   ;; HLS is supposed to have hlint integration, but it hasn't been working for a
   ;; while now
-  ;; (set-next-checker! 'haskell-ts-mode 'lsp 'haskell-hlint)
+  (set-next-checker! 'haskell-mode 'lsp 'haskell-hlint)
   (flycheck-add-mode 'haskell-hlint 'haskell-mode)
 
   (map! :map haskell-mode-map
