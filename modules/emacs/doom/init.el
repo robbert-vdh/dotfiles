@@ -74,7 +74,9 @@
        :emacs
        dired             ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
+       ;;eww               ; the internet is gross
        ;;ibuffer         ; interactive buffer management
+       tramp             ; remote files at your arthritic fingertips
        (undo +tree)      ; persistent, smarter undo for your inevitable mistakes
        vc                ; version-control and Emacs, sitting in a tree
 
@@ -116,6 +118,7 @@
        ;;tty               ; improve the terminal Emacs experience
 
        :lang
+       ;;ada               ; In strong typing we (blindly) trust
        ;;agda              ; types of types of types of types...
        ;;beancount         ; mind the GAAP
        (cc +lsp +tree-sitter)         ; C > C++ == 1
@@ -144,6 +147,7 @@
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
        (json +lsp +tree-sitter)       ; At least it ain't XML
+       ;;janet             ; Fun fact: Janet is me!
        ;;(java +lsp +tree-sitter)       ; the poster child for carpal tunnel syndrome
        (javascript +lsp +tree-sitter) ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
@@ -159,6 +163,7 @@
        org               ; organize your plain life in plain text
        (php +lsp +tree-sitter)        ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
+       graphviz          ; diagrams for confusing yourself even more
        ;;purescript        ; javascript, but functional
        (python +lsp +tree-sitter +pyright) ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
