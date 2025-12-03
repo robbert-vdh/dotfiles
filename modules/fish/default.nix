@@ -112,7 +112,7 @@
     EDITOR = "nvim";
     VISUAL = "nvim";
     PAGER = "less";
-    BROWSER = "mimeopen";
+    BROWSER = "xdg-open";
     LESS = "--RAW-CONTROL-CHARS --ignore-case --jump-target=4";
 
     # Always enable the fsync patches in Wine
