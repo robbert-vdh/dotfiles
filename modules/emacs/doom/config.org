@@ -470,14 +470,6 @@ bindings.
    "K"             #'lsp-ui-peek--select-prev-file)))
 #+end_src
 
-Doom enables this for some reason, but this would cause lenses to appear
-duplicated (not that lenses in lsp-mode work that well atm in the first place).
-
-#+begin_src emacs-lisp
-(after! ccls
-  (remove-hook 'lsp-lens-mode-hook #'ccls-code-lens-mode))
-#+end_src
-
 Disable the default clang linting since this would be duplicate behavior and it
 also doesn't use the compilation database.
 
@@ -712,7 +704,8 @@ Use C++ as a default.
 implementation files have the same file name.
 
 #+begin_src emacs-lisp
-(map! :map (c-mode-map c++-mode-map)
+(map! :after lsp-mode
+      :map (c-mode-map c++-mode-map)
       :localleader
       "o" #'lsp-clangd-find-other-file)
 #+end_src
@@ -754,7 +747,8 @@ of the files.
 
   ;; HLS is supposed to have hlint integration, but it hasn't been working for a
   ;; while now
-  (set-next-checker! 'haskell-mode 'lsp 'haskell-hlint)
+  (after! lsp-mode
+    (set-next-checker! 'haskell-mode 'lsp 'haskell-hlint))
   (flycheck-add-mode 'haskell-hlint 'haskell-mode)
 
   (map! :map haskell-mode-map
@@ -950,21 +944,13 @@ make electric indent less aggressive.
 (add-to-list 'auto-mode-alist '("Pipfile$" . conf-toml-mode))
 (add-to-list 'auto-mode-alist '("Pipfile\\.lock$" . json-mode))
 
-(setq lsp-python-ms-nupkg-channel "daily"
-      ;; Otherwise it will try to load every single Python project it knows of
+(setq ;; Otherwise it will try to load every single Python project it knows of
       ;; instead of just the one we're working on
       lsp-pyright-multi-root nil
       lsp-pyright-langserver-command "basedpyright")
 
-(after! lsp-mode
-  ;; FIXME: This doesn't work, and lsp-pyright will probably add something
-  ;;        similar sooner pr ;ater
-  (defvar +robbert/lsp-pyright-report-missing-type-stubs t)
-  (lsp-register-custom-settings
-   `(("pyright.reportMissingTypeStubs" +robbert/lsp-pyright-report-missing-type-stubs t))))
-
 (after! lsp-ruff
-  ;; FIXME: Ruff fails to start withotu this. Should be temporary.
+  ;; FIXME: Ruff fails to start without this. Should be temporary.
   (add-to-list 'lsp-ruff-ruff-args "--preview"))
 
 (add-hook 'python-ts-mode-hook #'rainbow-delimiters-mode)
