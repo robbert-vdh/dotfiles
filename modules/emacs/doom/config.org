@@ -27,7 +27,6 @@
   - [[#flycheck][Flycheck]]
   - [[#helpful][Helpful]]
   - [[#highlight-numbers][Highlight numbers]]
-  - [[#gptel][gptel]]
   - [[#flyspell][Flyspell]]
   - [[#hl-todo][hl-todo]]
   - [[#hippie-expand][Hippie Expand]]
@@ -846,19 +845,16 @@ For ConTeXt:
 #+end_src
 
 ** Markdown
-Disable trailing whitespace stripping for Markdown mode since this conflicts
-with explicit line breaks (i.e. two spaces at the end of a line).
-
 #+begin_src emacs-lisp
-(after! markdown-mode
-  (add-hook 'markdown-ts-mode-hook #'doom-disable-delete-trailing-whitespace-h))
+(setq markdown-list-indent-width 2)
 #+end_src
 
 Auto formatting is no longer set up by default with the switch to ~apheleia~.
 
 #+begin_src emacs-lisp
 (after! apheleia
-  (add-to-list 'apheleia-mode-alist '(markdown-mode . prettier)))
+  (add-to-list 'apheleia-mode-alist '(markdown-mode . prettier))
+  (add-to-list 'apheleia-mode-alist '(markdown-ts-mode . prettier)))
 #+end_src
 
 ** Org
