@@ -58,8 +58,6 @@
       ".cache/clangd"
       ".ccls-cache/"
       ".ccls"
-      ".clangd"
-      "compile_commands.json"
 
       # Emacs
       ".dir-locals.el"
