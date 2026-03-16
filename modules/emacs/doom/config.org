@@ -680,6 +680,7 @@ Use C++ as a default.
 (setq +cc-default-header-file-mode 'c++-mode)
 
 (setq-hook! '(c-mode-hook c-ts-mode-hook c++-mode-hook c++-ts-mode-hook) c-basic-offset 4)
+(setq c-ts-mode-indent-offset 4)
 
 ;; Match the Chromium clang-format style
 (add-hook! '(c-mode-hook c-ts-mode-hook c++-ts-mode-hook) :append
@@ -843,6 +844,8 @@ For ConTeXt:
 ** Markdown
 #+begin_src emacs-lisp
 (setq markdown-list-indent-width 2)
+(after! markdown-mode
+  (add-hook 'markdown-mode-local-vars-hook #'lsp! 'append))
 #+end_src
 
 Auto formatting is no longer set up by default with the switch to ~apheleia~.
@@ -851,6 +854,9 @@ Auto formatting is no longer set up by default with the switch to ~apheleia~.
 (after! apheleia
   (add-to-list 'apheleia-mode-alist '(markdown-mode . prettier))
   (add-to-list 'apheleia-mode-alist '(markdown-ts-mode . prettier)))
+
+(setq-hook! 'markdown-mode-hook
+  +format-with 'prettier)
 #+end_src
 
 ** Org
