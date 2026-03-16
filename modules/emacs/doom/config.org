@@ -183,10 +183,6 @@ overridden to not continue comments.
 
 #+begin_src emacs-lisp
 (map!
- ;; Doom's remaps `newline' to `newline-and-indent' and advices it to break
- ;; comments. It's nice to have the option, but I don't like it as a default.
- :i [remap newline] #'+robbert/newline-and-indent
- :i [C-return]      #'newline-and-indent
  :i [M-backspace]   #'evil-delete-back-to-indentation
  :nv "M-f"         #'+default/search-buffer
  :nv "M-F"         #'+default/search-project
@@ -1132,15 +1128,7 @@ weird.
 (map!
  (:after emmet-mode
   (:map emmet-mode-keymap
-   :i [backtab] #'emmet-expand-line))
-
- (:after web-mode
-  (:map web-mode-map
-   "M-/" nil
-
-   ;; In HTML we DO want to automatically indent broken 'strings', as these
-   ;; are likely long attributes like a list of classes
-   [remap newline] #'+robbert/newline-and-indent-always)))
+   :i [backtab] #'emmet-expand-line)))
 #+end_src
 
 ** writeroom-mode
