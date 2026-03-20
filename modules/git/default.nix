@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  home.packages = [ pkgs.git-absorb ];
+
   programs.gh.enable = true;
 
   # Fancy syntax highlighting and word diffing. Also used in Emacs through
