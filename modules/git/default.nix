@@ -1,7 +1,10 @@
 { pkgs, ... }:
 
 {
-  home.packages = [ pkgs.git-absorb ];
+  home.packages = [
+    pkgs.git-autofixup
+    pkgs.git-absorb
+  ];
 
   programs.gh.enable = true;
 
