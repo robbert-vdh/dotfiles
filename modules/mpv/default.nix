@@ -8,8 +8,7 @@ let
     version = "v4.0.1";
 
     src = pkgs.fetchurl {
-      url =
-        "https://github.com/bloc97/Anime4K/releases/download/v4.0.1/Anime4K_v4.0.zip ";
+      url = "https://github.com/bloc97/Anime4K/releases/download/v4.0.1/Anime4K_v4.0.zip";
       sha256 = "sha256-E5zSgghkV8Wtx5yve3W4uCUJHXHJtUlYwYdF/qYtftc=";
     };
 
