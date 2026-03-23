@@ -485,7 +485,8 @@ also doesn't use the compilation database.
 #+begin_src emacs-lisp
 ;; The default is 4, Doom sets this to 5, but some more advanced options are
 ;; hidden unless hits is set to 6 or 7
-(setq transient-default-level 7)
+(after! magit
+  (setq transient-default-level 7))
 
 (after! ediff
   ;; Ancestor is already shown in buffer C
