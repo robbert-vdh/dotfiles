@@ -28,6 +28,7 @@
   - [[#helpful][Helpful]]
   - [[#highlight-numbers][Highlight numbers]]
   - [[#flyspell][Flyspell]]
+  - [[#gptel][gptel]]
   - [[#hl-todo][hl-todo]]
   - [[#hippie-expand][Hippie Expand]]
   - [[#languagetool][LanguageTool]]
@@ -337,6 +338,12 @@ to fix this.
 (after! flyspell
   (add-to-list 'flyspell-prog-text-faces 'lsp-face-semhl-comment)
   (add-to-list 'flyspell-prog-text-faces 'lsp-face-semhl-string))
+#+end_src
+
+** gptel
+#+begin_src emacs-lisp
+(setq gptel-model 'gpt-5-mini
+      gptel-backend (gptel-make-gh-copilot "Copilot"))
 #+end_src
 
 ** hl-todo
