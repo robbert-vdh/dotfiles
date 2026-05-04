@@ -963,6 +963,11 @@ make electric indent less aggressive.
   ;; FIXME: Ruff fails to start without this. Should be temporary.
   (add-to-list 'lsp-ruff-ruff-args "--preview"))
 
+;; `lsp-mode` requests semantic tokens before Ruff has finished initializing,
+;; causing Ruff to terminate. Either semantic tokens need to be disabled, or
+;; Ruff does.
+(setq-hook! 'python-ts-mode-hook lsp-semantic-tokens-enable nil)
+
 (add-hook 'python-ts-mode-hook #'rainbow-delimiters-mode)
 (after! python
   ;; Always use multiline docstrings with no trailing newline
