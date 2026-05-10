@@ -2,6 +2,8 @@
 ;;; ~/.config/doom/packages.el
 
 (package! academic-phrases)
+(package! copilot
+  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
 (package! ein)
 (package! ggtags)
 (package! highlight-numbers)
