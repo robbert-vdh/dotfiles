@@ -104,12 +104,6 @@ in {
     scripts =
       "${inputs.mpv-thumbfast}/thumbfast.lua:${inputs.mpv-thumbfast-vanilla-osc}/player/lua/osc.lua";
 
-    # TODO: Add these back in, depending on the host name
-    # Performance tweaks, uncomment some of these if there are stutters
-    #deband=no
-    #scale=spline36
-    #cscale=spline36
-
     # Window geometry settings
     autofit-larger = "60%x60%";
     geometry = "50%:50%";
@@ -127,17 +121,12 @@ in {
     # Put that GPU to good use
     hwdec = "auto";
     vo = "gpu-next";
-    profile = "gpu-hq";
     gpu-api = "vulkan";
     # This plus https://github.com/Zamundaaa/VK_hdr_layer are needed for HDR
     target-colorspace-hint = true;
 
-    # Better upscaling settings
-    scale = "ewa_lanczos";
-    cscale = "ewa_lanczos";
-    # `ewa_lanczossharp` has been deprecated, this restores the old behavior
-    scale-blur = 0.981251;
-    cscale-blur = 0.981251;
+    profile = "high-quality";
+    deband = true;
 
     # From Anime4K, see below for key bindings for switching between different shader configs
     glsl-shaders = defaultShaders;
