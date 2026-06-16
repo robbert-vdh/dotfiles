@@ -24,7 +24,6 @@
 - [[#packages][Packages]]
   - [[#academic-phrases][Academic Phrases]]
   - [[#copilot][Copilot]]
-    - [[#next-edit-suggestion][Next Edit Suggestion]]
   - [[#corfu][Corfu]]
   - [[#flycheck][Flycheck]]
   - [[#helpful][Helpful]]
@@ -289,70 +288,6 @@ ideal. See [[https://github.com/hlissner/evil-snipe/issues/86]].
    :n "TAB" `(menu-item "" copilot-nes-accept
            :filter ,(lambda (cmd)
                       (when copilot-nes--edit cmd)))))
-#+end_src
-
-*** Next Edit Suggestion
-Fix multi-line NES insertion overlays not displaying correctly.
-
-Root cause: =copilot-nes--display= sets =evaporate t= on the zero-length insertion
-overlay. Per the Emacs manual, setting a non-nil evaporate property on an *empty*
-overlay via =overlay-put= causes it to be deleted immediately — before it is ever
-rendered. The non-empty deletion overlay is unaffected. The fix removes =evaporate=
-from the insertion overlay; =copilot-nes--clear= handles explicit cleanup anyway.
-
-As a secondary fix, when the deleted region ends at the start of a line, a trailing
-newline is added to the insertion text so the next undeleted buffer line is not
-merged onto the last insertion line.
-
-#+begin_src emacs-lisp
-(after! copilot-nes
-  (defadvice! +robbert--copilot-nes-fix-display (edit)
-    "Fix NES insertion overlay being immediately deleted.
-Setting evaporate on an already-empty (zero-length) overlay via overlay-put
-causes Emacs to delete the overlay immediately, before it is ever rendered.
-The deletion overlay is unaffected because it is non-empty (beg < end).
-Also adds a trailing newline when end is at BOL so the next undeleted line
-is not merged onto the last insertion line.
-
-See URL `https://github.com/copilot-emacs/copilot.el/issues/451'."
-    :override #'copilot-nes--display
-    (copilot-nes--clear)
-    (setq copilot-nes--edit edit)
-    (copilot--dbind (text range) edit
-      (let* ((region (copilot-nes--range-to-region range))
-             (beg (car region))
-             (end (cdr region))
-             (has-deletion (> end beg))
-             (has-insertion (and text (not (string-empty-p text)))))
-        ;; Deletion overlay: highlight replaced text with strikethrough
-        (when has-deletion
-          (let ((ov (make-overlay beg end nil nil nil)))
-            (overlay-put ov 'face 'copilot-nes-deletion-face)
-            (overlay-put ov 'copilot-nes t)
-            (overlay-put ov 'evaporate t)
-            (overlay-put ov 'priority 100)
-            (push ov copilot-nes--overlays)))
-        ;; Insertion overlay: show new text as after-string.
-        ;; When `end' is at the start of a line, add a trailing newline so
-        ;; the first undeleted line is not merged onto the last insertion line.
-        (when has-insertion
-          (let* ((needs-nl (and (save-excursion (goto-char end) (bolp))
-                                (not (string-suffix-p "\n" text))))
-                 (display-text (propertize (if needs-nl (concat text "\n") text)
-                                           'face 'copilot-nes-insertion-face))
-                 (ov (make-overlay end end nil nil nil)))
-            (overlay-put ov 'after-string display-text)
-            (overlay-put ov 'copilot-nes t)
-            ;; Do NOT set evaporate on this zero-length overlay: per the Emacs
-            ;; manual, overlay-put of a non-nil evaporate on an already-empty
-            ;; overlay deletes it immediately.  copilot-nes--clear handles cleanup.
-            (overlay-put ov 'priority 100)
-            (push ov copilot-nes--overlays)))))
-    (setq copilot-nes--last-point (point))
-    (copilot--dbind (command) edit
-      (when command
-        (copilot--notify 'textDocument/didShowInlineEdit
-                         (list :item (list :command command)))))))
 #+end_src
 
 ** Corfu
