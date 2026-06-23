@@ -8,7 +8,8 @@ let
     version = "v4.0.1";
 
     src = pkgs.fetchurl {
-      url = "https://github.com/bloc97/Anime4K/releases/download/v4.0.1/Anime4K_v4.0.zip";
+      url =
+        "https://github.com/bloc97/Anime4K/releases/download/v4.0.1/Anime4K_v4.0.zip";
       sha256 = "sha256-E5zSgghkV8Wtx5yve3W4uCUJHXHJtUlYwYdF/qYtftc=";
     };
 
@@ -132,8 +133,8 @@ in {
     glsl-shaders = defaultShaders;
 
     # Language and subtitles
-    alang = "jp,jpn,en,eng,nl";
-    slang = "jp,jpn,en,eng,nl";
+    alang = "jp,ja-JP,jpn,,en,eng,nl";
+    slang = "jp,ja-JP,jpn,en,eng,nl";
     sub-blur = "1.0";
     sub-border-size = "2";
     sub-font = "Noto Sans CJK JP";
@@ -146,6 +147,7 @@ in {
 
     # OSD settings, see ./lua-settings/osc.conf for more
     osd-font = "Source Sans Pro";
+    osd-font-size = "50";
     osd-color = "#ffffffff";
     osd-border-color = "#ff151515";
     osd-border-size = "2";
