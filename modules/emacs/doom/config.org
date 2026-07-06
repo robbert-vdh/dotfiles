@@ -267,9 +267,10 @@ ideal. See [[https://github.com/hlissner/evil-snipe/issues/86]].
 
 ** Copilot
 #+begin_src emacs-lisp
+(setq copilot-max-char 1000000)
 (use-package! copilot
-  :hook (prog-mode . copilot-mode)
-  ;; :hook (prog-mode . copilot-nes-mode)
+  :hook ((prog-mode sgml-mode) . copilot-mode)
+  :hook ((prog-mode sgml-mode) . copilot-nes-mode)
   :bind (:map copilot-completion-map
                ("<tab>" . 'copilot-accept-completion)
                ("TAB" . 'copilot-accept-completion)
@@ -441,7 +442,8 @@ bindings.
       ;; overridden for this to not break spelling overlays, see above
       lsp-semantic-tokens-enable t
       lsp-enable-file-watchers t
-      lsp-file-watch-threshold 2048
+      ;; lsp-inline-completion-enable t
+      lsp-file-watch-threshold 8196
       ;; Not sure if these two are actually used and, if they are, what they
       ;; are used for. Might disable them later
       lsp-enable-indentation t
