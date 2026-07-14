@@ -29,6 +29,7 @@
   - [[#helpful][Helpful]]
   - [[#highlight-numbers][Highlight numbers]]
   - [[#flyspell][Flyspell]]
+  - [[#ghostel][ghostel]]
   - [[#hl-todo][hl-todo]]
   - [[#hippie-expand][Hippie Expand]]
   - [[#languagetool][LanguageTool]]
@@ -364,6 +365,11 @@ to fix this.
 (after! flyspell
   (add-to-list 'flyspell-prog-text-faces 'lsp-face-semhl-comment)
   (add-to-list 'flyspell-prog-text-faces 'lsp-face-semhl-string))
+#+end_src
+
+** ghostel
+#+begin_src emacs-lisp
+(setq ghostel-shell "fish")
 #+end_src
 
 ** hl-todo
