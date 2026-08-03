@@ -23,6 +23,7 @@
   - [[#evil-snipe][evil-snipe]]
 - [[#packages][Packages]]
   - [[#academic-phrases][Academic Phrases]]
+  - [[#agent-shell][agent-shell]]
   - [[#copilot][Copilot]]
   - [[#corfu][Corfu]]
   - [[#flycheck][Flycheck]]
@@ -264,6 +265,29 @@ ideal. See [[https://github.com/hlissner/evil-snipe/issues/86]].
 ** Academic Phrases
 #+begin_src emacs-lisp
 (use-package! academic-phrases)
+#+end_src
+
+** agent-shell
+#+begin_src emacs-lisp
+(use-package agent-shell
+  :config
+  ;; Evil state-specific RET behavior: insert mode = newline, normal mode = send
+  (evil-define-key 'insert agent-shell-mode-map (kbd "RET") #'newline)
+  (evil-define-key 'normal agent-shell-mode-map (kbd "RET") #'comint-send-input)
+
+  ;; Configure *agent-shell-diff* buffers to start in Emacs state
+  (add-hook 'diff-mode-hook
+	    (lambda ()
+	      (when (string-match-p "\\*agent-shell-diff\\*" (buffer-name))
+		(evil-emacs-state)))))
+
+(use-package! agent-shell-notifications
+  :hook
+  (agent-shell-mode . agent-shell-notifications-mode)
+  ;; (agent-shell-viewport-edit-mode . agent-shell-notifications-viewport-edit-mode)
+  ;; (agent-shell-viewport-view-mode . agent-shell-notifications-viewport-view-mode)
+  :config
+  (setq agent-shell-notifications-timeout 5))
 #+end_src
 
 ** Copilot
@@ -778,7 +802,8 @@ of the files.
   (setq-hook! 'haskell-mode-hook
     outline-regexp "-- \\*+"
     ;; `haskell-mode' sets the default tab width to eight spaces for some reason
-    tab-width 2)
+    tab-width 2
+    evil-shift-width 2)
 
   ;; HLS is supposed to have hlint integration, but it hasn't been working for a
   ;; while now

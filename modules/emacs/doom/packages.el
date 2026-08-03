@@ -2,8 +2,6 @@
 ;;; ~/.config/doom/packages.el
 
 (package! academic-phrases)
-(package! copilot
-  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
 (package! ein)
 (package! ggtags)
 (package! highlight-numbers)
@@ -18,6 +16,14 @@
 
 (package! magit-delta)
 (package! magit-todos)
+
+(package! copilot
+  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
+(package! shell-maker)
+(package! acp)
+(package! agent-shell)
+(package! agent-shell-notifications
+  :recipe (:host github :repo "zackattackz/agent-shell-notifications"))
 
 ;; I prefer instant feedback over slight improvements in resposniveness
 (package! flyspell-lazy :disable t)

@@ -1,7 +1,8 @@
 { inputs, pkgs, ... }:
 
 {
-  home.packages = [ pkgs.gdb ];
+  # Better to use the operating system's gdb
+  home.packages = [ ];
 
   xdg.configFile."gdb/gdbinit".text = ''
     # gdb-dashboard is included through Nix
