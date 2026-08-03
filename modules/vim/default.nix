@@ -8,6 +8,9 @@
     vimAlias = true;
     vimdiffAlias = true;
 
+    withRuby = false;
+    withPython3 = true;
+
     plugins = with pkgs.vimPlugins; [
       # Theme
       base16-vim
