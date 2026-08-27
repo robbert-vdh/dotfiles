@@ -20,10 +20,7 @@
 (package! copilot
   :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
 (package! shell-maker)
-(package! acp)
-(package! agent-shell)
-(package! agent-shell-notifications
-  :recipe (:host github :repo "zackattackz/agent-shell-notifications"))
+(package! eca :recipe (:host github :repo "editor-code-assistant/eca-emacs" :files ("*.el")))
 
 ;; I prefer instant feedback over slight improvements in resposniveness
 (package! flyspell-lazy :disable t)

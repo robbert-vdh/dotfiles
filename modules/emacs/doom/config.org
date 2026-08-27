@@ -23,7 +23,7 @@
   - [[#evil-snipe][evil-snipe]]
 - [[#packages][Packages]]
   - [[#academic-phrases][Academic Phrases]]
-  - [[#agent-shell][agent-shell]]
+  - [[#editor-code-assist][editor-code-assist]]
   - [[#copilot][Copilot]]
   - [[#corfu][Corfu]]
   - [[#flycheck][Flycheck]]
@@ -267,27 +267,10 @@ ideal. See [[https://github.com/hlissner/evil-snipe/issues/86]].
 (use-package! academic-phrases)
 #+end_src
 
-** agent-shell
+** editor-code-assist
 #+begin_src emacs-lisp
-(use-package agent-shell
-  :config
-  ;; Evil state-specific RET behavior: insert mode = newline, normal mode = send
-  (evil-define-key 'insert agent-shell-mode-map (kbd "RET") #'newline)
-  (evil-define-key 'normal agent-shell-mode-map (kbd "RET") #'comint-send-input)
-
-  ;; Configure *agent-shell-diff* buffers to start in Emacs state
-  (add-hook 'diff-mode-hook
-	    (lambda ()
-	      (when (string-match-p "\\*agent-shell-diff\\*" (buffer-name))
-		(evil-emacs-state)))))
-
-(use-package! agent-shell-notifications
-  :hook
-  (agent-shell-mode . agent-shell-notifications-mode)
-  ;; (agent-shell-viewport-edit-mode . agent-shell-notifications-viewport-edit-mode)
-  ;; (agent-shell-viewport-view-mode . agent-shell-notifications-viewport-view-mode)
-  :config
-  (setq agent-shell-notifications-timeout 5))
+;; No config needed right now
+(use-package eca)
 #+end_src
 
 ** Copilot

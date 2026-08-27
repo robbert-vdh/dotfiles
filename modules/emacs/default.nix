@@ -41,8 +41,7 @@ in {
   home.packages = [
     emacsPkg
 
-    # Needed for the vterm package. Magically works when you add this.
-    pkgs.emacsPackages.vterm
+    pkgs.emacsPackages.ghostel
   ];
 
   # Not really used anymore, but this was once useful in conjunction with GNU
