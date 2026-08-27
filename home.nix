@@ -50,7 +50,7 @@
     pkgs.httpie
     pkgs.inotify-tools
     pkgs.languagetool
-    pkgs.nixfmt-classic
+    pkgs.nixfmt
     pkgs.overmind
     pkgs.pre-commit
     pkgs.ripgrep
