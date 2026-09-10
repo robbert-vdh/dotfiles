@@ -383,7 +383,8 @@ to fix this.
 
 ** ghostel
 #+begin_src emacs-lisp
-(setq ghostel-shell "fish")
+(setq ghostel-shell "fish"
+      ghostel-max-scrollback (* 20 1024 1024))
 #+end_src
 
 ** hl-todo
