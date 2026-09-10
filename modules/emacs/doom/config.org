@@ -270,11 +270,14 @@ ideal. See [[https://github.com/hlissner/evil-snipe/issues/86]].
 ** editor-code-assist
 #+begin_src emacs-lisp
 (use-package eca
+  ;; `evil-markdown-mode' interferes with TAB, and doesn't seem to be all that
+  ;; useful for interacting with the chat buffer
+  :hook (eca-chat-mode . (lambda () (evil-markdown-mode -1)))
   :config
   (map!
    :map eca-chat-mode-map
-   ;; These are the default key bindigns, but the inherited `markdown-ts-mode'
-   ;; overrides these
+   ;; These are the default key bindings, but out of the bo these are overridden
+   ;; by the inherited markdown mode
    :n "RET" #'eca-chat--key-pressed-return
    :n "<return>" #'eca-chat--key-pressed-return
    :n "<tab>" #'eca-chat--key-pressed-tab))
