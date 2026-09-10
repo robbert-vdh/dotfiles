@@ -269,8 +269,15 @@ ideal. See [[https://github.com/hlissner/evil-snipe/issues/86]].
 
 ** editor-code-assist
 #+begin_src emacs-lisp
-;; No config needed right now
-(use-package eca)
+(use-package eca
+  :config
+  (map!
+   :map eca-chat-mode-map
+   ;; These are the default key bindigns, but the inherited `markdown-ts-mode'
+   ;; overrides these
+   :n "RET" #'eca-chat--key-pressed-return
+   :n "<return>" #'eca-chat--key-pressed-return
+   :n "<tab>" #'eca-chat--key-pressed-tab))
 #+end_src
 
 ** Copilot
